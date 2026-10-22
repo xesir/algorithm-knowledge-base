@@ -201,7 +201,11 @@ try {
   });
 } catch (e) { /* 已在上方处理 */ }
 try {
-  fs.readdirSync(PROBLEMS_DIR).filter(f => f.endsWith('.md')).forEach(f => knownIds.add(path.basename(f, '.md')));
+  fs.readdirSync(PROBLEMS_DIR).filter(f => f.endsWith('.md')).forEach(f => {
+    const b = path.basename(f, '.md');
+    const i = b.indexOf('--');
+    knownIds.add(i >= 0 ? b.slice(0, i) : b); // 多版本：按 base id 登记
+  });
 } catch (e) { /* problems/ 可能不存在 */ }
 
 function checkFile(kind, filename) {
@@ -223,7 +227,7 @@ function checkFile(kind, filename) {
 
   // --- id 规范（多版本：文件名 xxx--作者.md 视为 xxx 的一个版本）---
   const fullBase = path.basename(filename, '.md');
-  const isVersionFile = kind === 'kp' && fullBase.includes('--');
+  const isVersionFile = fullBase.includes('--');
   const expectId = isVersionFile ? fullBase.slice(0, fullBase.indexOf('--')) : fullBase;
   const id = meta.id || expectId;
   if (meta.id && meta.id !== expectId) {

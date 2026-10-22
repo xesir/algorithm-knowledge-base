@@ -39,6 +39,11 @@
             "nature": "竞赛理论知识",
             "description": "CSP 初赛涉及的理论知识与考点总结，不包含代码实现，侧重概念理解、公式记忆和应试技巧。涵盖位运算、数据类型、运算符优先级、进制转换等初赛高频考点。",
             "problemDomain": "CSP 初赛的选择题、判断题、程序阅读题等理论考核场景"
+        },
+        "语法技巧": {
+            "nature": "C++ 语言技巧",
+            "description": "C++ 语言层面的实用语法与工程技巧，如类型推导、宏与别名、结构体与运算符重载、内建函数、输入输出冷知识与本地调试手段。是让代码更短、更快、更好调的工具箱。",
+            "problemDomain": "写代码、调代码与卡常时的语言级技巧"
         }
     },
     "subcategories": {
@@ -74,6 +79,12 @@
         },
         "动态规划|区间DP": {
             "description": "在区间[l,r]上定义状态的动态规划，大区间的最优解由小区间合并而来。典型问题包括石子合并、能量项链、括号匹配、加分二叉树等，是DP的重要分支。"
+        },
+        "动态规划|DP优化": {
+            "description": "以单调队列、斜率优化、SOS（子集和/高维前缀和）等手法把 DP 转移的枚举降复杂度。"
+        },
+        "动态规划|DP方法论": {
+            "description": "拿到 DP 题后的通用思考流程：判断是否 DP、设计状态、写转移方程、初始化、确定计算顺序、检验与优化。"
         },
         "数据结构|前缀和与差分": {
             "description": "通过预处理前缀和实现O(1)区间求和，差分支持O(1)区间修改。是最基础也是最高效的数据结构工具。"
@@ -147,6 +158,9 @@
         "图论|网络流": {
             "description": "在网络中求解最大流、最小割与费用流问题。核心是增广路思想与 Dinic（BFS分层+DFS阻塞流+反向边）、SPFA费用流等算法，是最小割最大流定理的载体。"
         },
+        "图论|图论建模": {
+            "description": "把非图论问题转化为图论模型来求解的套路，如分层图（状态作为额外维度、按层建边）等，把状态转移映射成图上路径或最短路。"
+        },
         "字符串|字符串哈希": {
             "description": "将字符串映射为数值，通过多项式滚动哈希实现O(n+m)的子串匹配。注意双哈希防碰撞。"
         },
@@ -164,6 +178,9 @@
         },
         "数学|数论基础": {
             "description": "数论的基础算法与核心概念，包括GCD/LCM（欧几里得算法）、埃氏筛（素数预处理）、欧拉函数（单次求值与线性筛批量预处理）、约数个数与约数和的线性筛、模逆元（费马小定理）、中国剩余定理（CRT）等。是数论计数、组合数取模等高级数论算法的基石。"
+        },
+        "数学|数学基础": {
+            "description": "OI 中常用的数学基础知识：位运算技巧、集合的二进制表示、平面直角坐标系与向量、复数等，是数论与计算几何的前置工具。"
         },
         "数学|数论计数": {
             "description": "数论相关的计数问题，利用GCD、LCM等数论性质进行高效统计。"
@@ -188,6 +205,9 @@
         },
         "基础算法|倍增": {
             "description": "通过预处理 2^k 规模的信息，把线性逐位处理优化为按二进制位跳跃。是 ST 表、LCA 倍增、快速幂、后缀数组等算法的共同思想基础。"
+        },
+        "基础算法|进制转换": {
+            "description": "十进制与任意 k 进制之间的互相转换：短除法取余转出、按位权展开转回，以及二进制/八进制/十六进制之间的快速互转。"
         },
         "图论|图论基础": {
             "description": "图、有向/无向、度、路径、环、连通性、简单图等基本概念与性质，是后续所有图论算法（最短路、MST、SCC、网络流等）的基础。"
@@ -222,8 +242,38 @@
         "基础算法|实用工具": {
             "description": "竞赛中常用的辅助工具：时间测试、自用头文件、pb_ds 等，用于提升开发与调试效率。"
         },
+        "基础算法|对拍": {
+            "description": "用「正解 / 暴力 / 随机数据生成器 / 控制器」四件套自动比对答案，快速暴露边界错误；涵盖普通对拍、浮点误差对比、SPJ 与构造题 checker、交互题对拍，以及多种随机数据的生成套路。"
+        },
         "基础算法|优化技巧": {
             "description": "以机器字并行等常数手段压缩时间或空间的工程优化技巧，以 bitset 位运算加速为代表，如把 Floyd 传递闭包的 O(n^3) 常数除以字长。"
+        },
+        "基础算法|离散化": {
+            "description": "当值域远大于数据量时，把实际出现的值排序去重后映射为小编号，将值域从 O(V) 压到 O(n)，以便用值域作下标的数据结构。"
+        },
+        "语法技巧|类型推导": {
+            "description": "auto 与 decltype 的类型推导：容器遍历、复杂类型声明、返回值推导、结构化绑定等 C++11/14/17 用法与陷阱。"
+        },
+        "语法技巧|宏与别名": {
+            "description": "#define 宏、typedef 与 using 的用法对比：常用竞赛宏、条件编译、可变参数宏、模板别名与函数指针别名。"
+        },
+        "语法技巧|类型系统": {
+            "description": "C++ 内置整型/浮点家族、常见类型的大小与取值范围，以及选型时的溢出与精度考量。"
+        },
+        "语法技巧|结构体": {
+            "description": "struct 的定义、初始化、成员函数与重载运算符，把自定义类型接入 STL 的排序/比较惯例。"
+        },
+        "语法技巧|运算符与序列": {
+            "description": "通过重载比较/算术运算符与自定义排序比较器，让自定义类型在 sort、优先队列、二分中开箱即用。"
+        },
+        "语法技巧|内建函数": {
+            "description": "__builtin 系列内建函数：位计数、前导/后导零、奇偶校验等，常数级实现常被卡常题使用。"
+        },
+        "语法技巧|输入输出": {
+            "description": "标准输入输出的冷知识与细节：scanf/cin 混用、读入字符与字符串的坑、EOF 处理等。"
+        },
+        "语法技巧|调试技巧": {
+            "description": "本地调试手段：assert/throw 断言、try-catch、Dev-C++ 调试功能、程序异常返回码识别与对拍/静态检查工具。"
         }
     },
     "subSubcategories": {
@@ -313,6 +363,49 @@
         }
     },
     "knowledgePoints": {
+        "gram-auto": {
+            "prerequisites": [],
+            "related": [
+                "gram-macro"
+            ]
+        },
+        "gram-macro": {
+            "prerequisites": [],
+            "related": [
+                "gram-auto"
+            ]
+        },
+        "gram-type-overview": {
+            "prerequisites": [],
+            "related": [
+                "gram-struct"
+            ]
+        },
+        "gram-struct": {
+            "prerequisites": [],
+            "related": [
+                "gram-type-overview",
+                "gram-sequence"
+            ]
+        },
+        "gram-sequence": {
+            "prerequisites": [],
+            "related": [
+                "gram-struct"
+            ]
+        },
+        "gram-builtin": {
+            "prerequisites": [],
+            "related": []
+        },
+        "gram-io-tips": {
+            "prerequisites": [],
+            "related": []
+        },
+        "gram-local-debug": {
+            "prerequisites": [],
+            "related": []
+        },
         "basic-high-precision": {
             "prerequisites": [],
             "related": [
@@ -611,7 +704,8 @@
                 "ds-prefix-sum-1d",
                 "dp-linear-lis-bit-count",
                 "basic-divide-conquer-merge-inversion",
-                "exam-bit-operation"
+                "exam-bit-operation",
+                "basic-discretization"
             ]
         },
         "ds-bit-range-point": {
@@ -648,7 +742,15 @@
             ],
             "related": [
                 "ds-segtree-basic",
-                "ds-segtree-mul"
+                "ds-segtree-mul",
+                "basic-discretization"
+            ]
+        },
+        "basic-discretization": {
+            "prerequisites": [],
+            "related": [
+                "ds-segtree-discretize",
+                "ds-bit-point-range"
             ]
         },
         "ds-segtree-mul": {
@@ -1303,6 +1405,13 @@
             "prerequisites": [],
             "related": []
         },
+        "graph-modeling": {
+            "prerequisites": [
+                "graph-basic",
+                "graph-storage"
+            ],
+            "related": []
+        },
         "graph-storage": {
             "prerequisites": [
                 "graph-basic"
@@ -1488,6 +1597,22 @@
             "related": []
         },
         "basic-bubble-select-sort": {
+            "prerequisites": [],
+            "related": []
+        },
+        "basic-base-conversion": {
+            "prerequisites": [],
+            "related": []
+        },
+        "ds-linked-list": {
+            "prerequisites": [],
+            "related": []
+        },
+        "ds-heap": {
+            "prerequisites": [],
+            "related": []
+        },
+        "ds-hash-table": {
             "prerequisites": [],
             "related": []
         },
@@ -1730,6 +1855,165 @@
             "related": [
                 "graph-lca-tarjan"
             ]
+        },
+        "dp-mixed-bag": {
+            "prerequisites": [
+                "dp-01bag-standard",
+                "dp-complete-bag",
+                "dp-multi-bag-binary"
+            ],
+            "related": []
+        },
+        "dp-grid-number-pick": {
+            "prerequisites": [
+                "dp-linear-triangle"
+            ],
+            "related": []
+        },
+        "dp-integer-partition": {
+            "prerequisites": [
+                "dp-complete-bag"
+            ],
+            "related": []
+        },
+        "dp-interval-paint": {
+            "prerequisites": [
+                "dp-interval-stone-merge"
+            ],
+            "related": []
+        },
+        "dp-interval-synthesis": {
+            "prerequisites": [
+                "dp-interval-stone-merge"
+            ],
+            "related": []
+        },
+        "dp-subset-dp": {
+            "prerequisites": [
+                "dp-bitmask-hamilton"
+            ],
+            "related": []
+        },
+        "dp-opt-monotone-queue": {
+            "prerequisites": [
+                "dp-multi-bag-binary"
+            ],
+            "related": []
+        },
+        "dp-opt-sos": {
+            "prerequisites": [],
+            "related": []
+        },
+        "dp-formula-method": {
+            "prerequisites": [],
+            "related": []
+        },
+        "math-bit-operation": {
+            "prerequisites": [],
+            "related": []
+        },
+        "math-set-binary": {
+            "prerequisites": [],
+            "related": []
+        },
+        "math-cartesian-plane": {
+            "prerequisites": [],
+            "related": []
+        },
+        "math-complex": {
+            "prerequisites": [],
+            "related": []
+        },
+        "math-factorization": {
+            "prerequisites": [
+                "math-sieve-eratosthenes"
+            ],
+            "related": []
+        },
+        "math-exgcd": {
+            "prerequisites": [
+                "math-gcd-lcm"
+            ],
+            "related": []
+        },
+        "math-bsgs": {
+            "prerequisites": [
+                "math-modular-arithmetic"
+            ],
+            "related": []
+        },
+        "math-gauss-elimination": {
+            "prerequisites": [
+                "math-matrix-multiplication"
+            ],
+            "related": []
+        },
+        "ds-segtree-combined": {
+            "prerequisites": [
+                "ds-segtree-basic"
+            ],
+            "related": []
+        },
+        "ds-hld-segtree": {
+            "prerequisites": [
+                "ds-segtree-basic",
+                "graph-hld-segtree"
+            ],
+            "related": []
+        },
+        "ds-persistent-segtree-kth": {
+            "prerequisites": [
+                "ds-persistent-segtree-template",
+                "ds-segtree-weight"
+            ],
+            "related": []
+        },
+        "ds-bst": {
+            "prerequisites": [],
+            "related": []
+        },
+        "basic-stress-basic": {
+            "prerequisites": [
+                "basic-random-mt19937",
+                "basic-timing"
+            ],
+            "related": []
+        },
+        "basic-stress-precision": {
+            "prerequisites": [
+                "basic-stress-basic"
+            ],
+            "related": []
+        },
+        "basic-stress-checker": {
+            "prerequisites": [
+                "basic-stress-basic"
+            ],
+            "related": []
+        },
+        "basic-stress-interactive": {
+            "prerequisites": [
+                "basic-stress-basic"
+            ],
+            "related": []
+        },
+        "basic-stress-random-basic": {
+            "prerequisites": [
+                "basic-random-mt19937"
+            ],
+            "related": []
+        },
+        "basic-stress-tree-gen": {
+            "prerequisites": [
+                "basic-stress-random-basic"
+            ],
+            "related": []
+        },
+        "basic-stress-graph-gen": {
+            "prerequisites": [
+                "basic-stress-random-basic"
+            ],
+            "related": []
         }
     }
 }

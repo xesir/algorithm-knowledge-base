@@ -2231,12 +2231,62 @@
         }
 
         // ===== Select Problem =====
+        var currentProb = null;
+        var currentProbVer = 0;
+
         function selectProblem(id) {
             var prob = PROBLEMS_DATA.find(function(p) { return p.id === id; });
             if (!prob) return;
+            currentProb = prob;
+            currentProbVer = 0; // build.js 已把主版本（站主优先，否则时间优先）放在 versions[0]
             document.title = prob.title + ' · 算法知识点查询系统';
 
             currentId = id;
+
+            renderProbArticle(prob, currentProbVer);
+            finishProblemRender(id);
+        }
+
+        function switchProbVersion(i) {
+            if (!currentProb || !currentProb.versions || i < 0 || i >= currentProb.versions.length) return;
+            currentProbVer = i;
+            renderProbArticle(currentProb, i);
+        }
+
+        function finishProblemRender(id) {
+            // Update URL
+            location.hash = id;
+
+            // Update sidebar active
+            buildProblemSidebar(searchInput.value);
+            revealActiveInSidebar();
+
+            // Scroll to top
+            contentEl.scrollTop = 0;
+
+            // Close sidebar on mobile
+            if (window.innerWidth <= 768) {
+                document.getElementById('sidebar').classList.remove('open');
+            }
+        }
+
+        function renderProbArticle(prob, verIdx) {
+            var versions = prob.versions || [{
+                author: '站主', content: prob.content, codePath: prob.codePath,
+                timeComplexity: prob.timeComplexity, spaceComplexity: prob.spaceComplexity,
+                tags: prob.tags, source: prob.source
+            }];
+            var ver = versions[verIdx];
+
+            // Version tabs（站主 + 所有已知作者；缺版本的置灰）
+            var tabsHtml = '<div class="version-tabs">';
+            (typeof AUTHORS !== 'undefined' ? AUTHORS : ['站主']).forEach(function(author) {
+                var vi = versions.findIndex(function(v) { return v.author === author; });
+                var cls = 'version-tab' + (vi === verIdx ? ' active' : '') + (vi < 0 ? ' disabled' : '');
+                var on = (vi >= 0) ? ' onclick="switchProbVersion(' + vi + ')"' : '';
+                tabsHtml += '<button class="' + cls + '"' + on + '>' + escHtml(author) + '</button>';
+            });
+            tabsHtml += '</div>';
 
             // Meta bar
             var diffClass = 'badge-difficulty-medium';
@@ -2251,32 +2301,32 @@
             if (prob.problemId) {
                 metaHtml += '<span class="badge badge-pid">' + escHtml(prob.problemId) + '</span>';
             }
-            metaHtml += '<span class="badge badge-time">⏱ ' + escHtml(prob.timeComplexity) + '</span>';
-            metaHtml += '<span class="badge badge-space">💾 ' + escHtml(prob.spaceComplexity) + '</span>';
-            if (prob.tags && Array.isArray(prob.tags)) {
-                prob.tags.forEach(function(tag) {
+            metaHtml += '<span class="badge badge-time">⏱ ' + escHtml(ver.timeComplexity || '未知') + '</span>';
+            metaHtml += '<span class="badge badge-space">💾 ' + escHtml(ver.spaceComplexity || '未知') + '</span>';
+            if (ver.tags && Array.isArray(ver.tags)) {
+                ver.tags.forEach(function(tag) {
                     metaHtml += '<span class="tag">' + escHtml(tag) + '</span>';
                 });
             }
-            if (prob.source) {
-                metaHtml += '<span class="badge badge-source">👤 ' + escHtml(prob.source) + '</span>';
+            if (ver.source) {
+                metaHtml += '<span class="badge badge-source">👤 ' + escHtml(ver.source) + '</span>';
             }
             metaHtml += '</div>';
 
             // Render content: 三步法保护 LaTeX（实现见 renderMarkdownWithMath）
             var contentHtml = '';
             try {
-                contentHtml = renderMarkdownWithMath(prob.content);
+                contentHtml = renderMarkdownWithMath(ver.content);
             } catch(e) {
                 contentHtml = '<p>内容渲染出错: ' + escHtml(e.message) + '</p>';
             }
 
             // Code section
             var codeHtml = '';
-            if (prob.codePath && typeof CODE_DATA !== 'undefined' && CODE_DATA[prob.codePath]) {
+            if (ver.codePath && typeof CODE_DATA !== 'undefined' && CODE_DATA[ver.codePath]) {
                 codeHtml = '<div class="code-section">' +
                     '<div class="code-header">' +
-                    '<span class="code-filename">📄 ' + escHtml(prob.codePath.split('\\').pop()) + '</span>' +
+                    '<span class="code-filename">📄 ' + escHtml(ver.codePath.split('\\').pop()) + '</span>' +
                     '<button class="copy-btn" onclick="copyCode(this)">📋 复制</button>' +
                     '</div>' +
                     '<pre><code class="language-cpp" id="code-block"></code></pre>' +
@@ -2284,7 +2334,7 @@
             }
 
             // Nav buttons
-            var idx = PROBLEMS_DATA.findIndex(function(p) { return p.id === id; });
+            var idx = PROBLEMS_DATA.findIndex(function(p) { return p.id === prob.id; });
             var navHtml = '<div class="nav-buttons">';
             if (idx > 0) {
                 navHtml += '<button class="nav-btn nav-prev" onclick="selectProblem(\'' + PROBLEMS_DATA[idx-1].id + '\')" title="' + escAttr(PROBLEMS_DATA[idx-1].title) + '">← ' + escHtml(PROBLEMS_DATA[idx-1].title) + '</button>';
@@ -2302,6 +2352,7 @@
             contentEl.innerHTML =
                 '<article class="article">' +
                 '<h1>' + escHtml(prob.title) + '</h1>' +
+                tabsHtml +
                 metaHtml +
                 '<div class="markdown-body">' + contentHtml + '</div>' +
                 codeHtml +
@@ -2310,8 +2361,8 @@
 
             // Set code content safely
             var codeBlock = document.getElementById('code-block');
-            if (codeBlock && prob.codePath && CODE_DATA[prob.codePath]) {
-                codeBlock.textContent = CODE_DATA[prob.codePath];
+            if (codeBlock && ver.codePath && CODE_DATA[ver.codePath]) {
+                codeBlock.textContent = CODE_DATA[ver.codePath];
                 hljs.highlightElement(codeBlock);
             }
 
@@ -2333,21 +2384,6 @@
                 });
             } catch(e) {
                 console.warn('KaTeX render error:', e);
-            }
-
-            // Update URL
-            location.hash = id;
-
-            // Update sidebar active
-            buildProblemSidebar(searchInput.value);
-            revealActiveInSidebar();
-
-            // Scroll to top
-            contentEl.scrollTop = 0;
-
-            // Close sidebar on mobile
-            if (window.innerWidth <= 768) {
-                document.getElementById('sidebar').classList.remove('open');
             }
         }
 

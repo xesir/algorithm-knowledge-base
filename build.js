@@ -153,7 +153,7 @@ function build() {
     let warnings = [];
 
     // 作者映射：文件名后缀 --key → 显示名（未来加新人在这里扩展）
-    const AUTHOR_KEYS = { fenfeng: '焚风' };
+    const AUTHOR_KEYS = { fenfeng: '焚风', xesir: 'Xesir', lker: 'lker' };
 
     // 解析所有 .md 文件，按 base id 分组（同 id 多版本）
     const versionGroups = new Map(); // baseId -> versions[]
@@ -245,7 +245,7 @@ function build() {
     });
     console.log(`   成功读取 ${codeFound}/${allCodePaths.length} 个代码文件`);
 
-    // ===== 扫描题目专辑 =====
+    // ===== 扫描题目专辑（支持多作者版本：problems/<base>--<author>.md）=====
     console.log('\n📝 扫描 problems/ 目录...');
 
     let problemsData = [];
@@ -253,38 +253,75 @@ function build() {
         const probFiles = fs.readdirSync(PROBLEMS_DIR).filter(f => f.endsWith('.md')).sort();
         console.log(`📄 找到 ${probFiles.length} 个题目 Markdown 文件`);
 
+        // 按 base id 分组（同 id 多版本，文件名 xxx--作者.md 视为 xxx 的一个版本）
+        const probGroups = new Map(); // baseId -> versions[]
         probFiles.forEach(filename => {
             const filepath = path.join(PROBLEMS_DIR, filename);
             const raw = fs.readFileSync(filepath, 'utf8');
             const { meta, body } = parseFrontmatter(raw);
 
-            const probId = meta.id || path.basename(filename, '.md');
-            const codePath = meta.codePath || '';
-            if (codePath) {
-                allCodePaths.push(codePath);
+            const baseName = path.basename(filename, '.md');
+            let author = '站主';
+            let baseId = baseName;
+            const dashIdx = baseName.indexOf('--');
+            if (dashIdx >= 0) {
+                const key = baseName.slice(dashIdx + 2);
+                baseId = baseName.slice(0, dashIdx);
+                author = AUTHOR_KEYS[key] || key;
             }
 
-            problemsData.push({
-                id: probId,
-                title: meta.title || probId,
-                source: meta.source || '',
-                oj: meta.oj || '',
-                problemId: meta.problemId || '',
-                difficulty: meta.difficulty || '未标注',
-                category: meta.category || '未分类',
-                tags: Array.isArray(meta.tags) ? meta.tags : (meta.tags ? [meta.tags] : []),
+            if (!probGroups.has(baseId)) probGroups.set(baseId, []);
+            probGroups.get(baseId).push({
+                meta, body, author,
+                codePath: meta.codePath || '',
                 timeComplexity: meta.timeComplexity || '未知',
                 spaceComplexity: meta.spaceComplexity || '未知',
-                codePath: codePath,
-                content: body.trim()
+                tags: Array.isArray(meta.tags) ? meta.tags : (meta.tags ? [meta.tags] : []),
+                verified: meta.verified || '',
+                source: meta.source || ''
             });
-
-            console.log(`  ✓ ${probId} — ${meta.title || ''}`);
         });
 
+        for (const [baseId, vers] of probGroups) {
+            // 主版本：优先站主；无站主则按 verified 时间优先（取最新）
+            let primary = vers.find(v => v.author === '站主');
+            if (!primary) {
+                primary = vers.slice().sort((a, b) => (b.verified || '').localeCompare(a.verified || ''))[0] || vers[vers.length - 1];
+            }
+            vers.forEach(v => { if (v.codePath) allCodePaths.push(v.codePath); });
+            const orderedVers = [primary, ...vers.filter(v => v !== primary)];
+
+            problemsData.push({
+                id: baseId,
+                title: primary.meta.title || baseId,
+                source: primary.meta.source || '',
+                oj: primary.meta.oj || '',
+                problemId: primary.meta.problemId || '',
+                difficulty: primary.meta.difficulty || '未标注',
+                category: primary.meta.category || '未分类',
+                // 兼容旧字段（取主版本），供目录/搜索/筛选使用
+                tags: primary.tags,
+                timeComplexity: primary.timeComplexity,
+                spaceComplexity: primary.spaceComplexity,
+                codePath: primary.codePath,
+                content: primary.body.trim(),
+                versions: orderedVers.map(v => ({
+                    author: v.author,
+                    content: v.body.trim(),
+                    codePath: v.codePath,
+                    timeComplexity: v.timeComplexity,
+                    spaceComplexity: v.spaceComplexity,
+                    tags: v.tags,
+                    source: v.source
+                }))
+            });
+
+            console.log(`  ✓ ${baseId}（${vers.length} 版本）— ${primary.meta.title || ''}`);
+        }
+
         // 读取题目代码文件（追加到 codeData）
-        if (allCodePaths.length > codeFound) {
-            const newPaths = allCodePaths.slice(codeFound);
+        const newPaths = allCodePaths.slice(codeFound);
+        if (newPaths.length) {
             const newCodeData = readCodeFiles(newPaths);
             Object.assign(codeData, newCodeData);
             let probCodeFound = 0;

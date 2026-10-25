@@ -1362,6 +1362,7 @@
         function init() {
             // Check library loading
             var missingLibs = [];
+            if (typeof KNOWLEDGE_DATA === 'undefined') missingLibs.push('data.js');
             if (typeof marked === 'undefined') missingLibs.push('marked.js');
             if (typeof katex === 'undefined') missingLibs.push('katex.js');
             if (typeof renderMathInElement === 'undefined') missingLibs.push('auto-render.js');
@@ -1369,7 +1370,7 @@
             if (missingLibs.length > 0) {
                 contentEl.innerHTML = '<div style="padding:2rem;color:#cc0000;font-size:1rem;">' +
                     '<h2 style="margin-bottom:1rem;">库文件加载失败</h2>' +
-                    '<p>以下库未能加载: <strong>' + missingLibs.join(', ') + '</strong></p>' +
+                    '<p>以下文件未能加载: <strong>' + missingLibs.join(', ') + '</strong></p>' +
                     '<p style="margin-top:0.5rem;color:#64748b;font-size:0.9rem;">常见原因：GitHub Pages 刚部署完、浏览器缓存了旧页面，或网络暂时中断。</p>' +
                     '<p style="margin-top:1rem;"><button onclick="hardReload()" style="padding:0.5rem 1rem;border:0;border-radius:0.4rem;background:#3b82f6;color:#fff;font-size:0.9rem;cursor:pointer;">强制刷新（跳过缓存）</button></p>' +
                     '<p style="margin-top:0.75rem;color:#64748b;font-size:0.85rem;">如果仍然失败，请确认 vendor/ 目录中的文件已上传到仓库。</p></div>';

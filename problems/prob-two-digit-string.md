@@ -3,7 +3,8 @@ id: prob-two-digit-string
 title: '两位数字符串（前缀和取模 + LCS）'
 oj: 'Codeforces'
 problemId: 'CF2242D'
-difficulty: '困难'
+difficulty: '暂未评定'
+cfRating: '1600'
 category: '动态规划'
 tags: ["字符串", "前缀和", "取模", "LCS", "动态规划", "贪心转DP", "构造"]
 timeComplexity: 'O(nm)'

@@ -3,7 +3,8 @@ id: prob-luogu-p7914
 title: '括号序列（CSP-S 2021）'
 oj: '洛谷'
 problemId: 'P7914'
-difficulty: '困难'
+difficulty: '提高+/省选−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["区间DP", "括号序列", "状态拆分", "计数去重"]
 timeComplexity: 'O(n^3)'

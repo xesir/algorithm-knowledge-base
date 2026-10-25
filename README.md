@@ -7,7 +7,7 @@
 
 ## 1. 这是什么
 
-- **当前规模**：知识点 **205** 篇 · 题目 **59** 道 · **9** 个大类（基础算法 / 动态规划 / 数据结构 / 图论 / 数学 / 字符串 / 输入输出 / 初赛笔记 / 语法技巧）
+- **当前规模**：知识点 **207** 篇 · 题目 **67** 道 · **9** 个大类（基础算法 / 动态规划 / 数据结构 / 图论 / 数学 / 字符串 / 输入输出 / 初赛笔记 / 语法技巧）
 - **形态**：单文件前端 `index.html`（自带 CSS + JS）+ 三个构建产物，**没有框架、没有 npm 依赖、没有后端**
 - **在线**：GitHub Pages —— 仓库 `https://github.com/World-Needs-Sunday/algorithm-knowledge-base.git`（分支 `master`）
 - **本地**：`C:\Users\penti\Desktop\算法 - 副本`
@@ -92,3 +92,21 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 
 需要的最小集合：本仓库 + Node（跑 `build.js`/`tools/*.js`）。
 如果 `.trae/skills/` 不被你的工具识别（比如换到 Claude Code / Codex），把 `AGENTS.md` 作为规则文件喂给 AI 即可——它会把 AI 引到 `.trae/skills/` 与 `PROJECT_FRAMEWORK.md`。
+
+---
+
+## 备注（2026-10-25 追加）
+
+> 以下内容为**追加**，上文原始文字一字未改。
+
+- **本次长对话的完整纪要**（更新日志 / 全部修改标记 / 不可违背的要求 / 当前「加知识点、加题目」的最新步骤 / 已知问题 / 踩坑表）见
+  [`docs/会话纪要-2026-10-25.md`](docs/会话纪要-2026-10-25.md)。**新会话请先读这份文件，再读 AGENTS.md。**
+- 新增约定：**本 README.md 只允许在文件末尾追加「备注」，不得删除或改动原文任何内容。**
+- 本轮新增能力：知识点详情页「🌌 星图」、题目页「🌸 打开维恩图」；难度体系已统一为洛谷九档并新增 `cfRating` 难度评分字段。
+
+## 备注（2026-10-25 · 仓库迁移与线上地址）
+
+- 仓库已迁移到 `https://github.com/xesir/algorithm-knowledge-base.git`（分支 `master`）。
+- 线上地址改为 `https://xesir.github.io/algorithm-knowledge-base/`。
+- 上文第 12 行的旧仓库地址不再使用，以上述新地址为准。
+- 部署后若出现「库文件加载失败」，属于 Pages 部署或浏览器缓存窗口；页面已提供「强制刷新（跳过缓存）」按钮，静态资源引用也已加版本号。

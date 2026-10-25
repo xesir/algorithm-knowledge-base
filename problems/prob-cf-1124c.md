@@ -3,7 +3,8 @@ id: prob-cf-1124c
 title: 'K Is Important'
 oj: 'Codeforces'
 problemId: 'CF1124C'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: 贪心
 tags: ["贪心", "配对", "思维"]
 timeComplexity: 'O(Σn)'

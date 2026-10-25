@@ -3,7 +3,8 @@ id: prob-luogu-p4027
 title: 'P4027 [NOI2007] 货币兑换'
 oj: '洛谷'
 problemId: 'P4027'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "斜率优化", "CDQ分治", "凸包"]
 timeComplexity: 'O(n log n)'

@@ -3,7 +3,8 @@ id: prob-uoj-763
 title: 'UOJ #763 树哈希'
 oj: 'UOJ'
 problemId: '763'
-difficulty: '其他'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: 图论
 tags: ["树哈希", "树同构", "随机化", "DFS"]
 timeComplexity: 'O(n log n)'

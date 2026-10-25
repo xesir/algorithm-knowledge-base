@@ -208,6 +208,7 @@ function build() {
             subcategory: primary.meta.subcategory || '未分类',
             subSubcategory: primary.meta.subSubcategory || '',
             title: primary.meta.title || baseId,
+            hub: primary.meta.hub === 'true' || primary.meta.hub === true,
             versions: orderedVers.map(v => ({
                 author: v.author,
                 content: v.body.trim(),
@@ -297,7 +298,8 @@ function build() {
                 source: primary.meta.source || '',
                 oj: primary.meta.oj || '',
                 problemId: primary.meta.problemId || '',
-                difficulty: primary.meta.difficulty || '未标注',
+                difficulty: primary.meta.difficulty || '暂未评定',
+                cfRating: primary.meta.cfRating || 'NaN',
                 category: primary.meta.category || '未分类',
                 // 兼容旧字段（取主版本），供目录/搜索/筛选使用
                 tags: primary.tags,

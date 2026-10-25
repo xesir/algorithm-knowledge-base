@@ -3,7 +3,8 @@ id: prob-luogu-p2473
 title: 'P2473 [SCOI2008] 奖励关'
 oj: '洛谷'
 problemId: 'P2473'
-difficulty: '困难'
+difficulty: '提高'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "期望DP", "状压DP", "概率期望"]
 timeComplexity: 'O(k·n·2^n)'

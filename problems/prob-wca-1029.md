@@ -3,7 +3,8 @@ id: prob-wca-1029
 title: '2026WCA1029 海龟汤'
 oj: 'WCA'
 problemId: '2026WCA1029'
-difficulty: '困难'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: 图论
 tags: ["换根DP", "树形DP", "贪心", "决策树"]
 timeComplexity: 'O(n log n)'

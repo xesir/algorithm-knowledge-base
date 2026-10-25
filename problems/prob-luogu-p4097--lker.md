@@ -3,7 +3,8 @@ id: prob-luogu-p4097
 title: 'P4097 【模板】李超线段树 / [HEOI2013] Segment'
 oj: '洛谷'
 problemId: 'P4097'
-difficulty: '其他'
+difficulty: '提高+/省选−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["李超线段树", "线段树", "斜率优化", "模板"]
 timeComplexity: 'O(n log n)'

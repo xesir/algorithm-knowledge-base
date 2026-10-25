@@ -3,7 +3,8 @@ id: prob-cf-gcd-treasury
 title: 'GCD Treasury — 质因子枚举 + 数论结论'
 oj: 'Codeforces'
 problemId: 'C. GCD Treasury'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: '数学'
 tags: ["数论", "GCD", "质因数分解", "枚举", "贪心", "结论题"]
 timeComplexity: 'O(t·(√x + k·n))'

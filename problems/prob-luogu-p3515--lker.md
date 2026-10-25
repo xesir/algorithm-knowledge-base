@@ -3,7 +3,8 @@ id: prob-luogu-p3515
 title: 'P3515 [POI 2011] Lightning Conductor'
 oj: '洛谷'
 problemId: 'P3515'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "决策单调性", "分治优化", "四边形不等式"]
 timeComplexity: 'O(n log n)'

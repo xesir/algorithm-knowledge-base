@@ -3,7 +3,8 @@ id: prob-uoj-767
 title: 'UOJ #767 【NOI2022】挑战 NPC Ⅱ'
 oj: 'UOJ'
 problemId: '767'
-difficulty: '其他'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: 图论
 tags: ["树哈希", "树同构", "搜索", "剪枝", "记忆化"]
 timeComplexity: 'O(n log n)'

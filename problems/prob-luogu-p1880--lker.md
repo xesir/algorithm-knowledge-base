@@ -3,7 +3,8 @@ id: prob-luogu-p1880
 title: 'P1880 [NOI1995] 石子合并'
 oj: '洛谷'
 problemId: 'P1880'
-difficulty: '其他'
+difficulty: '普及+/提高−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "区间DP", "四边形不等式", "Knuth优化"]
 timeComplexity: 'O(n²)'

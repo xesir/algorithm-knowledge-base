@@ -3,7 +3,8 @@ id: prob-cf-floor-of-mex
 title: 'Floor of MEX (Easy Version) — MEX 反向构造与差分数组'
 oj: 'Codeforces'
 problemId: 'CF2263C1'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: '1200'
 category: '数据结构'
 tags: ["MEX", "差分", "构造", "思维", "差分数组"]
 timeComplexity: 'O(n)'

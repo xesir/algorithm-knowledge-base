@@ -3,7 +3,8 @@ id: prob-luogu-p3242
 title: 'P3242 [HNOI2015] 接水果'
 oj: '洛谷'
 problemId: 'P3242'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 数据结构
 tags: ["树链剖分", "树上二维数点", "bitset", "LCA", "离线"]
 timeComplexity: '视具体实现'

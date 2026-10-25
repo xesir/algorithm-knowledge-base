@@ -3,7 +3,8 @@ id: prob-particle-motion
 title: '粒子运动（动量守恒模拟优化）'
 oj: '来源未考证'
 problemId: '-'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: '数学'
 tags: ["模拟", "贪心", "动量守恒", "物理类比", "优化"]
 timeComplexity: 'O(n)'

@@ -5,8 +5,8 @@ description: "构建校验并上传 GitHub。当用户说「更新网站」「�
 
 # 构建 + 上传 GitHub
 
-> 仓库：`https://github.com/World-Needs-Sunday/algorithm-knowledge-base.git`，分支 `master`，GitHub Pages 托管。
-> 线上地址：`https://world-needs-sunday.github.io/algorithm-knowledge-base/`
+> 仓库：`https://github.com/xesir/algorithm-knowledge-base.git`，分支 `master`，GitHub Pages 托管。
+> 线上地址：`https://xesir.github.io/algorithm-knowledge-base/`
 
 ## 铁律
 
@@ -113,7 +113,7 @@ GitHub Pages 有 `Cache-Control: max-age=600`，**push 后约 10 分钟**线上�
 
 ```bash
 # 约 10 分钟后比对线上与本地是否一致（大小一致即可初判）
-curl -sI https://world-needs-sunday.github.io/algorithm-knowledge-base/data.js | findstr /i content-length
+curl -sI https://xesir.github.io/algorithm-knowledge-base/data.js | findstr /i content-length
 (Get-Item data.js).Length
 ```
 

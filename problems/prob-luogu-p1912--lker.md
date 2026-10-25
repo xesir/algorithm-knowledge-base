@@ -3,7 +3,8 @@ id: prob-luogu-p1912
 title: 'P1912 [NOI2009] 诗人小G'
 oj: '洛谷'
 problemId: 'P1912'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "决策单调性", "四边形不等式", "单调队列"]
 timeComplexity: 'O(n log n log P)'

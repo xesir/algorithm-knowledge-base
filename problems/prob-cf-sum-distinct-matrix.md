@@ -3,7 +3,8 @@ id: prob-cf-sum-distinct-matrix
 title: 'Sum of Distinct Values in a Matrix — 双指针贪心与公共值名额分配'
 oj: 'Codeforces'
 problemId: 'C. Sum of Distinct Values in a Matrix'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: '贪心'
 tags: ["贪心", "双指针", "数学", "构造", "名额分配", "思维题"]
 timeComplexity: 'O(x + y)'

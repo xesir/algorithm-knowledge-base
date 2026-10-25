@@ -3,7 +3,8 @@ id: prob-luogu-p5574
 title: 'P5574 [CmdOI2019] 任务分配问题'
 oj: '洛谷'
 problemId: 'P5574'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "决策单调性", "分治优化", "树状数组"]
 timeComplexity: 'O(k n log n)'

@@ -3,7 +3,8 @@ id: prob-goc-homework
 title: '发作业'
 oj: '来源未考证'
 problemId: '-'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["状态压缩", "记忆化搜索", "动态规划", "位运算"]
 timeComplexity: 'O(m(n+1)^w)'

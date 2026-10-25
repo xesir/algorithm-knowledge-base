@@ -3,7 +3,8 @@ id: prob-p5658-bracket-tree
 title: 'P5658 [CSP-S 2019] 括号树 — 树上DP与全局栈回溯'
 oj: '洛谷'
 problemId: 'P5658'
-difficulty: '困难'
+difficulty: '普及+/提高−'
+cfRating: 'NaN'
 category: '图论'
 tags: ["树", "树形DP", "栈", "DFS", "括号匹配", "回溯", "CSP-S"]
 timeComplexity: 'O(n)'

@@ -153,7 +153,7 @@ const MOJIBAKE = [
   ['锟斤拷', '典型乱码「锟斤拷」'],
   ['\uFFFD', '替换字符 U+FFFD（编码损坏）'],
 ];
-const DIFFICULTY_OK = ['入门', '简单', '中等', '困难', '普及', '其他'];
+const DIFFICULTY_OK = ['入门', '普及−', '普及/提高−', '普及+/提高−', '提高', '提高+/省选−', '省选/NOI−', 'NOI/NOI+/CTSC', '暂未评定'];
 const KP_SECTIONS_REQUIRED = ['算法原理', '逐行代码解析', '复杂度分析', '常见陷阱'];
 const PROB_SECTIONS_REQUIRED = ['题目描述', '样例', '解题思路', '复杂度分析', '常见陷阱'];
 

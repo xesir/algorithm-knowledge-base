@@ -3,7 +3,8 @@ id: prob-luogu-p4767
 title: 'P4767 [IOI 2000] 邮局 加强版'
 oj: '洛谷'
 problemId: 'P4767'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "四边形不等式", "Knuth优化", "前缀和"]
 timeComplexity: 'O(n²)'

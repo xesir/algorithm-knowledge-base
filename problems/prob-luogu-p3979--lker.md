@@ -3,7 +3,8 @@ id: prob-luogu-p3979
 title: 'P3979 遥远的国度'
 oj: '洛谷'
 problemId: 'P3979'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 数据结构
 tags: ["树链剖分", "换根", "线段树", "LCA"]
 timeComplexity: '视具体实现'

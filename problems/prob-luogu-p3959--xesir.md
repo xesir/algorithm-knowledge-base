@@ -3,7 +3,8 @@ id: prob-luogu-p3959
 title: 'P3959 [NOIP2017 提高组] 宝藏'
 oj: '洛谷'
 problemId: 'P3959'
-difficulty: '困难'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["状压DP", "子集枚举", "分层扩展", "动态规划"]
 timeComplexity: 'O(3^n·n²)'

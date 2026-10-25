@@ -3,7 +3,8 @@ id: prob-array-replacement
 title: 'Array Replacement（差分数组上交换相邻同奇偶项）'
 oj: 'Codeforces'
 problemId: 'CF2252D'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: '1700'
 category: '数据结构'
 tags: ["差分数组", "排序", "贪心", "字典序最小", "奇偶性", "构造"]
 timeComplexity: 'O(n log n)'

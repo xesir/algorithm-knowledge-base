@@ -3,7 +3,8 @@ id: prob-p17555-construction-master
 title: 'P17555 「WWOI R4」构造大师 — 模3分类与双射构造'
 oj: '洛谷'
 problemId: 'P17555'
-difficulty: '困难'
+difficulty: '普及+/提高−'
+cfRating: 'NaN'
 category: '数学'
 tags: ["构造", "数学", "模运算", "双射", "数论", "奇偶性"]
 timeComplexity: 'O(n)'

@@ -3,7 +3,8 @@ id: prob-cero-array
 title: 'Cero 的数组（构造序列的最长上升子序列）'
 oj: '来源未考证'
 problemId: '-'
-difficulty: '困难'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: '动态规划'
 tags: ["动态规划", "LIS", "树状数组", "离散化", "构造转化", "计数"]
 timeComplexity: 'O(n log n)'

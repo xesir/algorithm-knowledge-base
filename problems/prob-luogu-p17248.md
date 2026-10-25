@@ -3,7 +3,8 @@ id: prob-luogu-p17248
 title: 'P17248 审判与救赎'
 oj: '洛谷'
 problemId: 'P17248'
-difficulty: '困难'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 数据结构
 tags: ["主席树", "贪心", "异或", "区间查询"]
 timeComplexity: 'O((n+q) log V)'

@@ -34,7 +34,8 @@ description: "添加题目到题目专辑。当用户说「这题加进题目专
 | `title` | 题名；**去掉 `D.` / `C1.` / `F.` 这类场次编号前缀**（lint W002） |
 | `oj` | 洛谷 / Codeforces / AtCoder / ICPC / CSP-S …；**查不到写 `来源未考证`** |
 | `problemId` | `P1050` / `CF2252D` …；**查不到写 `-`** |
-| `difficulty` | 入门 / 简单 / 中等 / 困难 / 普及 / 其他（其它值触发 W026） |
+| `difficulty` | 洛谷评级：入门 / 普及− / 普及/提高− / 普及+/提高− / 提高 / 提高+/省选− / 省选/NOI− / NOI/NOI+/CTSC / 暂未评定（其它值触发 W026） |
+| `cfRating` | 难度评分：能确认的 Codeforces rating（如 `1700`）；查不到写 `NaN`，**不许估** |
 | `category` | 按考点大类（决定侧边栏分组） |
 | `tags` | 3–6 个 |
 | 复杂度 | 从代码推，非"未知" |

@@ -3,7 +3,8 @@ id: prob-luogu-p2503
 title: 'P2503 [HAOI2006] 均分数据'
 oj: '洛谷'
 problemId: 'P2503'
-difficulty: '困难'
+difficulty: '提高'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["模拟退火", "动态规划", "均方差", "分组", "随机化"]
 timeComplexity: 'O(n²m)（单次评估）'

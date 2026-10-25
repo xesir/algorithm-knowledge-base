@@ -8,7 +8,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="算法知识点查询系统">
     <meta property="og:description" content="面向信息学竞赛的算法知识点查询库：知识点讲解、复杂度分析、常见陷阱与可运行 C++ 代码。">
-    <meta property="og:url" content="https://world-needs-sunday.github.io/algorithm-knowledge-base/">
+    <meta property="og:url" content="https://xesir.github.io/algorithm-knowledge-base/">
     <meta property="og:locale" content="zh_CN">
     <meta name="twitter:card" content="summary">
     <title>算法知识点查询系统</title>
@@ -19,8 +19,8 @@
             document.documentElement.setAttribute('data-theme', t);
         })();
     </script>
-    <link rel="stylesheet" href="vendor/katex.min.css">
-    <link rel="stylesheet" href="vendor/github-dark.min.css">
+    <link rel="stylesheet" href="vendor/katex.min.css?v=20261025">
+    <link rel="stylesheet" href="vendor/github-dark.min.css?v=20261025">
     <style>
         /* ===== Theme Variables ===== */
         :root {
@@ -617,12 +617,74 @@
         }
         .version-tab.disabled:hover { border-color: var(--border-color, #e2e8f0); color: var(--text-secondary, #64748b); }
 
-        .badge-difficulty-easy { background: #dcfce7; color: #166534; }
-        .badge-difficulty-medium { background: #fef9c3; color: #854d0e; }
-        .badge-difficulty-hard { background: #fee2e2; color: #991b1b; }
-        [data-theme="dark"] .badge-difficulty-easy { background: #14532d; color: #86efac; }
-        [data-theme="dark"] .badge-difficulty-medium { background: #713f12; color: #fde047; }
-        [data-theme="dark"] .badge-difficulty-hard { background: #7f1d1d; color: #fca5a5; }
+        /* 洛谷评级配色：入门红 / 普及−橙 / 普及·提高−黄 / 普及+·提高−绿 / 提高青 / 提高+·省选−蓝 / 省选·NOI−紫 / NOI 黑 / 暂未评定灰 */
+        .badge-difficulty-0 { background: #FE4C61; color: #ffffff; }
+        .badge-difficulty-1 { background: #F39C11; color: #ffffff; }
+        .badge-difficulty-2 { background: #FFC116; color: #4a3200; }
+        .badge-difficulty-3 { background: #52C41A; color: #ffffff; }
+        .badge-difficulty-4 { background: #13C2C2; color: #ffffff; }
+        .badge-difficulty-5 { background: #3498DB; color: #ffffff; }
+        .badge-difficulty-6 { background: #9D3DCF; color: #ffffff; }
+        .badge-difficulty-7 { background: #0E1D69; color: #ffffff; }
+        .badge-difficulty-na { background: #9CA3AF; color: #ffffff; }
+        .badge-cf { background: #e0e7ff; color: #3730a3; font-family: var(--font-mono); }
+        .badge-cf-na { background: #f3f4f6; color: #9ca3af; font-family: var(--font-mono); }
+        [data-theme="dark"] .badge-cf { background: #312e81; color: #c7d2fe; }
+        [data-theme="dark"] .badge-cf-na { background: #1f2937; color: #6b7280; }
+
+        /* ===== 可视化：星图 / 维恩图 ===== */
+        .viz-btn {
+            background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe;
+            border-radius: 999px; padding: 3px 12px; font-size: 0.78rem;
+            cursor: pointer; font-family: inherit;
+        }
+        .viz-btn:hover { background: #e0e7ff; }
+        [data-theme="dark"] .viz-btn { background: #312e81; color: #c7d2fe; border-color: #4338ca; }
+        .viz-overlay {
+            position: fixed; inset: 0; z-index: 3000; display: none;
+            background: radial-gradient(circle at 50% 45%, #101a33 0%, #070b18 70%);
+        }
+        .viz-overlay.open { display: flex; flex-direction: column; }
+        .viz-header {
+            display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+            padding: 12px 20px; color: #e5e7eb;
+            border-bottom: 1px solid rgba(148,163,184,0.25);
+        }
+        .viz-title { font-size: 1rem; font-weight: 600; }
+        .viz-legend { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.75rem; color: #cbd5e1; }
+        .viz-legend span { white-space: nowrap; }
+        .viz-legend i {
+            display: inline-block; width: 9px; height: 9px; border-radius: 3px;
+            margin-right: 4px; vertical-align: -1px;
+        }
+        .viz-close {
+            margin-left: auto; cursor: pointer; border: 1px solid rgba(148,163,184,0.4);
+            background: transparent; color: #e5e7eb; border-radius: 8px; padding: 4px 12px;
+            font-family: inherit; font-size: 0.8rem;
+        }
+        .viz-close:hover { background: rgba(148,163,184,0.18); }
+        .viz-body { flex: 1; position: relative; overflow: hidden; }
+        .viz-body svg { width: 100%; height: 100%; display: block; }
+        .viz-tip {
+            position: fixed; z-index: 3100; pointer-events: none; display: none;
+            max-width: 320px; padding: 10px 12px; border-radius: 10px;
+            background: rgba(15,23,42,0.97); color: #e2e8f0;
+            border: 1px solid rgba(148,163,184,0.35); font-size: 0.78rem; line-height: 1.6;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+        .viz-tip b { color: #fff; font-size: 0.85rem; }
+        .viz-tip .t-muted { color: #94a3b8; }
+        .viz-tip .t-tag {
+            display: inline-block; margin: 3px 3px 0 0; padding: 1px 6px;
+            border-radius: 4px; background: rgba(99,102,241,0.3); color: #c7d2fe;
+        }
+        .viz-node { cursor: pointer; }
+        .viz-node:hover { filter: brightness(1.3); }
+        .viz-edge-rel { stroke: rgba(148,163,184,0.5); stroke-dasharray: 5 5; stroke-width: 1.2; }
+        .viz-edge-pre { stroke: rgba(96,165,250,0.8); stroke-width: 1.6; }
+        .viz-label { fill: #dbe3ee; font-size: 15px; pointer-events: none; paint-order: stroke; stroke: #070b18; stroke-width: 3px; stroke-linejoin: round; }
+        .viz-label.center { fill: #f8fafc; font-size: 19px; font-weight: 600; }
+        .viz-bubble-label { fill: rgba(226,232,240,0.95); font-size: 20px; font-weight: 600; pointer-events: none; paint-order: stroke; stroke: #070b18; stroke-width: 4px; stroke-linejoin: round; }
 
         .badge-oj { background: #ede9fe; color: #5b21b6; }
         [data-theme="dark"] .badge-oj { background: #2e1065; color: #c4b5fd; }
@@ -1127,6 +1189,8 @@
             border-bottom: 1px solid var(--border);
         }
         .category-overview-domain strong { color: var(--text); }
+        .hub-directory { margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+        .hub-directory-title { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 1.25rem; }
         .subcategory-block { margin-bottom: 2rem; }
         .subcategory-block-title {
             font-size: 1.1rem;
@@ -1266,13 +1330,13 @@
     <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
     <button id="theme-toggle" onclick="toggleDark()"><span id="theme-icon">🌙</span></button>
 
-    <script src="data.js"></script>
-    <script src="problems_data.js"></script>
-    <script src="code_data.js"></script>
-    <script src="vendor/marked.min.js"></script>
-    <script src="vendor/katex.min.js"></script>
-    <script src="vendor/auto-render.min.js"></script>
-    <script src="vendor/highlight.min.js"></script>
+    <script src="data.js?v=20261025"></script>
+    <script src="problems_data.js?v=20261025"></script>
+    <script src="code_data.js?v=20261025"></script>
+    <script src="vendor/marked.min.js?v=20261025"></script>
+    <script src="vendor/katex.min.js?v=20261025"></script>
+    <script src="vendor/auto-render.min.js?v=20261025"></script>
+    <script src="vendor/highlight.min.js?v=20261025"></script>
 
     <script>
         // ===== State =====
@@ -1289,6 +1353,12 @@
         const kpCountEl = document.getElementById('kp-count');
 
         // ===== Init =====
+        // 绕过浏览器/Pages CDN 缓存重新拉取页面与静态资源（用于部署后短暂 404 或旧缓存）
+        function hardReload() {
+            var base = location.href.split('#')[0].split('?')[0];
+            location.replace(base + '?v=' + Date.now() + location.hash);
+        }
+
         function init() {
             // Check library loading
             var missingLibs = [];
@@ -1300,7 +1370,9 @@
                 contentEl.innerHTML = '<div style="padding:2rem;color:#cc0000;font-size:1rem;">' +
                     '<h2 style="margin-bottom:1rem;">库文件加载失败</h2>' +
                     '<p>以下库未能加载: <strong>' + missingLibs.join(', ') + '</strong></p>' +
-                    '<p style="margin-top:0.5rem;">请确保 vendor/ 目录中存在对应文件。</p></div>';
+                    '<p style="margin-top:0.5rem;color:#64748b;font-size:0.9rem;">常见原因：GitHub Pages 刚部署完、浏览器缓存了旧页面，或网络暂时中断。</p>' +
+                    '<p style="margin-top:1rem;"><button onclick="hardReload()" style="padding:0.5rem 1rem;border:0;border-radius:0.4rem;background:#3b82f6;color:#fff;font-size:0.9rem;cursor:pointer;">强制刷新（跳过缓存）</button></p>' +
+                    '<p style="margin-top:0.75rem;color:#64748b;font-size:0.85rem;">如果仍然失败，请确认 vendor/ 目录中的文件已上传到仓库。</p></div>';
                 kpCountEl.textContent = (typeof KNOWLEDGE_DATA !== 'undefined') ? KNOWLEDGE_DATA.length : 0;
                 return;
             }
@@ -1613,6 +1685,13 @@
         }
 
         // ===== Build Sidebar =====
+        function sortSubNames(names) {
+            return names.sort(function(a, b) {
+                var ha = a === '总述' ? 0 : 1, hb = b === '总述' ? 0 : 1;
+                return ha - hb || a.localeCompare(b);
+            });
+        }
+
         function buildSidebar(filter) {
             filter = filter || '';
             var hasFilter = filter || selectedTags.size > 0;
@@ -1654,7 +1733,7 @@
                 html += '</div>';
                 html += '<div class="category-body">';
 
-                Object.keys(subs).sort().forEach(function(sub) {
+                sortSubNames(Object.keys(subs)).forEach(function(sub) {
                     var subCount = Object.values(subs[sub]).reduce(function(s, arr) { return s + arr.length; }, 0);
                     html += '<div class="subcategory' + (hasFilter ? ' expanded' : '') + '">';
                     html += '<div class="subcategory-header" onclick="this.parentElement.classList.toggle(\'expanded\')">';
@@ -1840,6 +1919,7 @@
                     metaHtml += '<span class="tag">' + escHtml(tag) + '</span>';
                 });
             }
+            metaHtml += '<button class="viz-btn" onclick="openStarMap(\'' + kp.id + '\')">🌌 星图</button>';
             metaHtml += '</div>';
 
             // Render content: 三步法保护 LaTeX（实现见 renderMarkdownWithMath）
@@ -1848,6 +1928,14 @@
                 contentHtml = renderMarkdownWithMath(ver.content);
             } catch(e) {
                 contentHtml = '<p>内容渲染出错: ' + escHtml(e.message) + '</p>';
+            }
+
+            // 大类总述页：正文下方追加该大类的子分类目录（与分类概览页同一份数据）
+            if (kp.hub) {
+                contentHtml += '<div class="hub-directory">' +
+                    '<div class="hub-directory-title">📂 ' + escHtml(kp.category) + ' · 子分类目录</div>' +
+                    buildCategoryDirectory(kp.category, true) +
+                    '</div>';
             }
 
             // Code section placeholder
@@ -2023,7 +2111,7 @@
                 html += '</div>';
                 html += '<div class="catalog-category-body">';
                 html += '<div class="catalog-sub-grid">';
-                Object.keys(subs).sort().forEach(function(sub) {
+                sortSubNames(Object.keys(subs)).forEach(function(sub) {
                     var ssubs = subs[sub];
                     var subCount = Object.values(ssubs).reduce(function(s, arr) { return s + arr.length; }, 0);
                     html += '<div class="catalog-subcard">';
@@ -2054,18 +2142,58 @@
         }
 
         // ===== Category Overview Page =====
-        function showCategoryOverview(catName) {
-            clearSidebarActive();
-            var catMeta = (typeof CATEGORY_META !== 'undefined' && CATEGORY_META[catName]) || {};
-
+        // 分类目录块：分类概览页与大类总述页共用（excludeHubs 时不重复列出总述条目）
+        function buildCategoryDirectory(catName, excludeHubs) {
             var subs = {};
             KNOWLEDGE_DATA.forEach(function(kp) {
                 if (kp.category !== catName) return;
+                if (excludeHubs && kp.hub) return;
                 if (!subs[kp.subcategory]) subs[kp.subcategory] = {};
                 var ssub = kp.subSubcategory || '';
                 if (!subs[kp.subcategory][ssub]) subs[kp.subcategory][ssub] = [];
                 subs[kp.subcategory][ssub].push(kp);
             });
+            var html = '';
+            sortSubNames(Object.keys(subs)).forEach(function(subName) {
+                var subKey = catName + '|' + subName;
+                var subMeta = (typeof SUBCATEGORY_META !== 'undefined' && SUBCATEGORY_META[subKey]) || {};
+                var ssubs = subs[subName];
+                var subCount = Object.values(ssubs).reduce(function(s, arr) { return s + arr.length; }, 0);
+                html += '<div class="subcategory-block">';
+                html += '<div class="subcategory-block-title">' + escHtml(subName);
+                html += ' <span style="color:var(--text-secondary);font-size:0.75rem;font-weight:400;">(' + subCount + ' 个知识点)</span></div>';
+                if (subMeta.description) {
+                    html += '<p class="subcategory-block-desc">' + escHtml(subMeta.description) + '</p>';
+                }
+                html += '<div class="subcategory-kp-grid">';
+                var flatKps = [];
+                var ssubGroups = [];
+                Object.keys(ssubs).sort().forEach(function(ssub) {
+                    if (ssub) ssubGroups.push({ name: ssub, items: ssubs[ssub] });
+                    else flatKps = flatKps.concat(ssubs[ssub]);
+                });
+                flatKps.forEach(function(kp) { html += renderKpCard(kp); });
+                ssubGroups.forEach(function(group) {
+                    var ssubMeta = (typeof SUBSUBCATEGORY_META !== 'undefined' &&
+                        SUBSUBCATEGORY_META[subKey + '|' + group.name]) || {};
+                    html += '<div class="subsubcategory-block">';
+                    html += '<div class="subsubcategory-block-title">' + escHtml(group.name);
+                    html += ' <span class="subsubcategory-block-count">' + group.items.length + ' 个</span></div>';
+                    if (ssubMeta.description) {
+                        html += '<p class="subsubcategory-block-desc">' + escHtml(ssubMeta.description) + '</p>';
+                    }
+                    html += '<div class="subsubcategory-block-grid">';
+                    group.items.forEach(function(kp) { html += renderKpCard(kp); });
+                    html += '</div></div>';
+                });
+                html += '</div></div>';
+            });
+            return html;
+        }
+
+        function showCategoryOverview(catName) {
+            clearSidebarActive();
+            var catMeta = (typeof CATEGORY_META !== 'undefined' && CATEGORY_META[catName]) || {};
 
             var html = '<div class="category-overview">';
             html += '<h1>' + escHtml(catName) + '</h1>';
@@ -2080,52 +2208,7 @@
                 html += '<p class="category-overview-domain"><strong>问题领域：</strong>' + escHtml(catMeta.problemDomain) + '</p>';
             }
 
-            Object.keys(subs).sort().forEach(function(subName) {
-                var subKey = catName + '|' + subName;
-                var subMeta = (typeof SUBCATEGORY_META !== 'undefined' && SUBCATEGORY_META[subKey]) || {};
-                var ssubs = subs[subName];
-                var subCount = Object.values(ssubs).reduce(function(s, arr) { return s + arr.length; }, 0);
-
-                html += '<div class="subcategory-block">';
-                html += '<div class="subcategory-block-title">' + escHtml(subName);
-                html += ' <span style="color:var(--text-secondary);font-size:0.75rem;font-weight:400;">(' + subCount + ' 个知识点)</span></div>';
-                if (subMeta.description) {
-                    html += '<p class="subcategory-block-desc">' + escHtml(subMeta.description) + '</p>';
-                }
-                html += '<div class="subcategory-kp-grid">';
-                var flatKps = [];
-                var ssubGroups = [];
-                Object.keys(ssubs).sort().forEach(function(ssub) {
-                    if (ssub) {
-                        ssubGroups.push({ name: ssub, items: ssubs[ssub] });
-                    } else {
-                        flatKps = flatKps.concat(ssubs[ssub]);
-                    }
-                });
-
-                // 没有小分类的知识点直接铺在子分类网格里
-                flatKps.forEach(function(kp) {
-                    html += renderKpCard(kp);
-                });
-
-                // 有小分类的按小分类成块，并接线 SUBSUBCATEGORY_META 的说明
-                ssubGroups.forEach(function(group) {
-                    var ssubMeta = (typeof SUBSUBCATEGORY_META !== 'undefined' &&
-                        SUBSUBCATEGORY_META[subKey + '|' + group.name]) || {};
-                    html += '<div class="subsubcategory-block">';
-                    html += '<div class="subsubcategory-block-title">' + escHtml(group.name);
-                    html += ' <span class="subsubcategory-block-count">' + group.items.length + ' 个</span></div>';
-                    if (ssubMeta.description) {
-                        html += '<p class="subsubcategory-block-desc">' + escHtml(ssubMeta.description) + '</p>';
-                    }
-                    html += '<div class="subsubcategory-block-grid">';
-                    group.items.forEach(function(kp) {
-                        html += renderKpCard(kp);
-                    });
-                    html += '</div></div>';
-                });
-                html += '</div></div>';
-            });
+            html += buildCategoryDirectory(catName, true);
 
             html += '</div>';
             contentEl.innerHTML = html;
@@ -2218,8 +2301,7 @@
                     var active = currentId === prob.id ? ' active' : '';
                     var label = prob.title;
                     if (prob.difficulty) {
-                        var diffIcon = prob.difficulty === '简单' ? '🟢' : (prob.difficulty === '中等' ? '🟡' : (prob.difficulty === '困难' ? '🔴' : '⚪'));
-                        label = diffIcon + ' ' + label;
+                        label = diffMeta(prob.difficulty).icon + ' ' + label;
                     }
                     html += '<div class="kp-item' + active + '" onclick="selectProblem(\'' + prob.id + '\')" title="' + escAttr(prob.title) + '">' + escHtml(label) + '</div>';
                 });
@@ -2289,12 +2371,13 @@
             tabsHtml += '</div>';
 
             // Meta bar
-            var diffClass = 'badge-difficulty-medium';
-            if (prob.difficulty === '简单') diffClass = 'badge-difficulty-easy';
-            else if (prob.difficulty === '困难') diffClass = 'badge-difficulty-hard';
+            var diffClass = diffMeta(prob.difficulty).cls;
 
             var metaHtml = '<div class="meta-bar">';
             metaHtml += '<span class="badge ' + diffClass + '"> difficulty: ' + escHtml(prob.difficulty) + '</span>';
+            var cfVal = prob.cfRating === undefined || prob.cfRating === null || prob.cfRating === '' ? 'NaN' : String(prob.cfRating);
+            var cfCls = /^\d+$/.test(cfVal) ? 'badge-cf' : 'badge-cf-na';
+            metaHtml += '<span class="badge ' + cfCls + '"> 难度评分: ' + escHtml(cfVal) + '</span>';
             if (prob.oj) {
                 metaHtml += '<span class="badge badge-oj">' + escHtml(prob.oj) + '</span>';
             }
@@ -2408,10 +2491,10 @@
             var totalProb = PROBLEMS_DATA.length;
 
             // Difficulty stats
-            var easyCount = PROBLEMS_DATA.filter(function(p) { return p.difficulty === '简单'; }).length;
-            var medCount = PROBLEMS_DATA.filter(function(p) { return p.difficulty === '中等'; }).length;
-            var hardCount = PROBLEMS_DATA.filter(function(p) { return p.difficulty === '困难'; }).length;
-            var otherCount = PROBLEMS_DATA.filter(function(p) { return p.difficulty !== '简单' && p.difficulty !== '中等' && p.difficulty !== '困难'; }).length;
+            var easyCount = PROBLEMS_DATA.filter(function(p) { return diffMeta(p.difficulty).group === 'easy'; }).length;
+            var medCount = PROBLEMS_DATA.filter(function(p) { return diffMeta(p.difficulty).group === 'medium'; }).length;
+            var hardCount = PROBLEMS_DATA.filter(function(p) { return diffMeta(p.difficulty).group === 'hard'; }).length;
+            var otherCount = PROBLEMS_DATA.filter(function(p) { return diffMeta(p.difficulty).group === 'unknown'; }).length;
 
             var html = '<div class="catalog-page">';
             document.title = '题目专辑 · 算法知识点查询系统';
@@ -2420,20 +2503,26 @@
 
             // Legend
             html += '<div class="catalog-legend">';
-            html += '<span class="legend-item"><span class="legend-dot">🟢</span> 简单</span>';
-            html += '<span class="legend-item"><span class="legend-dot">🟡</span> 中等</span>';
-            html += '<span class="legend-item"><span class="legend-dot">🔴</span> 困难</span>';
-            html += '<span class="legend-item"><span class="legend-dot">⚪</span> 其他（提高 / 普及+ 等）</span>';
+            html += '<span class="legend-item"><span class="legend-dot">🟥</span> 入门</span>';
+            html += '<span class="legend-item"><span class="legend-dot">🟧</span> 普及−</span>';
+            html += '<span class="legend-item"><span class="legend-dot">🟨</span> 普及/提高−</span>';
+            html += '<span class="legend-item"><span class="legend-dot">🟩</span> 普及+/提高−</span>';
+            html += '<span class="legend-item"><span class="legend-dot">🟦</span> 提高</span>';
+            html += '<span class="legend-item"><span class="legend-dot">🔵</span> 提高+/省选−</span>';
+            html += '<span class="legend-item"><span class="legend-dot">🟪</span> 省选/NOI−</span>';
+            html += '<span class="legend-item"><span class="legend-dot">⬛</span> NOI/NOI+/CTSC</span>';
+            html += '<span class="legend-item"><span class="legend-dot">⬜</span> 暂未评定</span>';
             html += '</div>';
+            html += '<div style="margin:12px 0 4px;"><button class="viz-btn" onclick="openVenn()">🌸 打开维恩图</button></div>';
 
             // Stats
             html += '<div class="catalog-stats">';
             html += '<div class="catalog-stat"><div class="catalog-stat-num">' + totalProb + '</div><div class="catalog-stat-label">题目总数</div></div>';
             html += '<div class="catalog-stat"><div class="catalog-stat-num">' + cats.length + '</div><div class="catalog-stat-label">分类</div></div>';
-            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#166534;">' + easyCount + '</div><div class="catalog-stat-label">🟢 简单</div></div>';
-            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#854d0e;">' + medCount + '</div><div class="catalog-stat-label">🟡 中等</div></div>';
-            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#991b1b;">' + hardCount + '</div><div class="catalog-stat-label">🔴 困难</div></div>';
-            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#6b7280;">' + otherCount + '</div><div class="catalog-stat-label">⚪ 其他</div></div>';
+            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#166534;">' + easyCount + '</div><div class="catalog-stat-label">🟢 入门~普及−</div></div>';
+            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#854d0e;">' + medCount + '</div><div class="catalog-stat-label">🟡 普及/提高− ~ 普及+/提高−</div></div>';
+            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#991b1b;">' + hardCount + '</div><div class="catalog-stat-label">🔴 提高及以上</div></div>';
+            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#6b7280;">' + otherCount + '</div><div class="catalog-stat-label">⚪ 暂未评定</div></div>';
             html += '</div>';
 
             // Category sections
@@ -2452,10 +2541,12 @@
                 html += '<div class="catalog-subcard" style="grid-column: 1 / -1;">';
                 html += '<ul class="catalog-kp-list">';
                 probs.forEach(function(prob) {
-                    var diffIcon = prob.difficulty === '简单' ? '🟢' : (prob.difficulty === '中等' ? '🟡' : (prob.difficulty === '困难' ? '🔴' : '⚪'));
+                    var diffIcon = diffMeta(prob.difficulty).icon;
                     var ojLabel = prob.oj ? ' [' + escHtml(prob.oj) + (prob.problemId ? ' ' + escHtml(prob.problemId) : '') + ']' : '';
+                    var cfTxt = String(prob.cfRating === undefined || prob.cfRating === null || prob.cfRating === '' ? 'NaN' : prob.cfRating);
+                    var cfTag = /^\d+$/.test(cfTxt) ? '<span style="color:#4f46e5;font-size:0.72rem;margin-left:6px;">评分 ' + escHtml(cfTxt) + '</span>' : '';
                     html += '<li class="catalog-kp-item" onclick="selectProblem(\'' + prob.id + '\')" title="' + escAttr(prob.title) + '">' +
-                        diffIcon + ' ' + escHtml(prob.title) + '<span style="color:var(--text-secondary);font-size:0.75rem;">' + ojLabel + '</span></li>';
+                        diffIcon + ' ' + escHtml(prob.title) + '<span style="color:var(--text-secondary);font-size:0.75rem;">' + ojLabel + '</span>' + cfTag + '</li>';
                 });
                 html += '</ul></div>';
                 html += '</div></div></div>';
@@ -2523,6 +2614,21 @@
             return '<div class="subcategory-kp-card" onclick="selectKP(\'' + kp.id + '\')" title="' + escAttr(kp.title) + '">' + escHtml(kp.title) + '</div>';
         }
 
+        // 洛谷评级 → 图标 / 徽章样式（配色与洛谷一致）/ 统计分组
+        function diffMeta(d) {
+            switch (d) {
+                case '入门': return { icon: '🟥', cls: 'badge-difficulty-0', group: 'easy' };
+                case '普及−': return { icon: '🟧', cls: 'badge-difficulty-1', group: 'easy' };
+                case '普及/提高−': return { icon: '🟨', cls: 'badge-difficulty-2', group: 'medium' };
+                case '普及+/提高−': return { icon: '🟩', cls: 'badge-difficulty-3', group: 'medium' };
+                case '提高': return { icon: '🟦', cls: 'badge-difficulty-4', group: 'hard' };
+                case '提高+/省选−': return { icon: '🔵', cls: 'badge-difficulty-5', group: 'hard' };
+                case '省选/NOI−': return { icon: '🟪', cls: 'badge-difficulty-6', group: 'hard' };
+                case 'NOI/NOI+/CTSC': return { icon: '⬛', cls: 'badge-difficulty-7', group: 'hard' };
+                default: return { icon: '⬜', cls: 'badge-difficulty-na', group: 'unknown' };
+            }
+        }
+
         function escHtml(text) {
             if (!text) return '';
             var div = document.createElement('div');
@@ -2534,6 +2640,513 @@
             if (!text) return '';
             return text.replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
+
+        // ===== 可视化：星图 / 维恩图 =====
+        var VIZ_PALETTE = ['#ef4444', '#f59e0b', '#22c55e', '#38bdf8', '#a855f7', '#ec4899', '#14b8a6', '#f97316', '#6366f1', '#84cc16'];
+        var VIZ_SHAPES = ['circle', 'square', 'diamond', 'triangle', 'hex', 'star'];
+        var CAT_STYLE_CACHE = null;
+        var VIZ_INFO = {};
+        var vizTipTimer = null;
+
+        function catStyle(cat) {
+            if (!CAT_STYLE_CACHE) {
+                CAT_STYLE_CACHE = {};
+                var cats = [];
+                KNOWLEDGE_DATA.forEach(function(k) {
+                    if (cats.indexOf(k.category) < 0) cats.push(k.category);
+                });
+                cats.sort();
+                cats.forEach(function(c, i) {
+                    CAT_STYLE_CACHE[c] = {
+                        color: VIZ_PALETTE[i % VIZ_PALETTE.length],
+                        shape: VIZ_SHAPES[i % VIZ_SHAPES.length]
+                    };
+                });
+            }
+            return CAT_STYLE_CACHE[cat] || { color: '#94a3b8', shape: 'circle' };
+        }
+
+        function diffColor(d) {
+            var map = {
+                '入门': '#FE4C61', '普及−': '#F39C11', '普及/提高−': '#FFC116',
+                '普及+/提高−': '#52C41A', '提高': '#13C2C2', '提高+/省选−': '#3498DB',
+                '省选/NOI−': '#9D3DCF', 'NOI/NOI+/CTSC': '#6b7280'
+            };
+            return map[d] || '#9CA3AF';
+        }
+
+        function vizShape(shape, x, y, r, color, op) {
+            var alpha = (op === undefined) ? 1 : op;
+            var fill = ' fill="' + color + '" fill-opacity="' + alpha + '"';
+            if (shape === 'square') {
+                return '<rect x="' + (x - r) + '" y="' + (y - r) + '" width="' + (2 * r) + '" height="' + (2 * r) + '" rx="2"' + fill + '/>';
+            }
+            if (shape === 'diamond') {
+                return '<polygon points="' + x + ',' + (y - r) + ' ' + (x + r) + ',' + y + ' ' + x + ',' + (y + r) + ' ' + (x - r) + ',' + y + '"' + fill + '/>';
+            }
+            if (shape === 'triangle') {
+                return '<polygon points="' + x + ',' + (y - r) + ' ' + (x + r * 0.88) + ',' + (y + r * 0.72) + ' ' + (x - r * 0.88) + ',' + (y + r * 0.72) + '"' + fill + '/>';
+            }
+            if (shape === 'hex') {
+                var pts = [];
+                for (var i = 0; i < 6; i++) {
+                    var a = (-90 + i * 60) * Math.PI / 180;
+                    pts.push((x + Math.cos(a) * r).toFixed(1) + ',' + (y + Math.sin(a) * r).toFixed(1));
+                }
+                return '<polygon points="' + pts.join(' ') + '"' + fill + '/>';
+            }
+            if (shape === 'star') {
+                var pts2 = [];
+                for (var j = 0; j < 10; j++) {
+                    var a2 = (-90 + j * 36) * Math.PI / 180;
+                    var rr = (j % 2 === 0) ? r : r * 0.45;
+                    pts2.push((x + Math.cos(a2) * rr).toFixed(1) + ',' + (y + Math.sin(a2) * rr).toFixed(1));
+                }
+                return '<polygon points="' + pts2.join(' ') + '"' + fill + '/>';
+            }
+            return '<circle cx="' + x + '" cy="' + y + '" r="' + r + '"' + fill + '/>';
+        }
+
+        function vizMoveTip(ev) {
+            var tip = document.getElementById('viz-tip');
+            var x = ev.clientX + 16, y = ev.clientY + 16;
+            var w = tip.offsetWidth, h = tip.offsetHeight;
+            if (x + w > window.innerWidth - 12) x = ev.clientX - w - 16;
+            if (y + h > window.innerHeight - 12) y = ev.clientY - h - 16;
+            tip.style.left = x + 'px';
+            tip.style.top = y + 'px';
+        }
+
+        function bindVizNodes(container) {
+            var nodes = container.querySelectorAll('.viz-node');
+            for (var i = 0; i < nodes.length; i++) {
+                (function(el) {
+                    el.addEventListener('mouseenter', function(ev) {
+                        var info = VIZ_INFO[el.getAttribute('data-id')];
+                        if (!info) return;
+                        if (vizTipTimer) clearTimeout(vizTipTimer);
+                        vizTipTimer = setTimeout(function() {
+                            var tip = document.getElementById('viz-tip');
+                            tip.innerHTML = info;
+                            tip.style.display = 'block';
+                            vizMoveTip(ev);
+                        }, 350);
+                    });
+                    el.addEventListener('mousemove', function(ev) {
+                        var tip = document.getElementById('viz-tip');
+                        if (tip.style.display === 'block') vizMoveTip(ev);
+                    });
+                    el.addEventListener('mouseleave', function() {
+                        if (vizTipTimer) { clearTimeout(vizTipTimer); vizTipTimer = null; }
+                        document.getElementById('viz-tip').style.display = 'none';
+                    });
+                })(nodes[i]);
+            }
+        }
+
+        function vizAuthors(item) {
+            var names = [];
+            (item.versions || []).forEach(function(v) {
+                if (v.author && names.indexOf(v.author) < 0) names.push(v.author);
+            });
+            return names.length ? names.join(' / ') : '站主';
+        }
+
+        function vizTagHtml(tags) {
+            var out = '';
+            (tags || []).slice(0, 8).forEach(function(t) {
+                out += '<span class="t-tag">' + escHtml(t) + '</span>';
+            });
+            return out;
+        }
+
+        // ---------- 星图 ----------
+        var starCenterId = null;
+
+        function openStarMap(kpId) {
+            var kp = null;
+            KNOWLEDGE_DATA.forEach(function(k) { if (k.id === kpId) kp = k; });
+            if (!kp) return;
+            starCenterId = kpId;
+            document.getElementById('viz-tip').style.display = 'none';
+
+            var byId = {};
+            KNOWLEDGE_DATA.forEach(function(k) { byId[k.id] = k; });
+
+            var pre = [], dep = [], rel = [], seen = {};
+            seen[kpId] = 1;
+            (kp.prerequisites || []).forEach(function(id) {
+                if (byId[id] && !seen[id]) { seen[id] = 1; pre.push(id); }
+            });
+            KNOWLEDGE_DATA.forEach(function(k) {
+                if (!seen[k.id] && (k.prerequisites || []).indexOf(kpId) >= 0) { seen[k.id] = 1; dep.push(k.id); }
+            });
+            (kp.related || []).forEach(function(id) {
+                if (byId[id] && !seen[id]) { seen[id] = 1; rel.push(id); }
+            });
+
+            var W = 1040, H = 760, cx = W / 2, cy = H / 2;
+            var R1 = 220, R2 = 320;
+            var pos = {};
+            var totalNodes = pre.length + dep.length + rel.length;
+            // 邻居很多时（例如大类总述），弧形会挤成一团；改用“中心 + 两列邻居”的布局
+            var columnLayout = totalNodes > 12;
+            if (columnLayout) cx = 300;
+
+            function placeArc(list, radius, a0, a1) {
+                for (var i = 0; i < list.length; i++) {
+                    var t = list.length === 1 ? 0.5 : i / (list.length - 1);
+                    var a = (a0 + (a1 - a0) * t) * Math.PI / 180;
+                    pos[list[i]] = { x: cx + Math.cos(a) * radius, y: cy + Math.sin(a) * radius };
+                }
+            }
+            if (columnLayout) {
+                var list = pre.concat(dep, rel);
+                var perCol = Math.ceil(list.length / 2);
+                var colX = [560, 810];
+                for (var li = 0; li < list.length; li++) {
+                    var col = Math.floor(li / perCol);
+                    var rowsInCol = Math.min(perCol, list.length - col * perCol);
+                    var row = li - col * perCol;
+                    var yy = rowsInCol === 1 ? cy : 90 + (H - 150) * row / (rowsInCol - 1);
+                    pos[list[li]] = { x: colX[col], y: yy };
+                }
+            } else {
+                placeArc(pre, R1, 110, 250);
+                placeArc(dep, R1, -70, 70);
+                for (var i = 0; i < rel.length; i++) {
+                    var ra = (-90 + i * 360 / rel.length) * Math.PI / 180;
+                    pos[rel[i]] = { x: cx + Math.cos(ra) * R2, y: cy + Math.sin(ra) * R2 };
+                }
+            }
+
+            VIZ_INFO = {};
+            var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet">';
+            svg += '<defs><marker id="viz-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">' +
+                   '<path d="M0,0 L10,5 L0,10 z" fill="rgba(96,165,250,0.9)"/></marker></defs>';
+
+            function edgePoint(a, b, shrinkA, shrinkB) {
+                var dx = b.x - a.x, dy = b.y - a.y;
+                var len = Math.sqrt(dx * dx + dy * dy) || 1;
+                var ux = dx / len, uy = dy / len;
+                return {
+                    x1: (a.x + ux * shrinkA).toFixed(1), y1: (a.y + uy * shrinkA).toFixed(1),
+                    x2: (b.x - ux * shrinkB).toFixed(1), y2: (b.y - uy * shrinkB).toFixed(1)
+                };
+            }
+
+            pre.forEach(function(id) {
+                var e = edgePoint(pos[id], { x: cx, y: cy }, 14, 50);
+                svg += '<line class="viz-edge-pre" x1="' + e.x1 + '" y1="' + e.y1 + '" x2="' + e.x2 + '" y2="' + e.y2 + '" marker-end="url(#viz-arrow)"/>';
+            });
+            dep.forEach(function(id) {
+                var e = edgePoint({ x: cx, y: cy }, pos[id], 50, 14);
+                svg += '<line class="viz-edge-pre" x1="' + e.x1 + '" y1="' + e.y1 + '" x2="' + e.x2 + '" y2="' + e.y2 + '" marker-end="url(#viz-arrow)"/>';
+            });
+            rel.forEach(function(id) {
+                var e = edgePoint(pos[id], { x: cx, y: cy }, 14, 38);
+                svg += '<line class="viz-edge-rel" x1="' + e.x1 + '" y1="' + e.y1 + '" x2="' + e.x2 + '" y2="' + e.y2 + '"/>';
+            });
+
+            function drawNode(k, x, y, r, isCenter) {
+                var st = catStyle(k.category);
+                VIZ_INFO[k.id] = '<b>' + escHtml(k.title) + '</b><br>' +
+                    '<span class="t-muted">' + escHtml(k.category) + ' · ' + escHtml(k.subcategory) + '</span><br>' +
+                    '<span class="t-muted">作者：' + escHtml(vizAuthors(k)) + '</span><br>' +
+                    vizTagHtml(k.tags);
+                var click = isCenter ? '' : ' onclick="starJump(\'' + k.id + '\')"';
+                var stroke = isCenter ? ' stroke="#f8fafc" stroke-width="2"' : ' stroke="rgba(255,255,255,0.35)" stroke-width="1"';
+                var out = '<g class="viz-node" data-id="' + k.id + '"' + click + '>';
+                if (isCenter) out += '<circle cx="' + x + '" cy="' + y + '" r="' + (r + 9) + '" fill="' + st.color + '" fill-opacity="0.18"/>';
+                out += vizShape(st.shape, x, y, r, st.color).replace('/>', stroke + '/>');
+                out += '</g>';
+                var anchor = isCenter ? 'middle' : (x < cx ? 'end' : 'start');
+                var dx = isCenter ? 0 : (x < cx ? -16 : 16);
+                var dy = isCenter ? (r + 34) : 4;
+                if (isCenter) {
+                    // 中心标题加背板：挡住穿过的关联虚线，保证可读
+                    var lw = 0;
+                    for (var ci = 0; ci < k.title.length; ci++) {
+                        lw += k.title.charCodeAt(ci) > 255 ? 19 : 10.5;
+                    }
+                    out += '<rect x="' + (x - lw / 2 - 10) + '" y="' + (y + dy - 19) + '" width="' + (lw + 20) + '" height="27" rx="7" fill="rgba(7,11,24,0.92)"/>';
+                }
+                var labelText = k.title;
+                if (!isCenter && columnLayout && labelText.length > 14) labelText = labelText.slice(0, 14) + '…';
+                out += '<text class="viz-label' + (isCenter ? ' center' : '') + '" x="' + (x + dx) + '" y="' + (y + dy) + '" text-anchor="' + anchor + '">' + escHtml(labelText) + '</text>';
+                return out;
+            }
+
+            pre.concat(dep, rel).forEach(function(id) {
+                var p = pos[id];
+                svg += drawNode(byId[id], p.x, p.y, 11, false);
+            });
+            svg += drawNode(kp, cx, cy, 26, true);
+            if (pre.length + dep.length + rel.length === 0) {
+                svg += '<text class="viz-label" x="' + cx + '" y="' + (cy + 78) + '" text-anchor="middle">该知识点暂未登记前置或关联节点</text>';
+            }
+            svg += '</svg>';
+
+            document.getElementById('star-title').textContent = '星图 · ' + kp.title;
+            var legend = '';
+            var used = [];
+            [kp].concat(pre.map(function(id) { return byId[id]; }), dep.map(function(id) { return byId[id]; }), rel.map(function(id) { return byId[id]; })).forEach(function(k) {
+                if (k && used.indexOf(k.category) < 0) used.push(k.category);
+            });
+            used.forEach(function(c) {
+                legend += '<span><i style="background:' + catStyle(c).color + '"></i>' + escHtml(c) + '</span>';
+            });
+            legend += '<span><i style="background:rgba(96,165,250,0.9)"></i>前置→高阶</span>';
+            legend += '<span><i style="background:rgba(148,163,184,0.6)"></i>关联（无向）</span>';
+            document.getElementById('star-legend').innerHTML = legend;
+
+            var body = document.getElementById('star-body');
+            body.innerHTML = svg;
+            bindVizNodes(body);
+            document.getElementById('star-overlay').classList.add('open');
+        }
+
+        function starJump(id) {
+            // 不离开星图：把被点击的节点切成新的中心，继续在原浮层里探索
+            openStarMap(id);
+        }
+
+        function closeStarMap() {
+            document.getElementById('star-overlay').classList.remove('open');
+            document.getElementById('viz-tip').style.display = 'none';
+        }
+
+        // Esc / 关闭按钮：退出星图并打开当前中心对应的栏目（大类总述页含简介与子分类目录）
+        function exitStarMap() {
+            var id = starCenterId;
+            closeStarMap();
+            if (id) selectKP(id);
+        }
+
+        // ---------- 维恩图 ----------
+        function vennHash(s) {
+            var h = 0;
+            for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+            return h;
+        }
+
+        function openVenn() {
+            var cats = [];
+            PROBLEMS_DATA.forEach(function(p) {
+                var c = p.category || '未分类';
+                if (cats.indexOf(c) < 0) cats.push(c);
+            });
+            cats.sort();
+
+            // 先展开浮层并填好图例（图例会换行、改变画布高度），再量画布实际比例
+            var venBody = document.getElementById('venn-body');
+            document.getElementById('venn-overlay').classList.add('open');
+            var lg = '';
+            cats.forEach(function(c) {
+                lg += '<span><i style="background:' + catStyle(c).color + '"></i>' + escHtml(c) + '</span>';
+            });
+            lg += '<span style="color:#94a3b8">点色＝难度：</span>';
+            ['入门', '普及−', '普及/提高−', '普及+/提高−', '提高', '提高+/省选−', '省选/NOI−', '暂未评定'].forEach(function(d) {
+                lg += '<span><i style="background:' + diffColor(d) + '"></i>' + escHtml(d) + '</span>';
+            });
+            document.getElementById('venn-legend').innerHTML = lg;
+            var bodyAspect = (venBody.clientWidth || 1500) / Math.max(1, venBody.clientHeight || 800);
+
+            var W = 2400, H = 1400, cx = W / 2, cy = H / 2, PAD = 34;
+            var pos = {}, cnt = {};
+            cats.forEach(function(c) { cnt[c] = 0; });
+            PROBLEMS_DATA.forEach(function(p) {
+                var c = p.category || '未分类';
+                if (cnt[c] !== undefined) cnt[c]++;
+            });
+            // 半径按题目数缩放并封顶，避免大圆顶出画布
+            cats.forEach(function(c) {
+                pos[c] = { x: 0, y: 0, r: Math.min(196, 74 + Math.sqrt(cnt[c] || 1) * 23) };
+            });
+            // 环形初值 + 轻推松弛 + 边界夹紧，保证所有圆完整落在画布内
+            var Rx = 460, Ry = 225;
+            cats.forEach(function(c, i) {
+                var a = -Math.PI / 2 + i * 2 * Math.PI / cats.length;
+                pos[c].x = cx + Math.cos(a) * Rx;
+                pos[c].y = cy + Math.sin(a) * Ry;
+            });
+            for (var it = 0; it < 220; it++) {
+                for (var bi = 0; bi < cats.length; bi++) {
+                    for (var bj = bi + 1; bj < cats.length; bj++) {
+                        var A = pos[cats[bi]], B = pos[cats[bj]];
+                        var ddx = B.x - A.x, ddy = B.y - A.y;
+                        var dd = Math.sqrt(ddx * ddx + ddy * ddy) || 1;
+                        var minD = (A.r + B.r) * 0.72;
+                        if (dd < minD) {
+                            var push = (minD - dd) / dd * 0.25;
+                            A.x -= ddx * push; A.y -= ddy * push;
+                            B.x += ddx * push; B.y += ddy * push;
+                        }
+                    }
+                }
+                cats.forEach(function(c) {
+                    var p = pos[c];
+                    p.x = Math.max(p.r + PAD, Math.min(W - p.r - PAD, p.x));
+                    p.y = Math.max(p.r + PAD + 24, Math.min(H - p.r - PAD, p.y));
+                });
+            }
+            // 宽屏时把布局横向拉开，充分利用水平空间；窄屏保持圆形聚拢
+            var kx = Math.max(1, Math.min(1.55, bodyAspect / 1.5));
+            cats.forEach(function(c) {
+                var p = pos[c];
+                p.x = cx + (p.x - cx) * kx;
+                p.x = Math.max(p.r + PAD, Math.min(W - p.r - PAD, p.x));
+            });
+
+            var tagCat = {};
+            KNOWLEDGE_DATA.forEach(function(k) {
+                (k.tags || []).forEach(function(t) {
+                    var key = String(t).toLowerCase();
+                    if (!tagCat[key]) tagCat[key] = {};
+                    tagCat[key][k.category] = 1;
+                });
+            });
+
+            // 按实际内容包围盒取 viewBox，充分利用浮层空间（避免四周大片留白）
+            var bb = { x1: 1e9, y1: 1e9, x2: -1e9, y2: -1e9 };
+            cats.forEach(function(c) {
+                var p = pos[c];
+                bb.x1 = Math.min(bb.x1, p.x - p.r); bb.y1 = Math.min(bb.y1, p.y - p.r);
+                bb.x2 = Math.max(bb.x2, p.x + p.r); bb.y2 = Math.max(bb.y2, p.y + p.r);
+            });
+            var vp = 26;
+            var vbW = (bb.x2 - bb.x1) + vp * 2, vbH = (bb.y2 - bb.y1) + vp * 2;
+            // 让 viewBox 比例贴合浮层画布，避免单方向出现大片留白
+            var aspect = Math.max(1.1, Math.min(2.8, bodyAspect));
+            if (vbW / vbH < aspect) vbW = vbH * aspect;
+            else vbH = vbW / aspect;
+            var vbX = (bb.x1 + bb.x2) / 2 - vbW / 2;
+            var vbY = (bb.y1 + bb.y2) / 2 - vbH / 2;
+
+            VIZ_INFO = {};
+            var svg = '<svg viewBox="' + vbX.toFixed(0) + ' ' + vbY.toFixed(0) + ' ' + vbW.toFixed(0) + ' ' + vbH.toFixed(0) + '" preserveAspectRatio="xMidYMid meet">';
+
+            cats.forEach(function(c) {
+                var p = pos[c], st = catStyle(c);
+                var dist = {};
+                PROBLEMS_DATA.forEach(function(q) {
+                    if ((q.category || '未分类') !== c) return;
+                    var d = q.difficulty || '暂未评定';
+                    dist[d] = (dist[d] || 0) + 1;
+                });
+                var distHtml = Object.keys(dist).sort().map(function(d) {
+                    return '<span class="t-tag" style="border-left:3px solid ' + diffColor(d) + '">' + escHtml(d) + ' ×' + dist[d] + '</span>';
+                }).join('');
+                VIZ_INFO['cat:' + c] = '<b>' + escHtml(c) + '</b><br>' +
+                    '<span class="t-muted">题目 ' + (cnt[c] || 0) + ' 道</span><br>' + distHtml;
+                svg += '<g class="viz-node" data-id="cat:' + escHtml(c) + '">' +
+                    '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="' + p.r.toFixed(1) + '" fill="' + st.color + '" fill-opacity="0.10" stroke="' + st.color + '" stroke-opacity="0.45" stroke-width="1.4"/>' +
+                    '</g>';
+            });
+
+            // 先按「所属集合组合」分组，再在每组内用向日葵螺旋均匀铺点，避免重叠
+            var groups = {}, order = [];
+            PROBLEMS_DATA.forEach(function(p) {
+                var set = {};
+                set[p.category || '未分类'] = 1;
+                (p.tags || []).forEach(function(t) {
+                    var m = tagCat[String(t).toLowerCase()];
+                    if (!m) return;
+                    for (var c in m) { if (pos[c]) set[c] = 1; }
+                });
+                var arr = Object.keys(set).filter(function(c) { return !!pos[c]; });
+                if (!arr.length) return;
+                if (arr.length > 3) arr = arr.slice(0, 3);
+                arr.sort();
+                var key = arr.join('|');
+                if (!groups[key]) { groups[key] = { cats: arr, items: [] }; order.push(key); }
+                groups[key].items.push(p);
+            });
+            order.sort(function(a, b) { return groups[a].cats.length - groups[b].cats.length; });
+
+            var points = [];
+            order.forEach(function(key) {
+                var g = groups[key], n = g.items.length;
+                var ax = 0, ay = 0;
+                g.cats.forEach(function(c) { ax += pos[c].x; ay += pos[c].y; });
+                ax /= g.cats.length; ay /= g.cats.length;
+                var maxR = g.cats.length === 1 ? pos[g.cats[0]].r * 0.74 : 34;
+                var spin = (vennHash(key) % 360) * Math.PI / 180;
+                g.items.forEach(function(p, i) {
+                    var rr = maxR * Math.sqrt((i + 0.6) / n);
+                    var aa = spin + i * 2.399963;
+                    points.push({ p: p, x: ax + Math.cos(aa) * rr, y: ay + Math.sin(aa) * rr });
+                });
+            });
+
+            // 全局斥力松弛：把跨分组撞在一起的点推开，保证每个点可单独悬停
+            for (var pit = 0; pit < 80; pit++) {
+                var moved = false;
+                for (var pi = 0; pi < points.length; pi++) {
+                    for (var pj = pi + 1; pj < points.length; pj++) {
+                        var pa = points[pi], pb = points[pj];
+                        var vx = pb.x - pa.x, vy = pb.y - pa.y;
+                        var vd = Math.sqrt(vx * vx + vy * vy);
+                        if (vd >= 16) continue;
+                        if (vd < 0.01) { vx = 0.7; vy = 0.7; vd = 1; }
+                        var mv = (16 - vd) / vd * 0.5;
+                        pa.x -= vx * mv; pa.y -= vy * mv;
+                        pb.x += vx * mv; pb.y += vy * mv;
+                        moved = true;
+                    }
+                }
+                if (!moved) break;
+            }
+
+            points.forEach(function(pt) {
+                var p = pt.p;
+                var color = diffColor(p.difficulty);
+                var tagStr = (p.tags || []).slice(0, 6).map(function(t) {
+                    return '<span class="t-tag">' + escHtml(t) + '</span>';
+                }).join('');
+                VIZ_INFO[p.id] = '<b>' + escHtml(p.title) + '</b><br>' +
+                    '<span class="t-muted">' + escHtml(p.difficulty || '暂未评定') +
+                    (p.oj ? ' · ' + escHtml(p.oj) + (p.problemId && p.problemId !== '-' ? ' ' + escHtml(p.problemId) : '') : '') + '</span><br>' +
+                    (p.source ? '<span class="t-muted">来源：' + escHtml(p.source) + '</span><br>' : '') +
+                    '<span class="t-muted">作者：' + escHtml(vizAuthors(p)) + '</span><br>' + tagStr;
+                svg += '<g class="viz-node" data-id="' + p.id + '" onclick="vennJump(\'' + p.id + '\')">' +
+                    '<circle cx="' + pt.x.toFixed(1) + '" cy="' + pt.y.toFixed(1) + '" r="7" fill="' + color + '" stroke="rgba(8,12,26,0.85)" stroke-width="1.2"/>' +
+                    '</g>';
+            });
+            cats.forEach(function(c) {
+                var p = pos[c];
+                // 标签加深色背板，避免被题目点压住看不清
+                var lw = 0;
+                for (var ci = 0; ci < c.length; ci++) lw += c.charCodeAt(ci) > 255 ? 20 : 11;
+                svg += '<rect x="' + (p.x - lw / 2 - 10).toFixed(1) + '" y="' + (p.y - p.r + 5).toFixed(1) + '" width="' + (lw + 20).toFixed(1) + '" height="29" rx="9" fill="rgba(7,11,24,0.72)"/>';
+                svg += '<text class="viz-bubble-label" x="' + p.x.toFixed(1) + '" y="' + (p.y - p.r + 26).toFixed(1) + '" text-anchor="middle">' + escHtml(c) + '</text>';
+            });
+            svg += '</svg>';
+
+            var body = document.getElementById('venn-body');
+            body.innerHTML = svg;
+            bindVizNodes(body);
+        }
+
+        function vennJump(id) {
+            closeVenn();
+            switchMode('prob');
+            selectProblem(id);
+        }
+
+        function closeVenn() {
+            document.getElementById('venn-overlay').classList.remove('open');
+            document.getElementById('viz-tip').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            if (document.getElementById('star-overlay').classList.contains('open')) {
+                exitStarMap();
+                return;
+            }
+            closeVenn();
+        });
 
         // ===== Start =====
         init();
@@ -2566,5 +3179,27 @@
             </div>
         </div>
     </div>
+
+    <!-- 星图 -->
+    <div class="viz-overlay" id="star-overlay">
+        <div class="viz-header">
+            <span class="viz-title" id="star-title">星图</span>
+            <span class="viz-legend" id="star-legend"></span>
+            <button class="viz-close" onclick="exitStarMap()">关闭 Esc</button>
+        </div>
+        <div class="viz-body" id="star-body"></div>
+    </div>
+
+    <!-- 维恩图 -->
+    <div class="viz-overlay" id="venn-overlay">
+        <div class="viz-header">
+            <span class="viz-title">题目维恩图</span>
+            <span class="viz-legend" id="venn-legend"></span>
+            <button class="viz-close" onclick="closeVenn()">关闭 Esc</button>
+        </div>
+        <div class="viz-body" id="venn-body"></div>
+    </div>
+
+    <div class="viz-tip" id="viz-tip"></div>
 
 </body></html>

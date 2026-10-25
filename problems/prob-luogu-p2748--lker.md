@@ -3,7 +3,8 @@ id: prob-luogu-p2748
 title: 'P2748 [USACO16OPEN] Landscaping P'
 oj: '洛谷'
 problemId: 'P2748'
-difficulty: '其他'
+difficulty: '提高'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "SlopeTrick", "凸函数", "堆"]
 timeComplexity: '视具体实现'

@@ -3,7 +3,8 @@ id: prob-p5664-emiya
 title: 'P5664 Emiya 家今天的饭 — 容斥 + 差值DP（CSP-S 2019）'
 oj: '洛谷'
 problemId: 'P5664'
-difficulty: '困难'
+difficulty: '提高+/省选−'
+cfRating: 'NaN'
 category: '动态规划'
 tags: ["动态规划", "计数DP", "容斥原理", "差值DP", "CSP-S"]
 timeComplexity: 'O(n²m)'

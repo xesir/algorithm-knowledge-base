@@ -3,7 +3,8 @@ id: prob-p7915-palindrome
 title: '[CSP-S 2021] 回文（P7915）— 双栈分段贪心迭代'
 oj: '洛谷'
 problemId: 'P7915'
-difficulty: '困难'
+difficulty: '普及+/提高−'
+cfRating: 'NaN'
 category: '字符串'
 tags: ["贪心", "回文构造", "双栈", "模拟", "CSP-S", "构造"]
 timeComplexity: 'O(n)'

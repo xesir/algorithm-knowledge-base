@@ -3,7 +3,8 @@ id: prob-luogu-p2900
 title: 'P2900 [USACO08MAR] Land Acquisition G'
 oj: '洛谷'
 problemId: 'P2900'
-difficulty: '其他'
+difficulty: '提高+/省选−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "斜率优化", "贪心", "单调队列"]
 timeComplexity: 'O(n log n)'

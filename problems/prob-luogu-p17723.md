@@ -3,7 +3,8 @@ id: prob-luogu-p17723
 title: 'P17723 [SCP-S 2026] 函数 func'
 oj: '洛谷'
 problemId: 'P17723'
-difficulty: '困难'
+difficulty: '提高'
+cfRating: 'NaN'
 category: 数学
 tags: ["按位统计", "双指针", "时间戳", "位运算", "MEX", "贡献统计"]
 timeComplexity: 'O(n log n)'

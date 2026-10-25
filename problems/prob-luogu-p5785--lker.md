@@ -3,7 +3,8 @@ id: prob-luogu-p5785
 title: 'P5785 [SDOI2012] 任务安排'
 oj: '洛谷'
 problemId: 'P5785'
-difficulty: '其他'
+difficulty: '提高+/省选−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "李超线段树", "斜率优化", "前缀和"]
 timeComplexity: 'O(n log n)'

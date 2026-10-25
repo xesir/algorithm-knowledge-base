@@ -3,7 +3,8 @@ id: prob-luogu-p4216
 title: 'P4216 [SCOI2015] 情报传递'
 oj: '洛谷'
 problemId: 'P4216'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 数据结构
 tags: ["树上差分", "权值树状数组", "离线", "LCA"]
 timeComplexity: '视具体实现'

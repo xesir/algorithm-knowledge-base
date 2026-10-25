@@ -3,7 +3,8 @@ id: prob-icpc2026-wuhan-rectangle-cut
 title: '[ICPC2026 Wuhan I] 矩形切割最大面积 — 离线逆序并查集'
 oj: 'ICPC'
 problemId: 'I'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: '数据结构'
 tags: ["并查集", "离线", "逆序处理", "离散化", "思维", "降维"]
 timeComplexity: 'O(q log q)'

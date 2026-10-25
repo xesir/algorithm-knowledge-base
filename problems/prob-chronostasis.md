@@ -3,7 +3,8 @@ id: prob-chronostasis
 title: '时停滞（Chronostasis）— 差分排列贪心还原'
 oj: 'Codeforces'
 problemId: 'CF2254E'
-difficulty: '困难'
+difficulty: '暂未评定'
+cfRating: '1500'
 category: '数据结构'
 tags: ["差分数组", "贪心", "字典序最小", "multiset", "排列", "前缀和", "构造"]
 timeComplexity: 'O(n log n)'

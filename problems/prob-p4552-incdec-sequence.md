@@ -3,7 +3,8 @@ id: prob-p4552-incdec-sequence
 title: 'P4552 [Poetize6] IncDec Sequence — 差分贪心计数'
 oj: '洛谷'
 problemId: 'P4552'
-difficulty: '中等'
+difficulty: '普及+/提高−'
+cfRating: 'NaN'
 category: '数据结构'
 tags: ["差分", "贪心", "计数", "差分数组"]
 timeComplexity: 'O(n)'

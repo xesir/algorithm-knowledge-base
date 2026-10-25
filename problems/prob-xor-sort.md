@@ -3,7 +3,8 @@ id: prob-xor-sort
 title: 'XOR 排序（简单版）— 对齐块分段判定'
 oj: 'Codeforces'
 problemId: 'CF2247D1'
-difficulty: '中等'
+difficulty: '暂未评定'
+cfRating: '1500'
 category: '数学'
 tags: ["位运算", "XOR", "分块", "排序判定", "贪心", "二进制"]
 timeComplexity: 'O(n log n)'

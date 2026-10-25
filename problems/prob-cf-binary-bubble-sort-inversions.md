@@ -3,7 +3,8 @@ id: prob-cf-binary-bubble-sort-inversions
 title: 'Binary Bubble Sort Inversions — 01数组冒泡逆序对计数（懒标记水位模型）'
 oj: 'Codeforces'
 problemId: 'F'
-difficulty: '困难'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: '数据结构'
 tags: ["逆序对", "01数组", "冒泡排序", "懒标记", "水位模型", "前缀和", "吸收态", "O(n)"]
 timeComplexity: 'O(n)'

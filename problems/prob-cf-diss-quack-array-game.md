@@ -3,7 +3,8 @@ id: prob-cf-diss-quack-array-game
 title: 'diss_quack and Array Game — 01博弈·进位悬崖·批量折半优化'
 oj: 'Codeforces'
 problemId: 'D'
-difficulty: '困难'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: '数学'
 tags: ["博弈论", "数论", "贪心", "位运算", "进位悬崖", "批量折半"]
 timeComplexity: 'O(2^18 + T * 50n)'

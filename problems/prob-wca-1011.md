@@ -3,7 +3,8 @@ id: prob-wca-1011
 title: '2026WCA1011 完美旅行'
 oj: 'WCA'
 problemId: '2026WCA1011'
-difficulty: '困难'
+difficulty: '暂未评定'
+cfRating: 'NaN'
 category: '动态规划'
 tags: ["状态压缩DP", "树上差分", "容斥原理", "高维前缀和", "组合数学"]
 timeComplexity: 'O(n·m + m·2^m)'

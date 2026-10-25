@@ -3,7 +3,8 @@ id: prob-p17611-xor-equation
 title: 'P17611 Not a Polynomial Equation — 异或方程的高低位分离'
 oj: '洛谷'
 problemId: 'P17611'
-difficulty: '困难'
+difficulty: '普及+/提高−'
+cfRating: 'NaN'
 category: '数学'
 tags: ["数学", "位运算", "异或", "高低位分离", "枚举", "__int128"]
 timeComplexity: 'O(T * 128 * n)'

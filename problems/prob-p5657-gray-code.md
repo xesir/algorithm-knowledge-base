@@ -3,7 +3,8 @@ id: prob-p5657-gray-code
 title: 'P5657 [CSP-S 2019] 格雷码 — 递归构造与位运算公式'
 oj: '洛谷'
 problemId: 'P5657'
-difficulty: '入门'
+difficulty: '普及−'
+cfRating: 'NaN'
 category: '数学'
 tags: ["格雷码", "数学", "位运算", "递归", "构造", "CSP-S"]
 timeComplexity: 'O(n)'

@@ -3,7 +3,8 @@ id: prob-luogu-p2120
 title: 'P2120 [ZJOI2007] 仓库建设'
 oj: '洛谷'
 problemId: 'P2120'
-difficulty: '其他'
+difficulty: '提高+/省选−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "斜率优化", "单调队列", "前缀和"]
 timeComplexity: 'O(n)'

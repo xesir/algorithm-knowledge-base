@@ -3,7 +3,8 @@ id: prob-luogu-p5043
 title: 'P5043 【模板】树同构 / [BJOI2015] 树的同构'
 oj: '洛谷'
 problemId: 'P5043'
-difficulty: '其他'
+difficulty: '提高+/省选−'
+cfRating: 'NaN'
 category: 图论
 tags: ["树哈希", "树同构", "换根DP", "模板"]
 timeComplexity: 'O(nm)'

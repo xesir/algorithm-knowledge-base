@@ -3,7 +3,8 @@ id: prob-luogu-p3195
 title: 'P3195 [HNOI2008] 玩具装箱'
 oj: '洛谷'
 problemId: 'P3195'
-difficulty: '其他'
+difficulty: '提高+/省选−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "斜率优化", "单调队列", "凸包"]
 timeComplexity: 'O(n)'

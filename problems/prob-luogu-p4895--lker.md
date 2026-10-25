@@ -3,7 +3,8 @@ id: prob-luogu-p4895
 title: 'P4895 独钓寒江雪'
 oj: '洛谷'
 problemId: 'P4895'
-difficulty: '其他'
+difficulty: '省选/NOI−'
+cfRating: 'NaN'
 category: 动态规划
 tags: ["树哈希", "树形DP", "组合数学", "隔板法", "重心"]
 timeComplexity: 'O(n)'

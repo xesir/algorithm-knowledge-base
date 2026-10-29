@@ -10,7 +10,7 @@
 内容源是 Markdown，`build.js` 生成前端要用的数据文件。
 
 - 项目根：`C:\Users\penti\Desktop\算法 - 副本`
-- 知识点：`content/*.md`（262 篇）｜题目：`problems/*.md`（71 道）
+- 知识点：`content/*.md`（269 篇）｜题目：`problems/*.md`（71 道）
 - 多版本：`content/<id>.md`=world-needs-sunday版，`content/<id>--作者.md`=其他作者版（详情页顶部 tab 切换，默认world-needs-sunday；作者映射见 `build.js` 的 `AUTHOR_KEYS`）
 - 代码：各分类目录下的 `.cpp`（由 `codePath` 指向，**用户本人编写**）
 - 图谱：`knowledge_graph.json`

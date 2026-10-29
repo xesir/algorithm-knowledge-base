@@ -812,7 +812,8 @@
         },
         "ds-segtree-basic": {
             "prerequisites": [
-                "hub-ds"
+                "hub-ds",
+                "hub-ds-segtree"
             ],
             "related": [
                 "ds-segtree-discretize",
@@ -831,7 +832,8 @@
         },
         "ds-segtree-discretize": {
             "prerequisites": [
-                "ds-segtree-basic"
+                "ds-segtree-basic",
+                "hub-ds-segtree"
             ],
             "related": [
                 "ds-segtree-basic",
@@ -850,7 +852,8 @@
         },
         "ds-segtree-mul": {
             "prerequisites": [
-                "ds-segtree-basic"
+                "ds-segtree-basic",
+                "hub-ds-segtree"
             ],
             "related": [
                 "ds-segtree-basic",
@@ -860,7 +863,8 @@
         "ds-persistent-segtree-template": {
             "prerequisites": [
                 "ds-segtree-basic",
-                "ds-persistent-overview"
+                "ds-persistent-overview",
+                "hub-ds-segtree"
             ],
             "related": [
                 "ds-persistent-segtree-3919",
@@ -870,7 +874,8 @@
         "ds-persistent-segtree-3919": {
             "prerequisites": [
                 "ds-persistent-overview",
-                "ds-persistent-segtree-template"
+                "ds-persistent-segtree-template",
+                "hub-ds-segtree"
             ],
             "related": [
                 "ds-persistent-segtree-template",
@@ -879,7 +884,8 @@
         },
         "ds-splay": {
             "prerequisites": [
-                "ds-bst"
+                "ds-bst",
+                "ds-balanced-tree-overview"
             ],
             "related": [
                 "ds-segtree-basic",
@@ -977,7 +983,8 @@
         },
         "ds-block-decomposition": {
             "prerequisites": [
-                "hub-ds"
+                "hub-ds",
+                "hub-ds-block"
             ],
             "related": [
                 "ds-mo-team",
@@ -989,7 +996,8 @@
         "ds-mo-team": {
             "prerequisites": [
                 "ds-block-decomposition",
-                "hub-ds"
+                "hub-ds",
+                "hub-ds-block"
             ],
             "related": [
                 "ds-block-decomposition",
@@ -1738,19 +1746,22 @@
         },
         "ds-fhq-treap": {
             "prerequisites": [
-                "ds-bst"
+                "ds-bst",
+                "ds-balanced-tree-overview"
             ],
             "related": []
         },
         "ds-segtree-dynamic": {
             "prerequisites": [
-                "ds-segtree-basic"
+                "ds-segtree-basic",
+                "hub-ds-segtree"
             ],
             "related": []
         },
         "ds-segtree-weight": {
             "prerequisites": [
-                "ds-segtree-basic"
+                "ds-segtree-basic",
+                "hub-ds-segtree"
             ],
             "related": []
         },
@@ -1762,7 +1773,8 @@
         },
         "ds-scapegoat-tree": {
             "prerequisites": [
-                "ds-bst"
+                "ds-bst",
+                "ds-balanced-tree-overview"
             ],
             "related": []
         },
@@ -1781,7 +1793,8 @@
         "ds-mo-team-modify": {
             "prerequisites": [
                 "ds-mo-team",
-                "hub-ds"
+                "hub-ds",
+                "hub-ds-block"
             ],
             "related": []
         },
@@ -2220,14 +2233,16 @@
         },
         "ds-segtree-combined": {
             "prerequisites": [
-                "ds-segtree-basic"
+                "ds-segtree-basic",
+                "hub-ds-segtree"
             ],
             "related": []
         },
         "ds-hld-segtree": {
             "prerequisites": [
                 "ds-segtree-basic",
-                "graph-hld-segtree"
+                "graph-hld-segtree",
+                "hub-ds-segtree"
             ],
             "related": []
         },
@@ -2235,13 +2250,15 @@
             "prerequisites": [
                 "ds-persistent-overview",
                 "ds-persistent-segtree-template",
-                "ds-segtree-weight"
+                "ds-segtree-weight",
+                "hub-ds-segtree"
             ],
             "related": []
         },
         "ds-bst": {
             "prerequisites": [
-                "hub-ds"
+                "hub-ds",
+                "ds-balanced-tree-overview"
             ],
             "related": []
         },
@@ -2404,7 +2421,8 @@
         "ds-avl-tree": {
             "prerequisites": [
                 "hub-ds",
-                "ds-bst"
+                "ds-bst",
+                "ds-balanced-tree-overview"
             ],
             "related": [
                 "ds-balanced-tree-overview"
@@ -2461,7 +2479,8 @@
         "ds-index-tree-block-list": {
             "prerequisites": [
                 "hub-ds",
-                "ds-block-decomposition"
+                "ds-block-decomposition",
+                "hub-ds-block"
             ],
             "related": [
                 "ds-fast-block-list"
@@ -2470,7 +2489,8 @@
         "ds-fast-block-list": {
             "prerequisites": [
                 "hub-ds",
-                "ds-block-decomposition"
+                "ds-block-decomposition",
+                "hub-ds-block"
             ],
             "related": [
                 "ds-index-tree-block-list"
@@ -2639,6 +2659,53 @@
         "hub-math-number-theory": {
             "prerequisites": [
                 "hub-math"
+            ],
+            "related": []
+        },
+        "hub-ds-block": {
+            "prerequisites": [
+                "hub-ds"
+            ],
+            "related": []
+        },
+        "hub-ds-segtree": {
+            "prerequisites": [
+                "hub-ds"
+            ],
+            "related": []
+        },
+        "ds-block-value-domain": {
+            "prerequisites": [
+                "hub-ds",
+                "hub-ds-block"
+            ],
+            "related": []
+        },
+        "ds-block-time": {
+            "prerequisites": [
+                "hub-ds",
+                "hub-ds-block"
+            ],
+            "related": []
+        },
+        "ds-block-tree": {
+            "prerequisites": [
+                "hub-ds",
+                "hub-ds-block"
+            ],
+            "related": []
+        },
+        "ds-block-2d": {
+            "prerequisites": [
+                "hub-ds",
+                "hub-ds-block"
+            ],
+            "related": []
+        },
+        "ds-sqrt-tree": {
+            "prerequisites": [
+                "hub-ds",
+                "hub-ds-block"
             ],
             "related": []
         }

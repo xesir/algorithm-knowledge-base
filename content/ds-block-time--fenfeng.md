@@ -10,10 +10,10 @@ level: B
 noCode: true
 legacy: true
 verified: 2026-10-29
-source: 'stripe-python'
+source: 'Fohen'
 ---
 
-> 本文由 stripe-python 授权合并，正文保留原文结构与表述；原文为《浅谈常用的分块算法》，本页按分块类型拆分。
+> 本文由 Fohen 授权合并，正文保留原文结构与表述；原文为《浅谈常用的分块算法》，本页按分块类型拆分。
 
 ## 对操作序列分块——时间分块
 

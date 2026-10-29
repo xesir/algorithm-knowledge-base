@@ -908,7 +908,8 @@
         },
         "ds-trie": {
             "prerequisites": [
-                "hub-ds"
+                "hub-ds",
+                "hub-str"
             ],
             "related": [
                 "str-hash",
@@ -919,7 +920,8 @@
         },
         "ds-trie-01-max-xor": {
             "prerequisites": [
-                "ds-trie"
+                "ds-trie",
+                "hub-str"
             ],
             "related": [
                 "math-quick-pow-basic",
@@ -1132,7 +1134,8 @@
         },
         "graph-centroid": {
             "prerequisites": [
-                "hub-graph"
+                "hub-graph",
+                "hub-graph-tree"
             ],
             "related": [
                 "graph-hld-segtree",
@@ -1141,7 +1144,8 @@
         },
         "graph-lca-doubling": {
             "prerequisites": [
-                "hub-graph"
+                "hub-graph",
+                "hub-graph-tree"
             ],
             "related": [
                 "graph-lca-tarjan",
@@ -1152,7 +1156,8 @@
         "graph-lca-tarjan": {
             "prerequisites": [
                 "ds-uf-basic",
-                "graph-lca-doubling"
+                "graph-lca-doubling",
+                "hub-graph-tree"
             ],
             "related": [
                 "graph-lca-doubling",
@@ -1167,7 +1172,8 @@
         },
         "graph-lca-hld": {
             "prerequisites": [
-                "graph-lca-doubling"
+                "graph-lca-doubling",
+                "hub-graph-tree"
             ],
             "related": [
                 "graph-lca-doubling",
@@ -1180,7 +1186,8 @@
             "prerequisites": [
                 "ds-segtree-basic",
                 "graph-lca-hld",
-                "hub-graph"
+                "hub-graph",
+                "hub-graph-tree"
             ],
             "related": [
                 "graph-lca-hld",
@@ -1306,7 +1313,8 @@
         },
         "math-quick-pow-basic": {
             "prerequisites": [
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-quick-pow-highprecision",
@@ -1326,7 +1334,8 @@
         },
         "math-quick-pow-highprecision": {
             "prerequisites": [
-                "math-quick-pow-basic"
+                "math-quick-pow-basic",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-quick-pow-basic",
@@ -1366,7 +1375,8 @@
         },
         "math-gcd-lcm": {
             "prerequisites": [
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-lcm-pair-count",
@@ -1379,7 +1389,8 @@
         },
         "math-sieve-eratosthenes": {
             "prerequisites": [
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-gcd-lcm",
@@ -1392,7 +1403,8 @@
         },
         "math-euler-phi": {
             "prerequisites": [
-                "math-sieve-eratosthenes"
+                "math-sieve-eratosthenes",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-gcd-lcm",
@@ -1407,7 +1419,8 @@
         "math-linear-sieve-phi": {
             "prerequisites": [
                 "math-euler-phi",
-                "math-sieve-eratosthenes"
+                "math-sieve-eratosthenes",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-euler-phi",
@@ -1421,7 +1434,8 @@
         "math-linear-sieve-divisor-count": {
             "prerequisites": [
                 "math-sieve-eratosthenes",
-                "math-linear-sieve-phi"
+                "math-linear-sieve-phi",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-linear-sieve-phi",
@@ -1434,7 +1448,8 @@
             "prerequisites": [
                 "math-sieve-eratosthenes",
                 "math-linear-sieve-phi",
-                "math-linear-sieve-divisor-count"
+                "math-linear-sieve-divisor-count",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-linear-sieve-phi",
@@ -1447,7 +1462,8 @@
             "prerequisites": [
                 "math-quick-pow-basic",
                 "math-euler-phi",
-                "math-gcd-lcm"
+                "math-gcd-lcm",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-quick-pow-basic",
@@ -1459,7 +1475,8 @@
         "math-crt": {
             "prerequisites": [
                 "math-modular-inverse",
-                "math-quick-pow-basic"
+                "math-quick-pow-basic",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-modular-inverse",
@@ -1471,7 +1488,8 @@
             "prerequisites": [
                 "math-gcd-lcm",
                 "math-quick-pow-basic",
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-gcd-lcm",
@@ -1481,7 +1499,8 @@
         },
         "math-block-division": {
             "prerequisites": [
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": [
                 "basic-sqrt-decomposition"
@@ -1490,7 +1509,8 @@
         "str-ac-automaton": {
             "prerequisites": [
                 "str-kmp",
-                "ds-trie"
+                "ds-trie",
+                "hub-str"
             ],
             "related": []
         },
@@ -1533,7 +1553,8 @@
         "basic-sqrt-decomposition": {
             "prerequisites": [
                 "hub-basic",
-                "graph-storage"
+                "graph-storage",
+                "hub-basic-divide"
             ],
             "related": [
                 "basic-bitset",
@@ -1566,13 +1587,15 @@
         },
         "basic-dfs": {
             "prerequisites": [
-                "hub-basic"
+                "hub-basic",
+                "hub-basic-search"
             ],
             "related": []
         },
         "basic-bfs": {
             "prerequisites": [
-                "hub-basic"
+                "hub-basic",
+                "hub-basic-search"
             ],
             "related": []
         },
@@ -1586,7 +1609,8 @@
             "prerequisites": [
                 "graph-basic",
                 "graph-storage",
-                "hub-graph"
+                "hub-graph",
+                "hub-graph-modeling"
             ],
             "related": [
                 "graph-difference-constraints"
@@ -1595,7 +1619,8 @@
         "graph-difference-constraints": {
             "prerequisites": [
                 "graph-spfa",
-                "hub-graph"
+                "hub-graph",
+                "hub-graph-modeling"
             ],
             "related": [
                 "graph-modeling"
@@ -1611,7 +1636,8 @@
         "graph-tree-basic": {
             "prerequisites": [
                 "graph-basic",
-                "hub-graph"
+                "hub-graph",
+                "hub-graph-tree"
             ],
             "related": []
         },
@@ -1630,13 +1656,15 @@
         "graph-virtual-tree": {
             "prerequisites": [
                 "graph-lca-doubling",
-                "hub-graph"
+                "hub-graph",
+                "hub-graph-tree"
             ],
             "related": []
         },
         "math-01-fractional": {
             "prerequisites": [
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": []
         },
@@ -1655,7 +1683,8 @@
         },
         "math-number-theory-basic": {
             "prerequisites": [
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": []
         },
@@ -1667,7 +1696,8 @@
         },
         "math-modular-arithmetic": {
             "prerequisites": [
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": []
         },
@@ -1730,7 +1760,8 @@
         "math-miller-rabin": {
             "prerequisites": [
                 "math-quick-pow-basic",
-                "hub-math"
+                "hub-math",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-pollard-rho"
@@ -1738,7 +1769,8 @@
         },
         "math-pollard-rho": {
             "prerequisites": [
-                "math-miller-rabin"
+                "math-miller-rabin",
+                "hub-math-number-theory"
             ],
             "related": [
                 "math-miller-rabin"
@@ -1868,7 +1900,8 @@
         },
         "math-stars-and-bars": {
             "prerequisites": [
-                "hub-math"
+                "hub-math",
+                "math-combinatorics"
             ],
             "related": [
                 "basic-combination-dfs",
@@ -1877,7 +1910,8 @@
         },
         "basic-permutation-dfs": {
             "prerequisites": [
-                "hub-basic"
+                "hub-basic",
+                "hub-basic-search"
             ],
             "related": [
                 "basic-combination-dfs",
@@ -1888,7 +1922,8 @@
         },
         "basic-combination-dfs": {
             "prerequisites": [
-                "hub-basic"
+                "hub-basic",
+                "hub-basic-search"
             ],
             "related": [
                 "basic-permutation-dfs",
@@ -1899,7 +1934,8 @@
         },
         "basic-meet-in-middle-binary-search": {
             "prerequisites": [
-                "basic-combination-dfs"
+                "basic-combination-dfs",
+                "hub-basic-search"
             ],
             "related": [
                 "basic-meet-in-middle-two-pointer",
@@ -1909,7 +1945,8 @@
         },
         "basic-meet-in-middle-two-pointer": {
             "prerequisites": [
-                "basic-combination-dfs"
+                "basic-combination-dfs",
+                "hub-basic-search"
             ],
             "related": [
                 "basic-meet-in-middle-binary-search"
@@ -1917,7 +1954,8 @@
         },
         "basic-bfs-bidirectional": {
             "prerequisites": [
-                "hub-basic"
+                "hub-basic",
+                "hub-basic-search"
             ],
             "related": [
                 "basic-permutation-dfs",
@@ -1970,7 +2008,8 @@
         },
         "basic-divide-conquer-merge-inversion": {
             "prerequisites": [
-                "hub-basic"
+                "hub-basic",
+                "hub-basic-divide"
             ],
             "related": [
                 "ds-bit-point-range",
@@ -1984,7 +2023,8 @@
         },
         "basic-divide-conquer-closest-pair": {
             "prerequisites": [
-                "basic-divide-conquer-merge-inversion"
+                "basic-divide-conquer-merge-inversion",
+                "hub-basic-divide"
             ],
             "related": [
                 "basic-divide-conquer-merge-inversion"
@@ -2018,7 +2058,8 @@
         },
         "basic-quickselect-kth": {
             "prerequisites": [
-                "basic-divide-conquer-merge-inversion"
+                "basic-divide-conquer-merge-inversion",
+                "hub-basic-divide"
             ],
             "related": [
                 "basic-divide-conquer-merge-inversion",
@@ -2112,7 +2153,8 @@
         },
         "basic-ternary-search": {
             "prerequisites": [
-                "hub-basic"
+                "hub-basic",
+                "hub-basic-divide"
             ],
             "related": []
         },
@@ -2208,19 +2250,22 @@
         },
         "math-factorization": {
             "prerequisites": [
-                "math-sieve-eratosthenes"
+                "math-sieve-eratosthenes",
+                "hub-math-number-theory"
             ],
             "related": []
         },
         "math-exgcd": {
             "prerequisites": [
-                "math-gcd-lcm"
+                "math-gcd-lcm",
+                "hub-math-number-theory"
             ],
             "related": []
         },
         "math-bsgs": {
             "prerequisites": [
-                "math-modular-arithmetic"
+                "math-modular-arithmetic",
+                "hub-math-number-theory"
             ],
             "related": []
         },
@@ -2333,7 +2378,9 @@
             "related": []
         },
         "hub-str": {
-            "prerequisites": [],
+            "prerequisites": [
+                "hub-basic"
+            ],
             "related": []
         },
         "hub-io": {
@@ -2408,7 +2455,8 @@
         "graph-cyclic-tree": {
             "prerequisites": [
                 "hub-graph",
-                "graph-tree-basic"
+                "graph-tree-basic",
+                "hub-graph-tree"
             ],
             "related": []
         },
@@ -2524,7 +2572,8 @@
         "math-prime-factor-state-compression": {
             "prerequisites": [
                 "hub-math",
-                "math-factorization"
+                "math-factorization",
+                "hub-math-number-theory"
             ],
             "related": []
         },
@@ -2652,7 +2701,8 @@
         },
         "graph-congruence-shortest-path": {
             "prerequisites": [
-                "hub-graph"
+                "hub-graph",
+                "hub-graph-modeling"
             ],
             "related": []
         },
@@ -2706,6 +2756,30 @@
             "prerequisites": [
                 "hub-ds",
                 "hub-ds-block"
+            ],
+            "related": []
+        },
+        "hub-graph-tree": {
+            "prerequisites": [
+                "hub-graph"
+            ],
+            "related": []
+        },
+        "hub-graph-modeling": {
+            "prerequisites": [
+                "hub-graph"
+            ],
+            "related": []
+        },
+        "hub-basic-search": {
+            "prerequisites": [
+                "hub-basic"
+            ],
+            "related": []
+        },
+        "hub-basic-divide": {
+            "prerequisites": [
+                "hub-basic"
             ],
             "related": []
         }

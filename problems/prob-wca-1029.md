@@ -7,12 +7,13 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: 图论
 tags: ["换根DP", "树形DP", "贪心", "决策树"]
+knowledgePoints: ["dp-tree-bag-optimize", "dp-tree-dance"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\图论\海龟汤\代码.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 题目描述

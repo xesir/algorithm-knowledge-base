@@ -7,6 +7,7 @@ difficulty: '普及+/提高−'
 cfRating: 'NaN'
 category: '字符串'
 tags: ["贪心", "回文构造", "双栈", "模拟", "CSP-S", "构造"]
+knowledgePoints: []
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\字符串\双栈分段贪心迭代算法P7915回文\代码.cpp'

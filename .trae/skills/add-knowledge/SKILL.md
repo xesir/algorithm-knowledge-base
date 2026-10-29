@@ -43,7 +43,7 @@ description: "添加知识点。当用户说「这是新知识点」「帮我入
 | `codePath` | `{大类}\{子分类}\{算法名}\Untitled1.cpp`（反斜杠） |
 
 > 拿不准的字段**必须问**，尤其 `category` / `subcategory` / `id`。
-> **作者（必确认）**：默认「站主」（你本人）→ 文件用 `content/<id>.md`。若是**其他作者**（如焚风），先确认作者名与 key，在 `build.js` 的 `AUTHOR_KEYS` 登记，文件用 `content/<id>--作者.md`，`id` 仍写 base id，`source` 填作者全名（详见下文「多版本」）。
+> **作者（必确认）**：默认「world-needs-sunday」（你本人）→ 文件用 `content/<id>.md`。若是**其他作者**（如Fohen），先确认作者名与 key，在 `build.js` 的 `AUTHOR_KEYS` 登记，文件用 `content/<id>--作者.md`，`id` 仍写 base id，`source` 填作者全名（详见下文「多版本」）。
 
 ### Step 2 · 建骨架（脚手架会自动建代码文件占位 + 图谱空条目）
 
@@ -132,9 +132,9 @@ node build.js               # 产物：109 → 110 之类
 
 每个知识点可有多个作者各自的版本（正文 + 代码各一套），详情页顶部 tab 切换：
 
-- 站主版：`content/<id>.md`；其他作者版：`content/<id>--作者.md`（作者 key 见 `build.js` 顶部 `AUTHOR_KEYS`）。
-- 版本文件 `id` 与站主版相同（base id，不含 `--作者`），`category/subcategory` 一致，`source` 填作者全名，`codePath` 用**独立路径**（同目录文件名加 `--作者` 后缀，不覆盖站主 `.cpp`）。
-- 只给某作者加版本时：新建 `content/<id>--作者.md`，不碰站主版；新建作者时先在 `AUTHOR_KEYS` 登记 key → 显示名。
+- world-needs-sunday版：`content/<id>.md`；其他作者版：`content/<id>--作者.md`（作者 key 见 `build.js` 顶部 `AUTHOR_KEYS`）。
+- 版本文件 `id` 与world-needs-sunday版相同（base id，不含 `--作者`），`category/subcategory` 一致，`source` 填作者全名，`codePath` 用**独立路径**（同目录文件名加 `--作者` 后缀，不覆盖world-needs-sunday `.cpp`）。
+- 只给某作者加版本时：新建 `content/<id>--作者.md`，不碰world-needs-sunday版；新建作者时先在 `AUTHOR_KEYS` 登记 key → 显示名。
 - 版本文件同样走门禁（`node tools/lint.js` + `build.js`）。
 
 ## 汇报模板

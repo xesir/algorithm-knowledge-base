@@ -1,8 +1,8 @@
 ---
 id: hub-exam
-title: '初赛笔记总述'
-category: '初赛笔记'
-subcategory: '总述'
+title: '初赛指南总述'
+category: 实用工具
+subcategory: 初赛指南
 tags: ['初赛笔记', '总述', 'CSP']
 timeComplexity: '按子条目而定'
 spaceComplexity: '按子条目而定'
@@ -10,6 +10,7 @@ level: C
 noCode: true
 hub: true
 verified: 2026-10-25
+subSubcategory: 总述
 ---
 
 ## 算法原理

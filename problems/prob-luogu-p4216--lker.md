@@ -7,6 +7,7 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 数据结构
 tags: ["树上差分", "权值树状数组", "离线", "LCA"]
+knowledgePoints: ["ds-cartesian-tree", "graph-lca-doubling", "graph-lca-hld"]
 timeComplexity: '视具体实现'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数据结构\情报传递\代码--lker.cpp'

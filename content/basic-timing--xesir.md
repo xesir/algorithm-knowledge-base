@@ -1,9 +1,9 @@
 ---
 id: basic-timing
 title: '时间测试'
-category: 基础算法
-subcategory: 实用工具
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 时空测试
 tags: ["clock", "时间测试", "卡时", "骗分", "调试"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

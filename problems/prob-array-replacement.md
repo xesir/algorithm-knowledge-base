@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: '1700'
 category: '数据结构'
 tags: ["差分数组", "排序", "贪心", "字典序最小", "奇偶性", "构造"]
+knowledgePoints: []
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数据结构\ArrayReplacement\代码.cpp'

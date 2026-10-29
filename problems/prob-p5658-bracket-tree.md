@@ -7,6 +7,7 @@ difficulty: '普及+/提高−'
 cfRating: 'NaN'
 category: '图论'
 tags: ["树", "树形DP", "栈", "DFS", "括号匹配", "回溯", "CSP-S"]
+knowledgePoints: ["dp-tree-bag-optimize", "dp-tree-dance"]
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\图论\括号树\代码.cpp'

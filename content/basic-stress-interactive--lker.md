@@ -1,9 +1,9 @@
 ---
 id: basic-stress-interactive
 title: '对拍（交互题）'
-category: 基础算法
-subcategory: 对拍
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 对拍
 tags: ["对拍", "交互题", "grader", "checker", "随机数据"]
 timeComplexity: '视数据组数与单次运行时间'
 spaceComplexity: '视被测程序与 grader'

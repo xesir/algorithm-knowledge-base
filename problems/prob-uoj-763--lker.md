@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: 图论
 tags: ["树哈希", "树同构", "随机化", "DFS"]
+knowledgePoints: ["basic-random-sa-permutation", "basic-random-sa-point"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\图论\树哈希\代码--lker.cpp'

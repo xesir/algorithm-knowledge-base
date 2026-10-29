@@ -10,7 +10,7 @@ spaceComplexity: 'O(n²)（可滚动优化为O(n)）'
 codePath: '动态规划\线性DP\数字三角形\Untitled4--fenfeng.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

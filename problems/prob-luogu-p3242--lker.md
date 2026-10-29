@@ -7,6 +7,7 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 数据结构
 tags: ["树链剖分", "树上二维数点", "bitset", "LCA", "离线"]
+knowledgePoints: ["basic-bitset", "basic-bitset-general", "ds-cartesian-tree", "ds-hld-segtree"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'
 codePath: '题目专辑\数据结构\接水果\代码--lker.cpp'

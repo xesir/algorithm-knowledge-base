@@ -1,9 +1,9 @@
 ---
 id: basic-stress-random-basic
 title: '随机数据生成（种子与基础套路）'
-category: 基础算法
-subcategory: 对拍
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 对拍
 tags: ["对拍", "随机数据", "mt19937", "getpid", "数据生成器"]
 timeComplexity: 'O(数据量)'
 spaceComplexity: 'O(1)～O(数据量)'

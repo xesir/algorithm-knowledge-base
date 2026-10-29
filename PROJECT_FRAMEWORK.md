@@ -106,6 +106,7 @@ knowledge_graph.json ─┘       ├─► problems_data.js PROBLEMS_DATA
 | `difficulty` | ✅ | 洛谷评级：入门 / 普及− / 普及/提高− / 普及+/提高− / 提高 / 提高+/省选− / 省选/NOI− / NOI/NOI+/CTSC / 暂未评定 |
 | `cfRating` | ❌ | 难度评分：能确认的 Codeforces rating（如 `1700`）；查不到就写 `NaN`，**不许估** |
 | `category` | ✅ | 侧边栏分组用（按考点大类填） |
+| `knowledgePoints` | ❌ | 本题涉及的知识点 id 列表，如 `["dp-tree-dance"]`；供星图题目层连边，没有就写 `[]` |
 | `tags` / 复杂度 / `codePath` / `level` | ❌ | 同知识点 |
 
 ### 3.3 正文章节
@@ -215,12 +216,12 @@ knowledge_graph.json ─┘       ├─► problems_data.js PROBLEMS_DATA
 
 | 文件 | 含义 |
 |---|---|
-| `content/<id>.md` | **站主版**（站主本人写） |
+| `content/<id>.md` | **world-needs-sunday版**（world-needs-sunday本人写） |
 | `content/<id>--作者.md` | 其他作者的版本，`--` 后是作者 key（如 `--fenfeng`） |
 
-- 作者 key → 显示名的映射在 `build.js` 顶部的 `AUTHOR_KEYS`（如 `{ fenfeng: '焚风' }`）；新增作者在这里加一条即可，第 2、3、4 个人同理。
-- 每个版本文件：`id` 与站主版**相同**（用 base id，不含 `--作者`），`category`/`subcategory` 与站主版一致，`source` 填作者全名，`codePath` 用**独立路径**（不要覆盖站主的 `.cpp`，建议同目录文件名加 `--作者` 后缀）。
-- 详情页顶部会自动渲染版本 tab（`[站主] [焚风] …`）：有该版本的 tab 可点击切换（正文+代码一起换），缺该版本的 tab 置灰；默认显示站主版，无站主版则按 `verified` 时间优先。
+- 作者 key → 显示名的映射在 `build.js` 顶部的 `AUTHOR_KEYS`（如 `{ fenfeng: 'Fohen' }`）；新增作者在这里加一条即可，第 2、3、4 个人同理。
+- 每个版本文件：`id` 与world-needs-sunday版**相同**（用 base id，不含 `--作者`），`category`/`subcategory` 与world-needs-sunday版一致，`source` 填作者全名，`codePath` 用**独立路径**（不要覆盖world-needs-sunday的 `.cpp`，建议同目录文件名加 `--作者` 后缀）。
+- 详情页顶部会自动渲染版本 tab（`[world-needs-sunday] [Fohen] …`）：有该版本的 tab 可点击切换（正文+代码一起换），缺该版本的 tab 置灰；默认显示world-needs-sunday版，无world-needs-sunday版则按 `verified` 时间优先。
 - `lint.js` 已识别版本文件：`id` 与图鉴按 base id 判定；「知识点 N 篇」按 base id 去重统计。
 - 版本文件同样要过门禁（frontmatter 齐全、章节规范、代码与各自 `.cpp` 同步）。
 

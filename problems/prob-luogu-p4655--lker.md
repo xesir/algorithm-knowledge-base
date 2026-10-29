@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "李超线段树", "斜率优化", "前缀和"]
+knowledgePoints: ["ds-prefix-sum-1d", "ds-prefix-sum-2d", "ds-prefix-sum-tree"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\Building Bridges\代码--lker.cpp'

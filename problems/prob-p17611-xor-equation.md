@@ -7,6 +7,7 @@ difficulty: '普及+/提高−'
 cfRating: 'NaN'
 category: '数学'
 tags: ["数学", "位运算", "异或", "高低位分离", "枚举", "__int128"]
+knowledgePoints: ["exam-bit-operation", "math-bit-operation"]
 timeComplexity: 'O(T * 128 * n)'
 spaceComplexity: 'O(n + 128)'
 codePath: '题目专辑\数学\异或方程\代码.cpp'

@@ -7,6 +7,7 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["树哈希", "树形DP", "组合数学", "隔板法", "重心"]
+knowledgePoints: ["math-stars-and-bars", "dp-tree-bag-optimize", "dp-tree-dance", "math-combinatorics"]
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\独钓寒江雪\代码--lker.cpp'

@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '动态规划'
 tags: ["动态规划", "LIS", "树状数组", "离散化", "构造转化", "计数"]
+knowledgePoints: ["basic-discretization", "dp-linear-lis-bit-count", "ds-bit-point-range", "ds-bit-range-point"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\Cero的数组\源.cpp'

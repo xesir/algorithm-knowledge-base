@@ -10,7 +10,7 @@ spaceComplexity: 'O(n×V)'
 codePath: '动态规划\背包问题模板\01背包\标准\Untitled1--fenfeng.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

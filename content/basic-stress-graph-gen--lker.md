@@ -1,9 +1,9 @@
 ---
 id: basic-stress-graph-gen
 title: '随机数据生成（一般图）'
-category: 基础算法
-subcategory: 对拍
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 对拍
 tags: ["对拍", "随机数据", "无向图", "有向图", "DAG", "二分图"]
 timeComplexity: 'O(n+m)'
 spaceComplexity: 'O(n+m)'

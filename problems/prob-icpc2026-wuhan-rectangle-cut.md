@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '数据结构'
 tags: ["并查集", "离线", "逆序处理", "离散化", "思维", "降维"]
+knowledgePoints: ["basic-discretization", "ds-segtree-discretize", "ds-uf-basic", "ds-uf-extended-domain"]
 timeComplexity: 'O(q log q)'
 spaceComplexity: 'O(q)'
 codePath: '题目专辑\数据结构\矩形切割\代码.cpp'

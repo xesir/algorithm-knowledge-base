@@ -1,9 +1,9 @@
 ---
 id: basic-stress-tree-gen
 title: '随机数据生成（树与特殊结构）'
-category: 基础算法
-subcategory: 对拍
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 对拍
 tags: ["对拍", "随机数据", "树", "基环树", "菊花图", "二叉树"]
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(n)'

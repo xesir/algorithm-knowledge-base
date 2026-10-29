@@ -1,9 +1,9 @@
 ---
 id: gram-io-tips
 title: '输入输出相关冷知识'
-category: 语法技巧
-subcategory: 输入输出
-subSubcategory: ''
+category: 实用工具
+subcategory: IO
+subSubcategory: IO冷知识
 tags: ["输入输出", "快读快写", "fread", "freopen", "卡常", "sync_with_stdio"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

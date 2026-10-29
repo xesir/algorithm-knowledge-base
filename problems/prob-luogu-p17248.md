@@ -7,12 +7,13 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 数据结构
 tags: ["主席树", "贪心", "异或", "区间查询"]
+knowledgePoints: ["ds-persistent-segtree-kth"]
 timeComplexity: 'O((n+q) log V)'
 spaceComplexity: 'O(n log V)'
 codePath: '题目专辑\数据结构\审判与救赎\代码.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 题目描述

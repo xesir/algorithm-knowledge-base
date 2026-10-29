@@ -10,7 +10,7 @@ spaceComplexity: 'O(n+m)'
 codePath: '图论\连通分量\Tarjan强连通分量\Untitled1--fenfeng.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

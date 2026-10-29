@@ -7,6 +7,7 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 数据结构
 tags: ["树链剖分", "换根", "线段树", "LCA"]
+knowledgePoints: ["ds-hld-segtree", "ds-cartesian-tree", "ds-segtree-basic", "ds-segtree-combined"]
 timeComplexity: '视具体实现'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数据结构\遥远的国度\代码--lker.cpp'

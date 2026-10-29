@@ -10,7 +10,7 @@ spaceComplexity: 'O(m log V)'
 codePath: '数据结构\动态开点线段树\Untitled1.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

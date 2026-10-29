@@ -657,8 +657,13 @@
             display: inline-block; width: 9px; height: 9px; border-radius: 3px;
             margin-right: 4px; vertical-align: -1px;
         }
+        .viz-toggle {
+            margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.8rem; color: #e5e7eb; cursor: pointer; user-select: none;
+        }
+        .viz-toggle input { accent-color: #60a5fa; cursor: pointer; }
         .viz-close {
-            margin-left: auto; cursor: pointer; border: 1px solid rgba(148,163,184,0.4);
+            margin-left: 10px; cursor: pointer; border: 1px solid rgba(148,163,184,0.4);
             background: transparent; color: #e5e7eb; border-radius: 8px; padding: 4px 12px;
             font-family: inherit; font-size: 0.8rem;
         }
@@ -1864,7 +1869,7 @@
             var kp = KNOWLEDGE_DATA.find(function(k) { return k.id === id; });
             if (!kp) return;
             currentKp = kp;
-            currentVer = 0; // build.js 已把主版本（站主优先，否则时间优先）放在 versions[0]
+            currentVer = 0; // build.js 已把主版本（world-needs-sunday优先，否则时间优先）放在 versions[0]
             document.title = kp.title + ' · 算法知识点查询系统';
             currentId = id;
 
@@ -1896,14 +1901,14 @@
 
         function renderKpArticle(kp, verIdx) {
             var versions = kp.versions || [{
-                author: '站主', content: kp.content, codePath: kp.codePath,
+                author: 'world-needs-sunday', content: kp.content, codePath: kp.codePath,
                 timeComplexity: kp.timeComplexity, spaceComplexity: kp.spaceComplexity, tags: kp.tags
             }];
             var ver = versions[verIdx];
 
-            // Version tabs（站主 + 所有已知作者；缺版本的置灰）
+            // Version tabs（world-needs-sunday + 所有已知作者；缺版本的置灰）
             var tabsHtml = '<div class="version-tabs">';
-            (typeof AUTHORS !== 'undefined' ? AUTHORS : ['站主']).forEach(function(author) {
+            (typeof AUTHORS !== 'undefined' ? AUTHORS : ['world-needs-sunday']).forEach(function(author) {
                 var vi = versions.findIndex(function(v) { return v.author === author; });
                 var cls = 'version-tab' + (vi === verIdx ? ' active' : '') + (vi < 0 ? ' disabled' : '');
                 var on = (vi >= 0) ? ' onclick="switchVersion(' + vi + ')"' : '';
@@ -2321,7 +2326,7 @@
             var prob = PROBLEMS_DATA.find(function(p) { return p.id === id; });
             if (!prob) return;
             currentProb = prob;
-            currentProbVer = 0; // build.js 已把主版本（站主优先，否则时间优先）放在 versions[0]
+            currentProbVer = 0; // build.js 已把主版本（world-needs-sunday优先，否则时间优先）放在 versions[0]
             document.title = prob.title + ' · 算法知识点查询系统';
 
             currentId = id;
@@ -2355,15 +2360,15 @@
 
         function renderProbArticle(prob, verIdx) {
             var versions = prob.versions || [{
-                author: '站主', content: prob.content, codePath: prob.codePath,
+                author: 'world-needs-sunday', content: prob.content, codePath: prob.codePath,
                 timeComplexity: prob.timeComplexity, spaceComplexity: prob.spaceComplexity,
                 tags: prob.tags, source: prob.source
             }];
             var ver = versions[verIdx];
 
-            // Version tabs（站主 + 所有已知作者；缺版本的置灰）
+            // Version tabs（world-needs-sunday + 所有已知作者；缺版本的置灰）
             var tabsHtml = '<div class="version-tabs">';
-            (typeof AUTHORS !== 'undefined' ? AUTHORS : ['站主']).forEach(function(author) {
+            (typeof AUTHORS !== 'undefined' ? AUTHORS : ['world-needs-sunday']).forEach(function(author) {
                 var vi = versions.findIndex(function(v) { return v.author === author; });
                 var cls = 'version-tab' + (vi === verIdx ? ' active' : '') + (vi < 0 ? ' disabled' : '');
                 var on = (vi >= 0) ? ' onclick="switchProbVersion(' + vi + ')"' : '';
@@ -2395,6 +2400,7 @@
             if (ver.source) {
                 metaHtml += '<span class="badge badge-source">👤 ' + escHtml(ver.source) + '</span>';
             }
+            metaHtml += '<button class="viz-btn" onclick="openStarMap(\'' + prob.id + '\')">🌌 星图</button>';
             metaHtml += '</div>';
 
             // Render content: 三步法保护 LaTeX（实现见 renderMarkdownWithMath）
@@ -2416,6 +2422,21 @@
                     '<pre><code class="language-cpp" id="code-block"></code></pre>' +
                     '</div>';
             }
+
+            // 涉及知识点（题目 → 知识点）
+            var kpLinksHtml = '<div class="kp-links-section prereq"><div class="kp-links-title">📚 涉及知识点</div>';
+            var kpIds = prob.knowledgePoints || [];
+            if (kpIds.length > 0) {
+                kpLinksHtml += '<div class="kp-links-list">';
+                kpIds.forEach(function(kid) {
+                    var pk = KNOWLEDGE_DATA.find(function(x) { return x.id === kid; });
+                    if (pk) kpLinksHtml += '<span class="kp-link-chip prereq-chip" onclick="goKp(\'' + pk.id + '\')" title="' + escAttr(pk.title) + '">' + escHtml(pk.title) + '</span>';
+                });
+                kpLinksHtml += '</div>';
+            } else {
+                kpLinksHtml += '<span class="kp-no-prereq">本题暂未登记知识点</span>';
+            }
+            kpLinksHtml += '</div>';
 
             // Nav buttons
             var idx = PROBLEMS_DATA.findIndex(function(p) { return p.id === prob.id; });
@@ -2439,6 +2460,7 @@
                 tabsHtml +
                 metaHtml +
                 '<div class="markdown-body">' + contentHtml + '</div>' +
+                kpLinksHtml +
                 codeHtml +
                 navHtml +
                 '</article>';
@@ -2688,6 +2710,10 @@
             if (shape === 'triangle') {
                 return '<polygon points="' + x + ',' + (y - r) + ' ' + (x + r * 0.88) + ',' + (y + r * 0.72) + ' ' + (x - r * 0.88) + ',' + (y + r * 0.72) + '"' + fill + '/>';
             }
+            if (shape === 'dart') {
+                // 灰色三角飞镖：外轮廓像三角，底部留一个内凹缺口，用来区分题目节点
+                return '<polygon points="' + x + ',' + (y - r) + ' ' + (x + r) + ',' + (y + r * 0.85) + ' ' + x + ',' + (y + r * 0.22) + ' ' + (x - r) + ',' + (y + r * 0.85) + '"' + fill + '/>';
+            }
             if (shape === 'hex') {
                 var pts = [];
                 for (var i = 0; i < 6; i++) {
@@ -2750,7 +2776,7 @@
             (item.versions || []).forEach(function(v) {
                 if (v.author && names.indexOf(v.author) < 0) names.push(v.author);
             });
-            return names.length ? names.join(' / ') : '站主';
+            return names.length ? names.join(' / ') : 'world-needs-sunday';
         }
 
         function vizTagHtml(tags) {
@@ -2763,28 +2789,57 @@
 
         // ---------- 星图 ----------
         var starCenterId = null;
+        var starCenterType = 'kp';
+        var showStarProblems = false;
 
-        function openStarMap(kpId) {
-            var kp = null;
-            KNOWLEDGE_DATA.forEach(function(k) { if (k.id === kpId) kp = k; });
-            if (!kp) return;
-            starCenterId = kpId;
+        function openStarMap(nodeId) {
+            var kp = null, prob = null;
+            KNOWLEDGE_DATA.forEach(function(k) { if (k.id === nodeId) kp = k; });
+            if (!kp && typeof PROBLEMS_DATA !== 'undefined') {
+                PROBLEMS_DATA.forEach(function(p) { if (p.id === nodeId) prob = p; });
+            }
+            if (!kp && !prob) return;
+            starCenterId = nodeId;
+            starCenterType = prob ? 'prob' : 'kp';
             document.getElementById('viz-tip').style.display = 'none';
+            var showCb = document.getElementById('star-show-problems');
+            if (showCb) showCb.checked = showStarProblems;
 
-            var byId = {};
-            KNOWLEDGE_DATA.forEach(function(k) { byId[k.id] = k; });
+            var kpById = {}, probById = {};
+            KNOWLEDGE_DATA.forEach(function(k) { kpById[k.id] = k; });
+            if (typeof PROBLEMS_DATA !== 'undefined') {
+                PROBLEMS_DATA.forEach(function(p) { probById[p.id] = p; });
+            }
+            function nodeOf(id) { return probById[id] || kpById[id]; }
 
             var pre = [], dep = [], rel = [], seen = {};
-            seen[kpId] = 1;
-            (kp.prerequisites || []).forEach(function(id) {
-                if (byId[id] && !seen[id]) { seen[id] = 1; pre.push(id); }
-            });
-            KNOWLEDGE_DATA.forEach(function(k) {
-                if (!seen[k.id] && (k.prerequisites || []).indexOf(kpId) >= 0) { seen[k.id] = 1; dep.push(k.id); }
-            });
-            (kp.related || []).forEach(function(id) {
-                if (byId[id] && !seen[id]) { seen[id] = 1; rel.push(id); }
-            });
+            seen[nodeId] = 1;
+            if (kp) {
+                (kp.prerequisites || []).forEach(function(id) {
+                    if (kpById[id] && !seen[id]) { seen[id] = 1; pre.push(id); }
+                });
+                KNOWLEDGE_DATA.forEach(function(k) {
+                    if (!seen[k.id] && (k.prerequisites || []).indexOf(nodeId) >= 0) { seen[k.id] = 1; dep.push(k.id); }
+                });
+                (kp.related || []).forEach(function(id) {
+                    if (kpById[id] && !seen[id]) { seen[id] = 1; rel.push(id); }
+                });
+                if (showStarProblems && typeof PROBLEMS_DATA !== 'undefined') {
+                    PROBLEMS_DATA.forEach(function(p) {
+                        if (!seen[p.id] && (p.knowledgePoints || []).indexOf(nodeId) >= 0) {
+                            seen[p.id] = 1;
+                            dep.push(p.id);
+                        }
+                    });
+                }
+            } else {
+                (prob.knowledgePoints || []).forEach(function(id) {
+                    if (kpById[id] && !seen[id]) { seen[id] = 1; pre.push(id); }
+                });
+            }
+            var centerNode = kp || prob;
+            var centerIsProb = !!prob;
+            var hasProblemNode = centerIsProb || pre.concat(dep, rel).some(function(id) { return !!probById[id]; });
 
             var W = 1040, H = 760, cx = W / 2, cy = H / 2;
             var R1 = 220, R2 = 320;
@@ -2849,15 +2904,22 @@
                 svg += '<line class="viz-edge-rel" x1="' + e.x1 + '" y1="' + e.y1 + '" x2="' + e.x2 + '" y2="' + e.y2 + '"/>';
             });
 
-            function drawNode(k, x, y, r, isCenter) {
-                var st = catStyle(k.category);
-                VIZ_INFO[k.id] = '<b>' + escHtml(k.title) + '</b><br>' +
-                    '<span class="t-muted">' + escHtml(k.category) + ' · ' + escHtml(k.subcategory) + '</span><br>' +
-                    '<span class="t-muted">作者：' + escHtml(vizAuthors(k)) + '</span><br>' +
-                    vizTagHtml(k.tags);
-                var click = isCenter ? '' : ' onclick="starJump(\'' + k.id + '\')"';
+            function drawNode(item, isProb, x, y, r, isCenter) {
+                var st = isProb ? { color: '#94a3b8', shape: 'dart' } : catStyle(item.category);
+                if (isProb) {
+                    VIZ_INFO[item.id] = '<b>' + escHtml(item.title) + '</b><br>' +
+                        '<span class="t-muted">题目 · ' + escHtml(item.category || '未分类') + ' · ' + escHtml(item.difficulty || '暂未评定') + '</span><br>' +
+                        (item.oj ? '<span class="t-muted">' + escHtml(item.oj) + (item.problemId ? ' · ' + escHtml(item.problemId) : '') + '</span><br>' : '') +
+                        vizTagHtml(item.tags);
+                } else {
+                    VIZ_INFO[item.id] = '<b>' + escHtml(item.title) + '</b><br>' +
+                        '<span class="t-muted">' + escHtml(item.category) + ' · ' + escHtml(item.subcategory) + '</span><br>' +
+                        '<span class="t-muted">作者：' + escHtml(vizAuthors(item)) + '</span><br>' +
+                        vizTagHtml(item.tags);
+                }
+                var click = isCenter ? '' : ' onclick="starJump(\'' + item.id + '\')"';
                 var stroke = isCenter ? ' stroke="#f8fafc" stroke-width="2"' : ' stroke="rgba(255,255,255,0.35)" stroke-width="1"';
-                var out = '<g class="viz-node" data-id="' + k.id + '"' + click + '>';
+                var out = '<g class="viz-node' + (isProb ? ' viz-prob' : '') + '" data-id="' + item.id + '"' + click + '>';
                 if (isCenter) out += '<circle cx="' + x + '" cy="' + y + '" r="' + (r + 9) + '" fill="' + st.color + '" fill-opacity="0.18"/>';
                 out += vizShape(st.shape, x, y, r, st.color).replace('/>', stroke + '/>');
                 out += '</g>';
@@ -2867,12 +2929,12 @@
                 if (isCenter) {
                     // 中心标题加背板：挡住穿过的关联虚线，保证可读
                     var lw = 0;
-                    for (var ci = 0; ci < k.title.length; ci++) {
-                        lw += k.title.charCodeAt(ci) > 255 ? 19 : 10.5;
+                    for (var ci = 0; ci < item.title.length; ci++) {
+                        lw += item.title.charCodeAt(ci) > 255 ? 19 : 10.5;
                     }
                     out += '<rect x="' + (x - lw / 2 - 10) + '" y="' + (y + dy - 19) + '" width="' + (lw + 20) + '" height="27" rx="7" fill="rgba(7,11,24,0.92)"/>';
                 }
-                var labelText = k.title;
+                var labelText = item.title;
                 if (!isCenter && columnLayout && labelText.length > 14) labelText = labelText.slice(0, 14) + '…';
                 out += '<text class="viz-label' + (isCenter ? ' center' : '') + '" x="' + (x + dx) + '" y="' + (y + dy) + '" text-anchor="' + anchor + '">' + escHtml(labelText) + '</text>';
                 return out;
@@ -2880,22 +2942,27 @@
 
             pre.concat(dep, rel).forEach(function(id) {
                 var p = pos[id];
-                svg += drawNode(byId[id], p.x, p.y, 11, false);
+                if (probById[id]) svg += drawNode(probById[id], true, p.x, p.y, 10, false);
+                else svg += drawNode(kpById[id], false, p.x, p.y, 11, false);
             });
-            svg += drawNode(kp, cx, cy, 26, true);
+            svg += drawNode(centerNode, centerIsProb, cx, cy, centerIsProb ? 20 : 26, true);
             if (pre.length + dep.length + rel.length === 0) {
-                svg += '<text class="viz-label" x="' + cx + '" y="' + (cy + 78) + '" text-anchor="middle">该知识点暂未登记前置或关联节点</text>';
+                var emptyMsg = centerIsProb ? '该题目暂未登记知识点' : '该知识点暂未登记前置或关联节点';
+                svg += '<text class="viz-label" x="' + cx + '" y="' + (cy + 78) + '" text-anchor="middle">' + emptyMsg + '</text>';
             }
             svg += '</svg>';
 
-            document.getElementById('star-title').textContent = '星图 · ' + kp.title;
+            document.getElementById('star-title').textContent = '星图 · ' + centerNode.title;
             var legend = '';
             var used = [];
-            [kp].concat(pre.map(function(id) { return byId[id]; }), dep.map(function(id) { return byId[id]; }), rel.map(function(id) { return byId[id]; })).forEach(function(k) {
-                if (k && used.indexOf(k.category) < 0) used.push(k.category);
+            [centerNode].concat(pre.map(nodeOf), dep.map(nodeOf), rel.map(nodeOf)).forEach(function(k) {
+                if (!k) return;
+                var cat = probById[k.id] ? '题目' : k.category;
+                if (used.indexOf(cat) < 0) used.push(cat);
             });
             used.forEach(function(c) {
-                legend += '<span><i style="background:' + catStyle(c).color + '"></i>' + escHtml(c) + '</span>';
+                if (c === '题目') legend += '<span><i style="background:#94a3b8"></i>题目（灰色飞镖）</span>';
+                else legend += '<span><i style="background:' + catStyle(c).color + '"></i>' + escHtml(c) + '</span>';
             });
             legend += '<span><i style="background:rgba(96,165,250,0.9)"></i>前置→高阶</span>';
             legend += '<span><i style="background:rgba(148,163,184,0.6)"></i>关联（无向）</span>';
@@ -2917,11 +2984,32 @@
             document.getElementById('viz-tip').style.display = 'none';
         }
 
-        // Esc / 关闭按钮：退出星图并打开当前中心对应的栏目（大类总述页含简介与子分类目录）
+        function goKp(id) {
+            if (currentMode !== 'kp') switchMode('kp');
+            selectKP(id);
+        }
+
+        function goProblem(id) {
+            if (currentMode !== 'prob') switchMode('prob');
+            selectProblem(id);
+        }
+
+        // Esc / 关闭按钮：退出星图并打开当前中心对应的栏目（知识点或题目）
         function exitStarMap() {
-            var id = starCenterId;
+            var id = starCenterId, type = starCenterType;
             closeStarMap();
-            if (id) selectKP(id);
+            if (!id) return;
+            if (type === 'prob') goProblem(id);
+            else goKp(id);
+        }
+
+        function toggleStarProblems(on) {
+            showStarProblems = !!on;
+            if (!showStarProblems && starCenterType === 'prob') {
+                exitStarMap();
+                return;
+            }
+            if (starCenterId) openStarMap(starCenterId);
         }
 
         // ---------- 维恩图 ----------
@@ -3186,6 +3274,7 @@
         <div class="viz-header">
             <span class="viz-title" id="star-title">星图</span>
             <span class="viz-legend" id="star-legend"></span>
+            <label class="viz-toggle"><input type="checkbox" id="star-show-problems" onchange="toggleStarProblems(this.checked)"> 星图显示题目</label>
             <button class="viz-close" onclick="exitStarMap()">关闭 Esc</button>
         </div>
         <div class="viz-body" id="star-body"></div>

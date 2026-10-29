@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["李超线段树", "线段树", "斜率优化", "模板"]
+knowledgePoints: ["ds-hld-segtree", "ds-segtree-basic", "ds-segtree-combined"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\李超线段树\代码--lker.cpp'

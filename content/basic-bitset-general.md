@@ -1,14 +1,15 @@
 ---
 id: basic-bitset-general
 title: 'bitset 优化（通法与技巧）'
-category: 基础算法
-subcategory: 优化技巧
+category: 实用工具
+subcategory: STL与pbds
 tags: [bitset, 位运算, 卡常, 可行性DP, 传递闭包, 布尔矩阵, 莫队, 偏序]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'
 level: B
 verified: '2026-10-20'
 noCode: true
+subSubcategory: bitset
 ---
 
 ## 算法原理

@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: 贪心
 tags: ["贪心", "配对", "思维"]
+knowledgePoints: []
 timeComplexity: 'O(Σn)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\贪心\K Is Important\代码.cpp'

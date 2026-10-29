@@ -1,8 +1,8 @@
 ---
 id: hub-io
-title: '输入输出总述'
-category: '输入输出'
-subcategory: '总述'
+title: 'IO总述'
+category: 实用工具
+subcategory: IO
 tags: ['输入输出', '总述', 'IO优化']
 timeComplexity: '按子条目而定'
 spaceComplexity: '按子条目而定'
@@ -10,6 +10,7 @@ level: C
 noCode: true
 hub: true
 verified: 2026-10-25
+subSubcategory: 总述
 ---
 
 ## 算法原理

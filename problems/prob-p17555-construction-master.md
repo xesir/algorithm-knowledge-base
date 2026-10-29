@@ -7,6 +7,7 @@ difficulty: '普及+/提高−'
 cfRating: 'NaN'
 category: '数学'
 tags: ["构造", "数学", "模运算", "双射", "数论", "奇偶性"]
+knowledgePoints: []
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(1)'
 codePath: '题目专辑\数学\构造大师\代码.cpp'

@@ -1,16 +1,16 @@
 ---
 id: basic-template-header
 title: '自用头文件'
-category: 基础算法
-subcategory: 实用工具
-subSubcategory: ''
+category: 实用工具
+subcategory: 其他
+subSubcategory: 自用头文件
 tags: ["比赛模板", "快读快写", "宏定义", "输入输出", "实用工具"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'
 level: A
 noCode: true
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

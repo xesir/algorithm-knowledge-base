@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "斜率优化", "单调队列", "前缀和"]
+knowledgePoints: ["dp-multi-bag-monotone", "dp-opt-monotone-queue", "ds-monoqueue-1d", "ds-prefix-sum-1d"]
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\仓库建设\代码--lker.cpp'

@@ -1,9 +1,10 @@
 ---
 id: exam-bit-operation
 title: 'CSP 初赛位运算完全笔记（详解 + 扩充版）'
-category: 初赛笔记
-subcategory: 位运算
+category: 实用工具
+subcategory: 初赛指南
 tags: ["位运算", "补码", "异或", "移位", "状压", "运算符优先级", "CSP初赛"]
+subSubcategory: 位运算
 ---
 
 ## 〇、地基：补码（看懂一切负数位运算的钥匙）

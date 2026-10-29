@@ -1,9 +1,9 @@
 ---
 id: ds-stl-stack
 title: '栈（stack）'
-category: 数据结构
-subcategory: STL容器
-subSubcategory: ''
+category: 实用工具
+subcategory: STL与pbds
+subSubcategory: STL容器
 tags: ["数据结构", "STL", "栈", "后进先出"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

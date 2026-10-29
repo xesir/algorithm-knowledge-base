@@ -7,12 +7,13 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '动态规划'
 tags: ["状态压缩DP", "树上差分", "容斥原理", "高维前缀和", "组合数学"]
+knowledgePoints: ["math-combinatorics", "math-stars-and-bars"]
 timeComplexity: 'O(n·m + m·2^m)'
 spaceComplexity: 'O(n + 2^m)'
 codePath: '题目专辑\动态规划\完美旅行\代码.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 题目描述

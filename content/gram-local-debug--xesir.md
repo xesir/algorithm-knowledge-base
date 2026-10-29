@@ -1,9 +1,9 @@
 ---
 id: gram-local-debug
 title: '本地调试'
-category: 语法技巧
-subcategory: 调试技巧
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 本地调试
 tags: ["调试", "assert", "返回码", "对拍", "sanitizer", "Dev-C++"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

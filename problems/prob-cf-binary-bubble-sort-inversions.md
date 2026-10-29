@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '数据结构'
 tags: ["逆序对", "01数组", "冒泡排序", "懒标记", "水位模型", "前缀和", "吸收态", "O(n)"]
+knowledgePoints: ["ds-prefix-sum-1d", "ds-prefix-sum-2d", "ds-prefix-sum-tree"]
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数据结构\BinaryBubbleSortInversions\代码.cpp'

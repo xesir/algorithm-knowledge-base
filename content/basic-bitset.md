@@ -1,14 +1,15 @@
 ---
 id: basic-bitset
 title: 'bitset 优化'
-category: 基础算法
-subcategory: 优化技巧
+category: 实用工具
+subcategory: STL与pbds
 tags: [bitset, 传递闭包, Floyd, 位运算, 卡常]
 timeComplexity: 'O(n^3/64)'
 spaceComplexity: 'O(n^2/64)'
 level: B
 verified: '2026-10-19'
 codePath: '基础算法\优化技巧\bitset优化\Untitled1.cpp'
+subSubcategory: bitset
 ---
 
 ## 算法原理

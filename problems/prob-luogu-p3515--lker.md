@@ -7,6 +7,7 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "决策单调性", "分治优化", "四边形不等式"]
+knowledgePoints: []
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\Lightning Conductor\代码--lker.cpp'

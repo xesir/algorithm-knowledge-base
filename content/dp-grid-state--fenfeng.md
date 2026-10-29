@@ -9,7 +9,7 @@ timeComplexity: 'O(N·S³)'
 spaceComplexity: 'O(S²)'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 codePath: '动态规划\棋盘状压DP\Untitled1.cpp'
 ---
 

@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '数学'
 tags: ["博弈论", "数论", "贪心", "位运算", "进位悬崖", "批量折半"]
+knowledgePoints: ["exam-bit-operation", "math-bit-operation"]
 timeComplexity: 'O(2^18 + T * 50n)'
 spaceComplexity: 'O(2^18 + n)'
 codePath: '题目专辑\数学\DissQuackArrayGame\源.cpp'

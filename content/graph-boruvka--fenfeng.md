@@ -10,7 +10,7 @@ spaceComplexity: 'O(n + m)'
 level: A
 noCode: true
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

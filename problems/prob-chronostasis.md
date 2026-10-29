@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: '1500'
 category: '数据结构'
 tags: ["差分数组", "贪心", "字典序最小", "multiset", "排列", "前缀和", "构造"]
+knowledgePoints: ["ds-prefix-sum-1d", "ds-prefix-sum-2d", "ds-prefix-sum-tree"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数据结构\时停滞Chronostasis\代码.cpp'

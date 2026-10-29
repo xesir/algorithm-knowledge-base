@@ -1,12 +1,13 @@
 ---
 id: io-fast-io
 title: '快速输入输出（读入/输出优化模板）'
-category: 输入输出
-subcategory: IO优化
+category: 实用工具
+subcategory: IO
 tags: ["输入输出", "IO优化", "读入优化", "快速读入", "模板"]
 timeComplexity: '每次read/write O(位数)，常数远小于scanf/printf'
 spaceComplexity: 'O(1)'
 codePath: '输入,输出\Untitled1.cpp'
+subSubcategory: 快速IO
 ---
 
 ## 算法原理

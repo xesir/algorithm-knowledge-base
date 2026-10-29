@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: 基础算法
 tags: ["二分答案", "贪心", "构造", "前缀和思想"]
+knowledgePoints: []
 timeComplexity: 'O(n log(3∑a))'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\基础算法\植物很爽\代码--xesir.cpp'

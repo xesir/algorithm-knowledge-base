@@ -7,12 +7,13 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["区间DP", "计数", "括号序列", "状态拆分"]
+knowledgePoints: ["dp-interval-paint", "dp-interval-stone-merge", "dp-interval-synthesis"]
 timeComplexity: 'O(n^3)'
 spaceComplexity: 'O(n^2)'
 codePath: '题目专辑\动态规划\括号序列\代码.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 题目描述

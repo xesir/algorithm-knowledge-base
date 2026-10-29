@@ -10,7 +10,7 @@ spaceComplexity: 'O(nm)'
 codePath: '动态规划\线性DP\最长公共子序列长度（普通）\Untitled1--fenfeng.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

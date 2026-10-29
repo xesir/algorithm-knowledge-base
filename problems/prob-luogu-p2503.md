@@ -7,6 +7,7 @@ difficulty: '提高'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["模拟退火", "动态规划", "均方差", "分组", "随机化"]
+knowledgePoints: ["basic-random-sa-permutation", "basic-random-sa-point"]
 timeComplexity: 'O(n²m)（单次评估）'
 spaceComplexity: 'O(nm)'
 codePath: '题目专辑\动态规划\均分数据\代码.cpp'

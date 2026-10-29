@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '动态规划'
 tags: ["动态规划", "状态压缩DP", "异或", "popcount", "高低位分拆", "预付费技巧", "子序列"]
+knowledgePoints: []
 timeComplexity: 'O(n · 2^{B})'
 spaceComplexity: 'O(2^{M})'
 codePath: '题目专辑\动态规划\CSPS2020程序填空2-子序列最大异或分值\源.cpp'

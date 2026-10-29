@@ -1,9 +1,9 @@
 ---
 id: gram-auto
 title: '`auto` 的神秘用法'
-category: 语法技巧
-subcategory: 类型推导
-subSubcategory: ''
+category: 实用工具
+subcategory: 语法技巧
+subSubcategory: 类型推导
 tags: ["auto", "类型推导", "C++11", "结构化绑定", "decltype"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

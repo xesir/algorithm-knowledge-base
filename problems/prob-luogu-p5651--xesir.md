@@ -7,6 +7,7 @@ difficulty: '普及/提高−'
 cfRating: 'NaN'
 category: 图论
 tags: ["生成树", "异或前缀和", "DFS", "异或性质"]
+knowledgePoints: []
 timeComplexity: 'O(n + m + q)'
 spaceComplexity: 'O(n + m)'
 codePath: '题目专辑\图论\基础最短路练习题\代码--xesir.cpp'

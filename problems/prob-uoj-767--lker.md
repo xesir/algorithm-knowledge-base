@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: 图论
 tags: ["树哈希", "树同构", "搜索", "剪枝", "记忆化"]
+knowledgePoints: []
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n log n)'
 codePath: '题目专辑\图论\挑战NPC2\代码--lker.cpp'

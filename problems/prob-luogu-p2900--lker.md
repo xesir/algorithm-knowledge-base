@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "斜率优化", "贪心", "单调队列"]
+knowledgePoints: ["dp-multi-bag-monotone", "dp-opt-monotone-queue", "ds-monoqueue-1d"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\Land Acquisition\代码--lker.cpp'

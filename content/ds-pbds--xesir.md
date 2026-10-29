@@ -1,9 +1,9 @@
 ---
 id: ds-pbds
 title: 'pb_ds（基于策略的数据结构）'
-category: 数据结构
-subcategory: 其他数据结构
-subSubcategory: ''
+category: 实用工具
+subcategory: STL与pbds
+subSubcategory: pb_ds
 tags: ["pb_ds", "平衡树", "配对堆", "可并堆", "GCC扩展"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

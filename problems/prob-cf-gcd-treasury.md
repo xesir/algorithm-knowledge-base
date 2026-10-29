@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '数学'
 tags: ["数论", "GCD", "质因数分解", "枚举", "贪心", "结论题"]
+knowledgePoints: ["math-factorization", "math-pollard-rho"]
 timeComplexity: 'O(t·(√x + k·n))'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数学\GCD国库\代码.cpp'

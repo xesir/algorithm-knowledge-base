@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 图论
 tags: ["树哈希", "树同构", "换根DP", "模板"]
+knowledgePoints: []
 timeComplexity: 'O(nm)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\图论\树同构\代码--lker.cpp'

@@ -10,7 +10,7 @@ spaceComplexity: 'O(1)'
 level: A
 codePath: '基础算法\冒泡选择排序\Untitled1.cpp'
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

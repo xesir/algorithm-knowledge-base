@@ -1,13 +1,14 @@
 ---
 id: basic-random-mt19937
 title: 'C++ 随机数生成（mt19937 与分布对象）'
-category: 基础算法
+category: 实用工具
 subcategory: 随机化
 tags: ["随机数", "mt19937", "随机种子", "分布对象", "造数据"]
 timeComplexity: 'O(1)'
 spaceComplexity: 'O(1)'
 codePath: '基础算法\随机化\随机数生成\Untitled1.cpp'
 level: A
+subSubcategory: 随机数
 ---
 
 ## 算法原理

@@ -1,9 +1,9 @@
 ---
 id: basic-stress-checker
 title: '对拍（SPJ 与构造题 checker）'
-category: 基础算法
-subcategory: 对拍
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 对拍
 tags: ["对拍", "SPJ", "checker", "构造题", "合法性检验"]
 timeComplexity: '视 checker 内部检验方式'
 spaceComplexity: '视 checker 内部实现'

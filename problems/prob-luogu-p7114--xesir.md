@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 字符串
 tags: ["字符串哈希", "调和级数", "前缀桶", "奇偶性"]
+knowledgePoints: ["str-hash"]
 timeComplexity: 'O(n log n + 26n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\字符串\字符串匹配\代码--xesir.cpp'

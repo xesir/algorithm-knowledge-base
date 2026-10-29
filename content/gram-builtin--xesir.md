@@ -1,9 +1,9 @@
 ---
 id: gram-builtin
 title: '`__builtin` 全家桶'
-category: 语法技巧
-subcategory: 内建函数
-subSubcategory: ''
+category: 实用工具
+subcategory: 语法技巧
+subSubcategory: 内建函数
 tags: ["__builtin", "位运算", "状压DP", "popcount", "clz", "ctz"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

@@ -7,6 +7,7 @@ difficulty: '提高'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "SlopeTrick", "凸函数", "堆"]
+knowledgePoints: ["ds-dual-heap", "ds-heap"]
 timeComplexity: '视具体实现'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\Landscaping\代码--lker.cpp'

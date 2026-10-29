@@ -1,8 +1,8 @@
 ---
 id: hub-gram
 title: '语法技巧总述'
-category: '语法技巧'
-subcategory: '总述'
+category: 实用工具
+subcategory: 语法技巧
 tags: ['语法技巧', '总述', 'C++']
 timeComplexity: '按子条目而定'
 spaceComplexity: '按子条目而定'
@@ -10,6 +10,7 @@ level: C
 noCode: true
 hub: true
 verified: 2026-10-25
+subSubcategory: 总述
 ---
 
 ## 算法原理

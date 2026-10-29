@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '数学'
 tags: ["模拟", "贪心", "动量守恒", "物理类比", "优化"]
+knowledgePoints: []
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(1)'
 codePath: '题目专辑\数学\粒子运动\代码.cpp'

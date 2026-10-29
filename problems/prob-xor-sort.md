@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: '1500'
 category: '数学'
 tags: ["位运算", "XOR", "分块", "排序判定", "贪心", "二进制"]
+knowledgePoints: ["ds-block-decomposition", "exam-bit-operation", "math-bit-operation"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数学\XOR排序\代码.cpp'

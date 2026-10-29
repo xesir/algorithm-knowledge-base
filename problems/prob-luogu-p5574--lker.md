@@ -7,6 +7,7 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "决策单调性", "分治优化", "树状数组"]
+knowledgePoints: ["dp-linear-lis-bit-count", "ds-bit-point-range", "ds-bit-range-point"]
 timeComplexity: 'O(k n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\任务分配问题\代码--lker.cpp'

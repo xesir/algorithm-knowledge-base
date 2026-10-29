@@ -7,6 +7,7 @@ difficulty: '提高'
 cfRating: 'NaN'
 category: 数学
 tags: ["按位统计", "双指针", "时间戳", "位运算", "MEX", "贡献统计"]
+knowledgePoints: ["basic-meet-in-middle-two-pointer", "basic-two-pointer", "exam-bit-operation", "math-bit-operation"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数学\函数 func\代码.cpp'

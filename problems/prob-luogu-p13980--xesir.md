@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 数据结构
 tags: ["分块", "线段树", "区间开方", "区间求和"]
+knowledgePoints: ["ds-block-decomposition", "ds-hld-segtree", "ds-segtree-basic", "ds-segtree-combined"]
 timeComplexity: 'O((n+q) log n · log log A)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数据结构\数列分块入门5\代码--xesir.cpp'

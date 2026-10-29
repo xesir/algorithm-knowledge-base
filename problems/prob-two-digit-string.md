@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: '1600'
 category: '动态规划'
 tags: ["字符串", "前缀和", "取模", "LCS", "动态规划", "贪心转DP", "构造"]
+knowledgePoints: ["ds-prefix-sum-1d", "ds-prefix-sum-2d", "ds-prefix-sum-tree"]
 timeComplexity: 'O(nm)'
 spaceComplexity: 'O(nm)（可滚动优化至 O(min(n,m))）'
 codePath: '题目专辑\动态规划\两位数字符串\代码.cpp'

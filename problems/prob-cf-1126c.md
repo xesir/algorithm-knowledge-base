@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: 数学
 tags: ["前缀异或", "格雷码", "构造", "异或"]
+knowledgePoints: []
 timeComplexity: 'O(Σn)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数学\XOR Problem\代码.cpp'

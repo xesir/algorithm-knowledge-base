@@ -1,9 +1,9 @@
 ---
 id: gram-type-overview
 title: '变量与函数类型大全'
-category: 语法技巧
-subcategory: 类型系统
-subSubcategory: ''
+category: 实用工具
+subcategory: 语法技巧
+subSubcategory: 类型系统
 tags: ["类型系统", "整型", "浮点", "类型转换", "constexpr", "位宽类型"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

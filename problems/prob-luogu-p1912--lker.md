@@ -7,6 +7,7 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "决策单调性", "四边形不等式", "单调队列"]
+knowledgePoints: ["dp-multi-bag-monotone", "dp-opt-monotone-queue", "ds-monoqueue-1d"]
 timeComplexity: 'O(n log n log P)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\诗人小G\代码--lker.cpp'

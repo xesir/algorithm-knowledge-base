@@ -10,7 +10,7 @@ spaceComplexity: 'O(∑|s_i|·26)'
 level: A
 verified: 2026-10-19
 codePath: '字符串\AC自动机\Untitled1.cpp'
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

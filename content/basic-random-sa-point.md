@@ -1,13 +1,14 @@
 ---
 id: basic-random-sa-point
 title: '模拟退火 · 点退火（求加权费马点）'
-category: 基础算法
+category: 实用工具
 subcategory: 随机化
 tags: ["模拟退火", "随机化", "爬山法", "Metropolis准则", "费马点"]
 timeComplexity: 'O(n·log(T0/Tmin))（单轮退火）'
 spaceComplexity: 'O(n)'
 codePath: '基础算法\随机化\点退火\Untitled1.cpp'
 level: A
+subSubcategory: 模拟退火
 ---
 
 ## 算法原理

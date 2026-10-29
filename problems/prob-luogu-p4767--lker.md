@@ -7,6 +7,7 @@ difficulty: '省选/NOI−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "四边形不等式", "Knuth优化", "前缀和"]
+knowledgePoints: ["ds-prefix-sum-1d", "ds-prefix-sum-2d", "ds-prefix-sum-tree"]
 timeComplexity: 'O(n²)'
 spaceComplexity: 'O(n²)'
 codePath: '题目专辑\动态规划\邮局\代码--lker.cpp'

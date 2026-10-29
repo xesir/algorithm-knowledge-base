@@ -7,6 +7,7 @@ difficulty: '普及+/提高−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "区间DP", "四边形不等式", "Knuth优化"]
+knowledgePoints: ["dp-interval-paint", "dp-interval-stone-merge", "dp-interval-synthesis"]
 timeComplexity: 'O(n²)'
 spaceComplexity: 'O(n²)'
 codePath: '题目专辑\动态规划\石子合并\代码--lker.cpp'

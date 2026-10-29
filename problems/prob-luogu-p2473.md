@@ -7,12 +7,13 @@ difficulty: '提高'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["动态规划", "期望DP", "状压DP", "概率期望"]
+knowledgePoints: ["dp-bitmask-hamilton", "dp-expectation", "dp-grid-state"]
 timeComplexity: 'O(k·n·2^n)'
 spaceComplexity: 'O(k·2^n)'
 level: A
 noCode: true
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 题目描述

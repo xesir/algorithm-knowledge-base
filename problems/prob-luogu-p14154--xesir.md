@@ -7,6 +7,7 @@ difficulty: '提高'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["单调队列", "动态规划", "前后缀DP", "单点修改", "滑动窗口"]
+knowledgePoints: ["dp-multi-bag-monotone", "dp-opt-monotone-queue", "ds-monoqueue-1d"]
 timeComplexity: 'O(n + qk)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\动态规划\索道\代码--xesir.cpp'

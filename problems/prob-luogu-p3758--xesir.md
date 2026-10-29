@@ -7,6 +7,7 @@ difficulty: '普及+/提高−'
 cfRating: 'NaN'
 category: 数学
 tags: ["矩阵快速幂", "矩阵乘法", "图论计数", "动态规划"]
+knowledgePoints: ["math-matrix-multiplication", "math-linear-algebra", "math-matrix-quick-pow"]
 timeComplexity: 'O(N³ log t)'
 spaceComplexity: 'O(N²)'
 codePath: '题目专辑\数学\可乐\代码--xesir.cpp'

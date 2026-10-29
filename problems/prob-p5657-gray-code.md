@@ -7,6 +7,7 @@ difficulty: '普及−'
 cfRating: 'NaN'
 category: '数学'
 tags: ["格雷码", "数学", "位运算", "递归", "构造", "CSP-S"]
+knowledgePoints: ["exam-bit-operation", "math-bit-operation"]
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(1)'
 codePath: '题目专辑\数学\格雷码\代码.cpp'

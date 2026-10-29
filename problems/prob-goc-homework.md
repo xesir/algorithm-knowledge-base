@@ -7,12 +7,13 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["状态压缩", "记忆化搜索", "动态规划", "位运算"]
+knowledgePoints: ["dp-bitmask-hamilton", "dp-grid-state", "exam-bit-operation", "math-bit-operation"]
 timeComplexity: 'O(m(n+1)^w)'
 spaceComplexity: 'O(m(n+1)^w)'
 codePath: '题目专辑\动态规划\发作业\代码.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 题目描述

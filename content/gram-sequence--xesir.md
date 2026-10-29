@@ -1,9 +1,9 @@
 ---
 id: gram-sequence
 title: '我的序列我做主：自定义比较规则'
-category: 语法技巧
-subcategory: 运算符与序列
-subSubcategory: ''
+category: 实用工具
+subcategory: 语法技巧
+subSubcategory: 运算符与序列
 tags: ["自定义比较", "排序", "优先队列", "运算符重载", "仿函数", "lower_bound"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

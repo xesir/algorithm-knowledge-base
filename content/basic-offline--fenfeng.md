@@ -1,16 +1,16 @@
 ---
 id: basic-offline
 title: '离线操作（思想）'
-category: 基础算法
-subcategory: 离线操作
-subSubcategory: ''
+category: 实用工具
+subcategory: 其他
+subSubcategory: 离线操作
 tags: ["离线操作", "排序", "扫描线", "莫队", "可持久化"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'
 level: A
 noCode: true
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

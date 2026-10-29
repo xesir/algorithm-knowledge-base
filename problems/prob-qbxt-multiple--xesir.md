@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: 数学
 tags: ["数论", "中国剩余定理", "exgcd", "构造", "分类讨论"]
+knowledgePoints: ["math-crt", "math-exgcd"]
 timeComplexity: 'O(n² log A)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数学\倍数很爽\代码--xesir.cpp'

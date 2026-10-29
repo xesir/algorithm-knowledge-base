@@ -1,9 +1,9 @@
 ---
 id: gram-struct
 title: '神秘结构体'
-category: 语法技巧
-subcategory: 结构体
-subSubcategory: ''
+category: 实用工具
+subcategory: 语法技巧
+subSubcategory: 结构体
 tags: ["结构体", "struct", "class", "运算符重载", "构造函数", "位域"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

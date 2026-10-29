@@ -30,20 +30,10 @@
             "description": "数论与组合数学相关的算法与计数问题，包括数论基础、组合计数、快速幂、矩阵运算等。",
             "problemDomain": "模运算、组合计数、高精度计算、数论计数等数学问题"
         },
-        "输入输出": {
-            "nature": "I/O优化技术",
-            "description": "通过自定义读写函数替代标准I/O，在处理大规模数据时显著提升程序效率。",
-            "problemDomain": "竞赛中大量数据的快速读写场景"
-        },
-        "初赛笔记": {
-            "nature": "竞赛理论知识",
-            "description": "CSP 初赛涉及的理论知识与考点总结，不包含代码实现，侧重概念理解、公式记忆和应试技巧。涵盖位运算、数据类型、运算符优先级、进制转换等初赛高频考点。",
-            "problemDomain": "CSP 初赛的选择题、判断题、程序阅读题等理论考核场景"
-        },
-        "语法技巧": {
-            "nature": "C++ 语言技巧",
-            "description": "C++ 语言层面的实用语法与工程技巧，如类型推导、宏与别名、结构体与运算符重载、内建函数、输入输出冷知识与本地调试手段。是让代码更短、更快、更好调的工具箱。",
-            "problemDomain": "写代码、调代码与卡常时的语言级技巧"
+        "实用工具": {
+            "nature": "竞赛工程与语言工具",
+            "description": "把 CSP 初赛理论、I/O、语法技巧、随机化、调试、离线/离散化/自用头文件、STL 与 pb_ds、bitset 等工程手段集中在一起，作为写题与比赛的工具箱。",
+            "problemDomain": "初赛理论复习、代码编写与调试、输入输出优化、随机化与对拍、STL/pb_ds 使用等工程场景"
         }
     },
     "subcategories": {
@@ -58,9 +48,6 @@
         },
         "基础算法|数位提升": {
             "description": "按数位逐层处理数字的周期性和幂次问题，将大数运算分解为数位级别的迭代。"
-        },
-        "基础算法|随机化": {
-            "description": "利用随机数进行数据生成、对拍与算法随机化，涵盖 C++11 随机数引擎、分布对象与随机种子的基础工具。"
         },
         "动态规划|背包问题": {
             "description": "在容量限制下选择物品使价值最大化。涵盖01背包、完全背包、分组背包、多重背包等变体，是DP的入门必修。"
@@ -188,9 +175,6 @@
         "数学|组合数学": {
             "description": "组合数学的核心计数方法与技巧，包括隔板法（Stars and Bars）、容斥原理、排列组合等。是各类计数问题的基础工具。"
         },
-        "输入输出|IO优化": {
-            "description": "通过自定义读写函数替代scanf/printf，在大量I/O时提升数倍效率。竞赛必备基础技能。"
-        },
         "基础算法|分治": {
             "description": "将问题分解为子问题分别求解，再合并结果。分治是递归思想的核心应用，归并排序求逆序对是其经典实例。"
         },
@@ -199,9 +183,6 @@
         },
         "基础算法|搜索": {
             "description": "通过DFS/BFS等搜索策略系统地枚举或寻找最短路径。DFS+回溯是组合搜索的核心技术，通过递归尝试所有选择并在不满足条件时回退，配合剪枝可大幅减少无效搜索。BFS按层扩展保证无权图最短路，双向BFS从起点和终点同时扩展以减少搜索范围。是排列、组合、子集、迷宫最短路等问题的基础范式。"
-        },
-        "初赛笔记|位运算": {
-            "description": "CSP 初赛位运算核心考点：补码表示、三大恒等式、异或性质与应用、代数定律、移位运算、lowbit操作、状压集合、运算符优先级、有符号/无符号坑、大小关系不等式链、常数与进制转换。不涉及代码实现，侧重公式记忆与考场速算。"
         },
         "基础算法|倍增": {
             "description": "通过预处理 2^k 规模的信息，把线性逐位处理优化为按二进制位跳跃。是 ST 表、LCA 倍增、快速幂、后缀数组等算法的共同思想基础。"
@@ -221,9 +202,6 @@
         "动态规划|期望DP": {
             "description": "以期望值为状态的动态规划，常结合概率转移、倒推（逆推）与高斯消元处理成环的期望方程组。"
         },
-        "基础算法|离线操作": {
-            "description": "把询问/操作统一收集后离线处理的思想，如离线倒序、离线排序、莫队、整体二分等，常用来规避在线维护的困难。"
-        },
         "图论|虚树": {
             "description": "在多组询问、每组涉及少量关键点的情况下，把关键点及其 LCA 按原树祖先关系连成的一棵压缩树，从而把树上 DP/询问复杂度从 O(n) 降到 O(k log k)。"
         },
@@ -236,44 +214,11 @@
         "数据结构|可持久化数据结构": {
             "description": "能够访问历史版本的数据结构，通过共享节点实现多版本管理，如可持久化线段树、可持久化平衡树、可持久化并查集等。"
         },
-        "数据结构|STL容器": {
-            "description": "C++ 标准库中的基础容器：队列、栈、vector、set/map 等关联式/序列式容器的用法、复杂度与常见技巧，是写代码的工具基础。"
-        },
-        "基础算法|实用工具": {
-            "description": "竞赛中常用的辅助工具：时间测试、自用头文件、pb_ds 等，用于提升开发与调试效率。"
-        },
-        "基础算法|对拍": {
-            "description": "用「正解 / 暴力 / 随机数据生成器 / 控制器」四件套自动比对答案，快速暴露边界错误；涵盖普通对拍、浮点误差对比、SPJ 与构造题 checker、交互题对拍，以及多种随机数据的生成套路。"
-        },
         "基础算法|优化技巧": {
-            "description": "以机器字并行等常数手段压缩时间或空间的工程优化技巧。bitset 通法条目讲语法、三步改造与各类变体（可行性背包、可达性、偏序、布尔矩阵、LCS、位并行 BFS 等），Floyd 案例单独成篇。"
+            "description": "以常数优化、结论汇总与工程技巧压缩时间或空间，包括 bitset、套路总结等。"
         },
-        "基础算法|离散化": {
-            "description": "当值域远大于数据量时，把实际出现的值排序去重后映射为小编号，将值域从 O(V) 压到 O(n)，以便用值域作下标的数据结构。"
-        },
-        "语法技巧|类型推导": {
-            "description": "auto 与 decltype 的类型推导：容器遍历、复杂类型声明、返回值推导、结构化绑定等 C++11/14/17 用法与陷阱。"
-        },
-        "语法技巧|宏与别名": {
-            "description": "#define 宏、typedef 与 using 的用法对比：常用竞赛宏、条件编译、可变参数宏、模板别名与函数指针别名。"
-        },
-        "语法技巧|类型系统": {
-            "description": "C++ 内置整型/浮点家族、常见类型的大小与取值范围，以及选型时的溢出与精度考量。"
-        },
-        "语法技巧|结构体": {
-            "description": "struct 的定义、初始化、成员函数与重载运算符，把自定义类型接入 STL 的排序/比较惯例。"
-        },
-        "语法技巧|运算符与序列": {
-            "description": "通过重载比较/算术运算符与自定义排序比较器，让自定义类型在 sort、优先队列、二分中开箱即用。"
-        },
-        "语法技巧|内建函数": {
-            "description": "__builtin 系列内建函数：位计数、前导/后导零、奇偶校验等，常数级实现常被卡常题使用。"
-        },
-        "语法技巧|输入输出": {
-            "description": "标准输入输出的冷知识与细节：scanf/cin 混用、读入字符与字符串的坑、EOF 处理等。"
-        },
-        "语法技巧|调试技巧": {
-            "description": "本地调试手段：assert/throw 断言、try-catch、Dev-C++ 调试功能、程序异常返回码识别与对拍/静态检查工具。"
+        "基础算法|根号分治": {
+            "description": "按阈值把对象分成小规模与大规模两类，分别用暴力与集中处理，使复杂度在根号处平衡；典型应用是度数定向的无向图三元环计数，也用于出现次数、区间长度等规模分层。"
         },
         "基础算法|总述": {
             "description": "基础算法的总体定位、选型依据与学习路线。"
@@ -293,14 +238,29 @@
         "字符串|总述": {
             "description": "字符串匹配、表示与统计三类问题的选型入口。"
         },
-        "输入输出|总述": {
-            "description": "快速 I/O 的适用条件、实现层次与注意事项。"
+        "实用工具|总述": {
+            "description": "实用工具大类的总体定位、子分类划分与使用边界。"
         },
-        "初赛笔记|总述": {
-            "description": "CSP 初赛理论考点的复习框架与程序阅读方法。"
+        "实用工具|初赛指南": {
+            "description": "CSP 初赛位运算核心考点：补码表示、三大恒等式、异或性质与应用、代数定律、移位运算、lowbit操作、状压集合、运算符优先级、有符号/无符号坑、大小关系不等式链、常数与进制转换。不涉及代码实现，侧重公式记忆与考场速算。"
         },
-        "语法技巧|总述": {
-            "description": "C++ 语言层面实用技巧的分类与使用边界。"
+        "实用工具|IO": {
+            "description": "快速读写与输入输出细节：自定义读写、scanf/cin 混用、字符与 EOF 处理等。"
+        },
+        "实用工具|语法技巧": {
+            "description": "C++ 语言层面的类型、宏、结构体、内建函数与比较规则，是让代码更短、更快、更好调的工具箱。"
+        },
+        "实用工具|随机化": {
+            "description": "随机数生成、随机采样与模拟退火；用随机性换实现简单或近似最优。"
+        },
+        "实用工具|调试": {
+            "description": "本地调试、断言与异常、对拍、时间测试与空间测试，建立可重复的验证流程。"
+        },
+        "实用工具|其他": {
+            "description": "离线操作、离散化、自用头文件等不易归入其他子分类的工程工具。"
+        },
+        "实用工具|STL与pbds": {
+            "description": "STL 容器、pb_ds 与 bitset：用现成实现换开发时间，同时关注复杂度与常数。"
         }
     },
     "subSubcategories": {
@@ -387,6 +347,87 @@
         },
         "基础算法|搜索|折半搜索": {
             "description": "Meet in the Middle（折半搜索）将搜索空间分成两半分别枚举，再合并结果，将指数级复杂度从O(2^n)降至O(n·2^(n/2))，是解决中等规模子集类问题的核心技巧。"
+        },
+        "实用工具|初赛指南|总述": {
+            "description": "CSP 初赛理论考点的复习框架与程序阅读方法。"
+        },
+        "实用工具|初赛指南|位运算": {
+            "description": "CSP 初赛位运算核心考点：补码表示、三大恒等式、异或性质与应用、代数定律、移位运算、lowbit 操作、状压集合、运算符优先级、有符号/无符号坑、大小关系不等式链、常数与进制转换。不涉及代码实现，侧重公式记忆与考场速算。"
+        },
+        "实用工具|IO|总述": {
+            "description": "快速 I/O 的适用条件、实现层次与注意事项。"
+        },
+        "实用工具|IO|快速IO": {
+            "description": "通过自定义读写函数替代scanf/printf，在大量I/O时提升数倍效率。竞赛必备基础技能。"
+        },
+        "实用工具|IO|IO冷知识": {
+            "description": "标准输入输出的冷知识与细节：scanf/cin 混用、读入字符与字符串的坑、EOF 处理等。"
+        },
+        "实用工具|语法技巧|总述": {
+            "description": "C++ 语言层面实用技巧的分类与使用边界。"
+        },
+        "实用工具|语法技巧|类型推导": {
+            "description": "auto 与 decltype 的类型推导：容器遍历、复杂类型声明、返回值推导、结构化绑定等 C++11/14/17 用法与陷阱。"
+        },
+        "实用工具|语法技巧|宏与别名": {
+            "description": "#define 宏、typedef 与 using 的用法对比：常用竞赛宏、条件编译、可变参数宏、模板别名与函数指针别名。"
+        },
+        "实用工具|语法技巧|类型系统": {
+            "description": "C++ 内置整型/浮点家族、常见类型的大小与取值范围，以及选型时的溢出与精度考量。"
+        },
+        "实用工具|语法技巧|结构体": {
+            "description": "struct 的定义、初始化、成员函数与重载运算符，把自定义类型接入 STL 的排序/比较惯例。"
+        },
+        "实用工具|语法技巧|运算符与序列": {
+            "description": "通过重载比较/算术运算符与自定义排序比较器，让自定义类型在 sort、优先队列、二分中开箱即用。"
+        },
+        "实用工具|语法技巧|内建函数": {
+            "description": "__builtin 系列内建函数：位计数、前导/后导零、奇偶校验等，常数级实现常被卡常题使用。"
+        },
+        "实用工具|随机化|总述": {
+            "description": "随机化子分类的选型入口：随机数、随机采样与模拟退火。"
+        },
+        "实用工具|随机化|随机数": {
+            "description": "mt19937、分布对象、固定种子与随机范围。"
+        },
+        "实用工具|随机化|模拟退火": {
+            "description": "模拟退火的温度、接受准则、降温与终止条件。"
+        },
+        "实用工具|调试|总述": {
+            "description": "调试子分类的选型入口：本地调试、对拍、时空测试。"
+        },
+        "实用工具|调试|本地调试": {
+            "description": "本地调试手段：assert/throw 断言、try-catch、Dev-C++ 调试功能、程序异常返回码识别与对拍/静态检查工具。"
+        },
+        "实用工具|调试|对拍": {
+            "description": "用「正解 / 暴力 / 随机数据生成器 / 控制器」四件套自动比对答案，快速暴露边界错误；涵盖普通对拍、浮点误差对比、SPJ 与构造题 checker、交互题对拍，以及多种随机数据的生成套路。"
+        },
+        "实用工具|调试|时空测试": {
+            "description": "时间测试与空间测试：clock、getrusage、sizeof 与容量估算。"
+        },
+        "实用工具|其他|总述": {
+            "description": "离线操作、离散化、自用头文件的选型入口。"
+        },
+        "实用工具|其他|离线操作": {
+            "description": "把询问/操作统一收集后离线处理的思想，如离线倒序、离线排序、莫队、整体二分等，常用来规避在线维护的困难。"
+        },
+        "实用工具|其他|离散化": {
+            "description": "当值域远大于数据量时，把实际出现的值排序去重后映射为小编号，将值域从 O(V) 压到 O(n)，以便用值域作下标的数据结构。"
+        },
+        "实用工具|其他|自用头文件": {
+            "description": "把常用宏、类型别名与调试开关集中到一个头文件，统一代码风格与提交清理。"
+        },
+        "实用工具|STL与pbds|总述": {
+            "description": "STL 容器、pb_ds 与 bitset 的选型入口。"
+        },
+        "实用工具|STL与pbds|STL容器": {
+            "description": "C++ 标准库中的基础容器：队列、栈、vector、set/map 等关联式/序列式容器的用法、复杂度与常见技巧，是写代码的工具基础。"
+        },
+        "实用工具|STL与pbds|pb_ds": {
+            "description": "pb_ds 平衡树、优先队列与排名操作。"
+        },
+        "实用工具|STL与pbds|bitset": {
+            "description": "以机器字并行等常数手段压缩时间或空间的工程优化技巧。bitset 通法条目讲语法、三步改造与各类变体（可行性背包、可达性、偏序、布尔矩阵、LCS、位并行 BFS 等），Floyd 案例单独成篇。"
         }
     },
     "knowledgePoints": {
@@ -439,13 +480,13 @@
         },
         "gram-io-tips": {
             "prerequisites": [
-                "hub-gram"
+                "hub-io"
             ],
             "related": []
         },
         "gram-local-debug": {
             "prerequisites": [
-                "hub-gram"
+                "hub-utility-debug"
             ],
             "related": []
         },
@@ -455,7 +496,8 @@
             ],
             "related": [
                 "math-quick-pow-highprecision",
-                "dp-digit-count"
+                "dp-digit-count",
+                "basic-big-integer-library"
             ]
         },
         "basic-interval-scheduling": {
@@ -507,8 +549,6 @@
                 "dp-01bag-record",
                 "dp-count-01bag",
                 "dp-multi-bag-binary",
-                "dp-linear-triangle",
-                "dp-tree-dance",
                 "dp-tree-01bag"
             ]
         },
@@ -593,8 +633,7 @@
             ],
             "related": [
                 "dp-linear-maxsub",
-                "dp-linear-lis-binary",
-                "dp-01bag-standard"
+                "dp-linear-lis-binary"
             ]
         },
         "dp-linear-maxsub": {
@@ -673,8 +712,7 @@
             ],
             "related": [
                 "dp-tree-01bag",
-                "dp-01bag-standard",
-                "graph-topo-sort"
+                "dp-tree-bag-optimize"
             ]
         },
         "dp-tree-01bag": {
@@ -803,7 +841,7 @@
         },
         "basic-discretization": {
             "prerequisites": [
-                "hub-basic"
+                "hub-utility-other"
             ],
             "related": [
                 "ds-segtree-discretize",
@@ -1149,7 +1187,6 @@
             ],
             "related": [
                 "graph-dijkstra-heap",
-                "dp-tree-dance",
                 "graph-tarjan-scc",
                 "graph-scc-condensation",
                 "graph-scc-dag-dp"
@@ -1438,7 +1475,9 @@
             "prerequisites": [
                 "hub-math"
             ],
-            "related": []
+            "related": [
+                "basic-sqrt-decomposition"
+            ]
         },
         "str-ac-automaton": {
             "prerequisites": [
@@ -1467,24 +1506,35 @@
         },
         "basic-bitset": {
             "prerequisites": [
-                "hub-basic"
+                "hub-utility-stl"
             ],
             "related": [
                 "graph-floyd",
-                "basic-bitset-general"
+                "basic-bitset-general",
+                "basic-sqrt-decomposition"
             ]
         },
         "basic-bitset-general": {
             "prerequisites": [
-                "hub-basic"
+                "hub-utility-stl"
             ],
             "related": [
                 "basic-bitset"
             ]
         },
+        "basic-sqrt-decomposition": {
+            "prerequisites": [
+                "hub-basic",
+                "graph-storage"
+            ],
+            "related": [
+                "basic-bitset",
+                "math-block-division"
+            ]
+        },
         "ds-stl-list": {
             "prerequisites": [
-                "hub-ds"
+                "hub-utility-stl"
             ],
             "related": []
         },
@@ -1530,7 +1580,18 @@
                 "graph-storage",
                 "hub-graph"
             ],
-            "related": []
+            "related": [
+                "graph-difference-constraints"
+            ]
+        },
+        "graph-difference-constraints": {
+            "prerequisites": [
+                "graph-spfa",
+                "hub-graph"
+            ],
+            "related": [
+                "graph-modeling"
+            ]
         },
         "graph-storage": {
             "prerequisites": [
@@ -1554,7 +1615,7 @@
         },
         "basic-offline": {
             "prerequisites": [
-                "hub-basic"
+                "hub-utility-other"
             ],
             "related": []
         },
@@ -1610,49 +1671,51 @@
         },
         "ds-stl-queue": {
             "prerequisites": [
-                "hub-ds"
+                "hub-utility-stl"
             ],
             "related": []
         },
         "ds-stl-stack": {
             "prerequisites": [
-                "hub-ds"
+                "hub-utility-stl"
             ],
             "related": []
         },
         "ds-stl-vector": {
             "prerequisites": [
-                "hub-ds"
+                "hub-utility-stl"
             ],
             "related": []
         },
         "ds-stl-associative": {
             "prerequisites": [
-                "hub-ds"
+                "hub-utility-stl"
             ],
             "related": []
         },
         "ds-stl-tips": {
             "prerequisites": [
-                "hub-ds"
+                "hub-utility-stl"
             ],
             "related": []
         },
         "basic-timing": {
             "prerequisites": [
-                "hub-basic"
+                "hub-utility-debug"
             ],
-            "related": []
+            "related": [
+                "basic-space-test"
+            ]
         },
         "basic-template-header": {
             "prerequisites": [
-                "hub-basic"
+                "hub-utility-other"
             ],
             "related": []
         },
         "ds-pbds": {
             "prerequisites": [
-                "hub-ds"
+                "hub-utility-stl"
             ],
             "related": []
         },
@@ -1744,7 +1807,9 @@
             "prerequisites": [
                 "dp-tree-01bag"
             ],
-            "related": []
+            "related": [
+                "dp-tree-dance"
+            ]
         },
         "dp-tree-color-edge": {
             "prerequisites": [
@@ -2006,7 +2071,7 @@
         },
         "basic-random-mt19937": {
             "prerequisites": [
-                "hub-basic"
+                "hub-utility-random"
             ],
             "related": [
                 "basic-quickselect-kth",
@@ -2015,6 +2080,7 @@
         },
         "basic-random-sa-point": {
             "prerequisites": [
+                "hub-utility-random",
                 "basic-random-mt19937"
             ],
             "related": [
@@ -2024,6 +2090,7 @@
         },
         "basic-random-sa-permutation": {
             "prerequisites": [
+                "hub-utility-random",
                 "basic-random-mt19937"
             ],
             "related": [
@@ -2180,45 +2247,50 @@
         },
         "basic-stress-basic": {
             "prerequisites": [
+                "hub-utility-debug",
                 "basic-random-mt19937",
-                "basic-timing",
-                "hub-basic"
+                "basic-timing"
             ],
             "related": []
         },
         "basic-stress-precision": {
             "prerequisites": [
+                "hub-utility-debug",
                 "basic-stress-basic"
             ],
             "related": []
         },
         "basic-stress-checker": {
             "prerequisites": [
+                "hub-utility-debug",
                 "basic-stress-basic"
             ],
             "related": []
         },
         "basic-stress-interactive": {
             "prerequisites": [
+                "hub-utility-debug",
                 "basic-stress-basic"
             ],
             "related": []
         },
         "basic-stress-random-basic": {
             "prerequisites": [
-                "basic-random-mt19937",
-                "hub-basic"
+                "hub-utility-debug",
+                "basic-random-mt19937"
             ],
             "related": []
         },
         "basic-stress-tree-gen": {
             "prerequisites": [
+                "hub-utility-debug",
                 "basic-stress-random-basic"
             ],
             "related": []
         },
         "basic-stress-graph-gen": {
             "prerequisites": [
+                "hub-utility-debug",
                 "basic-stress-random-basic"
             ],
             "related": []
@@ -2248,15 +2320,212 @@
             "related": []
         },
         "hub-io": {
-            "prerequisites": [],
+            "prerequisites": [
+                "hub-utility"
+            ],
             "related": []
         },
         "hub-exam": {
-            "prerequisites": [],
+            "prerequisites": [
+                "hub-utility"
+            ],
             "related": []
         },
         "hub-gram": {
+            "prerequisites": [
+                "hub-utility"
+            ],
+            "related": []
+        },
+        "hub-utility": {
             "prerequisites": [],
+            "related": []
+        },
+        "hub-utility-random": {
+            "prerequisites": [
+                "hub-utility"
+            ],
+            "related": []
+        },
+        "hub-utility-debug": {
+            "prerequisites": [
+                "hub-utility"
+            ],
+            "related": []
+        },
+        "hub-utility-other": {
+            "prerequisites": [
+                "hub-utility"
+            ],
+            "related": []
+        },
+        "hub-utility-stl": {
+            "prerequisites": [
+                "hub-utility"
+            ],
+            "related": []
+        },
+        "basic-space-test": {
+            "prerequisites": [
+                "hub-utility-debug"
+            ],
+            "related": [
+                "basic-timing"
+            ]
+        },
+        "basic-big-integer-library": {
+            "prerequisites": [
+                "hub-basic",
+                "basic-high-precision"
+            ],
+            "related": [
+                "basic-high-precision"
+            ]
+        },
+        "math-special-angle-method": {
+            "prerequisites": [
+                "hub-math"
+            ],
+            "related": []
+        },
+        "graph-cyclic-tree": {
+            "prerequisites": [
+                "hub-graph",
+                "graph-tree-basic"
+            ],
+            "related": []
+        },
+        "basic-problem-solving-patterns": {
+            "prerequisites": [
+                "hub-basic"
+            ],
+            "related": []
+        },
+        "ds-avl-tree": {
+            "prerequisites": [
+                "hub-ds",
+                "ds-bst"
+            ],
+            "related": [
+                "ds-balanced-tree-overview"
+            ]
+        },
+        "math-triangle-area-existence": {
+            "prerequisites": [
+                "hub-math",
+                "math-cartesian-plane"
+            ],
+            "related": []
+        },
+        "ds-balanced-tree-overview": {
+            "prerequisites": [
+                "hub-ds",
+                "ds-bst"
+            ],
+            "related": [
+                "ds-avl-tree"
+            ]
+        },
+        "math-nested-radical": {
+            "prerequisites": [
+                "hub-math"
+            ],
+            "related": []
+        },
+        "dp-bracket-sequence": {
+            "prerequisites": [
+                "hub-dp"
+            ],
+            "related": []
+        },
+        "ds-offline-2d-count": {
+            "prerequisites": [
+                "hub-ds",
+                "ds-bit-point-range"
+            ],
+            "related": []
+        },
+        "ds-rmq-linear": {
+            "prerequisites": [
+                "hub-ds",
+                "ds-st-table-1"
+            ],
+            "related": []
+        },
+        "dp-knapsack-overview": {
+            "prerequisites": [
+                "hub-dp"
+            ],
+            "related": []
+        },
+        "ds-index-tree-block-list": {
+            "prerequisites": [
+                "hub-ds",
+                "ds-block-decomposition"
+            ],
+            "related": [
+                "ds-fast-block-list"
+            ]
+        },
+        "ds-fast-block-list": {
+            "prerequisites": [
+                "hub-ds",
+                "ds-block-decomposition"
+            ],
+            "related": [
+                "ds-index-tree-block-list"
+            ]
+        },
+        "basic-greedy-block-building": {
+            "prerequisites": [
+                "hub-basic",
+                "basic-greedy"
+            ],
+            "related": [
+                "basic-greedy-snow-shoveling"
+            ]
+        },
+        "basic-greedy-snow-shoveling": {
+            "prerequisites": [
+                "hub-basic",
+                "basic-greedy"
+            ],
+            "related": [
+                "basic-greedy-block-building"
+            ]
+        },
+        "math-binomial-inversion": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-prime-factor-state-compression": {
+            "prerequisites": [
+                "hub-math",
+                "math-factorization"
+            ],
+            "related": []
+        },
+        "basic-kittengen": {
+            "prerequisites": [
+                "hub-utility-debug",
+                "basic-stress-random-basic"
+            ],
+            "related": []
+        },
+        "ds-dsu-on-tree": {
+            "prerequisites": [
+                "hub-ds",
+                "graph-tree-basic"
+            ],
+            "related": []
+        },
+        "math-oi-foundations": {
+            "prerequisites": [
+                "hub-math"
+            ],
             "related": []
         }
     }

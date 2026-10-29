@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: 'NaN'
 category: '贪心'
 tags: ["贪心", "双指针", "数学", "构造", "名额分配", "思维题"]
+knowledgePoints: ["basic-meet-in-middle-two-pointer", "basic-two-pointer"]
 timeComplexity: 'O(x + y)'
 spaceComplexity: 'O(x + y)'
 codePath: '题目专辑\贪心\矩阵不同值之和\代码.cpp'

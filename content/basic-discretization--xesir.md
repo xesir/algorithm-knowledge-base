@@ -1,9 +1,9 @@
 ---
 id: basic-discretization
 title: '离散化'
-category: 基础算法
-subcategory: 离散化
-subSubcategory: ''
+category: 实用工具
+subcategory: 其他
+subSubcategory: 离散化
 tags: ["离散化", "值域压缩", "排序去重", "lower_bound", "坐标压缩"]
 timeComplexity: 'O(n log n)'
 spaceComplexity: 'O(n)'

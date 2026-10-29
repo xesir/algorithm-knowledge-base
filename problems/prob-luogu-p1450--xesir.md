@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: 动态规划
 tags: ["容斥原理", "完全背包", "计数"]
+knowledgePoints: ["dp-complete-bag"]
 timeComplexity: 'O(16n + s)'
 spaceComplexity: 'O(s)'
 codePath: '题目专辑\动态规划\硬币购物\代码--xesir.cpp'

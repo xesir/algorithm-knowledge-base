@@ -1,14 +1,15 @@
 ---
 id: ds-stl-list
 title: 'std::list（双向链表）'
-category: 数据结构
-subcategory: STL容器
+category: 实用工具
+subcategory: STL与pbds
 tags: [list, 双向链表, STL, 常数优化, 缓存]
 timeComplexity: '插入删除 O(1)，查找 O(n)'
 spaceComplexity: 'O(n)'
 level: C
 verified: '2026-10-20'
 noCode: true
+subSubcategory: STL容器
 ---
 
 ## 算法原理

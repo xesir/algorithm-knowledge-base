@@ -1,16 +1,16 @@
 ---
 id: basic-timing
 title: '时间测试'
-category: 基础算法
-subcategory: 实用工具
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 时空测试
 tags: ["计时", "卡时", "调试", "暴力"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'
 level: A
 noCode: true
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

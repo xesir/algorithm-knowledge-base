@@ -1,9 +1,9 @@
 ---
 id: gram-macro
 title: '宏孩儿（#define、typedef 与 using）'
-category: 语法技巧
-subcategory: 宏与别名
-subSubcategory: ''
+category: 实用工具
+subcategory: 语法技巧
+subSubcategory: 宏与别名
 tags: ["宏", "#define", "typedef", "using", "条件编译", "模板别名"]
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'

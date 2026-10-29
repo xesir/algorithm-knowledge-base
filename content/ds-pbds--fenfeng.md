@@ -1,16 +1,16 @@
 ---
 id: ds-pbds
 title: 'pb_ds（基于策略的数据结构）'
-category: 数据结构
-subcategory: STL容器
-subSubcategory: ''
+category: 实用工具
+subcategory: STL与pbds
+subSubcategory: pb_ds
 tags: ['数据结构', '平衡树', '配对堆', '红黑树', '优先队列']
 timeComplexity: '视具体实现'
 spaceComplexity: '视具体实现'
 level: A
 noCode: true
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理

@@ -1,9 +1,9 @@
 ---
 id: basic-stress-precision
 title: '对拍（浮点误差与精度比较）'
-category: 基础算法
-subcategory: 对拍
-subSubcategory: ''
+category: 实用工具
+subcategory: 调试
+subSubcategory: 对拍
 tags: ["对拍", "浮点误差", "eps", "cin.clear", "SPJ"]
 timeComplexity: '视数据组数与单次运行时间'
 spaceComplexity: '视被测程序'

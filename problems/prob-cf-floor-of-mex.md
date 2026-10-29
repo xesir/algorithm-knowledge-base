@@ -7,6 +7,7 @@ difficulty: '暂未评定'
 cfRating: '1200'
 category: '数据结构'
 tags: ["MEX", "差分", "构造", "思维", "差分数组"]
+knowledgePoints: ["ds-diff-1d", "ds-diff-2d", "ds-diff-tree"]
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数据结构\Floor of MEX\代码.cpp'

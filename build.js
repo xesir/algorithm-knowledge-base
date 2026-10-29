@@ -153,7 +153,7 @@ function build() {
     let warnings = [];
 
     // 作者映射：文件名后缀 --key → 显示名（未来加新人在这里扩展）
-    const AUTHOR_KEYS = { fenfeng: '焚风', xesir: 'Xesir', lker: 'lker' };
+    const AUTHOR_KEYS = { fenfeng: 'Fohen', xesir: 'Xesir', lker: 'lker', 'stripe-python': 'stripe-python' };
 
     // 解析所有 .md 文件，按 base id 分组（同 id 多版本）
     const versionGroups = new Map(); // baseId -> versions[]
@@ -162,9 +162,9 @@ function build() {
         const raw = fs.readFileSync(filepath, 'utf8');
         const { meta, body } = parseFrontmatter(raw);
 
-        // 由文件名推断作者：xxx.md → 站主；xxx--fenfeng.md → 焚风
+        // 由文件名推断作者：xxx.md → world-needs-sunday；xxx--fenfeng.md → Fohen
         const baseName = path.basename(filename, '.md');
-        let author = '站主';
+        let author = 'world-needs-sunday';
         let baseId = baseName;
         const dashIdx = baseName.indexOf('--');
         if (dashIdx >= 0) {
@@ -192,8 +192,8 @@ function build() {
 
     // 生成 KNOWLEDGE_DATA：每个 baseId 一条，含 versions[]
     for (const [baseId, vers] of versionGroups) {
-        // 主版本：优先站主；无站主则按 verified 时间优先（取最新）
-        let primary = vers.find(v => v.author === '站主');
+        // 主版本：优先world-needs-sunday；无world-needs-sunday则按 verified 时间优先（取最新）
+        let primary = vers.find(v => v.author === 'world-needs-sunday');
         if (!primary) {
             primary = vers.slice().sort((a, b) => (b.verified || '').localeCompare(a.verified || ''))[0] || vers[vers.length - 1];
         }
@@ -262,7 +262,7 @@ function build() {
             const { meta, body } = parseFrontmatter(raw);
 
             const baseName = path.basename(filename, '.md');
-            let author = '站主';
+            let author = 'world-needs-sunday';
             let baseId = baseName;
             const dashIdx = baseName.indexOf('--');
             if (dashIdx >= 0) {
@@ -284,8 +284,8 @@ function build() {
         });
 
         for (const [baseId, vers] of probGroups) {
-            // 主版本：优先站主；无站主则按 verified 时间优先（取最新）
-            let primary = vers.find(v => v.author === '站主');
+            // 主版本：优先world-needs-sunday；无world-needs-sunday则按 verified 时间优先（取最新）
+            let primary = vers.find(v => v.author === 'world-needs-sunday');
             if (!primary) {
                 primary = vers.slice().sort((a, b) => (b.verified || '').localeCompare(a.verified || ''))[0] || vers[vers.length - 1];
             }
@@ -301,6 +301,7 @@ function build() {
                 difficulty: primary.meta.difficulty || '暂未评定',
                 cfRating: primary.meta.cfRating || 'NaN',
                 category: primary.meta.category || '未分类',
+                knowledgePoints: Array.isArray(primary.meta.knowledgePoints) ? primary.meta.knowledgePoints : [],
                 // 兼容旧字段（取主版本），供目录/搜索/筛选使用
                 tags: primary.tags,
                 timeComplexity: primary.timeComplexity,
@@ -351,7 +352,7 @@ function build() {
 // 修改 content/ 下的 .md 文件后运行 node build.js 重新生成
 const KNOWLEDGE_DATA = ${JSON.stringify(knowledgeData, null, 4)};
 
-const AUTHORS = ${JSON.stringify(['站主', ...Object.values(AUTHOR_KEYS)])};
+const AUTHORS = ${JSON.stringify(['world-needs-sunday', ...Object.values(AUTHOR_KEYS)])};
 
 const CATEGORY_META = ${JSON.stringify(graph.categories || {}, null, 4)};
 

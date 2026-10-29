@@ -7,6 +7,7 @@ difficulty: '提高+/省选−'
 cfRating: 'NaN'
 category: '动态规划'
 tags: ["动态规划", "计数DP", "容斥原理", "差值DP", "CSP-S"]
+knowledgePoints: ["dp-integer-partition"]
 timeComplexity: 'O(n²m)'
 spaceComplexity: 'O(n²)'
 codePath: '题目专辑\动态规划\P5664 Emiya家今天的饭\代码.cpp'

@@ -9,7 +9,7 @@ spaceComplexity: 'O(n + m)'
 codePath: '图论\最小生成树\Prim\Untitled1--fenfeng.cpp'
 level: A
 verified: 2026-10-19
-source: '焚风第三舰队指挥官 (QQ 3370864672)'
+source: 'Fohen (QQ 3370864672)'
 ---
 
 ## 算法原理
@@ -186,7 +186,7 @@ int main() {
    - 同一节点可能被多次入堆，弹出时必须 `if (vis[it.id]) continue;`，否则会重复累加边权、破坏生成树。
 
 3. **`cnt` 与 `ans` 命名相反**
-   - 本代码中 `cnt` 累加边权和、`ans` 计数已选节点数，与站主版（`ans` 为边权和、`cnt` 为节点数）恰好相反，改写或对比时务必看清语义。
+   - 本代码中 `cnt` 累加边权和、`ans` 计数已选节点数，与world-needs-sunday版（`ans` 为边权和、`cnt` 为节点数）恰好相反，改写或对比时务必看清语义。
 
 4. **无向图必须双向建边**
    - `G1[a]` 与 `G1[b]` 都要 push，否则部分节点不可达，会被误判为不连通而输出 `impossible`。

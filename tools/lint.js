@@ -157,6 +157,16 @@ const DIFFICULTY_OK = ['入门', '普及−', '普及/提高−', '普及+/提�
 const KP_SECTIONS_REQUIRED = ['算法原理', '逐行代码解析', '复杂度分析', '常见陷阱'];
 const PROB_SECTIONS_REQUIRED = ['题目描述', '样例', '解题思路', '复杂度分析', '常见陷阱'];
 
+// 初赛理论笔记不要求代码/复杂度/七章结构；迁移到「实用工具 / 初赛指南」后保持同样豁免
+function isTheoryNote(meta) {
+  return meta.category === '初赛笔记' || (meta.category === '实用工具' && meta.subcategory === '初赛指南');
+}
+
+// 第三方授权合并的原文：保留作者原始章节结构，不强制本站七章/代码/复杂度格式
+function isLegacy(meta) {
+  return meta.legacy === 'true' || meta.legacy === true;
+}
+
 // ---------- 收集文件 ----------
 let contentFiles = [], problemFiles = [];
 try { contentFiles = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md')).sort(); } catch (e) {
@@ -275,7 +285,7 @@ function checkFile(kind, filename) {
   }
 
   // --- 复杂度字段 ---
-  if (kind === 'kp' && meta.category !== '初赛笔记') {
+  if (kind === 'kp' && !isTheoryNote(meta) && !isLegacy(meta)) {
     ['timeComplexity', 'spaceComplexity'].forEach(f => {
       if (!meta[f]) warn('W007', rel, 5, `缺少 ${f}`);
       else if (/未知|unknown|待定/i.test(String(meta[f]))) warn('W008', rel, 5, `${f} 为"未知"，与正文复杂度分析矛盾`, '回填真实复杂度，它决定该条目能否被检索到');
@@ -304,7 +314,7 @@ function checkFile(kind, filename) {
     seenCodePath.set(codePath, prev);
     const ext = path.extname(codePath).toLowerCase();
     if (ext !== '.cpp') warn('W011', rel, 6, `codePath 扩展名不是 .cpp（${ext}）`);
-  } else if (kind === 'kp' && meta.category !== '初赛笔记' && !meta.noCode) {
+  } else if (kind === 'kp' && !isTheoryNote(meta) && !isLegacy(meta) && !meta.noCode) {
     warn('W012', rel, 6, '没有 codePath（非初赛笔记类知识点通常应附带代码）');
   }
 
@@ -352,7 +362,7 @@ function checkFile(kind, filename) {
 
   // $ 配平（散文部分）
   const dollarCount = (prose.match(/(?<!\\)\$/g) || []).length;
-  if (dollarCount % 2 !== 0) {
+  if (!isLegacy(meta) && dollarCount % 2 !== 0) {
     warn('W018', rel, 1, `行内公式 $ 数量为奇数（${dollarCount} 个），可能有未闭合的公式`);
   }
 
@@ -360,7 +370,7 @@ function checkFile(kind, filename) {
   prose.split('\n').forEach((ln, i) => {
     if (!ln.trim().startsWith('|')) return;
     const bad = mathSegments(ln).filter(s => /(?<!\\)\|/.test(s));
-    if (bad.length) {
+    if (!isLegacy(meta) && bad.length) {
       warn('W019', rel, i + 1, `表格中的数学公式存在未转义竖线：$${bad[0].slice(0, 30)}$`, '写成 \\| 否则表格会被拆成多余单元格');
     }
   });
@@ -373,24 +383,24 @@ function checkFile(kind, filename) {
   const titleSeen = new Map();
   hs.filter(h => h.level === 2).forEach(h => {
     const key = h.title.replace(/\s+/g, '');
-    if (titleSeen.has(key)) warn('W021', rel, 1, `重复的二级标题「${h.title}」`, '常见于「## 适用场景」后紧跟「### 适用场景」');
+    if (!isLegacy(meta) && titleSeen.has(key)) warn('W021', rel, 1, `重复的二级标题「${h.title}」`, '常见于「## 适用场景」后紧跟「### 适用场景」');
     titleSeen.set(key, true);
   });
 
   // 章节完整性
   const h2 = hs.filter(h => h.level === 2).map(h => h.title);
   const needs = kind === 'kp'
-    ? (meta.category === '初赛笔记' ? [] : KP_SECTIONS_REQUIRED)
-    : PROB_SECTIONS_REQUIRED;
+    ? ((isTheoryNote(meta) || isLegacy(meta)) ? [] : KP_SECTIONS_REQUIRED)
+    : (isLegacy(meta) ? [] : PROB_SECTIONS_REQUIRED);
   needs.forEach(sec => {
     if (!h2.some(t => t.includes(sec))) {
       warn('W022', rel, 1, `缺少必备章节「${sec}」（现有：${h2.slice(0, 8).join(' / ')}）`);
     }
   });
-  if (kind === 'kp' && meta.category !== '初赛笔记' && !h2.some(t => t.includes('适用场景'))) {
+  if (kind === 'kp' && !isTheoryNote(meta) && !isLegacy(meta) && !h2.some(t => t.includes('适用场景'))) {
     warn('W023', rel, 1, '缺少「适用场景」章节');
   }
-  if (kind === 'prob') {
+  if (kind === 'prob' && !isLegacy(meta)) {
     ['输入格式', '输出格式', '数据范围'].forEach(sec => {
       if (!body.includes(sec)) warn('W024', rel, 1, `题目正文缺少「${sec}」小节`);
     });
@@ -436,7 +446,7 @@ function checkFile(kind, filename) {
 
   // 代码块内的调试残留（乱码由上面的 MOJIBAKE 检查统一负责，避免重复计数）
   extractFences(body).forEach(f => {
-    if (/(printf|cout)\s*<<?\s*"[^"]*(耗时|计时|调试|debug|test)/i.test(f.code)) {
+    if (!isLegacy(meta) && /(printf|cout)\s*<<?\s*"[^"]*(耗时|计时|调试|debug|test)/i.test(f.code)) {
       warn('W030', rel, lineOf(body, f.index), '代码块疑似含调试/计时输出', '提交 OJ 会因多余输出 WA');
     }
   });

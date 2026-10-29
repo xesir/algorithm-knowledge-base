@@ -88,13 +88,13 @@ tags（3–6 个）/ timeComplexity / spaceComplexity（不许写"未知"）/ co
 （数据结构类在公式章后加「数据结构图示」「核心操作详解」。）
 
 【多版本（重要）】
-同一个知识点可有多个作者的版本：`content/<id>.md`=站主版，`content/<id>--作者.md`=其他作者版
-（作者 key 映射在 build.js 的 AUTHOR_KEYS，如 fenfeng→焚风）。详情页顶部 tab 切换，
-默认站主，无站主版则按时间优先；缺的版本 tab 置灰。
+同一个知识点可有多个作者的版本：`content/<id>.md`=world-needs-sunday版，`content/<id>--作者.md`=其他作者版
+（作者 key 映射在 build.js 的 AUTHOR_KEYS，如 fenfeng→Fohen）。详情页顶部 tab 切换，
+默认world-needs-sunday，无world-needs-sunday版则按时间优先；缺的版本 tab 置灰。
 
 【一道题目长什么样】
 frontmatter：id / title / oj / problemId / difficulty（入门/简单/中等/困难/普及/其他）/
-category / tags / 复杂度 / codePath / source（作者，站主自己的题可空）。
+category / tags / 复杂度 / codePath / source（作者，world-needs-sunday自己的题可空）。
 正文：题目描述（含 输入格式 / 输出格式 / 数据范围）→ 样例 → 解题思路 →
       逐行代码解析 → 复杂度分析 → 常见陷阱与注意事项 → 对比与扩展。
 （题目目前单版本，作者只写 source 字段，无 tab 切换。）

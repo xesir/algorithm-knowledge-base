@@ -42,7 +42,7 @@
 ├── AGENTS.md               # 三条铁律 + 入口指引
 ├── PROJECT_FRAMEWORK.md    # 本文件
 ├── content/                # 知识点源文件（280 篇，平铺）；xxx--作者.md 是该知识点的「其他作者版本」
-├── problems/               # 题目源文件（202 道，平铺）
+├── problems/               # 题目源文件（198 道，平铺）
 ├── 动态规划/ 数据结构/ 图论/ 数学/ 字符串/ 基础算法/ 输入,输出/   # 知识点 .cpp
 ├── 题目专辑/                # 题目 .cpp
 ├── templates/              # kp-template.md / problem-template.md

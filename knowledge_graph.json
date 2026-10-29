@@ -2818,6 +2818,13 @@
                 "hub-basic"
             ],
             "related": []
+        },
+        "math-eulerian-number": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
         }
     }
 }

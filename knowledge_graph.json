@@ -2527,6 +2527,120 @@
                 "hub-math"
             ],
             "related": []
+        },
+        "math-congruence-basics": {
+            "prerequisites": [
+                "hub-math",
+                "hub-math-number-theory"
+            ],
+            "related": []
+        },
+        "math-prime-theory": {
+            "prerequisites": [
+                "hub-math",
+                "hub-math-number-theory"
+            ],
+            "related": []
+        },
+        "math-gcd-theory": {
+            "prerequisites": [
+                "hub-math",
+                "hub-math-number-theory"
+            ],
+            "related": []
+        },
+        "math-number-theory-theorems": {
+            "prerequisites": [
+                "hub-math",
+                "hub-math-number-theory"
+            ],
+            "related": []
+        },
+        "math-counting-principles": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-sequences": {
+            "prerequisites": [
+                "hub-math"
+            ],
+            "related": []
+        },
+        "math-inclusion-exclusion": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-derangement": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-catalan": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-stirling": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-partition": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-counting-misc": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-probability": {
+            "prerequisites": [
+                "hub-math",
+                "math-combinatorics"
+            ],
+            "related": []
+        },
+        "math-bit-operation-advanced": {
+            "prerequisites": [
+                "hub-math"
+            ],
+            "related": []
+        },
+        "math-lagrange-interpolation": {
+            "prerequisites": [
+                "hub-math"
+            ],
+            "related": []
+        },
+        "graph-congruence-shortest-path": {
+            "prerequisites": [
+                "hub-graph"
+            ],
+            "related": []
+        },
+        "hub-math-number-theory": {
+            "prerequisites": [
+                "hub-math"
+            ],
+            "related": []
         }
     }
 }

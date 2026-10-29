@@ -2782,6 +2782,36 @@
                 "hub-basic"
             ],
             "related": []
+        },
+        "basic-tricks-graph": {
+            "prerequisites": [
+                "hub-basic"
+            ],
+            "related": []
+        },
+        "basic-tricks-ds": {
+            "prerequisites": [
+                "hub-basic"
+            ],
+            "related": []
+        },
+        "basic-tricks-dp": {
+            "prerequisites": [
+                "hub-basic"
+            ],
+            "related": []
+        },
+        "basic-tricks-math": {
+            "prerequisites": [
+                "hub-basic"
+            ],
+            "related": []
+        },
+        "basic-tricks-sequence": {
+            "prerequisites": [
+                "hub-basic"
+            ],
+            "related": []
         }
     }
 }

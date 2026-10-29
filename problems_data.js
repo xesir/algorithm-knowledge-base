@@ -1,6 +1,72 @@
 // 此文件由 build.js 自动生成，请勿手动编辑
 const PROBLEMS_DATA = [
     {
+        "id": "prob-abc236ex",
+        "title": "Distinct Multiples",
+        "source": "stripe-python",
+        "oj": "来源未考证",
+        "problemId": "ABC236EX",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC236EX](https://www.luogu.com.cn/problem/AT_abc236_h)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$ 和序列 $d_1 \\sim d_n$。对满足以下条件的序列 $a_1 \\sim a_n$ 计数：\n>\n> - $\\forall i \\in [1,n], a_i \\in [1,m]$。\n> - $\\forall i \\in [1,n], d_i \\mid a_i$。\n> - $a_i$ 互不相同。\n>\n> $n \\le 16$，$m \\le 10^{18}$，2 秒，1024 MB。\n\n::::::success[题解]\n\n对互不相同的条件容斥。枚举划分 $P$，每个等价类内部 $a$ 值相同，容斥系数 $\\prod\\limits_{S \\in P} (-1)^{|S|-1} (|S|-1)!$。\n\n:::::info[集合划分容斥]\n\n考虑下面的模型：有 $n$ 个变量 $a_1 \\sim a_n$，其中 $a_i \\in S_i$ 且 $a_i$ 互不相同，对 $a_1 \\sim a_n$ 计数。\n\n对互不相同进行容斥。考虑建图，若 $a_i=a_j$ 则连边 $i \\leftrightarrow j$，连通块内部的点值都相同，不同连通块之间无限制。\n\n对无向图 $G=(V,E)$，设 $C(E)$ 为 $G$ 的集合划分，$F(P)$ 为划分 $P$ 对应的方案数，答案即为\n$$\n\\sum_{E} (-1)^{|E|} F(C(E))=\\sum_{P} F(P) \\sum_{C(E)=P}(-1)^{|E|}\n$$\n设 $P=\\{S_1,S_2,\\cdots,S_m\\}$，只要在每个 $S_i$ 内部连边并构成连通图。则容斥系数\n$$\n \\sum_{C(E)=P}(-1)^{|E|}=\\prod_{S \\in P} \\sum_{G_S \\text{连通}} (-1)^{|E(G_S)|}\n$$\n问题转化为，对 $k$ 个点的无向图，求所有连通边集 $E$ 的 $(-1)^{|E|}$ 之和，记作 $g_k$。\n\n设 $f_k$ 为 $k$ 个点任意无向图的 $(-1)^{|E|}$ 之和，则\n$$\nf_k=\\sum_{i=0}^{\\binom{k}{2}} \\binom{\\binom{k}{2}}{i} (-1)^i=0^{\\binom{k}{2}}\n$$\n故 $k \\ge 2$ 时 $f_k=0$，只有 $f_0=f_1=1$。$f$ 的 EGF 为\n$$\nF=\\sum_{k \\ge 0} f_k \\dfrac{x^k}{k!}=1+x\n$$\n根据多项式 $\\exp$ 的组合意义：\n$$\nF=\\exp G \\implies G=\\ln F\n$$\n由 Taylor 展开\n$$\nG=\\sum_{k \\ge 1} (-1)^{k-1} \\dfrac{x^k}{k}\n$$\n提取系数得\n$$\n\\left[\\dfrac{x^k}{k!}\\right]G=\\dfrac{(-1)^{k-1}}{k} \\implies g_k=(-1)^{k-1}(k-1)!\n$$\n将 $g_k$ 代入容斥系数，得到最终结论\n$$\n\\boxed{\\sum_{P} F(P) \\prod_{S \\in P} (-1)^{|S|-1} (|S|-1)!}\n$$\n:::::\n\n记 $\\underset{i\\in S}{\\text{lcm } } d_i=\\text{lcm}(S)$。强制点集 $S$ 内 $a$ 值均为 $x$，则必有 $\\text{lcm}(S) \\mid x$，从而方案数为\n$$\nF(P)=\\prod_{S \\in P}\\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor\n$$\n答案为\n$$\n\\sum_{P}\\prod_{S \\in P}(-1)^{|S|-1}  (|S|-1)! \\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor\n$$\n利用排除 $\\min S$ 转移的 trick，容易 $O(2^n \\log V)$ 地求出单个 $S$ 的贡献值 $f_S=(-1)^{|S|-1}  (|S|-1)! \\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor$。\n\n构造集合幂级数 $F$，令 $G=\\exp F$，则 $[x^U] G$ 即为所求。使用子集卷积 exp 做到 $O(n^2 2^n)$。\n\n总复杂度 $O(n^2 2^n+2^n \\log V)$。[代码](https://atcoder.jp/contests/abc236/submissions/79499553)。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC236EX](https://www.luogu.com.cn/problem/AT_abc236_h)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$ 和序列 $d_1 \\sim d_n$。对满足以下条件的序列 $a_1 \\sim a_n$ 计数：\n>\n> - $\\forall i \\in [1,n], a_i \\in [1,m]$。\n> - $\\forall i \\in [1,n], d_i \\mid a_i$。\n> - $a_i$ 互不相同。\n>\n> $n \\le 16$，$m \\le 10^{18}$，2 秒，1024 MB。\n\n::::::success[题解]\n\n对互不相同的条件容斥。枚举划分 $P$，每个等价类内部 $a$ 值相同，容斥系数 $\\prod\\limits_{S \\in P} (-1)^{|S|-1} (|S|-1)!$。\n\n:::::info[集合划分容斥]\n\n考虑下面的模型：有 $n$ 个变量 $a_1 \\sim a_n$，其中 $a_i \\in S_i$ 且 $a_i$ 互不相同，对 $a_1 \\sim a_n$ 计数。\n\n对互不相同进行容斥。考虑建图，若 $a_i=a_j$ 则连边 $i \\leftrightarrow j$，连通块内部的点值都相同，不同连通块之间无限制。\n\n对无向图 $G=(V,E)$，设 $C(E)$ 为 $G$ 的集合划分，$F(P)$ 为划分 $P$ 对应的方案数，答案即为\n$$\n\\sum_{E} (-1)^{|E|} F(C(E))=\\sum_{P} F(P) \\sum_{C(E)=P}(-1)^{|E|}\n$$\n设 $P=\\{S_1,S_2,\\cdots,S_m\\}$，只要在每个 $S_i$ 内部连边并构成连通图。则容斥系数\n$$\n \\sum_{C(E)=P}(-1)^{|E|}=\\prod_{S \\in P} \\sum_{G_S \\text{连通}} (-1)^{|E(G_S)|}\n$$\n问题转化为，对 $k$ 个点的无向图，求所有连通边集 $E$ 的 $(-1)^{|E|}$ 之和，记作 $g_k$。\n\n设 $f_k$ 为 $k$ 个点任意无向图的 $(-1)^{|E|}$ 之和，则\n$$\nf_k=\\sum_{i=0}^{\\binom{k}{2}} \\binom{\\binom{k}{2}}{i} (-1)^i=0^{\\binom{k}{2}}\n$$\n故 $k \\ge 2$ 时 $f_k=0$，只有 $f_0=f_1=1$。$f$ 的 EGF 为\n$$\nF=\\sum_{k \\ge 0} f_k \\dfrac{x^k}{k!}=1+x\n$$\n根据多项式 $\\exp$ 的组合意义：\n$$\nF=\\exp G \\implies G=\\ln F\n$$\n由 Taylor 展开\n$$\nG=\\sum_{k \\ge 1} (-1)^{k-1} \\dfrac{x^k}{k}\n$$\n提取系数得\n$$\n\\left[\\dfrac{x^k}{k!}\\right]G=\\dfrac{(-1)^{k-1}}{k} \\implies g_k=(-1)^{k-1}(k-1)!\n$$\n将 $g_k$ 代入容斥系数，得到最终结论\n$$\n\\boxed{\\sum_{P} F(P) \\prod_{S \\in P} (-1)^{|S|-1} (|S|-1)!}\n$$\n:::::\n\n记 $\\underset{i\\in S}{\\text{lcm } } d_i=\\text{lcm}(S)$。强制点集 $S$ 内 $a$ 值均为 $x$，则必有 $\\text{lcm}(S) \\mid x$，从而方案数为\n$$\nF(P)=\\prod_{S \\in P}\\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor\n$$\n答案为\n$$\n\\sum_{P}\\prod_{S \\in P}(-1)^{|S|-1}  (|S|-1)! \\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor\n$$\n利用排除 $\\min S$ 转移的 trick，容易 $O(2^n \\log V)$ 地求出单个 $S$ 的贡献值 $f_S=(-1)^{|S|-1}  (|S|-1)! \\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor$。\n\n构造集合幂级数 $F$，令 $G=\\exp F$，则 $[x^U] G$ 即为所求。使用子集卷积 exp 做到 $O(n^2 2^n)$。\n\n总复杂度 $O(n^2 2^n+2^n \\log V)$。[代码](https://atcoder.jp/contests/abc236/submissions/79499553)。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-apio2021",
+        "title": "P7600 [] 封闭道路",
+        "source": "stripe-python",
+        "oj": "来源未考证",
+        "problemId": "APIO2021",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[APIO2021](https://www.luogu.com.cn/problem/P7600)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n$ 个节点的无根树，边带权。对于每个 $k=0,1,\\cdots,n-1$ 求出：删去一些边使得每个点的度数 $\\le k$，最小化删去的边权之和。\n>\n> $n \\le 10^5$，1 秒，1024 MB。\n\n:::::success[题解]\n将问题转化为最大化保留边的边权和。\n\n首先是一个暴力 DP：记 $f_{u,k}$ 为不保留 $u$ 处返祖边时，子树内的答案；$g_{u,k}$ 为保留 $u$ 处返祖边时，子树内的答案。\n\n考虑先将儿子全选 $f_{u,k}$，然后反悔，选出 $g_{v,k}+w-f_{u,k}$ 最大的若干个。$f_{u,k}$ 应该由 $u$ 子树中前 $k$ 大的值转移，$g_{u,k}$ 则由前 $k-1$ 大的值转移。\n\n复杂度 $O(n^2 \\log n)$，可以获得 [24pts](https://qoj.ac/submission/2241847)。\n\n我们注意到，度数 $\\le k$ 的点不受约束。因此考虑枚举 $k$ 时对度数 $>k$ 的点建立虚树，然后在虚树上 DP。由于每个点只会出现度数次，虚树的大小之和就是 $O(n)$ 的。\n\n沿用 $f_u$ 和 $g_u$ 的状态。当我们位于节点 $u$ 时，其儿子被分为两类：\n\n- 虚树外的点：权值为 $w$；\n- 虚树内的点：权值为 $g_v+w-f_v$。\n\n那么只需要维护前 $k$ 大数的和就能转移。在建虚树时修改权值，对每个节点开一棵权值线段树维护，复杂度 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5, M = 1e9;\nint n, deg[N];\nvector<pair<int, int>> e[N];\n\nint dn, fa[N], sz[N], dep[N], son[N], top[N], dfn[N], wei[N];\nvoid dfs1(int u) {\n    sz[u] = 1, dfn[u] = ++dn;\n    for (auto [v, w] : e[u]) {\n        if (v == fa[u]) continue;\n        fa[v] = u, wei[v] = w, dep[v] = dep[u] + 1, dfs1(v), sz[u] += sz[v];\n        if (sz[v] > sz[son[u]]) son[u] = v;\n    }\n}\nvoid dfs2(int u, int t) {\n    top[u] = t;\n    if (son[u]) dfs2(son[u], t);\n    for (auto [v, w] : e[u]) if (v != fa[u] && v != son[u]) dfs2(v, v);\n}\nint lca(int u, int v) {\n    while (top[u] != top[v]) {\n        if (dep[top[u]] < dep[top[v]]) swap(u, v);\n        u = fa[top[u]];\n    } return dep[u] < dep[v] ? u : v;\n}\n\n#define ls lson[rt]\n#define rs rson[rt]\nint tot, rt[N], lson[N << 6], rson[N << 6], cnt[N << 6];\ni64 sum[N << 6]; \nvoid insert(i64 x, i64 l, i64 r, int& rt) {\n    if (!rt) rt = ++tot;\n    cnt[rt]++, sum[rt] += x;\n    if (l == r) return;\n    i64 mid = (l + r) >> 1;\n    if (x <= mid) insert(x, l, mid, ls);\n    else insert(x, mid + 1, r, rs);\n}\nvoid remove(i64 x, i64 l, i64 r, int& rt) {\n    if (!rt) rt = ++tot;\n    cnt[rt]--, sum[rt] -= x;\n    if (l == r) return;\n    i64 mid = (l + r) >> 1;\n    if (x <= mid) remove(x, l, mid, ls);\n    else remove(x, mid + 1, r, rs);\n}\ni64 ask(int k, i64 l, i64 r, int rt) {\n    if (rt == 0 || k <= 0) return 0;\n    if (cnt[rt] <= k) return sum[rt];\n    if (l == r) return l * k;\n    i64 mid = (l + r) >> 1;\n    if (cnt[rs] >= k) return ask(k, mid + 1, r, rs);\n    return sum[rs] + ask(k - cnt[rs], l, mid, ls);\n}\n\nbool keep[N];\nvector<int> nd[N], ev[N], dr[N];\ni64 f[N], g[N];\n\nvoid dfs3(int u, int k) {\n    f[u] = g[u] = 0;\n    i64 sum = 0;\n    vector<i64> son;\n    for (int v : ev[u]) {\n        dfs3(v, k);\n        if (fa[v] == u && keep[v]) sum += f[v], son.emplace_back(g[v] + wei[v] - f[v]);\n        else sum += f[v];\n    }\n    if (keep[u]) {\n        for (i64 x : son) if (x > 0) insert(x, 1, M, rt[u]);\n        f[u] = sum + ask(k, 1, M, rt[u]), g[u] = sum + ask(k - 1, 1, M, rt[u]);\n        for (i64 x : son) if (x > 0) remove(x, 1, M, rt[u]);\n    } else {\n        f[u] = sum, g[u] = 0;\n    }\n}\n\nvector<i64> minimum_closure_costs(int N, vector<int> U, vector<int> V, vector<int> W) {\n    n = N; i64 sum = 0;\n    for (int i = 0; i < n - 1; i++) {\n        int u = U[i] + 1, v = V[i] + 1, w = W[i];\n        e[u].emplace_back(v, w), e[v].emplace_back(u, w);\n        deg[u]++, deg[v]++, sum += w;\n    }\n    for (int u = 1; u <= n; u++) {\n        for (int i = 0; i < deg[u]; i++) nd[i].emplace_back(u);\n        dr[deg[u]].emplace_back(u);\n    }\n    dfs1(1), dfs2(1, 1);\n    vector<i64> ans(n); ans[0] = sum;\n    i64 bas = 0;\n    fill(keep + 1, keep + n + 1, true);\n    for (int k = 1; k < n; k++) {\n        for (int u : dr[k]) {\n            keep[u] = false;\n            for (auto [v, w] : e[u]) {\n                if (keep[v]) insert(w, 1, M, rt[v]);\n                else bas += w;\n            }\n        }\n        vector<int>& a = nd[k];\n        if (a.empty()) {\n            ans[k] = sum - bas;\n            continue;\n        }\n        sort(a.begin(), a.end(), [](int u, int v) {return dfn[u] < dfn[v];});\n        int len = a.size();\n        for (int i = 0; i < len - 1; i++) a.emplace_back(lca(a[i], a[i + 1]));\n        sort(a.begin(), a.end(), [](int u, int v) {return dfn[u] < dfn[v];});\n        a.erase(unique(a.begin(), a.end()), a.end());\n        for (int i = 0; i < (int)a.size() - 1; i++) \n            ev[lca(a[i], a[i + 1])].emplace_back(a[i + 1]);\n        dfs3(a[0], k);\n        ans[k] = sum - bas - f[a[0]];\n        for (int i : a) ev[i].clear();\n    }\n    return ans;\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[APIO2021](https://www.luogu.com.cn/problem/P7600)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n$ 个节点的无根树，边带权。对于每个 $k=0,1,\\cdots,n-1$ 求出：删去一些边使得每个点的度数 $\\le k$，最小化删去的边权之和。\n>\n> $n \\le 10^5$，1 秒，1024 MB。\n\n:::::success[题解]\n将问题转化为最大化保留边的边权和。\n\n首先是一个暴力 DP：记 $f_{u,k}$ 为不保留 $u$ 处返祖边时，子树内的答案；$g_{u,k}$ 为保留 $u$ 处返祖边时，子树内的答案。\n\n考虑先将儿子全选 $f_{u,k}$，然后反悔，选出 $g_{v,k}+w-f_{u,k}$ 最大的若干个。$f_{u,k}$ 应该由 $u$ 子树中前 $k$ 大的值转移，$g_{u,k}$ 则由前 $k-1$ 大的值转移。\n\n复杂度 $O(n^2 \\log n)$，可以获得 [24pts](https://qoj.ac/submission/2241847)。\n\n我们注意到，度数 $\\le k$ 的点不受约束。因此考虑枚举 $k$ 时对度数 $>k$ 的点建立虚树，然后在虚树上 DP。由于每个点只会出现度数次，虚树的大小之和就是 $O(n)$ 的。\n\n沿用 $f_u$ 和 $g_u$ 的状态。当我们位于节点 $u$ 时，其儿子被分为两类：\n\n- 虚树外的点：权值为 $w$；\n- 虚树内的点：权值为 $g_v+w-f_v$。\n\n那么只需要维护前 $k$ 大数的和就能转移。在建虚树时修改权值，对每个节点开一棵权值线段树维护，复杂度 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5, M = 1e9;\nint n, deg[N];\nvector<pair<int, int>> e[N];\n\nint dn, fa[N], sz[N], dep[N], son[N], top[N], dfn[N], wei[N];\nvoid dfs1(int u) {\n    sz[u] = 1, dfn[u] = ++dn;\n    for (auto [v, w] : e[u]) {\n        if (v == fa[u]) continue;\n        fa[v] = u, wei[v] = w, dep[v] = dep[u] + 1, dfs1(v), sz[u] += sz[v];\n        if (sz[v] > sz[son[u]]) son[u] = v;\n    }\n}\nvoid dfs2(int u, int t) {\n    top[u] = t;\n    if (son[u]) dfs2(son[u], t);\n    for (auto [v, w] : e[u]) if (v != fa[u] && v != son[u]) dfs2(v, v);\n}\nint lca(int u, int v) {\n    while (top[u] != top[v]) {\n        if (dep[top[u]] < dep[top[v]]) swap(u, v);\n        u = fa[top[u]];\n    } return dep[u] < dep[v] ? u : v;\n}\n\n#define ls lson[rt]\n#define rs rson[rt]\nint tot, rt[N], lson[N << 6], rson[N << 6], cnt[N << 6];\ni64 sum[N << 6]; \nvoid insert(i64 x, i64 l, i64 r, int& rt) {\n    if (!rt) rt = ++tot;\n    cnt[rt]++, sum[rt] += x;\n    if (l == r) return;\n    i64 mid = (l + r) >> 1;\n    if (x <= mid) insert(x, l, mid, ls);\n    else insert(x, mid + 1, r, rs);\n}\nvoid remove(i64 x, i64 l, i64 r, int& rt) {\n    if (!rt) rt = ++tot;\n    cnt[rt]--, sum[rt] -= x;\n    if (l == r) return;\n    i64 mid = (l + r) >> 1;\n    if (x <= mid) remove(x, l, mid, ls);\n    else remove(x, mid + 1, r, rs);\n}\ni64 ask(int k, i64 l, i64 r, int rt) {\n    if (rt == 0 || k <= 0) return 0;\n    if (cnt[rt] <= k) return sum[rt];\n    if (l == r) return l * k;\n    i64 mid = (l + r) >> 1;\n    if (cnt[rs] >= k) return ask(k, mid + 1, r, rs);\n    return sum[rs] + ask(k - cnt[rs], l, mid, ls);\n}\n\nbool keep[N];\nvector<int> nd[N], ev[N], dr[N];\ni64 f[N], g[N];\n\nvoid dfs3(int u, int k) {\n    f[u] = g[u] = 0;\n    i64 sum = 0;\n    vector<i64> son;\n    for (int v : ev[u]) {\n        dfs3(v, k);\n        if (fa[v] == u && keep[v]) sum += f[v], son.emplace_back(g[v] + wei[v] - f[v]);\n        else sum += f[v];\n    }\n    if (keep[u]) {\n        for (i64 x : son) if (x > 0) insert(x, 1, M, rt[u]);\n        f[u] = sum + ask(k, 1, M, rt[u]), g[u] = sum + ask(k - 1, 1, M, rt[u]);\n        for (i64 x : son) if (x > 0) remove(x, 1, M, rt[u]);\n    } else {\n        f[u] = sum, g[u] = 0;\n    }\n}\n\nvector<i64> minimum_closure_costs(int N, vector<int> U, vector<int> V, vector<int> W) {\n    n = N; i64 sum = 0;\n    for (int i = 0; i < n - 1; i++) {\n        int u = U[i] + 1, v = V[i] + 1, w = W[i];\n        e[u].emplace_back(v, w), e[v].emplace_back(u, w);\n        deg[u]++, deg[v]++, sum += w;\n    }\n    for (int u = 1; u <= n; u++) {\n        for (int i = 0; i < deg[u]; i++) nd[i].emplace_back(u);\n        dr[deg[u]].emplace_back(u);\n    }\n    dfs1(1), dfs2(1, 1);\n    vector<i64> ans(n); ans[0] = sum;\n    i64 bas = 0;\n    fill(keep + 1, keep + n + 1, true);\n    for (int k = 1; k < n; k++) {\n        for (int u : dr[k]) {\n            keep[u] = false;\n            for (auto [v, w] : e[u]) {\n                if (keep[v]) insert(w, 1, M, rt[v]);\n                else bas += w;\n            }\n        }\n        vector<int>& a = nd[k];\n        if (a.empty()) {\n            ans[k] = sum - bas;\n            continue;\n        }\n        sort(a.begin(), a.end(), [](int u, int v) {return dfn[u] < dfn[v];});\n        int len = a.size();\n        for (int i = 0; i < len - 1; i++) a.emplace_back(lca(a[i], a[i + 1]));\n        sort(a.begin(), a.end(), [](int u, int v) {return dfn[u] < dfn[v];});\n        a.erase(unique(a.begin(), a.end()), a.end());\n        for (int i = 0; i < (int)a.size() - 1; i++) \n            ev[lca(a[i], a[i + 1])].emplace_back(a[i + 1]);\n        dfs3(a[0], k);\n        ans[k] = sum - bas - f[a[0]];\n        for (int i : a) ev[i].clear();\n    }\n    return ans;\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-array-replacement",
         "title": "Array Replacement（差分数组上交换相邻同奇偶项）",
         "source": "",
@@ -40,6 +106,930 @@ const PROBLEMS_DATA = [
                     "构造"
                 ],
                 "source": ""
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-abc236e",
+        "title": "x Distinct Multiples",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ABC236E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC236E](https://www.luogu.com.cn/problem/AT_abc236_h)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$ 和序列 $d_1 \\sim d_n$。对满足以下条件的序列 $a_1 \\sim a_n$ 计数：\n>\n> - $\\forall i \\in [1,n], a_i \\in [1,m]$。\n> - $\\forall i \\in [1,n], d_i \\mid a_i$。\n> - $a_i$ 互不相同。\n>\n> $n \\le 16$，$m \\le 10^{18}$，2 秒，1024 MB。\n\n::::::success[题解]\n\n对互不相同的条件容斥。枚举划分 $P$，每个等价类内部 $a$ 值相同，容斥系数 $\\prod\\limits_{S \\in P} (-1)^{|S|-1} (|S|-1)!$。\n\n:::::info[集合划分容斥]\n\n考虑下面的模型：有 $n$ 个变量 $a_1 \\sim a_n$，其中 $a_i \\in S_i$ 且 $a_i$ 互不相同，对 $a_1 \\sim a_n$ 计数。\n\n对互不相同进行容斥。考虑建图，若 $a_i=a_j$ 则连边 $i \\leftrightarrow j$，连通块内部的点值都相同，不同连通块之间无限制。\n\n对无向图 $G=(V,E)$，设 $C(E)$ 为 $G$ 的集合划分，$F(P)$ 为划分 $P$ 对应的方案数，答案即为\n$$\n\\sum_{E} (-1)^{|E|} F(C(E))=\\sum_{P} F(P) \\sum_{C(E)=P}(-1)^{|E|}\n$$\n设 $P=\\{S_1,S_2,\\cdots,S_m\\}$，只要在每个 $S_i$ 内部连边并构成连通图。则容斥系数\n$$\n \\sum_{C(E)=P}(-1)^{|E|}=\\prod_{S \\in P} \\sum_{G_S \\text{连通}} (-1)^{|E(G_S)|}\n$$\n问题转化为，对 $k$ 个点的无向图，求所有连通边集 $E$ 的 $(-1)^{|E|}$ 之和，记作 $g_k$。\n\n设 $f_k$ 为 $k$ 个点任意无向图的 $(-1)^{|E|}$ 之和，则\n$$\nf_k=\\sum_{i=0}^{\\binom{k}{2}} \\binom{\\binom{k}{2}}{i} (-1)^i=0^{\\binom{k}{2}}\n$$\n故 $k \\ge 2$ 时 $f_k=0$，只有 $f_0=f_1=1$。$f$ 的 EGF 为\n$$\nF=\\sum_{k \\ge 0} f_k \\dfrac{x^k}{k!}=1+x\n$$\n根据多项式 $\\exp$ 的组合意义：\n$$\nF=\\exp G \\implies G=\\ln F\n$$\n由 Taylor 展开\n$$\nG=\\sum_{k \\ge 1} (-1)^{k-1} \\dfrac{x^k}{k}\n$$\n提取系数得\n$$\n\\left[\\dfrac{x^k}{k!}\\right]G=\\dfrac{(-1)^{k-1}}{k} \\implies g_k=(-1)^{k-1}(k-1)!\n$$\n将 $g_k$ 代入容斥系数，得到最终结论\n$$\n\\boxed{\\sum_{P} F(P) \\prod_{S \\in P} (-1)^{|S|-1} (|S|-1)!}\n$$\n:::::\n\n记 $\\underset{i\\in S}{\\text{lcm } } d_i=\\text{lcm}(S)$。强制点集 $S$ 内 $a$ 值均为 $x$，则必有 $\\text{lcm}(S) \\mid x$，从而方案数为\n$$\nF(P)=\\prod_{S \\in P}\\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor\n$$\n答案为\n$$\n\\sum_{P}\\prod_{S \\in P}(-1)^{|S|-1}  (|S|-1)! \\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor\n$$\n利用排除 $\\min S$ 转移的 trick，容易 $O(2^n \\log V)$ 地求出单个 $S$ 的贡献值 $f_S=(-1)^{|S|-1}  (|S|-1)! \\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor$。\n\n构造集合幂级数 $F$，令 $G=\\exp F$，则 $[x^U] G$ 即为所求。使用子集卷积 exp 做到 $O(n^2 2^n)$。\n\n总复杂度 $O(n^2 2^n+2^n \\log V)$。[代码](https://atcoder.jp/contests/abc236/submissions/79499553)。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC236E](https://www.luogu.com.cn/problem/AT_abc236_h)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$ 和序列 $d_1 \\sim d_n$。对满足以下条件的序列 $a_1 \\sim a_n$ 计数：\n>\n> - $\\forall i \\in [1,n], a_i \\in [1,m]$。\n> - $\\forall i \\in [1,n], d_i \\mid a_i$。\n> - $a_i$ 互不相同。\n>\n> $n \\le 16$，$m \\le 10^{18}$，2 秒，1024 MB。\n\n::::::success[题解]\n\n对互不相同的条件容斥。枚举划分 $P$，每个等价类内部 $a$ 值相同，容斥系数 $\\prod\\limits_{S \\in P} (-1)^{|S|-1} (|S|-1)!$。\n\n:::::info[集合划分容斥]\n\n考虑下面的模型：有 $n$ 个变量 $a_1 \\sim a_n$，其中 $a_i \\in S_i$ 且 $a_i$ 互不相同，对 $a_1 \\sim a_n$ 计数。\n\n对互不相同进行容斥。考虑建图，若 $a_i=a_j$ 则连边 $i \\leftrightarrow j$，连通块内部的点值都相同，不同连通块之间无限制。\n\n对无向图 $G=(V,E)$，设 $C(E)$ 为 $G$ 的集合划分，$F(P)$ 为划分 $P$ 对应的方案数，答案即为\n$$\n\\sum_{E} (-1)^{|E|} F(C(E))=\\sum_{P} F(P) \\sum_{C(E)=P}(-1)^{|E|}\n$$\n设 $P=\\{S_1,S_2,\\cdots,S_m\\}$，只要在每个 $S_i$ 内部连边并构成连通图。则容斥系数\n$$\n \\sum_{C(E)=P}(-1)^{|E|}=\\prod_{S \\in P} \\sum_{G_S \\text{连通}} (-1)^{|E(G_S)|}\n$$\n问题转化为，对 $k$ 个点的无向图，求所有连通边集 $E$ 的 $(-1)^{|E|}$ 之和，记作 $g_k$。\n\n设 $f_k$ 为 $k$ 个点任意无向图的 $(-1)^{|E|}$ 之和，则\n$$\nf_k=\\sum_{i=0}^{\\binom{k}{2}} \\binom{\\binom{k}{2}}{i} (-1)^i=0^{\\binom{k}{2}}\n$$\n故 $k \\ge 2$ 时 $f_k=0$，只有 $f_0=f_1=1$。$f$ 的 EGF 为\n$$\nF=\\sum_{k \\ge 0} f_k \\dfrac{x^k}{k!}=1+x\n$$\n根据多项式 $\\exp$ 的组合意义：\n$$\nF=\\exp G \\implies G=\\ln F\n$$\n由 Taylor 展开\n$$\nG=\\sum_{k \\ge 1} (-1)^{k-1} \\dfrac{x^k}{k}\n$$\n提取系数得\n$$\n\\left[\\dfrac{x^k}{k!}\\right]G=\\dfrac{(-1)^{k-1}}{k} \\implies g_k=(-1)^{k-1}(k-1)!\n$$\n将 $g_k$ 代入容斥系数，得到最终结论\n$$\n\\boxed{\\sum_{P} F(P) \\prod_{S \\in P} (-1)^{|S|-1} (|S|-1)!}\n$$\n:::::\n\n记 $\\underset{i\\in S}{\\text{lcm } } d_i=\\text{lcm}(S)$。强制点集 $S$ 内 $a$ 值均为 $x$，则必有 $\\text{lcm}(S) \\mid x$，从而方案数为\n$$\nF(P)=\\prod_{S \\in P}\\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor\n$$\n答案为\n$$\n\\sum_{P}\\prod_{S \\in P}(-1)^{|S|-1}  (|S|-1)! \\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor\n$$\n利用排除 $\\min S$ 转移的 trick，容易 $O(2^n \\log V)$ 地求出单个 $S$ 的贡献值 $f_S=(-1)^{|S|-1}  (|S|-1)! \\left\\lfloor \\dfrac{m}{\\text{lcm}(S)} \\right\\rfloor$。\n\n构造集合幂级数 $F$，令 $G=\\exp F$，则 $[x^U] G$ 即为所求。使用子集卷积 exp 做到 $O(n^2 2^n)$。\n\n总复杂度 $O(n^2 2^n+2^n \\log V)$。[代码](https://atcoder.jp/contests/abc236/submissions/79499553)。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-abc240g",
+        "title": "Teleporting Takahashi",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ABC240G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC240G](https://www.luogu.com.cn/problem/AT_abc240_g)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有无限大的三维网格，你初始位于 $(0,0,0)$，每步必须移动到某个相邻格点。求 $n$ 次移动后位于 $(x,y,z)$ 的路径数。\n>\n> $n,|x|,|y|,|z| \\le 10^7$，3 秒，1024 MB。\n\n:::::success[题解]\n\n考虑一维情形，求移动 $n$ 步走到 $x_0$ 的路径数。相当于对\n$$\n\\sum_{i=1}^n x_i=x_0,x_i \\in \\{-1,1\\}\n$$\n的序列 $x_i$ 计数。令 $y_i=\\frac{x_i+1}{2}$，则\n$$\n\\sum_{i=1}^n y_i=\\dfrac{x_0+n}{2}, y_i \\in \\{0,1\\}\n$$\n故合法的 $y$ 双射 $x$，方案数 $\\dbinom{n}{\\frac{x_0+n}{2}}$。\n\n考虑二维情形，难点在于 $(x,y)$ 不独立。套路地将坐标系旋转 $45\\degree$，令 $(x,y) \\to (x+y,x-y)$，则新的 $x',y'$ 独立，将两个组合数乘起来即可。\n\n考虑三维情形。我们枚举 $x$ 方向上走了 $i$ 步，转化为“1+2”，将三个组合数乘起来再配上系数 $\\dbinom{n}{i}$ 求和即可。\n\n复杂度 $O(n)$。[代码](https://atcoder.jp/contests/abc240/submissions/79491819)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC240G](https://www.luogu.com.cn/problem/AT_abc240_g)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有无限大的三维网格，你初始位于 $(0,0,0)$，每步必须移动到某个相邻格点。求 $n$ 次移动后位于 $(x,y,z)$ 的路径数。\n>\n> $n,|x|,|y|,|z| \\le 10^7$，3 秒，1024 MB。\n\n:::::success[题解]\n\n考虑一维情形，求移动 $n$ 步走到 $x_0$ 的路径数。相当于对\n$$\n\\sum_{i=1}^n x_i=x_0,x_i \\in \\{-1,1\\}\n$$\n的序列 $x_i$ 计数。令 $y_i=\\frac{x_i+1}{2}$，则\n$$\n\\sum_{i=1}^n y_i=\\dfrac{x_0+n}{2}, y_i \\in \\{0,1\\}\n$$\n故合法的 $y$ 双射 $x$，方案数 $\\dbinom{n}{\\frac{x_0+n}{2}}$。\n\n考虑二维情形，难点在于 $(x,y)$ 不独立。套路地将坐标系旋转 $45\\degree$，令 $(x,y) \\to (x+y,x-y)$，则新的 $x',y'$ 独立，将两个组合数乘起来即可。\n\n考虑三维情形。我们枚举 $x$ 方向上走了 $i$ 步，转化为“1+2”，将三个组合数乘起来再配上系数 $\\dbinom{n}{i}$ 求和即可。\n\n复杂度 $O(n)$。[代码](https://atcoder.jp/contests/abc240/submissions/79491819)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-abc267g",
+        "title": "Increasing K Times",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ABC267G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC267G](https://www.luogu.com.cn/problem/AT_abc267_g)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出长为 $n$ 的序列 $a_i$，求有多少个 $1 \\sim n$ 的排列 $p_i$ 满足 $\\text{asc}(a_{p_i})=k$。$\\text{asc}$ 为上升数目。\n>\n> $n \\le 5\\times 10^3$，2 秒，1024 MB。\n\n:::::success[题解]\n\n题目相当于求 $a_i$ 有多少个重排的上升数目恰为 $k$。考虑计数本质不同的重排，答案乘上 $\\prod c_i!$ 即可，其中 $c_i$ 是第 $i$ 种数的出现次数。\n\n考虑使用插入 DP 解决问题，计数顺序是从小到大插入、\n\n- 用 $f_{n,k}$ 表示当前已经插入了 $1 \\sim n$ 中的数字，上升的数目恰为 $k$ 的方案数。\n\n- 用刷表法转移，即从 $f_{n,k}$ 转移到 $f_{n+1,k'}$。我们一次性插入所有数字 $n+1$，设其有 $c$ 个，讨论转移系数。\n\n  - 记 $m$ 为序列长度，考虑序列 $x_1,x_2,\\cdots,x_{m+1}$，其满足 $\\sum \\limits_{i=1}^{m+1} x_i=c$。$x_i$ 的组合意义是第 $i$ 个空位中插入了几个 $n+1$。\n\n  - 由于所有插入的数都相同，只要讨论非零的 $x_i$ 对 $k'$ 的贡献：\n\n    - 在原序列中，共有 $k$ 个上升空位，贡献为 $0$。\n    - 在原序列中，共有 $m-1-k$ 个下降空位，贡献为 $1$。\n    - 插入开头，形成一个下降，贡献为 $0$。\n    - 插入结尾，形成一个上升，贡献为 $1$。\n\n    综上，考虑枚举总贡献量 $i$，转移系数就是 $x_1 \\sim x_{m-k}$ 中恰有 $i$ 个非零元素的方案数。\n\n  - 考虑分步计数：\n\n    - 先钦定 $i$ 个元素非零，方案数 $\\dbinom{m-k}{i}$。\n\n    - 设选出的变量为 $y_1 \\sim y_i$，其余变量强制为 $0$。$x_{m-k+1} \\sim x_{m+1}$ 的变量记为 $z_1 \\sim z_{k+1}$。\n\n    - 再使用不定方程模型的技巧计算。即令 $y'_i=y_i-1$，方程变为 $\\left(\\sum \\limits_{j=1}^i y'_i\\right)+\\left(\\sum\\limits_{j=1}^{k+1} z_i \\right)=c-i$。这是一个 $i+k+1$ 个变量的不定方程正整数解计数，方案数\n      $$\n      \\binom{(c-i)+(i+k-1)-1}{(i+k+1)-1}=\\binom{c+k}{i+k}\n      $$\n\n  - 综上所述，转移式 $f_{n,k} \\to \\dbinom{m-k}{i} \\dbinom{c+k}{i+k}f_{n+1,k+1}$。\n\n- DP 初值为 $f_{0,0}=1$。\n\n- 答案为 $f_{n,k} \\prod c_i!$。\n\n直观感受复杂度是 $O(n^3)$ 的。不过注意到 $i \\le c$ 时转移才有意义，故 $i$ 的总枚举次数是 $\\sum c_i=n$，因此复杂度只有 $O(n^2)$。[代码](https://atcoder.jp/contests/abc267/submissions/76748988)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC267G](https://www.luogu.com.cn/problem/AT_abc267_g)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出长为 $n$ 的序列 $a_i$，求有多少个 $1 \\sim n$ 的排列 $p_i$ 满足 $\\text{asc}(a_{p_i})=k$。$\\text{asc}$ 为上升数目。\n>\n> $n \\le 5\\times 10^3$，2 秒，1024 MB。\n\n:::::success[题解]\n\n题目相当于求 $a_i$ 有多少个重排的上升数目恰为 $k$。考虑计数本质不同的重排，答案乘上 $\\prod c_i!$ 即可，其中 $c_i$ 是第 $i$ 种数的出现次数。\n\n考虑使用插入 DP 解决问题，计数顺序是从小到大插入、\n\n- 用 $f_{n,k}$ 表示当前已经插入了 $1 \\sim n$ 中的数字，上升的数目恰为 $k$ 的方案数。\n\n- 用刷表法转移，即从 $f_{n,k}$ 转移到 $f_{n+1,k'}$。我们一次性插入所有数字 $n+1$，设其有 $c$ 个，讨论转移系数。\n\n  - 记 $m$ 为序列长度，考虑序列 $x_1,x_2,\\cdots,x_{m+1}$，其满足 $\\sum \\limits_{i=1}^{m+1} x_i=c$。$x_i$ 的组合意义是第 $i$ 个空位中插入了几个 $n+1$。\n\n  - 由于所有插入的数都相同，只要讨论非零的 $x_i$ 对 $k'$ 的贡献：\n\n    - 在原序列中，共有 $k$ 个上升空位，贡献为 $0$。\n    - 在原序列中，共有 $m-1-k$ 个下降空位，贡献为 $1$。\n    - 插入开头，形成一个下降，贡献为 $0$。\n    - 插入结尾，形成一个上升，贡献为 $1$。\n\n    综上，考虑枚举总贡献量 $i$，转移系数就是 $x_1 \\sim x_{m-k}$ 中恰有 $i$ 个非零元素的方案数。\n\n  - 考虑分步计数：\n\n    - 先钦定 $i$ 个元素非零，方案数 $\\dbinom{m-k}{i}$。\n\n    - 设选出的变量为 $y_1 \\sim y_i$，其余变量强制为 $0$。$x_{m-k+1} \\sim x_{m+1}$ 的变量记为 $z_1 \\sim z_{k+1}$。\n\n    - 再使用不定方程模型的技巧计算。即令 $y'_i=y_i-1$，方程变为 $\\left(\\sum \\limits_{j=1}^i y'_i\\right)+\\left(\\sum\\limits_{j=1}^{k+1} z_i \\right)=c-i$。这是一个 $i+k+1$ 个变量的不定方程正整数解计数，方案数\n      $$\n      \\binom{(c-i)+(i+k-1)-1}{(i+k+1)-1}=\\binom{c+k}{i+k}\n      $$\n\n  - 综上所述，转移式 $f_{n,k} \\to \\dbinom{m-k}{i} \\dbinom{c+k}{i+k}f_{n+1,k+1}$。\n\n- DP 初值为 $f_{0,0}=1$。\n\n- 答案为 $f_{n,k} \\prod c_i!$。\n\n直观感受复杂度是 $O(n^3)$ 的。不过注意到 $i \\le c$ 时转移才有意义，故 $i$ 的总枚举次数是 $\\sum c_i=n$，因此复杂度只有 $O(n^2)$。[代码](https://atcoder.jp/contests/abc267/submissions/76748988)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-abc268g",
+        "title": "Random Student ID",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ABC268G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC268G](https://www.luogu.com.cn/problem/AT_abc268_g)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个字符串 $S_i$，字符集 $\\Sigma=\\{{\\tt{a}},{\\tt{b}},\\cdots,{\\tt{z}}\\}$。从 $\\Sigma$ 的 $26!$ 种排列中随机选取一个，并按照该顺序定义字典序。\n>\n> 对每个 $i$ 求出 $S_i$ 的字典序排名期望。\n>\n> $\\sum |S_i| \\le 5 \\times 10^5$，3 秒，1024 MB。\n\n:::::success[题解]\n\n设所有字符串中，是 $S_i$ 的前缀的有 $a$ 个，$S_i$ 是真前缀的有 $b$ 个，其余串有 $c=n-a-b$ 个。\n\n显然这 $a$ 个串必然 $\\le S_i$，这 $b$ 个串必然 $>S_i$，而剩余 $c$ 个串各有 $\\frac{1}{2}$ 的概率 $< S_i$。\n\n注意期望的线性性不要求事件独立，可以直接拆成\n$$\n\\mathbb{E}[r_i]=a \\times 1+b \\times 0+c \\times \\dfrac{1}{2}=\\boxed{a+\\frac{c}{2}}\n$$\n只要求出 $a,b$，哈希或 Trie 均容易实现。复杂度 $O(L)$。[代码](https://www.luogu.com.cn/article/oq1br2ra)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC268G](https://www.luogu.com.cn/problem/AT_abc268_g)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个字符串 $S_i$，字符集 $\\Sigma=\\{{\\tt{a}},{\\tt{b}},\\cdots,{\\tt{z}}\\}$。从 $\\Sigma$ 的 $26!$ 种排列中随机选取一个，并按照该顺序定义字典序。\n>\n> 对每个 $i$ 求出 $S_i$ 的字典序排名期望。\n>\n> $\\sum |S_i| \\le 5 \\times 10^5$，3 秒，1024 MB。\n\n:::::success[题解]\n\n设所有字符串中，是 $S_i$ 的前缀的有 $a$ 个，$S_i$ 是真前缀的有 $b$ 个，其余串有 $c=n-a-b$ 个。\n\n显然这 $a$ 个串必然 $\\le S_i$，这 $b$ 个串必然 $>S_i$，而剩余 $c$ 个串各有 $\\frac{1}{2}$ 的概率 $< S_i$。\n\n注意期望的线性性不要求事件独立，可以直接拆成\n$$\n\\mathbb{E}[r_i]=a \\times 1+b \\times 0+c \\times \\dfrac{1}{2}=\\boxed{a+\\frac{c}{2}}\n$$\n只要求出 $a,b$，哈希或 Trie 均容易实现。复杂度 $O(L)$。[代码](https://www.luogu.com.cn/article/oq1br2ra)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-abc295e",
+        "title": "Kth Number",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ABC295E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC295E](https://www.luogu.com.cn/problem/AT_abc295_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$，值域为 $[0,m]$。对于每个 $a_i=0$ 的位置 $i$，独立等概率地选择 $x \\in [1,m]$ 令 $a_i \\gets x$。求第 $k$ 小数的期望值。\n>\n> $k,n,m \\le 2 \\times 10^3$，4 秒，1024 MB。\n\n::::::success[题解]\n\n01 转化 trick。观察如下代数式\n$$\n\\sum_{a} a_k=\\sum_{a}\\sum_{i=1}^{m} [i \\le a_k] = \\sum_{i=1}^m \\sum_a [i \\le a_k]\n$$\n考虑枚举 $i \\in [1,m]$，对 $i \\le a_k$ 的 $a$ 序列计数。不妨计数 $a_k<i$ 的 $a$ 序列数目。\n\n设初始空位有 $c$ 个，原本 $<i$ 的数有 $x$ 个。枚举最终 $<i$ 的位置的数目 $j$，进行分步计数：\n\n- 从 $c$ 个空位中选择 $j-x$ 个，方案数 $\\dbinom{c}{j-x}$。\n- 给 $j-x$ 个空位填入 $1 \\sim i-1$ 中的数，方案数 $(i-1)^{j-x}$。\n- 给 $c-(j-x)$ 个空位填入 $i \\sim m$ 中的数，方案数 $(m-i+1)^{c-j+x}$。\n\n由乘法原理合并，写出答案式\n$$\n\\boxed{\\sum_{i=1}^m\\left( m^c-\\sum_{j =\\max(x,k)}^{c+x} \\binom{c}{j-x}(i-1)^{j-x}(m-i+1)^{c-j+x}\\right)}\n$$\n除以 $m^c$ 即为期望。复杂度 $O(nm)$。\n\n:::::info[01 转化]\n\n代数表达是下面的式子\n$$\n\\sum_{i=1}^n a_i=\\sum_{i=1}^n \\sum_{j \\ge 1} [a_i \\ge j]=\\sum_{j \\ge 1} \\sum_{i=1}^n [a_i\\ge j]\n$$\n组合意义就是枚举 $j$，将 $\\ge j$ 的数视作 $1$，$<j$ 的数视作 $0$，求 01 序列总和。\n\n对于排序 / kth / 中位数相关的题目，考察 $0/1$ 的行为，一般会比考察所有数的行为简单很多。\n\n:::::\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC295E](https://www.luogu.com.cn/problem/AT_abc295_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$，值域为 $[0,m]$。对于每个 $a_i=0$ 的位置 $i$，独立等概率地选择 $x \\in [1,m]$ 令 $a_i \\gets x$。求第 $k$ 小数的期望值。\n>\n> $k,n,m \\le 2 \\times 10^3$，4 秒，1024 MB。\n\n::::::success[题解]\n\n01 转化 trick。观察如下代数式\n$$\n\\sum_{a} a_k=\\sum_{a}\\sum_{i=1}^{m} [i \\le a_k] = \\sum_{i=1}^m \\sum_a [i \\le a_k]\n$$\n考虑枚举 $i \\in [1,m]$，对 $i \\le a_k$ 的 $a$ 序列计数。不妨计数 $a_k<i$ 的 $a$ 序列数目。\n\n设初始空位有 $c$ 个，原本 $<i$ 的数有 $x$ 个。枚举最终 $<i$ 的位置的数目 $j$，进行分步计数：\n\n- 从 $c$ 个空位中选择 $j-x$ 个，方案数 $\\dbinom{c}{j-x}$。\n- 给 $j-x$ 个空位填入 $1 \\sim i-1$ 中的数，方案数 $(i-1)^{j-x}$。\n- 给 $c-(j-x)$ 个空位填入 $i \\sim m$ 中的数，方案数 $(m-i+1)^{c-j+x}$。\n\n由乘法原理合并，写出答案式\n$$\n\\boxed{\\sum_{i=1}^m\\left( m^c-\\sum_{j =\\max(x,k)}^{c+x} \\binom{c}{j-x}(i-1)^{j-x}(m-i+1)^{c-j+x}\\right)}\n$$\n除以 $m^c$ 即为期望。复杂度 $O(nm)$。\n\n:::::info[01 转化]\n\n代数表达是下面的式子\n$$\n\\sum_{i=1}^n a_i=\\sum_{i=1}^n \\sum_{j \\ge 1} [a_i \\ge j]=\\sum_{j \\ge 1} \\sum_{i=1}^n [a_i\\ge j]\n$$\n组合意义就是枚举 $j$，将 $\\ge j$ 的数视作 $1$，$<j$ 的数视作 $0$，求 01 序列总和。\n\n对于排序 / kth / 中位数相关的题目，考察 $0/1$ 的行为，一般会比考察所有数的行为简单很多。\n\n:::::\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-abc355e",
+        "title": "Guess the Sum",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ABC355E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC355E](https://www.luogu.com.cn/problem/AT_abc355_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $a_i$，长度为 $2^n$。你可以给出 $i,j$，设 $x=2^i \\times j,y=2^i \\times(j+1)-1$，向交互库询问 $\\left(\\sum \\limits_{i=x}^y a_i\\right) \\bmod 100$。\n>\n> 给出 $l,r$，通过最少询问次数求出 $\\left(\\sum \\limits_{i=l}^r a_i\\right) \\bmod 100$。\n>\n> $n \\le 18$。\n\n:::::success[题解]\n这个询问形式比较奇怪，我们画一下合法区间：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/4zudg6ym.png)\n\n发现这是一个倒着的线段树。于是考虑把询问像线段树一样拆成 $\\log 2^n$ 段，然后喜提 WA。\n\n错误原因在于，本题询问的信息具有可减性。因此，我们采用前缀和 trick，记 $s_i$ 为 $a_i$ 的前缀和，询问即求 $s_r-s_{l-1}$。因为是 0-index，我们让 $s$ 向后移动一位，去求 $s_{r+1}-s_l$。\n\n我们考虑如下策略：从 $l$ 开始，不断扩展当前区间直到包含 $r$，在求和时要判断当前区间是加还是减。基于此，我们可以进行图论建模，用最短路来确定策略。对于合法区间 $[l,r]$，连边 $l \\leftrightarrow r+1$，则询问即 $l$ 到 $r+1$ 的最短路。\n\n容易用一次 BFS 记录最短路径，然后从 $r+1$ 倒推回来，判一下询问端点即可确定加减。复杂度 $O(n2^n)$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 3e5 + 5;\nint n, l, r, pre[N], vis[N];\nvector<int> e[N];\n\nvoid bfs(int s, int t) {\n    queue<int> q;\n    q.emplace(s), pre[s] = -1, vis[s] = true;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        if (u == t) return;\n        for (int v : e[u]) {\n            if (vis[v]) continue;\n            q.emplace(v), pre[v] = u, vis[v] = true;\n        }\n    }\n} \n\nvoid _main() {\n    cin >> n >> l >> r;\n    for (int i = 0; i <= n; i++) {\n        for (int j = 0; j < (1 << (n - i)); j++) {\n            int x = j * (1 << i), y = (j + 1) * (1 << i) - 1;\n            e[y + 1].emplace_back(x), e[x].emplace_back(y + 1);\n        }\n    }\n    r++, bfs(l, r);\n    mint res = 0;\n    for (int i = r, j = -1; i != -1; j = i, i = pre[i]) {\n        if (j == -1) continue;\n        int x = min(i, j), y = max(i, j), k = lg(y - x);\n        cout << \"? \" << k << ' ' << (x >> k ) << endl;\n        mint v; cin >> v;\n        if (i < j) res += v;\n        else res -= v;\n    } \n    cout << \"! \" << res << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC355E](https://www.luogu.com.cn/problem/AT_abc355_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $a_i$，长度为 $2^n$。你可以给出 $i,j$，设 $x=2^i \\times j,y=2^i \\times(j+1)-1$，向交互库询问 $\\left(\\sum \\limits_{i=x}^y a_i\\right) \\bmod 100$。\n>\n> 给出 $l,r$，通过最少询问次数求出 $\\left(\\sum \\limits_{i=l}^r a_i\\right) \\bmod 100$。\n>\n> $n \\le 18$。\n\n:::::success[题解]\n这个询问形式比较奇怪，我们画一下合法区间：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/4zudg6ym.png)\n\n发现这是一个倒着的线段树。于是考虑把询问像线段树一样拆成 $\\log 2^n$ 段，然后喜提 WA。\n\n错误原因在于，本题询问的信息具有可减性。因此，我们采用前缀和 trick，记 $s_i$ 为 $a_i$ 的前缀和，询问即求 $s_r-s_{l-1}$。因为是 0-index，我们让 $s$ 向后移动一位，去求 $s_{r+1}-s_l$。\n\n我们考虑如下策略：从 $l$ 开始，不断扩展当前区间直到包含 $r$，在求和时要判断当前区间是加还是减。基于此，我们可以进行图论建模，用最短路来确定策略。对于合法区间 $[l,r]$，连边 $l \\leftrightarrow r+1$，则询问即 $l$ 到 $r+1$ 的最短路。\n\n容易用一次 BFS 记录最短路径，然后从 $r+1$ 倒推回来，判一下询问端点即可确定加减。复杂度 $O(n2^n)$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 3e5 + 5;\nint n, l, r, pre[N], vis[N];\nvector<int> e[N];\n\nvoid bfs(int s, int t) {\n    queue<int> q;\n    q.emplace(s), pre[s] = -1, vis[s] = true;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        if (u == t) return;\n        for (int v : e[u]) {\n            if (vis[v]) continue;\n            q.emplace(v), pre[v] = u, vis[v] = true;\n        }\n    }\n} \n\nvoid _main() {\n    cin >> n >> l >> r;\n    for (int i = 0; i <= n; i++) {\n        for (int j = 0; j < (1 << (n - i)); j++) {\n            int x = j * (1 << i), y = (j + 1) * (1 << i) - 1;\n            e[y + 1].emplace_back(x), e[x].emplace_back(y + 1);\n        }\n    }\n    r++, bfs(l, r);\n    mint res = 0;\n    for (int i = r, j = -1; i != -1; j = i, i = pre[i]) {\n        if (j == -1) continue;\n        int x = min(i, j), y = max(i, j), k = lg(y - x);\n        cout << \"? \" << k << ' ' << (x >> k ) << endl;\n        mint v; cin >> v;\n        if (i < j) res += v;\n        else res -= v;\n    } \n    cout << \"! \" << res << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-abc376g",
+        "title": "Treasure Hunting",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ABC376G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC376G](https://www.luogu.com.cn/problem/AT_abc376_g)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n+1$ 个点的有根树，根节点为 $0$。你从根节点开始游走，只能游走到父亲已经走过的点。每个点有 $\\frac{a_i}{\\sum a}$ 的概率为关键点，最小化到达关键点步数的期望值并输出，对 $998244353$ 取模。\n>\n> 多测，$\\sum n \\le 2 \\times 10^5$，2 秒，1024 MB。\n\n:::::success[题解]\n树上 exchange argument 模板题。\n\n将所有概率乘上 $\\sum a$，答案再除回去。然后把题意翻译成：找到一个拓扑序 $b_i$，最小化 $\\sum\\limits_{i=1}^n a_ib_i$。\n\n拓扑序是合并连通块的过程，合并的顺序考虑用 exchange argument 确定。记 $c_A$ 为连通块节点数目，$w_A$ 为块中点权和。对于块 $A,B$，将其交换位置的答案变化量为\n\n$$\nc_B w_A-c_A w_B\n$$\n\n钦定上式 $<0$ 移项得 $c_B w_A<c_A w_B \\iff \\frac{c_B}{w_B}<\\frac{c_A}{w_A}$。这是一个严格全序，符合要求。\n\n可以用并查集 + set 来维护。初始时，将所有节点加入集合，其中 $c_I=1,w_I=a_i$，按照 $\\frac{w_A}{c_A}$ 为关键字降序排序。\n\n每次取出最大的 $u$，将 $u$ 合并到父节点块 $v$ 中。这里 $v$ 是这个连通块的代表元，使用并查集找到。合并后 $v$ 的代价改变，删去旧值并插入新值即可。\n\n总复杂度 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 2e5 + 5;\nint n, p[N], fa[N];\nint find(int x) {return x == fa[x] ? x : fa[x] = find(fa[x]);}\ni64 a[N], c[N], w[N];\n\nstruct node {\n    i64 w, c; int id;\n    node(i64 x = 0, i64 y = 0, int z = 0) : w(x), c(y), id(z) {}\n    bool operator< (const node& a) const {\n        if (w * a.c != c * a.w) return w * a.c > c * a.w;\n        return id < a.id;\n    }\n};\nset<node> q;\n\nvoid _main() {\n    cin >> n;\n    iota(fa, fa + n + 1, 0);\n    for (int i = 1; i <= n; i++) cin >> p[i];\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    mint sum = accumulate(a + 1, a + n + 1, mint(0)), cost = sum;\n    copy(a, a + n + 1, w), fill(c, c + n + 1, 1);\n    c[0] = 0, w[0] = 0;\n    for (int i = 1; i <= n; i++) q.emplace(w[i], c[i], i);\n    while (!q.empty()) {\n        int u = q.begin()->id; q.erase(q.begin());\n        int v = find(p[u]);\n        if (v != 0) q.erase(node(w[v], c[v], v));\n        cost += c[v] * w[u];\n        c[v] += c[u], w[v] += w[u], fa[find(u)] = find(v);\n        if (v != 0) q.emplace(w[v], c[v], v); \n    }\n    cout << cost / sum << '\\n';\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ABC376G](https://www.luogu.com.cn/problem/AT_abc376_g)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n+1$ 个点的有根树，根节点为 $0$。你从根节点开始游走，只能游走到父亲已经走过的点。每个点有 $\\frac{a_i}{\\sum a}$ 的概率为关键点，最小化到达关键点步数的期望值并输出，对 $998244353$ 取模。\n>\n> 多测，$\\sum n \\le 2 \\times 10^5$，2 秒，1024 MB。\n\n:::::success[题解]\n树上 exchange argument 模板题。\n\n将所有概率乘上 $\\sum a$，答案再除回去。然后把题意翻译成：找到一个拓扑序 $b_i$，最小化 $\\sum\\limits_{i=1}^n a_ib_i$。\n\n拓扑序是合并连通块的过程，合并的顺序考虑用 exchange argument 确定。记 $c_A$ 为连通块节点数目，$w_A$ 为块中点权和。对于块 $A,B$，将其交换位置的答案变化量为\n\n$$\nc_B w_A-c_A w_B\n$$\n\n钦定上式 $<0$ 移项得 $c_B w_A<c_A w_B \\iff \\frac{c_B}{w_B}<\\frac{c_A}{w_A}$。这是一个严格全序，符合要求。\n\n可以用并查集 + set 来维护。初始时，将所有节点加入集合，其中 $c_I=1,w_I=a_i$，按照 $\\frac{w_A}{c_A}$ 为关键字降序排序。\n\n每次取出最大的 $u$，将 $u$ 合并到父节点块 $v$ 中。这里 $v$ 是这个连通块的代表元，使用并查集找到。合并后 $v$ 的代价改变，删去旧值并插入新值即可。\n\n总复杂度 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 2e5 + 5;\nint n, p[N], fa[N];\nint find(int x) {return x == fa[x] ? x : fa[x] = find(fa[x]);}\ni64 a[N], c[N], w[N];\n\nstruct node {\n    i64 w, c; int id;\n    node(i64 x = 0, i64 y = 0, int z = 0) : w(x), c(y), id(z) {}\n    bool operator< (const node& a) const {\n        if (w * a.c != c * a.w) return w * a.c > c * a.w;\n        return id < a.id;\n    }\n};\nset<node> q;\n\nvoid _main() {\n    cin >> n;\n    iota(fa, fa + n + 1, 0);\n    for (int i = 1; i <= n; i++) cin >> p[i];\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    mint sum = accumulate(a + 1, a + n + 1, mint(0)), cost = sum;\n    copy(a, a + n + 1, w), fill(c, c + n + 1, 1);\n    c[0] = 0, w[0] = 0;\n    for (int i = 1; i <= n; i++) q.emplace(w[i], c[i], i);\n    while (!q.empty()) {\n        int u = q.begin()->id; q.erase(q.begin());\n        int v = find(p[u]);\n        if (v != 0) q.erase(node(w[v], c[v], v));\n        cost += c[v] * w[u];\n        c[v] += c[u], w[v] += w[u], fa[find(u)] = find(v);\n        if (v != 0) q.emplace(w[v], c[v], v); \n    }\n    cout << cost / sum << '\\n';\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-agc005d",
+        "title": "~K Perm Counting",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "AGC005D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[AGC005D](https://www.luogu.com.cn/problem/AT_agc005_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,k$，对满足 $\\forall i \\in [1,n], |a_i-i| \\ne k$ 的 $1\\sim n$ 的排列 $a_i$ 计数。\n>\n> $n \\le 2\\times 10^3$，2 秒，256 MB。\n\n:::::success[题解]\n\n将 $(i,a_i)$ 拍到二维平面上，约束即 $y=x- k$ 和 $y=x+k$ 两条直线上不能有点。 \n\n考虑容斥，钦定 $m$ 个位置突破限制，剩余 $n-m$ 个位置随意排列，容斥系数 $(-1)^m (n-m)!$。\n\n约束转化为，选择 $m$ 个点位于 $y=x\\pm k$ 上，要求横纵坐标两两不同。我们将横纵坐标相同的点连边，则 $m$ 个点构成图的独立集。可以发现图的形态是若干条链：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/npwddpef.webp)\n\n我们从长为 $n$ 的链上取大小为 $k$ 的独立集，转化为在 $k$ 个选点间插入 $k-1$ 个未选点，剩余点随意，方案数 $\\boxed{\\dbinom{n-k+1}{k}}$。\n\n设每条链的长度为 $b_i$，则单链的 OGF 为\n$$\nF_i=\\sum_{k \\ge 0} \\binom{b_i-k+1}{k} x^k\n$$\n将 $O(n)$ 个 $F$ 暴力卷积后，取 $x^m$ 项系数即为容斥 $m$ 的答案。\n\n复杂度 $O(n^2)$。[代码](https://atcoder.jp/contests/agc005/submissions/79590009)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[AGC005D](https://www.luogu.com.cn/problem/AT_agc005_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,k$，对满足 $\\forall i \\in [1,n], |a_i-i| \\ne k$ 的 $1\\sim n$ 的排列 $a_i$ 计数。\n>\n> $n \\le 2\\times 10^3$，2 秒，256 MB。\n\n:::::success[题解]\n\n将 $(i,a_i)$ 拍到二维平面上，约束即 $y=x- k$ 和 $y=x+k$ 两条直线上不能有点。 \n\n考虑容斥，钦定 $m$ 个位置突破限制，剩余 $n-m$ 个位置随意排列，容斥系数 $(-1)^m (n-m)!$。\n\n约束转化为，选择 $m$ 个点位于 $y=x\\pm k$ 上，要求横纵坐标两两不同。我们将横纵坐标相同的点连边，则 $m$ 个点构成图的独立集。可以发现图的形态是若干条链：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/npwddpef.webp)\n\n我们从长为 $n$ 的链上取大小为 $k$ 的独立集，转化为在 $k$ 个选点间插入 $k-1$ 个未选点，剩余点随意，方案数 $\\boxed{\\dbinom{n-k+1}{k}}$。\n\n设每条链的长度为 $b_i$，则单链的 OGF 为\n$$\nF_i=\\sum_{k \\ge 0} \\binom{b_i-k+1}{k} x^k\n$$\n将 $O(n)$ 个 $F$ 暴力卷积后，取 $x^m$ 项系数即为容斥 $m$ 的答案。\n\n复杂度 $O(n^2)$。[代码](https://atcoder.jp/contests/agc005/submissions/79590009)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-agc005f",
+        "title": "Many Easy Problems",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "AGC005F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[AGC005F](https://www.luogu.com.cn/problem/AT_agc005_f)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵 $n$ 个节点的无根树。对 $k=1,2,\\cdots,n$ 求出：选择 $k$ 个关键点的虚树点数之和，对 NTT 模数取模。\n>\n> $n \\le 2\\times 10^5$，5 秒，512 MB。\n\n:::::success[题解]\n\n将贡献拆到节点上。对点集 $S$ 和节点 $u \\notin S$，点 $u$ 不属于 $S$ 的虚树，当且仅当删去 $u$ 后 $S$ 仍然连通。\n\n设删去 $u$ 后子树大小分别为 $a_1 \\sim a_m$，则 $u$ 对 $\\text{ans}_k$ 的贡献为\n$$\n\\binom{n}{k}-\\sum_{i=1}^m \\binom{a_i}{k}\n$$\n对 $a_i$ 开桶进行优化。记 $a_i=x$ 的 $(u,i)$ 对有 $c_x$ 个，那么 $x$ 对 $\\text{ans}_k$ 的负贡献写作\n$$\n\\sum_{x=1}^n c_x \\binom{x}{k}=\\sum_{x=1}^n \\dfrac{c_x \\times x!}{k!(x-k)!}\n$$\n其中 $\\frac{1}{k!}$ 是常数，剩余部分视作 $c_x \\times x!$ 和 $\\frac{1}{x!}$ 的差卷积。用正贡献 $n \\binom{n}{k}$ 减去即为答案。\n\n复杂度 $O(n \\log n)$。[代码](https://atcoder.jp/contests/agc005/submissions/79595197)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[AGC005F](https://www.luogu.com.cn/problem/AT_agc005_f)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵 $n$ 个节点的无根树。对 $k=1,2,\\cdots,n$ 求出：选择 $k$ 个关键点的虚树点数之和，对 NTT 模数取模。\n>\n> $n \\le 2\\times 10^5$，5 秒，512 MB。\n\n:::::success[题解]\n\n将贡献拆到节点上。对点集 $S$ 和节点 $u \\notin S$，点 $u$ 不属于 $S$ 的虚树，当且仅当删去 $u$ 后 $S$ 仍然连通。\n\n设删去 $u$ 后子树大小分别为 $a_1 \\sim a_m$，则 $u$ 对 $\\text{ans}_k$ 的贡献为\n$$\n\\binom{n}{k}-\\sum_{i=1}^m \\binom{a_i}{k}\n$$\n对 $a_i$ 开桶进行优化。记 $a_i=x$ 的 $(u,i)$ 对有 $c_x$ 个，那么 $x$ 对 $\\text{ans}_k$ 的负贡献写作\n$$\n\\sum_{x=1}^n c_x \\binom{x}{k}=\\sum_{x=1}^n \\dfrac{c_x \\times x!}{k!(x-k)!}\n$$\n其中 $\\frac{1}{k!}$ 是常数，剩余部分视作 $c_x \\times x!$ 和 $\\frac{1}{x!}$ 的差卷积。用正贡献 $n \\binom{n}{k}$ 减去即为答案。\n\n复杂度 $O(n \\log n)$。[代码](https://atcoder.jp/contests/agc005/submissions/79595197)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-agc006c",
+        "title": "Rabbit Exercise",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "AGC006C",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[AGC006C](https://www.luogu.com.cn/problem/AT_agc006_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 数轴上有 $n$ 个物体，第 $i$ 个物体初始位于 $x_i$ 位置。\n>\n> 进行 $k$ 轮操作，每轮操作包含 $m$ 次跳跃。第 $i$ 次跳跃中，标号为 $a_i$ 的物体会等概率地选择 $a_i-1$ 或 $a_i+1$ 作为 $x$，跳跃到关于 $x$ 对称的位置，其中 $1<a_i<n$。\n>\n> 进行 $k$ 轮操作后，对每个物体求出最终坐标的期望值。浮点精度要求 $10^{-9}$。\n>\n> $n,m \\le 10^5$，$k \\le 10^{18}$，2 秒，256 MB。 \n\n:::::success[题解]\n\n考虑期望递推。设 $f_i$ 为当前时刻物体 $i$ 的期望位置，对 $x$ 进行变换时：\n\n- 选定 $i-1$ 对称：$f_i \\gets 2f_{i-1}-f_i$，概率 $\\frac{1}{2}$。\n- 选定 $i+1$ 对称：$f_i \\gets 2f_{i+1}-f_i$，概率 $\\frac{1}{2}$。\n\n从而转移式为\n$$\n\\begin{aligned}\nf_i &\\gets \\dfrac{1}{2}(2f_{i-1}-f_i)+\\dfrac{1}{2}(2f_{i+1}-f_i)\\\\\n&= f_{i+1}+f_{i-1}-f_i\n\\end{aligned}\n$$\n我们得到单轮操作的转移。根据经典结论，取 $f$ 的差分 $d_i=f_i-f_{i-1}$，则对 $f_i$ 操作等价于交换 $d_i,d_{i+1}$。\n\n不妨维护 $d$ 序列，模拟一轮操作可以得到对 $d$ 的置换，对置换做 $k$ 次幂即为最终的 $d$ 数组。\n\n复杂度 $O(m+n \\log k)$。[代码](https://atcoder.jp/contests/agc006/submissions/79264939)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[AGC006C](https://www.luogu.com.cn/problem/AT_agc006_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 数轴上有 $n$ 个物体，第 $i$ 个物体初始位于 $x_i$ 位置。\n>\n> 进行 $k$ 轮操作，每轮操作包含 $m$ 次跳跃。第 $i$ 次跳跃中，标号为 $a_i$ 的物体会等概率地选择 $a_i-1$ 或 $a_i+1$ 作为 $x$，跳跃到关于 $x$ 对称的位置，其中 $1<a_i<n$。\n>\n> 进行 $k$ 轮操作后，对每个物体求出最终坐标的期望值。浮点精度要求 $10^{-9}$。\n>\n> $n,m \\le 10^5$，$k \\le 10^{18}$，2 秒，256 MB。 \n\n:::::success[题解]\n\n考虑期望递推。设 $f_i$ 为当前时刻物体 $i$ 的期望位置，对 $x$ 进行变换时：\n\n- 选定 $i-1$ 对称：$f_i \\gets 2f_{i-1}-f_i$，概率 $\\frac{1}{2}$。\n- 选定 $i+1$ 对称：$f_i \\gets 2f_{i+1}-f_i$，概率 $\\frac{1}{2}$。\n\n从而转移式为\n$$\n\\begin{aligned}\nf_i &\\gets \\dfrac{1}{2}(2f_{i-1}-f_i)+\\dfrac{1}{2}(2f_{i+1}-f_i)\\\\\n&= f_{i+1}+f_{i-1}-f_i\n\\end{aligned}\n$$\n我们得到单轮操作的转移。根据经典结论，取 $f$ 的差分 $d_i=f_i-f_{i-1}$，则对 $f_i$ 操作等价于交换 $d_i,d_{i+1}$。\n\n不妨维护 $d$ 序列，模拟一轮操作可以得到对 $d$ 的置换，对置换做 $k$ 次幂即为最终的 $d$ 数组。\n\n复杂度 $O(m+n \\log k)$。[代码](https://atcoder.jp/contests/agc006/submissions/79264939)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-agc030d",
+        "title": "Inversion Sum",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "AGC030D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[AGC030D](https://www.luogu.com.cn/problem/AT_agc030_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$ 和 $m$ 次可选操作 $(x_i,y_i)$。对每个 $i=1,2,\\cdots,m$ 依次选择交换 $a_{x_i},a_{y_i}$ 或不操作。\n>\n> 求 $2^m$ 种操作方案中，最终序列 $a_i$ 的逆序对数之和。\n>\n> $n,m \\le 3 \\times 10^3$，3 秒，1024 MB。\n\n:::::success[题解]\n\n不妨将问题视作求逆序对数的期望，乘上 $2^m$ 即为答案。\n\n注意到 $n^2$ 的状态数可以接受，考虑在 DP 中记录每对 $(i,j)$ 的情况：\n\n- 设 $f_{i,j}$ 为当前时刻 $a_i>a_j$ 的**条件概率**。\n\n- 转移依次考虑每个 $(x,y)$ 操作：\n\n  - 若 $x \\ne i \\land y \\ne j$：$f_{i,j}$ 不变。\n  - 若 $x=i \\land y \\ne j$：$f_{x,j} \\gets \\dfrac{f_{x,j}+f_{y,j}}{2}$。因为 $(x,j)$ 有 $\\frac{1}{2}$ 的概率继承原状态，$\\frac{1}{2}$ 的概率交换 $a_x,a_y$ 后继承 $(y,j)$ 的状态。\n  - 若 $x\\ne i \\land y=j$：$f_{i,y} \\gets \\dfrac{f_{i,y}+f_{i,x}}{2}$。\n  - 若 $x=i \\land y=j$：$f_{x,y} \\gets \\dfrac{f_{x,y}+f_{y,x}}{2}$。\n\n  注意 $(x,y)$ 的地位相同，故上述转移需要交换 $x,y$ 后再做一次。\n\n- DP 初值为 $f_{i,j}=[a_i > a_j]$。\n\n- 答案为 $m$ 轮转移后的 $2^m\\sum \\limits_{i<j} f_{i,j}$。\n\n注意到每轮转移只会修改 $O(n)$ 个位置，总复杂度 $O(n^2+nm)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[AGC030D](https://www.luogu.com.cn/problem/AT_agc030_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$ 和 $m$ 次可选操作 $(x_i,y_i)$。对每个 $i=1,2,\\cdots,m$ 依次选择交换 $a_{x_i},a_{y_i}$ 或不操作。\n>\n> 求 $2^m$ 种操作方案中，最终序列 $a_i$ 的逆序对数之和。\n>\n> $n,m \\le 3 \\times 10^3$，3 秒，1024 MB。\n\n:::::success[题解]\n\n不妨将问题视作求逆序对数的期望，乘上 $2^m$ 即为答案。\n\n注意到 $n^2$ 的状态数可以接受，考虑在 DP 中记录每对 $(i,j)$ 的情况：\n\n- 设 $f_{i,j}$ 为当前时刻 $a_i>a_j$ 的**条件概率**。\n\n- 转移依次考虑每个 $(x,y)$ 操作：\n\n  - 若 $x \\ne i \\land y \\ne j$：$f_{i,j}$ 不变。\n  - 若 $x=i \\land y \\ne j$：$f_{x,j} \\gets \\dfrac{f_{x,j}+f_{y,j}}{2}$。因为 $(x,j)$ 有 $\\frac{1}{2}$ 的概率继承原状态，$\\frac{1}{2}$ 的概率交换 $a_x,a_y$ 后继承 $(y,j)$ 的状态。\n  - 若 $x\\ne i \\land y=j$：$f_{i,y} \\gets \\dfrac{f_{i,y}+f_{i,x}}{2}$。\n  - 若 $x=i \\land y=j$：$f_{x,y} \\gets \\dfrac{f_{x,y}+f_{y,x}}{2}$。\n\n  注意 $(x,y)$ 的地位相同，故上述转移需要交换 $x,y$ 后再做一次。\n\n- DP 初值为 $f_{i,j}=[a_i > a_j]$。\n\n- 答案为 $m$ 轮转移后的 $2^m\\sum \\limits_{i<j} f_{i,j}$。\n\n注意到每轮转移只会修改 $O(n)$ 个位置，总复杂度 $O(n^2+nm)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc118e",
+        "title": "Avoid Permutations",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC118E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC118E](https://www.luogu.com.cn/problem/AT_arc118_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 定义一个 $1 \\sim n$ 的排列 $p_i$ 的权值为：从 $(0,0)$ 出发，每次只能向右或向上移动，不经过所有 $(i,p_i)$ 点，最终到达 $(n+1,n+1)$ 的格路数目。\n>\n> 给出一个长为 $n$ 的序列 $a_i$，其中若干位置不确定。求所有填入数字使得 $a$ 成为排列的方案中，所有排列的权值之和。\n>\n> $n \\le 200$，2 秒，1024 MB。\n\n:::::success[题解]\n\n直观的思路是对于每个排列统计格路的数目，但没有前途。\n\n考虑**切换计数主体**。我们考察一条 $(0,0) \\to (n+1,n+1)$ 的格路，并计算有多少个合法排列满足路径不经过任意 $(i,p_i)$。\n\n用钦定至少的组合意义容斥，钦定路径点集的一个子集 $S$，强制 $p_i$ 满足 $S$ 中点的限制，容斥系数 $(-1)^{|S|}$。\n\n将 $S$ 按照一定顺序排序，考虑 $S$ 中的相邻点对 $(x_1,y_1), (x_2,y_2)$。根据格路的性质，必有 $x_1<x_2 \\land y_1 < y_2$。\n\n我们带着容斥系数 DP：\n\n- 记 $f_{s,x,y,k}$ 为满足以下条件时，从 $(0,0)$ 走到 $(x,y)$ 的格路中，带容斥系数的方案数之和：\n  - 当前位于 $(x,y)$。\n  - 在 $(0,0) \\to (x,y)$ 的格路上，已经钦定了 $k$ 个点。需要说明的是，这里的 $k$ 个点必须在 $a_i$ 中是不确定的。\n  - 为了维护 $x_1 <x_2 \\land y_1<y_2$ 性质，我们用 $s$ 记录上一次决策：\n    - $s=0$：可以任意在 $(x,y)$ 处进行钦定。\n    - $s=1$：上一次钦定后只向右走，因此当前位置不能钦定。\n    - $s=2$：上一次钦定后只向上走，因此当前位置不能钦定。\n- 转移考虑刷表，从 $f_{s,x,y,k}$ 转移到 $f_{s',x',y',k'}$。\n  - 不钦定 $(x,y)$：讨论清楚 $s\\to s'$ 的对应关系后，由 $(x,y)$ 转移到 $(x+1,y)$ 和 $(x,y+1)$ 即可。\n  - 钦定 $(x,y)$：此时需要判断是否可以钦定这个点，需要同时满足下列要求：\n    - $1 \\le x,y \\le n$。\n    - 若 $a_x \\ne 1$，则 $a_x=y$。\n    - 若 $a_x=-1$，则 $y$ 没有在 $a_i$ 中出现过。\n      如果满足上述限制则可以钦定，此时 $k'=k+[a_x =-1]$。转移为讨论钦定后向右还是向上走，因此：\n    - $f_{1,x+1,y,k' } \\gets (-1) f_{0,x,y,k}$。\n    - $f_{2,x,y+1,k'} \\gets (-1) f_{0,x,y,k}$。\n      注意转移时带的容斥系数 $-1$。\n- DP 初值为 $f_{0,0,0,0}=1$。\n- 记 $m$ 为未确定位置的数目，则答案为 $\\sum\\limits_{k=0}^m (m-k)!\\sum\\limits_{s \\in \\{0,1,2\\}} f_{s,n+1,n+1,k}$。这个式子的组合意义是：考虑枚举 $k$ 个位置被钦定，剩余 $m-k$ 个位置全排列，再乘上 $(0,0) \\to (n+1,n+1)$ 钦定 $k$ 个位置带容斥系数的方案数。\n\n总复杂度 $O(n^3)$。[代码](https://atcoder.jp/contests/arc118/submissions/76108227)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC118E](https://www.luogu.com.cn/problem/AT_arc118_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 定义一个 $1 \\sim n$ 的排列 $p_i$ 的权值为：从 $(0,0)$ 出发，每次只能向右或向上移动，不经过所有 $(i,p_i)$ 点，最终到达 $(n+1,n+1)$ 的格路数目。\n>\n> 给出一个长为 $n$ 的序列 $a_i$，其中若干位置不确定。求所有填入数字使得 $a$ 成为排列的方案中，所有排列的权值之和。\n>\n> $n \\le 200$，2 秒，1024 MB。\n\n:::::success[题解]\n\n直观的思路是对于每个排列统计格路的数目，但没有前途。\n\n考虑**切换计数主体**。我们考察一条 $(0,0) \\to (n+1,n+1)$ 的格路，并计算有多少个合法排列满足路径不经过任意 $(i,p_i)$。\n\n用钦定至少的组合意义容斥，钦定路径点集的一个子集 $S$，强制 $p_i$ 满足 $S$ 中点的限制，容斥系数 $(-1)^{|S|}$。\n\n将 $S$ 按照一定顺序排序，考虑 $S$ 中的相邻点对 $(x_1,y_1), (x_2,y_2)$。根据格路的性质，必有 $x_1<x_2 \\land y_1 < y_2$。\n\n我们带着容斥系数 DP：\n\n- 记 $f_{s,x,y,k}$ 为满足以下条件时，从 $(0,0)$ 走到 $(x,y)$ 的格路中，带容斥系数的方案数之和：\n  - 当前位于 $(x,y)$。\n  - 在 $(0,0) \\to (x,y)$ 的格路上，已经钦定了 $k$ 个点。需要说明的是，这里的 $k$ 个点必须在 $a_i$ 中是不确定的。\n  - 为了维护 $x_1 <x_2 \\land y_1<y_2$ 性质，我们用 $s$ 记录上一次决策：\n    - $s=0$：可以任意在 $(x,y)$ 处进行钦定。\n    - $s=1$：上一次钦定后只向右走，因此当前位置不能钦定。\n    - $s=2$：上一次钦定后只向上走，因此当前位置不能钦定。\n- 转移考虑刷表，从 $f_{s,x,y,k}$ 转移到 $f_{s',x',y',k'}$。\n  - 不钦定 $(x,y)$：讨论清楚 $s\\to s'$ 的对应关系后，由 $(x,y)$ 转移到 $(x+1,y)$ 和 $(x,y+1)$ 即可。\n  - 钦定 $(x,y)$：此时需要判断是否可以钦定这个点，需要同时满足下列要求：\n    - $1 \\le x,y \\le n$。\n    - 若 $a_x \\ne 1$，则 $a_x=y$。\n    - 若 $a_x=-1$，则 $y$ 没有在 $a_i$ 中出现过。\n      如果满足上述限制则可以钦定，此时 $k'=k+[a_x =-1]$。转移为讨论钦定后向右还是向上走，因此：\n    - $f_{1,x+1,y,k' } \\gets (-1) f_{0,x,y,k}$。\n    - $f_{2,x,y+1,k'} \\gets (-1) f_{0,x,y,k}$。\n      注意转移时带的容斥系数 $-1$。\n- DP 初值为 $f_{0,0,0,0}=1$。\n- 记 $m$ 为未确定位置的数目，则答案为 $\\sum\\limits_{k=0}^m (m-k)!\\sum\\limits_{s \\in \\{0,1,2\\}} f_{s,n+1,n+1,k}$。这个式子的组合意义是：考虑枚举 $k$ 个位置被钦定，剩余 $m-k$ 个位置全排列，再乘上 $(0,0) \\to (n+1,n+1)$ 钦定 $k$ 个位置带容斥系数的方案数。\n\n总复杂度 $O(n^3)$。[代码](https://atcoder.jp/contests/arc118/submissions/76108227)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc139d",
+        "title": "Priority Queue 2",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC139D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC139D](https://www.luogu.com.cn/problem/AT_arc139_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定多重集 $S=\\{a_1,a_2,\\cdots,a_n\\}$，保证 $a_i \\in [1,m]$。重复 $k$ 次以下操作：\n>\n> - 选定 $i \\in [1,m]$ 加入 $S$，并从 $S$ 中删去第 $x$ 小元素。\n>\n> 求所有 $m^k$ 种操作方案的 $\\sum\\limits_{i \\in S} i$ 之和。\n>\n> $n,m,k \\le 2\\times 10^3$，2 秒，1024 MB。\n\n:::::success[题解]\n\n根据 01 转化 trick 有\n$$\n\\sum_{i\\in S} i=\\sum_{i \\in S} \\sum_{j=1}^m [j \\le i]=\\sum_{j=1}^m \\sum_{i \\in S} [i \\ge j]\n$$\n枚举 $j \\in [1,m]$，计算 $i \\in S \\land i \\ge j$ 的 $i$ 的贡献。\n\n我们将 $\\ge j$ 的数视作 $1$，$<j$ 的数视作 $0$。设当前集合中 $1$ 的数目为 $c$，分析 $c$ 的变化：\n\n- 若操作加入 $1$：\n  - 若 $x \\le n-c$ 则删去 $0$，$c \\gets c+1$。\n  - 若 $x>n-c$ 则删去 $1$，$c$ 不变。\n- 若操作加入 $0$：\n  - 若 $x \\le n-c+1$ 则删去 $0$，$c$ 不变。\n  - 若 $x>n-c+1$ 则删去 $1$，$c \\gets c-1$。\n\n设初始有 $p$ 个数 $\\ge j$，操作过程中加入 $q$ 个 $\\ge j$ 的数。根据上述讨论，$c$ 的取值与操作顺序无关。记 $r=n-x+1$ 则：\n\n- 若 $p \\le r$，则 $c$ 单增且 $\\le r$，故 $c=\\min(p+q,r)$。\n- 若 $p>r$，则 $c$ 单减且 $\\ge r$，故 $c=\\max(p-(k-q),r)$。\n\n对每个 $j \\in [1,m]$，容易求出 $p$ 的取值后枚举 $q$，讨论贡献系数：\n\n- 选出的 $k$ 个数中恰有 $q$ 个数 $\\ge j$，方案数 $\\binom{k}{q}$。\n- $\\ge j$ 的 $m-j+1$ 个数任取，方案数 $(m-j+1)^q$。\n- $<j$ 的 $j-1$ 个数任取，方案数 $(j-1)^{k-q}$。\n\n综上，答案式子为\n$$\n\\boxed{\\sum_{j=1}^m \\sum_{q=0}^k \\binom{k}{q}(m-j+1)^q (j-1)^{k-q} \\times c}\n$$\n对 $a_i$ 排序后双指针维护 $p$，复杂度 $O(n\\log n+mk)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC139D](https://www.luogu.com.cn/problem/AT_arc139_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定多重集 $S=\\{a_1,a_2,\\cdots,a_n\\}$，保证 $a_i \\in [1,m]$。重复 $k$ 次以下操作：\n>\n> - 选定 $i \\in [1,m]$ 加入 $S$，并从 $S$ 中删去第 $x$ 小元素。\n>\n> 求所有 $m^k$ 种操作方案的 $\\sum\\limits_{i \\in S} i$ 之和。\n>\n> $n,m,k \\le 2\\times 10^3$，2 秒，1024 MB。\n\n:::::success[题解]\n\n根据 01 转化 trick 有\n$$\n\\sum_{i\\in S} i=\\sum_{i \\in S} \\sum_{j=1}^m [j \\le i]=\\sum_{j=1}^m \\sum_{i \\in S} [i \\ge j]\n$$\n枚举 $j \\in [1,m]$，计算 $i \\in S \\land i \\ge j$ 的 $i$ 的贡献。\n\n我们将 $\\ge j$ 的数视作 $1$，$<j$ 的数视作 $0$。设当前集合中 $1$ 的数目为 $c$，分析 $c$ 的变化：\n\n- 若操作加入 $1$：\n  - 若 $x \\le n-c$ 则删去 $0$，$c \\gets c+1$。\n  - 若 $x>n-c$ 则删去 $1$，$c$ 不变。\n- 若操作加入 $0$：\n  - 若 $x \\le n-c+1$ 则删去 $0$，$c$ 不变。\n  - 若 $x>n-c+1$ 则删去 $1$，$c \\gets c-1$。\n\n设初始有 $p$ 个数 $\\ge j$，操作过程中加入 $q$ 个 $\\ge j$ 的数。根据上述讨论，$c$ 的取值与操作顺序无关。记 $r=n-x+1$ 则：\n\n- 若 $p \\le r$，则 $c$ 单增且 $\\le r$，故 $c=\\min(p+q,r)$。\n- 若 $p>r$，则 $c$ 单减且 $\\ge r$，故 $c=\\max(p-(k-q),r)$。\n\n对每个 $j \\in [1,m]$，容易求出 $p$ 的取值后枚举 $q$，讨论贡献系数：\n\n- 选出的 $k$ 个数中恰有 $q$ 个数 $\\ge j$，方案数 $\\binom{k}{q}$。\n- $\\ge j$ 的 $m-j+1$ 个数任取，方案数 $(m-j+1)^q$。\n- $<j$ 的 $j-1$ 个数任取，方案数 $(j-1)^{k-q}$。\n\n综上，答案式子为\n$$\n\\boxed{\\sum_{j=1}^m \\sum_{q=0}^k \\binom{k}{q}(m-j+1)^q (j-1)^{k-q} \\times c}\n$$\n对 $a_i$ 排序后双指针维护 $p$，复杂度 $O(n\\log n+mk)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc154d",
+        "title": "A + B > C ?",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC154D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC154D](https://www.luogu.com.cn/problem/AT_arc154_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以给出 $i,j,k$，向交互库查询 $p_i+p_j > p_k$ 是否正确。\n>\n> 还原这个排列。\n>\n> $n \\le 2 \\times 10^3$，满分询问次数 $2.5 \\times 10^4$。\n\n:::::success[题解]\n如果我们能找到一个 $1$，那么就有 $p_i+1>p_k \\iff p_i \\ge p_k$。\n\n考虑得到 $p_i$ 的逆排列 $q_i$，那么就可以对 $q$ 进行基于比较的排序。次数为 $n\\log n$。\n\n问题转化为找到 $1$，而这是容易的。考虑增量法，令 $p_x=1$，若 $p_x+p_x >p_y$ 就令 $x \\gets y$，$n-1$ 轮询问。\n\n总询问次数 $n+n\\log n$。注意比较卡常，需要使用 std::stable_sort 或者手写排序。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 2005;\nint n, a[N], b[N];\nbool ask(int i, int j, int k) {\n    cout << \"? \" << i << ' ' << j << ' ' << k << endl;\n    string s; cin >> s;\n    return s == \"Yes\";\n}\n\nvoid _main() {\n    cin >> n;\n    int p = 1;\n    for (int i = 2; i <= n; i++) {\n        if (ask(p, p, i)) p = i;\n    }\n    iota(b + 1, b + n + 1, 1);\n    stable_sort(b + 1, b + n + 1, [&](int x, int y) -> bool {\n        return !ask(x, p, y);\n    });\n    for (int i = 1; i <= n; i++) a[b[i]] = i;\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC154D](https://www.luogu.com.cn/problem/AT_arc154_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以给出 $i,j,k$，向交互库查询 $p_i+p_j > p_k$ 是否正确。\n>\n> 还原这个排列。\n>\n> $n \\le 2 \\times 10^3$，满分询问次数 $2.5 \\times 10^4$。\n\n:::::success[题解]\n如果我们能找到一个 $1$，那么就有 $p_i+1>p_k \\iff p_i \\ge p_k$。\n\n考虑得到 $p_i$ 的逆排列 $q_i$，那么就可以对 $q$ 进行基于比较的排序。次数为 $n\\log n$。\n\n问题转化为找到 $1$，而这是容易的。考虑增量法，令 $p_x=1$，若 $p_x+p_x >p_y$ 就令 $x \\gets y$，$n-1$ 轮询问。\n\n总询问次数 $n+n\\log n$。注意比较卡常，需要使用 std::stable_sort 或者手写排序。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 2005;\nint n, a[N], b[N];\nbool ask(int i, int j, int k) {\n    cout << \"? \" << i << ' ' << j << ' ' << k << endl;\n    string s; cin >> s;\n    return s == \"Yes\";\n}\n\nvoid _main() {\n    cin >> n;\n    int p = 1;\n    for (int i = 2; i <= n; i++) {\n        if (ask(p, p, i)) p = i;\n    }\n    iota(b + 1, b + n + 1, 1);\n    stable_sort(b + 1, b + n + 1, [&](int x, int y) -> bool {\n        return !ask(x, p, y);\n    });\n    for (int i = 1; i <= n; i++) a[b[i]] = i;\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc170c",
+        "title": "Prefix Mex Sequence",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC170C",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC170C](https://www.luogu.com.cn/problem/AT_arc170_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $n,m$ 和长为 $n$ 的 01 串 $S$。求满足以下条件的非负整数序列 $a_1,a_2,\\cdots,a_n$ 的数目：\n>\n> - $a_i \\in [0,m]$。\n> - $S_i=\\tt{1}$ 是 $a_i=\\operatorname{mex}(a_1,a_2,\\cdots,a_{i-1})$ 的充要条件。\n>\n> $n \\le 5000$，$m \\le 10^9$，2 秒，1024 MB。\n\n:::::success[题解]\n\n直观的想法是考虑记录 $f_{i,j}$ 为已确定前 $i$ 个数，且当前前缀 $\\operatorname{mex}$ 为 $j$ 时的方案数。但是 $j \\to j'$ 通过这些信息无法转移。\n\n考虑修改状态并重新推导转移系数：\n\n- 记 $f_{i,k}$ 为满足如下条件时，前缀 $a_1 \\sim a_i$ 的填数方案数：\n  - 前缀 $a_1 \\sim a_i$ 中恰有 $k$ 个不同数字。\n  - 前缀 $a_1 \\sim a_i$ 合法。\n- 转移考虑填表，由 $f_{i-1,k}$ 转移到 $f_{i,k'}$。此时的 $k'$ 容易维护。\n  - 若 $S_i=\\tt{1}$，则 $a_i$ 作为前缀 $\\operatorname{mex}$ 在之前没有出现，转移系数 $1$。转移式 $f_{i,k+1} \\gets f_{i-1,k}$。\n  - 若 $S_i=\\tt{0}$：\n    - 填入已出现的数字：填入任意数字都不会是 $\\operatorname{mex}$，转移系数 $k$。转移式 $f_{i,k} \\gets k \\times f_{i-1,k}$。\n    - 填入未出现的数字：共有 $m+1-k$ 个可用数字，除去恰为 $\\operatorname{mex}$ 的那个，转移系数 $m-k$。转移式 $f_{i,k+1}\\gets (m-k)f_{i-1,k}$。\n  - 注意特判 $m<k$ 的情形。\n- DP 初值为 $f_{0,0}=1$。\n- 答案为 $\\sum\\limits_{k=1}^n f_{n,k}$。\n\n复杂度 $O(n^2)$。[代码](https://atcoder.jp/contests/arc170/submissions/76114030)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC170C](https://www.luogu.com.cn/problem/AT_arc170_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $n,m$ 和长为 $n$ 的 01 串 $S$。求满足以下条件的非负整数序列 $a_1,a_2,\\cdots,a_n$ 的数目：\n>\n> - $a_i \\in [0,m]$。\n> - $S_i=\\tt{1}$ 是 $a_i=\\operatorname{mex}(a_1,a_2,\\cdots,a_{i-1})$ 的充要条件。\n>\n> $n \\le 5000$，$m \\le 10^9$，2 秒，1024 MB。\n\n:::::success[题解]\n\n直观的想法是考虑记录 $f_{i,j}$ 为已确定前 $i$ 个数，且当前前缀 $\\operatorname{mex}$ 为 $j$ 时的方案数。但是 $j \\to j'$ 通过这些信息无法转移。\n\n考虑修改状态并重新推导转移系数：\n\n- 记 $f_{i,k}$ 为满足如下条件时，前缀 $a_1 \\sim a_i$ 的填数方案数：\n  - 前缀 $a_1 \\sim a_i$ 中恰有 $k$ 个不同数字。\n  - 前缀 $a_1 \\sim a_i$ 合法。\n- 转移考虑填表，由 $f_{i-1,k}$ 转移到 $f_{i,k'}$。此时的 $k'$ 容易维护。\n  - 若 $S_i=\\tt{1}$，则 $a_i$ 作为前缀 $\\operatorname{mex}$ 在之前没有出现，转移系数 $1$。转移式 $f_{i,k+1} \\gets f_{i-1,k}$。\n  - 若 $S_i=\\tt{0}$：\n    - 填入已出现的数字：填入任意数字都不会是 $\\operatorname{mex}$，转移系数 $k$。转移式 $f_{i,k} \\gets k \\times f_{i-1,k}$。\n    - 填入未出现的数字：共有 $m+1-k$ 个可用数字，除去恰为 $\\operatorname{mex}$ 的那个，转移系数 $m-k$。转移式 $f_{i,k+1}\\gets (m-k)f_{i-1,k}$。\n  - 注意特判 $m<k$ 的情形。\n- DP 初值为 $f_{0,0}=1$。\n- 答案为 $\\sum\\limits_{k=1}^n f_{n,k}$。\n\n复杂度 $O(n^2)$。[代码](https://atcoder.jp/contests/arc170/submissions/76114030)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc174e",
+        "title": "Existence Counting",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC174E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC174E](https://www.luogu.com.cn/problem/AT_arc174_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$ 和长为 $n$ 的序列 $b_i$。考虑每个 $k=1,2,\\cdots,m$，对满足下列条件长为 $n$ 的序列 $a_i$ 计数：\n>\n> - $\\forall i \\in [1,n], a_i \\in [1,m]$。\n> - $a$ 的所有元素互不相同。\n> - $\\exists i \\in [1,n], a_i=k$。\n> - $a$ 的字典序不大于序列 $b$。\n>\n> 保证 $b_i \\in [1,m]$ 且 $b$ 的元素互不相同。\n>\n> $n,m \\le 3 \\times 10^5$，4 秒，1024 MB。\n\n:::::success[题解]\n\n设 $f_k$ 为数字 $k$ 的答案。我们枚举 $i=1 \\to n$，钦定 $\\forall j<i, a_j=b_j$ 且 $a_i<b_i$。人话就是钦定 LCP，考虑这种序列对每个 $f_k$ 的贡献。\n\n设 $b_1 \\sim b_{i-1}$ 组成集合 $S$，可填入 $a_i$ 的数有 $c$ 个，则 $c$ 是 $x \\notin S \\land x<b_i$ 的 $x$ 的数目。用权值树状数组维护即可。\n\n对 $k$ 分类讨论：\n\n- 若 $k \\in S$，$a_i$ 的填法为 $c$，而 $a_{i+1} \\sim a_n$ 随意填，$f_k \\gets c \\times A_{m-i}^{n-i}$。\n- 若 $k \\notin S$：\n  - 将 $k$ 扔到后 $n-i$ 个位置，$a_i$ 的填法为 $c$，有 $f_k \\gets c \\times A_{m-i-1}^{n-i-1} \\times (n-i)$，其中 $n-i$ 是选出 $k$ 所在位置的方案数。\n  - 若 $k<a_i$，可以将 $k$ 填到 $a_i$，于是 $f_k \\gets A_{m-i-1}^{n-i}$。\n\n用两个差分树状数组维护 $k \\in S$ 和 $k \\notin S$ 的 $f_k$，支持区间加单点查询。扫描到 $b_i$ 时其从 $\\notin S$ 的数组移动到 $\\in S$ 的数组里。\n\n注意特判 $a=b$ 的情况，令 $k \\in S$ 的 $f_k \\gets 1$。\n\n复杂度 $O(n \\log m)$。[代码](https://atcoder.jp/contests/arc174/submissions/79453271)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC174E](https://www.luogu.com.cn/problem/AT_arc174_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$ 和长为 $n$ 的序列 $b_i$。考虑每个 $k=1,2,\\cdots,m$，对满足下列条件长为 $n$ 的序列 $a_i$ 计数：\n>\n> - $\\forall i \\in [1,n], a_i \\in [1,m]$。\n> - $a$ 的所有元素互不相同。\n> - $\\exists i \\in [1,n], a_i=k$。\n> - $a$ 的字典序不大于序列 $b$。\n>\n> 保证 $b_i \\in [1,m]$ 且 $b$ 的元素互不相同。\n>\n> $n,m \\le 3 \\times 10^5$，4 秒，1024 MB。\n\n:::::success[题解]\n\n设 $f_k$ 为数字 $k$ 的答案。我们枚举 $i=1 \\to n$，钦定 $\\forall j<i, a_j=b_j$ 且 $a_i<b_i$。人话就是钦定 LCP，考虑这种序列对每个 $f_k$ 的贡献。\n\n设 $b_1 \\sim b_{i-1}$ 组成集合 $S$，可填入 $a_i$ 的数有 $c$ 个，则 $c$ 是 $x \\notin S \\land x<b_i$ 的 $x$ 的数目。用权值树状数组维护即可。\n\n对 $k$ 分类讨论：\n\n- 若 $k \\in S$，$a_i$ 的填法为 $c$，而 $a_{i+1} \\sim a_n$ 随意填，$f_k \\gets c \\times A_{m-i}^{n-i}$。\n- 若 $k \\notin S$：\n  - 将 $k$ 扔到后 $n-i$ 个位置，$a_i$ 的填法为 $c$，有 $f_k \\gets c \\times A_{m-i-1}^{n-i-1} \\times (n-i)$，其中 $n-i$ 是选出 $k$ 所在位置的方案数。\n  - 若 $k<a_i$，可以将 $k$ 填到 $a_i$，于是 $f_k \\gets A_{m-i-1}^{n-i}$。\n\n用两个差分树状数组维护 $k \\in S$ 和 $k \\notin S$ 的 $f_k$，支持区间加单点查询。扫描到 $b_i$ 时其从 $\\notin S$ 的数组移动到 $\\in S$ 的数组里。\n\n注意特判 $a=b$ 的情况，令 $k \\in S$ 的 $f_k \\gets 1$。\n\n复杂度 $O(n \\log m)$。[代码](https://atcoder.jp/contests/arc174/submissions/79453271)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc179c",
+        "title": "Beware of Overflow",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC179C",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC179C](https://www.luogu.com.cn/problem/AT_arc179_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个正整数 $k$ 和长为 $n$ 的序列 $a_i$。保证 $|a_i| \\le k, \\left|\\sum \\limits_{i=1}^n a_i\\right| \\le k$。你可以进行如下两种操作：\n>\n> - 选择 $i,j$，删去 $a_i,a_j$ 并加入 $a_i+a_j$，要求 $|a_i+a_j| \\le k$；\n> - 选择 $i,j$，查询 $a_i<a_j$ 是否成立。\n>\n> 构造一组操作，使得最终序列中仅剩 $1$ 个数。\n>\n> $n \\le 10^3$，满分操作次数 $2.5 \\times 10^4$，交互库非自适应。\n\n:::::success[题解]\n容易发现在不知道任何信息的情况下做操作一是找死。\n\n注意到操作次数为 $n \\log n$ 级别，考虑利用操作二将序列排序。\n\n接下来，考虑每轮选择最小值和最大值相加，可以讨论正负证明合法。重复 $n-1$ 轮即可。\n\n此时需要修正序列的有序性，考虑二分找插入位置，然后暴力模拟，复杂度可以接受。操作次数为 $2 n \\log n$，可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nbool ask(int x, int y) {\n    cout << \"? \" << x << ' ' << y << endl;\n    int a; cin >> a;\n    return a;\n}\nint add(int x, int y) {\n    cout << \"+ \" << x << ' ' << y << ' ' << endl;\n    int a; cin >> a;\n    return a;\n} \nint n;\n\nvoid _main() {\n    cin >> n;\n    deque<int> a(n);\n    iota(a.begin(), a.end(), 1);\n    stable_sort(a.begin(), a.end(), ask);\n    for (int i = 1; i < n; i++) {\n        int x = a.front(), y = a.back(), z = add(x, y);\n        a.pop_front(), a.pop_back();\n        a.insert(lower_bound(a.begin(), a.end(), z, ask), z);\n    }\n    cout << \"!\" << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC179C](https://www.luogu.com.cn/problem/AT_arc179_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个正整数 $k$ 和长为 $n$ 的序列 $a_i$。保证 $|a_i| \\le k, \\left|\\sum \\limits_{i=1}^n a_i\\right| \\le k$。你可以进行如下两种操作：\n>\n> - 选择 $i,j$，删去 $a_i,a_j$ 并加入 $a_i+a_j$，要求 $|a_i+a_j| \\le k$；\n> - 选择 $i,j$，查询 $a_i<a_j$ 是否成立。\n>\n> 构造一组操作，使得最终序列中仅剩 $1$ 个数。\n>\n> $n \\le 10^3$，满分操作次数 $2.5 \\times 10^4$，交互库非自适应。\n\n:::::success[题解]\n容易发现在不知道任何信息的情况下做操作一是找死。\n\n注意到操作次数为 $n \\log n$ 级别，考虑利用操作二将序列排序。\n\n接下来，考虑每轮选择最小值和最大值相加，可以讨论正负证明合法。重复 $n-1$ 轮即可。\n\n此时需要修正序列的有序性，考虑二分找插入位置，然后暴力模拟，复杂度可以接受。操作次数为 $2 n \\log n$，可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nbool ask(int x, int y) {\n    cout << \"? \" << x << ' ' << y << endl;\n    int a; cin >> a;\n    return a;\n}\nint add(int x, int y) {\n    cout << \"+ \" << x << ' ' << y << ' ' << endl;\n    int a; cin >> a;\n    return a;\n} \nint n;\n\nvoid _main() {\n    cin >> n;\n    deque<int> a(n);\n    iota(a.begin(), a.end(), 1);\n    stable_sort(a.begin(), a.end(), ask);\n    for (int i = 1; i < n; i++) {\n        int x = a.front(), y = a.back(), z = add(x, y);\n        a.pop_front(), a.pop_back();\n        a.insert(lower_bound(a.begin(), a.end(), z, ask), z);\n    }\n    cout << \"!\" << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc183c",
+        "title": "Not Argmax",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC183C",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC183C](https://www.luogu.com.cn/problem/AT_arc183_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 对 $1 \\sim n$ 的排列 $p_i$，给定 $m$ 条限制 $(l_i,r_i,x_i)$，表示 $\\max \\limits_{k \\in [l_i,r_i]} p_k \\ne p_{x_i}$。求满足所有限制的排列数目。\n>\n> $n \\le 500$，$m \\le 10^5$，2 秒，1024 MB。\n\n:::::success[题解]\n\n注意到我们只关心相对大小，考虑最值分治式 DP：\n\n- 设 $f_{l,r}$ 为 $[l,r]$ 区间的合法方案数。注意我们仅关心相对大小。\n\n- 转移枚举 $k$ 并钦定 $k$ 为 $[l,r]$ 的区间 $\\max$ 位置。先判定 $k$ 是否合法：\n\n  - 若 $x_i=k$ 且 $[l_i,r_i] \\subseteq [l,r]$ 必不合法。容易验证其余情况都合法。\n\n  转移将 $[l,k)$ 和 $(k,r]$ 进行合并。只要重新钦定大小顺序，保证同组排名不变，选法数 $\\binom{r-l}{k-l}$。转移方程\n  $$\n  \\boxed{f_{l,r}=\\sum_{k \\in [l,r]} \\binom{r-l}{k-1}f_{l,k-1} \\times f_{k+1,r}}\n  $$\n\n- DP 初值为 $f_{i,i-1}=f_{i,i}=1$。注意特判 $l_i=r_i$ 的情形，不存在合法排列。\n\n- 答案为 $f_{1,n}$。\n\n预处理 $S_k=\\{[l_i,r_i] \\mid x_i=k\\}$，只要判定 $\\exists [l',r'] \\in S_k, [l',r'] \\subseteq [l,r]$。对每个 $S_k$ 递推出 $a_x=\\min \\limits_{l_i \\ge x} r_i$，查询 $(l,r)$ 判断 $a_l \\le r$ 是否成立即可。\n\n复杂度 $O(m+n^3)$。[代码](https://atcoder.jp/contests/arc183/submissions/79639704)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC183C](https://www.luogu.com.cn/problem/AT_arc183_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 对 $1 \\sim n$ 的排列 $p_i$，给定 $m$ 条限制 $(l_i,r_i,x_i)$，表示 $\\max \\limits_{k \\in [l_i,r_i]} p_k \\ne p_{x_i}$。求满足所有限制的排列数目。\n>\n> $n \\le 500$，$m \\le 10^5$，2 秒，1024 MB。\n\n:::::success[题解]\n\n注意到我们只关心相对大小，考虑最值分治式 DP：\n\n- 设 $f_{l,r}$ 为 $[l,r]$ 区间的合法方案数。注意我们仅关心相对大小。\n\n- 转移枚举 $k$ 并钦定 $k$ 为 $[l,r]$ 的区间 $\\max$ 位置。先判定 $k$ 是否合法：\n\n  - 若 $x_i=k$ 且 $[l_i,r_i] \\subseteq [l,r]$ 必不合法。容易验证其余情况都合法。\n\n  转移将 $[l,k)$ 和 $(k,r]$ 进行合并。只要重新钦定大小顺序，保证同组排名不变，选法数 $\\binom{r-l}{k-l}$。转移方程\n  $$\n  \\boxed{f_{l,r}=\\sum_{k \\in [l,r]} \\binom{r-l}{k-1}f_{l,k-1} \\times f_{k+1,r}}\n  $$\n\n- DP 初值为 $f_{i,i-1}=f_{i,i}=1$。注意特判 $l_i=r_i$ 的情形，不存在合法排列。\n\n- 答案为 $f_{1,n}$。\n\n预处理 $S_k=\\{[l_i,r_i] \\mid x_i=k\\}$，只要判定 $\\exists [l',r'] \\in S_k, [l',r'] \\subseteq [l,r]$。对每个 $S_k$ 递推出 $a_x=\\min \\limits_{l_i \\ge x} r_i$，查询 $(l,r)$ 判断 $a_l \\le r$ 是否成立即可。\n\n复杂度 $O(m+n^3)$。[代码](https://atcoder.jp/contests/arc183/submissions/79639704)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc197e",
+        "title": "Four Square Tiles",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC197E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC197E](https://www.luogu.com.cn/problem/AT_arc197_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,H,W$，保证 $H,W \\le 3n-1$。你需要将 $4$ 个 $n \\times n$ 的正方形放置在 $H \\times W$ 的网格上，方形不能相互覆盖，求合法摆放方案数。\n>\n> 认为两种方案不同，当且仅当存在一个方格在一种方案中被方形覆盖，另一个方案中未被覆盖。\n>\n> 多测，$T \\le 2 \\times 10^5$，$n,H,W \\le 10^9$，2 秒，1024 MB。\n\n:::::success[题解]\n\n注意到 $H,W \\le 3n-1$，故四个方形的排布必然如下图所示：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/jtn2oigo.webp?x-oss-process=image/resize,m_lfit,w_300)\n\n变量 $x_i,y_i$ 满足 $x_i \\in [n, H-n+1] \\land y_i \\in [n,H-w+1]$。\n\n不妨令 $x_i \\gets x_i-n+1, y_i \\gets y_i-n+1$，则新的范围为 $x_i \\le H-2n+2$ 且 $y_i \\le W-2n+2$，设这两个值为 $h,w$。由题目得到如下约束：\n\n- $x_i \\in [1,h] \\land y_i \\in [1,w]$。\n- $x$ 轴不相交：$x_1 < x_2 \\land x_4 < x_3$。\n- $y$ 轴不相交：$y_1<y_4 \\land y_2<y_3$。\n- 方形 $1,3$ 不交：$x_3 \\le x_1 \\land y_3 \\le y_1$ 不成立。\n- 方形 $2,4$ 不交：$x_2 \\le x_4 \\land y_2 \\ge y_4$ 不成立。\n\n容易发现 $x,y$ 两维独立，对一维情形进行讨论即可。我们做一个二元容斥：\n\n- 总方案数：由 $1 \\le x_1 < x_2 \\le h$ 得方案数 $\\dbinom{h}{2}^2$。\n\n- 突破一个限制：满足 $x_1< x_2 \\land x_4<x_3 \\land x_3 \\le x_1$。枚举 $x_1=i$，则 $1 \\le x_4 < x_3 \\le i \\land x_2>i$，方案数\n  $$\n  \\sum_{i=1}^h \\binom{h}{2}(n-i)=\\binom{h+1}{4}\n  $$\n\n- 突破两个限制：满足 $x_1<x_2 \\land x_4 < x_3 \\land x_3 \\le x_1 \\land x_2 \\le x_4$。画数轴可以发现这个条件是矛盾的，方案数 $0$。\n\n由乘法原理合并独立的两维，答案式子\n$$\n\\boxed{\\binom{h}{2}^2 \\binom{w}{2}^2 -2 \\binom{h+1}{4} \\binom{w+1}{4}}\n$$\n复杂度 $O(1)$。[代码](https://atcoder.jp/contests/arc197/submissions/79451904)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC197E](https://www.luogu.com.cn/problem/AT_arc197_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,H,W$，保证 $H,W \\le 3n-1$。你需要将 $4$ 个 $n \\times n$ 的正方形放置在 $H \\times W$ 的网格上，方形不能相互覆盖，求合法摆放方案数。\n>\n> 认为两种方案不同，当且仅当存在一个方格在一种方案中被方形覆盖，另一个方案中未被覆盖。\n>\n> 多测，$T \\le 2 \\times 10^5$，$n,H,W \\le 10^9$，2 秒，1024 MB。\n\n:::::success[题解]\n\n注意到 $H,W \\le 3n-1$，故四个方形的排布必然如下图所示：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/jtn2oigo.webp?x-oss-process=image/resize,m_lfit,w_300)\n\n变量 $x_i,y_i$ 满足 $x_i \\in [n, H-n+1] \\land y_i \\in [n,H-w+1]$。\n\n不妨令 $x_i \\gets x_i-n+1, y_i \\gets y_i-n+1$，则新的范围为 $x_i \\le H-2n+2$ 且 $y_i \\le W-2n+2$，设这两个值为 $h,w$。由题目得到如下约束：\n\n- $x_i \\in [1,h] \\land y_i \\in [1,w]$。\n- $x$ 轴不相交：$x_1 < x_2 \\land x_4 < x_3$。\n- $y$ 轴不相交：$y_1<y_4 \\land y_2<y_3$。\n- 方形 $1,3$ 不交：$x_3 \\le x_1 \\land y_3 \\le y_1$ 不成立。\n- 方形 $2,4$ 不交：$x_2 \\le x_4 \\land y_2 \\ge y_4$ 不成立。\n\n容易发现 $x,y$ 两维独立，对一维情形进行讨论即可。我们做一个二元容斥：\n\n- 总方案数：由 $1 \\le x_1 < x_2 \\le h$ 得方案数 $\\dbinom{h}{2}^2$。\n\n- 突破一个限制：满足 $x_1< x_2 \\land x_4<x_3 \\land x_3 \\le x_1$。枚举 $x_1=i$，则 $1 \\le x_4 < x_3 \\le i \\land x_2>i$，方案数\n  $$\n  \\sum_{i=1}^h \\binom{h}{2}(n-i)=\\binom{h+1}{4}\n  $$\n\n- 突破两个限制：满足 $x_1<x_2 \\land x_4 < x_3 \\land x_3 \\le x_1 \\land x_2 \\le x_4$。画数轴可以发现这个条件是矛盾的，方案数 $0$。\n\n由乘法原理合并独立的两维，答案式子\n$$\n\\boxed{\\binom{h}{2}^2 \\binom{w}{2}^2 -2 \\binom{h+1}{4} \\binom{w+1}{4}}\n$$\n复杂度 $O(1)$。[代码](https://atcoder.jp/contests/arc197/submissions/79451904)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc207a",
+        "title": "Affinity for Artifacts",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC207A",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC207A](https://www.luogu.com.cn/problem/AT_arc207_a)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个任务，第 $i$ 个任务的成本为 $a_i$。\n>\n> 你初始持有变量 $x$，以任意顺序执行所有任务。执行第 $i$ 个任务时，$x \\gets x-a_i$，并对 $a_j \\ge 1$ 令 $a_j \\gets a_j-1$。\n>\n> 求最终 $x \\ge 0$ 的执行顺序数目。\n>\n> $n \\le 10^2$，$a_i,x \\le 10^9$，2 秒，1024 MB。\n\n:::::success[题解]\n\n设第 $i$ 个任务是第 $p_i$ 个被执行的，约束即为\n$$\n\\sum_{i=1}^n \\max(0,a_i-p_i+1) \\le x\n$$\n直接对着 DP 需要记录 $\\sum a_i$ 级别的信息。我们转换视角，考虑任务节省的成本。设 $k=\\left(\\sum \\limits_{i=1}^n a_i\\right) -x$，只要\n$$\n\\sum_{i=1}^n \\min(a_i,p_i-1) \\ge k\n$$\n若 $k>\\binom{n}{2}$ 无解，$k \\le 0$ 答案为 $n!$，这样值域就降到 $O(n^2)$ 级别。\n\n将 $i \\to p_i$ 描述为二分图匹配，边权为 $\\min(a_i,p_i-1)$，转化为对权值 $\\ge k$ 的完美匹配计数。\n\n将 $a_i$ 和 $p_i-1$ 丢到同一个数组 $b$ 中降序排序，则边权由位置靠右的点决定。设计延迟钦定配对 DP：\n\n- 设 $f_{i,x,y,s}$ 为满足如下条件时，完美匹配的方案数：\n  - 仅考虑 $b_1 \\sim b_i$。\n  - 当前有 $x$ 个左部点失配，$y$ 个右部点失配。\n  - 已匹配边的边权和为 $s$。\n- 转移时根据点的类型分讨。下面以 $b_{i+1}$ 是左部点为例说明，右部点转移同理。\n  - 令 $b_{i+1}$ 暂时失配，转移 $f_{i,x,y,s} \\to f_{i+1,x+1,y,s}$。\n  - 令 $b_{i+1}$ 与之前某个右部点匹配，转移  $f_{i,x,y,s} \\times y \\to f_{i+1,x,y-1,s+b_{i+1}}$。\n- DP 初值为 $f_{0,0,0,0}=1$。\n- 答案为 $\\sum \\limits_{j=k}^{\\binom{n}{2}} f_{2n,0,0,j}$。\n\n不难发现，由于 $b_1 \\sim b_i$ 的类型确定，状态中 $x,y$ 只需记录一维，另一维可以预处理后算出来。复杂度 $O(n^4)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC207A](https://www.luogu.com.cn/problem/AT_arc207_a)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个任务，第 $i$ 个任务的成本为 $a_i$。\n>\n> 你初始持有变量 $x$，以任意顺序执行所有任务。执行第 $i$ 个任务时，$x \\gets x-a_i$，并对 $a_j \\ge 1$ 令 $a_j \\gets a_j-1$。\n>\n> 求最终 $x \\ge 0$ 的执行顺序数目。\n>\n> $n \\le 10^2$，$a_i,x \\le 10^9$，2 秒，1024 MB。\n\n:::::success[题解]\n\n设第 $i$ 个任务是第 $p_i$ 个被执行的，约束即为\n$$\n\\sum_{i=1}^n \\max(0,a_i-p_i+1) \\le x\n$$\n直接对着 DP 需要记录 $\\sum a_i$ 级别的信息。我们转换视角，考虑任务节省的成本。设 $k=\\left(\\sum \\limits_{i=1}^n a_i\\right) -x$，只要\n$$\n\\sum_{i=1}^n \\min(a_i,p_i-1) \\ge k\n$$\n若 $k>\\binom{n}{2}$ 无解，$k \\le 0$ 答案为 $n!$，这样值域就降到 $O(n^2)$ 级别。\n\n将 $i \\to p_i$ 描述为二分图匹配，边权为 $\\min(a_i,p_i-1)$，转化为对权值 $\\ge k$ 的完美匹配计数。\n\n将 $a_i$ 和 $p_i-1$ 丢到同一个数组 $b$ 中降序排序，则边权由位置靠右的点决定。设计延迟钦定配对 DP：\n\n- 设 $f_{i,x,y,s}$ 为满足如下条件时，完美匹配的方案数：\n  - 仅考虑 $b_1 \\sim b_i$。\n  - 当前有 $x$ 个左部点失配，$y$ 个右部点失配。\n  - 已匹配边的边权和为 $s$。\n- 转移时根据点的类型分讨。下面以 $b_{i+1}$ 是左部点为例说明，右部点转移同理。\n  - 令 $b_{i+1}$ 暂时失配，转移 $f_{i,x,y,s} \\to f_{i+1,x+1,y,s}$。\n  - 令 $b_{i+1}$ 与之前某个右部点匹配，转移  $f_{i,x,y,s} \\times y \\to f_{i+1,x,y-1,s+b_{i+1}}$。\n- DP 初值为 $f_{0,0,0,0}=1$。\n- 答案为 $\\sum \\limits_{j=k}^{\\binom{n}{2}} f_{2n,0,0,j}$。\n\n不难发现，由于 $b_1 \\sim b_i$ 的类型确定，状态中 $x,y$ 只需记录一维，另一维可以预处理后算出来。复杂度 $O(n^4)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc215d",
+        "title": "cresc.",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC215D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC215D](https://www.luogu.com.cn/problem/AT_arc215_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$，求满足以下条件的非负整数序列 $s_1\\sim s_n$ 的数目：\n>\n> - $s_1 \\ge s_2 \\ge \\cdots \\ge s_n$。\n> - 存在序列 $a_1 \\sim a_{n+1}$，满足 $a_i \\in [0,m]$ 且 $\\forall i \\in [1,n], s_i=a_i+a_{i+1}$。\n>\n> $n,m \\le 10^7$，2 秒，1024 MB。\n\n:::::success[题解]\n\n将 $s_i$ 的定义式代入合法条件\n$$\na_1+a_2 \\ge a_2+a_3 \\ge a_3+a_4 \\ge \\cdots \\ge a_n+a_{n+1}\n$$\n可以得到 $a_i$ 的约束条件：\n\n- $a_1 \\ge a_3 \\ge a_5 \\ge  \\cdots $。\n- $a_2 \\ge a_4 \\ge a_6 \\ge \\cdots$。\n\n直接对 $a_1 \\sim a_{n+1}$ 计数是错的，因为 $a \\leftrightarrow s$ 不是双射。\n\n注意到对确定的 $s_1 \\sim s_n$，合法的一族 $a$ 形如 $[a_1 + \\delta,a_2-\\delta,a_3+\\delta,\\cdots]$。钦定代表元为 $\\delta$ 取极限值的序列 $a$，则 $a$ 有下列约束：\n\n- $a_1=m \\lor a_x=0$。其中 $x$ 为最大的偶数下标。\n\n消除平移后得到 $a \\leftrightarrow s$ 的双射。设奇数下标数目为 $p=\\left\\lceil \\frac{n+1}{2} \\right\\rceil$，偶数下标数目为 $q=\\left\\lfloor \\frac{n+1}{2} \\right\\rfloor$，奇偶位置独立，可以分类计数：\n\n- $a_1=m$ 时：\n  - 奇数位对值域 $[0,m]$，长为 $p-1$ 的不降序列计数，方案数 $\\dbinom{m+p-1}{m}$。\n  - 偶数位对值域 $[0,m]$，长为 $q$ 的不降序列计数，方案数 $\\dbinom{m+q}{m}$。\n- $a_x=0$ 时，同理可得方案数 $\\dbinom{m+p}{m}\\dbinom{m+q-1}{m}$。\n- $a_1 =m \\land a_x=0$ 时，同理可得方案数 $\\dbinom{m+p-1}{m}\\dbinom{m+q-1}{m}$。\n\n二元容斥即可得到答案。复杂度 $O(n+m)$。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC215D](https://www.luogu.com.cn/problem/AT_arc215_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$，求满足以下条件的非负整数序列 $s_1\\sim s_n$ 的数目：\n>\n> - $s_1 \\ge s_2 \\ge \\cdots \\ge s_n$。\n> - 存在序列 $a_1 \\sim a_{n+1}$，满足 $a_i \\in [0,m]$ 且 $\\forall i \\in [1,n], s_i=a_i+a_{i+1}$。\n>\n> $n,m \\le 10^7$，2 秒，1024 MB。\n\n:::::success[题解]\n\n将 $s_i$ 的定义式代入合法条件\n$$\na_1+a_2 \\ge a_2+a_3 \\ge a_3+a_4 \\ge \\cdots \\ge a_n+a_{n+1}\n$$\n可以得到 $a_i$ 的约束条件：\n\n- $a_1 \\ge a_3 \\ge a_5 \\ge  \\cdots $。\n- $a_2 \\ge a_4 \\ge a_6 \\ge \\cdots$。\n\n直接对 $a_1 \\sim a_{n+1}$ 计数是错的，因为 $a \\leftrightarrow s$ 不是双射。\n\n注意到对确定的 $s_1 \\sim s_n$，合法的一族 $a$ 形如 $[a_1 + \\delta,a_2-\\delta,a_3+\\delta,\\cdots]$。钦定代表元为 $\\delta$ 取极限值的序列 $a$，则 $a$ 有下列约束：\n\n- $a_1=m \\lor a_x=0$。其中 $x$ 为最大的偶数下标。\n\n消除平移后得到 $a \\leftrightarrow s$ 的双射。设奇数下标数目为 $p=\\left\\lceil \\frac{n+1}{2} \\right\\rceil$，偶数下标数目为 $q=\\left\\lfloor \\frac{n+1}{2} \\right\\rfloor$，奇偶位置独立，可以分类计数：\n\n- $a_1=m$ 时：\n  - 奇数位对值域 $[0,m]$，长为 $p-1$ 的不降序列计数，方案数 $\\dbinom{m+p-1}{m}$。\n  - 偶数位对值域 $[0,m]$，长为 $q$ 的不降序列计数，方案数 $\\dbinom{m+q}{m}$。\n- $a_x=0$ 时，同理可得方案数 $\\dbinom{m+p}{m}\\dbinom{m+q-1}{m}$。\n- $a_1 =m \\land a_x=0$ 时，同理可得方案数 $\\dbinom{m+p-1}{m}\\dbinom{m+q-1}{m}$。\n\n二元容斥即可得到答案。复杂度 $O(n+m)$。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc230a",
+        "title": "Meeting on Tree",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC230A",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC230A](https://www.luogu.com.cn/problem/AT_arc230_a)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵 $n$ 个节点的无根树。对 $S \\subseteq V$，设 $f(S)=\\min\\limits_{u \\in T} \\sum\\limits_{v \\in S} \\text{dis}(u,v)$，求所有 $S$ 的 $f$ 值之和。\n>\n> $n \\le 3 \\times 10^5$，2 秒，1024 MB。\n\n:::::success[题解]\n\n将贡献拆到每条边上。设删去某条边后形成两个连通块 $P,Q$，记 $x=|P|,y=|Q|$，枚举 $|S \\cap P|=i$ 与 $|S \\cap Q|=j$，则这条边至少被经过 $\\min(i,j)$ 次。取带权重心即可取到下界。\n\n从而 $(x,y)$ 对答案的贡献为\n$$\nf(x,y)=\\sum_{i=0}^x \\sum_{j=0}^y \\min(i,j) \\binom{x}{i}\\binom{y}{j}\n$$\n答案为所有 $f$ 值求和，其中 $x+y=n$。有一个[ $O(n^{1.5})$ 做法](https://www.luogu.com.cn/article/j1bbafyd)，下面讲如何推式子。\n\n利用恒等式 $\\min(i,j)=\\frac{i+j-|i-j|}{2}$ 代入得\n$$\nf(x,y)= \\dfrac{1}{2} \\sum_{i=0}^x \\sum_{j=0}^y (i+j) \\binom{x}{i}\\binom{y}{j}-\\dfrac{1}{2}\\sum_{i=0}^x \\sum_{j=0}^y |i-j| \\binom{x}{i}\\binom{y}{j}\n$$\n根据组合恒等式 $\\sum \\limits_{i=0}^x i \\dbinom{x}{i}=x2^{x-1}$ 且 $\\sum \\limits_{j=0}^y \\dbinom{y}{j}=2^y$，于是关于 $i$ 的求和部分\n$$\n\\sum_{i=0}^x \\sum_{j=0}^y i \\binom{x}{i}\\binom{y}{j}=x2^{x-1}2^y=x2^{x+y-1}\n$$\n同理可得关于 $j$ 的求和部分为 $y2^{x+y-1}$。于是第一个和式的值为 $\\boxed{n2^{n-1}}$。\n\n对于第二个和式，令 $k=i-j$ 由范德蒙德卷积\n$$\n\\begin{aligned}\n&\\sum_{i=0}^x \\sum_{j=0}^y |i-j| \\binom{x}{i}\\binom{y}{j}\\\\\n=&\\sum_{k=-y}^{x} |k| \\binom{x+y}{y+k}\\\\\n=&\\sum_{u=0}^{x+y} |u-y| \\binom{x+y}{u}\\\\\n=&\\sum_{u=0}^{y} (y-u) \\binom{x+y}{u}+\\sum_{u=y+1}^{x+y} (u-y)\\binom{x+y}{u}\n\\end{aligned}\n$$\n对于左侧，根据吸收恒等式及递推公式化简\n$$\n\\begin{aligned}\n&\\sum_{u=0}^{y} y \\binom{x+y}{u}-\\sum_{u=0}^{y} u \\binom{x+y}{u}\\\\\n=&y\\sum_{u=0}^y \\binom{n}{u}-n\\sum_{u=0}^{y-1} \\binom{n-1}{u}\\\\\n=& \\boxed {y \\binom{n-1}{y} - (x-y) \\sum_{u=0}^{y-1} \\binom{n-1}{u}}\n\\end{aligned}\n$$\n右半段根据对称性，只要将 $x,y$ 互换即可。\n\n预处理组合数下指标前缀和即可做到 $O(n)$。注意 $\\times \\frac{1}{2}$ 等细节。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC230A](https://www.luogu.com.cn/problem/AT_arc230_a)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵 $n$ 个节点的无根树。对 $S \\subseteq V$，设 $f(S)=\\min\\limits_{u \\in T} \\sum\\limits_{v \\in S} \\text{dis}(u,v)$，求所有 $S$ 的 $f$ 值之和。\n>\n> $n \\le 3 \\times 10^5$，2 秒，1024 MB。\n\n:::::success[题解]\n\n将贡献拆到每条边上。设删去某条边后形成两个连通块 $P,Q$，记 $x=|P|,y=|Q|$，枚举 $|S \\cap P|=i$ 与 $|S \\cap Q|=j$，则这条边至少被经过 $\\min(i,j)$ 次。取带权重心即可取到下界。\n\n从而 $(x,y)$ 对答案的贡献为\n$$\nf(x,y)=\\sum_{i=0}^x \\sum_{j=0}^y \\min(i,j) \\binom{x}{i}\\binom{y}{j}\n$$\n答案为所有 $f$ 值求和，其中 $x+y=n$。有一个[ $O(n^{1.5})$ 做法](https://www.luogu.com.cn/article/j1bbafyd)，下面讲如何推式子。\n\n利用恒等式 $\\min(i,j)=\\frac{i+j-|i-j|}{2}$ 代入得\n$$\nf(x,y)= \\dfrac{1}{2} \\sum_{i=0}^x \\sum_{j=0}^y (i+j) \\binom{x}{i}\\binom{y}{j}-\\dfrac{1}{2}\\sum_{i=0}^x \\sum_{j=0}^y |i-j| \\binom{x}{i}\\binom{y}{j}\n$$\n根据组合恒等式 $\\sum \\limits_{i=0}^x i \\dbinom{x}{i}=x2^{x-1}$ 且 $\\sum \\limits_{j=0}^y \\dbinom{y}{j}=2^y$，于是关于 $i$ 的求和部分\n$$\n\\sum_{i=0}^x \\sum_{j=0}^y i \\binom{x}{i}\\binom{y}{j}=x2^{x-1}2^y=x2^{x+y-1}\n$$\n同理可得关于 $j$ 的求和部分为 $y2^{x+y-1}$。于是第一个和式的值为 $\\boxed{n2^{n-1}}$。\n\n对于第二个和式，令 $k=i-j$ 由范德蒙德卷积\n$$\n\\begin{aligned}\n&\\sum_{i=0}^x \\sum_{j=0}^y |i-j| \\binom{x}{i}\\binom{y}{j}\\\\\n=&\\sum_{k=-y}^{x} |k| \\binom{x+y}{y+k}\\\\\n=&\\sum_{u=0}^{x+y} |u-y| \\binom{x+y}{u}\\\\\n=&\\sum_{u=0}^{y} (y-u) \\binom{x+y}{u}+\\sum_{u=y+1}^{x+y} (u-y)\\binom{x+y}{u}\n\\end{aligned}\n$$\n对于左侧，根据吸收恒等式及递推公式化简\n$$\n\\begin{aligned}\n&\\sum_{u=0}^{y} y \\binom{x+y}{u}-\\sum_{u=0}^{y} u \\binom{x+y}{u}\\\\\n=&y\\sum_{u=0}^y \\binom{n}{u}-n\\sum_{u=0}^{y-1} \\binom{n-1}{u}\\\\\n=& \\boxed {y \\binom{n-1}{y} - (x-y) \\sum_{u=0}^{y-1} \\binom{n-1}{u}}\n\\end{aligned}\n$$\n右半段根据对称性，只要将 $x,y$ 互换即可。\n\n预处理组合数下指标前缀和即可做到 $O(n)$。注意 $\\times \\frac{1}{2}$ 等细节。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc230d",
+        "title": "Min Max Matrix",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC230D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC230D](https://www.luogu.com.cn/problem/AT_arc230_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m,k$，对满足下列条件的 $n \\times m$ 矩阵 $a_{i,j}$ 计数：\n>\n> - $\\forall i\\in [1,n]\\land j \\in [1,m], a_{i,j} \\in [1,k]$。\n> - $\\min \\limits_{i \\in [1,n]} \\max\\limits_{j \\in [1,m]} a_{i,j}=\\max \\limits_{j \\in [1,m]} \\min \\limits_{i \\in [1,n]} a_{i,j}$。\n>\n> $n,m \\le 200$，$k \\le 10^8$，4 秒，1024 MB。\n\n::::::success[题解]\n\n设 $X=\\min \\limits_{i \\in [1,n]} \\max\\limits_{j \\in [1,m]} a_{i,j}, Y=\\max \\limits_{j \\in [1,m]} \\min \\limits_{i \\in [1,n]} a_{i,j}$。\n\n**性质** 对任意矩阵，必有 $X \\ge Y$ 成立。\n\n**证明** 取任意位置 $(i,j)$，有 $\\min\\limits_{i' \\in [1,n]} a_{i',j} \\le a_{i,j} \\le \\max\\limits_{j'\\in [1,m]} a_{i,j'}$ 恒成立。\n\n从而 $\\forall i \\in [1,n], \\max\\limits_{j \\in [1,m]}\\min\\limits_{i' \\in [1,n]} a_{i',j} \\le \\max\\limits_{j' \\in [1,m]} a_{i,j'}$。对右侧取 $\\min$ 得 $\\max\\limits_{j \\in [1,m]}\\min\\limits_{i' \\in [1,n]} a_{i',j} \\le \\min\\limits_{i \\in [1,n]}\\max\\limits_{j' \\in [1,m]} a_{i,j'}$，即证 $Y \\le X$。\n\n枚举 $X=Y=t$，设 $f(x,y)$ 为 $X \\ge x \\land Y \\le y$ 的矩阵数，二元容斥求出答案\n$$\n\\sum_{t=1}^k \\left(f(t,t)-f(t+1,t)-f(t,t-1)+f(t+1,t-1)\\right)\n$$\n拆开 $X \\ge x \\land Y \\le y$ 的合法条件得\n\n- $\\forall i\\in [1,n],  \\exists j \\in [1,m],a_{i,j} \\ge x$。\n- $\\forall j\\in [1,m], \\exists i \\in [1,n],a_{i,j} \\le y$。\n\n对行列独立容斥，钦定突破限制的行号集合 $S \\subseteq [1,n]$，列号集合 $T \\subseteq [1,m]$ 使得：\n\n- 对 $i \\in S$ 满足 $\\forall j \\in [1,m], a_{i,j} < x$。\n- 对 $j \\in T$ 满足 $\\forall i \\in [1,n], a_{i,j}>y$。\n- 对 $i \\notin S \\land j \\notin S$ 的 $a_{i,j}$ 无限制。\n\n容斥系数 $(-1)^{|S|} (-1)^{|T|}=(-1)^{|S|+|T|}$。对 $(i,j)$ 位置分讨：\n\n- 若 $i \\in S \\land j \\in T$，则 $a_{i,j} \\in (y,x)$，方案数 $\\max(0,x-y-1)$。\n- 若 $i \\in S \\land j \\notin T$，则 $a_{i,j} \\in [1,x)$，方案数 $x-1$。\n- 若 $i \\notin S \\land j \\in T$，则 $a_{i,j} \\in (y,k]$，方案数 $k-y$。\n- 若 $i \\notin S \\land j\\notin T$，则 $a_{i,j} \\in [1,k]$，方案数 $k$。\n\n特判 $x-y<1$。直接枚举 $|S|=p, |T|=q$ 得到方案数\n$$\nf(x,y)=\\sum_{p=0}^n \\sum_{q=0}^m (-1)^{p+q} \\binom{n}{p} \\binom{m}{q} (x-y-1)^{pq} (x-1)^{p(m-q)} (k-y)^{(n-p)q} k^{(n-p)(m-q)}\n$$\n复杂度 $O(nmk)$ 无法通过。根据二项式定理化简 $f$ 有\n$$\n\\begin{aligned}\nf(x,y)&=\\sum_{p=0}^n (-1)^p\\binom{n}{p} \\sum_{q=0}^m (-1)^{q} \\binom{m}{q} \\left((x-y-1)^{p}\\right)^{q} \\left((x-1)^{p}\\right)^{m-q} \\left((k-y)^{n-p}\\right)^q (k^{n-p})^{m-q}\\\\\n&=\\sum_{p=0}^n (-1)^p\\binom{n}{p}  \\sum_{q=0}^m  \\binom{m}{q} \\left((-1)(x-y-1)^{p} (k-y)^{n-p}\\right)^q \\left((x-1)^{p}k^{n-p}\\right)^{m-q}\\\\\n&=\\boxed{\\sum_{p=0}^n  (-1)^p\\binom{n}{p} \\left((x-1)^{p}k^{n-p}-(x-y-1)^{p} (k-y)^{n-p}\\right)^{m}}\n\\end{aligned}\n$$\n复杂度 $O(nk \\log m)$ 可以通过 [CF2048G](https://www.luogu.com.cn/problem/CF2048G)。\n\n**观察** $f(x,y)$ 是关于 $x,y$ 的 $n\\times m$ 次多项式。\n\n求答案形如 $\\sum f(t,t)$，前缀和后次数 $+1$。我们求出前 $nm+2$ 个 $f$ 后，用 Lagrange 插值线性求出 $t$ 处的点值即可。\n\n:::::info[Lagrange 插值]\n\n**问题** 给定 $n+1$ 个点 $(x_0,y_0) \\sim (x_n,y_n)$，确定 $n$ 次多项式 $f$ 使得 $\\forall i \\in [0,n], f(x_i)=y_i$。\n\nLagrange 插值给出公式\n$$\nf(x)=\\boxed{\\sum_{i=0}^n y_i \\prod_{j \\ne i} \\dfrac{x-x_j}{x_i-x_j}}\n$$\n将 $x$ 代入可以 $O(n^2)$ 求点值。对于多点求值问题，可以暴力多项式除法算出系数做到 $O(n^2)-O(n)$。\n\n特别地，若横坐标满足 $x_i=i$，代入插值公式\n$$\n\\begin{aligned}\nf(x)&=\\sum_{i=0}^n y_i \\prod_{j \\ne i} \\dfrac{x-j}{i-j}\\\\\\\n&=\\sum_{i=0}^n \\dfrac{y_i}{x-i}\\prod_{j=0}^n (x-j) \\prod_{j \\ne i} \\dfrac{1}{i-j}\\\\\n&=\\boxed{\\sum_{i=0}^n \\dfrac{y_i}{x-i} \\times \\dfrac{(-1)^{n-i}}{i!(n-i)!}\\prod_{j=0}^n (x-j)}\n\\end{aligned}\n$$\n线性预处理 $\\prod\\limits_{j=0}^n (x-j)$ 及 $x-i$ 的逆元和阶乘逆，可以 $O(n)$ 单点求值。注意特判 $x \\in [0,n]$ 的情形。\n\n:::::\n\n复杂度 $O(n^2m \\log m)$ 可以通过本题。[代码](https://www.luogu.com.cn/article/1gcq46ur)。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC230D](https://www.luogu.com.cn/problem/AT_arc230_d)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m,k$，对满足下列条件的 $n \\times m$ 矩阵 $a_{i,j}$ 计数：\n>\n> - $\\forall i\\in [1,n]\\land j \\in [1,m], a_{i,j} \\in [1,k]$。\n> - $\\min \\limits_{i \\in [1,n]} \\max\\limits_{j \\in [1,m]} a_{i,j}=\\max \\limits_{j \\in [1,m]} \\min \\limits_{i \\in [1,n]} a_{i,j}$。\n>\n> $n,m \\le 200$，$k \\le 10^8$，4 秒，1024 MB。\n\n::::::success[题解]\n\n设 $X=\\min \\limits_{i \\in [1,n]} \\max\\limits_{j \\in [1,m]} a_{i,j}, Y=\\max \\limits_{j \\in [1,m]} \\min \\limits_{i \\in [1,n]} a_{i,j}$。\n\n**性质** 对任意矩阵，必有 $X \\ge Y$ 成立。\n\n**证明** 取任意位置 $(i,j)$，有 $\\min\\limits_{i' \\in [1,n]} a_{i',j} \\le a_{i,j} \\le \\max\\limits_{j'\\in [1,m]} a_{i,j'}$ 恒成立。\n\n从而 $\\forall i \\in [1,n], \\max\\limits_{j \\in [1,m]}\\min\\limits_{i' \\in [1,n]} a_{i',j} \\le \\max\\limits_{j' \\in [1,m]} a_{i,j'}$。对右侧取 $\\min$ 得 $\\max\\limits_{j \\in [1,m]}\\min\\limits_{i' \\in [1,n]} a_{i',j} \\le \\min\\limits_{i \\in [1,n]}\\max\\limits_{j' \\in [1,m]} a_{i,j'}$，即证 $Y \\le X$。\n\n枚举 $X=Y=t$，设 $f(x,y)$ 为 $X \\ge x \\land Y \\le y$ 的矩阵数，二元容斥求出答案\n$$\n\\sum_{t=1}^k \\left(f(t,t)-f(t+1,t)-f(t,t-1)+f(t+1,t-1)\\right)\n$$\n拆开 $X \\ge x \\land Y \\le y$ 的合法条件得\n\n- $\\forall i\\in [1,n],  \\exists j \\in [1,m],a_{i,j} \\ge x$。\n- $\\forall j\\in [1,m], \\exists i \\in [1,n],a_{i,j} \\le y$。\n\n对行列独立容斥，钦定突破限制的行号集合 $S \\subseteq [1,n]$，列号集合 $T \\subseteq [1,m]$ 使得：\n\n- 对 $i \\in S$ 满足 $\\forall j \\in [1,m], a_{i,j} < x$。\n- 对 $j \\in T$ 满足 $\\forall i \\in [1,n], a_{i,j}>y$。\n- 对 $i \\notin S \\land j \\notin S$ 的 $a_{i,j}$ 无限制。\n\n容斥系数 $(-1)^{|S|} (-1)^{|T|}=(-1)^{|S|+|T|}$。对 $(i,j)$ 位置分讨：\n\n- 若 $i \\in S \\land j \\in T$，则 $a_{i,j} \\in (y,x)$，方案数 $\\max(0,x-y-1)$。\n- 若 $i \\in S \\land j \\notin T$，则 $a_{i,j} \\in [1,x)$，方案数 $x-1$。\n- 若 $i \\notin S \\land j \\in T$，则 $a_{i,j} \\in (y,k]$，方案数 $k-y$。\n- 若 $i \\notin S \\land j\\notin T$，则 $a_{i,j} \\in [1,k]$，方案数 $k$。\n\n特判 $x-y<1$。直接枚举 $|S|=p, |T|=q$ 得到方案数\n$$\nf(x,y)=\\sum_{p=0}^n \\sum_{q=0}^m (-1)^{p+q} \\binom{n}{p} \\binom{m}{q} (x-y-1)^{pq} (x-1)^{p(m-q)} (k-y)^{(n-p)q} k^{(n-p)(m-q)}\n$$\n复杂度 $O(nmk)$ 无法通过。根据二项式定理化简 $f$ 有\n$$\n\\begin{aligned}\nf(x,y)&=\\sum_{p=0}^n (-1)^p\\binom{n}{p} \\sum_{q=0}^m (-1)^{q} \\binom{m}{q} \\left((x-y-1)^{p}\\right)^{q} \\left((x-1)^{p}\\right)^{m-q} \\left((k-y)^{n-p}\\right)^q (k^{n-p})^{m-q}\\\\\n&=\\sum_{p=0}^n (-1)^p\\binom{n}{p}  \\sum_{q=0}^m  \\binom{m}{q} \\left((-1)(x-y-1)^{p} (k-y)^{n-p}\\right)^q \\left((x-1)^{p}k^{n-p}\\right)^{m-q}\\\\\n&=\\boxed{\\sum_{p=0}^n  (-1)^p\\binom{n}{p} \\left((x-1)^{p}k^{n-p}-(x-y-1)^{p} (k-y)^{n-p}\\right)^{m}}\n\\end{aligned}\n$$\n复杂度 $O(nk \\log m)$ 可以通过 [CF2048G](https://www.luogu.com.cn/problem/CF2048G)。\n\n**观察** $f(x,y)$ 是关于 $x,y$ 的 $n\\times m$ 次多项式。\n\n求答案形如 $\\sum f(t,t)$，前缀和后次数 $+1$。我们求出前 $nm+2$ 个 $f$ 后，用 Lagrange 插值线性求出 $t$ 处的点值即可。\n\n:::::info[Lagrange 插值]\n\n**问题** 给定 $n+1$ 个点 $(x_0,y_0) \\sim (x_n,y_n)$，确定 $n$ 次多项式 $f$ 使得 $\\forall i \\in [0,n], f(x_i)=y_i$。\n\nLagrange 插值给出公式\n$$\nf(x)=\\boxed{\\sum_{i=0}^n y_i \\prod_{j \\ne i} \\dfrac{x-x_j}{x_i-x_j}}\n$$\n将 $x$ 代入可以 $O(n^2)$ 求点值。对于多点求值问题，可以暴力多项式除法算出系数做到 $O(n^2)-O(n)$。\n\n特别地，若横坐标满足 $x_i=i$，代入插值公式\n$$\n\\begin{aligned}\nf(x)&=\\sum_{i=0}^n y_i \\prod_{j \\ne i} \\dfrac{x-j}{i-j}\\\\\\\n&=\\sum_{i=0}^n \\dfrac{y_i}{x-i}\\prod_{j=0}^n (x-j) \\prod_{j \\ne i} \\dfrac{1}{i-j}\\\\\n&=\\boxed{\\sum_{i=0}^n \\dfrac{y_i}{x-i} \\times \\dfrac{(-1)^{n-i}}{i!(n-i)!}\\prod_{j=0}^n (x-j)}\n\\end{aligned}\n$$\n线性预处理 $\\prod\\limits_{j=0}^n (x-j)$ 及 $x-i$ 的逆元和阶乘逆，可以 $O(n)$ 单点求值。注意特判 $x \\in [0,n]$ 的情形。\n\n:::::\n\n复杂度 $O(n^2m \\log m)$ 可以通过本题。[代码](https://www.luogu.com.cn/article/1gcq46ur)。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-arc231e",
+        "title": "Odd Inversion",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "ARC231E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC231E](https://www.luogu.com.cn/problem/AT_arc231_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$，对满足下列条件的 $b_1 \\sim b_n$ 计数：\n>\n> - $\\forall i \\in [1,n], 1 \\le b_i \\le a_i$。\n> - $b$ 的逆序对数为奇数。\n>\n> 多测，$\\sum n \\le 4 \\times 10^5$，$a_i \\le 10^9$，2 秒，1024 MB。\n\n:::::success[题解]\n\n设 $\\text{inv}(b)$ 为偶数的序列有 $c_0$ 个，奇数的序列为 $c_1$ 个。则总方案数\n$$\nc_0+c_1=\\prod_{i=1}^n a_i\n$$\n转为求解 $c_0-c_1$ 后解方程得到答案。考虑递推：\n\n- 设 $f_i$ 为仅考虑 $b_1 \\sim b_i$ 时 $c_0-c_1$ 的值。\n\n- 转移讨论 $b_i$ 的取值：\n\n  - 若 $b_i=b_{i-1}$，则删去 $i-1$ 和 $i$ 后奇偶性不变，转移 $a_{i-1}f_{i-2} \\to f_i$。\n  - 若 $b_i \\ne b_{i-1}$，对 $\\max(b_{i-1},b_i) \\le a_{i-1}$ 的序列，将 $i-1$ 和 $i$ 交换后奇偶性 flip 故成对抵消。只需计数 $\\max(b_{i-1},b_i)>a_{i-1}$ 的部分，转移 $(a_i-a_{i-1}) f_{i-1} \\to f_i$。\n\n  将两部分合并得二阶递推\n  $$\n  \\boxed{f_i=(a_i-a_{i-1})f_{i-1}+a_{i-1}f_{i-2}}\n  $$\n\n- 初值为 $f_0=0, f_1=a_1$。\n\n- 答案为 $c_0+c_1=f_n$。\n\n复杂度 $O(n)$。[代码](https://atcoder.jp/contests/arc231/submissions/79797002)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ARC231E](https://www.luogu.com.cn/problem/AT_arc231_e)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$，对满足下列条件的 $b_1 \\sim b_n$ 计数：\n>\n> - $\\forall i \\in [1,n], 1 \\le b_i \\le a_i$。\n> - $b$ 的逆序对数为奇数。\n>\n> 多测，$\\sum n \\le 4 \\times 10^5$，$a_i \\le 10^9$，2 秒，1024 MB。\n\n:::::success[题解]\n\n设 $\\text{inv}(b)$ 为偶数的序列有 $c_0$ 个，奇数的序列为 $c_1$ 个。则总方案数\n$$\nc_0+c_1=\\prod_{i=1}^n a_i\n$$\n转为求解 $c_0-c_1$ 后解方程得到答案。考虑递推：\n\n- 设 $f_i$ 为仅考虑 $b_1 \\sim b_i$ 时 $c_0-c_1$ 的值。\n\n- 转移讨论 $b_i$ 的取值：\n\n  - 若 $b_i=b_{i-1}$，则删去 $i-1$ 和 $i$ 后奇偶性不变，转移 $a_{i-1}f_{i-2} \\to f_i$。\n  - 若 $b_i \\ne b_{i-1}$，对 $\\max(b_{i-1},b_i) \\le a_{i-1}$ 的序列，将 $i-1$ 和 $i$ 交换后奇偶性 flip 故成对抵消。只需计数 $\\max(b_{i-1},b_i)>a_{i-1}$ 的部分，转移 $(a_i-a_{i-1}) f_{i-1} \\to f_i$。\n\n  将两部分合并得二阶递推\n  $$\n  \\boxed{f_i=(a_i-a_{i-1})f_{i-1}+a_{i-1}f_{i-2}}\n  $$\n\n- 初值为 $f_0=0, f_1=a_1$。\n\n- 答案为 $c_0+c_1=f_n$。\n\n复杂度 $O(n)$。[代码](https://atcoder.jp/contests/arc231/submissions/79797002)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-dwacon6th-prelims-c",
+        "title": "Cookie Distribution",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "DWACON6TH_PRELIMS_C",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[DWACON6TH_PRELIMS_C](https://www.luogu.com.cn/problem/AT_dwacon6th_prelims_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,k$ 和长为 $k$ 的序列 $a_i$。重复 $k$ 次操作，第 $i$ 次操作任意选择 $a_i$ 个位置 $p_1 \\sim p_{a_i}$，并将 $b_{p_x} \\gets b_{p_x}+1$。求所有情况下 $\\prod b_i$ 的总和。\n>\n> $n \\le 10^3$，$k \\le 20$，2.52 秒，1024 MB。\n\n::::::success[题解]\n\n形如 $\\sum \\prod b_i$ 的计数问题，可以考虑 [Product Trick](https://codeforces.com/blog/entry/98624)。\n\n我们考察 $\\prod b_i$ 的组合意义：有 $n$ 个盒子，第 $i$ 次操作选择 $a_i$ 盒子扔进一个颜色为 $i$ 的球，最后盒子里有 $b_i$ 个球。$\\prod b_i$ 即为从每个盒子中选择一个球的方案数。\n\n切换计数主体。设最终 $x_i$ 个盒子选择的球为颜色 $i$，必有 $\\sum x_i=n$ 且 $x_i \\le a_i$。下面构造 $x_1 \\sim x_k$ 对应的操作方案。\n\n- 将 $n$ 种盒子分配给 $k$ 种颜色，使得颜色 $i$ 被 $x_i$ 个位置钦定。方案数 $\\dbinom{n}{x_1,x_2,\\cdots,x_k}$。注意第一步的组合意义是分配盒子标号，相当于确定了这 $x_i$ 个位置的具体内容。\n- 对于第 $i$ 次操作，其需要选择 $a_i$ 个盒子。\n  - 必须选择 $x_i$ 个特定盒子满足第一步钦定，方案数 $1$。\n  - 在剩余 $n-x_i$ 个盒子中，随意选择 $a_i-x_i$ 个位置，方案数 $\\dbinom{n-x_i}{a_i-x_i}$。\n\n由乘法原理合并得到\n\n$$\n\\binom{n}{x_1,x_2,\\cdots,x_k} \\prod_{i=1}^k\\binom{n-x_i}{a_i-x_i}=\\boxed{n!\\prod_{i=1}^k \\dfrac{1}{x_i!} \\binom{n-x_i}{a_i-x_i}}\n$$\n\n:::::success[代数推导]\n\n下面给出这个式子的代数推导方法。\n\n注意到 $\\prod\\limits_{j=1}^{n} b_j=\\prod\\limits_{j=1}^{n} \\sum\\limits_{i=1}^k A_{j,i}$，其中 $A_{j,i} \\in \\{0,1\\}$ 表示第 $i$ 次操作是否选择 $j$，且 $\\sum\\limits_{j=1}^n A_{j,i}=a_i$。\n\n对 $\\prod\\limits_{i=1}^{n} \\sum\\limits_{j=1}^k A_{j,i}$ 使用乘法分配律，设我们从第 $j$ 个括号中选择第 $c_j$ 项，则 $c_j \\in [1,k]$ 且答案式变为\n$$\n\\sum_{A}\\sum_{c_1 \\sim c_n} \\prod_{j=1}^n A_{j,c_j}=\\sum_{c_1 \\sim c_n} \\sum_{A }\\prod_{j=1}^n A_{j,c_j}\n$$\n对固定的 $c_1 \\sim c_n$，乘积 $\\prod\\limits_{j=1}^n A_{j,c_j}=1$ 的充要条件为 $\\forall j \\in [1,n], A_{j,c_j}=1$。记 $x_i=\\sum \\limits_{j=1}^n [c_j=i]$，则 $x_i$ 个位置强制 $A_{j,c_j}=1$ 且剩余位置自选，从而\n$$\n\\sum_{A }\\prod_{j=1}^n A_{j,c_j}=\\prod_{i=1}^k \\binom{n-x_i}{a_i-x_i}\n$$\n只要乘上 $c_1 \\sim c_n$ 的选法数目。这是多重组合数的定义，系数为 $\\dbinom{n}{x_1,x_2,\\cdots,x_k}$。\n\n:::::\n\n这个形式是容易 DP 的：\n\n- 设 $f_{i,j}$ 为满足如下条件时，所有 $x_1 \\sim x_i$ 序列的 $\\prod\\limits_{k=1}^i \\dfrac{1}{x_k!} \\dbinom{n-x_k}{a_k-x_k}$ 之和：\n  - 仅考虑 $x_1 \\sim x_i$。\n  - $\\sum \\limits_{k=1}^i x_k=j$。\n- 转移枚举 $x_{i} \\in [0,a_i]$，刷表 $\\dfrac{1}{x_i!} \\dbinom{n-x_i}{a_i-x_i} \\times f_{i-1,j} \\to f_{i,j+x_i}$。\n- DP 初值为 $f_{0,0}=1$。\n- 答案为 $n! \\times f_{k,n}$。\n\nDP 状态数 $O(nk)$，转移枚举量 $a_i \\le n$，总复杂度 $O(n^2k)$ 可以通过。[代码](https://www.luogu.com.cn/article/6e101rnl)。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[DWACON6TH_PRELIMS_C](https://www.luogu.com.cn/problem/AT_dwacon6th_prelims_c)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,k$ 和长为 $k$ 的序列 $a_i$。重复 $k$ 次操作，第 $i$ 次操作任意选择 $a_i$ 个位置 $p_1 \\sim p_{a_i}$，并将 $b_{p_x} \\gets b_{p_x}+1$。求所有情况下 $\\prod b_i$ 的总和。\n>\n> $n \\le 10^3$，$k \\le 20$，2.52 秒，1024 MB。\n\n::::::success[题解]\n\n形如 $\\sum \\prod b_i$ 的计数问题，可以考虑 [Product Trick](https://codeforces.com/blog/entry/98624)。\n\n我们考察 $\\prod b_i$ 的组合意义：有 $n$ 个盒子，第 $i$ 次操作选择 $a_i$ 盒子扔进一个颜色为 $i$ 的球，最后盒子里有 $b_i$ 个球。$\\prod b_i$ 即为从每个盒子中选择一个球的方案数。\n\n切换计数主体。设最终 $x_i$ 个盒子选择的球为颜色 $i$，必有 $\\sum x_i=n$ 且 $x_i \\le a_i$。下面构造 $x_1 \\sim x_k$ 对应的操作方案。\n\n- 将 $n$ 种盒子分配给 $k$ 种颜色，使得颜色 $i$ 被 $x_i$ 个位置钦定。方案数 $\\dbinom{n}{x_1,x_2,\\cdots,x_k}$。注意第一步的组合意义是分配盒子标号，相当于确定了这 $x_i$ 个位置的具体内容。\n- 对于第 $i$ 次操作，其需要选择 $a_i$ 个盒子。\n  - 必须选择 $x_i$ 个特定盒子满足第一步钦定，方案数 $1$。\n  - 在剩余 $n-x_i$ 个盒子中，随意选择 $a_i-x_i$ 个位置，方案数 $\\dbinom{n-x_i}{a_i-x_i}$。\n\n由乘法原理合并得到\n\n$$\n\\binom{n}{x_1,x_2,\\cdots,x_k} \\prod_{i=1}^k\\binom{n-x_i}{a_i-x_i}=\\boxed{n!\\prod_{i=1}^k \\dfrac{1}{x_i!} \\binom{n-x_i}{a_i-x_i}}\n$$\n\n:::::success[代数推导]\n\n下面给出这个式子的代数推导方法。\n\n注意到 $\\prod\\limits_{j=1}^{n} b_j=\\prod\\limits_{j=1}^{n} \\sum\\limits_{i=1}^k A_{j,i}$，其中 $A_{j,i} \\in \\{0,1\\}$ 表示第 $i$ 次操作是否选择 $j$，且 $\\sum\\limits_{j=1}^n A_{j,i}=a_i$。\n\n对 $\\prod\\limits_{i=1}^{n} \\sum\\limits_{j=1}^k A_{j,i}$ 使用乘法分配律，设我们从第 $j$ 个括号中选择第 $c_j$ 项，则 $c_j \\in [1,k]$ 且答案式变为\n$$\n\\sum_{A}\\sum_{c_1 \\sim c_n} \\prod_{j=1}^n A_{j,c_j}=\\sum_{c_1 \\sim c_n} \\sum_{A }\\prod_{j=1}^n A_{j,c_j}\n$$\n对固定的 $c_1 \\sim c_n$，乘积 $\\prod\\limits_{j=1}^n A_{j,c_j}=1$ 的充要条件为 $\\forall j \\in [1,n], A_{j,c_j}=1$。记 $x_i=\\sum \\limits_{j=1}^n [c_j=i]$，则 $x_i$ 个位置强制 $A_{j,c_j}=1$ 且剩余位置自选，从而\n$$\n\\sum_{A }\\prod_{j=1}^n A_{j,c_j}=\\prod_{i=1}^k \\binom{n-x_i}{a_i-x_i}\n$$\n只要乘上 $c_1 \\sim c_n$ 的选法数目。这是多重组合数的定义，系数为 $\\dbinom{n}{x_1,x_2,\\cdots,x_k}$。\n\n:::::\n\n这个形式是容易 DP 的：\n\n- 设 $f_{i,j}$ 为满足如下条件时，所有 $x_1 \\sim x_i$ 序列的 $\\prod\\limits_{k=1}^i \\dfrac{1}{x_k!} \\dbinom{n-x_k}{a_k-x_k}$ 之和：\n  - 仅考虑 $x_1 \\sim x_i$。\n  - $\\sum \\limits_{k=1}^i x_k=j$。\n- 转移枚举 $x_{i} \\in [0,a_i]$，刷表 $\\dfrac{1}{x_i!} \\dbinom{n-x_i}{a_i-x_i} \\times f_{i-1,j} \\to f_{i,j+x_i}$。\n- DP 初值为 $f_{0,0}=1$。\n- 答案为 $n! \\times f_{k,n}$。\n\nDP 状态数 $O(nk)$，转移枚举量 $a_i \\le n$，总复杂度 $O(n^2k)$ 可以通过。[代码](https://www.luogu.com.cn/article/6e101rnl)。\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-jsc2019-qual-f",
+        "title": "Candy Retribution",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "JSC2019_QUAL_F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[JSC2019_QUAL_F](https://www.luogu.com.cn/problem/AT_jsc2019_qual_f)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$。对满足下列条件的长为 $n$ 的序列 $a_i$ 计数：\n>\n> - $\\forall i \\in [1,n], a_i \\ge 0$。\n>\n> - $\\sum \\limits_{i=1}^n a_i \\in [l,r]$。\n> - 将 $a$ 降序排序后，$a_m=a_{m+1}$。\n>\n> $n,m,l,r \\le 3 \\times 10^5$，2 秒，1024 MB。\n\n:::::success[题解]\n\n不妨令 $a_i \\gets a_i+1$ 转而计数正整数序列。令 $m \\gets n-m$ 转为升序排序后 $a_m=a_{m+1}$。\n\n先将 $[l,r]$ 差分成 $[1,r] \\setminus [1,l)$，变成总和有一个上限 $r$。\n\n做一个单步容斥，用总数减去 $a_m<a_{m+1}$ 的序列数。枚举总和 $k $ 得到总数 $\\sum \\limits_{k=1}^r \\dbinom{k+n-1}{n-1}=\\dbinom{r+n}{n}$。\n\n枚举排序后 $a_m=x$，排列被分成两段，$1 \\sim m$ 段的值域为 $[1,x]$，而 $m+1 \\sim n$ 段的值域为 $(x,n]$。\n\n再来一次单步容斥：钦定 $1 \\sim m$ 段的值域为 $[1,x]$，然后减掉钦定为 $[1,x-1]$ 的方案数，则 $a_m=x$ 的限制可以丢掉。\n\n问题转化为，计数恰有 $m$ 个数 $\\le a$，$n-m$ 个数 $\\ge b$，总和不超过 $r$ 的序列。这个可以容斥也可以 GF 启动，下面是熔池观点。\n\n**钦定至少** $i$ 个位置 $>a$，由二项式反演，容斥系数 $(-1)^i \\dbinom{m}{i}$。\n\n令钦定的 $i$ 个位置减去 $a$，选定的 $\\ge b$ 的位置减去 $b$，总和为 $r'=r-m-i \\times a-(n-m)b$。剩余选法为 $\\dbinom{r'+n}{n}$。\n\n答案即为\n$$\nf(a,b)=\\binom{n}{m}\\sum_{i=0}^{m} (-1)^i \\binom{m}{i} \\binom{r'+n}{n}\n$$\n其中 $r' \\ge 0 \\implies i \\le \\dfrac{*}{a}$，$*$ 是 $O(n)$ 级别的常数。\n\n在外层循环枚举 $x$ 得到 $a,b$，内层循环枚举 $i$，根据 $i$ 的合法条件可知，这属于调和型枚举，复杂度是 $O(n \\log n)$ 可以通过。[代码](https://www.luogu.com.cn/article/uwatuto9)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[JSC2019_QUAL_F](https://www.luogu.com.cn/problem/AT_jsc2019_qual_f)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$。对满足下列条件的长为 $n$ 的序列 $a_i$ 计数：\n>\n> - $\\forall i \\in [1,n], a_i \\ge 0$。\n>\n> - $\\sum \\limits_{i=1}^n a_i \\in [l,r]$。\n> - 将 $a$ 降序排序后，$a_m=a_{m+1}$。\n>\n> $n,m,l,r \\le 3 \\times 10^5$，2 秒，1024 MB。\n\n:::::success[题解]\n\n不妨令 $a_i \\gets a_i+1$ 转而计数正整数序列。令 $m \\gets n-m$ 转为升序排序后 $a_m=a_{m+1}$。\n\n先将 $[l,r]$ 差分成 $[1,r] \\setminus [1,l)$，变成总和有一个上限 $r$。\n\n做一个单步容斥，用总数减去 $a_m<a_{m+1}$ 的序列数。枚举总和 $k $ 得到总数 $\\sum \\limits_{k=1}^r \\dbinom{k+n-1}{n-1}=\\dbinom{r+n}{n}$。\n\n枚举排序后 $a_m=x$，排列被分成两段，$1 \\sim m$ 段的值域为 $[1,x]$，而 $m+1 \\sim n$ 段的值域为 $(x,n]$。\n\n再来一次单步容斥：钦定 $1 \\sim m$ 段的值域为 $[1,x]$，然后减掉钦定为 $[1,x-1]$ 的方案数，则 $a_m=x$ 的限制可以丢掉。\n\n问题转化为，计数恰有 $m$ 个数 $\\le a$，$n-m$ 个数 $\\ge b$，总和不超过 $r$ 的序列。这个可以容斥也可以 GF 启动，下面是熔池观点。\n\n**钦定至少** $i$ 个位置 $>a$，由二项式反演，容斥系数 $(-1)^i \\dbinom{m}{i}$。\n\n令钦定的 $i$ 个位置减去 $a$，选定的 $\\ge b$ 的位置减去 $b$，总和为 $r'=r-m-i \\times a-(n-m)b$。剩余选法为 $\\dbinom{r'+n}{n}$。\n\n答案即为\n$$\nf(a,b)=\\binom{n}{m}\\sum_{i=0}^{m} (-1)^i \\binom{m}{i} \\binom{r'+n}{n}\n$$\n其中 $r' \\ge 0 \\implies i \\le \\dfrac{*}{a}$，$*$ 是 $O(n)$ 级别的常数。\n\n在外层循环枚举 $x$ 得到 $a,b$，内层循环枚举 $i$，根据 $i$ 的合法条件可知，这属于调和型枚举，复杂度是 $O(n \\log n)$ 可以通过。[代码](https://www.luogu.com.cn/article/uwatuto9)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-mujin-pc-2018-f",
+        "title": "チーム分け",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "MUJIN_PC_2018_F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[MUJIN_PC_2018_F](https://www.luogu.com.cn/problem/AT_mujin_pc_2018_f)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个元素，你需要将每个元素分到某组中，要求 $i$ 所在组的大小不超过 $a_i$。求合法分组方案数。\n>\n> $n \\le 10^3$，2 秒，1024 MB。\n\n::::::success[题解]\n\n单组限制只关心 $a_i$ 最小的元素。对 $a_i$ 降序排序，考虑按下标逐个加入并计算贡献。\n\n在加入 $i$ 时，如果不记录当前的分组情况，贡献系数难以计算。为此，我们将不决策也作为一种转移，考虑下面的 DP 状态：\n\n- 设 $f_{i,j}$ 为满足下列条件的合法分组方案数。\n  - 仅考虑 $1 \\sim i$，但不需决定 $1 \\sim i$ 的全部归属。\n  - $1 \\sim i$ 中恰有 $j$ 个元素无归属。\n- 转移时仅有两种决策：\n  - 第 $i$ 个元素无归属，转移 $f_{i,j} \\to f_{i+1,j+1}$。\n  - 第 $i$ 个元素新开一组，并从 $j$ 个未决策元素中取出若干加入这一组。枚举 $k \\in [0,a_i)$，转移 $f_{i,j} \\times \\binom{j}{k} \\to f_{i+1,j-k} $。\n- DP 初值为 $f_{0,0}=1$。\n- 答案为 $f_{n,0}$。\n\n复杂度 $O(n^3)$，可以通过原题。\n\n:::::info[延迟钦定 DP]\n\n本题通过**延迟钦定**的组合意义，解决了贡献系数无法计算的问题。我们将本题的模型进行抽象：\n\n- 对每个组合对象决策某种属性。\n- 将决策划分为两部分，确定部分不会影响贡献系数，待定部分还会影响贡献系数。待定到确定的转化是单向的。\n- 确定部分等价，待定部分的决策等价。\n- 考虑在 DP 状态中记录待定部分的信息，每个对象的决策变为，进入待定部分或进行确定性决策。在确定性决策时，处理待定部分的贡献。\n\n:::::\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[MUJIN_PC_2018_F](https://www.luogu.com.cn/problem/AT_mujin_pc_2018_f)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个元素，你需要将每个元素分到某组中，要求 $i$ 所在组的大小不超过 $a_i$。求合法分组方案数。\n>\n> $n \\le 10^3$，2 秒，1024 MB。\n\n::::::success[题解]\n\n单组限制只关心 $a_i$ 最小的元素。对 $a_i$ 降序排序，考虑按下标逐个加入并计算贡献。\n\n在加入 $i$ 时，如果不记录当前的分组情况，贡献系数难以计算。为此，我们将不决策也作为一种转移，考虑下面的 DP 状态：\n\n- 设 $f_{i,j}$ 为满足下列条件的合法分组方案数。\n  - 仅考虑 $1 \\sim i$，但不需决定 $1 \\sim i$ 的全部归属。\n  - $1 \\sim i$ 中恰有 $j$ 个元素无归属。\n- 转移时仅有两种决策：\n  - 第 $i$ 个元素无归属，转移 $f_{i,j} \\to f_{i+1,j+1}$。\n  - 第 $i$ 个元素新开一组，并从 $j$ 个未决策元素中取出若干加入这一组。枚举 $k \\in [0,a_i)$，转移 $f_{i,j} \\times \\binom{j}{k} \\to f_{i+1,j-k} $。\n- DP 初值为 $f_{0,0}=1$。\n- 答案为 $f_{n,0}$。\n\n复杂度 $O(n^3)$，可以通过原题。\n\n:::::info[延迟钦定 DP]\n\n本题通过**延迟钦定**的组合意义，解决了贡献系数无法计算的问题。我们将本题的模型进行抽象：\n\n- 对每个组合对象决策某种属性。\n- 将决策划分为两部分，确定部分不会影响贡献系数，待定部分还会影响贡献系数。待定到确定的转化是单向的。\n- 确定部分等价，待定部分的决策等价。\n- 考虑在 DP 状态中记录待定部分的信息，每个对象的决策变为，进入待定部分或进行确定性决策。在确定性决策时，处理待定部分的贡献。\n\n:::::\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-atcoder-pakencamp-2025-day2-h",
+        "title": "Sunk Islands",
+        "source": "stripe-python",
+        "oj": "AtCoder",
+        "problemId": "PAKENCAMP_2025_DAY2_H",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[PAKENCAMP_2025_DAY2_H](https://www.luogu.com.cn/problem/AT_pakencamp_2025_day2_h)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一棵 $n$ 个点的无根树。你可以给出点集 $S$，询问 $S$ 的导出子图的直径点数。\n>\n> 还原树的形态。\n>\n> $n=256$，满分询问次数 $4600$。交互库非自适应。\n>\n> Bonus：询问次数 $3000$。\n\n:::::success[题解]\n\n取树上独立集 $S$，询问 $S \\cup \\{x\\}$ 可以确定 $x$ 在树上的相对位置：\n\n- 答案为 $1$，则 $x$ 与 $S$ 中任意点无边。\n- 答案为 $2$，则 $S$ 中存在唯一点与 $x$ 有边。\n- 答案为 $3$，则 $S$ 中存在两个点与 $x$ 有边。\n\n考虑增量法。我们维护前缀森林，并确定新点 $x$ 的位置。\n\n对森林黑白染色，取所有黑点和所有白点作为独立集。对独立集 $S$，若 $x $ 与 $S$ 中的点有连边，则将 $S$ 从中点处划分为两个不交子集 $S_1,S_2$ 递归下去。\n\n考虑一条边会在 $\\log n$ 次询问中产生贡献，均摊下来询问次数 $n \\log n$。将加点顺序和 $S$ 的顺序随机打乱，实现后的询问次数约为 $3500$。\n\n注意到 $S \\cup \\{x\\}$ 的答案为 $2$ 时，$S_1$ 和 $S_2$ 有且仅有一个子集需要递归。我们先递归一侧，若 $S_1 \\{x\\}$ 的答案不为 $1$ 就没有必要询问 $S_2 \\cup \\{x\\}$ 了。添加剪枝后询问次数约为 $2900$，可以通过。\n\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 300;\nint ask(vector<int> a) {\n    cout << \"? \" << a.size() << ' ';\n    for (int i : a) cout << i << ' ';\n    cout << endl;\n    int x; cin >> x;\n    return x;\n}\nvoid answer(vector<int> u, vector<int> v) {\n    cout << \"! \";\n    for (int i = 0; i < (int)u.size(); i++) cout << u[i] << ' ' << v[i] << ' ';\n    cout << endl;\n} \n\nvector<int> e[N];\nint col[N];\nvoid dfs(int u, int fa) {\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        col[v] = col[u] ^ 1, dfs(v, u);\n    }\n}\n\nbool work(vector<int> a, int x) {\n    if (a.empty()) return false;\n    vector<int> b = a; b.emplace_back(x);\n    int val = ask(b);\n    if (val == 1) return false;\n    if (a.size() == 1) {\n        int y = a[0];\n        e[x].emplace_back(y), e[y].emplace_back(x);\n        return true;\n    }\n    shuffle(a.begin(), a.end(), rand32);\n    int mid = a.size() / 2;\n    vector<int> l(a.begin(), a.begin() + mid), r(a.begin() + mid, a.end());\n    bool f1 = work(l, x);\n    if (val == 2 && f1) return true;\n    return work(r, x) | f1;\n}\n\nvoid _main() {\n    int N, L; cin >> N >> L;\n    vector<int> v;\n    for (int i = 1; i <= N; i++) v.emplace_back(i);\n    shuffle(v.begin(), v.end(), rand32);\n    for (int i = 1; i < N; i++) {\n        fill(col + 1, col + N + 1, -1);\n        for (int j = 0; j < i; j++) if (col[v[j]] == -1)\n            col[v[j]] = 0, dfs(v[j], -1);\n        vector<int> a, b;\n        for (int j = 0; j < i; j++) {\n            if (col[v[j]] == 0) a.emplace_back(v[j]);\n            else b.emplace_back(v[j]);\n        }\n        work(a, v[i]), work(b, v[i]);\n    }\n    vector<int> p, q;\n    for (int u = 1; u <= N; u++)\n        for (int v : e[u]) \n            if (u < v) p.emplace_back(u), q.emplace_back(v);\n    answer(p, q);\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[PAKENCAMP_2025_DAY2_H](https://www.luogu.com.cn/problem/AT_pakencamp_2025_day2_h)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一棵 $n$ 个点的无根树。你可以给出点集 $S$，询问 $S$ 的导出子图的直径点数。\n>\n> 还原树的形态。\n>\n> $n=256$，满分询问次数 $4600$。交互库非自适应。\n>\n> Bonus：询问次数 $3000$。\n\n:::::success[题解]\n\n取树上独立集 $S$，询问 $S \\cup \\{x\\}$ 可以确定 $x$ 在树上的相对位置：\n\n- 答案为 $1$，则 $x$ 与 $S$ 中任意点无边。\n- 答案为 $2$，则 $S$ 中存在唯一点与 $x$ 有边。\n- 答案为 $3$，则 $S$ 中存在两个点与 $x$ 有边。\n\n考虑增量法。我们维护前缀森林，并确定新点 $x$ 的位置。\n\n对森林黑白染色，取所有黑点和所有白点作为独立集。对独立集 $S$，若 $x $ 与 $S$ 中的点有连边，则将 $S$ 从中点处划分为两个不交子集 $S_1,S_2$ 递归下去。\n\n考虑一条边会在 $\\log n$ 次询问中产生贡献，均摊下来询问次数 $n \\log n$。将加点顺序和 $S$ 的顺序随机打乱，实现后的询问次数约为 $3500$。\n\n注意到 $S \\cup \\{x\\}$ 的答案为 $2$ 时，$S_1$ 和 $S_2$ 有且仅有一个子集需要递归。我们先递归一侧，若 $S_1 \\{x\\}$ 的答案不为 $1$ 就没有必要询问 $S_2 \\cup \\{x\\}$ 了。添加剪枝后询问次数约为 $2900$，可以通过。\n\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 300;\nint ask(vector<int> a) {\n    cout << \"? \" << a.size() << ' ';\n    for (int i : a) cout << i << ' ';\n    cout << endl;\n    int x; cin >> x;\n    return x;\n}\nvoid answer(vector<int> u, vector<int> v) {\n    cout << \"! \";\n    for (int i = 0; i < (int)u.size(); i++) cout << u[i] << ' ' << v[i] << ' ';\n    cout << endl;\n} \n\nvector<int> e[N];\nint col[N];\nvoid dfs(int u, int fa) {\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        col[v] = col[u] ^ 1, dfs(v, u);\n    }\n}\n\nbool work(vector<int> a, int x) {\n    if (a.empty()) return false;\n    vector<int> b = a; b.emplace_back(x);\n    int val = ask(b);\n    if (val == 1) return false;\n    if (a.size() == 1) {\n        int y = a[0];\n        e[x].emplace_back(y), e[y].emplace_back(x);\n        return true;\n    }\n    shuffle(a.begin(), a.end(), rand32);\n    int mid = a.size() / 2;\n    vector<int> l(a.begin(), a.begin() + mid), r(a.begin() + mid, a.end());\n    bool f1 = work(l, x);\n    if (val == 2 && f1) return true;\n    return work(r, x) | f1;\n}\n\nvoid _main() {\n    int N, L; cin >> N >> L;\n    vector<int> v;\n    for (int i = 1; i <= N; i++) v.emplace_back(i);\n    shuffle(v.begin(), v.end(), rand32);\n    for (int i = 1; i < N; i++) {\n        fill(col + 1, col + N + 1, -1);\n        for (int j = 0; j < i; j++) if (col[v[j]] == -1)\n            col[v[j]] = 0, dfs(v[j], -1);\n        vector<int> a, b;\n        for (int j = 0; j < i; j++) {\n            if (col[v[j]] == 0) a.emplace_back(v[j]);\n            else b.emplace_back(v[j]);\n        }\n        work(a, v[i]), work(b, v[i]);\n    }\n    vector<int> p, q;\n    for (int u = 1; u <= N; u++)\n        for (int v : e[u]) \n            if (u < v) p.emplace_back(u), q.emplace_back(v);\n    answer(p, q);\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -86,6 +1076,72 @@ const PROBLEMS_DATA = [
                     "计数"
                 ],
                 "source": ""
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1061f",
+        "title": "Lost Root",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1061F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1061F](https://www.luogu.com.cn/problem/CF1061F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 已知一棵 $n$ 个节点的满 $k$ 叉树，交互库隐藏了所有节点的标号。一次询问给出 $a,b,c$，交互库回答 $b$ 是否在 $a \\to c$ 的简单路径上。\n>\n> 找到根节点的标号。\n>\n> $n \\le 1500$，$2 \\le k < n$，满分询问次数 $60n$，交互库非自适应。\n\n:::::success[题解]\n注意到满 $k$ 叉树的直径中点一定是根节点。\n\n先考虑怎么找直径。我们发现直接随机两个点有 $\\frac{1}{2} \\times \\frac{1}{4}=\\frac{1}{8}$ 的概率找到直径。而且可以通过 $n-2$ 次询问知道路径上的节点，也就知道了路程长度。\n\n实际上直径的路径长可以通过 $n,k$ 算出来。故期望 $8$ 轮就能找到一条直径。\n\n剩下的事情是简单的，考虑枚举路径上的每一个点，计算该点到两个直径端点的距离，如果相等就找到了根。一个优化是，我们只取直径上的点就能找到路径长度。\n\n期望询问次数 $8n+2\\log^2 n $，足以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst double eps = 1e-6;\nbool ask(int a, int b, int c) {\n    cout << \"? \" << a << ' ' << b << ' ' << c << endl;\n    string s; cin >> s;\n    return s == \"Yes\";\n}\nvoid answer(int x) {cout << \"! \" << x << endl, exit(0);}\n\nint n, k;\nvector<int> path(int u, int v) {\n    vector<int> vec = {u, v};\n    for (int i = 1; i <= n; i++) {\n        if (i == u || i == v) continue;\n        if (ask(u, i, v)) vec.emplace_back(i);\n    } return vec;\n}\nint len(int u, int v) {return path(u, v).size();}\n\nvoid _main() {\n    cin >> n >> k;\n    int h = log(n * (k - 1) + 1) / log(k) - 1 + eps, u, v;\n    while (true) {\n        do u = rand32() % n + 1, v = rand32() % n + 1;\n        while (u == v);\n        if (len(u, v) == 2 * h + 1) break;\n    }\n    vector<int> vec = path(u, v);\n    for (int i : vec) {\n        if (i == u || i == v) continue;\n        int c1 = 0, c2 = 0;\n        for (int j : vec) {\n            if (ask(i, j, u)) c1++;\n            if (ask(i, j, v)) c2++;\n        }\n        if (c1 == c2) answer(i);\n    }\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1061F](https://www.luogu.com.cn/problem/CF1061F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 已知一棵 $n$ 个节点的满 $k$ 叉树，交互库隐藏了所有节点的标号。一次询问给出 $a,b,c$，交互库回答 $b$ 是否在 $a \\to c$ 的简单路径上。\n>\n> 找到根节点的标号。\n>\n> $n \\le 1500$，$2 \\le k < n$，满分询问次数 $60n$，交互库非自适应。\n\n:::::success[题解]\n注意到满 $k$ 叉树的直径中点一定是根节点。\n\n先考虑怎么找直径。我们发现直接随机两个点有 $\\frac{1}{2} \\times \\frac{1}{4}=\\frac{1}{8}$ 的概率找到直径。而且可以通过 $n-2$ 次询问知道路径上的节点，也就知道了路程长度。\n\n实际上直径的路径长可以通过 $n,k$ 算出来。故期望 $8$ 轮就能找到一条直径。\n\n剩下的事情是简单的，考虑枚举路径上的每一个点，计算该点到两个直径端点的距离，如果相等就找到了根。一个优化是，我们只取直径上的点就能找到路径长度。\n\n期望询问次数 $8n+2\\log^2 n $，足以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst double eps = 1e-6;\nbool ask(int a, int b, int c) {\n    cout << \"? \" << a << ' ' << b << ' ' << c << endl;\n    string s; cin >> s;\n    return s == \"Yes\";\n}\nvoid answer(int x) {cout << \"! \" << x << endl, exit(0);}\n\nint n, k;\nvector<int> path(int u, int v) {\n    vector<int> vec = {u, v};\n    for (int i = 1; i <= n; i++) {\n        if (i == u || i == v) continue;\n        if (ask(u, i, v)) vec.emplace_back(i);\n    } return vec;\n}\nint len(int u, int v) {return path(u, v).size();}\n\nvoid _main() {\n    cin >> n >> k;\n    int h = log(n * (k - 1) + 1) / log(k) - 1 + eps, u, v;\n    while (true) {\n        do u = rand32() % n + 1, v = rand32() % n + 1;\n        while (u == v);\n        if (len(u, v) == 2 * h + 1) break;\n    }\n    vector<int> vec = path(u, v);\n    for (int i : vec) {\n        if (i == u || i == v) continue;\n        int c1 = 0, c2 = 0;\n        for (int j : vec) {\n            if (ask(i, j, u)) c1++;\n            if (ask(i, j, v)) c2++;\n        }\n        if (c1 == c2) answer(i);\n    }\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1114e",
+        "title": "Arithmetic Progression",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1114E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1114E](https://www.luogu.com.cn/problem/CF1114E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个长为 $n$ 的序列 $a_i$，$a_i$ 在升序排序以后是一个等差数列。你可以向交互库提出如下两种询问：\n>\n> 1. 给出 $p$，查询 $a_p$。\n> 2. 给出 $x$，查询是否 $\\exists i, a_i > x$。\n>\n> 还原等差数列的首项和公差。\n>\n> $n \\le 10^6$，$0 \\le a_i \\le 10^9$，满分询问次数 $60$，交互库非自适应。\n\n:::::success[题解]\n操作二很容易想到猜数模型，所以我们二分最大值，操作次数 $\\log V=30$ 次。记最大值为 $m$。\n\n设公差为 $d$，此时我们发现一个性质：$\\forall i, d \\mid (m-a_i)$。这启示我们可以将剩下 $30$ 次单点询问用于确定 $d$，只需询问 $30$ 个 $a_i$ 取 $\\gcd$ 即可。\n\n本题中，我们随机取 $30$ 个 $a_i$，具有极高的正确率。通过一些数论方法可以证明这个东西的错误率在 $10^{-9}$ 左右，完全可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint n;\nint ask(int x) {\n    cout << \"? \" << x << endl;\n    int u; cin >> u;\n    return u;\n}\nbool query(int x) {\n    cout << \"> \" << x << endl;\n    int u; cin >> u;\n    return u;\n}\n\nvoid _main() {\n    cin >> n;\n    int l = 0, r = 1e9, mx = 0;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (query(mid)) l = mid + 1;\n        else mx = mid, r = mid - 1;\n    }\n    int T = 30, d = 0;\n    while (T--) {\n        int x = ask(rand32() % n + 1);\n        d = gcd(d, mx - x);\n    }\n    cout<< \"! \" << mx - (n - 1) * d << ' ' << d << endl;\n} s\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1114E](https://www.luogu.com.cn/problem/CF1114E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个长为 $n$ 的序列 $a_i$，$a_i$ 在升序排序以后是一个等差数列。你可以向交互库提出如下两种询问：\n>\n> 1. 给出 $p$，查询 $a_p$。\n> 2. 给出 $x$，查询是否 $\\exists i, a_i > x$。\n>\n> 还原等差数列的首项和公差。\n>\n> $n \\le 10^6$，$0 \\le a_i \\le 10^9$，满分询问次数 $60$，交互库非自适应。\n\n:::::success[题解]\n操作二很容易想到猜数模型，所以我们二分最大值，操作次数 $\\log V=30$ 次。记最大值为 $m$。\n\n设公差为 $d$，此时我们发现一个性质：$\\forall i, d \\mid (m-a_i)$。这启示我们可以将剩下 $30$ 次单点询问用于确定 $d$，只需询问 $30$ 个 $a_i$ 取 $\\gcd$ 即可。\n\n本题中，我们随机取 $30$ 个 $a_i$，具有极高的正确率。通过一些数论方法可以证明这个东西的错误率在 $10^{-9}$ 左右，完全可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint n;\nint ask(int x) {\n    cout << \"? \" << x << endl;\n    int u; cin >> u;\n    return u;\n}\nbool query(int x) {\n    cout << \"> \" << x << endl;\n    int u; cin >> u;\n    return u;\n}\n\nvoid _main() {\n    cin >> n;\n    int l = 0, r = 1e9, mx = 0;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (query(mid)) l = mid + 1;\n        else mx = mid, r = mid - 1;\n    }\n    int T = 30, d = 0;\n    while (T--) {\n        int x = ask(rand32() % n + 1);\n        d = gcd(d, mx - x);\n    }\n    cout<< \"! \" << mx - (n - 1) * d << ' ' << d << endl;\n} s\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -162,6 +1218,633 @@ const PROBLEMS_DATA = [
                     "异或"
                 ],
                 "source": ""
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1342e",
+        "title": "Placing Rooks",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1342E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1342E](https://www.luogu.com.cn/problem/CF1342E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,k$。你需要在 $n \\times n$ 的棋盘上放置 $n$ 个车，满足：\n>\n> - 所有空格子都能被至少一个车攻击。\n> - 恰好有 $k$ 对车可以互相攻击。\n>\n> 求合法方案数。\n>\n> $n \\le 2 \\times 10^5$，$k \\le \\binom{n}{2}$，2 秒，500 MB。\n\n:::::success[题解]\n\n注意到行列的地位相同，下文只对行的形态讨论，由对称性答案 $\\times 2$ 即可。\n\n**性质** 满足空格子都能被攻击，则每行恰有一个车。\n\n**证明** 反证法显然。\n\n进一步，恰有 $k$ 对车互相攻击，当且仅当 $n$ 个车恰好占据 $n-k$ 个不同列。可以从 $k=0$ 开始归纳证明。\n\n只要从 $n$ 个列中选出 $k$ 个，并将 $n$ 个有标号球放入 $n-k$ 个有标号盒子。答案为\n$$\n\\boxed{\\binom{n}{k} {n\\brace n-k} (n-k)!}\n$$\n若 $k>n$ 无解。注意特判 $k=0$ 的情形，答案为 $n!$。\n\n使用第二类斯特林数的通项公式，复杂度 $O(n \\log n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1342E](https://www.luogu.com.cn/problem/CF1342E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,k$。你需要在 $n \\times n$ 的棋盘上放置 $n$ 个车，满足：\n>\n> - 所有空格子都能被至少一个车攻击。\n> - 恰好有 $k$ 对车可以互相攻击。\n>\n> 求合法方案数。\n>\n> $n \\le 2 \\times 10^5$，$k \\le \\binom{n}{2}$，2 秒，500 MB。\n\n:::::success[题解]\n\n注意到行列的地位相同，下文只对行的形态讨论，由对称性答案 $\\times 2$ 即可。\n\n**性质** 满足空格子都能被攻击，则每行恰有一个车。\n\n**证明** 反证法显然。\n\n进一步，恰有 $k$ 对车互相攻击，当且仅当 $n$ 个车恰好占据 $n-k$ 个不同列。可以从 $k=0$ 开始归纳证明。\n\n只要从 $n$ 个列中选出 $k$ 个，并将 $n$ 个有标号球放入 $n-k$ 个有标号盒子。答案为\n$$\n\\boxed{\\binom{n}{k} {n\\brace n-k} (n-k)!}\n$$\n若 $k>n$ 无解。注意特判 $k=0$ 的情形，答案为 $n!$。\n\n使用第二类斯特林数的通项公式，复杂度 $O(n \\log n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1354g",
+        "title": "Find a Gift",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1354G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1354G](https://www.luogu.com.cn/problem/CF1354G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 现有 $n$ 个盒子，恰有 $k$ 个盒子中有礼物，其余盒子中只有石头。石头的重量相同，且严格大于所有类型的礼物。\n>\n> 你可以给出两个不交的下标集合 $S,T$，交互库比较 $S$ 中盒子的总重量和 $T$ 中盒子的总重量并返回。\n>\n> 找到标号最小的礼物盒。\n>\n> 多测，$\\sum n \\le 10^3$，$1 \\le k \\le \\textcolor{red}{\\frac{n}{2}}$，满分询问次数 $50$，交互库非自适应。\n\n:::::success[题解]\n\n注意到 $2k \\le n$ 且交互库非自适应，这意味着，我们随机一个位置，有 $\\frac{1}{2}$ 的概率得到石头。\n\n考虑随 $T$ 个位置两两比较，取重量最大的位置作为石头盒 $p$，错误率 $2^{-T}$。\n\n这样，我们将某个位置与 $p$ 进行比较，就能判定这个位置是否是礼物。特判位置 $1$ 是礼物后，考虑如下倍增：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/ok7v7w95.png)\n\n在第 $k$ 轮倍增时，我们已经认定前 $2^{k-1}$ 个盒子都是石头。如图对将 $[1,2^{k-1}]$ 与 $(2^{k-1},2^{k}]$ 进行比较，若二者不等，则石头必定在 $(2^{k-1},2^k]$ 中，否则继续倍增。询问次数 $\\log n$。\n\n找到石头所在的区间 $[l,r]$ 后，考虑二分答案 $m$，只要判定 $[l,m]$ 中是否有石头。这是简单的，我们取前 $m-l+1$ 个盒子与 $[l,m]$ 进行比较即可，正确性由倍增保证。\n\n综上，总询问次数 $2\\log n+T$，实现取 $T=25$ 稳定通过。\n\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint n, k;\n\nint ask(vector<int> a, vector<int> b) {\n    set<int> s(a.begin(), a.end()), c;\n    for (int i : b) if (s.count(i)) c.emplace(i); \n    vector<int> x, y;\n    for (int i : a) if (!c.count(i)) x.emplace_back(i);\n    for (int i : b) if (!c.count(i)) y.emplace_back(i);\n    if (x.empty()) return y.empty() ? 0 : -1;\n    if (y.empty()) return 1; \n    cout << \"? \" << x.size() << ' ' << y.size() << '\\n';\n    for (int i : x) cout << i << ' ';\n    cout << '\\n'; for (int i : y) cout << i << ' ';\n    cout << endl;\n    string r; cin >> r;\n    return r == \"FIRST\" ? 1 : r == \"SECOND\" ? -1 : 0;\n}\n\nvoid _main() {\n    cin >> n >> k;\n    int p = rand32() % n + 1;\n    for (int T = 25; T--; ) {\n        int q = rand32() % n + 1;\n        if (ask({p}, {q}) == -1) p = q;\n    }\n    if (p != 1 && ask({1}, {p}) == -1) \n        return cout << \"! \" << 1 << endl, void(); \n    auto check = [&](int l, int r) -> bool {\n        vector<int> x, y;\n        for (int i = 1; i <= r - l + 1; i++) x.emplace_back(i);\n        for (int i = l; i <= r; i++) y.emplace_back(i);\n        return ask(x, y) == 0;\n    };\n    int l = 2, len = 1, r = -1;\n    while (r <= n) {\n        r = l + len - 1;\n        if (r > n) {r = n; break;}\n        if (!check(l, r)) break;\n        l = r + 1, len *= 2;\n    }\n    int lo = l, hi = r, res = -1;\n    while (lo <= hi) {\n        int mid = (lo + hi) >> 1;\n        if (check(lo, mid)) lo = mid + 1;\n        else hi = mid - 1, res = mid;\n    }\n    cout << \"! \" << res << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1354G](https://www.luogu.com.cn/problem/CF1354G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 现有 $n$ 个盒子，恰有 $k$ 个盒子中有礼物，其余盒子中只有石头。石头的重量相同，且严格大于所有类型的礼物。\n>\n> 你可以给出两个不交的下标集合 $S,T$，交互库比较 $S$ 中盒子的总重量和 $T$ 中盒子的总重量并返回。\n>\n> 找到标号最小的礼物盒。\n>\n> 多测，$\\sum n \\le 10^3$，$1 \\le k \\le \\textcolor{red}{\\frac{n}{2}}$，满分询问次数 $50$，交互库非自适应。\n\n:::::success[题解]\n\n注意到 $2k \\le n$ 且交互库非自适应，这意味着，我们随机一个位置，有 $\\frac{1}{2}$ 的概率得到石头。\n\n考虑随 $T$ 个位置两两比较，取重量最大的位置作为石头盒 $p$，错误率 $2^{-T}$。\n\n这样，我们将某个位置与 $p$ 进行比较，就能判定这个位置是否是礼物。特判位置 $1$ 是礼物后，考虑如下倍增：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/ok7v7w95.png)\n\n在第 $k$ 轮倍增时，我们已经认定前 $2^{k-1}$ 个盒子都是石头。如图对将 $[1,2^{k-1}]$ 与 $(2^{k-1},2^{k}]$ 进行比较，若二者不等，则石头必定在 $(2^{k-1},2^k]$ 中，否则继续倍增。询问次数 $\\log n$。\n\n找到石头所在的区间 $[l,r]$ 后，考虑二分答案 $m$，只要判定 $[l,m]$ 中是否有石头。这是简单的，我们取前 $m-l+1$ 个盒子与 $[l,m]$ 进行比较即可，正确性由倍增保证。\n\n综上，总询问次数 $2\\log n+T$，实现取 $T=25$ 稳定通过。\n\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint n, k;\n\nint ask(vector<int> a, vector<int> b) {\n    set<int> s(a.begin(), a.end()), c;\n    for (int i : b) if (s.count(i)) c.emplace(i); \n    vector<int> x, y;\n    for (int i : a) if (!c.count(i)) x.emplace_back(i);\n    for (int i : b) if (!c.count(i)) y.emplace_back(i);\n    if (x.empty()) return y.empty() ? 0 : -1;\n    if (y.empty()) return 1; \n    cout << \"? \" << x.size() << ' ' << y.size() << '\\n';\n    for (int i : x) cout << i << ' ';\n    cout << '\\n'; for (int i : y) cout << i << ' ';\n    cout << endl;\n    string r; cin >> r;\n    return r == \"FIRST\" ? 1 : r == \"SECOND\" ? -1 : 0;\n}\n\nvoid _main() {\n    cin >> n >> k;\n    int p = rand32() % n + 1;\n    for (int T = 25; T--; ) {\n        int q = rand32() % n + 1;\n        if (ask({p}, {q}) == -1) p = q;\n    }\n    if (p != 1 && ask({1}, {p}) == -1) \n        return cout << \"! \" << 1 << endl, void(); \n    auto check = [&](int l, int r) -> bool {\n        vector<int> x, y;\n        for (int i = 1; i <= r - l + 1; i++) x.emplace_back(i);\n        for (int i = l; i <= r; i++) y.emplace_back(i);\n        return ask(x, y) == 0;\n    };\n    int l = 2, len = 1, r = -1;\n    while (r <= n) {\n        r = l + len - 1;\n        if (r > n) {r = n; break;}\n        if (!check(l, r)) break;\n        l = r + 1, len *= 2;\n    }\n    int lo = l, hi = r, res = -1;\n    while (lo <= hi) {\n        int mid = (lo + hi) >> 1;\n        if (check(lo, mid)) lo = mid + 1;\n        else hi = mid - 1, res = mid;\n    }\n    cout << \"! \" << res << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1365g",
+        "title": "Secure Password",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1365G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1365G](https://www.luogu.com.cn/problem/CF1365G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个序列 $a_i$，长度为 $n$。记 $\\text{OR}$ 为按位或，你可以给出一个集合 $S$，交互库返回 $\\text{OR}_{i \\in S} \\text{ }a_i$。\n>\n> 设序列 $b_i=\\text{OR}_{j \\ne i} \\text{ }a_j$，还原序列 $b_i$。\n>\n> $n \\le 10^3$，$0 \\le a_i < 2^{63}$，满分询问次数 $13$。\n\n:::::success[题解]\n首先，或运算有可重复贡献的性质，但是没有可减性，所以本题很难从运算本身还原序列。\n\n设每一轮询问的集合为 $S_1,S_2,\\cdots,S_k$，将问题转化为：构造一种询问方式，使得对于每个 $i$ 都可以选出若干集合，使得其并集为 $U \\setminus \\{i\\}$。由可重复贡献性可以说明正确性。\n\n考虑毒药模型。对于位置 $i$，将其拆成二进制后分组，然后对于二进制下第 $d$ 位为 $0/1$ 的位分别询问一次。这样 $b_i$ 即二进制取反后将对应答案组合的结果。\n\n上述做法的询问次数为 $2 \\log n$，无法通过。但是一个进步在于，我们只要找到一种编码方式，将位置 $i$ 映射为二进制数 $f(i)$，然后对 $f(i)$ 执行上面的操作即可。\n\n有一个精妙的构造：通过钦定 $\\text{popcount}$ 来编码。具体地，注意到 ${13 \\choose 6} > n$，因此找出 $[0,2^{13})$ 中 $\\text{popcount}=6$ 的所有二进制数，然后做上面的操作。询问次数就压到了 $13$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1005;\nu64 n, b[N];\nu64 ask(vector<int>& vec) {\n    if (vec.empty()) return 0;\n    cout << \"? \" << vec.size() << '\\n';\n    for (int i : vec) cout << i << ' ';\n    cout << endl;\n    u64 x; cin >> x;\n    return x;\n}\n\nvoid _main() {\n    cin >> n;\n    vector<int> x;\n    for (int s = 0; s < (1 << 13); s++) {\n        if (popcount(s) == 6) x.emplace_back(s);\n    }\n    for (int d = 0; d < 13; d++) {\n        vector<int> vec;\n        for (int i = 1; i <= n; i++) {\n            if (x[i] >> d & 1) vec.emplace_back(i);\n        }\n        u64 v = ask(vec);\n        for (int i = 1; i <= n; i++) {\n            if (!(x[i] >> d & 1)) b[i] |= v;\n        }\n    }\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << b[i] << ' ';\n    cout << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1365G](https://www.luogu.com.cn/problem/CF1365G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个序列 $a_i$，长度为 $n$。记 $\\text{OR}$ 为按位或，你可以给出一个集合 $S$，交互库返回 $\\text{OR}_{i \\in S} \\text{ }a_i$。\n>\n> 设序列 $b_i=\\text{OR}_{j \\ne i} \\text{ }a_j$，还原序列 $b_i$。\n>\n> $n \\le 10^3$，$0 \\le a_i < 2^{63}$，满分询问次数 $13$。\n\n:::::success[题解]\n首先，或运算有可重复贡献的性质，但是没有可减性，所以本题很难从运算本身还原序列。\n\n设每一轮询问的集合为 $S_1,S_2,\\cdots,S_k$，将问题转化为：构造一种询问方式，使得对于每个 $i$ 都可以选出若干集合，使得其并集为 $U \\setminus \\{i\\}$。由可重复贡献性可以说明正确性。\n\n考虑毒药模型。对于位置 $i$，将其拆成二进制后分组，然后对于二进制下第 $d$ 位为 $0/1$ 的位分别询问一次。这样 $b_i$ 即二进制取反后将对应答案组合的结果。\n\n上述做法的询问次数为 $2 \\log n$，无法通过。但是一个进步在于，我们只要找到一种编码方式，将位置 $i$ 映射为二进制数 $f(i)$，然后对 $f(i)$ 执行上面的操作即可。\n\n有一个精妙的构造：通过钦定 $\\text{popcount}$ 来编码。具体地，注意到 ${13 \\choose 6} > n$，因此找出 $[0,2^{13})$ 中 $\\text{popcount}=6$ 的所有二进制数，然后做上面的操作。询问次数就压到了 $13$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1005;\nu64 n, b[N];\nu64 ask(vector<int>& vec) {\n    if (vec.empty()) return 0;\n    cout << \"? \" << vec.size() << '\\n';\n    for (int i : vec) cout << i << ' ';\n    cout << endl;\n    u64 x; cin >> x;\n    return x;\n}\n\nvoid _main() {\n    cin >> n;\n    vector<int> x;\n    for (int s = 0; s < (1 << 13); s++) {\n        if (popcount(s) == 6) x.emplace_back(s);\n    }\n    for (int d = 0; d < 13; d++) {\n        vector<int> vec;\n        for (int i = 1; i <= n; i++) {\n            if (x[i] >> d & 1) vec.emplace_back(i);\n        }\n        u64 v = ask(vec);\n        for (int i = 1; i <= n; i++) {\n            if (!(x[i] >> d & 1)) b[i] |= v;\n        }\n    }\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << b[i] << ' ';\n    cout << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1375f",
+        "title": "Integer Game",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1375F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1375F](https://www.luogu.com.cn/problem/CF1375F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 现有一个游戏：初始时有三个正整数 $a,b,c$，且 $a,b,c$ 互不相同。\n>\n> 每一轮中，先手选择一个 $y$，后手需要选择一个正整数将其加上 $y$，并且不能连续两轮选择同一个数。如果 $a,b,c$ 中存在两个数相同，则后手失败。若 $10^3$ 轮后，后手仍然没有失败，则先手失败。\n>\n> 你需要与交互库博弈，并且可以自由选择先后手，请击败交互库。\n\n:::::success[题解]\n考虑一种必胜局面。不妨设 $a<b<c$，并假设上一轮后手操作了 $c$。此时先手给出一个 $y$ 使得 $a+y=b \\land b+y=c$，则先手胜。胜利条件即 $a,b,c$ 成等差数列。\n\n于是我们作为先手，尝试构造一个 $y$ 使得局面必然变成等差数列。观察对手的选择：\n\n- 若后手将 $y$ 加到 $a$ 上：新局面为 $b,c,a+y$，列方程 $a+y-c=c-b$ 得 $y=2c-b-a$。\n- 若后手将 $y$ 加到 $b$ 上：新局面为 $a,c,b+y$，列方程 $b+y-c=c-a$ 得 $y=2c-b-a$。\n\n于是我们给出 $y=2c-b-a$，如果后手加给 $a,b$ 就形成杀棋。\n\n那么后手只能加 $c$。此时我们再给出一个 $y$，后手就无法行动了，因为规则禁止加 $c$。这样我们在 $O(1)$ 步内即可战胜后手。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\n#define int long long\nint x[5];\nvoid _main() {\n    cin >> x[1] >> x[2] >> x[3];\n    cout << \"First\" << endl;\n    while (true) {\n        vector<int> y = {x[1], x[2], x[3]};\n        sort(y.begin(), y.end());\n        int a = y[0], b = y[1], c = y[2], d = 2 * c - b - a;\n        if (b - a == c - b) d = b - a;\n        cout << d << endl;\n        int p; cin >> p;\n        if (p == 0) break;\n        x[p] += d;\n    }\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1375F](https://www.luogu.com.cn/problem/CF1375F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 现有一个游戏：初始时有三个正整数 $a,b,c$，且 $a,b,c$ 互不相同。\n>\n> 每一轮中，先手选择一个 $y$，后手需要选择一个正整数将其加上 $y$，并且不能连续两轮选择同一个数。如果 $a,b,c$ 中存在两个数相同，则后手失败。若 $10^3$ 轮后，后手仍然没有失败，则先手失败。\n>\n> 你需要与交互库博弈，并且可以自由选择先后手，请击败交互库。\n\n:::::success[题解]\n考虑一种必胜局面。不妨设 $a<b<c$，并假设上一轮后手操作了 $c$。此时先手给出一个 $y$ 使得 $a+y=b \\land b+y=c$，则先手胜。胜利条件即 $a,b,c$ 成等差数列。\n\n于是我们作为先手，尝试构造一个 $y$ 使得局面必然变成等差数列。观察对手的选择：\n\n- 若后手将 $y$ 加到 $a$ 上：新局面为 $b,c,a+y$，列方程 $a+y-c=c-b$ 得 $y=2c-b-a$。\n- 若后手将 $y$ 加到 $b$ 上：新局面为 $a,c,b+y$，列方程 $b+y-c=c-a$ 得 $y=2c-b-a$。\n\n于是我们给出 $y=2c-b-a$，如果后手加给 $a,b$ 就形成杀棋。\n\n那么后手只能加 $c$。此时我们再给出一个 $y$，后手就无法行动了，因为规则禁止加 $c$。这样我们在 $O(1)$ 步内即可战胜后手。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\n#define int long long\nint x[5];\nvoid _main() {\n    cin >> x[1] >> x[2] >> x[3];\n    cout << \"First\" << endl;\n    while (true) {\n        vector<int> y = {x[1], x[2], x[3]};\n        sort(y.begin(), y.end());\n        int a = y[0], b = y[1], c = y[2], d = 2 * c - b - a;\n        if (b - a == c - b) d = b - a;\n        cout << d << endl;\n        int p; cin >> p;\n        if (p == 0) break;\n        x[p] += d;\n    }\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1438f",
+        "title": "Olha and Igor",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1438F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1438F](https://www.luogu.com.cn/problem/CF1438F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一棵高为 $h$ 的满二叉树，节点有标号且隐藏。一次询问给出 $u,v,w$，询问以 $w$ 为根时 $u,v$ 两点的 LCA 标号。\n>\n> 还原根节点的标号。\n>\n> $3 \\le h \\le 18$，满分询问次数 $\\le 2^h+419$，4 秒，250 MB。\n\n:::::success[题解]\n\n考虑随机 $u,v,w$ 并分析每个点作为 LCA 的概率。\n\n对于点 $x$，当且仅当 $u,v,w$ 分居 $x$ 的三棵子树时，$x$ 会被作为回答。粗略估计一下，忽略常数以后的概率是\n$$\np_x=\\dfrac{(2^{h-d})^2 (2^h-2^{h-d})}{(2^h)^3}\n$$\n其中 $d$ 是节点 $x$ 的深度，定义域 $d \\in [2,h)$。将上式展开\n$$\n\\begin{aligned}\np_x&=\\dfrac{(2^{h-d})^2 (2^h-2^{h-d})}{(2^h)^3}\\\\\n&= \\dfrac{2^{4h-3d}}{2^{3h}}\n\\end{aligned}\n$$\n可以发现 $p_x$ 关于 $d$ 单调减，且下降速度很快。\n\n考虑用 $420$ 次询问随机 $u,v,w$，并取出最大和次大，这两个点有极大概率是根的左右儿子。确定左右儿子以后是简单的，枚举每个点，以一个儿子定根去询问即可。\n\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 3e5 + 5;\nint ask(int u, int v, int w) {\n    cout << \"? \" << u << ' ' << v << ' ' << w << endl;\n    int x; cin >> x;\n    return x;\n}\nvoid answer(int x) {\n    cout << \"! \" << x << endl;\n    exit(0);\n}\nint h, n, cnt[N], p[N];\n\nvoid _main() {\n    cin >> h; n = (1 << h) - 1;\n    for (int T = 420; T--; ) {\n        int u, v, w;\n        do u = rand32() % n + 1, v = rand32() % n + 1, w = rand32() % n + 1;\n        while (u == v || u == w || v == w);\n        cnt[ask(u, v, w)]++;\n    }\n    iota(p + 1, p + n + 1, 1);\n    sort(p + 1, p + n + 1, [](int u, int v) -> bool {\n        return cnt[u] > cnt[v];\n    });\n    int x = p[1], y = p[2];\n    for (int i = 1; i <= n; i++) {\n        if (i == x || i == y) continue;\n        if (ask(y, i, x) == i) answer(i);\n    }\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1438F](https://www.luogu.com.cn/problem/CF1438F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一棵高为 $h$ 的满二叉树，节点有标号且隐藏。一次询问给出 $u,v,w$，询问以 $w$ 为根时 $u,v$ 两点的 LCA 标号。\n>\n> 还原根节点的标号。\n>\n> $3 \\le h \\le 18$，满分询问次数 $\\le 2^h+419$，4 秒，250 MB。\n\n:::::success[题解]\n\n考虑随机 $u,v,w$ 并分析每个点作为 LCA 的概率。\n\n对于点 $x$，当且仅当 $u,v,w$ 分居 $x$ 的三棵子树时，$x$ 会被作为回答。粗略估计一下，忽略常数以后的概率是\n$$\np_x=\\dfrac{(2^{h-d})^2 (2^h-2^{h-d})}{(2^h)^3}\n$$\n其中 $d$ 是节点 $x$ 的深度，定义域 $d \\in [2,h)$。将上式展开\n$$\n\\begin{aligned}\np_x&=\\dfrac{(2^{h-d})^2 (2^h-2^{h-d})}{(2^h)^3}\\\\\n&= \\dfrac{2^{4h-3d}}{2^{3h}}\n\\end{aligned}\n$$\n可以发现 $p_x$ 关于 $d$ 单调减，且下降速度很快。\n\n考虑用 $420$ 次询问随机 $u,v,w$，并取出最大和次大，这两个点有极大概率是根的左右儿子。确定左右儿子以后是简单的，枚举每个点，以一个儿子定根去询问即可。\n\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 3e5 + 5;\nint ask(int u, int v, int w) {\n    cout << \"? \" << u << ' ' << v << ' ' << w << endl;\n    int x; cin >> x;\n    return x;\n}\nvoid answer(int x) {\n    cout << \"! \" << x << endl;\n    exit(0);\n}\nint h, n, cnt[N], p[N];\n\nvoid _main() {\n    cin >> h; n = (1 << h) - 1;\n    for (int T = 420; T--; ) {\n        int u, v, w;\n        do u = rand32() % n + 1, v = rand32() % n + 1, w = rand32() % n + 1;\n        while (u == v || u == w || v == w);\n        cnt[ask(u, v, w)]++;\n    }\n    iota(p + 1, p + n + 1, 1);\n    sort(p + 1, p + n + 1, [](int u, int v) -> bool {\n        return cnt[u] > cnt[v];\n    });\n    int x = p[1], y = p[2];\n    for (int i = 1; i <= n; i++) {\n        if (i == x || i == y) continue;\n        if (ask(y, i, x) == i) answer(i);\n    }\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1485f",
+        "title": "Copy or Prefix Sum",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1485F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1485F](https://www.luogu.com.cn/problem/CF1485F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $b_i$。计数序列 $a_1 \\sim a_n$ 满足：\n>\n> - $\\forall i \\in [1,n], b_i=a_i$ 或 $b_i=\\sum \\limits_{k=1}^i a_k$。\n>\n> 多测，$\\sum n \\le 2 \\times 10^5$，$|b_i| \\le 10^9$，2 秒，250 MB。\n\n:::::success[题解]\n\n容易列得朴素 DP：\n\n- 设 $f_{i,j}$ 为满足下列条件的方案数：\n\n  - 仅考虑 $a_1 \\sim a_i$。\n  - $\\sum \\limits_{k=1}^i a_k=j$。\n\n- 转移枚举 $a_{i+1}$ 的取值。\n\n  - 取 $b_{i+1}=a_{i+1}$，转移 $f_{i,j} \\to f_{i+1,j+b_{i+1}}$。\n  - 取 $b_{i+1}=\\sum \\limits_{k=1}^{i+1} a_k$，转移 $f_{i,j} \\to f_{i+1,b_{i+1}}$。\n\n  注意特判转移重叠的情形。\n\n- DP 初值为 $f_{0,0}=1$。\n\n- 答案为 $\\sum \\limits_{j} f_{n,j}$。\n\n对 $f$ 滚动数组，考察上述转移：\n\n- $f_{j} \\to f'_{j+b_{i+1}}$ 是全局平移。\n- $f_j\\to f'_{b_{i+1}}$ 是总和对单点加法。\n\n用哈希表维护 $f$ 数组，记录偏移量与 $\\sum f$ 即可。复杂度 $O(n \\log n)$。[代码](https://www.luogu.com.cn/article/juk9r4qy)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1485F](https://www.luogu.com.cn/problem/CF1485F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $b_i$。计数序列 $a_1 \\sim a_n$ 满足：\n>\n> - $\\forall i \\in [1,n], b_i=a_i$ 或 $b_i=\\sum \\limits_{k=1}^i a_k$。\n>\n> 多测，$\\sum n \\le 2 \\times 10^5$，$|b_i| \\le 10^9$，2 秒，250 MB。\n\n:::::success[题解]\n\n容易列得朴素 DP：\n\n- 设 $f_{i,j}$ 为满足下列条件的方案数：\n\n  - 仅考虑 $a_1 \\sim a_i$。\n  - $\\sum \\limits_{k=1}^i a_k=j$。\n\n- 转移枚举 $a_{i+1}$ 的取值。\n\n  - 取 $b_{i+1}=a_{i+1}$，转移 $f_{i,j} \\to f_{i+1,j+b_{i+1}}$。\n  - 取 $b_{i+1}=\\sum \\limits_{k=1}^{i+1} a_k$，转移 $f_{i,j} \\to f_{i+1,b_{i+1}}$。\n\n  注意特判转移重叠的情形。\n\n- DP 初值为 $f_{0,0}=1$。\n\n- 答案为 $\\sum \\limits_{j} f_{n,j}$。\n\n对 $f$ 滚动数组，考察上述转移：\n\n- $f_{j} \\to f'_{j+b_{i+1}}$ 是全局平移。\n- $f_j\\to f'_{b_{i+1}}$ 是总和对单点加法。\n\n用哈希表维护 $f$ 数组，记录偏移量与 $\\sum f$ 即可。复杂度 $O(n \\log n)$。[代码](https://www.luogu.com.cn/article/juk9r4qy)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1503b",
+        "title": "3-Coloring",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1503B",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1503B](https://www.luogu.com.cn/problem/CF1503B)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 现有一个 $n \\times n$ 的网格和无限多的 $1,2,3$。\n>\n> 你需要与交互库博弈。每一轮交互库选择一个 $a \\in [1,3]$，则你需要给出一个 $b \\ne a$，然后选择一个空格子放置一个 $b$。\n>\n> 如果存在相邻两个格子放有相同数，则交互库胜利。否则 $n^2$ 轮后网格被填满，玩家胜利。你需要扮演玩家并战胜交互库。\n>\n> $n \\le 100$。\n\n::::::success[题解]\n集合划分 + 网格图，考虑黑白染色 trick。将点染色以后可以划分为两个集合 $S,T$。\n\n- 若交互库给出 $a=2$，则选择 $S$ 中任意点染 $1$，或者选择 $T$ 中任意点染 $3$。\n- 若交互库给出 $a=1$，则选择 $T$ 中任意点染 $3$，如果用光就选择 $S$ 中任意点染 $2$。\n- 若交互库给出 $a=3$，则选择 $S$ 中任意点染 $1$，如果用光就选择 $T$ 中任意点染 $2$。\n\n用两个队列存 $S,T$，复杂度 $O(n^2)$。\n\n::::::\n\n::::info[代码]\n\n```cpp line-numbers\nint n;\nqueue<pair<int, int>> s, t;\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) {\n            if ((i + j) & 1) s.emplace(i, j);\n            else t.emplace(i, j);\n        }\n    }\n    for (int i = 1; i <= n * n; i++) {\n        int a; cin >> a;\n        if (a == 2) {\n            if (s.empty()) {\n                auto [x, y] = t.front(); t.pop();\n                cout << 3 << ' ' << x << ' ' << y << endl;\n            } else {\n                auto [x, y] = s.front(); s.pop();\n                cout << 1 << ' ' << x << ' ' << y << endl;\n            }\n        } else if (a == 1) {\n            if (t.empty()) {\n                auto [x, y] = s.front(); s.pop();\n                cout << 2 << ' ' << x << ' ' << y << endl;\n            } else {\n                auto [x, y] = t.front(); t.pop();\n                cout << 3 << ' ' << x << ' ' << y << endl;\n            }\n        } else {\n            if (s.empty()) {\n                auto [x, y] = t.front(); t.pop();\n                cout << 2 << ' ' << x << ' ' << y << endl;\n            } else {\n                auto [x, y] = s.front(); s.pop();\n                cout << 1 << ' ' << x << ' ' << y << endl;\n            }\n        }\n    }\n} \n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1503B](https://www.luogu.com.cn/problem/CF1503B)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 现有一个 $n \\times n$ 的网格和无限多的 $1,2,3$。\n>\n> 你需要与交互库博弈。每一轮交互库选择一个 $a \\in [1,3]$，则你需要给出一个 $b \\ne a$，然后选择一个空格子放置一个 $b$。\n>\n> 如果存在相邻两个格子放有相同数，则交互库胜利。否则 $n^2$ 轮后网格被填满，玩家胜利。你需要扮演玩家并战胜交互库。\n>\n> $n \\le 100$。\n\n::::::success[题解]\n集合划分 + 网格图，考虑黑白染色 trick。将点染色以后可以划分为两个集合 $S,T$。\n\n- 若交互库给出 $a=2$，则选择 $S$ 中任意点染 $1$，或者选择 $T$ 中任意点染 $3$。\n- 若交互库给出 $a=1$，则选择 $T$ 中任意点染 $3$，如果用光就选择 $S$ 中任意点染 $2$。\n- 若交互库给出 $a=3$，则选择 $S$ 中任意点染 $1$，如果用光就选择 $T$ 中任意点染 $2$。\n\n用两个队列存 $S,T$，复杂度 $O(n^2)$。\n\n::::::\n\n::::info[代码]\n\n```cpp line-numbers\nint n;\nqueue<pair<int, int>> s, t;\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) {\n            if ((i + j) & 1) s.emplace(i, j);\n            else t.emplace(i, j);\n        }\n    }\n    for (int i = 1; i <= n * n; i++) {\n        int a; cin >> a;\n        if (a == 2) {\n            if (s.empty()) {\n                auto [x, y] = t.front(); t.pop();\n                cout << 3 << ' ' << x << ' ' << y << endl;\n            } else {\n                auto [x, y] = s.front(); s.pop();\n                cout << 1 << ' ' << x << ' ' << y << endl;\n            }\n        } else if (a == 1) {\n            if (t.empty()) {\n                auto [x, y] = s.front(); s.pop();\n                cout << 2 << ' ' << x << ' ' << y << endl;\n            } else {\n                auto [x, y] = t.front(); t.pop();\n                cout << 3 << ' ' << x << ' ' << y << endl;\n            }\n        } else {\n            if (s.empty()) {\n                auto [x, y] = t.front(); t.pop();\n                cout << 2 << ' ' << x << ' ' << y << endl;\n            } else {\n                auto [x, y] = s.front(); s.pop();\n                cout << 1 << ' ' << x << ' ' << y << endl;\n            }\n        }\n    }\n} \n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1534d",
+        "title": "Lost Tree",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1534D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1534D](https://www.luogu.com.cn/problem/CF1534D)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个大小为 $n$ 的树。你可以给出 $u$，向交互库询问 $u$ 到所有点的距离。\n>\n> 还原这棵树。\n>\n> $n \\le 2 \\times 10^3$，满分询问次数 $\\lceil n/2\\rceil$。\n\n:::::success[题解]\n钦定 $1$ 号点为根，则可以通过一次询问得到所有点的深度。\n\n注意到询问次数与 $n/2$ 有关，考虑将树按照深度黑白染色。\n\n这样一来，深度为奇 / 偶的点的数目总有一个在 $n/2$ 以内。我们将这些点全部询问一次即可得到答案。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 2005;\nint n, a[N], d[N];\nvector<int> e[N];\nvoid add(int u, int v) {e[u].emplace_back(v), e[v].emplace_back(u);}\nvoid ask(int x) {\n    cout << \"? \" << x << endl;\n    for (int i = 1; i <= n; i++) cin >> a[i];\n}\nvoid dfs(int u, int fa) {\n    sort(e[u].begin(), e[u].end()), e[u].erase(unique(e[u].begin(), e[u].end()), e[u].end());\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        cout << u << ' ' << v << '\\n';\n        dfs(v, u);\n    }\n}\n\nvoid _main() {\n    cin >> n, ask(1);\n    int cnt = 0;\n    for (int i = 1; i <= n; i++) cnt += a[i] & 1;\n    copy(a + 1, a + n + 1, d + 1);\n    if (2 * cnt < n) {\n        for (int u = 2; u <= n; u++) {\n            if (!(d[u] & 1)) continue;\n            ask(u);\n            for (int v = 1; v <= n; v++) {\n                if (a[v] == 1) add(u, v);\n            }\n        }\n    } else {\n        for (int i = 1; i <= n; i++) {\n            if (d[i] == 1) add(1, i);\n        }\n        for (int u = 2; u <= n; u++) {\n            if (d[u] & 1) continue;\n            ask(u);\n            for (int v = 1; v <= n; v++) {\n                if (a[v] == 1) add(u, v);\n            }\n        }\n    }\n    cout << \"!\\n\", dfs(1, -1), cout << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1534D](https://www.luogu.com.cn/problem/CF1534D)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个大小为 $n$ 的树。你可以给出 $u$，向交互库询问 $u$ 到所有点的距离。\n>\n> 还原这棵树。\n>\n> $n \\le 2 \\times 10^3$，满分询问次数 $\\lceil n/2\\rceil$。\n\n:::::success[题解]\n钦定 $1$ 号点为根，则可以通过一次询问得到所有点的深度。\n\n注意到询问次数与 $n/2$ 有关，考虑将树按照深度黑白染色。\n\n这样一来，深度为奇 / 偶的点的数目总有一个在 $n/2$ 以内。我们将这些点全部询问一次即可得到答案。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 2005;\nint n, a[N], d[N];\nvector<int> e[N];\nvoid add(int u, int v) {e[u].emplace_back(v), e[v].emplace_back(u);}\nvoid ask(int x) {\n    cout << \"? \" << x << endl;\n    for (int i = 1; i <= n; i++) cin >> a[i];\n}\nvoid dfs(int u, int fa) {\n    sort(e[u].begin(), e[u].end()), e[u].erase(unique(e[u].begin(), e[u].end()), e[u].end());\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        cout << u << ' ' << v << '\\n';\n        dfs(v, u);\n    }\n}\n\nvoid _main() {\n    cin >> n, ask(1);\n    int cnt = 0;\n    for (int i = 1; i <= n; i++) cnt += a[i] & 1;\n    copy(a + 1, a + n + 1, d + 1);\n    if (2 * cnt < n) {\n        for (int u = 2; u <= n; u++) {\n            if (!(d[u] & 1)) continue;\n            ask(u);\n            for (int v = 1; v <= n; v++) {\n                if (a[v] == 1) add(u, v);\n            }\n        }\n    } else {\n        for (int i = 1; i <= n; i++) {\n            if (d[i] == 1) add(1, i);\n        }\n        for (int u = 2; u <= n; u++) {\n            if (d[u] & 1) continue;\n            ask(u);\n            for (int v = 1; v <= n; v++) {\n                if (a[v] == 1) add(u, v);\n            }\n        }\n    }\n    cout << \"!\\n\", dfs(1, -1), cout << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1583d",
+        "title": "Omkar and the Meaning of Life",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1583D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1583D](https://www.luogu.com.cn/problem/CF1583D)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以给出数组 $a_1,a_2,\\cdots,a_n$，满足 $a_i \\in [1,n]$。交互库得到数组 $b_i=a_i+p_i$，然后找到最小的 $k$ 满足 $b_k$ 在 $b$ 中出现一次，并将 $k$ 返回你的程序，若不存在返回 $0$。\n>\n> 还原这个排列。\n>\n> $n \\le 100$，满分询问次数 $2n$。\n\n:::::success[题解：$2n-2$ 次询问]\n由于次数是 $2n$，我们考虑先用 $n$ 次询问确定一个位置，然后再递推确定剩余位置。\n\n假设我们要确定位置 $i$，则令 $a_i \\gets n$，交互库即得到 $b_i=p_i+n$。我们枚举 $v \\in [1,n)$，并令 $a_j \\gets v, j \\ne i$，那么交互库得到 $b_j=p_i+v$。\n\n- 若 $p_i \\ne n$，那么如果我们猜中了 $p_i=v$，排列必然有一个位置满足 $p_j=n$，所以在枚举到这个 $v$ 时就得到答案。\n- 若 $p_i=n$，则将所有 $v$ 问完都没有答案。\n\n因为交互库返回的是 $k_{\\min}$，我们应该先确定 $p_n$，否则后面的情况无法确定。\n\n我们考虑确定 $v$ 的位置，那么只需令 $a$ 形如 $[n+1-v,n+1-v,\\cdots,n+1-v,n+1-p_i]$，询问结果就是 $v$ 的下标，读者自证不难。\n\n稍微卡一下无效询问，询问次数不超过 $2n-2$。\n\n:::::\n\n::::info[代码]\n\n```cpp line-numbers\nconst int N = 105;\nint n, a[N], p[N];\nint ask() {\n    cout << \"? \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n    int x; return cin >> x, x;\n}\nvoid answer() {\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << p[i] << ' ';\n    cout << endl, exit(0);\n}\n\nvoid _main() {\n    cin >> n, p[n] = n;\n    for (int v = 1; v < n; v++) {\n        fill(a + 1, a + n, v), a[n] = n;\n        int x = ask();\n        if (x != 0) {p[n] = v; break;}\n    }\n    for (int v = 1; v <= n; v++) {\n        if (p[n] == v) continue;\n        fill(a + 1, a + n, n + 1 - v), a[n] = n + 1 - p[n];\n        int x = ask(); p[x] = v;\n    }\n    answer();\n} \n```\n\n::::\n\n::::::success[题解：$n$ 次询问]\n我们考虑在第一阶段直接求出 $\\ge p_n$ 的所有数。这里我们换一个更好的构造方式：令 $a=[1,1,\\cdots,1+v]$。\n\n- 对于 $i<n$，有 $b_i=p_i+1$。\n- 对于 $i=n$，有 $b_n=p_n+v+1$。\n\n如果交互库返回的 $k \\ne 0$，可得 $p_k+1=p_n+v+1$，得 $p_k=p_n+v$。反之我们有 $p_n=n-v+1$。\n\n完成第一阶段后，我们求出 $<p_n$ 的所有元素。仍然枚举 $v$ 并确定其位置，令 $a=[1+v,1+v,\\cdots,1+v,1]$ 即可，得到一个 $k$。同理得 $p_k=p_n-v$。\n\n询问次数严格 $n$ 次。\n::::::\n\n::::info[代码]\n\n```cpp line-numbers\nconst int N = 105;\nint n, a[N], p[N];\nint ask() {\n    cout << \"? \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n    int x; return cin >> x, x;\n}\nvoid answer() {\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << p[i] << ' ';\n    cout << endl, exit(0);\n}\n\nvoid _main() {\n    cin >> n, p[n] = 1;\n    for (int v = 1; v < n; v++) {\n        fill(a + 1, a + n, 1), a[n] = 1 + v;\n        int k = ask();\n        if (k == 0) {\n            p[n] = n - v + 1;\n            break;\n        } \n        p[k] = v;\n    }\n    for (int i = 1; i < n; i++) {\n        if (p[i] > 0) p[i] += p[n];\n    } \n    for (int v = 1; v < p[n]; v++) {\n        fill(a + 1, a + n, 1 + v), a[n] = 1;\n        int k = ask(); p[k] = p[n] - v;\n    }\n    answer();\n} \n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1583D](https://www.luogu.com.cn/problem/CF1583D)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以给出数组 $a_1,a_2,\\cdots,a_n$，满足 $a_i \\in [1,n]$。交互库得到数组 $b_i=a_i+p_i$，然后找到最小的 $k$ 满足 $b_k$ 在 $b$ 中出现一次，并将 $k$ 返回你的程序，若不存在返回 $0$。\n>\n> 还原这个排列。\n>\n> $n \\le 100$，满分询问次数 $2n$。\n\n:::::success[题解：$2n-2$ 次询问]\n由于次数是 $2n$，我们考虑先用 $n$ 次询问确定一个位置，然后再递推确定剩余位置。\n\n假设我们要确定位置 $i$，则令 $a_i \\gets n$，交互库即得到 $b_i=p_i+n$。我们枚举 $v \\in [1,n)$，并令 $a_j \\gets v, j \\ne i$，那么交互库得到 $b_j=p_i+v$。\n\n- 若 $p_i \\ne n$，那么如果我们猜中了 $p_i=v$，排列必然有一个位置满足 $p_j=n$，所以在枚举到这个 $v$ 时就得到答案。\n- 若 $p_i=n$，则将所有 $v$ 问完都没有答案。\n\n因为交互库返回的是 $k_{\\min}$，我们应该先确定 $p_n$，否则后面的情况无法确定。\n\n我们考虑确定 $v$ 的位置，那么只需令 $a$ 形如 $[n+1-v,n+1-v,\\cdots,n+1-v,n+1-p_i]$，询问结果就是 $v$ 的下标，读者自证不难。\n\n稍微卡一下无效询问，询问次数不超过 $2n-2$。\n\n:::::\n\n::::info[代码]\n\n```cpp line-numbers\nconst int N = 105;\nint n, a[N], p[N];\nint ask() {\n    cout << \"? \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n    int x; return cin >> x, x;\n}\nvoid answer() {\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << p[i] << ' ';\n    cout << endl, exit(0);\n}\n\nvoid _main() {\n    cin >> n, p[n] = n;\n    for (int v = 1; v < n; v++) {\n        fill(a + 1, a + n, v), a[n] = n;\n        int x = ask();\n        if (x != 0) {p[n] = v; break;}\n    }\n    for (int v = 1; v <= n; v++) {\n        if (p[n] == v) continue;\n        fill(a + 1, a + n, n + 1 - v), a[n] = n + 1 - p[n];\n        int x = ask(); p[x] = v;\n    }\n    answer();\n} \n```\n\n::::\n\n::::::success[题解：$n$ 次询问]\n我们考虑在第一阶段直接求出 $\\ge p_n$ 的所有数。这里我们换一个更好的构造方式：令 $a=[1,1,\\cdots,1+v]$。\n\n- 对于 $i<n$，有 $b_i=p_i+1$。\n- 对于 $i=n$，有 $b_n=p_n+v+1$。\n\n如果交互库返回的 $k \\ne 0$，可得 $p_k+1=p_n+v+1$，得 $p_k=p_n+v$。反之我们有 $p_n=n-v+1$。\n\n完成第一阶段后，我们求出 $<p_n$ 的所有元素。仍然枚举 $v$ 并确定其位置，令 $a=[1+v,1+v,\\cdots,1+v,1]$ 即可，得到一个 $k$。同理得 $p_k=p_n-v$。\n\n询问次数严格 $n$ 次。\n::::::\n\n::::info[代码]\n\n```cpp line-numbers\nconst int N = 105;\nint n, a[N], p[N];\nint ask() {\n    cout << \"? \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n    int x; return cin >> x, x;\n}\nvoid answer() {\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << p[i] << ' ';\n    cout << endl, exit(0);\n}\n\nvoid _main() {\n    cin >> n, p[n] = 1;\n    for (int v = 1; v < n; v++) {\n        fill(a + 1, a + n, 1), a[n] = 1 + v;\n        int k = ask();\n        if (k == 0) {\n            p[n] = n - v + 1;\n            break;\n        } \n        p[k] = v;\n    }\n    for (int i = 1; i < n; i++) {\n        if (p[i] > 0) p[i] += p[n];\n    } \n    for (int v = 1; v < p[n]; v++) {\n        fill(a + 1, a + n, 1 + v), a[n] = 1;\n        int k = ask(); p[k] = p[n] - v;\n    }\n    answer();\n} \n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1620g",
+        "title": "Subsequences Galore",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1620G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1620G](https://www.luogu.com.cn/problem/CF1620G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个字符串 $A_i$，保证字符集为 $\\tt{a \\sim z}$，且 $A_i$ 内部每个字符按照字符集顺序升序排列。\n>\n> 对 $S \\subseteq \\{1,2,\\cdots,n\\}$，记 $f(S)$ 为 $\\exists x \\in S, B$ 是 $A_x$ 的子序列的本质不同字符串 $B$ 的数目。对每个 $S$ 求出 $f(S)$。\n>\n> $n \\le 23$，$|A_i | \\le 2 \\times 10^4$，10 秒，1000 MB。\n\n:::::success[题解]\n\n设 $g(S)$ 为 $\\forall x \\in S,B$ 是 $A_x$ 的子序列的本质不同字符串 $B$ 的数目。$g$ 的组合意义是钦定至少。\n\n考察 $g$ 的计算方法。由于每个字符串形如 $\\tt{aa\\cdots abb \\cdots b\\cdots zz \\cdots z}$，设 $\\text{cnt}(S,c)$ 为字符串 $S$ 中字符 $c$ 的出现次数，则 $B$ 是 $A_i$ 子序列的充要条件是 $\\forall c\\in \\Sigma, \\text{cnt}(B,c) \\le \\text{cnt}(A_i,c)$。 从而 $g$ 由乘法原理合并得\n$$\ng(S)=\\prod_{c\\in \\Sigma} \\left(1+\\min_{i \\in S} \\text{cnt}(A_i,c)\\right)\n$$\n朴素计算 $g$ 是 $O(|\\Sigma| n2^n)$ 的。设\n$$\n\\begin{aligned}\ng_c(S)&=1+\\min_{i \\in S} \\text{cnt}(A_i,c)\\\\\ng(S)&=\\prod_{c \\in \\Sigma} g_c(S)\n\\end{aligned}\n$$\n此时 $g_c$ 可以通过排除特殊元素的方法进行转移\n$$\ng_c(S)=\\min(g_c(S \\setminus \\{x\\}), 1+\\text{cnt}(A_x,c)), x =\\min S\n$$\n边界 $g_c(\\varnothing)=+\\infty$，优化到 $O(|\\Sigma| 2^n)$。\n\n$g \\to f$ 的转化只要枚举 $T \\subseteq S$，容斥系数 $(-1)^{|T|-1}$。形式化地\n$$\nf(S)=\\sum_{T \\subseteq S} (-1)^{|T|-1} g(T)\n$$\n\n记 $g_0(T)=(-1)^{|T|-1} g(T)$，对 $G_0$ 做一个高维前缀和得到 $F$ 即可。\n\n复杂度 $O(nL+|\\Sigma| 2^n+n2^n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1620G](https://www.luogu.com.cn/problem/CF1620G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个字符串 $A_i$，保证字符集为 $\\tt{a \\sim z}$，且 $A_i$ 内部每个字符按照字符集顺序升序排列。\n>\n> 对 $S \\subseteq \\{1,2,\\cdots,n\\}$，记 $f(S)$ 为 $\\exists x \\in S, B$ 是 $A_x$ 的子序列的本质不同字符串 $B$ 的数目。对每个 $S$ 求出 $f(S)$。\n>\n> $n \\le 23$，$|A_i | \\le 2 \\times 10^4$，10 秒，1000 MB。\n\n:::::success[题解]\n\n设 $g(S)$ 为 $\\forall x \\in S,B$ 是 $A_x$ 的子序列的本质不同字符串 $B$ 的数目。$g$ 的组合意义是钦定至少。\n\n考察 $g$ 的计算方法。由于每个字符串形如 $\\tt{aa\\cdots abb \\cdots b\\cdots zz \\cdots z}$，设 $\\text{cnt}(S,c)$ 为字符串 $S$ 中字符 $c$ 的出现次数，则 $B$ 是 $A_i$ 子序列的充要条件是 $\\forall c\\in \\Sigma, \\text{cnt}(B,c) \\le \\text{cnt}(A_i,c)$。 从而 $g$ 由乘法原理合并得\n$$\ng(S)=\\prod_{c\\in \\Sigma} \\left(1+\\min_{i \\in S} \\text{cnt}(A_i,c)\\right)\n$$\n朴素计算 $g$ 是 $O(|\\Sigma| n2^n)$ 的。设\n$$\n\\begin{aligned}\ng_c(S)&=1+\\min_{i \\in S} \\text{cnt}(A_i,c)\\\\\ng(S)&=\\prod_{c \\in \\Sigma} g_c(S)\n\\end{aligned}\n$$\n此时 $g_c$ 可以通过排除特殊元素的方法进行转移\n$$\ng_c(S)=\\min(g_c(S \\setminus \\{x\\}), 1+\\text{cnt}(A_x,c)), x =\\min S\n$$\n边界 $g_c(\\varnothing)=+\\infty$，优化到 $O(|\\Sigma| 2^n)$。\n\n$g \\to f$ 的转化只要枚举 $T \\subseteq S$，容斥系数 $(-1)^{|T|-1}$。形式化地\n$$\nf(S)=\\sum_{T \\subseteq S} (-1)^{|T|-1} g(T)\n$$\n\n记 $g_0(T)=(-1)^{|T|-1} g(T)$，对 $G_0$ 做一个高维前缀和得到 $F$ 即可。\n\n复杂度 $O(nL+|\\Sigma| 2^n+n2^n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1762d",
+        "title": "GCD Queries",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1762D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1762D](https://www.luogu.com.cn/problem/CF1762D)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个 $0 \\sim n-1$ 的排列 $a_i$。你可以给出 $i,j$，向交互库询问 $\\gcd(i,j)$。\n>\n> 找到两个位置 $x,y$，使得 $a_x =0\\lor a_y=0$ 成立。\n>\n> 多测，$\\sum n \\le 2 \\times 10^4$，满分询问次数 $2n$，交互库非自适应。\n\n:::::success[题解]\n增量法。由 $\\gcd(0,x)=x$，我们考虑三个数 $a,b,c$ 并询问 $\\gcd(a,b),\\gcd(a,c)$：\n\n- 若 $\\gcd(a,b)=\\gcd(a,c)$，则 $a \\ne 0$；\n- 若 $\\gcd(a,b)<\\gcd(b,c)$，则 $b \\ne 0$；\n- 若 $\\gcd(a,b)>\\gcd(b,c)$，则 $c \\ne 0$。\n\n维护候选集合 $S$，加入一个数使用上述方法排除，直到剩下的 $|S|=2$ 即可。询问次数 $2n-4$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint n;\nint ask(int i, int j) {\n    cout << \"? \" << i << ' ' << j << endl;\n    int x; cin >> x;\n    return x;\n}\nvoid answer(int i, int j) {\n    cout << \"! \" << i << ' ' << j << endl;\n    int x; cin >> x;\n}\n\nvoid _main() {\n    cin >> n;\n    deque<int> q = {1, 2};\n    for (int i = 3; i <= n; i++) {\n        int x = ask(q[0], q[1]), y = ask(q[0], i);\n        if (x == y) q.pop_front(), q.emplace_back(i);\n        else if (x < y) q.pop_back(), q.emplace_back(i);\n    }\n    answer(q[0], q[1]);\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1762D](https://www.luogu.com.cn/problem/CF1762D)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个 $0 \\sim n-1$ 的排列 $a_i$。你可以给出 $i,j$，向交互库询问 $\\gcd(i,j)$。\n>\n> 找到两个位置 $x,y$，使得 $a_x =0\\lor a_y=0$ 成立。\n>\n> 多测，$\\sum n \\le 2 \\times 10^4$，满分询问次数 $2n$，交互库非自适应。\n\n:::::success[题解]\n增量法。由 $\\gcd(0,x)=x$，我们考虑三个数 $a,b,c$ 并询问 $\\gcd(a,b),\\gcd(a,c)$：\n\n- 若 $\\gcd(a,b)=\\gcd(a,c)$，则 $a \\ne 0$；\n- 若 $\\gcd(a,b)<\\gcd(b,c)$，则 $b \\ne 0$；\n- 若 $\\gcd(a,b)>\\gcd(b,c)$，则 $c \\ne 0$。\n\n维护候选集合 $S$，加入一个数使用上述方法排除，直到剩下的 $|S|=2$ 即可。询问次数 $2n-4$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint n;\nint ask(int i, int j) {\n    cout << \"? \" << i << ' ' << j << endl;\n    int x; cin >> x;\n    return x;\n}\nvoid answer(int i, int j) {\n    cout << \"! \" << i << ' ' << j << endl;\n    int x; cin >> x;\n}\n\nvoid _main() {\n    cin >> n;\n    deque<int> q = {1, 2};\n    for (int i = 3; i <= n; i++) {\n        int x = ask(q[0], q[1]), y = ask(q[0], i);\n        if (x == y) q.pop_front(), q.emplace_back(i);\n        else if (x < y) q.pop_back(), q.emplace_back(i);\n    }\n    answer(q[0], q[1]);\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-1942g",
+        "title": "Bessie and Cards",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF1942G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1942G](https://www.luogu.com.cn/problem/CF1942G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $a$ 张 $0$ 卡，$b$ 张 $1$ 卡，$c$ 张 $2$ 卡和 $5$ 张特殊卡。\n>\n> 抽牌开始时，从牌顶抽取前 $5$ 张牌，可以丢弃 $k$ 卡抽取接下来 $k$ 张牌。若抽到全部 $5$ 张特殊卡则获胜。\n>\n> 所有卡互不相同，$(a+b+c+5)!$ 种牌堆等可能出现，求获胜概率。\n>\n> 多测，$\\sum a,\\sum b,\\sum c \\le 2\\times 10^5$，2 秒，250 MB。\n\n:::::success[题解]\n\n抽到 $1$ 卡以后立刻丢掉抽下一张，那么 $1$ 卡的作用可以忽略。$0$ 卡和特殊卡都视作 $-1$，$2$ 卡视作 $+1$，则前缀和到达 $-5$ 的时刻停止抽卡，获胜条件取决于这时候是否集齐特殊卡。\n\n可以用格路计数转化条件，抽到 $-1$ 令 $y \\gets y+1$，抽到 $+1$ 令 $x \\gets x+1$，则牌堆可以刻画为 $(5,0)$ 出发的格路，触碰 $y=x$ 则停止游走。\n\n枚举触碰点为坐标 $k \\ge 5$，只要计数 $(5,0) \\to (k,k-1)$ 的不越过 $y=x$ 的格路。将终点关于 $y=x+1$ 对称，由单线反射容斥得\n$$\n\\binom{2k-6}{k-1}-\\binom{2k-6}{k}\n$$\n限制为前 $2k$ 张牌必须集齐 $5$ 张特殊卡，方案数 $\\binom{2k}{5}$。剩余 $a-(k-5)$ 个 $-1$ 卡和 $c-(k-5)$ 个 $+1$ 卡随意排列，方案数 $\\binom{a+c-2k+10}{a-k+5}$。\n\n故合法方案数为\n$$\n\\boxed{\\sum_{k=5}^n \\binom{k}{5}\\binom{a+c-2k+10}{c-k}\\left(\\binom{2k-6}{k-1}-\\binom{2k-6}{k}\\right)}\n$$\n注意加上始终不碰到 $y=x$ 的方案数，计算方法和上面类似，这里不赘述。\n\n除以总数 $\\binom{a+c+5}{a,c,5}$ 得到答案。复杂度 $O(n)$。[代码](https://codeforces.com/problemset/submission/1942/392128555)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF1942G](https://www.luogu.com.cn/problem/CF1942G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $a$ 张 $0$ 卡，$b$ 张 $1$ 卡，$c$ 张 $2$ 卡和 $5$ 张特殊卡。\n>\n> 抽牌开始时，从牌顶抽取前 $5$ 张牌，可以丢弃 $k$ 卡抽取接下来 $k$ 张牌。若抽到全部 $5$ 张特殊卡则获胜。\n>\n> 所有卡互不相同，$(a+b+c+5)!$ 种牌堆等可能出现，求获胜概率。\n>\n> 多测，$\\sum a,\\sum b,\\sum c \\le 2\\times 10^5$，2 秒，250 MB。\n\n:::::success[题解]\n\n抽到 $1$ 卡以后立刻丢掉抽下一张，那么 $1$ 卡的作用可以忽略。$0$ 卡和特殊卡都视作 $-1$，$2$ 卡视作 $+1$，则前缀和到达 $-5$ 的时刻停止抽卡，获胜条件取决于这时候是否集齐特殊卡。\n\n可以用格路计数转化条件，抽到 $-1$ 令 $y \\gets y+1$，抽到 $+1$ 令 $x \\gets x+1$，则牌堆可以刻画为 $(5,0)$ 出发的格路，触碰 $y=x$ 则停止游走。\n\n枚举触碰点为坐标 $k \\ge 5$，只要计数 $(5,0) \\to (k,k-1)$ 的不越过 $y=x$ 的格路。将终点关于 $y=x+1$ 对称，由单线反射容斥得\n$$\n\\binom{2k-6}{k-1}-\\binom{2k-6}{k}\n$$\n限制为前 $2k$ 张牌必须集齐 $5$ 张特殊卡，方案数 $\\binom{2k}{5}$。剩余 $a-(k-5)$ 个 $-1$ 卡和 $c-(k-5)$ 个 $+1$ 卡随意排列，方案数 $\\binom{a+c-2k+10}{a-k+5}$。\n\n故合法方案数为\n$$\n\\boxed{\\sum_{k=5}^n \\binom{k}{5}\\binom{a+c-2k+10}{c-k}\\left(\\binom{2k-6}{k-1}-\\binom{2k-6}{k}\\right)}\n$$\n注意加上始终不碰到 $y=x$ 的方案数，计算方法和上面类似，这里不赘述。\n\n除以总数 $\\binom{a+c+5}{a,c,5}$ 得到答案。复杂度 $O(n)$。[代码](https://codeforces.com/problemset/submission/1942/392128555)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-2068d",
+        "title": "Morse Code",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF2068D",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF2068D](https://www.luogu.com.cn/problem/CF2068D)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $n$ 个实数 $f_i$。你需要为每个 $i$ 分配一个字符串 $s_i$，使得不存在 $i \\ne j$ 满足 $s_i$ 是 $s_j$ 的前缀。字符集为 $\\{\\tt{.},\\tt{-}\\}$。其中 $\\tt{.}$ 的代价为 $1$，$\\tt{-}$ 的代价为 $2$，字符串的代价为其中字符代价之和。\n>\n> 设 $s_i$ 的代价为 $c_i$，最小化 $\\sum\\limits_{i=1}^n f_ic_i$，构造方案并输出。\n>\n> $n \\le 200$，$0<f_i<1 \\land \\sum\\limits_{i=1}^n f_i=1$，2 秒，1000 MB。\n\n:::::success[题解]\n你说的对，但 $O(n^4)$ 过了。\n\n下面称 $\\tt{.}$ 为 $\\tt{0}$，$\\tt{-}$ 为 $\\tt{1}$，则需要构造若干 01 串。考虑建立 01-Trie，向左儿子走的代价为 $1$，向右儿子走的代价为 $2$。记节点 $u$ 到根节点的距离为 $d_u$，问题转化为在 01-Trie 上选择若干无祖先—后代关系的点，最小化 $\\sum f_u d_u$。\n\n我们肯定不能显式建立 01-Trie。因此考虑直接搜索，逐层构建 01-Trie。接下来有一个观察：$f_i$ 越大的节点，其在 trie 上的深度越浅。证明考虑排序不等式。\n\n因此，按 $f_i$ 降序排序，每次在当前层分配 $i$ 个节点时直接选择最大的 $i$ 个点即可。\n\n用四元组 $(\\text{k},\\text{cur},\\text{nxt},\\text{dep})$ 作为搜索状态，表示当前还有 $\\text{k}$ 个位置没有分配，当前层可以操作 $\\text{cur}$ 个点，下一层可以操作 $\\text{nxt}$ 个点，当前深度为 $\\text{dep}$。\n\n状态数是 $O(n^4)$ 的。事实上，我们可以使用贡献提前计算的 trick：当 trie 向下推进一层时，所有尚未分配的字符，最终的编码长度都至少增加了 $1$。对 $f$ 做一个后缀和，然后可以直接计算这一部分的代价，没有必要记录 $\\text{dep}$ 了。\n\n对于三元组 $(\\text{k},\\text{cur},\\text{nxt})$，我们枚举当前层有 $i$ 个节点继续向下进行转移。如果搜索有环，则绕环一定不优，可以剪枝。并且将答案记忆化，到达已经搜索过的点直接返回。\n\n这里状态数为 $O(n^3)$，转移带 $O(n)$，总体复杂度 $O(n^4)$。构造方案时，对于每个三元组 $(\\text{k},\\text{cur},\\text{nxt})$ 记录最优决策点 $i$，然后推回去即可。\n\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 255;\nconst double inf = 1e18;\nusing node = pair<double, int>;\n\nint n; node a[N];\ndouble suf[N];\nstring ans[N];\n\nint vis[N][N][N], opt[N][N][N];\ndouble mem[N][N][N];\ndouble dfs(int k, int cur, int nxt) {\n    if (k == n) return 0;\n    if (cur == 0 && nxt == 0) return inf;\n    if (vis[k][cur][nxt] == 1) return inf;\n    if (vis[k][cur][nxt] == 2) return mem[k][cur][nxt];\n    vis[k][cur][nxt] = 1;\n    double res = inf; int p = -1;\n    for (int i = 0; i <= min(n - k, cur); i++) {\n        int nk = k + cur - i;\n        double cost = suf[nk + 1] + dfs(nk, min(nxt + i, n - nk), min(i, n - nk));\n        if (cost < res) res = cost, p = i;\n    }\n    vis[k][cur][nxt] = 2;\n    return opt[k][cur][nxt] = p, mem[k][cur][nxt] = res;\n}\nvoid work() {\n    vector<string> cur = {\"\"}, nxt;\n    for (int k = 0; k < n; ) {\n        int i = opt[k][min<int>(cur.size(), n - k)][min<int>(nxt.size(), n - k)];\n        vector<string> nnxt;\n        for (int j = 0; j < i; j++) {\n            nxt.emplace_back(cur[j] + '.');\n            nnxt.emplace_back(cur[j] + '-');\n        }\n        int cnt = min<int>(cur.size(), n - k) - i;\n        for (int j = 0; j < cnt; j++) {\n            ans[a[k + j + 1].second] = cur[i + j];\n        }\n        k += cnt, cur.swap(nxt), nxt.swap(nnxt);\n    }\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i].first, a[i].second = i;\n    sort(a + 1, a + n + 1, greater<node>());\n    for (int i = n; i >= 1; i--) suf[i] = suf[i + 1] + a[i].first;\n    dfs(0, 1, 0), work();\n    for (int i = 1; i <= n; i++) cout << ans[i] << '\\n';\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF2068D](https://www.luogu.com.cn/problem/CF2068D)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $n$ 个实数 $f_i$。你需要为每个 $i$ 分配一个字符串 $s_i$，使得不存在 $i \\ne j$ 满足 $s_i$ 是 $s_j$ 的前缀。字符集为 $\\{\\tt{.},\\tt{-}\\}$。其中 $\\tt{.}$ 的代价为 $1$，$\\tt{-}$ 的代价为 $2$，字符串的代价为其中字符代价之和。\n>\n> 设 $s_i$ 的代价为 $c_i$，最小化 $\\sum\\limits_{i=1}^n f_ic_i$，构造方案并输出。\n>\n> $n \\le 200$，$0<f_i<1 \\land \\sum\\limits_{i=1}^n f_i=1$，2 秒，1000 MB。\n\n:::::success[题解]\n你说的对，但 $O(n^4)$ 过了。\n\n下面称 $\\tt{.}$ 为 $\\tt{0}$，$\\tt{-}$ 为 $\\tt{1}$，则需要构造若干 01 串。考虑建立 01-Trie，向左儿子走的代价为 $1$，向右儿子走的代价为 $2$。记节点 $u$ 到根节点的距离为 $d_u$，问题转化为在 01-Trie 上选择若干无祖先—后代关系的点，最小化 $\\sum f_u d_u$。\n\n我们肯定不能显式建立 01-Trie。因此考虑直接搜索，逐层构建 01-Trie。接下来有一个观察：$f_i$ 越大的节点，其在 trie 上的深度越浅。证明考虑排序不等式。\n\n因此，按 $f_i$ 降序排序，每次在当前层分配 $i$ 个节点时直接选择最大的 $i$ 个点即可。\n\n用四元组 $(\\text{k},\\text{cur},\\text{nxt},\\text{dep})$ 作为搜索状态，表示当前还有 $\\text{k}$ 个位置没有分配，当前层可以操作 $\\text{cur}$ 个点，下一层可以操作 $\\text{nxt}$ 个点，当前深度为 $\\text{dep}$。\n\n状态数是 $O(n^4)$ 的。事实上，我们可以使用贡献提前计算的 trick：当 trie 向下推进一层时，所有尚未分配的字符，最终的编码长度都至少增加了 $1$。对 $f$ 做一个后缀和，然后可以直接计算这一部分的代价，没有必要记录 $\\text{dep}$ 了。\n\n对于三元组 $(\\text{k},\\text{cur},\\text{nxt})$，我们枚举当前层有 $i$ 个节点继续向下进行转移。如果搜索有环，则绕环一定不优，可以剪枝。并且将答案记忆化，到达已经搜索过的点直接返回。\n\n这里状态数为 $O(n^3)$，转移带 $O(n)$，总体复杂度 $O(n^4)$。构造方案时，对于每个三元组 $(\\text{k},\\text{cur},\\text{nxt})$ 记录最优决策点 $i$，然后推回去即可。\n\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 255;\nconst double inf = 1e18;\nusing node = pair<double, int>;\n\nint n; node a[N];\ndouble suf[N];\nstring ans[N];\n\nint vis[N][N][N], opt[N][N][N];\ndouble mem[N][N][N];\ndouble dfs(int k, int cur, int nxt) {\n    if (k == n) return 0;\n    if (cur == 0 && nxt == 0) return inf;\n    if (vis[k][cur][nxt] == 1) return inf;\n    if (vis[k][cur][nxt] == 2) return mem[k][cur][nxt];\n    vis[k][cur][nxt] = 1;\n    double res = inf; int p = -1;\n    for (int i = 0; i <= min(n - k, cur); i++) {\n        int nk = k + cur - i;\n        double cost = suf[nk + 1] + dfs(nk, min(nxt + i, n - nk), min(i, n - nk));\n        if (cost < res) res = cost, p = i;\n    }\n    vis[k][cur][nxt] = 2;\n    return opt[k][cur][nxt] = p, mem[k][cur][nxt] = res;\n}\nvoid work() {\n    vector<string> cur = {\"\"}, nxt;\n    for (int k = 0; k < n; ) {\n        int i = opt[k][min<int>(cur.size(), n - k)][min<int>(nxt.size(), n - k)];\n        vector<string> nnxt;\n        for (int j = 0; j < i; j++) {\n            nxt.emplace_back(cur[j] + '.');\n            nnxt.emplace_back(cur[j] + '-');\n        }\n        int cnt = min<int>(cur.size(), n - k) - i;\n        for (int j = 0; j < cnt; j++) {\n            ans[a[k + j + 1].second] = cur[i + j];\n        }\n        k += cnt, cur.swap(nxt), nxt.swap(nnxt);\n    }\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i].first, a[i].second = i;\n    sort(a + 1, a + n + 1, greater<node>());\n    for (int i = n; i >= 1; i--) suf[i] = suf[i + 1] + a[i].first;\n    dfs(0, 1, 0), work();\n    for (int i = 1; i <= n; i++) cout << ans[i] << '\\n';\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-2164g",
+        "title": "Pointless Machine",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF2164G",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF2164G](https://www.luogu.com.cn/problem/CF2164G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一棵大小为 $n$ 的无根树。你可以给出一个 $1 \\sim n$ 的排列 $p$，交互库对于每个 $1 \\le i \\le n$ 回答 $\\{p_1,p_2,\\cdots,p_i\\}$ 的导出子图的边数。所有询问结束后交互库才会给出回答。\n>\n> 还原这棵树。\n>\n> 多测，$\\sum n \\le 5 \\times 10^4$，满分询问次数 $31$，交互库非自适应。\n\n:::::success[题解]\n考虑毒药模型。对于第 $k$ 位，按照二进制下第 $k$ 位将所有节点分成两个集合 $V_0,V_1$。\n\n我们进行如下两次询问：\n\n- 构造排列 $p_0$，将 $V_0$ 放在前面，$V_1$ 放在后面。对于 $u \\in V_1$，由于其前面包含了整个 $V_0$，因此通过差值可以求出 $V_0$ 中 $u$ 的邻居数目。\n- 构造排列 $p_1$，将 $V_1$ 放在前面，$V_0$ 放在后面，原因同上。\n\n经过上述询问，我们可以知道每个节点有多少个二进制第 $k$ 位不同的邻居，记为 $f(u,k)$。\n\n考虑额外询问一次 $p=[n,n-1,\\cdots,1]$，求出 $u$ 有多少个大于它的邻居。配合 $\\max f(u,k)=1$ 的条件即可确定 $u$ 是否是叶子。\n\n因此考虑拓扑排序还原树。对于零入度点 $u$，只需按位还原其邻居 $v$。\n\n计算一下上述做法的询问次数为 $16 \\times 2+1=33$ 次，无法通过。\n\n考虑转三进制拆分。如果可行，询问次数就变成了 $10 \\times 3+1=31$ 次，恰好通过。\n\n这确实是可行的，我们给出如下三种排列：\n\n- $p_0=[V_1,V_2,V_0]$；\n- $p_1=[V_2,V_0,V_1]$；\n- $p_2=[V_0,V_1,V_2]$。\n\n多作一次差就能得到 $f(u,k)$。处理邻居时，我们无法直接拆位，因此记录一下累计偏移量，每次乘 $3^k$ 加入即可。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 5e4 + 5;\nconst int pw[] = {1, 3, 9, 27, 81, 243, 729, 2187, 6561, 19683, 59049, 177147};\nint n, k, pos[N], cnt[N], off[N];\nvector<vector<int>> a;\nvector<vector<int>> q;\nvector<vector<int>> val;\nvector<int> s[N];\nvector<array<int, 3>> b[N];\nvector<pair<int, int>> e;\n\nvoid addq(int i, int a, int b, int c) {\n    vector<int> cur;\n    for (int u = 1; u <= n; u++) \n        if (u / pw[i] % 3 == a) cur.emplace_back(u);\n    for (int u = 1; u <= n; u++) \n        if (u / pw[i] % 3 == b) cur.emplace_back(u);\n    for (int u = 1; u <= n; u++) \n        if (u / pw[i] % 3 == c) cur.emplace_back(u);\n    q.emplace_back(cur);\n}\nvoid ask() {\n    cout << q.size() << '\\n';\n    for (auto i : q) {\n        for (auto u : i) cout << u << ' ';\n        cout << '\\n';\n    } cout << flush;\n    a.assign(q.size(), vector<int>(n + 1));\n    for (int i = 0; i < (int)q.size(); i++) {\n        for (int j = 1; j <= n; j++) cin >> a[i][j];\n    }\n}\n\nbool vis[N];\nvoid bfs() {\n    queue<int> q;\n    e.clear(), fill(vis + 1, vis + n + 1, 0);\n    auto isleaf = [&](int u) -> bool {\n        int v = u + off[u];\n        if (v < 1 || v > n || u == v || vis[v]) return false;\n        if (cnt[u] != (v > u ? 1 : 0)) return false;\n        for (int i = 0; i < k; i++) {\n            int d1 = u / pw[i] % 3, d2 = v / pw[i] % 3;\n            if (s[u][i] != (v < u && d1 == d2 ? 1 : 0)) return false;\n            for (int d = 0; d < 3; d++) {\n                if (d == d1) continue;\n                if (b[u][i][d] != (d2 == d ? 1 : 0)) return false;\n            }\n        } return true;\n    };\n    for (int i = 1; i <= n; i++) {\n        if (isleaf(i)) q.emplace(i);\n    }\n    while (!q.empty()) {\n        int u = q.front(), v = u + off[u]; q.pop();\n        if (vis[u] || !isleaf(u)) continue;\n        e.emplace_back(u, v), vis[u] = true;\n        off[v] -= u - v;\n        if (u > v) cnt[v]--;\n        for (int i = 0; i < k; i++) {\n            int d1 = u / pw[i] % 3, d2 = v / pw[i] % 3;\n            if (d1 == d2) s[v][i] -= u < v;\n            else b[v][i][d1]--;\n        } \n        if (!vis[v] && isleaf(v)) q.emplace(v);\n    }\n}\n\nvoid _main() {\n    cin >> n; q.clear();\n    for (int i = 0; pw[i] <= n; i++) addq(i, 1, 2, 0), addq(i, 2, 0, 1), addq(i, 0, 1, 2);\n    k = q.size() / 3, q.emplace_back();\n    for (int i = 1; i <= n; i++) q.back().emplace_back(n - i + 1);\n    ask();\n    val.assign(q.size(), vector<int>(n + 1));\n    for (int i = 0; i < (int)q.size(); i++) {\n        fill(pos, pos + n + 1, 0);\n        for (int j = 0; j < n; j++) pos[q[i][j]] = j + 1;\n        for (int u = 1; u <= n; u++) val[i][u] = a[i][pos[u]] - a[i][pos[u] - 1];\n    }\n    for (int i = 1; i <= n; i++) b[i].assign(k, {0, 0, 0});\n    fill(off + 1, off + n + 1, 0);\n    for (int i = 1; i <= n; i++) s[i].assign(k, 0);\n    for (int u = 1; u <= n; u++) {\n        for (int i = 0; i < k; i++) {\n            int d = u / pw[i] % 3;\n            int q0 = 3 * i + d, q1 = 3 * i + (d + 1) % 3, q2 = 3 * i + (d + 2) % 3;\n            int e1 = val[q0][u] - val[q1][u], e2 = val[q1][u] - val[q2][u];\n            b[u][i][(d + 1) % 3] = e1, b[u][i][(d + 2) % 3] = e2;\n            off[u] += e1 * ((d + 1) % 3 - d) * pw[i] + e2 * ((d + 2) % 3 - d) * pw[i];\n            s[u][i] = val[q2][u];\n        }\n        cnt[u] = val.back()[u];\n    }\n    bfs();\n    for (auto& i : e) cout << i << '\\n';\n    cout << flush;\n} \n```\n\n:::::\n\n## 还原图 / 图找点\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF2164G](https://www.luogu.com.cn/problem/CF2164G)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一棵大小为 $n$ 的无根树。你可以给出一个 $1 \\sim n$ 的排列 $p$，交互库对于每个 $1 \\le i \\le n$ 回答 $\\{p_1,p_2,\\cdots,p_i\\}$ 的导出子图的边数。所有询问结束后交互库才会给出回答。\n>\n> 还原这棵树。\n>\n> 多测，$\\sum n \\le 5 \\times 10^4$，满分询问次数 $31$，交互库非自适应。\n\n:::::success[题解]\n考虑毒药模型。对于第 $k$ 位，按照二进制下第 $k$ 位将所有节点分成两个集合 $V_0,V_1$。\n\n我们进行如下两次询问：\n\n- 构造排列 $p_0$，将 $V_0$ 放在前面，$V_1$ 放在后面。对于 $u \\in V_1$，由于其前面包含了整个 $V_0$，因此通过差值可以求出 $V_0$ 中 $u$ 的邻居数目。\n- 构造排列 $p_1$，将 $V_1$ 放在前面，$V_0$ 放在后面，原因同上。\n\n经过上述询问，我们可以知道每个节点有多少个二进制第 $k$ 位不同的邻居，记为 $f(u,k)$。\n\n考虑额外询问一次 $p=[n,n-1,\\cdots,1]$，求出 $u$ 有多少个大于它的邻居。配合 $\\max f(u,k)=1$ 的条件即可确定 $u$ 是否是叶子。\n\n因此考虑拓扑排序还原树。对于零入度点 $u$，只需按位还原其邻居 $v$。\n\n计算一下上述做法的询问次数为 $16 \\times 2+1=33$ 次，无法通过。\n\n考虑转三进制拆分。如果可行，询问次数就变成了 $10 \\times 3+1=31$ 次，恰好通过。\n\n这确实是可行的，我们给出如下三种排列：\n\n- $p_0=[V_1,V_2,V_0]$；\n- $p_1=[V_2,V_0,V_1]$；\n- $p_2=[V_0,V_1,V_2]$。\n\n多作一次差就能得到 $f(u,k)$。处理邻居时，我们无法直接拆位，因此记录一下累计偏移量，每次乘 $3^k$ 加入即可。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 5e4 + 5;\nconst int pw[] = {1, 3, 9, 27, 81, 243, 729, 2187, 6561, 19683, 59049, 177147};\nint n, k, pos[N], cnt[N], off[N];\nvector<vector<int>> a;\nvector<vector<int>> q;\nvector<vector<int>> val;\nvector<int> s[N];\nvector<array<int, 3>> b[N];\nvector<pair<int, int>> e;\n\nvoid addq(int i, int a, int b, int c) {\n    vector<int> cur;\n    for (int u = 1; u <= n; u++) \n        if (u / pw[i] % 3 == a) cur.emplace_back(u);\n    for (int u = 1; u <= n; u++) \n        if (u / pw[i] % 3 == b) cur.emplace_back(u);\n    for (int u = 1; u <= n; u++) \n        if (u / pw[i] % 3 == c) cur.emplace_back(u);\n    q.emplace_back(cur);\n}\nvoid ask() {\n    cout << q.size() << '\\n';\n    for (auto i : q) {\n        for (auto u : i) cout << u << ' ';\n        cout << '\\n';\n    } cout << flush;\n    a.assign(q.size(), vector<int>(n + 1));\n    for (int i = 0; i < (int)q.size(); i++) {\n        for (int j = 1; j <= n; j++) cin >> a[i][j];\n    }\n}\n\nbool vis[N];\nvoid bfs() {\n    queue<int> q;\n    e.clear(), fill(vis + 1, vis + n + 1, 0);\n    auto isleaf = [&](int u) -> bool {\n        int v = u + off[u];\n        if (v < 1 || v > n || u == v || vis[v]) return false;\n        if (cnt[u] != (v > u ? 1 : 0)) return false;\n        for (int i = 0; i < k; i++) {\n            int d1 = u / pw[i] % 3, d2 = v / pw[i] % 3;\n            if (s[u][i] != (v < u && d1 == d2 ? 1 : 0)) return false;\n            for (int d = 0; d < 3; d++) {\n                if (d == d1) continue;\n                if (b[u][i][d] != (d2 == d ? 1 : 0)) return false;\n            }\n        } return true;\n    };\n    for (int i = 1; i <= n; i++) {\n        if (isleaf(i)) q.emplace(i);\n    }\n    while (!q.empty()) {\n        int u = q.front(), v = u + off[u]; q.pop();\n        if (vis[u] || !isleaf(u)) continue;\n        e.emplace_back(u, v), vis[u] = true;\n        off[v] -= u - v;\n        if (u > v) cnt[v]--;\n        for (int i = 0; i < k; i++) {\n            int d1 = u / pw[i] % 3, d2 = v / pw[i] % 3;\n            if (d1 == d2) s[v][i] -= u < v;\n            else b[v][i][d1]--;\n        } \n        if (!vis[v] && isleaf(v)) q.emplace(v);\n    }\n}\n\nvoid _main() {\n    cin >> n; q.clear();\n    for (int i = 0; pw[i] <= n; i++) addq(i, 1, 2, 0), addq(i, 2, 0, 1), addq(i, 0, 1, 2);\n    k = q.size() / 3, q.emplace_back();\n    for (int i = 1; i <= n; i++) q.back().emplace_back(n - i + 1);\n    ask();\n    val.assign(q.size(), vector<int>(n + 1));\n    for (int i = 0; i < (int)q.size(); i++) {\n        fill(pos, pos + n + 1, 0);\n        for (int j = 0; j < n; j++) pos[q[i][j]] = j + 1;\n        for (int u = 1; u <= n; u++) val[i][u] = a[i][pos[u]] - a[i][pos[u] - 1];\n    }\n    for (int i = 1; i <= n; i++) b[i].assign(k, {0, 0, 0});\n    fill(off + 1, off + n + 1, 0);\n    for (int i = 1; i <= n; i++) s[i].assign(k, 0);\n    for (int u = 1; u <= n; u++) {\n        for (int i = 0; i < k; i++) {\n            int d = u / pw[i] % 3;\n            int q0 = 3 * i + d, q1 = 3 * i + (d + 1) % 3, q2 = 3 * i + (d + 2) % 3;\n            int e1 = val[q0][u] - val[q1][u], e2 = val[q1][u] - val[q2][u];\n            b[u][i][(d + 1) % 3] = e1, b[u][i][(d + 2) % 3] = e2;\n            off[u] += e1 * ((d + 1) % 3 - d) * pw[i] + e2 * ((d + 2) % 3 - d) * pw[i];\n            s[u][i] = val[q2][u];\n        }\n        cnt[u] = val.back()[u];\n    }\n    bfs();\n    for (auto& i : e) cout << i << '\\n';\n    cout << flush;\n} \n```\n\n:::::\n\n## 还原图 / 图找点\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-2178e",
+        "title": "Flatten or Concatenate",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF2178E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF2178E](https://www.luogu.com.cn/problem/CF2178E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个长为 $n$ 的序列 $a_i$，$a_i$ 由以下方式生成：\n>\n> - 初始时有两个序列 $a=b=[2^k]$。\n> - 每轮中，可以选择 $a$ 或 $b$ 序列中的最大值 $x$，将 $x$ 替换为两个 $x/2$，需要保证 $x$ 为偶数。\n> - 或者选择将 $a,b$ 拼接起来，并将 $a,b$ 都替换为拼接后结果。\n>\n> 你可以向交互库询问一个区间的和。\n>\n> 求出 $a_i$ 中的最大值。\n>\n> 多测，$\\sum n \\le 10^5$，满分询问次数 $300$。\n\n:::::success[题解]\n首先我们发现拼接操作是诈骗，取一个足够大的 $k$ 可以做到和拼接同样的效果。\n\n因此只考虑替换。可以发现，这个操作不会改变序列的和。\n\n假设当前序列的总和为 $s$。则我们只需找到一个 $i$ 使得前 $i$ 个数的和为 $s/2$，就可以将数组分成两部分，然后分治求解。$i$ 可以通过二分找到。询问次数大概是 $n \\log^2 n$ 的，无法通过。\n\n一个关键的观察是：最大值一定出现在长度更短的一侧。因为操作强制选最大值，所以最大值只会不变或除二，单调不降。因此选择较短的一侧递归即可，次数 $\\log^2 n$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\n#define int long long\nint ask(int l, int r) {\n    cout << \"? \" << l << ' ' << r << endl;\n    int u; cin >> u;\n    return u;\n}\nint n;\n\nint solve(int l, int r, int sum) {\n    if (l == r) return sum;\n    int lo = l, hi = r, p = -1;\n    while (lo <= hi) {\n        int mid = (lo + hi) >> 1, val = ask(l, mid);\n        if (val == sum / 2) {p = mid; break;}\n        if (val < sum / 2) lo = mid + 1;\n        else hi = mid - 1; \n    }\n    if (p - l + 1 <= r - p) return solve(l, p, sum >> 1);\n    return solve(p + 1, r, sum >> 1);\n}\n\nvoid _main() {\n    cin >> n;\n    int x = solve(1, n, ask(1, n));\n    cout << \"! \" << x << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF2178E](https://www.luogu.com.cn/problem/CF2178E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个长为 $n$ 的序列 $a_i$，$a_i$ 由以下方式生成：\n>\n> - 初始时有两个序列 $a=b=[2^k]$。\n> - 每轮中，可以选择 $a$ 或 $b$ 序列中的最大值 $x$，将 $x$ 替换为两个 $x/2$，需要保证 $x$ 为偶数。\n> - 或者选择将 $a,b$ 拼接起来，并将 $a,b$ 都替换为拼接后结果。\n>\n> 你可以向交互库询问一个区间的和。\n>\n> 求出 $a_i$ 中的最大值。\n>\n> 多测，$\\sum n \\le 10^5$，满分询问次数 $300$。\n\n:::::success[题解]\n首先我们发现拼接操作是诈骗，取一个足够大的 $k$ 可以做到和拼接同样的效果。\n\n因此只考虑替换。可以发现，这个操作不会改变序列的和。\n\n假设当前序列的总和为 $s$。则我们只需找到一个 $i$ 使得前 $i$ 个数的和为 $s/2$，就可以将数组分成两部分，然后分治求解。$i$ 可以通过二分找到。询问次数大概是 $n \\log^2 n$ 的，无法通过。\n\n一个关键的观察是：最大值一定出现在长度更短的一侧。因为操作强制选最大值，所以最大值只会不变或除二，单调不降。因此选择较短的一侧递归即可，次数 $\\log^2 n$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\n#define int long long\nint ask(int l, int r) {\n    cout << \"? \" << l << ' ' << r << endl;\n    int u; cin >> u;\n    return u;\n}\nint n;\n\nint solve(int l, int r, int sum) {\n    if (l == r) return sum;\n    int lo = l, hi = r, p = -1;\n    while (lo <= hi) {\n        int mid = (lo + hi) >> 1, val = ask(l, mid);\n        if (val == sum / 2) {p = mid; break;}\n        if (val < sum / 2) lo = mid + 1;\n        else hi = mid - 1; \n    }\n    if (p - l + 1 <= r - p) return solve(l, p, sum >> 1);\n    return solve(p + 1, r, sum >> 1);\n}\n\nvoid _main() {\n    cin >> n;\n    int x = solve(1, n, ask(1, n));\n    cout << \"! \" << x << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-2179f",
+        "title": "Blackslex and Another RGB Walking",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF2179F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF2179F](https://www.luogu.com.cn/problem/CF2179F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个 $n$ 个点 $m$ 条边的连通二分图，需要为每个节点染 `rgb` 中的一种颜色。\n> - B：接到 $q$ 次询问，给出一个节点所有邻居的颜色集合，需要回答一个邻居，使得向这个邻居行动后离节点 $1$ 更近。\n>\n> $n,m,q \\le 10^5$。\n\n:::::success[题解]\n先考虑 A。我们从 $1$ 开始 BFS 出一棵最短路树，然后用颜色来标记这棵最短路树的一些信息。不难发现可以用深度 $\\bmod 3$ 来记录，分别染色为 `rgb` 即可。\n\n对于 B，我们得到颜色集合 $S$。若 $|S|=1$，任意走一个邻居即可；否则必有 $|S|=2$。此时我们找到缺失的颜色，即当前节点颜色。\n\n根据当前节点的颜色，我们可以知道向什么颜色走可以拉近距离。例如当前节点颜色为 `r` 时，根据染色规则我们应该往 `b` 走。\n\nA & B 复杂度均为 $O(n+m)$。\n:::::\n\n:::::info[代码]\nA：\n\n```cpp line-numbers\nint n, m, vis[N], dis[N];\nvector<int> e[N];\nvoid bfs(int u) {\n    queue<int> q;\n    q.emplace(u), dis[u] = 0, vis[u] = true;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        for (int v : e[u]) {\n            if (!vis[v]) dis[v] = dis[u] + 1, q.emplace(v), vis[v] = true;\n        }\n    }\n}\n\nvoid _main() {\n    cin >> n >> m;\n    for (int i = 1; i <= n; i++) e[i].clear();\n    for (int i = 1, u, v; i <= m; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    fill(vis + 1, vis + n + 1, 0), bfs(1);\n    for (int i = 1; i <= n; i++) cout << \"rgb\"[dis[i] % 3];\n    cout << '\\n';\n}\n```\n\nB：\n\n```cpp line-numbers\nint q;\nstring s;\nvoid _main() {\n    for (cin >> q; q--; ) {\n        int d; string s; cin >> d >> s;\n        set<char> st = {'r', 'g', 'b'};\n        for (char c : s) {\n            if (st.count(c)) st.erase(c);\n        }\n        if (st.size() == 2) {\n            cout << 1 << '\\n';\n        } else {\n            char x = *st.begin(), y = (x == 'r' ? 'b' : x == 'b' ? 'g' : 'r');\n            cout << s.find(y) + 1 << '\\n';\n        }\n    }\n}\n```\n\n:::::\n\n### 【未完成】[CF1033E Hidden Bipartite Graph](https://www.luogu.com.cn/problem/CF1033E)\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF2179F](https://www.luogu.com.cn/problem/CF2179F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个 $n$ 个点 $m$ 条边的连通二分图，需要为每个节点染 `rgb` 中的一种颜色。\n> - B：接到 $q$ 次询问，给出一个节点所有邻居的颜色集合，需要回答一个邻居，使得向这个邻居行动后离节点 $1$ 更近。\n>\n> $n,m,q \\le 10^5$。\n\n:::::success[题解]\n先考虑 A。我们从 $1$ 开始 BFS 出一棵最短路树，然后用颜色来标记这棵最短路树的一些信息。不难发现可以用深度 $\\bmod 3$ 来记录，分别染色为 `rgb` 即可。\n\n对于 B，我们得到颜色集合 $S$。若 $|S|=1$，任意走一个邻居即可；否则必有 $|S|=2$。此时我们找到缺失的颜色，即当前节点颜色。\n\n根据当前节点的颜色，我们可以知道向什么颜色走可以拉近距离。例如当前节点颜色为 `r` 时，根据染色规则我们应该往 `b` 走。\n\nA & B 复杂度均为 $O(n+m)$。\n:::::\n\n:::::info[代码]\nA：\n\n```cpp line-numbers\nint n, m, vis[N], dis[N];\nvector<int> e[N];\nvoid bfs(int u) {\n    queue<int> q;\n    q.emplace(u), dis[u] = 0, vis[u] = true;\n    while (!q.empty()) {\n        int u = q.front(); q.pop();\n        for (int v : e[u]) {\n            if (!vis[v]) dis[v] = dis[u] + 1, q.emplace(v), vis[v] = true;\n        }\n    }\n}\n\nvoid _main() {\n    cin >> n >> m;\n    for (int i = 1; i <= n; i++) e[i].clear();\n    for (int i = 1, u, v; i <= m; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    fill(vis + 1, vis + n + 1, 0), bfs(1);\n    for (int i = 1; i <= n; i++) cout << \"rgb\"[dis[i] % 3];\n    cout << '\\n';\n}\n```\n\nB：\n\n```cpp line-numbers\nint q;\nstring s;\nvoid _main() {\n    for (cin >> q; q--; ) {\n        int d; string s; cin >> d >> s;\n        set<char> st = {'r', 'g', 'b'};\n        for (char c : s) {\n            if (st.count(c)) st.erase(c);\n        }\n        if (st.size() == 2) {\n            cout << 1 << '\\n';\n        } else {\n            char x = *st.begin(), y = (x == 'r' ? 'b' : x == 'b' ? 'g' : 'r');\n            cout << s.find(y) + 1 << '\\n';\n        }\n    }\n}\n```\n\n:::::\n\n### 【未完成】[CF1033E Hidden Bipartite Graph](https://www.luogu.com.cn/problem/CF1033E)\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-626f",
+        "title": "Group Projects",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF626F",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF626F](https://www.luogu.com.cn/problem/CF626F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$。你需要将 $n$ 个有标号元素划分为若干无标号组。组内权值定义为 $\\max-\\min$，要求总权值 $\\le k$。求方案数。\n>\n> $n \\le 200$，$k \\le 10^3$，$1 \\le a_i \\le 500$，2 秒，250 MB。\n\n:::::success[题解]\n\n将 $a_i$ 升序排序后逐个加点。可以列得延迟钦定 DP：\n\n- 设 $f_{i,x,S}$ 为满足下列条件的合法方案数：\n  - 仅考虑 $a_1 \\sim a_i$。\n  - 现有 $x$ 个未确定 $\\max$ 的组。\n  - 当前可确定的权值和为 $S$。即确定部分权值和，加上待定部分 $-\\min$ 的和。\n- 转移 $f_{i-1,x,S} \\to f_{i,x',S'}$，讨论 $a_i$ 的归属：\n  - 钦定为某个待定组的 $\\max$，移除待定部分，转移 $x \\times f_{i-1,x,S} \\to f_{i,x-1,S+a_i}$。\n  - 加入某个待定组，转移 $x \\times f_{i-1,x,S} \\to f_{i,x,S}$。\n  - 新开一个确定组，转移 $f_{i-1,x,S} \\to f_{i,x,S}$。\n  - 新开一个待定组，转移 $f_{i-1,x,S} \\to f_{i,x+1,S-a_i}$。\n- DP 初值为 $f_{0,0,0}=1$。\n- 答案为 $\\sum \\limits_{S=0}^k f_{n,0,S}$。\n\n第三维 $S \\in [-nV, k]$，故复杂度 $O(n^3 V)$ 无法通过。\n\n考虑**微元贡献法** $a_r-a_l=\\sum\\limits_{i=l+1}^r (a_i-a_{i-1})$，令 $i$ 决策后立刻计算微元 $a_i-a_{i-1}$ 的贡献。\n\n令 $S'=S+x(a_i-a_{i-1})$，再转移到 $f_{i,x',S'}$ 只需保留 $S' \\ge 0$ 的部分即可。\n\n复杂度 $O(n^2 k)$ 足以通过。[代码](https://codeforces.com/contest/626/submission/393052506)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF626F](https://www.luogu.com.cn/problem/CF626F)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$。你需要将 $n$ 个有标号元素划分为若干无标号组。组内权值定义为 $\\max-\\min$，要求总权值 $\\le k$。求方案数。\n>\n> $n \\le 200$，$k \\le 10^3$，$1 \\le a_i \\le 500$，2 秒，250 MB。\n\n:::::success[题解]\n\n将 $a_i$ 升序排序后逐个加点。可以列得延迟钦定 DP：\n\n- 设 $f_{i,x,S}$ 为满足下列条件的合法方案数：\n  - 仅考虑 $a_1 \\sim a_i$。\n  - 现有 $x$ 个未确定 $\\max$ 的组。\n  - 当前可确定的权值和为 $S$。即确定部分权值和，加上待定部分 $-\\min$ 的和。\n- 转移 $f_{i-1,x,S} \\to f_{i,x',S'}$，讨论 $a_i$ 的归属：\n  - 钦定为某个待定组的 $\\max$，移除待定部分，转移 $x \\times f_{i-1,x,S} \\to f_{i,x-1,S+a_i}$。\n  - 加入某个待定组，转移 $x \\times f_{i-1,x,S} \\to f_{i,x,S}$。\n  - 新开一个确定组，转移 $f_{i-1,x,S} \\to f_{i,x,S}$。\n  - 新开一个待定组，转移 $f_{i-1,x,S} \\to f_{i,x+1,S-a_i}$。\n- DP 初值为 $f_{0,0,0}=1$。\n- 答案为 $\\sum \\limits_{S=0}^k f_{n,0,S}$。\n\n第三维 $S \\in [-nV, k]$，故复杂度 $O(n^3 V)$ 无法通过。\n\n考虑**微元贡献法** $a_r-a_l=\\sum\\limits_{i=l+1}^r (a_i-a_{i-1})$，令 $i$ 决策后立刻计算微元 $a_i-a_{i-1}$ 的贡献。\n\n令 $S'=S+x(a_i-a_{i-1})$，再转移到 $f_{i,x',S'}$ 只需保留 $S' \\ge 0$ 的部分即可。\n\n复杂度 $O(n^2 k)$ 足以通过。[代码](https://codeforces.com/contest/626/submission/393052506)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-930e",
+        "title": "Coins Exhibition",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF930E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF930E](https://www.luogu.com.cn/problem/CF930E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有长为 $k$ 的 01 串 $a_1 \\sim a_k$。给定 $n$ 条限制，形如：\n>\n> - $a_l \\sim a_r$ 中至少有一个 $0$。\n> - $a_l \\sim a_r$ 中至少有一个 $1$。\n>\n> 求合法的 $a$ 的数目。\n>\n> $k \\le 10^9$，$n \\le 2\\times 10^5$，2 秒，256 MB。\n\n:::::success[解法一]\n\n将 $n$ 条限制的端点离散化形成 $m$ 段，以新段为主体 DP：\n\n- 设 $f_{0/1,i,j}$ 为满足下列要求的合法方案数：\n\n  - 已确定第 $1 \\sim i$ 段填入的数。\n  - 第 $i$ 段的末尾数字填 $0/1$。\n  - 与 $x_i$ 最近的异色点位于第 $j$ 段之中。\n\n- 转移考虑填入 $x_i+1 \\sim x_{i+1}$，分讨填数方案：\n\n  - 全填 $0$，转移 $f_{0,i,j} \\to f_{0,i+1,j}$ 和 $f_{1,i,j} \\to f_{0,i+1,i}$。\n  - 全填 $1$，转移 $f_{1,i,j} \\to f_{1,i+1,j}$ 和 $f_{0,i,j} \\to f_{1,i+1,i}$。\n  - $0/1$ 均有，设第 $i$ 段长为 $m$，则需要确定 $m-1$ 个数并减掉全部同色，贡献系数 $2^{m-1}-1$，转移 $(2^{m-1}-1) \\times f_{0/1,i,j} \\to f_{0/1,i+1,i+1}$。\n\n  我们需要排除不合法的转移。例如限制是 $\\exists i \\in [l,r], a_i=0$，否定掉 $\\forall i \\in [l,r],a_i=1$ 即 $f_{1,r,1 \\sim l-1}$ 对应的方案。将 $l-1$ 也丢进去离散化，然后前缀清零即可。\n\n- DP 初值为 $f_{0/1,0,0}=1$。\n\n- 答案为 $\\dfrac{1}{2}\\sum \\limits_{j} f_{0/1,m,j} $，除二是因为多算了 $a_0$ 的贡献。\n\n复杂度是 $O(n^2)$ 的。我们将 $i$ 维度滚动数组，观察转移为：\n\n- $f_{0/1,j} \\to f_{0/1,j}$ 相当于直接复制，可以忽略。\n- $f_{1/0,j} \\to f_{0/1,i}$ 是将 $\\sum \\limits_{j} f_{1/0,j}$ 贡献到每个 $f_{0/1,i}$，用两个变量 $s_{0/1}$ 维护对 $j$ 维度求和的结果。\n- $(2^{m-1}-1) \\times f_{0/1,j} \\to f_{0/1,i+1}$ 同样只需维护出 $\\sum \\limits_{j} f_{0/1,j}$ 即可转移。\n- $f_{0/1,1 \\sim l-1} \\gets 0$ 是前缀清空，而 $l-1$ 的值单调，用一个指针记录全零前缀的结尾位置。维护 $s_{0/1}$ 是容易的。\n\n复杂度 $O(n \\log n)$，瓶颈在离散化。\n\n:::::\n\n:::::success[解法二]\n\n考虑容斥。约定限制为二元组 $(v_i,S_i)$，其中 $S_i=[l_i,r_i]$ 表示这段区间存在 $v_i$。所有限制构成全集 $U$。\n\n枚举子集 $T \\subseteq U$，钦定 $T$ 中的限制被突破，容斥系数 $(-1)^{|T|}$。组合意义是某些区间为全 $0/1$，那么异色线段不能有交，形式化地 $\\forall i,j \\in T \\land v_i \\ne v_j, S_i \\cap S_j=\\varnothing$。\n\n设线段并构成点集 $A=\\bigcup \\limits_{i \\in T} S_i$。对位置 $i$ 若 $i \\in A$ 则 $i$ 被限制，贡献为 $1$，否则贡献为 $2$。方案数 $2^{k-|A|}$。于是答案式\n$$\n\\sum_{T \\subseteq S} (-1)^{|T|} 2^{k-|A|}=2^k \\sum_{T \\subseteq S} (-1)^{|T|} \\left(2^{-1}\\right)^{|A|}\n$$\n将 $S_i$ 按照左端点排序，扔掉包含关系的同色区间。考虑带着容斥系数，以限制为主体 DP：\n\n- 设 $f_i$ 为钦定 $i \\in T$ 时 $(-1)^{|T|} \\left(2^{-1}\\right)^{|A|}$ 的和。\n- 枚举上一个被钦定的限制 $j<i$，令 $f_j$ 贡献到 $f_i$。对 $S_i$ 和 $S_j$ 分讨：\n  - 若 $S_i \\cap S_j=\\varnothing$，容斥系数 $-1$，贡献系数 $(2^{-1})^{|S_i|}$，则 $-(2^{-1})^{|S_i|}f_j \\to f_i$。\n  - 若 $S_i \\cap S_j\\ne \\varnothing$，要求 $v_i \\ne v_j$。取差集 $S'=\\{i \\mid i \\in S_i \\land i \\notin S_j\\}$，容斥系数 $-1$，贡献系数 $(2^{-1})^{|S'|}$，则 $-(2^{-1})^{r_i-r_j} f_j \\to f_i$。\n- DP 初值为 $f_i=-(2^{-1})^{|S_i|}$。\n- 答案为 $2^k\\left(1+\\sum \\limits_{i=1}^n f_i\\right)$。$+1$ 是 $T=\\varnothing$ 的贡献。\n\n注意到 $S_i \\cap S_j=\\varnothing$ 的 $j$ 是一段前缀，二分出 $j$ 的分界点，对 $f$ 施前缀和优化即可。复杂度 $O(n \\log n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF930E](https://www.luogu.com.cn/problem/CF930E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有长为 $k$ 的 01 串 $a_1 \\sim a_k$。给定 $n$ 条限制，形如：\n>\n> - $a_l \\sim a_r$ 中至少有一个 $0$。\n> - $a_l \\sim a_r$ 中至少有一个 $1$。\n>\n> 求合法的 $a$ 的数目。\n>\n> $k \\le 10^9$，$n \\le 2\\times 10^5$，2 秒，256 MB。\n\n:::::success[解法一]\n\n将 $n$ 条限制的端点离散化形成 $m$ 段，以新段为主体 DP：\n\n- 设 $f_{0/1,i,j}$ 为满足下列要求的合法方案数：\n\n  - 已确定第 $1 \\sim i$ 段填入的数。\n  - 第 $i$ 段的末尾数字填 $0/1$。\n  - 与 $x_i$ 最近的异色点位于第 $j$ 段之中。\n\n- 转移考虑填入 $x_i+1 \\sim x_{i+1}$，分讨填数方案：\n\n  - 全填 $0$，转移 $f_{0,i,j} \\to f_{0,i+1,j}$ 和 $f_{1,i,j} \\to f_{0,i+1,i}$。\n  - 全填 $1$，转移 $f_{1,i,j} \\to f_{1,i+1,j}$ 和 $f_{0,i,j} \\to f_{1,i+1,i}$。\n  - $0/1$ 均有，设第 $i$ 段长为 $m$，则需要确定 $m-1$ 个数并减掉全部同色，贡献系数 $2^{m-1}-1$，转移 $(2^{m-1}-1) \\times f_{0/1,i,j} \\to f_{0/1,i+1,i+1}$。\n\n  我们需要排除不合法的转移。例如限制是 $\\exists i \\in [l,r], a_i=0$，否定掉 $\\forall i \\in [l,r],a_i=1$ 即 $f_{1,r,1 \\sim l-1}$ 对应的方案。将 $l-1$ 也丢进去离散化，然后前缀清零即可。\n\n- DP 初值为 $f_{0/1,0,0}=1$。\n\n- 答案为 $\\dfrac{1}{2}\\sum \\limits_{j} f_{0/1,m,j} $，除二是因为多算了 $a_0$ 的贡献。\n\n复杂度是 $O(n^2)$ 的。我们将 $i$ 维度滚动数组，观察转移为：\n\n- $f_{0/1,j} \\to f_{0/1,j}$ 相当于直接复制，可以忽略。\n- $f_{1/0,j} \\to f_{0/1,i}$ 是将 $\\sum \\limits_{j} f_{1/0,j}$ 贡献到每个 $f_{0/1,i}$，用两个变量 $s_{0/1}$ 维护对 $j$ 维度求和的结果。\n- $(2^{m-1}-1) \\times f_{0/1,j} \\to f_{0/1,i+1}$ 同样只需维护出 $\\sum \\limits_{j} f_{0/1,j}$ 即可转移。\n- $f_{0/1,1 \\sim l-1} \\gets 0$ 是前缀清空，而 $l-1$ 的值单调，用一个指针记录全零前缀的结尾位置。维护 $s_{0/1}$ 是容易的。\n\n复杂度 $O(n \\log n)$，瓶颈在离散化。\n\n:::::\n\n:::::success[解法二]\n\n考虑容斥。约定限制为二元组 $(v_i,S_i)$，其中 $S_i=[l_i,r_i]$ 表示这段区间存在 $v_i$。所有限制构成全集 $U$。\n\n枚举子集 $T \\subseteq U$，钦定 $T$ 中的限制被突破，容斥系数 $(-1)^{|T|}$。组合意义是某些区间为全 $0/1$，那么异色线段不能有交，形式化地 $\\forall i,j \\in T \\land v_i \\ne v_j, S_i \\cap S_j=\\varnothing$。\n\n设线段并构成点集 $A=\\bigcup \\limits_{i \\in T} S_i$。对位置 $i$ 若 $i \\in A$ 则 $i$ 被限制，贡献为 $1$，否则贡献为 $2$。方案数 $2^{k-|A|}$。于是答案式\n$$\n\\sum_{T \\subseteq S} (-1)^{|T|} 2^{k-|A|}=2^k \\sum_{T \\subseteq S} (-1)^{|T|} \\left(2^{-1}\\right)^{|A|}\n$$\n将 $S_i$ 按照左端点排序，扔掉包含关系的同色区间。考虑带着容斥系数，以限制为主体 DP：\n\n- 设 $f_i$ 为钦定 $i \\in T$ 时 $(-1)^{|T|} \\left(2^{-1}\\right)^{|A|}$ 的和。\n- 枚举上一个被钦定的限制 $j<i$，令 $f_j$ 贡献到 $f_i$。对 $S_i$ 和 $S_j$ 分讨：\n  - 若 $S_i \\cap S_j=\\varnothing$，容斥系数 $-1$，贡献系数 $(2^{-1})^{|S_i|}$，则 $-(2^{-1})^{|S_i|}f_j \\to f_i$。\n  - 若 $S_i \\cap S_j\\ne \\varnothing$，要求 $v_i \\ne v_j$。取差集 $S'=\\{i \\mid i \\in S_i \\land i \\notin S_j\\}$，容斥系数 $-1$，贡献系数 $(2^{-1})^{|S'|}$，则 $-(2^{-1})^{r_i-r_j} f_j \\to f_i$。\n- DP 初值为 $f_i=-(2^{-1})^{|S_i|}$。\n- 答案为 $2^k\\left(1+\\sum \\limits_{i=1}^n f_i\\right)$。$+1$ 是 $T=\\varnothing$ 的贡献。\n\n注意到 $S_i \\cap S_j=\\varnothing$ 的 $j$ 是一段前缀，二分出 $j$ 的分界点，对 $f$ 施前缀和优化即可。复杂度 $O(n \\log n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-cf-938e",
+        "title": "Max History",
+        "source": "stripe-python",
+        "oj": "Codeforces",
+        "problemId": "CF938E",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF938E](https://www.luogu.com.cn/problem/CF938E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$。定义序列 $a$ 的权值为，取出 $a_i$ 的所有前缀 $\\max$ 为 $b_1 \\sim b_k$，求和 $\\sum \\limits_{i=1}^{k-1} b_i$。\n>\n> 求 $a$ 的所有 $n!$ 种重排的权值之和。\n>\n> $n \\le 10^6$，3 秒，250 MB。\n\n:::::success[题解]\n\n不妨计数所有重排的前缀 $\\max$ 总和，将答案减去 $n! \\times \\max \\limits_{i=1}^n a_i$。\n\n将贡献拆到每个 $a_i$ 上。设 $\\ge a_i$ 的数有 $k$ 个，则 $a_i$ 成为前缀 $\\max$ 当且仅当 $a_i$ 是这 $k$ 个数中位置最靠前的。\n\n事件发生的概率恰为 $\\frac{1}{k}$，且所有事件独立，可得贡献 $n! \\times \\frac{1}{k} \\times a_i$，排序后直接统计即可。\n\n复杂度 $O(n \\log n)$。[代码](https://www.luogu.com.cn/article/4m3uvjaw)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[CF938E](https://www.luogu.com.cn/problem/CF938E)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的序列 $a_i$。定义序列 $a$ 的权值为，取出 $a_i$ 的所有前缀 $\\max$ 为 $b_1 \\sim b_k$，求和 $\\sum \\limits_{i=1}^{k-1} b_i$。\n>\n> 求 $a$ 的所有 $n!$ 种重排的权值之和。\n>\n> $n \\le 10^6$，3 秒，250 MB。\n\n:::::success[题解]\n\n不妨计数所有重排的前缀 $\\max$ 总和，将答案减去 $n! \\times \\max \\limits_{i=1}^n a_i$。\n\n将贡献拆到每个 $a_i$ 上。设 $\\ge a_i$ 的数有 $k$ 个，则 $a_i$ 成为前缀 $\\max$ 当且仅当 $a_i$ 是这 $k$ 个数中位置最靠前的。\n\n事件发生的概率恰为 $\\frac{1}{k}$，且所有事件独立，可得贡献 $n! \\times \\frac{1}{k} \\times a_i$，排序后直接统计即可。\n\n复杂度 $O(n \\log n)$。[代码](https://www.luogu.com.cn/article/4m3uvjaw)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -482,6 +2165,39 @@ const PROBLEMS_DATA = [
         ]
     },
     {
+        "id": "prob-dmy5826",
+        "title": "余数",
+        "source": "stripe-python",
+        "oj": "来源未考证",
+        "problemId": "DMY5826",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[DMY5826](https://newoj.daimayuan.top/p/5826?tid=6acf6a9477933484e04dbb34)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $l,r$，取序列 $a=[l,l+1,\\cdots,r]$。将 $a_i$ 任意排列，构造函数\n> $$\n> f(x)= ((x \\bmod a_1) \\bmod a_2) \\cdots \\bmod a_{r-l+1}\\quad x\\in \\mathbb{Z}\n> $$\n> 对所有 $(r-l+1)!$ 种排列，求本质不同的函数数目。\n>\n> $l,r \\le 2 \\times 10^6$，1 秒，512 MB。\n\n:::::success[题解]\n\n记 $n=r-l+1$。显然只要关心 $a_1 \\sim a_n$ 的所有前缀 $\\min$，最后一个位置必为 $l$。\n\n下面以 $f(x)=((x \\bmod 6) \\bmod 4) \\bmod 3$ 举例说明。由于 $a_1=6$，$f$ 必有 $6$ 的周期，输出序列为\n$$\n0,1,2,0,0,1,\\quad 0,1,2,0,0,1,\\quad\\cdots\n$$\n考察 $g(x)=f(x \\bmod a)$ 的性质。$g$ 循环节长度变为 $a$，且循环节恰为 $f$ 的前 $a$ 项输出。举例：\n\n- 只有$\\bmod 3$：输出为 $012|012|\\cdots$。\n- 加入$\\bmod 4$：输出变为 $0120 |0120 |\\cdots$。\n- 加入$\\bmod 6$：输出变为 $012001 |012001 |\\cdots$。\n\n**性质** 将循环节按 $0$ 分块，每块都是从 $0$ 开始的连续递增整数，且第一块必然是 $0,1,\\cdots,l-1$。\n\n**举例** $f$ 的输出序列划分为 $012 |0 |01$。\n\n这个条件是充分的。换言之，任意满足上述条件的循环节分块，必能对应到合法的 $f$。构造是将总长和非零块起点降序排序作为 $a$。\n\n我们将问题转化为，对循环节计数，第一块长度为 $l$，之后每块长度 $\\in [1,l]$，总长 $\\le r$。\n\n可以使用简单递推算出长为 $n$ 的循环节序列数 $f_n$。枚举最后一块长为 $i$ 则\n$$\nf_n=\\sum_{i=1}^l f_{n-i}\n$$\n初值 $f_l=1$。维护前 $l$ 项和做到线性。\n\n注意到同一个函数可能拥有多个周期，考虑使用最小正周期去重。设 $g_n$ 为最小周期恰为 $n$ 的函数数目，于是\n$$\nf_n=\\sum_{d \\mid n} g_d \\iff \\boxed{g_n=f_n -\\sum_{d \\mid n \\land d<n} g_d}\n$$\n约数容斥可以枚举 $n$ 的真倍数直接减，过程是调和型枚举。\n\n答案即为 $\\sum \\limits_{i=l}^r g_i$。总复杂度 $O(n \\log n)$。[代码](https://www.cnblogs.com/stripe-python/p/23332840)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[DMY5826](https://newoj.daimayuan.top/p/5826?tid=6acf6a9477933484e04dbb34)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $l,r$，取序列 $a=[l,l+1,\\cdots,r]$。将 $a_i$ 任意排列，构造函数\n> $$\n> f(x)= ((x \\bmod a_1) \\bmod a_2) \\cdots \\bmod a_{r-l+1}\\quad x\\in \\mathbb{Z}\n> $$\n> 对所有 $(r-l+1)!$ 种排列，求本质不同的函数数目。\n>\n> $l,r \\le 2 \\times 10^6$，1 秒，512 MB。\n\n:::::success[题解]\n\n记 $n=r-l+1$。显然只要关心 $a_1 \\sim a_n$ 的所有前缀 $\\min$，最后一个位置必为 $l$。\n\n下面以 $f(x)=((x \\bmod 6) \\bmod 4) \\bmod 3$ 举例说明。由于 $a_1=6$，$f$ 必有 $6$ 的周期，输出序列为\n$$\n0,1,2,0,0,1,\\quad 0,1,2,0,0,1,\\quad\\cdots\n$$\n考察 $g(x)=f(x \\bmod a)$ 的性质。$g$ 循环节长度变为 $a$，且循环节恰为 $f$ 的前 $a$ 项输出。举例：\n\n- 只有$\\bmod 3$：输出为 $012|012|\\cdots$。\n- 加入$\\bmod 4$：输出变为 $0120 |0120 |\\cdots$。\n- 加入$\\bmod 6$：输出变为 $012001 |012001 |\\cdots$。\n\n**性质** 将循环节按 $0$ 分块，每块都是从 $0$ 开始的连续递增整数，且第一块必然是 $0,1,\\cdots,l-1$。\n\n**举例** $f$ 的输出序列划分为 $012 |0 |01$。\n\n这个条件是充分的。换言之，任意满足上述条件的循环节分块，必能对应到合法的 $f$。构造是将总长和非零块起点降序排序作为 $a$。\n\n我们将问题转化为，对循环节计数，第一块长度为 $l$，之后每块长度 $\\in [1,l]$，总长 $\\le r$。\n\n可以使用简单递推算出长为 $n$ 的循环节序列数 $f_n$。枚举最后一块长为 $i$ 则\n$$\nf_n=\\sum_{i=1}^l f_{n-i}\n$$\n初值 $f_l=1$。维护前 $l$ 项和做到线性。\n\n注意到同一个函数可能拥有多个周期，考虑使用最小正周期去重。设 $g_n$ 为最小周期恰为 $n$ 的函数数目，于是\n$$\nf_n=\\sum_{d \\mid n} g_d \\iff \\boxed{g_n=f_n -\\sum_{d \\mid n \\land d<n} g_d}\n$$\n约数容斥可以枚举 $n$ 的真倍数直接减，过程是调和型枚举。\n\n答案即为 $\\sum \\limits_{i=l}^r g_i$。总复杂度 $O(n \\log n)$。[代码](https://www.cnblogs.com/stripe-python/p/23332840)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-goc-homework",
         "title": "发作业",
         "source": "Fohen (QQ 3370864672)",
@@ -538,6 +2254,39 @@ const PROBLEMS_DATA = [
         ]
     },
     {
+        "id": "prob-hdu-5909",
+        "title": "Tree Cutting",
+        "source": "stripe-python",
+        "oj": "HDU",
+        "problemId": "HDU5909",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[HDU5909](https://acm.hdu.edu.cn/showproblem.php?pid=5909)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵 $n$ 个点的树，第 $i$ 个节点的点权为 $a_i$。对每个 $k=0,1,\\cdots,m-1$ 求出，点权异或和为 $k$ 的连通块数目。\n>\n> 多测，$T \\le 10$，$n \\le 10^3$，$m \\le 2^{10}$，2 秒，128 MB。\n\n:::::success[题解]\n\n容易得到树形背包式 DP：\n\n- 记 $f_{u,S}$ 为满足以下条件的连通块 $C$ 数目：\n  - $C \\subseteq \\text{subtree}(u)$。\n  - $u \\in C$。\n  - $\\bigoplus\\limits_{v \\in C} a_v =S$。\n- 树形 DP 转移是逐子树加，对儿子 $v$ 进行讨论：\n  - 不选择 $v$，则 $f'_{u,S} \\gets f_{u,S}$。\n  - 选择 $v$，枚举 $T$ 的转移为 $f'_{u,S \\oplus T} \\gets f_{u,S} f_{v,T}$。\n- DP 初值为 $f_{u,a_u}=1$。\n- $k$ 的答案为 $\\sum\\limits_{u \\in T} f_{u,k}$。\n\n注意到 $u$ 处的转移是对所有儿子做对称差卷积。设集合幂级数 $F_u(x)=\\sum\\limits_{S} f_{u,S} x^S$，从而\n$$\nF_u=x^{a_u}\\prod_{v \\in \\text{son}(u)} (1+F_v)\n$$\n乘法是对称差卷积。$k$ 的答案即为 $[x^k]\\sum\\limits_{u \\in T} F_u$。\n\n对所有 $F$ 施加 $\\text{FWT}$ 变换，卷积化为对位乘法。由 $\\text{FWT}$ 的线性性，我们可以求出 $\\sum\\limits_{u \\in T} \\text{FWT}(F_u)$ 再做逆变换，总复杂度 $O(nm+m\\log m)$。\n\n一个细节是对初值 $x^{a_u}$ 做 $\\text{FWT}$。根据 $\\phi(S,T)=(-1)^{|S \\cap T|}$ 的构造，我们直接对每个位置赋值即可，复杂度 $O(m)$。[代码](https://www.luogu.me/paste/s3gwkitd)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[HDU5909](https://acm.hdu.edu.cn/showproblem.php?pid=5909)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵 $n$ 个点的树，第 $i$ 个节点的点权为 $a_i$。对每个 $k=0,1,\\cdots,m-1$ 求出，点权异或和为 $k$ 的连通块数目。\n>\n> 多测，$T \\le 10$，$n \\le 10^3$，$m \\le 2^{10}$，2 秒，128 MB。\n\n:::::success[题解]\n\n容易得到树形背包式 DP：\n\n- 记 $f_{u,S}$ 为满足以下条件的连通块 $C$ 数目：\n  - $C \\subseteq \\text{subtree}(u)$。\n  - $u \\in C$。\n  - $\\bigoplus\\limits_{v \\in C} a_v =S$。\n- 树形 DP 转移是逐子树加，对儿子 $v$ 进行讨论：\n  - 不选择 $v$，则 $f'_{u,S} \\gets f_{u,S}$。\n  - 选择 $v$，枚举 $T$ 的转移为 $f'_{u,S \\oplus T} \\gets f_{u,S} f_{v,T}$。\n- DP 初值为 $f_{u,a_u}=1$。\n- $k$ 的答案为 $\\sum\\limits_{u \\in T} f_{u,k}$。\n\n注意到 $u$ 处的转移是对所有儿子做对称差卷积。设集合幂级数 $F_u(x)=\\sum\\limits_{S} f_{u,S} x^S$，从而\n$$\nF_u=x^{a_u}\\prod_{v \\in \\text{son}(u)} (1+F_v)\n$$\n乘法是对称差卷积。$k$ 的答案即为 $[x^k]\\sum\\limits_{u \\in T} F_u$。\n\n对所有 $F$ 施加 $\\text{FWT}$ 变换，卷积化为对位乘法。由 $\\text{FWT}$ 的线性性，我们可以求出 $\\sum\\limits_{u \\in T} \\text{FWT}(F_u)$ 再做逆变换，总复杂度 $O(nm+m\\log m)$。\n\n一个细节是对初值 $x^{a_u}$ 做 $\\text{FWT}$。根据 $\\phi(S,T)=(-1)^{|S \\cap T|}$ 的构造，我们直接对每个位置赋值即可，复杂度 $O(m)$。[代码](https://www.luogu.me/paste/s3gwkitd)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-icpc2026-wuhan-rectangle-cut",
         "title": "[ICPC2026 Wuhan I] 矩形切割最大面积 — 离线逆序并查集",
         "source": "",
@@ -580,6 +2329,501 @@ const PROBLEMS_DATA = [
                     "降维"
                 ],
                 "source": ""
+            }
+        ]
+    },
+    {
+        "id": "prob-loj-6669",
+        "title": "Nauuo and Binary Tree",
+        "source": "stripe-python",
+        "oj": "LibreOJ",
+        "problemId": "LOJ6669",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[LOJ6669](https://loj.ac/p/6669)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个大小为 $n$ 的二叉树，根节点为 $1$。可以向交互库询问树上两点间距离。\n>\n> 求出每个点的父亲。\n>\n> $n \\le 3 \\times 10^3$，满分询问次数 $3 \\times 10^4$。\n\n:::::success[题解]\n可以先通过 $n-1$ 次询问求出每个点的深度。这样询问两点距离还能知道其 LCA 的深度。\n\n将节点按深度升序排序，我们就获得了一个层序遍历。不妨直接扫描这个序列，对于每个点 $x$ 找到其父亲。\n\n这里直接暴力是 $O(n^2)$ 的，我们可以对树进行重链剖分。每次询问 $x$ 和重链底的距离，求出其 LCA 深度以后对应到重链上的具体节点。\n\n因为本题是二叉树，我们可以直接进入 LCA 的另一棵子树去递归，重复上述流程即可。\n\n操作次数为 $n \\log n$ 级别，且重剖带 $1/2$ 常数。每次枚举点并暴力树剖，时间复杂度 $O(n^2)$，可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 3005;\nint n, dep[N], fa[N], sz[N], son[N], bot[N], ch[2][N];\nvector<int> vec[N];\nint ask(int u, int v) {\n    if (u == v) return 0;\n    cout << \"? \" << u << ' ' << v << endl;\n    int x; cin >> x;\n    return x;\n}\n\n#define ls ch[0][u]\n#define rs ch[1][u]\nvoid dfs(int u) {\n    sz[u] = 1, bot[u] = u, son[u] = 0;\n    for (int v : {ls, rs}) {\n        if (v == 0) continue;\n        dfs(v), sz[u] += sz[v];\n        if (sz[v] > sz[son[u]]) son[u] = v;\n    }\n    if (son[u]) bot[u] = bot[son[u]];\n}\nvoid solve(int x) {\n    int u = 1;\n    while (true) {\n        int d = (dep[x] + dep[bot[u]] - ask(x, bot[u])) / 2;\n        while (dep[u] < d) u = son[u];\n        if (dep[u] == dep[x] - 1) break;\n        u = (ls != son[u] ? ls : rs);\n    }\n    fa[x] = u;\n    if (ls == 0) ls = x;\n    else rs = x;\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 2; i <= n; i++) {\n        dep[i] = ask(1, i);\n        vec[dep[i]].emplace_back(i);\n    }\n    for (int i = 1; i <= n; i++) {\n        dfs(1);\n        for (int x : vec[i]) solve(x);\n    }\n    cout << \"! \";\n    for (int i = 2; i <= n; i++) cout << fa[i] << ' ';\n    cout << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[LOJ6669](https://loj.ac/p/6669)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个大小为 $n$ 的二叉树，根节点为 $1$。可以向交互库询问树上两点间距离。\n>\n> 求出每个点的父亲。\n>\n> $n \\le 3 \\times 10^3$，满分询问次数 $3 \\times 10^4$。\n\n:::::success[题解]\n可以先通过 $n-1$ 次询问求出每个点的深度。这样询问两点距离还能知道其 LCA 的深度。\n\n将节点按深度升序排序，我们就获得了一个层序遍历。不妨直接扫描这个序列，对于每个点 $x$ 找到其父亲。\n\n这里直接暴力是 $O(n^2)$ 的，我们可以对树进行重链剖分。每次询问 $x$ 和重链底的距离，求出其 LCA 深度以后对应到重链上的具体节点。\n\n因为本题是二叉树，我们可以直接进入 LCA 的另一棵子树去递归，重复上述流程即可。\n\n操作次数为 $n \\log n$ 级别，且重剖带 $1/2$ 常数。每次枚举点并暴力树剖，时间复杂度 $O(n^2)$，可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 3005;\nint n, dep[N], fa[N], sz[N], son[N], bot[N], ch[2][N];\nvector<int> vec[N];\nint ask(int u, int v) {\n    if (u == v) return 0;\n    cout << \"? \" << u << ' ' << v << endl;\n    int x; cin >> x;\n    return x;\n}\n\n#define ls ch[0][u]\n#define rs ch[1][u]\nvoid dfs(int u) {\n    sz[u] = 1, bot[u] = u, son[u] = 0;\n    for (int v : {ls, rs}) {\n        if (v == 0) continue;\n        dfs(v), sz[u] += sz[v];\n        if (sz[v] > sz[son[u]]) son[u] = v;\n    }\n    if (son[u]) bot[u] = bot[son[u]];\n}\nvoid solve(int x) {\n    int u = 1;\n    while (true) {\n        int d = (dep[x] + dep[bot[u]] - ask(x, bot[u])) / 2;\n        while (dep[u] < d) u = son[u];\n        if (dep[u] == dep[x] - 1) break;\n        u = (ls != son[u] ? ls : rs);\n    }\n    fa[x] = u;\n    if (ls == 0) ls = x;\n    else rs = x;\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 2; i <= n; i++) {\n        dep[i] = ask(1, i);\n        vec[dep[i]].emplace_back(i);\n    }\n    for (int i = 1; i <= n; i++) {\n        dfs(1);\n        for (int x : vec[i]) solve(x);\n    }\n    cout << \"! \";\n    for (int i = 2; i <= n; i++) cout << fa[i] << ' ';\n    cout << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p10004",
+        "title": "[集训队互测 2023] Permutation Counting 2",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P10004",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10004](https://www.luogu.com.cn/problem/P10004)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $n$，对于所有 $0 \\le x,y < n$ 求有多少个 $1\\sim n$ 的排列 $p_i$ 满足：\n>\n> - $\\sum \\limits_{i=1}^{n-1} [p_i<p_{i+1}]=x$。\n> - $\\sum \\limits_{i=1}^{n-1} [q_i<q_{i+1}]=x$。\n>\n> $q_i$ 是 $p_i$ 的逆排列，即 $q_{p_i}=i$。\n>\n> $n \\le 500$，5 秒，512 MB。\n\n:::::success[题解]\n\n如果只对 $p$ 有限制，常见做法是容斥。本题中 $p$ 与 $q$ 地位相同，因此可以同时对两维进行容斥。\n\n设原问题的答案为 $f(x,y)$。我们钦定 $p$ 中至少有 $a$ 个上升、$q$ 中至少有 $b$ 个上升，将满足这一条件的方案数记为 $g(a,b)$。有\n$$\nf(x,y)=\\sum_{a=x}^{n-1} \\sum_{b=y}^{n-1} (-1)^{a-x} (-1)^{b-y} \\dbinom{a}{x} \\dbinom{b}{y} g(a,b).\n$$\n\n容斥系数 $(-1)^{a-x} (-1)^{b-y} \\dbinom{a}{x} \\dbinom{b}{y}$ 是超集二元二项式反演给出的。\n\n接下来分析 $g$ 的组合意义。转二维平面分析，即考虑点 $(i,p_i)$。$p$ 的限制作用在纵轴，$q$ 的限制作用在横轴。\n\n我们钦定的每个上升实际上将平面划分为若干个矩形。纵轴上切出 $n-a$ 段，横轴上切出 $n-b$ 段，矩形总数为 $(n-a)(n-b)$。只需在这些区域内选出 $n$ 个点，且要求没有空行和空列，记这个问题的答案为 $g_0(n-a,n-b)$。\n\n类似第二类斯特林数的推导，可以容斥掉不存在空行空列的限制。记：\n\n- $g_0(x,y)$ 为将 $n$ 个点放入 $x \\times y$ 个不同区域中，且不存在空行空列的方案数。\n- $h(x,y)$ 为 $n$ 个点放入 $x \\times y$ 个不同区域中，允许空行空列的方案数。\n\n$h \\to g_0$ 的转化是子集二元二项式反演，容斥系数 $(-1)^{x-a} (-1)^{y-b} \\dbinom{x}{a} \\dbinom{y}{b} $。\n\n考虑计算 $h(x,y)$。这相当于将 $n$ 个无标号球放入 $xy$ 个有标号盒的方案数，即\n$$\nh(x,y)=\\binom{xy+n-1}{n}\n$$\n因此由 $h \\to g_0 \\to g \\to f$ 即可得到 $f$。$h \\to g_0$ 和 $g \\to f$ 都需要做二元二项式反演，复杂度 $O(n^4)$。\n\n考虑优化。将 $g \\to f$ 的式子拆开：\n$$\n\\begin{aligned}\nf(x,y)&=\\sum_{a=x}^{n-1} \\sum_{b=y}^{n-1} (-1)^{x-i} (-1)^{y-j} \\dbinom{a}{x} \\dbinom{b}{y} g(a,b)\\\\\n&=\\boxed{\\sum_{a=x}^{n-1}  (-1)^{x-i} \\dbinom{a}{x}\\sum_{b=y}^{n-1}  (-1)^{y-j}\\dbinom{b}{y} g(a,b)}\n\\end{aligned}\n$$\n可以先枚举 $a,y$ 求出 $\\sum\\limits_{b=y}^{n-1}  (-1)^{y-j}\\dbinom{b}{y} g(a,b)$，再枚举 $a,x$ 做外层求和，复杂度即为 $O(n^3)$。$h \\to g_0$ 同理。[代码](https://qoj.ac/submission/2887240)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10004](https://www.luogu.com.cn/problem/P10004)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $n$，对于所有 $0 \\le x,y < n$ 求有多少个 $1\\sim n$ 的排列 $p_i$ 满足：\n>\n> - $\\sum \\limits_{i=1}^{n-1} [p_i<p_{i+1}]=x$。\n> - $\\sum \\limits_{i=1}^{n-1} [q_i<q_{i+1}]=x$。\n>\n> $q_i$ 是 $p_i$ 的逆排列，即 $q_{p_i}=i$。\n>\n> $n \\le 500$，5 秒，512 MB。\n\n:::::success[题解]\n\n如果只对 $p$ 有限制，常见做法是容斥。本题中 $p$ 与 $q$ 地位相同，因此可以同时对两维进行容斥。\n\n设原问题的答案为 $f(x,y)$。我们钦定 $p$ 中至少有 $a$ 个上升、$q$ 中至少有 $b$ 个上升，将满足这一条件的方案数记为 $g(a,b)$。有\n$$\nf(x,y)=\\sum_{a=x}^{n-1} \\sum_{b=y}^{n-1} (-1)^{a-x} (-1)^{b-y} \\dbinom{a}{x} \\dbinom{b}{y} g(a,b).\n$$\n\n容斥系数 $(-1)^{a-x} (-1)^{b-y} \\dbinom{a}{x} \\dbinom{b}{y}$ 是超集二元二项式反演给出的。\n\n接下来分析 $g$ 的组合意义。转二维平面分析，即考虑点 $(i,p_i)$。$p$ 的限制作用在纵轴，$q$ 的限制作用在横轴。\n\n我们钦定的每个上升实际上将平面划分为若干个矩形。纵轴上切出 $n-a$ 段，横轴上切出 $n-b$ 段，矩形总数为 $(n-a)(n-b)$。只需在这些区域内选出 $n$ 个点，且要求没有空行和空列，记这个问题的答案为 $g_0(n-a,n-b)$。\n\n类似第二类斯特林数的推导，可以容斥掉不存在空行空列的限制。记：\n\n- $g_0(x,y)$ 为将 $n$ 个点放入 $x \\times y$ 个不同区域中，且不存在空行空列的方案数。\n- $h(x,y)$ 为 $n$ 个点放入 $x \\times y$ 个不同区域中，允许空行空列的方案数。\n\n$h \\to g_0$ 的转化是子集二元二项式反演，容斥系数 $(-1)^{x-a} (-1)^{y-b} \\dbinom{x}{a} \\dbinom{y}{b} $。\n\n考虑计算 $h(x,y)$。这相当于将 $n$ 个无标号球放入 $xy$ 个有标号盒的方案数，即\n$$\nh(x,y)=\\binom{xy+n-1}{n}\n$$\n因此由 $h \\to g_0 \\to g \\to f$ 即可得到 $f$。$h \\to g_0$ 和 $g \\to f$ 都需要做二元二项式反演，复杂度 $O(n^4)$。\n\n考虑优化。将 $g \\to f$ 的式子拆开：\n$$\n\\begin{aligned}\nf(x,y)&=\\sum_{a=x}^{n-1} \\sum_{b=y}^{n-1} (-1)^{x-i} (-1)^{y-j} \\dbinom{a}{x} \\dbinom{b}{y} g(a,b)\\\\\n&=\\boxed{\\sum_{a=x}^{n-1}  (-1)^{x-i} \\dbinom{a}{x}\\sum_{b=y}^{n-1}  (-1)^{y-j}\\dbinom{b}{y} g(a,b)}\n\\end{aligned}\n$$\n可以先枚举 $a,y$ 求出 $\\sum\\limits_{b=y}^{n-1}  (-1)^{y-j}\\dbinom{b}{y} g(a,b)$，再枚举 $a,x$ 做外层求和，复杂度即为 $O(n^3)$。$h \\to g_0$ 同理。[代码](https://qoj.ac/submission/2887240)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p10185",
+        "title": "[YDOI R1] Necklace",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P10185",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10185](https://www.luogu.com.cn/problem/P10185)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 种颜色的球，第 $i$ 种颜色的球有 $a_i$ 个，所有 $\\sum a_i$ 个球互不相同。\n>\n> 你需要从中取出若干，设第 $i$ 种颜色取 $c_i$ 个，要求 $c_i \\ge 1$，则权值为 $\\sum (v_i)^{c_i}$。求所有取球方案的权值和。\n>\n> $n \\le 2 \\times 10^5$，$a_i \\le 10^9$，1 秒，512 MB。\n\n:::::success[题解]\n\n设 $m=\\sum a_i$。考虑对每个 $i$ 枚举 $c_i=j$，则 $i$ 的贡献为：\n\n- 剩余 $m-a_i$ 个球任取，方案数 $2^{m-a_i}$。\n- 从 $a_i$ 个互相区分的球里取 $j$ 个，方案数 $\\binom{a_i}{j}$。\n\n从而答案式\n$$\n\\sum_{i=1}^n \\sum_{j=1}^{a_i} 2^{m-a_i}\\binom{a_i}{j}(v_i)^j\n$$\n由二项式定理 $\\sum\\limits_{j=0}^{a_i} \\dbinom{a_i}{j} (v_i)^j 1^{a_i-j}=(v_i+1)^{a_i}$。于是化简为\n$$\n\\boxed{\\sum_{i=1}^n  2^{m-a_i}\\left((v_i+1)^{a_i}-1\\right)}\n$$\n复杂度 $O(n \\log V)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10185](https://www.luogu.com.cn/problem/P10185)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 种颜色的球，第 $i$ 种颜色的球有 $a_i$ 个，所有 $\\sum a_i$ 个球互不相同。\n>\n> 你需要从中取出若干，设第 $i$ 种颜色取 $c_i$ 个，要求 $c_i \\ge 1$，则权值为 $\\sum (v_i)^{c_i}$。求所有取球方案的权值和。\n>\n> $n \\le 2 \\times 10^5$，$a_i \\le 10^9$，1 秒，512 MB。\n\n:::::success[题解]\n\n设 $m=\\sum a_i$。考虑对每个 $i$ 枚举 $c_i=j$，则 $i$ 的贡献为：\n\n- 剩余 $m-a_i$ 个球任取，方案数 $2^{m-a_i}$。\n- 从 $a_i$ 个互相区分的球里取 $j$ 个，方案数 $\\binom{a_i}{j}$。\n\n从而答案式\n$$\n\\sum_{i=1}^n \\sum_{j=1}^{a_i} 2^{m-a_i}\\binom{a_i}{j}(v_i)^j\n$$\n由二项式定理 $\\sum\\limits_{j=0}^{a_i} \\dbinom{a_i}{j} (v_i)^j 1^{a_i-j}=(v_i+1)^{a_i}$。于是化简为\n$$\n\\boxed{\\sum_{i=1}^n  2^{m-a_i}\\left((v_i+1)^{a_i}-1\\right)}\n$$\n复杂度 $O(n \\log V)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p10243",
+        "title": "[THUSC 2021] 种树",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P10243",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10243](https://www.luogu.com.cn/problem/P10243)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一棵 $n$ 个点的无标号树，需要传递一个二进制串。\n> - B：已知这个二进制串，需要还原这棵树。\n>\n> $n \\le 70$，满分要求 bit 数 $\\le 128$。\n\n:::::success[题解]\n括号序和树的形态之间形成了双射，故考虑求出括号序。但是直接做需要 $2n-2$ 个 bit，无法通过。\n\n继续压缩信息，发现括号序的问题是不合法序列也会被算入。我们可以用合法括号序的字典序来记录一个括号序列，求字典序和从字典序还原都是[经典问题](https://oi-wiki.org/topic/bracket/#%E5%AD%97%E5%85%B8%E5%BA%8F%E8%AE%A1%E7%AE%97)。由于 $H_{n-1} \\le 2^{128}$ 可以通过。\n\n于是做完了，复杂度 $O(n^2)$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 150;\nu128 f[N][N];\nbool init;\nvoid work() {\n    if (init) return;\n    f[0][0] = 1;\n    for (int i = 1; i <= 140; i++) {\n        f[i][0] = f[i - 1][1];\n        for (int j = 1; j <= i; j++) \n            f[i][j] = f[i - 1][j - 1] + f[i - 1][j + 1];\n    }\n    init = true;\n}\n\nu128 encoder(int n, const int* p) {\n    vector<vector<int>> e(n + 5);\n    for (int i = 2; i <= n; i++) e[p[i]].emplace_back(i);\n    string s;\n    function<void(int)> dfs = [&](int u) -> void {\n        for (int v : e[u]) s += '(', dfs(v), s += ')';\n    };\n    dfs(1), work();\n    u128 rnk = 0;\n    for (int i = 0, pre = 0; i < (int)s.size(); i++) {\n        int j = (int)s.size() - i - 1;\n        if (s[i] == '(') pre++;\n        else rnk += f[j][pre + 1], pre--;\n    }\n    return rnk;\n}\nvoid decoder(int n, u128 M, int* p) {\n    work();\n    u128 rnk = M;\n    string s;\n    for (int i = 0, pre = 0; i < 2 * (n - 1); i++) {\n        int j = 2 * (n - 1) - i - 1;\n        u128 v = f[j][pre + 1];\n        if (rnk < v) s += '(', pre++;\n        else s += ')', pre--, rnk -= v;\n    }\n    int u = 1, v = 2;\n    stack<int> st; st.emplace(1);\n    p[1] = 0;\n    for (char c : s) {\n        if (c == '(') p[v] = u, st.emplace(v), u = v++;\n        else st.pop(), u = st.top();\n    }\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10243](https://www.luogu.com.cn/problem/P10243)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一棵 $n$ 个点的无标号树，需要传递一个二进制串。\n> - B：已知这个二进制串，需要还原这棵树。\n>\n> $n \\le 70$，满分要求 bit 数 $\\le 128$。\n\n:::::success[题解]\n括号序和树的形态之间形成了双射，故考虑求出括号序。但是直接做需要 $2n-2$ 个 bit，无法通过。\n\n继续压缩信息，发现括号序的问题是不合法序列也会被算入。我们可以用合法括号序的字典序来记录一个括号序列，求字典序和从字典序还原都是[经典问题](https://oi-wiki.org/topic/bracket/#%E5%AD%97%E5%85%B8%E5%BA%8F%E8%AE%A1%E7%AE%97)。由于 $H_{n-1} \\le 2^{128}$ 可以通过。\n\n于是做完了，复杂度 $O(n^2)$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 150;\nu128 f[N][N];\nbool init;\nvoid work() {\n    if (init) return;\n    f[0][0] = 1;\n    for (int i = 1; i <= 140; i++) {\n        f[i][0] = f[i - 1][1];\n        for (int j = 1; j <= i; j++) \n            f[i][j] = f[i - 1][j - 1] + f[i - 1][j + 1];\n    }\n    init = true;\n}\n\nu128 encoder(int n, const int* p) {\n    vector<vector<int>> e(n + 5);\n    for (int i = 2; i <= n; i++) e[p[i]].emplace_back(i);\n    string s;\n    function<void(int)> dfs = [&](int u) -> void {\n        for (int v : e[u]) s += '(', dfs(v), s += ')';\n    };\n    dfs(1), work();\n    u128 rnk = 0;\n    for (int i = 0, pre = 0; i < (int)s.size(); i++) {\n        int j = (int)s.size() - i - 1;\n        if (s[i] == '(') pre++;\n        else rnk += f[j][pre + 1], pre--;\n    }\n    return rnk;\n}\nvoid decoder(int n, u128 M, int* p) {\n    work();\n    u128 rnk = M;\n    string s;\n    for (int i = 0, pre = 0; i < 2 * (n - 1); i++) {\n        int j = 2 * (n - 1) - i - 1;\n        u128 v = f[j][pre + 1];\n        if (rnk < v) s += '(', pre++;\n        else s += ')', pre--, rnk -= v;\n    }\n    int u = 1, v = 2;\n    stack<int> st; st.emplace(1);\n    p[1] = 0;\n    for (char c : s) {\n        if (c == '(') p[v] = u, st.emplace(v), u = v++;\n        else st.pop(), u = st.top();\n    }\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p10384",
+        "title": "「HOI R1」杂交选种",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P10384",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10384](https://www.luogu.com.cn/problem/P10384)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 现有 $n$ 个个体，每个个体的基因型为 $\\tt{AA}, \\tt{Aa}, \\tt{aa}$ 之一。每次操作可以向交互库询问一个个体的性状，或者令交互库将两个个体杂交，不能自交。杂交次数不能超过 $T$。\n>\n> 还原原本的基因序列。\n>\n> $n \\le 2 \\times 10^4$，满分要求 $T=4.5 \\times 10^5$，交互库非自适应。\n\n:::::success[题解]\n考虑 Subtask 3 的做法，先一遍扫描扫出 $\\tt{aa}$，然后用这个 $\\tt{aa}$ 与其他含有 $\\tt{A}$ 的个体杂交 $22$ 次，若杂交结果出现 $\\tt{aa}$ 则确定为 $\\tt{Aa}$，否则认定为 $\\tt{AA}$，错误率极低。可以获得 [25 分](https://www.luogu.com.cn/record/269213539)。\n\n这启示我们设法造出一个 $\\tt{aa}$。如果允许自交，一个简单的做法就是扫一遍序列，然后将所有元素多次自交，这样 $\\tt{Aa}$ 就有 $1/4$ 的概率造出 $\\tt{aa}$。\n\n本题不允许自交，那么我们有一种替代方法是让 $\\tt{Aa}$ 与其后代杂交。具体地，我们随机一个个体先与当前个体杂交，则我们有 $\\tt{AA} \\times \\tt{Aa} \\to \\tt{Aa}$，然后用 $\\tt{Aa}$ 与 $\\tt{Aa}$ 杂交即可。\n\n由于上述策略错误率较高，我们用一个 vector 记录下其所有后代，并且随机一个后代进行杂交。\n\n进行一些调参，将后代杂交重复 $12$ 次，得到 $\\tt{aa}$ 以后的杂交上界根据当前杂交次数决定。这样可以通过本题，进行 $10$ 次提交测试中有 $4$ 次可以 AC。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nvector<string> guess(int n) {\n    int cur = n;\n    auto mix = [&](int u, int v) -> int {return cross(u, v), ++cur;};\n    vector<string> res(n, \"AA\");\n    vector<int> a(n + 5);\n    for (int i = 1; i <= n; i++) a[i] = (query(i) == 'a');\n    auto work = [&](int p, int lim) -> void {\n        for (int i = 1; i <= n; i++) {\n            if (a[i] == 1) {\n                res[i - 1] = \"aa\";\n            } else {\n                int T = lim;\n                while (T--) {\n                    int x = mix(p, i);\n                    if (query(x) == 'A') continue;\n                    res[i - 1] = \"Aa\";\n                    break;\n                }\n            }\n        }\n    };\n    int p = find(a.begin(), a.end(), 1) - a.begin(); \n    if (p != (int)a.size()) return work(p, 22), res;\n    for (int i = 1; i <= n; i++) {\n        int x = rand32() % n + 1, T = 12;\n        while (x == i) x = rand32() % n + 1;\n        vector<int> son = {x};\n        while (T--) {\n            int idx = rand32() % son.size();\n            int now = mix(son[idx], i);\n            if (query(now) == 'a') return work(now, (4.5e5 - cur + n) / n), res;\n            son.emplace_back(now), son.emplace_back(now);\n        }\n    }\n    return res;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10384](https://www.luogu.com.cn/problem/P10384)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 现有 $n$ 个个体，每个个体的基因型为 $\\tt{AA}, \\tt{Aa}, \\tt{aa}$ 之一。每次操作可以向交互库询问一个个体的性状，或者令交互库将两个个体杂交，不能自交。杂交次数不能超过 $T$。\n>\n> 还原原本的基因序列。\n>\n> $n \\le 2 \\times 10^4$，满分要求 $T=4.5 \\times 10^5$，交互库非自适应。\n\n:::::success[题解]\n考虑 Subtask 3 的做法，先一遍扫描扫出 $\\tt{aa}$，然后用这个 $\\tt{aa}$ 与其他含有 $\\tt{A}$ 的个体杂交 $22$ 次，若杂交结果出现 $\\tt{aa}$ 则确定为 $\\tt{Aa}$，否则认定为 $\\tt{AA}$，错误率极低。可以获得 [25 分](https://www.luogu.com.cn/record/269213539)。\n\n这启示我们设法造出一个 $\\tt{aa}$。如果允许自交，一个简单的做法就是扫一遍序列，然后将所有元素多次自交，这样 $\\tt{Aa}$ 就有 $1/4$ 的概率造出 $\\tt{aa}$。\n\n本题不允许自交，那么我们有一种替代方法是让 $\\tt{Aa}$ 与其后代杂交。具体地，我们随机一个个体先与当前个体杂交，则我们有 $\\tt{AA} \\times \\tt{Aa} \\to \\tt{Aa}$，然后用 $\\tt{Aa}$ 与 $\\tt{Aa}$ 杂交即可。\n\n由于上述策略错误率较高，我们用一个 vector 记录下其所有后代，并且随机一个后代进行杂交。\n\n进行一些调参，将后代杂交重复 $12$ 次，得到 $\\tt{aa}$ 以后的杂交上界根据当前杂交次数决定。这样可以通过本题，进行 $10$ 次提交测试中有 $4$ 次可以 AC。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nvector<string> guess(int n) {\n    int cur = n;\n    auto mix = [&](int u, int v) -> int {return cross(u, v), ++cur;};\n    vector<string> res(n, \"AA\");\n    vector<int> a(n + 5);\n    for (int i = 1; i <= n; i++) a[i] = (query(i) == 'a');\n    auto work = [&](int p, int lim) -> void {\n        for (int i = 1; i <= n; i++) {\n            if (a[i] == 1) {\n                res[i - 1] = \"aa\";\n            } else {\n                int T = lim;\n                while (T--) {\n                    int x = mix(p, i);\n                    if (query(x) == 'A') continue;\n                    res[i - 1] = \"Aa\";\n                    break;\n                }\n            }\n        }\n    };\n    int p = find(a.begin(), a.end(), 1) - a.begin(); \n    if (p != (int)a.size()) return work(p, 22), res;\n    for (int i = 1; i <= n; i++) {\n        int x = rand32() % n + 1, T = 12;\n        while (x == i) x = rand32() % n + 1;\n        vector<int> son = {x};\n        while (T--) {\n            int idx = rand32() % son.size();\n            int now = mix(son[idx], i);\n            if (query(now) == 'a') return work(now, (4.5e5 - cur + n) / n), res;\n            son.emplace_back(now), son.emplace_back(now);\n        }\n    }\n    return res;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p10539",
+        "title": "[APIO2024] 魔术表演",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P10539",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10539](https://www.luogu.com.cn/problem/P10539)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个正整数 $x$，需要传递一棵节点数为 $n$ 的树。\n> - B：已知传输的树，还原 $x$。\n>\n> 通信过程中，至多 $\\lfloor \\frac{n-2}{2} \\rfloor$ 条边会被交互库删除。\n>\n> $1 \\le x \\le 10^{18}$，满分要求 $n \\le 5000$。\n\n:::::success[题解]\n感觉这个题有一万种做法。下面给出一个思维难度小，且比较奶龙的做法。\n\n考虑拆二进制位。对于节点 $u$，随机一个 $d_u \\in [0,60)$，然后用 $u$ 维护 $x$ 二进制下第 $d_u$ 位。\n\n直接连边可能会有一些度数上的问题，会被交互库识别并卡掉。考虑对于 $3 \\le u \\le 5000$，随机 $a_u,b_u$ 为其两个备选父亲，二进制为 $1$ 则连边 $a_u \\to u$，否则连边 $b_u \\to u$。\n\n只要 $n=5000$，上述做法大概率能得到树，且不会被卡掉。\n\n随机数生成器使用相同种子，可以保证 $d_u,a_u,b_u$ 都一致。B 收到树以后简单还原即可。\n:::::\n\n:::::info[代码]\nA:\n\n```cpp line-numbers\nconst int N = 5005;\nusing node = pair<int, int>;\nstatic mt19937 rand32(2026);\nstatic int d[N], a[N], b[N];\n\nvector<pair<int, int>> Alice() {\n    const int n = 5000;\n    for (int i = 3; i <= n; i++) {\n        d[i] = rand32() % 60;\n        do a[i] = rand32() % (i - 1) + 1, b[i] = rand32() % (i - 1) + 1;\n        while (a[i] == b[i]);\n    }\n    vector<node> e;\n    i64 x = setN(n);\n    for (int i = 3; i <= n; i++) {\n        if (x >> d[i] & 1) e.emplace_back(a[i], i);\n        else e.emplace_back(b[i], i);\n    }\n    e.emplace_back(1, 2);\n    return e;\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 5005;\nusing node = pair<int, int>;\nstatic mt19937 rand32(2026);\nstatic int d[N], a[N], b[N], has[N];\n\ni64 Bob(vector<node> V) {\n    const int n = 5000;\n    for (int i = 3; i <= n; i++) {\n        d[i] = rand32() % 60;\n        do a[i] = rand32() % (i - 1) + 1, b[i] = rand32() % (i - 1) + 1;\n        while (a[i] == b[i]);\n    }\n    for (auto [u, v] : V) {\n        if (u == a[v]) has[v] = 1;  \n        if (v == a[u]) has[u] = 1;\n    }\n    i64 x = 0;\n    for (int i = 3; i <= n; i++) {\n        if (has[i]) x |= 1LL << d[i];\n    } return x;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10539](https://www.luogu.com.cn/problem/P10539)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个正整数 $x$，需要传递一棵节点数为 $n$ 的树。\n> - B：已知传输的树，还原 $x$。\n>\n> 通信过程中，至多 $\\lfloor \\frac{n-2}{2} \\rfloor$ 条边会被交互库删除。\n>\n> $1 \\le x \\le 10^{18}$，满分要求 $n \\le 5000$。\n\n:::::success[题解]\n感觉这个题有一万种做法。下面给出一个思维难度小，且比较奶龙的做法。\n\n考虑拆二进制位。对于节点 $u$，随机一个 $d_u \\in [0,60)$，然后用 $u$ 维护 $x$ 二进制下第 $d_u$ 位。\n\n直接连边可能会有一些度数上的问题，会被交互库识别并卡掉。考虑对于 $3 \\le u \\le 5000$，随机 $a_u,b_u$ 为其两个备选父亲，二进制为 $1$ 则连边 $a_u \\to u$，否则连边 $b_u \\to u$。\n\n只要 $n=5000$，上述做法大概率能得到树，且不会被卡掉。\n\n随机数生成器使用相同种子，可以保证 $d_u,a_u,b_u$ 都一致。B 收到树以后简单还原即可。\n:::::\n\n:::::info[代码]\nA:\n\n```cpp line-numbers\nconst int N = 5005;\nusing node = pair<int, int>;\nstatic mt19937 rand32(2026);\nstatic int d[N], a[N], b[N];\n\nvector<pair<int, int>> Alice() {\n    const int n = 5000;\n    for (int i = 3; i <= n; i++) {\n        d[i] = rand32() % 60;\n        do a[i] = rand32() % (i - 1) + 1, b[i] = rand32() % (i - 1) + 1;\n        while (a[i] == b[i]);\n    }\n    vector<node> e;\n    i64 x = setN(n);\n    for (int i = 3; i <= n; i++) {\n        if (x >> d[i] & 1) e.emplace_back(a[i], i);\n        else e.emplace_back(b[i], i);\n    }\n    e.emplace_back(1, 2);\n    return e;\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 5005;\nusing node = pair<int, int>;\nstatic mt19937 rand32(2026);\nstatic int d[N], a[N], b[N], has[N];\n\ni64 Bob(vector<node> V) {\n    const int n = 5000;\n    for (int i = 3; i <= n; i++) {\n        d[i] = rand32() % 60;\n        do a[i] = rand32() % (i - 1) + 1, b[i] = rand32() % (i - 1) + 1;\n        while (a[i] == b[i]);\n    }\n    for (auto [u, v] : V) {\n        if (u == a[v]) has[v] = 1;  \n        if (v == a[u]) has[u] = 1;\n    }\n    i64 x = 0;\n    for (int i = 3; i <= n; i++) {\n        if (has[i]) x |= 1LL << d[i];\n    } return x;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p10786",
+        "title": "[NOI2024] 百万富翁",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P10786",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10786](https://www.luogu.com.cn/problem/P10786)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以进行 $T$ 次并行询问，并行询问包含至多 $S$ 个单独问题 $(i,j)$，若 $p_i>p_j$ 返回 $i$，否则返回 $j$。\n>\n> 找出排列中最大值出现的位置。\n>\n> - 测试点 #1：$n=10^3$，满分要求 $T=1,S=499500$；\n> - 测试点 #2：$n=10^6$，满分要求 $T=8,S=1099944$。\n>\n> 交互库自适应。\n\n:::::success[题解]\n\n首先测试点 #1 就是检查你题目读懂了没有，懂了以后直接把所有 $i<j$ 的 $(i,j)$ 都问一遍即可。一次询问，询问大小为 $\\frac{n(n-1)}{2}=499500$。\n\n对于测试点 #2，一个直接的想法是分治，每层二分一下，会形成一个类似线段树的结构，要询问 $20$ 次。注意到题目要求我们把询问减少到 $8$ 次，考虑一个类似 $k$ 叉线段树的策略，每层分 $k$ 块，块内按照 #1 那样两两询问，这样可以得到 $k$ 个胜者进入下一层。\n\n可以用 Turán 定理说明上述策略的最优性。因此恰当的块长一定可以得到最优询问次数。\n\n那么现在这题实际上转化为一个提答题：确定一个长为 $8$ 的序列 $a$ 表示每层的块长。\n\n我自己做的时候直接乱搞出来了。下面叙述正解，可以发现，将 $n$ 个人分 $k$ 块的询问次数为\n$$\nf(n,k)=(k-n\\bmod k)\\times \\binom{\\left\\lfloor \\frac{n}{k} \\right\\rfloor}{2}+(n\\bmod k)\\times \\binom{\\left\\lfloor \\frac{n}{k} \\right\\rfloor+1}{2}\n$$\n\n则序列 $a$ 的询问次数为\n$$\ng(a)=\\sum_{i=0}^7 f(a_i,a_{i+1})\n$$\n对策略进行 DP。设 $dp_{n,k} $ 表示第 $n$ 层，分 $k$ 块的最小代价，枚举下一层分 $k' $ 块可以做到 $O(Tn^2)$，本地需要较长时间。\n\n注意到 $f(n,k)$ 是一个与 $\\left\\lfloor \\frac{n}{k} \\right\\rfloor$ 有关的式子，所以大量 DP 状态的答案是重复的。考虑数论分块优化 DP，那么复杂度降到 $O(Tn\\sqrt{n})$，本机 <1s 即可跑出答案。\n\n:::::\n\n::::info[代码]\n\n这是 DP 代码。\n\n```cpp line-numbers\n#define int long long\nconst int N = 1e6 + 5;\nint f(int x) {return x * (x - 1) / 2;}\nint g(int x, int y) {return (y - (x % y)) * f(x / y) + x % y * f(x / y + 1);}\nint dp[10][N];\nint dfs(int n, int k) {\n\tif (dp[k][n]) return dp[k][n];\n\tif (k == 1) return f(n);\n\tvector<int> vec;\n\tfor (int l = 1, r; l <= n; l = r + 1) {\n\t\tr = min(n, n / (n / l));\n\t\tif (l > 1) vec.emplace_back(l);\n\t\tif (r > l) vec.emplace_back(r);\n\t}\n\tdp[k][n] = 1e18;\n\tfor (int x : vec) {\n\t\tint v = dfs(x, k - 1) + g(n, x);\n\t\tif (v < dp[k][n]) dp[k][n] = v;\n\t}\n\treturn dp[k][n];\n}\nvoid out(int n, int k) {\n\tif (k == 1) return cout << 1, void();\n\tvector<int> vec;\n\tfor (int l = 1, r; l <= n; l = r + 1) {\n\t\tr = min(n, n / (n / l));\n\t\tif (l > 1) vec.emplace_back(l);\n\t\tif (r > l) vec.emplace_back(r);\n\t}\n\tfor (int x : vec) {\n\t\tif (dp[k][n] == dfs(x, k - 1) + g(n, x)) {\n\t\t\tcout << x << \", \", out(x, k - 1);\n\t\t\tbreak;\n\t\t}\n\t}\n}\n\nvoid _main() {\n\tcout << dfs(1000000, 8) << endl;\n\tout(1000000, 8);\n}\n```\n\n在运行后的输出如下：\n\n```cpp\n1099944\n500000, 250000, 125000, 62500, 20833, 3472, 183, 1\n```\n\n写到交互程序中即可。\n\n```cpp line-numbers\nint work1() {\n\tvector<int> a, b;\n\tfor (int i = 0; i < 1000; i++) {\n\t\tfor (int j = i + 1; j < 1000; j++) a.emplace_back(i), b.emplace_back(j);\n\t}\n\tauto c = ask(a, b);\n\tvector<int> cnt(1000, 0);\n\tfor (int i : c) cnt[i]++;\n\tfor (int i = 0; i < 1000; i++) {\n\t\tif (cnt[i] >= 999) return i;\n\t}\n\tthrow -1;\n}\nconst int a[] = {1000000, 500000, 250000, 125000, 62500, 20833, 3472, 183, 1};\nint richest(int N, int T, int S) {\n\tif (N == 1000 && T == 1 && S == 499500) return work1();\n\tvector<int> q;\n\tfor (int i = 0; i < N; i++) q.emplace_back(i);\n\tfor (int x = 1; x < 9; x++) {\n\t\tvector<int> u, v;\n\t\tfor (int i = 0, l = 0, r; i < a[x]; i++, l = r) {\n\t\t\tr = l + a[x - 1] / a[x];\n\t\t\tif (i < a[x - 1] % a[x]) r++;\n\t\t\tfor (int j = l; j < r; j++) {\n\t\t\t\tfor (int k = j + 1; k < r; k++) u.emplace_back(q[j]), v.emplace_back(q[k]);\n\t\t\t}\n\t\t}\n\t\tauto w = ask(u, v);\n\t\tvector<int> cnt(N);\n\t\tfor (int i = 0; i < (int) w.size(); i++) {\n\t\t\tif (w[i] == u[i]) cnt[v[i]]++;\n\t\t\telse cnt[u[i]]++;\n\t\t}\n\t\tvector<int> nxt;\n\t\tfor (int i = 0; i < (int) q.size(); i++) {\n\t\t\tif (!cnt[q[i]]) nxt.emplace_back(q[i]);\n\t\t}\n\t\tq = nxt;\n\t}\n\treturn q[0];\n}\n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P10786](https://www.luogu.com.cn/problem/P10786)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以进行 $T$ 次并行询问，并行询问包含至多 $S$ 个单独问题 $(i,j)$，若 $p_i>p_j$ 返回 $i$，否则返回 $j$。\n>\n> 找出排列中最大值出现的位置。\n>\n> - 测试点 #1：$n=10^3$，满分要求 $T=1,S=499500$；\n> - 测试点 #2：$n=10^6$，满分要求 $T=8,S=1099944$。\n>\n> 交互库自适应。\n\n:::::success[题解]\n\n首先测试点 #1 就是检查你题目读懂了没有，懂了以后直接把所有 $i<j$ 的 $(i,j)$ 都问一遍即可。一次询问，询问大小为 $\\frac{n(n-1)}{2}=499500$。\n\n对于测试点 #2，一个直接的想法是分治，每层二分一下，会形成一个类似线段树的结构，要询问 $20$ 次。注意到题目要求我们把询问减少到 $8$ 次，考虑一个类似 $k$ 叉线段树的策略，每层分 $k$ 块，块内按照 #1 那样两两询问，这样可以得到 $k$ 个胜者进入下一层。\n\n可以用 Turán 定理说明上述策略的最优性。因此恰当的块长一定可以得到最优询问次数。\n\n那么现在这题实际上转化为一个提答题：确定一个长为 $8$ 的序列 $a$ 表示每层的块长。\n\n我自己做的时候直接乱搞出来了。下面叙述正解，可以发现，将 $n$ 个人分 $k$ 块的询问次数为\n$$\nf(n,k)=(k-n\\bmod k)\\times \\binom{\\left\\lfloor \\frac{n}{k} \\right\\rfloor}{2}+(n\\bmod k)\\times \\binom{\\left\\lfloor \\frac{n}{k} \\right\\rfloor+1}{2}\n$$\n\n则序列 $a$ 的询问次数为\n$$\ng(a)=\\sum_{i=0}^7 f(a_i,a_{i+1})\n$$\n对策略进行 DP。设 $dp_{n,k} $ 表示第 $n$ 层，分 $k$ 块的最小代价，枚举下一层分 $k' $ 块可以做到 $O(Tn^2)$，本地需要较长时间。\n\n注意到 $f(n,k)$ 是一个与 $\\left\\lfloor \\frac{n}{k} \\right\\rfloor$ 有关的式子，所以大量 DP 状态的答案是重复的。考虑数论分块优化 DP，那么复杂度降到 $O(Tn\\sqrt{n})$，本机 <1s 即可跑出答案。\n\n:::::\n\n::::info[代码]\n\n这是 DP 代码。\n\n```cpp line-numbers\n#define int long long\nconst int N = 1e6 + 5;\nint f(int x) {return x * (x - 1) / 2;}\nint g(int x, int y) {return (y - (x % y)) * f(x / y) + x % y * f(x / y + 1);}\nint dp[10][N];\nint dfs(int n, int k) {\n\tif (dp[k][n]) return dp[k][n];\n\tif (k == 1) return f(n);\n\tvector<int> vec;\n\tfor (int l = 1, r; l <= n; l = r + 1) {\n\t\tr = min(n, n / (n / l));\n\t\tif (l > 1) vec.emplace_back(l);\n\t\tif (r > l) vec.emplace_back(r);\n\t}\n\tdp[k][n] = 1e18;\n\tfor (int x : vec) {\n\t\tint v = dfs(x, k - 1) + g(n, x);\n\t\tif (v < dp[k][n]) dp[k][n] = v;\n\t}\n\treturn dp[k][n];\n}\nvoid out(int n, int k) {\n\tif (k == 1) return cout << 1, void();\n\tvector<int> vec;\n\tfor (int l = 1, r; l <= n; l = r + 1) {\n\t\tr = min(n, n / (n / l));\n\t\tif (l > 1) vec.emplace_back(l);\n\t\tif (r > l) vec.emplace_back(r);\n\t}\n\tfor (int x : vec) {\n\t\tif (dp[k][n] == dfs(x, k - 1) + g(n, x)) {\n\t\t\tcout << x << \", \", out(x, k - 1);\n\t\t\tbreak;\n\t\t}\n\t}\n}\n\nvoid _main() {\n\tcout << dfs(1000000, 8) << endl;\n\tout(1000000, 8);\n}\n```\n\n在运行后的输出如下：\n\n```cpp\n1099944\n500000, 250000, 125000, 62500, 20833, 3472, 183, 1\n```\n\n写到交互程序中即可。\n\n```cpp line-numbers\nint work1() {\n\tvector<int> a, b;\n\tfor (int i = 0; i < 1000; i++) {\n\t\tfor (int j = i + 1; j < 1000; j++) a.emplace_back(i), b.emplace_back(j);\n\t}\n\tauto c = ask(a, b);\n\tvector<int> cnt(1000, 0);\n\tfor (int i : c) cnt[i]++;\n\tfor (int i = 0; i < 1000; i++) {\n\t\tif (cnt[i] >= 999) return i;\n\t}\n\tthrow -1;\n}\nconst int a[] = {1000000, 500000, 250000, 125000, 62500, 20833, 3472, 183, 1};\nint richest(int N, int T, int S) {\n\tif (N == 1000 && T == 1 && S == 499500) return work1();\n\tvector<int> q;\n\tfor (int i = 0; i < N; i++) q.emplace_back(i);\n\tfor (int x = 1; x < 9; x++) {\n\t\tvector<int> u, v;\n\t\tfor (int i = 0, l = 0, r; i < a[x]; i++, l = r) {\n\t\t\tr = l + a[x - 1] / a[x];\n\t\t\tif (i < a[x - 1] % a[x]) r++;\n\t\t\tfor (int j = l; j < r; j++) {\n\t\t\t\tfor (int k = j + 1; k < r; k++) u.emplace_back(q[j]), v.emplace_back(q[k]);\n\t\t\t}\n\t\t}\n\t\tauto w = ask(u, v);\n\t\tvector<int> cnt(N);\n\t\tfor (int i = 0; i < (int) w.size(); i++) {\n\t\t\tif (w[i] == u[i]) cnt[v[i]]++;\n\t\t\telse cnt[u[i]]++;\n\t\t}\n\t\tvector<int> nxt;\n\t\tfor (int i = 0; i < (int) q.size(); i++) {\n\t\t\tif (!cnt[q[i]]) nxt.emplace_back(q[i]);\n\t\t}\n\t\tq = nxt;\n\t}\n\treturn q[0];\n}\n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p11164",
+        "title": "[BalkanOI 2023] Permutations",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P11164",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P11164](https://www.luogu.com.cn/problem/P11164)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $1\\sim n$ 的排列 $p_i$。$q$ 次询问给出 $l,r$，求满足下列条件的 $1\\sim n$ 的排列数目：\n>\n> - 排列的前缀为 $p_l \\sim p_r$。\n> - 排列的 LDS 长度 $\\le 2$。LDS 为最长下降子序列。\n>\n> $n , q \\le 3 \\times 10^5$，2 秒，250 MB。\n\n:::::success[题解]\n\n先考虑没有前缀限制怎么做，打表发现答案数列的前几项是 $1,1,2,5,14,42,\\cdots$，猜测答案为 Catalan 数 $C_n$。\n\n我们尝试将合法排列和格路计数的模型建立双射。\n\n首先考虑从排列构造格路。我们求出前缀最大值 $s_i=\\max \\limits_{j=1}^i p_i$，然后将 $(i,s_i)$ 画在平面上，先向上再向右走即可。因为 $s_i \\ge i$ 必成立，所以这是一条始终在 $y=x$ 上方的格路。\n\n接着考虑从格路构造排列。先求出每个横坐标对应的高度 $s_i$。对于 $s_i>s_{i-1}$ 的位置 $i$，必有 $p_i=s_i$，即 $p_i$ 是前缀最大值。对于非前缀最大值，我们让它们按照严格递增的顺序，依次填入剩下的空位。\n\n在这个构造中，前缀最大值和非前缀最大值构成的子序列都是递增的。由 Dilworth 定理，$\\text{LDS} \\le 2$ 当且仅当排列可以被划分为至多两个递增子序列。可以看到，这确实是满足要求的。\n\n现在我们强制排列的前缀为 $a_1,a_2,\\cdots,a_k$，这相当于固定了格路的前半段。先假设我们会判定无解，下面按有解讨论。\n\n记 $m=\\max\\limits_{i=1}^k a_i$，此时格路的起点变成 $(k,m)$。对于 $<m$ 的非前缀最大值，它们已经被钦定了相对顺序，即按严格递增填入空位，故不会产生贡献。我们只要关注 $>m$ 的数。用格路计数的语言来刻画，就是说从 $(k,m)$ 出发不越过 $y=x$ 走到 $(n,n)$ 的格路数目。\n\n用单线反射容斥来算，总方案数 $\\dbinom{2n-m-k}{n-k}$，将起点关于 $y=x-1$ 作对称，不合法方案数转化成 $(m+1,k-1) \\to (n,n)$ 的朴素格路计数。问题的答案是\n$$\n\\boxed{\\binom{2n-m-k}{n-k}-\\binom{2n-m-k}{n-m-1}}\n$$\n原题中 $k=r-l+1$，$m$ 是区间 $\\max$。现在的难点在于判无解，这是一个和数数没有关系的纯 ds 题。\n\n设 $[l,r]$ 的区间 $\\operatorname{mex}$ 为 $x$，将 $x$ 加到 $p_r$ 后面，则前缀不合法当且仅当序列 $p_l,p_{l+1},\\cdots,p_r,x$ 的 $\\text{LDS}>2$。等价于下列两个条件至少有一个成立：\n\n- $\\exists l \\le i<j<k \\le r, p_i>p_j>p_k$。\n- $\\exists l \\le i<j \\le r, p_i>p_j>x$。\n\n根据区间 $\\operatorname{mex}$ 等于补集 $\\min$ 的经典结论，$x$ 可以用前后缀 $\\min$ 算出来。对上面两个条件分别讨论：\n\n- 第一个条件：我们用单调栈求出 $f_j=\\max\\limits_{i<j\\land  p_i >p_j} i$ 和 $g_j=\\min\\limits_{j < k\\land p_j>p_k} k$。条件转化为 $\\exists j \\in [l,r], [f_j,g_j] \\subseteq [l,r]$。\n\n  这等价于 $\\exists i \\in [l,r],l \\le \\min(i,f_i) \\land \\max(i,g_i) \\le r$。由 $i \\ge f_i, i \\le g_i$ 可以发现 $i \\in [l,r]$ 的条件没有用。因此只要判断 $\\forall i, [f_i,g_i] \\subseteq [l,r]$ 成立。\n\n  将 $(f_i,g_i)$ 画到二维平面上，询问变成 2-side 矩形数点，扫描线，维护 $x$ 坐标历史 $\\max$ 直接判定即可。\n\n- 第二个条件：仍用单调栈求得 $f_j$，条件转化为 $\\exists j \\in [l,r], l \\le f_j \\land p_j>x$。我们写成 $\\max\\limits_{i \\in [l,r]\\land f_i \\ge l} p_i>x$。\n\n  将 $(i,f_i)$ 画到二维平面上，询问是 3-side 矩形求 $\\max$，扫描线，树状数组支持单点修改后缀 $\\max$ 即可。\n\n视 $n,q$ 同阶，判定部分 $O(n \\log n)$，计数部分 $O(n)$。[代码](https://www.luogu.com.cn/article/somcbl4c)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P11164](https://www.luogu.com.cn/problem/P11164)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $1\\sim n$ 的排列 $p_i$。$q$ 次询问给出 $l,r$，求满足下列条件的 $1\\sim n$ 的排列数目：\n>\n> - 排列的前缀为 $p_l \\sim p_r$。\n> - 排列的 LDS 长度 $\\le 2$。LDS 为最长下降子序列。\n>\n> $n , q \\le 3 \\times 10^5$，2 秒，250 MB。\n\n:::::success[题解]\n\n先考虑没有前缀限制怎么做，打表发现答案数列的前几项是 $1,1,2,5,14,42,\\cdots$，猜测答案为 Catalan 数 $C_n$。\n\n我们尝试将合法排列和格路计数的模型建立双射。\n\n首先考虑从排列构造格路。我们求出前缀最大值 $s_i=\\max \\limits_{j=1}^i p_i$，然后将 $(i,s_i)$ 画在平面上，先向上再向右走即可。因为 $s_i \\ge i$ 必成立，所以这是一条始终在 $y=x$ 上方的格路。\n\n接着考虑从格路构造排列。先求出每个横坐标对应的高度 $s_i$。对于 $s_i>s_{i-1}$ 的位置 $i$，必有 $p_i=s_i$，即 $p_i$ 是前缀最大值。对于非前缀最大值，我们让它们按照严格递增的顺序，依次填入剩下的空位。\n\n在这个构造中，前缀最大值和非前缀最大值构成的子序列都是递增的。由 Dilworth 定理，$\\text{LDS} \\le 2$ 当且仅当排列可以被划分为至多两个递增子序列。可以看到，这确实是满足要求的。\n\n现在我们强制排列的前缀为 $a_1,a_2,\\cdots,a_k$，这相当于固定了格路的前半段。先假设我们会判定无解，下面按有解讨论。\n\n记 $m=\\max\\limits_{i=1}^k a_i$，此时格路的起点变成 $(k,m)$。对于 $<m$ 的非前缀最大值，它们已经被钦定了相对顺序，即按严格递增填入空位，故不会产生贡献。我们只要关注 $>m$ 的数。用格路计数的语言来刻画，就是说从 $(k,m)$ 出发不越过 $y=x$ 走到 $(n,n)$ 的格路数目。\n\n用单线反射容斥来算，总方案数 $\\dbinom{2n-m-k}{n-k}$，将起点关于 $y=x-1$ 作对称，不合法方案数转化成 $(m+1,k-1) \\to (n,n)$ 的朴素格路计数。问题的答案是\n$$\n\\boxed{\\binom{2n-m-k}{n-k}-\\binom{2n-m-k}{n-m-1}}\n$$\n原题中 $k=r-l+1$，$m$ 是区间 $\\max$。现在的难点在于判无解，这是一个和数数没有关系的纯 ds 题。\n\n设 $[l,r]$ 的区间 $\\operatorname{mex}$ 为 $x$，将 $x$ 加到 $p_r$ 后面，则前缀不合法当且仅当序列 $p_l,p_{l+1},\\cdots,p_r,x$ 的 $\\text{LDS}>2$。等价于下列两个条件至少有一个成立：\n\n- $\\exists l \\le i<j<k \\le r, p_i>p_j>p_k$。\n- $\\exists l \\le i<j \\le r, p_i>p_j>x$。\n\n根据区间 $\\operatorname{mex}$ 等于补集 $\\min$ 的经典结论，$x$ 可以用前后缀 $\\min$ 算出来。对上面两个条件分别讨论：\n\n- 第一个条件：我们用单调栈求出 $f_j=\\max\\limits_{i<j\\land  p_i >p_j} i$ 和 $g_j=\\min\\limits_{j < k\\land p_j>p_k} k$。条件转化为 $\\exists j \\in [l,r], [f_j,g_j] \\subseteq [l,r]$。\n\n  这等价于 $\\exists i \\in [l,r],l \\le \\min(i,f_i) \\land \\max(i,g_i) \\le r$。由 $i \\ge f_i, i \\le g_i$ 可以发现 $i \\in [l,r]$ 的条件没有用。因此只要判断 $\\forall i, [f_i,g_i] \\subseteq [l,r]$ 成立。\n\n  将 $(f_i,g_i)$ 画到二维平面上，询问变成 2-side 矩形数点，扫描线，维护 $x$ 坐标历史 $\\max$ 直接判定即可。\n\n- 第二个条件：仍用单调栈求得 $f_j$，条件转化为 $\\exists j \\in [l,r], l \\le f_j \\land p_j>x$。我们写成 $\\max\\limits_{i \\in [l,r]\\land f_i \\ge l} p_i>x$。\n\n  将 $(i,f_i)$ 画到二维平面上，询问是 3-side 矩形求 $\\max$，扫描线，树状数组支持单点修改后缀 $\\max$ 即可。\n\n视 $n,q$ 同阶，判定部分 $O(n \\log n)$，计数部分 $O(n)$。[代码](https://www.luogu.com.cn/article/somcbl4c)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p11362",
+        "title": "[NOIP2024] 遗失的赋值",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P11362",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P11362](https://www.luogu.com.cn/problem/P11362)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个整数变量 $x_i \\in [1,v]$，其中 $m$ 个位置上的值给定。你需要选择一组 $a_1 \\sim a_{n-1}$ 和 $b_1 \\sim b_{n-1}$，值域为 $[1,v]$，满足 $\\forall x_i=a_i, x_{i+1}=b_i$。\n>\n> 求合法序列对 $(a,b)$ 的数目，将 $x_i$ 未给定的位置赋值后可以满足限制。\n>\n> 多测，$T \\le 10$，$n,v \\le 10^9$，$m \\le 10^5$。\n\n:::::success[题解]\n\n首先特判给定值矛盾的情形，答案为 $0$。\n\n注意到 $m$ 个给定位置将值域分成了 $m+1$ 个独立段，考虑对这些段分别计数，将贡献相乘即为所求。\n\n设某段为 $x_1 \\sim x_k$，且 $x_1,x_k$ 的值给定。总方案数为 $v^{2(k-2)}$，我们对不合法的情况计数。\n\n容易发现，这种情况下不合法，当且仅当根据 $a,b$ 的限制一路推到 $x_k$ 与给定值冲突，列出约束条件：\n\n- $a_1=x_1$，方案数 $1$。\n- $\\forall i \\in [1,k-2], b_i=a_{i+1}$，方案数 $v^{k-2}$。\n- $b_k \\ne x_k$，方案数 $v-1$。\n\n综上，$x_1 \\sim x_k$ 对合法方案的贡献为 $\\boxed{v^{2(k-2)}-v^{k-2}(v-1)}$，累乘即为答案。复杂度 $O(m \\log n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P11362](https://www.luogu.com.cn/problem/P11362)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个整数变量 $x_i \\in [1,v]$，其中 $m$ 个位置上的值给定。你需要选择一组 $a_1 \\sim a_{n-1}$ 和 $b_1 \\sim b_{n-1}$，值域为 $[1,v]$，满足 $\\forall x_i=a_i, x_{i+1}=b_i$。\n>\n> 求合法序列对 $(a,b)$ 的数目，将 $x_i$ 未给定的位置赋值后可以满足限制。\n>\n> 多测，$T \\le 10$，$n,v \\le 10^9$，$m \\le 10^5$。\n\n:::::success[题解]\n\n首先特判给定值矛盾的情形，答案为 $0$。\n\n注意到 $m$ 个给定位置将值域分成了 $m+1$ 个独立段，考虑对这些段分别计数，将贡献相乘即为所求。\n\n设某段为 $x_1 \\sim x_k$，且 $x_1,x_k$ 的值给定。总方案数为 $v^{2(k-2)}$，我们对不合法的情况计数。\n\n容易发现，这种情况下不合法，当且仅当根据 $a,b$ 的限制一路推到 $x_k$ 与给定值冲突，列出约束条件：\n\n- $a_1=x_1$，方案数 $1$。\n- $\\forall i \\in [1,k-2], b_i=a_{i+1}$，方案数 $v^{k-2}$。\n- $b_k \\ne x_k$，方案数 $v-1$。\n\n综上，$x_1 \\sim x_k$ 对合法方案的贡献为 $\\boxed{v^{2(k-2)}-v^{k-2}(v-1)}$，累乘即为答案。复杂度 $O(m \\log n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p11647",
+        "title": "【MX-X8-T6】「TAOI-3」俄罗斯蓝猫",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P11647",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P11647](https://www.luogu.com.cn/problem/P11647)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个长度为 $n$ 的非负整数序列 $a_0 \\sim a_{n-1}$，保证 $a_i$ 在 $[0,10^{18}]$ 中随机生成。\n>\n> 你可以进行 $A$ 次询问，每次询问可以给出不超过 $B$ 个二元组 $(x_i,y_i)$，交互库返回 $a_{x_i}+a_{y_i}$ 构成的集合。\n>\n> 还原这个序列。\n>\n> 多测，$T=20$，$5 \\le n \\le 500$，满分要求 $A \\le 2$，$B \\le n-1$，$x_i \\ne y_i$，每个 $(x_i,y_i)$ 在所有询问中至多出现 $1$ 次。3 秒，496 MB。\n\n:::::success[题解]\n\n由于 $a_i$ 在大值域中随机，不妨认为 $a_i$ 和 $a_i+a_j$ 都不重。\n\n用图论语言刻画，第 $i$ 次询问 $(x,y)$ 相当于建一条 $x \\leftrightarrow y$ 的无向边，并将边染上颜色 $i$。如果这个图存在自同构，则必然无法确定答案。\n\n这样就能说明询问单链 / 单环 / 菊花必然不可行，同时表明构造的思路就是破坏对称性。\n\n考虑对着平凡构造调整。做如下两次询问：\n\n- $Q_1$：询问 $(0,1),(0,2),\\cdots,(0,n-1)$ 构成一个菊花。\n- $Q_2$：询问 $(1,2),(2,3),\\cdots,(1,n-1)$ 构成一个环。\n\n这个构造显然会爆。将 $Q_1,Q_2$ 中的 $(0,n-1)$ 和 $(1,2)$ 交换，那么 $Q_1$ 变成菊花带一个三元环，$Q_2$ 变成链上挂一个节点 $0$。下面给出 $n=5$ 时的图：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/iydvngmx.png)\n\n三元环和环上的点都不能轮换，故该图无自同构。\n\n设两次询问得到的集合为 $S_1,S_2$，我们枚举 $x \\in S_1$ 表示 $a_1+a_2=x$，再枚举 $y \\in S_2$ 表示 $a_0+a_{n-1}=y$。将 $S_1 \\setminus \\{x\\}$ 和 $S_2 \\setminus \\{y\\}$ 作为下面求解的依据。\n\n记 $s_1=\\sum S_1 , s_2 = \\sum S_2$，根据定义\n$$\n\\begin{aligned}\ns_1&=(n-2)a_0+\\sum_{i=1}^{n-2} a_i\\\\\ns_2&=2\\left(\\sum_{i=1}^{n-1} a_i\\right)-(a_1+a_2)\\\n\\end{aligned}\n$$\n再设 $s=\\sum \\limits_{i=1}^{n-1} a_i$，代入得 $s_1=(n-2)a_0+s-a_{n-1}$ 和 $s_2=2s-x$。枚举 $x,y$ 后联立 $a_0+a_{n-1}=y$ 得到三个方程，可以解得\n\n$$\na_0=\\dfrac{s_1-s+y}{n-1}\n$$\n\n这里可以加若干剪枝，即 $a_0$ 非负且 $a_0$ 是整数。\n\n求出 $a_0$ 后再解方程求出 $a_1,a_2$，进而顺着环推一圈，检查最后得到的 $a_{n-1}$ 是否为 $y-a_0$ 即可。\n\n单次 check 是 $O(n^2)$ 的，所以总复杂度似乎是 $O(n^4)$ 的。不过注意到枚举的 $x,y$ 正确率为 $\\frac{1}{n}$，那么期望复杂度就是 $O(n^3)$。\n\n::::::\n\n::::::info[代码]\n\n```cpp line-numbers\nvector<i64> game(int n) {\n    vector<i64> a(n);\n    vector<int> x1 = {1}, y1 = {2};\n    for (int i = 1; i < n-1; i++) x1.emplace_back(0), y1.emplace_back(i);\n    vector<i64> S1 = ask(x1, y1);\n    vector<int> x2 = {0, 1}, y2 = {n - 1, n - 1};\n    for (int i = 2; i < n-1; i++) x2.emplace_back(i), y2.emplace_back(i+1);\n    vector<i64> S2 = ask(x2, y2);\n    i128 s1 = accumulate(S1.begin(), S1.end(), i128(0));\n    i128 s2 = accumulate(S2.begin(), S2.end(), i128(0));\n    auto check = [&](i64 x, i64 y) -> bool {\n        set<i64> T1, T2(S2.begin(), S2.end());\n        for (i64 v : S1) {\n            if (v == x) continue;\n            if (v < a[0]) return false;\n            T1.emplace(v - a[0]);\n        }\n        for (i64 a1 : T1) {\n            auto chk = [&]() -> bool {\n                a[1] = a1, a[2] = x - a[1];\n                if (!T1.count(a[2])) return false;\n                set<i64> K1 = T1, K2 = T2;\n                K1.erase(a[1]), K1.erase(a[2]), K2.erase(y);\n                if (!K2.count(a[1] + a[n-1])) return false;\n                K2.erase(a[1] + a[n-1]);\n                for (int i = 3; i < n - 1; i++) {\n                    bool fl = false;\n                    for (i64 ai : K1) {\n                        if (!K2.count(ai + a[i-1])) continue;\n                        K1.erase(ai), K2.erase(ai + a[i-1]);\n                        a[i] = ai; fl = true; break;\n                    }\n                    if (!fl) return false;\n                }\n                if (K2.count(a[n-2] + a[n-1])) return true;\n            };\n            if (chk()) return true;\n        }\n        return false;\n    };\n    for (i64 x : S1) for (i64 y : S2) {\n        if ((s2 - y + x) & 1) continue;\n        i128 num = s1 - x + y - (s2 - y + x) / 2;\n        if (num < 0 || num % (n - 1)) continue;\n        a[0] = num / (n - 1), a[n-1] = y - a[0];\n        if (a[n-1] < 0) continue;\n        if (check(x, y)) return a;\n    } \n    return {};\n}\n```\n\n::::::\n\n### 【未完成】[CF1292E Rin and The Unknown Flower](https://www.luogu.com.cn/problem/CF1292E)\n\n## 还原树 / 树找点\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P11647](https://www.luogu.com.cn/problem/P11647)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个长度为 $n$ 的非负整数序列 $a_0 \\sim a_{n-1}$，保证 $a_i$ 在 $[0,10^{18}]$ 中随机生成。\n>\n> 你可以进行 $A$ 次询问，每次询问可以给出不超过 $B$ 个二元组 $(x_i,y_i)$，交互库返回 $a_{x_i}+a_{y_i}$ 构成的集合。\n>\n> 还原这个序列。\n>\n> 多测，$T=20$，$5 \\le n \\le 500$，满分要求 $A \\le 2$，$B \\le n-1$，$x_i \\ne y_i$，每个 $(x_i,y_i)$ 在所有询问中至多出现 $1$ 次。3 秒，496 MB。\n\n:::::success[题解]\n\n由于 $a_i$ 在大值域中随机，不妨认为 $a_i$ 和 $a_i+a_j$ 都不重。\n\n用图论语言刻画，第 $i$ 次询问 $(x,y)$ 相当于建一条 $x \\leftrightarrow y$ 的无向边，并将边染上颜色 $i$。如果这个图存在自同构，则必然无法确定答案。\n\n这样就能说明询问单链 / 单环 / 菊花必然不可行，同时表明构造的思路就是破坏对称性。\n\n考虑对着平凡构造调整。做如下两次询问：\n\n- $Q_1$：询问 $(0,1),(0,2),\\cdots,(0,n-1)$ 构成一个菊花。\n- $Q_2$：询问 $(1,2),(2,3),\\cdots,(1,n-1)$ 构成一个环。\n\n这个构造显然会爆。将 $Q_1,Q_2$ 中的 $(0,n-1)$ 和 $(1,2)$ 交换，那么 $Q_1$ 变成菊花带一个三元环，$Q_2$ 变成链上挂一个节点 $0$。下面给出 $n=5$ 时的图：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/iydvngmx.png)\n\n三元环和环上的点都不能轮换，故该图无自同构。\n\n设两次询问得到的集合为 $S_1,S_2$，我们枚举 $x \\in S_1$ 表示 $a_1+a_2=x$，再枚举 $y \\in S_2$ 表示 $a_0+a_{n-1}=y$。将 $S_1 \\setminus \\{x\\}$ 和 $S_2 \\setminus \\{y\\}$ 作为下面求解的依据。\n\n记 $s_1=\\sum S_1 , s_2 = \\sum S_2$，根据定义\n$$\n\\begin{aligned}\ns_1&=(n-2)a_0+\\sum_{i=1}^{n-2} a_i\\\\\ns_2&=2\\left(\\sum_{i=1}^{n-1} a_i\\right)-(a_1+a_2)\\\n\\end{aligned}\n$$\n再设 $s=\\sum \\limits_{i=1}^{n-1} a_i$，代入得 $s_1=(n-2)a_0+s-a_{n-1}$ 和 $s_2=2s-x$。枚举 $x,y$ 后联立 $a_0+a_{n-1}=y$ 得到三个方程，可以解得\n\n$$\na_0=\\dfrac{s_1-s+y}{n-1}\n$$\n\n这里可以加若干剪枝，即 $a_0$ 非负且 $a_0$ 是整数。\n\n求出 $a_0$ 后再解方程求出 $a_1,a_2$，进而顺着环推一圈，检查最后得到的 $a_{n-1}$ 是否为 $y-a_0$ 即可。\n\n单次 check 是 $O(n^2)$ 的，所以总复杂度似乎是 $O(n^4)$ 的。不过注意到枚举的 $x,y$ 正确率为 $\\frac{1}{n}$，那么期望复杂度就是 $O(n^3)$。\n\n::::::\n\n::::::info[代码]\n\n```cpp line-numbers\nvector<i64> game(int n) {\n    vector<i64> a(n);\n    vector<int> x1 = {1}, y1 = {2};\n    for (int i = 1; i < n-1; i++) x1.emplace_back(0), y1.emplace_back(i);\n    vector<i64> S1 = ask(x1, y1);\n    vector<int> x2 = {0, 1}, y2 = {n - 1, n - 1};\n    for (int i = 2; i < n-1; i++) x2.emplace_back(i), y2.emplace_back(i+1);\n    vector<i64> S2 = ask(x2, y2);\n    i128 s1 = accumulate(S1.begin(), S1.end(), i128(0));\n    i128 s2 = accumulate(S2.begin(), S2.end(), i128(0));\n    auto check = [&](i64 x, i64 y) -> bool {\n        set<i64> T1, T2(S2.begin(), S2.end());\n        for (i64 v : S1) {\n            if (v == x) continue;\n            if (v < a[0]) return false;\n            T1.emplace(v - a[0]);\n        }\n        for (i64 a1 : T1) {\n            auto chk = [&]() -> bool {\n                a[1] = a1, a[2] = x - a[1];\n                if (!T1.count(a[2])) return false;\n                set<i64> K1 = T1, K2 = T2;\n                K1.erase(a[1]), K1.erase(a[2]), K2.erase(y);\n                if (!K2.count(a[1] + a[n-1])) return false;\n                K2.erase(a[1] + a[n-1]);\n                for (int i = 3; i < n - 1; i++) {\n                    bool fl = false;\n                    for (i64 ai : K1) {\n                        if (!K2.count(ai + a[i-1])) continue;\n                        K1.erase(ai), K2.erase(ai + a[i-1]);\n                        a[i] = ai; fl = true; break;\n                    }\n                    if (!fl) return false;\n                }\n                if (K2.count(a[n-2] + a[n-1])) return true;\n            };\n            if (chk()) return true;\n        }\n        return false;\n    };\n    for (i64 x : S1) for (i64 y : S2) {\n        if ((s2 - y + x) & 1) continue;\n        i128 num = s1 - x + y - (s2 - y + x) / 2;\n        if (num < 0 || num % (n - 1)) continue;\n        a[0] = num / (n - 1), a[n-1] = y - a[0];\n        if (a[n-1] < 0) continue;\n        if (check(x, y)) return a;\n    } \n    return {};\n}\n```\n\n::::::\n\n### 【未完成】[CF1292E Rin and The Unknown Flower](https://www.luogu.com.cn/problem/CF1292E)\n\n## 还原树 / 树找点\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p12202",
+        "title": "[COI 2022] 回文子串 / Madioničar",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P12202",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P12202](https://www.luogu.com.cn/problem/P12202)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个字符串 $S$，长为 $n$。你可以向交互库询问一个子串是否回文。\n>\n> 找出最长回文子串长度。\n>\n> $n \\le 10^5$，满分询问次数 $2n$，交互库非自适应。\n\n:::::success[题解]\n\n$n \\log n$ 显然，枚举回文中心然后二分长度即可。\n\nManacher 似乎可以做到 $4n$，但并没有什么启示。\n\n我们考虑优化 $n \\log n$ 的暴力：考虑最优性剪枝，记当前答案为 $x$，每次只询问比 $x$ 大的长度，这可以直接暴力扩展。由于 $x$ 最多移动 $n$ 次，询问次数就是严格 $n$ 次。奇偶分别问一次，次数 $2n$。 \n\n:::::\n\n::::info[代码]\n\n```cpp line-numbers\nbool ask(int l, int r) {\n\tcout << \"? \" << l << ' ' << r << endl;\n\tint x; cin >> x;\n\treturn x;\n}\nvoid answer(int n) {\n\tcout << \"! \" << n << endl;\n\texit(0);\n}\n\nint n;\nvoid _main() {\n\tcin >> n;\n\tint x = 0, y = 0;\n\tfor (int i = 1; i <= n; i++) {\n\t\tfor (int j = x + 1; 1 <= i - j && i + j <= n; j++) {\n\t\t\tif (!ask(i - j, i + j)) break;\n\t\t\tx++;\n\t\t}\n\t\tfor (int j = y + 1; 1 <= i - j && i + j + 1 <= n; j++) {\n\t\t\tif (!ask(i - j, i + j + 1)) break;\n\t\t\ty++;\n\t\t}\n\t}\n\tif (y == 0) answer(2 * x + 1);\n\telse answer(max(2 * x + 1, 2 * y + 2));\n}\n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P12202](https://www.luogu.com.cn/problem/P12202)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个字符串 $S$，长为 $n$。你可以向交互库询问一个子串是否回文。\n>\n> 找出最长回文子串长度。\n>\n> $n \\le 10^5$，满分询问次数 $2n$，交互库非自适应。\n\n:::::success[题解]\n\n$n \\log n$ 显然，枚举回文中心然后二分长度即可。\n\nManacher 似乎可以做到 $4n$，但并没有什么启示。\n\n我们考虑优化 $n \\log n$ 的暴力：考虑最优性剪枝，记当前答案为 $x$，每次只询问比 $x$ 大的长度，这可以直接暴力扩展。由于 $x$ 最多移动 $n$ 次，询问次数就是严格 $n$ 次。奇偶分别问一次，次数 $2n$。 \n\n:::::\n\n::::info[代码]\n\n```cpp line-numbers\nbool ask(int l, int r) {\n\tcout << \"? \" << l << ' ' << r << endl;\n\tint x; cin >> x;\n\treturn x;\n}\nvoid answer(int n) {\n\tcout << \"! \" << n << endl;\n\texit(0);\n}\n\nint n;\nvoid _main() {\n\tcin >> n;\n\tint x = 0, y = 0;\n\tfor (int i = 1; i <= n; i++) {\n\t\tfor (int j = x + 1; 1 <= i - j && i + j <= n; j++) {\n\t\t\tif (!ask(i - j, i + j)) break;\n\t\t\tx++;\n\t\t}\n\t\tfor (int j = y + 1; 1 <= i - j && i + j + 1 <= n; j++) {\n\t\t\tif (!ask(i - j, i + j + 1)) break;\n\t\t\ty++;\n\t\t}\n\t}\n\tif (y == 0) answer(2 * x + 1);\n\telse answer(max(2 * x + 1, 2 * y + 2));\n}\n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p12446",
+        "title": "[COTS 2025] 答好位 / Vrsta",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P12446",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P12446](https://www.luogu.com.cn/problem/P12446)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个 $1 \\sim n$ 的排列 $p_i$。你可以进行 $K$ 次询问，给出 $l,r$ 得到区间 $[l,r]$ 中次大值的下标。\n>\n> 询问结束后，交互库进行 $Q$ 次询问，给出 $l,r$，你需要回答区间 $[l,r]$ 中次大值的下标。\n>\n> $n \\le 512$，满分要求 $K=Q=2048 $，交互库非自适应。\n\n:::::success[题解]\n\n题意等价于 $K$ 次询问，还原所有区间的次大值下标。我们先打表观察区间次大的结构。这里以 $p=[4,7,3,6,1,5,8,2]$ 为例：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/qzls7855.png)\n\n**性质** 每个下标 $x$ 所在的区域必然为若干矩形。\n\n**证明** 考虑区间 $[l_0,r_0]$，设其最大值下标为 $y$，次大值下标为 $x$，不妨设 $y<x$。易知 $l \\in [l_0,y]$ 且 $r \\in [x, r_0]$ 的 $[l,r]$ 的次大值位置全为 $y$。在二维平面上，这恰好是矩形 $[l_0,y] \\times [x,r_0]$。\n\n基于此编一个做法：考察全局区间 $[1,n]$，先询问得到次大值 $y$，并设法得到最大值 $x$。根据上述结论，$[1,y] \\times [x,n]$ 的矩形可以被填好：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/pqvn3tib.png)\n\n更一般地，考虑分治处理，设计递归状态为处理区间 $[l,r]$，且已知区间 $\\max$ 的位置为 $y$。对 $[l,r]$ 询问即得 $x$，将 $[l,y] \\times [x,r]$ 填好。\n\n此时相当于挖去右上角的一个矩形，问题规约到左上角和右下角的三角形区域，即 $[l,x)$ 和 $(y,r]$。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/7y61m0qe.png)\n\n我们分析两个区域的最大值位置：\n\n- $[l,y)$ 区域：由于 $x \\in [l,y)$，故最大值还是 $x$。\n- $(x,r]$ 区域：由于 $y \\in (x,r]$ 且 $y$ 是原本的次大值，故 $y$ 是新的最大值。\n\n这表明，我们确实可以递归解决问题。判重以后这个部分只需要 $2n$ 次询问。\n\n下面只要解决初始找全局 $\\max$ 的问题。考虑增量法，初始维护 $[x,x]$，并将右端点 $r$ 不断扩展。当 $r \\gets r+1$ 且次大值发生突变时，说明新加入的 $r$ 恰为全局 $\\max$，对 $l$ 的扩展同理，询问次数 $n$。\n\n总询问次数为 $3n$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 605;\nint n, q, ans[N][N], vis[N][N];\nint ask(int l, int r) {\n    cout << \"? \" << l << ' ' << r << endl;\n    int x; cin >> x;\n    return x;\n}\n\nvoid solve(int l, int r, int y) {\n    if (l == r) return;\n    if (vis[l][r]) return;\n    vis[l][r] = true;\n    int x = ask(l, r);\n    auto [lo, hi] = minmax(x, y);\n    for (int i = l; i <= lo; i++)\n        for (int j = hi; j <= r; j++) ans[i][j] = x;\n    solve(l, hi - 1, lo), solve(lo + 1, r, hi);\n} \n\nvoid _main() {\n    cin >> n;\n    int x = ask(1, n), l = x, r = x, y = -1;\n    while (r < n && y == -1) if (ask(l, ++r) == x) y = r;\n    while (l > 1 && y == -1) if (ask(--l, r) == x) y = l; \n    solve(1, n, y);\n    cout << \"!\" << endl, cin >> q;\n    for (int l, r; q--; ) cin >> l >> r, cout << ans[l][r] << endl;\n} \n```\n:::::\n\n### 【未完成】[QOJ18206 Guess the Permutation](https://qoj.ac/problem/18206)\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个 $0 \\sim n$ 的排列 $p_i$，一次询问给出 $i,j$，交互库返回 $k$ 满足 $p_k=|p_i-p_j|$。\n>\n> 还原这个排列。\n>\n> 多测，$T \\le 100$，$n \\le 10^3$，满分询问次数 $1024$，交互库自适应。\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P12446](https://www.luogu.com.cn/problem/P12446)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个 $1 \\sim n$ 的排列 $p_i$。你可以进行 $K$ 次询问，给出 $l,r$ 得到区间 $[l,r]$ 中次大值的下标。\n>\n> 询问结束后，交互库进行 $Q$ 次询问，给出 $l,r$，你需要回答区间 $[l,r]$ 中次大值的下标。\n>\n> $n \\le 512$，满分要求 $K=Q=2048 $，交互库非自适应。\n\n:::::success[题解]\n\n题意等价于 $K$ 次询问，还原所有区间的次大值下标。我们先打表观察区间次大的结构。这里以 $p=[4,7,3,6,1,5,8,2]$ 为例：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/qzls7855.png)\n\n**性质** 每个下标 $x$ 所在的区域必然为若干矩形。\n\n**证明** 考虑区间 $[l_0,r_0]$，设其最大值下标为 $y$，次大值下标为 $x$，不妨设 $y<x$。易知 $l \\in [l_0,y]$ 且 $r \\in [x, r_0]$ 的 $[l,r]$ 的次大值位置全为 $y$。在二维平面上，这恰好是矩形 $[l_0,y] \\times [x,r_0]$。\n\n基于此编一个做法：考察全局区间 $[1,n]$，先询问得到次大值 $y$，并设法得到最大值 $x$。根据上述结论，$[1,y] \\times [x,n]$ 的矩形可以被填好：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/pqvn3tib.png)\n\n更一般地，考虑分治处理，设计递归状态为处理区间 $[l,r]$，且已知区间 $\\max$ 的位置为 $y$。对 $[l,r]$ 询问即得 $x$，将 $[l,y] \\times [x,r]$ 填好。\n\n此时相当于挖去右上角的一个矩形，问题规约到左上角和右下角的三角形区域，即 $[l,x)$ 和 $(y,r]$。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/7y61m0qe.png)\n\n我们分析两个区域的最大值位置：\n\n- $[l,y)$ 区域：由于 $x \\in [l,y)$，故最大值还是 $x$。\n- $(x,r]$ 区域：由于 $y \\in (x,r]$ 且 $y$ 是原本的次大值，故 $y$ 是新的最大值。\n\n这表明，我们确实可以递归解决问题。判重以后这个部分只需要 $2n$ 次询问。\n\n下面只要解决初始找全局 $\\max$ 的问题。考虑增量法，初始维护 $[x,x]$，并将右端点 $r$ 不断扩展。当 $r \\gets r+1$ 且次大值发生突变时，说明新加入的 $r$ 恰为全局 $\\max$，对 $l$ 的扩展同理，询问次数 $n$。\n\n总询问次数为 $3n$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 605;\nint n, q, ans[N][N], vis[N][N];\nint ask(int l, int r) {\n    cout << \"? \" << l << ' ' << r << endl;\n    int x; cin >> x;\n    return x;\n}\n\nvoid solve(int l, int r, int y) {\n    if (l == r) return;\n    if (vis[l][r]) return;\n    vis[l][r] = true;\n    int x = ask(l, r);\n    auto [lo, hi] = minmax(x, y);\n    for (int i = l; i <= lo; i++)\n        for (int j = hi; j <= r; j++) ans[i][j] = x;\n    solve(l, hi - 1, lo), solve(lo + 1, r, hi);\n} \n\nvoid _main() {\n    cin >> n;\n    int x = ask(1, n), l = x, r = x, y = -1;\n    while (r < n && y == -1) if (ask(l, ++r) == x) y = r;\n    while (l > 1 && y == -1) if (ask(--l, r) == x) y = l; \n    solve(1, n, y);\n    cout << \"!\" << endl, cin >> q;\n    for (int l, r; q--; ) cin >> l >> r, cout << ans[l][r] << endl;\n} \n```\n:::::\n\n### 【未完成】[QOJ18206 Guess the Permutation](https://qoj.ac/problem/18206)\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个 $0 \\sim n$ 的排列 $p_i$，一次询问给出 $i,j$，交互库返回 $k$ 满足 $p_k=|p_i-p_j|$。\n>\n> 还原这个排列。\n>\n> 多测，$T \\le 100$，$n \\le 10^3$，满分询问次数 $1024$，交互库自适应。\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p12509",
+        "title": "通信题",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P12509",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P12509](https://www.luogu.com.cn/problem/P12509)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> 现有两个至多有一个位置不同的 01 串 $S,T$。\n>\n> - A：已知 $S$，需要传递一个非负整数 $x$，满足 $x < 2^{20}$。\n> - B：已知 $T$ 和 $x$，需要输出两个串不同的位置。特别地，若 $S=T$，应输出 0。\n>\n> $n \\le 10^6$。\n\n:::::success[题解]\nA 传递的 $x$ 一定要包含 $S$ 的某些信息。简单来说，A 是加密的过程，B 是解密的过程。\n\n我们有很巧妙的构造：记 $f(S)$ 为 $S$ 所有 $1$ 的下标异或和，则 A 直接传递 $x=f(S)$ 即可。\n\n在 B 这里，因为 $n-1$ 位都不会变动，所以两次异或可以直接消去，最后剩下的那个位置就是不同的位置。形式化地说，我们求出 $f(T) \\oplus x$ 并输出。\n\nA & B 复杂度 $O(n)$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint f(const string& s) {\n    int n = s.size(), res = 0;\n    for (int i = 0; i < n; i++) {\n        if (s[i] == '1') res ^= i + 1;\n    } return res;\n}\nint Alice(string s) {return f(s);}\nint Bob(string t, int x) {return f(t) ^ x;}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P12509](https://www.luogu.com.cn/problem/P12509)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> 现有两个至多有一个位置不同的 01 串 $S,T$。\n>\n> - A：已知 $S$，需要传递一个非负整数 $x$，满足 $x < 2^{20}$。\n> - B：已知 $T$ 和 $x$，需要输出两个串不同的位置。特别地，若 $S=T$，应输出 0。\n>\n> $n \\le 10^6$。\n\n:::::success[题解]\nA 传递的 $x$ 一定要包含 $S$ 的某些信息。简单来说，A 是加密的过程，B 是解密的过程。\n\n我们有很巧妙的构造：记 $f(S)$ 为 $S$ 所有 $1$ 的下标异或和，则 A 直接传递 $x=f(S)$ 即可。\n\n在 B 这里，因为 $n-1$ 位都不会变动，所以两次异或可以直接消去，最后剩下的那个位置就是不同的位置。形式化地说，我们求出 $f(T) \\oplus x$ 并输出。\n\nA & B 复杂度 $O(n)$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint f(const string& s) {\n    int n = s.size(), res = 0;\n    for (int i = 0; i < n; i++) {\n        if (s[i] == '1') res ^= i + 1;\n    } return res;\n}\nint Alice(string s) {return f(s);}\nint Bob(string t, int x) {return f(t) ^ x;}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p13011",
+        "title": "【MX-X13-T6】「KDOI-12」能做到的也只不过是静等缘分耗尽的那一天。",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P13011",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P13011](https://www.luogu.com.cn/problem/P13011)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 对于 $1 \\sim n$ 的排列 $p_i$，建立其大根笛卡尔树，并断开每个点与其右儿子（如果存在）的连边，记最后所成的森林为 $T(p)$。\n>\n> 给出 $q$ 次询问 $n,x,y$，求所有 $1 \\sim n$ 的排列中，有多少种 $p$ 满足：在 $T(p)$ 上节点 $x,y$ 位于同一颗树中。\n>\n> $n \\le 5 \\times 10^6$，$q \\le 10^6$，2 秒，512 MB。\n\n:::::success[题解]\n\n考虑刻画合法的充要条件。\n\n若 $x=y$ 答案显然为 $n!$，否则不妨设 $x<y$。\n\n首先，$p_x>p_y$ 是不合法的，原因是 $y \\to x$ 必然要经过一条右链。\n\n进一步，如果 $(x,y)$ 中间有更高的数也是不合法的，如下图所示。此时 $x,y$ 会被区间 $\\max$ 划分到两个子树中，而 $y$ 位于右子树。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/c2tg28co.png)\n\n我们考虑 $x$ 的左侧。注意到，若 $x$ 左侧存在一个更高的数 $z$，则 $x,y$ 都会被 $z$ 划分到其右子树中，且 $(x,y)$ 中间不会被打断，也即 $y \\to x$ 全为左链，这是合法的。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/eyqij8kv.png)\n\n另一种情况是，$x$ 左侧有一个 $(p_x,p_y)$ 之间的数 $z$。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/znmvbdls.png)\n\n此时 $x \\to z$ 全为左链，但 $x$ 被划分到 $z$ 的右子树中，也即 $y \\to x$ 经过右链，这不合法。\n\n最后一种情况是，$x$ 左侧所有数都不在 $(p_x,p_y)$ 中。容易说明，$x,y$ 要么被同时划分进右子树，要么 $x$ 被划分进 $y$ 的左子树，这是合法的。\n\n形式化地，合法的排列 $p_i$ 同时满足以下条件：\n\n- $p_x<p_y$。\n- $\\forall i \\in (x,y), p_i <p_y$。\n- $\\exists z <x, p_z >p_y, \\forall i \\in (z,x), p_i \\notin (p_x,p_y)$ 或 $\\forall i \\in[1,x), p_i \\notin (p_x,p_y)$。\n\n考虑枚举 $p_x=a,p_y=b$，枚举并钦定 $z$ 为满足条件的最大的 $z$。分析排列的结构：\n\n- $1 \\sim z-1$ 段：可以任取。\n- $z$：可以取 $(b,n]$ 中的数。\n- $z+1 \\sim x-1$ 段：可以取 $[1,a)$ 中的数。\n- $x$：可以取 $\\{a\\}$ 中的数。\n- $x+1 \\sim y-1$ 段：可以取 $[1,b)$ 中的数。\n- $y$：可以取 $\\{b\\}$ 中的数。\n- $y+1 \\sim n$ 段：可以任取。\n\n我们依次决定 $[1,a), [1,b), (b,n]$ 中数的归属，每段的方案数都是一个排列数。于是这种情况的方案数为\n$$\nS_2=\\sum_{a=1}^n \\sum_{b=a+1}^n\\sum_{z=1}^{x-1} (n-b)A_{a-1}^{x-z-1} A_{b-1-(x-z-1)-1}^{y-x-1} A_{n-3-(x-z-1)-(y-x-1)}^{n-y+z-1}\n$$\n通过类似的讨论，可以得到另一种情况的方案数为\n$$\nS_1=\\sum_{a=1}^n \\sum_{b=a+1}^n A_{a-1}^{x-1} A_{b-1-(x-1)-1}^{y-x-1}A_{n-2-(x-1)-(y-x-1)}^{n-y}\n$$\n答案即为 $S_1+S_2$。至此 $O(qn^3)$。\n\n开始大力推式子。首先，将 $S_2$ 中的排列数都变成组合数，并且对 $a$ 求和可以得到一个组合数上指标前缀和的形式：\n$$\n\\begin{aligned}\nS_2&=\\sum_{a=1}^n \\sum_{b=a+1}^n\\sum_{z=1}^{x-1} (n-b)A_{a-1}^{x-z-1} A_{b-1-(x-z-1)-1}^{y-x-1} A_{n-3-(x-z-1)-(y-x-1)}^{n-y+z-1}\\\\\n&=\\sum_{a=1}^n \\sum_{b=a+1}^n\\sum_{z=1}^{x-1} (n-b)A_{a-1}^{x-z-1} A_{b-1-x+z}^{y-x-1} A_{n-y+z-1}^{n-y+z-1}\\\\\n&= \\sum_{a=1}^n \\sum_{b=a+1}^n\\sum_{z=1}^{x-1} (n-b)(n-y+z-1)!(x-z-1)!(y-x-1)! \\binom{a-1}{x-z-1}\\binom{b-1-x+z}{y-x-1}\\\\\n&= \\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!(x-z-1)!(y-x-1)! \\binom{b-1-x+z}{y-x-1} \\sum_{a=1}^{b-1}  \\binom{a-1}{x-z-1}\\\\\n&=\\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!(x-z-1)!(y-x-1)! \\binom{b-1-x+z}{y-x-1} \\binom{b-1}{x-z}\\\\\n&=\\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!(x-z-1)!(y-x-1)! \\dfrac{(b-1-x+z)!}{(y-x-1)!(b-y+z)!} \\times \\dfrac{(b-1)!}{(x-z)!(b-1-x+z)!}\\\\\n&=\\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!\\dfrac{(b-1)!}{(b-y+z)!(x-z)}\n\\end{aligned}\n$$\n至此 $O(qn^2)$。\n\n继续推。首先利用组合数上指标前缀和的结论化简 $S_1$ 有\n$$\n\\begin{aligned}\nS_1&=\\sum_{a=1}^n \\sum_{b=a+1}^n A_{a-1}^{x-1} A_{b-1-(x-1)-1}^{y-x-1}A_{n-2-(x-1)-(y-x-1)}^{n-y}\\\\\n&=\\sum_{b=y}^n A_{b-x-1}^{y-x-1} (n-y)! \\sum_{a=x}^{b-1} A_{a-1}^{x-1}\\\\\n&=\\sum_{b=y}^n A_{b-x-1}^{y-x-1} (n-y)! (x-1)!\\sum_{a=x}^{b-1} \\binom{a-1}{x-1}\\\\\n&=\\sum_{b=y}^n A_{b-x-1}^{y-x-1} (n-y)! (x-1)!\\binom{b-1}{x}\\\\\n&=\\sum_{b=y}^n \\frac{(b-x-1)!}{(b-y)!}  (n-y)! (x-1)! \\frac{(b-1)!}{x!(b-x-1)!}\\\\\n&= \\dfrac{(n-y)!}{x} \\sum_{b=y}^n \\dfrac{(b-1)!}{(b-y)!}\\\\\n&= \\dfrac{(n-y)!(y-1)!}{x}  \\sum_{b=y}^n \\binom{b-1}{y-1}\\\\\n&= \\dfrac{(n-y)!(y-1)!}{x}\\binom{n}{y}\\\\\n&= \\boxed{\\dfrac{n!}{xy}}\n\\end{aligned}\n$$\n接着化简 $S_2$。考虑使用组合恒等式\n$$\n\\sum_{b=k+1}^n (n-b) \\binom{b-1}{k}=\\binom{n}{k+2}\n$$\n其组合意义为：从 $n$ 个元素中取出 $k+2$ 个，枚举并钦定倒数第二个元素所在的位置 $b$。\n\n将这个恒等式代入 $S_2$ 得\n$$\n\\begin{aligned}\nS_2&=\\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!\\dfrac{(b-1)!}{(b-y+z)!(x-z)}\\\\\n&=\\sum_{z=1}^{x-1} (n-y+z-1)!\\sum_{b=1}^n(n-b)\\dfrac{(b-1)!}{(b-y+z)!(x-z)!}\\\\\n&=\\sum_{z=1}^{x-1} (n-y+z-1)! \\dfrac{(y-z-1)!}{x-z} \\sum_{b=1}^n(n-b)\\binom{b-1}{y-z-1}\\\\\n&= \\sum_{z=1}^{x-1} (n-y+z-1)! \\dfrac{(y-z-1)!}{x-z} \\binom{n}{y-z+1}\\\\\n&= \\sum_{z=1}^{x-1} (n-y+z-1)!  \\dfrac{(y-z-1)!}{x-z} \\dfrac{n!}{(y-z+1)! (b-y+z-1)!}\\\\\n&= \\sum_{z=1}^{x-1}  \\dfrac{n!}{(x-z)!(y-z)!(y-z+1)!}\n\\end{aligned}\n$$\n至此 $O(qn)$。模拟赛时止步于此。\n\n考虑将求和式彻底拆开。令 $k=x-z,d=y-x$，于是\n$$\n\\begin{aligned}\nS_2&= \\sum_{k=1}^{x-1} \\dfrac{1}{k(k+d)(k+d+1)}\n\\end{aligned}\n$$\n使用裂项的技巧：\n$$\n\\begin{aligned}\nS_2&= \\sum_{k=1}^{x-1} \\dfrac{1}{k(k+d)(k+d+1)}\\\\\n&= \\sum_{k=1}^{x-1} \\left(\\dfrac{1}{d(d+1)} \\left(\\dfrac{1}{k}-\\dfrac{1}{k+d} \\right)-\\dfrac{1}{d+1} \\left(\\dfrac{1}{k+d}-\\dfrac{1}{k+d+1}\\right)\\right)\\\\\n&= \\boxed{-\\dfrac{n!(x-1)}{y(y-x+1)^2}+\\dfrac{n!}{(y-x)(y-x+1)} (H_{x-1}+H_{y-x}-H_{y-1})}\n\\end{aligned}\n$$\n其中 $H_n$ 为调和级数 $H_n=\\sum \\limits_{i=1}^n i^{-1}$。\n\n至此，使用线性逆元预处理 $H_n$ 和阶乘，复杂度 $O(q+n)$。[代码](https://www.luogu.com.cn/article/yumpahmx)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P13011](https://www.luogu.com.cn/problem/P13011)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 对于 $1 \\sim n$ 的排列 $p_i$，建立其大根笛卡尔树，并断开每个点与其右儿子（如果存在）的连边，记最后所成的森林为 $T(p)$。\n>\n> 给出 $q$ 次询问 $n,x,y$，求所有 $1 \\sim n$ 的排列中，有多少种 $p$ 满足：在 $T(p)$ 上节点 $x,y$ 位于同一颗树中。\n>\n> $n \\le 5 \\times 10^6$，$q \\le 10^6$，2 秒，512 MB。\n\n:::::success[题解]\n\n考虑刻画合法的充要条件。\n\n若 $x=y$ 答案显然为 $n!$，否则不妨设 $x<y$。\n\n首先，$p_x>p_y$ 是不合法的，原因是 $y \\to x$ 必然要经过一条右链。\n\n进一步，如果 $(x,y)$ 中间有更高的数也是不合法的，如下图所示。此时 $x,y$ 会被区间 $\\max$ 划分到两个子树中，而 $y$ 位于右子树。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/c2tg28co.png)\n\n我们考虑 $x$ 的左侧。注意到，若 $x$ 左侧存在一个更高的数 $z$，则 $x,y$ 都会被 $z$ 划分到其右子树中，且 $(x,y)$ 中间不会被打断，也即 $y \\to x$ 全为左链，这是合法的。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/eyqij8kv.png)\n\n另一种情况是，$x$ 左侧有一个 $(p_x,p_y)$ 之间的数 $z$。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/znmvbdls.png)\n\n此时 $x \\to z$ 全为左链，但 $x$ 被划分到 $z$ 的右子树中，也即 $y \\to x$ 经过右链，这不合法。\n\n最后一种情况是，$x$ 左侧所有数都不在 $(p_x,p_y)$ 中。容易说明，$x,y$ 要么被同时划分进右子树，要么 $x$ 被划分进 $y$ 的左子树，这是合法的。\n\n形式化地，合法的排列 $p_i$ 同时满足以下条件：\n\n- $p_x<p_y$。\n- $\\forall i \\in (x,y), p_i <p_y$。\n- $\\exists z <x, p_z >p_y, \\forall i \\in (z,x), p_i \\notin (p_x,p_y)$ 或 $\\forall i \\in[1,x), p_i \\notin (p_x,p_y)$。\n\n考虑枚举 $p_x=a,p_y=b$，枚举并钦定 $z$ 为满足条件的最大的 $z$。分析排列的结构：\n\n- $1 \\sim z-1$ 段：可以任取。\n- $z$：可以取 $(b,n]$ 中的数。\n- $z+1 \\sim x-1$ 段：可以取 $[1,a)$ 中的数。\n- $x$：可以取 $\\{a\\}$ 中的数。\n- $x+1 \\sim y-1$ 段：可以取 $[1,b)$ 中的数。\n- $y$：可以取 $\\{b\\}$ 中的数。\n- $y+1 \\sim n$ 段：可以任取。\n\n我们依次决定 $[1,a), [1,b), (b,n]$ 中数的归属，每段的方案数都是一个排列数。于是这种情况的方案数为\n$$\nS_2=\\sum_{a=1}^n \\sum_{b=a+1}^n\\sum_{z=1}^{x-1} (n-b)A_{a-1}^{x-z-1} A_{b-1-(x-z-1)-1}^{y-x-1} A_{n-3-(x-z-1)-(y-x-1)}^{n-y+z-1}\n$$\n通过类似的讨论，可以得到另一种情况的方案数为\n$$\nS_1=\\sum_{a=1}^n \\sum_{b=a+1}^n A_{a-1}^{x-1} A_{b-1-(x-1)-1}^{y-x-1}A_{n-2-(x-1)-(y-x-1)}^{n-y}\n$$\n答案即为 $S_1+S_2$。至此 $O(qn^3)$。\n\n开始大力推式子。首先，将 $S_2$ 中的排列数都变成组合数，并且对 $a$ 求和可以得到一个组合数上指标前缀和的形式：\n$$\n\\begin{aligned}\nS_2&=\\sum_{a=1}^n \\sum_{b=a+1}^n\\sum_{z=1}^{x-1} (n-b)A_{a-1}^{x-z-1} A_{b-1-(x-z-1)-1}^{y-x-1} A_{n-3-(x-z-1)-(y-x-1)}^{n-y+z-1}\\\\\n&=\\sum_{a=1}^n \\sum_{b=a+1}^n\\sum_{z=1}^{x-1} (n-b)A_{a-1}^{x-z-1} A_{b-1-x+z}^{y-x-1} A_{n-y+z-1}^{n-y+z-1}\\\\\n&= \\sum_{a=1}^n \\sum_{b=a+1}^n\\sum_{z=1}^{x-1} (n-b)(n-y+z-1)!(x-z-1)!(y-x-1)! \\binom{a-1}{x-z-1}\\binom{b-1-x+z}{y-x-1}\\\\\n&= \\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!(x-z-1)!(y-x-1)! \\binom{b-1-x+z}{y-x-1} \\sum_{a=1}^{b-1}  \\binom{a-1}{x-z-1}\\\\\n&=\\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!(x-z-1)!(y-x-1)! \\binom{b-1-x+z}{y-x-1} \\binom{b-1}{x-z}\\\\\n&=\\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!(x-z-1)!(y-x-1)! \\dfrac{(b-1-x+z)!}{(y-x-1)!(b-y+z)!} \\times \\dfrac{(b-1)!}{(x-z)!(b-1-x+z)!}\\\\\n&=\\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!\\dfrac{(b-1)!}{(b-y+z)!(x-z)}\n\\end{aligned}\n$$\n至此 $O(qn^2)$。\n\n继续推。首先利用组合数上指标前缀和的结论化简 $S_1$ 有\n$$\n\\begin{aligned}\nS_1&=\\sum_{a=1}^n \\sum_{b=a+1}^n A_{a-1}^{x-1} A_{b-1-(x-1)-1}^{y-x-1}A_{n-2-(x-1)-(y-x-1)}^{n-y}\\\\\n&=\\sum_{b=y}^n A_{b-x-1}^{y-x-1} (n-y)! \\sum_{a=x}^{b-1} A_{a-1}^{x-1}\\\\\n&=\\sum_{b=y}^n A_{b-x-1}^{y-x-1} (n-y)! (x-1)!\\sum_{a=x}^{b-1} \\binom{a-1}{x-1}\\\\\n&=\\sum_{b=y}^n A_{b-x-1}^{y-x-1} (n-y)! (x-1)!\\binom{b-1}{x}\\\\\n&=\\sum_{b=y}^n \\frac{(b-x-1)!}{(b-y)!}  (n-y)! (x-1)! \\frac{(b-1)!}{x!(b-x-1)!}\\\\\n&= \\dfrac{(n-y)!}{x} \\sum_{b=y}^n \\dfrac{(b-1)!}{(b-y)!}\\\\\n&= \\dfrac{(n-y)!(y-1)!}{x}  \\sum_{b=y}^n \\binom{b-1}{y-1}\\\\\n&= \\dfrac{(n-y)!(y-1)!}{x}\\binom{n}{y}\\\\\n&= \\boxed{\\dfrac{n!}{xy}}\n\\end{aligned}\n$$\n接着化简 $S_2$。考虑使用组合恒等式\n$$\n\\sum_{b=k+1}^n (n-b) \\binom{b-1}{k}=\\binom{n}{k+2}\n$$\n其组合意义为：从 $n$ 个元素中取出 $k+2$ 个，枚举并钦定倒数第二个元素所在的位置 $b$。\n\n将这个恒等式代入 $S_2$ 得\n$$\n\\begin{aligned}\nS_2&=\\sum_{z=1}^{x-1} \\sum_{b=1}^n(n-b)(n-y+z-1)!\\dfrac{(b-1)!}{(b-y+z)!(x-z)}\\\\\n&=\\sum_{z=1}^{x-1} (n-y+z-1)!\\sum_{b=1}^n(n-b)\\dfrac{(b-1)!}{(b-y+z)!(x-z)!}\\\\\n&=\\sum_{z=1}^{x-1} (n-y+z-1)! \\dfrac{(y-z-1)!}{x-z} \\sum_{b=1}^n(n-b)\\binom{b-1}{y-z-1}\\\\\n&= \\sum_{z=1}^{x-1} (n-y+z-1)! \\dfrac{(y-z-1)!}{x-z} \\binom{n}{y-z+1}\\\\\n&= \\sum_{z=1}^{x-1} (n-y+z-1)!  \\dfrac{(y-z-1)!}{x-z} \\dfrac{n!}{(y-z+1)! (b-y+z-1)!}\\\\\n&= \\sum_{z=1}^{x-1}  \\dfrac{n!}{(x-z)!(y-z)!(y-z+1)!}\n\\end{aligned}\n$$\n至此 $O(qn)$。模拟赛时止步于此。\n\n考虑将求和式彻底拆开。令 $k=x-z,d=y-x$，于是\n$$\n\\begin{aligned}\nS_2&= \\sum_{k=1}^{x-1} \\dfrac{1}{k(k+d)(k+d+1)}\n\\end{aligned}\n$$\n使用裂项的技巧：\n$$\n\\begin{aligned}\nS_2&= \\sum_{k=1}^{x-1} \\dfrac{1}{k(k+d)(k+d+1)}\\\\\n&= \\sum_{k=1}^{x-1} \\left(\\dfrac{1}{d(d+1)} \\left(\\dfrac{1}{k}-\\dfrac{1}{k+d} \\right)-\\dfrac{1}{d+1} \\left(\\dfrac{1}{k+d}-\\dfrac{1}{k+d+1}\\right)\\right)\\\\\n&= \\boxed{-\\dfrac{n!(x-1)}{y(y-x+1)^2}+\\dfrac{n!}{(y-x)(y-x+1)} (H_{x-1}+H_{y-x}-H_{y-1})}\n\\end{aligned}\n$$\n其中 $H_n$ 为调和级数 $H_n=\\sum \\limits_{i=1}^n i^{-1}$。\n\n至此，使用线性逆元预处理 $H_n$ 和阶乘，复杂度 $O(q+n)$。[代码](https://www.luogu.com.cn/article/yumpahmx)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p13275",
+        "title": "[NOI2025] 集合",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P13275",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P13275](https://www.luogu.com.cn/problem/P13275)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $2^n$ 的序列 $a_0 \\sim a_{2^n-1}$。记 $f(S)=\\underset{i \\in S}{\\text{and }} i$，特别地 $f(\\varnothing)=2^n-1$。求\n> $$\n> \\sum_{P, Q} [P \\cap Q=\\varnothing][f(P)=f(Q)] \\prod_{i \\in (P \\cup Q)} a_i\n> $$\n> 其中 $P,Q \\subseteq \\{0,1,\\cdots,2^n-1\\}$。\n>\n> 多测，$T \\le 3$，$n \\le 20$，2 秒，512 MB。\n\n:::::success[题解]\n\n钦定 $S \\subseteq f(P) \\land T \\subseteq f(Q)$。枚举 $f(P)=f(Q)=W$，则 $(S,T)$ 的容斥系数为 $(-1)^{| S\\triangle W|} (-1)^{|T \\triangle W|}=(-1)^{|S|+|T|}$。\n\n::::success[证明]\n\n注意到\n$$\n\\begin{aligned}\n|S \\triangle W|&\\equiv |S| + |W |\\pmod 2\\\\\n|T \\triangle W|&\\equiv |T| + |W |\\pmod 2\n\\end{aligned}\n$$\n从而\n$$\n\\begin{aligned}\n|S \\triangle W|+|T \\triangle W| &\\equiv|S|+|T|+2|W| \\pmod 2\\\\\n|S \\triangle W|+|T \\triangle W| &\\equiv|S|+|T| \\pmod 2\\\\\n\\end{aligned}\n$$\n故有 $(-1)^{|S \\triangle W|+|T \\triangle W|}=(-1)^{|S|+|T|}$ 成立，证毕。\n\n::::\n\n系数与 $W$ 无关，而 $ W \\subseteq (S \\cap T)$，则 $(S,T)$ 的容斥系数为 $2^{|S \\cap T|} (-1)^{|S|+|T|}$。\n\n设 $f(P) \\subseteq S \\land f(Q) \\subseteq T$ 时的权值和为 $q(S,T)$。讨论 $i \\in [0,2^n)$ 的选择：\n\n- 若 $S\\nsubseteq i \\land T \\nsubseteq i$，不能放入 $P$ 或 $Q$，系数为 $1$。\n- 若 $S\\subseteq i \\land T \\nsubseteq i$，可以放入 $P$ 或不放，系数为 $a_i+1$。\n- 若 $S\\nsubseteq i \\land T \\subseteq i$，可以放入 $Q$ 或不放，系数为 $a_i+1$。\n- 若 $S\\subseteq i \\land T \\subseteq i$，可以放入 $P$，放入 $Q$ 或不放，系数为 $2a_i+1$。\n\n由乘法原理合并得到 $q(S,T)$。这样\n$$\n\\begin{aligned}\nq(S,T)&=\\prod_{S\\subseteq i \\land T \\nsubseteq i} (a_i+1) \\prod_{S\\nsubseteq i \\land T \\subseteq i} (a_i+1) \\prod_{S\\subseteq i \\land T \\subseteq i} (2a_i+1)\\\\\n&=\\prod_{S\\subseteq i} (a_i+1) \\prod_{T \\subseteq i} (a_i+1) \\prod_{(S \\cup T) \\subseteq i} \\dfrac{2a_i+1}{(a_i+1)^2}\n\\end{aligned}\n$$\n使用高维后缀积预处理\n$$\n\\begin{aligned}\nf_S&=\\prod_{S \\subseteq i} (a_i+1)\\\\\\\ng_S&=\\prod_{S \\subseteq i} \\dfrac{2a_i+1}{(a_i+1)^2}\n\\end{aligned}\n$$\n从而 $q(S,T)=f_S f_T g_{S \\cup T}$。答案式\n$$\n\\begin{aligned}\n\\sum_{S,T} 2^{|S \\cap T|} (-1)^{|S|+|T|} q(S,T)&= \\sum_{S,T} 2^{|S \\cap T|} (-1)^{|S|+|T|}  f_S f_T g_{S \\cup T}\n\\end{aligned}\n$$\n利用二元容斥 $|S \\cap T|=|S|+|T|-|S \\cup T|$ 将 $2^{|S \\cap T|}$ 拆开\n$$\n\\begin{aligned}\n&\\sum_{S,T\\subseteq U} 2^{|S \\cap T|} (-1)^{|S|+|T|}  f_S f_T g_{S \\cup T}\\\\\n=&\\sum_{S,T\\subseteq U} 2^{|S|+|T|-|S \\cup T|} (-1)^{|S|+|T|}f_S f_T g_{S \\cup T}\\\\\n=&\\sum_{S,T\\subseteq U} (-2)^{|S|} f_S \\times  (-2)^{|T|} f_T \\times  2^{-|S \\cup T|} g_{S \\cup T}\\\\\n=&\\sum_{W\\subseteq U} 2^{-|W|} g_{W} \\sum_{S \\cup T = W}  (-2)^{|S|} f_S \\times  (-2)^{|T|} f_T\n\\end{aligned}\n$$\n构造集合幂级数 $F=\\sum \\limits_{S \\subseteq U} (-2)^{|S|} f_S$，乘法为并卷积，从而\n$$\n\\sum_{W\\subseteq U} 2^{-|W|} g_{W} \\sum_{S \\cup T = W}  (-2)^{|S|} f_S \\times  (-2)^{|T|} f_T=\\boxed{\\sum_{W\\subseteq U} 2^{-|W|} g_{W}[x^W] F^2}\n$$\n注意处理 $a_i \\equiv -1$ 的情形：使用[除零扩域](https://www.luogu.com.cn/article/d3vw3m09)的 trick，将每个数记作 $a \\times 0^b$ 的形式，乘除均有良定义。\n\n总复杂度 $O(n2^n)$。[代码](https://qoj.ac/submission/2887280)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P13275](https://www.luogu.com.cn/problem/P13275)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $2^n$ 的序列 $a_0 \\sim a_{2^n-1}$。记 $f(S)=\\underset{i \\in S}{\\text{and }} i$，特别地 $f(\\varnothing)=2^n-1$。求\n> $$\n> \\sum_{P, Q} [P \\cap Q=\\varnothing][f(P)=f(Q)] \\prod_{i \\in (P \\cup Q)} a_i\n> $$\n> 其中 $P,Q \\subseteq \\{0,1,\\cdots,2^n-1\\}$。\n>\n> 多测，$T \\le 3$，$n \\le 20$，2 秒，512 MB。\n\n:::::success[题解]\n\n钦定 $S \\subseteq f(P) \\land T \\subseteq f(Q)$。枚举 $f(P)=f(Q)=W$，则 $(S,T)$ 的容斥系数为 $(-1)^{| S\\triangle W|} (-1)^{|T \\triangle W|}=(-1)^{|S|+|T|}$。\n\n::::success[证明]\n\n注意到\n$$\n\\begin{aligned}\n|S \\triangle W|&\\equiv |S| + |W |\\pmod 2\\\\\n|T \\triangle W|&\\equiv |T| + |W |\\pmod 2\n\\end{aligned}\n$$\n从而\n$$\n\\begin{aligned}\n|S \\triangle W|+|T \\triangle W| &\\equiv|S|+|T|+2|W| \\pmod 2\\\\\n|S \\triangle W|+|T \\triangle W| &\\equiv|S|+|T| \\pmod 2\\\\\n\\end{aligned}\n$$\n故有 $(-1)^{|S \\triangle W|+|T \\triangle W|}=(-1)^{|S|+|T|}$ 成立，证毕。\n\n::::\n\n系数与 $W$ 无关，而 $ W \\subseteq (S \\cap T)$，则 $(S,T)$ 的容斥系数为 $2^{|S \\cap T|} (-1)^{|S|+|T|}$。\n\n设 $f(P) \\subseteq S \\land f(Q) \\subseteq T$ 时的权值和为 $q(S,T)$。讨论 $i \\in [0,2^n)$ 的选择：\n\n- 若 $S\\nsubseteq i \\land T \\nsubseteq i$，不能放入 $P$ 或 $Q$，系数为 $1$。\n- 若 $S\\subseteq i \\land T \\nsubseteq i$，可以放入 $P$ 或不放，系数为 $a_i+1$。\n- 若 $S\\nsubseteq i \\land T \\subseteq i$，可以放入 $Q$ 或不放，系数为 $a_i+1$。\n- 若 $S\\subseteq i \\land T \\subseteq i$，可以放入 $P$，放入 $Q$ 或不放，系数为 $2a_i+1$。\n\n由乘法原理合并得到 $q(S,T)$。这样\n$$\n\\begin{aligned}\nq(S,T)&=\\prod_{S\\subseteq i \\land T \\nsubseteq i} (a_i+1) \\prod_{S\\nsubseteq i \\land T \\subseteq i} (a_i+1) \\prod_{S\\subseteq i \\land T \\subseteq i} (2a_i+1)\\\\\n&=\\prod_{S\\subseteq i} (a_i+1) \\prod_{T \\subseteq i} (a_i+1) \\prod_{(S \\cup T) \\subseteq i} \\dfrac{2a_i+1}{(a_i+1)^2}\n\\end{aligned}\n$$\n使用高维后缀积预处理\n$$\n\\begin{aligned}\nf_S&=\\prod_{S \\subseteq i} (a_i+1)\\\\\\\ng_S&=\\prod_{S \\subseteq i} \\dfrac{2a_i+1}{(a_i+1)^2}\n\\end{aligned}\n$$\n从而 $q(S,T)=f_S f_T g_{S \\cup T}$。答案式\n$$\n\\begin{aligned}\n\\sum_{S,T} 2^{|S \\cap T|} (-1)^{|S|+|T|} q(S,T)&= \\sum_{S,T} 2^{|S \\cap T|} (-1)^{|S|+|T|}  f_S f_T g_{S \\cup T}\n\\end{aligned}\n$$\n利用二元容斥 $|S \\cap T|=|S|+|T|-|S \\cup T|$ 将 $2^{|S \\cap T|}$ 拆开\n$$\n\\begin{aligned}\n&\\sum_{S,T\\subseteq U} 2^{|S \\cap T|} (-1)^{|S|+|T|}  f_S f_T g_{S \\cup T}\\\\\n=&\\sum_{S,T\\subseteq U} 2^{|S|+|T|-|S \\cup T|} (-1)^{|S|+|T|}f_S f_T g_{S \\cup T}\\\\\n=&\\sum_{S,T\\subseteq U} (-2)^{|S|} f_S \\times  (-2)^{|T|} f_T \\times  2^{-|S \\cup T|} g_{S \\cup T}\\\\\n=&\\sum_{W\\subseteq U} 2^{-|W|} g_{W} \\sum_{S \\cup T = W}  (-2)^{|S|} f_S \\times  (-2)^{|T|} f_T\n\\end{aligned}\n$$\n构造集合幂级数 $F=\\sum \\limits_{S \\subseteq U} (-2)^{|S|} f_S$，乘法为并卷积，从而\n$$\n\\sum_{W\\subseteq U} 2^{-|W|} g_{W} \\sum_{S \\cup T = W}  (-2)^{|S|} f_S \\times  (-2)^{|T|} f_T=\\boxed{\\sum_{W\\subseteq U} 2^{-|W|} g_{W}[x^W] F^2}\n$$\n注意处理 $a_i \\equiv -1$ 的情形：使用[除零扩域](https://www.luogu.com.cn/article/d3vw3m09)的 trick，将每个数记作 $a \\times 0^b$ 的形式，乘除均有良定义。\n\n总复杂度 $O(n2^n)$。[代码](https://qoj.ac/submission/2887280)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -679,6 +2923,39 @@ const PROBLEMS_DATA = [
         ]
     },
     {
+        "id": "prob-luogu-p14012",
+        "title": "[POCamp 2023] 枫树 / Maple Tree",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P14012",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14012](https://www.luogu.com.cn/problem/P14012)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库有一个大小为 $n$ 的无根树，边带权。保证任意两点距离不同，且节点度数 $\\le 3$。你可以给出 $a,b,c$，向交互库查询 $\\text{dis}(a,b)<\\text{dis}(a,c)$ 是否成立。\n>\n> 还原树的形态。\n>\n> $n \\le 10^3$，满分询问次数 $2 \\times 10^4$，交互库非自适应。\n\n:::::success[题解]\n不妨将 $1$ 作为根。令 $a=1$ 后一次查询相当于比较 $b,c$ 的深度，于是可以将所有点按照深度升序排序。\n\n这得到的是一个拓扑序。考虑按拓扑序增量构造，一次加点就是加叶子，只需确定叶子的父亲。\n\n另一个重要观察是，可以通过一次询问排除一半子树。具体地，对于叶子 $x$ 和边 $(u,v)$，询问 $\\text{dis}(u,x)$ 和 $\\text{dis}(v,x)$ 可以确定 $x$ 在 $u$ 子树还是 $v$ 子树中。\n\n注意到树是三度化的，这恰好为边分治提供了条件。于是我们用边分治挂叶子，一次加点可以做到 $\\log n$ 次询问。这样总询问次数就是 $2n \\log n$ 的了，可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1005;\nint n, p[N], sz[N], vis[N];\nvector<int> e[N];\nbool ask(int x, int y, int z) {\n    cout << \"? \" << y << ' ' << z << ' ' << x << endl;\n    char c; cin >> c;\n    return c == 'A';\n}\n\nvoid dfs1(int u, int fa) {\n    sz[u] = 1;\n    for (int v : e[u]) {\n        if (v == fa || vis[v]) continue;\n        dfs1(v, u), sz[u] += sz[v];\n    }\n}\nvoid dfs2(int u, int fa) {\n    vis[u] = true;\n    for (int v : e[u]) {\n        if (v == fa || vis[v]) continue; \n        dfs2(v, u);\n    }\n}\nvoid solve(int x, int u) {\n    dfs1(u, -1); int c = sz[u];\n    if (c == 1) {\n        e[u].emplace_back(x), e[x].emplace_back(u);\n        return;\n    }\n    int p = -1, q = -1, mw = 1e9;\n    function<void(int, int)> dfs = [&](int u, int fa) -> void {\n        for (int v : e[u]) {\n            if (v == fa || vis[v]) continue;\n            int w = max(sz[v], c - sz[v]);\n            if (w < mw) p = u, q = v, mw = w;\n            dfs(v, u);\n        }\n    };\n    dfs(u, -1);\n    if (ask(x, p, q)) dfs2(q, p), solve(x, p);\n    else dfs2(p, q), solve(x, q);\n}\n\nvoid _main() {\n    cin >> n;\n    iota(p + 1, p + n + 1, 1);\n    stable_sort(p + 2, p + n + 1, [](int x, int y) -> bool {\n        return ask(1, x, y);\n    });\n    for (int i = 2; i <= n; i++) {\n        fill(vis + 1, vis + n + 1, 0);\n        solve(p[i], 1);\n    }\n    cout << \"!\\n\";\n    for (int u = 1; u <= n; u++) \n        for (int v : e[u]) if (u < v) cout << u << ' ' << v << '\\n';\n    cout << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14012](https://www.luogu.com.cn/problem/P14012)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库有一个大小为 $n$ 的无根树，边带权。保证任意两点距离不同，且节点度数 $\\le 3$。你可以给出 $a,b,c$，向交互库查询 $\\text{dis}(a,b)<\\text{dis}(a,c)$ 是否成立。\n>\n> 还原树的形态。\n>\n> $n \\le 10^3$，满分询问次数 $2 \\times 10^4$，交互库非自适应。\n\n:::::success[题解]\n不妨将 $1$ 作为根。令 $a=1$ 后一次查询相当于比较 $b,c$ 的深度，于是可以将所有点按照深度升序排序。\n\n这得到的是一个拓扑序。考虑按拓扑序增量构造，一次加点就是加叶子，只需确定叶子的父亲。\n\n另一个重要观察是，可以通过一次询问排除一半子树。具体地，对于叶子 $x$ 和边 $(u,v)$，询问 $\\text{dis}(u,x)$ 和 $\\text{dis}(v,x)$ 可以确定 $x$ 在 $u$ 子树还是 $v$ 子树中。\n\n注意到树是三度化的，这恰好为边分治提供了条件。于是我们用边分治挂叶子，一次加点可以做到 $\\log n$ 次询问。这样总询问次数就是 $2n \\log n$ 的了，可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1005;\nint n, p[N], sz[N], vis[N];\nvector<int> e[N];\nbool ask(int x, int y, int z) {\n    cout << \"? \" << y << ' ' << z << ' ' << x << endl;\n    char c; cin >> c;\n    return c == 'A';\n}\n\nvoid dfs1(int u, int fa) {\n    sz[u] = 1;\n    for (int v : e[u]) {\n        if (v == fa || vis[v]) continue;\n        dfs1(v, u), sz[u] += sz[v];\n    }\n}\nvoid dfs2(int u, int fa) {\n    vis[u] = true;\n    for (int v : e[u]) {\n        if (v == fa || vis[v]) continue; \n        dfs2(v, u);\n    }\n}\nvoid solve(int x, int u) {\n    dfs1(u, -1); int c = sz[u];\n    if (c == 1) {\n        e[u].emplace_back(x), e[x].emplace_back(u);\n        return;\n    }\n    int p = -1, q = -1, mw = 1e9;\n    function<void(int, int)> dfs = [&](int u, int fa) -> void {\n        for (int v : e[u]) {\n            if (v == fa || vis[v]) continue;\n            int w = max(sz[v], c - sz[v]);\n            if (w < mw) p = u, q = v, mw = w;\n            dfs(v, u);\n        }\n    };\n    dfs(u, -1);\n    if (ask(x, p, q)) dfs2(q, p), solve(x, p);\n    else dfs2(p, q), solve(x, q);\n}\n\nvoid _main() {\n    cin >> n;\n    iota(p + 1, p + n + 1, 1);\n    stable_sort(p + 2, p + n + 1, [](int x, int y) -> bool {\n        return ask(1, x, y);\n    });\n    for (int i = 2; i <= n; i++) {\n        fill(vis + 1, vis + n + 1, 0);\n        solve(p[i], 1);\n    }\n    cout << \"!\\n\";\n    for (int u = 1; u <= n; u++) \n        for (int v : e[u]) if (u < v) cout << u << ' ' << v << '\\n';\n    cout << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-luogu-p14154",
         "title": "P14154 [ICPC 2022 Nanjing R] 索道",
         "source": "Xesir",
@@ -722,6 +2999,72 @@ const PROBLEMS_DATA = [
         ]
     },
     {
+        "id": "prob-luogu-p14254",
+        "title": "分割（divide）",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P14254",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14254](https://www.luogu.com.cn/problem/P14254)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵节点数为 $n$ 的有根树，根节点为 $1$，设第 $i$ 个节点的深度为 $d_i$。对满足以下条件的序列 $a_1 \\sim a_k$ 计数：\n>\n> - $a_1 \\sim a_k$ 互不相同。\n> - $\\forall i\\in [1,k), 1<d_{a_i} \\le d_{a_{i+1}}$。\n> - 对每个 $a_i$，断开 $a_i$ 到父亲的边形成 $k+1$ 棵子树，第 $i$ 棵子树的根为 $a_i$，第 $k+1$ 棵子树的根为 $1$。设第 $i$ 棵子树的 $d$ 值组成集合 $S_i$，要求\n>   $$\n>   S_1=\\bigcap_{i=2}^{k+1} S_i\n>   $$\n>\n> $k < n \\le 10^6$，1 秒，512 MB。\n\n:::::success[题解]\n\n可以观察到下面两个结论：\n\n**性质 1** $S_i$ 必然是一段区间 $[l_i,r_i]$。其中 $l_i=d_{a_i}$ 且 $r_i=\\max\\limits_{j \\in \\text{subtree}(a_i)} d_j$。\n\n**性质 2** 所有 $a_i$ 的深度相同。\n\n**证明** 考虑反证，若 $d_{a_1}<d_{a_k}$，则 $l_1 < l_k$ 从而 $l_1$ 不在交集中，序列不合法。\n\n根据观察，$a$ 序列的合法条件可以转化为 $r_1=\\min \\limits_{i=2}^{k+1} r_i$，且 $a_1 \\sim a_k$ 同深度。分讨 $\\min$ 取到的位置：\n\n- 若 $r_1=\\min\\limits_{i=2}^k r_i$，则 $r_{k+1} \\ge r_1$。对同层节点的 $r$ 值降序排序并枚举 $r_1$，则合法的 $r_i$ 构成一段前缀。\n\n  设 $>r_1$ 的值有 $x$ 个，$=r_1$ 的值有 $y$ 个，注意 $y \\ge 2$。枚举 $=r_1$ 的数选择 $i$ 个，方案数为\n  $$\n  \\sum_{i=1}^{y-1} \\binom{y-1}{i}\\binom{x}{k-1-i}=\\binom{x+y-1}{k-1}-\\binom{x}{k-1}\n  $$\n  系数 $y \\times (k-1)!$，其中 $y$ 是 $a_1$ 的方案数，$(k-1)!$ 是带序系数。化简是范德蒙德卷积，也可以从单步容斥的组合意义直接得到。\n\n  满足 $r_{k+1} \\ge r_1$ 只要 $\\ge r_1$ 的部分存在一个未选择节点，即 $x+y>k$。故跳过 $x+y \\le k$ 的部分即可。\n\n- 若 $r_1=r_{k+1}$ 且 $\\forall i \\in [2,k], r_i> r_1$，必有 $x \\ge k-1$。而 $r_1=r_{k+1}$ 说明 $>r_1$ 的点全部选中，那么 $x \\le k-1$。综上，这种情况成立当且仅当 $x=k-1$。\n\n  $a_2 \\sim a_k$ 的选法为 $1$，系数 $y \\times (k-1)!$ 即为方案数。\n\n综上，按照深度进行枚举，复杂度 $O(n \\log n)$。[代码](https://www.luogu.me/paste/5tv587tp)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14254](https://www.luogu.com.cn/problem/P14254)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵节点数为 $n$ 的有根树，根节点为 $1$，设第 $i$ 个节点的深度为 $d_i$。对满足以下条件的序列 $a_1 \\sim a_k$ 计数：\n>\n> - $a_1 \\sim a_k$ 互不相同。\n> - $\\forall i\\in [1,k), 1<d_{a_i} \\le d_{a_{i+1}}$。\n> - 对每个 $a_i$，断开 $a_i$ 到父亲的边形成 $k+1$ 棵子树，第 $i$ 棵子树的根为 $a_i$，第 $k+1$ 棵子树的根为 $1$。设第 $i$ 棵子树的 $d$ 值组成集合 $S_i$，要求\n>   $$\n>   S_1=\\bigcap_{i=2}^{k+1} S_i\n>   $$\n>\n> $k < n \\le 10^6$，1 秒，512 MB。\n\n:::::success[题解]\n\n可以观察到下面两个结论：\n\n**性质 1** $S_i$ 必然是一段区间 $[l_i,r_i]$。其中 $l_i=d_{a_i}$ 且 $r_i=\\max\\limits_{j \\in \\text{subtree}(a_i)} d_j$。\n\n**性质 2** 所有 $a_i$ 的深度相同。\n\n**证明** 考虑反证，若 $d_{a_1}<d_{a_k}$，则 $l_1 < l_k$ 从而 $l_1$ 不在交集中，序列不合法。\n\n根据观察，$a$ 序列的合法条件可以转化为 $r_1=\\min \\limits_{i=2}^{k+1} r_i$，且 $a_1 \\sim a_k$ 同深度。分讨 $\\min$ 取到的位置：\n\n- 若 $r_1=\\min\\limits_{i=2}^k r_i$，则 $r_{k+1} \\ge r_1$。对同层节点的 $r$ 值降序排序并枚举 $r_1$，则合法的 $r_i$ 构成一段前缀。\n\n  设 $>r_1$ 的值有 $x$ 个，$=r_1$ 的值有 $y$ 个，注意 $y \\ge 2$。枚举 $=r_1$ 的数选择 $i$ 个，方案数为\n  $$\n  \\sum_{i=1}^{y-1} \\binom{y-1}{i}\\binom{x}{k-1-i}=\\binom{x+y-1}{k-1}-\\binom{x}{k-1}\n  $$\n  系数 $y \\times (k-1)!$，其中 $y$ 是 $a_1$ 的方案数，$(k-1)!$ 是带序系数。化简是范德蒙德卷积，也可以从单步容斥的组合意义直接得到。\n\n  满足 $r_{k+1} \\ge r_1$ 只要 $\\ge r_1$ 的部分存在一个未选择节点，即 $x+y>k$。故跳过 $x+y \\le k$ 的部分即可。\n\n- 若 $r_1=r_{k+1}$ 且 $\\forall i \\in [2,k], r_i> r_1$，必有 $x \\ge k-1$。而 $r_1=r_{k+1}$ 说明 $>r_1$ 的点全部选中，那么 $x \\le k-1$。综上，这种情况成立当且仅当 $x=k-1$。\n\n  $a_2 \\sim a_k$ 的选法为 $1$，系数 $y \\times (k-1)!$ 即为方案数。\n\n综上，按照深度进行枚举，复杂度 $O(n \\log n)$。[代码](https://www.luogu.me/paste/5tv587tp)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p14364",
+        "title": "[CSP-S 2025] 员工招聘",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P14364",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14364](https://www.luogu.com.cn/problem/P14364)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 和长为 $n$ 的 01 串 $S$。考虑 $1\\sim n$ 的排列 $p_i$，初始有变量 $x=0$，依次对 $i=1,2,\\cdots,n$ 执行：\n>\n> - 若 $S_i=0$ 或 $x \\ge c_{p_i}$，令 $x\\gets x+1$。\n>\n> 求最终 $x \\le n-m$ 的 $p_i$ 数目。\n>\n> $n,m \\le 500$，2 秒，512 MB。\n\n:::::success[解法一]\n\n考虑从左到右填入的计数顺序。\n\n注意到 $c_i \\le x$ 的 $i$ 行为相同，$c_i>x$ 的 $i$ 行为相同，且转化具有单向性，故设计延迟钦定 DP：\n\n- 设 $f_{i,x,y}$ 为满足下列条件的合法方案数：\n\n  - 仅决策 $p_1\\sim p_i$。\n  - $x$ 为考虑到 $i$ 时变量的值。\n  - 前缀 $1\\sim i$ 中预留 $y$ 个 $c_i>x$ 的位置，这些位置的具体值待定。\n\n- 转移令 $f_{i-1,x,y} \\to f_{i,x',y'}$。对 $S_i$ 分讨：\n\n  - 若 $S_i=0$，必然有 $x'=x+1$。此时 $c_i=x'$ 的 $i$ 移除待定部分，枚举原待定部分 $c_i=x'$ 的数目 $z \\in [0,y]$，则 $y' \\gets y-z$。贡献系数为：\n\n    - 选出 $z$ 个数在原待定部分，方案数 $\\binom{\\text{cnt}_{x+1}}{z} \\binom{y}{z}$。\n    - 令 $z$ 个数任意排列，方案数 $z!$。\n\n    设 $a_x$ 为 $c_i \\le x$ 的 $i$ 的数目。讨论 $c_{p_i}$ 与 $x'$ 的大小关系：\n\n    - 钦定 $c_{p_i} \\le x'$，已用掉 $(i-1)-(y-z)$ 个 $\\le x'$ 的数，可用的数目为 $a_{x+1}-(i-1-(y-z))$。\n\n      转移 $\\binom{\\text{cnt}_{x+1}}{z} \\binom{y}{z} z!(a_{x+1}-(i-1-y+z))f_{i-1,x,y} \\to f_{i,x+1,y-z}$。\n\n    - 钦定 $c_{p_i}>x'$，将 $p_i$ 扔进待定部分，转移 $\\binom{\\text{cnt}_{x+1}}{z} \\binom{y}{z}z! f_{i-1,x,y} \\to f_{i,x+1,y-z+1}$。\n\n  - 若 $S_i=1$，只要讨论 $c_{p_i}$ 与 $x$ 的大小关系。\n\n    - 若 $c_{p_i} \\le x$，则 $x'=x+1$。枚举 $z$ 个 $i$ 移出待定部分，贡献系数同理。已用掉 $(i-1)-y$ 个 $\\le x$ 的数，可用数目 $a_x-(i-1-y)$。\n\n      转移 $\\binom{\\text{cnt}_{x+1}}{z} \\binom{y}{z} z!(a_x-(i-1-y)) f_{i-1,x,y} \\to f_{i,x+1,y-z}$。\n\n    - 若 $c_{p_i} >x$，则 $x'=x$，将 $p_i$ 扔进待定部分，直接转移 $f_{i-1,x,y} \\to f_{i,x,y+1}$。\n\n- DP 初值为 $f_{0,0,0}=1$。\n\n- 答案为 $\\sum \\limits_{x=0}^{n-m} (n-a_x)!f_{n,x,n-a_x}$，系数 $(n-a_x)!$ 表示令待定部分随意排列。\n\n注意到 $\\sum \\text{cnt}=n$，故 $z$ 的总枚举次数正确，复杂度 $O(n^3)$。注意常数问题，[代码](https://qoj.ac/submission/3058467)。\n\n:::::\n\n:::::success[解法二]\n\n取集合 $U=\\{i \\mid S_i=1\\}$，设 $S \\subseteq U$ 为 $x$ 不变的位置集合，只要 $|S|\\ge m$。对位置 $i$ 分讨：\n\n- 若 $i \\in S$，要求 $c_i>\\sum \\limits_{j < i} [j \\notin S]$。\n- 若 $i \\notin U \\setminus S$，要求 $c_i \\le \\sum\\limits_{j<i} [j \\notin S]$。\n\n限制 $c_i > *$ 是困难的，将其容斥为 $1-[c_i \\le *]$。钦定 $T \\subseteq S$ 满足：\n\n- 若 $i \\in T$，要求 $c_i \\le \\sum\\limits_{j<i} [j \\notin S]$。\n- 若 $i \\in S \\setminus T$，$c_i$ 无限制。\n\n容斥系数 $(-1)^{|T|}$。\n\n这里 $(T,S \\setminus T, U \\setminus S)$ 构成 $U$ 的划分。对划分情况进行 DP：\n\n- 设 $f_{i,u,v}$ 为满足下列情况的合法方案数：\n\n  - 仅考虑 $1 \\sim i$ 位置。\n  - $|S|=u$ 且 $|T|=v$。\n  - 仅考虑 $T$ 和 $U \\setminus S$ 位置上填入的数。\n\n- 转移时逐个加 $i$，令 $f_{i-1,u,v} \\to f_{i,u',v'}$。\n\n  - 若 $S_i=0$ 则 $i\\notin S$，转移 $f_{i-1,u,v} \\to f_{i,u,v}$。\n\n  - 若 $S_i=1$，此时 $x=i-1-u$。剩余 $\\le x$ 的点数为 $q=\\sum \\limits_{i=1}^n [c_i \\le x]-|T|-|U \\setminus S|$。\n\n    其中 $|T|=v$，$|U\\setminus S|=|U|-|S|=\\sum \\limits_{j <i} [S_j=1]-u$。容易预处理后算出转移系数 $q$。\n\n    - 令 $i$ 加入 $U \\setminus S$，需要 $c_i \\le x$，转移 $q \\times f_{i-1,u,v} \\to f_{i,u,v}$。\n    - 令 $i$ 加入 $T$，需要 $c_i \\le x$，转移 $q \\times f_{i-1,u,v} \\to f_{i,u+1,v+1}$。\n    - 令 $i$ 加入 $S \\setminus T$，无限制，转移 $f_{i-1,u,v} \\to f_{i,u+1,v}$。\n\n- DP 初值为 $f_{0,0,0}=1$。\n\n- 算答案时枚举 $(u,v)$ 满足 $u \\ge m$。容斥系数 $(-1)^v$，剩余 $|S \\setminus T|$ 个位置任意排列，方案数 $\\left(n-|U|+u-v\\right)!$。则答案式为\n  $$\n  \\sum_{u=m}^n \\sum_{v=0}^u (-1)^v\\left(n-|U|+u-v\\right)! f_{n,u,v}\n  $$\n\n复杂度 $O(n^3)$。[代码](https://qoj.ac/submission/3058752)。\n\n带着容斥系数 DP，将 $(-1)^v$ 放到 DP 值里面就是第一篇题解的做法了。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14364](https://www.luogu.com.cn/problem/P14364)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 和长为 $n$ 的 01 串 $S$。考虑 $1\\sim n$ 的排列 $p_i$，初始有变量 $x=0$，依次对 $i=1,2,\\cdots,n$ 执行：\n>\n> - 若 $S_i=0$ 或 $x \\ge c_{p_i}$，令 $x\\gets x+1$。\n>\n> 求最终 $x \\le n-m$ 的 $p_i$ 数目。\n>\n> $n,m \\le 500$，2 秒，512 MB。\n\n:::::success[解法一]\n\n考虑从左到右填入的计数顺序。\n\n注意到 $c_i \\le x$ 的 $i$ 行为相同，$c_i>x$ 的 $i$ 行为相同，且转化具有单向性，故设计延迟钦定 DP：\n\n- 设 $f_{i,x,y}$ 为满足下列条件的合法方案数：\n\n  - 仅决策 $p_1\\sim p_i$。\n  - $x$ 为考虑到 $i$ 时变量的值。\n  - 前缀 $1\\sim i$ 中预留 $y$ 个 $c_i>x$ 的位置，这些位置的具体值待定。\n\n- 转移令 $f_{i-1,x,y} \\to f_{i,x',y'}$。对 $S_i$ 分讨：\n\n  - 若 $S_i=0$，必然有 $x'=x+1$。此时 $c_i=x'$ 的 $i$ 移除待定部分，枚举原待定部分 $c_i=x'$ 的数目 $z \\in [0,y]$，则 $y' \\gets y-z$。贡献系数为：\n\n    - 选出 $z$ 个数在原待定部分，方案数 $\\binom{\\text{cnt}_{x+1}}{z} \\binom{y}{z}$。\n    - 令 $z$ 个数任意排列，方案数 $z!$。\n\n    设 $a_x$ 为 $c_i \\le x$ 的 $i$ 的数目。讨论 $c_{p_i}$ 与 $x'$ 的大小关系：\n\n    - 钦定 $c_{p_i} \\le x'$，已用掉 $(i-1)-(y-z)$ 个 $\\le x'$ 的数，可用的数目为 $a_{x+1}-(i-1-(y-z))$。\n\n      转移 $\\binom{\\text{cnt}_{x+1}}{z} \\binom{y}{z} z!(a_{x+1}-(i-1-y+z))f_{i-1,x,y} \\to f_{i,x+1,y-z}$。\n\n    - 钦定 $c_{p_i}>x'$，将 $p_i$ 扔进待定部分，转移 $\\binom{\\text{cnt}_{x+1}}{z} \\binom{y}{z}z! f_{i-1,x,y} \\to f_{i,x+1,y-z+1}$。\n\n  - 若 $S_i=1$，只要讨论 $c_{p_i}$ 与 $x$ 的大小关系。\n\n    - 若 $c_{p_i} \\le x$，则 $x'=x+1$。枚举 $z$ 个 $i$ 移出待定部分，贡献系数同理。已用掉 $(i-1)-y$ 个 $\\le x$ 的数，可用数目 $a_x-(i-1-y)$。\n\n      转移 $\\binom{\\text{cnt}_{x+1}}{z} \\binom{y}{z} z!(a_x-(i-1-y)) f_{i-1,x,y} \\to f_{i,x+1,y-z}$。\n\n    - 若 $c_{p_i} >x$，则 $x'=x$，将 $p_i$ 扔进待定部分，直接转移 $f_{i-1,x,y} \\to f_{i,x,y+1}$。\n\n- DP 初值为 $f_{0,0,0}=1$。\n\n- 答案为 $\\sum \\limits_{x=0}^{n-m} (n-a_x)!f_{n,x,n-a_x}$，系数 $(n-a_x)!$ 表示令待定部分随意排列。\n\n注意到 $\\sum \\text{cnt}=n$，故 $z$ 的总枚举次数正确，复杂度 $O(n^3)$。注意常数问题，[代码](https://qoj.ac/submission/3058467)。\n\n:::::\n\n:::::success[解法二]\n\n取集合 $U=\\{i \\mid S_i=1\\}$，设 $S \\subseteq U$ 为 $x$ 不变的位置集合，只要 $|S|\\ge m$。对位置 $i$ 分讨：\n\n- 若 $i \\in S$，要求 $c_i>\\sum \\limits_{j < i} [j \\notin S]$。\n- 若 $i \\notin U \\setminus S$，要求 $c_i \\le \\sum\\limits_{j<i} [j \\notin S]$。\n\n限制 $c_i > *$ 是困难的，将其容斥为 $1-[c_i \\le *]$。钦定 $T \\subseteq S$ 满足：\n\n- 若 $i \\in T$，要求 $c_i \\le \\sum\\limits_{j<i} [j \\notin S]$。\n- 若 $i \\in S \\setminus T$，$c_i$ 无限制。\n\n容斥系数 $(-1)^{|T|}$。\n\n这里 $(T,S \\setminus T, U \\setminus S)$ 构成 $U$ 的划分。对划分情况进行 DP：\n\n- 设 $f_{i,u,v}$ 为满足下列情况的合法方案数：\n\n  - 仅考虑 $1 \\sim i$ 位置。\n  - $|S|=u$ 且 $|T|=v$。\n  - 仅考虑 $T$ 和 $U \\setminus S$ 位置上填入的数。\n\n- 转移时逐个加 $i$，令 $f_{i-1,u,v} \\to f_{i,u',v'}$。\n\n  - 若 $S_i=0$ 则 $i\\notin S$，转移 $f_{i-1,u,v} \\to f_{i,u,v}$。\n\n  - 若 $S_i=1$，此时 $x=i-1-u$。剩余 $\\le x$ 的点数为 $q=\\sum \\limits_{i=1}^n [c_i \\le x]-|T|-|U \\setminus S|$。\n\n    其中 $|T|=v$，$|U\\setminus S|=|U|-|S|=\\sum \\limits_{j <i} [S_j=1]-u$。容易预处理后算出转移系数 $q$。\n\n    - 令 $i$ 加入 $U \\setminus S$，需要 $c_i \\le x$，转移 $q \\times f_{i-1,u,v} \\to f_{i,u,v}$。\n    - 令 $i$ 加入 $T$，需要 $c_i \\le x$，转移 $q \\times f_{i-1,u,v} \\to f_{i,u+1,v+1}$。\n    - 令 $i$ 加入 $S \\setminus T$，无限制，转移 $f_{i-1,u,v} \\to f_{i,u+1,v}$。\n\n- DP 初值为 $f_{0,0,0}=1$。\n\n- 算答案时枚举 $(u,v)$ 满足 $u \\ge m$。容斥系数 $(-1)^v$，剩余 $|S \\setminus T|$ 个位置任意排列，方案数 $\\left(n-|U|+u-v\\right)!$。则答案式为\n  $$\n  \\sum_{u=m}^n \\sum_{v=0}^u (-1)^v\\left(n-|U|+u-v\\right)! f_{n,u,v}\n  $$\n\n复杂度 $O(n^3)$。[代码](https://qoj.ac/submission/3058752)。\n\n带着容斥系数 DP，将 $(-1)^v$ 放到 DP 值里面就是第一篇题解的做法了。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-luogu-p1450",
         "title": "P1450 [HAOI2008] 硬币购物",
         "source": "Xesir",
@@ -755,6 +3098,336 @@ const PROBLEMS_DATA = [
                     "计数"
                 ],
                 "source": "Xesir"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p14514",
+        "title": "[NFLSPC #8] 如何区分北京东路和北京东路",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P14514",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14514](https://www.luogu.com.cn/problem/P14514)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一个长为 $n$ 的序列 $a_i$。进行 $k$ 次操作，每次操作随机选择一个 $i$，令 $\\forall j \\ne i, a_j \\gets a_j+\\frac{a_i}{n-1}$，并且 $a_i \\gets 0$。对每个 $i$ 求出 $k$ 次操作后 $a_i$ 的期望值。\n>\n> $n \\le 10^6$，$k \\le 10^9$，1 秒，128 MB。\n\n:::::success[题解]\n\n考虑期望递推。设 $f_i$ 为当前时刻 $a_i$ 的期望值。对于一次操作：\n\n- 选定 $i$，则 $a_i \\gets 0$。\n- 选定 $j$，其中 $j \\ne i$，则 $a_i \\gets a_i+\\frac{f_j}{n-1}$。\n\n故单次操作的转移式为\n$$\nf_i \\gets \\sum_{j \\ne i} \\dfrac{1}{n} \\times  \\left(f_i+\\dfrac{f_j}{n-1}\\right)\n$$\n注意到操作不改变 $\\sum a_i$，必有 $S=\\sum \\limits_{i=1}^n f_i$ 为定值。代入转移式\n$$\n\\begin{aligned}\nf_i&\\gets\\dfrac{n-1}{n}\\left(f_{i}+\\dfrac{1}{n-1}\\sum_{j \\ne i} f_j\\right)\\\\\n&=\\dfrac{n-1}{n} f_i+\\dfrac{1}{n(n-1)} \\sum_{j \\ne i} f_j\\\\\n&=\\dfrac{n-1}{n} f_i + \\dfrac{S-f_i}{n(n-1)}\\\\\n&= \\dfrac{n-2}{n-1} f_i+\\dfrac{S}{n(n-1)}\n\\end{aligned}\n$$\n解一阶线性递推得到\n$$\nf_i=\\boxed{\\dfrac{S}{n}+\\left(a_i-\\dfrac{S}{n}\\right) \\left(\\dfrac{n-2}{n-1}\\right)^k}\n$$\n::::info[一阶线性递推]\n\n**问题** 给定递推公式 $a_{n+1}=pa_n+q$，其中 $p \\ne 0 \\land p\\ne 1$，求 $a_n$ 的通项公式。\n\n构造不动点 $x$ 满足 $x=px+q$，解得 $x=\\dfrac{q}{1-p}$。\n\n对递推式进行变形：\n$$\n\\begin{aligned}\na_{n+1}&=pa_n+q\\\\\na_{n+1}-x &= pa_n+q-x\\\\\na_{n+1}-x &= p(a_n-x)\n\\end{aligned}\n$$\n记 $b_n=a_n-x$，上式给出 $b_{n+1}=p \\times b_n$，从而 $b_n=b_1 p^{n-1}$。因此 $a_n$ 的通项为\n$$\na_n=(a_1-x) p^{n-1}+x\n$$\n::::\n\n复杂度 $O(n +\\log k)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14514](https://www.luogu.com.cn/problem/P14514)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一个长为 $n$ 的序列 $a_i$。进行 $k$ 次操作，每次操作随机选择一个 $i$，令 $\\forall j \\ne i, a_j \\gets a_j+\\frac{a_i}{n-1}$，并且 $a_i \\gets 0$。对每个 $i$ 求出 $k$ 次操作后 $a_i$ 的期望值。\n>\n> $n \\le 10^6$，$k \\le 10^9$，1 秒，128 MB。\n\n:::::success[题解]\n\n考虑期望递推。设 $f_i$ 为当前时刻 $a_i$ 的期望值。对于一次操作：\n\n- 选定 $i$，则 $a_i \\gets 0$。\n- 选定 $j$，其中 $j \\ne i$，则 $a_i \\gets a_i+\\frac{f_j}{n-1}$。\n\n故单次操作的转移式为\n$$\nf_i \\gets \\sum_{j \\ne i} \\dfrac{1}{n} \\times  \\left(f_i+\\dfrac{f_j}{n-1}\\right)\n$$\n注意到操作不改变 $\\sum a_i$，必有 $S=\\sum \\limits_{i=1}^n f_i$ 为定值。代入转移式\n$$\n\\begin{aligned}\nf_i&\\gets\\dfrac{n-1}{n}\\left(f_{i}+\\dfrac{1}{n-1}\\sum_{j \\ne i} f_j\\right)\\\\\n&=\\dfrac{n-1}{n} f_i+\\dfrac{1}{n(n-1)} \\sum_{j \\ne i} f_j\\\\\n&=\\dfrac{n-1}{n} f_i + \\dfrac{S-f_i}{n(n-1)}\\\\\n&= \\dfrac{n-2}{n-1} f_i+\\dfrac{S}{n(n-1)}\n\\end{aligned}\n$$\n解一阶线性递推得到\n$$\nf_i=\\boxed{\\dfrac{S}{n}+\\left(a_i-\\dfrac{S}{n}\\right) \\left(\\dfrac{n-2}{n-1}\\right)^k}\n$$\n::::info[一阶线性递推]\n\n**问题** 给定递推公式 $a_{n+1}=pa_n+q$，其中 $p \\ne 0 \\land p\\ne 1$，求 $a_n$ 的通项公式。\n\n构造不动点 $x$ 满足 $x=px+q$，解得 $x=\\dfrac{q}{1-p}$。\n\n对递推式进行变形：\n$$\n\\begin{aligned}\na_{n+1}&=pa_n+q\\\\\na_{n+1}-x &= pa_n+q-x\\\\\na_{n+1}-x &= p(a_n-x)\n\\end{aligned}\n$$\n记 $b_n=a_n-x$，上式给出 $b_{n+1}=p \\times b_n$，从而 $b_n=b_1 p^{n-1}$。因此 $a_n$ 的通项为\n$$\na_n=(a_1-x) p^{n-1}+x\n$$\n::::\n\n复杂度 $O(n +\\log k)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p14568",
+        "title": "【MX-S12-T3】排列",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P14568",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14568](https://www.luogu.com.cn/problem/P14568)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 对 $1 \\sim n$ 的排列 $p_i$，对每个位置 $i$ 给出下列四种限制之一：\n>\n> - $p_i < \\min \\limits_{j < i } p_j$。\n> - $p_i > \\max \\limits_{j < i } p_j$。\n> - $p_i < \\min \\limits_{j > i} p_j$。\n> - $p_i > \\max \\limits_{j > i} p_j$。\n>\n> 求排列 $p_i$ 的数目。\n>\n> $n \\le 5 \\times 10^3$，2 秒，512 MB。\n\n:::::success[题解]\n\n注意到我们只关心元素的相对大小。尝试按位置考虑，从左到右依次决定 $p_i$ 在 $p_1 \\sim p_i$ 中的排名。\n\n设当前考虑 $p_i$，其排名为 $x$。对四种限制进行分讨：\n\n- $p_i$ 是前缀 $\\min$：$p_i$ 在前缀的排名必为 $x=1$。\n- $p_i$ 是前缀 $\\max$：$p_i$ 在前缀的排名必为 $x=i$。\n- $p_i$ 是后缀 $\\min$：未来的所有排名必须 $>x$，相当于抬高了排名的下界。\n- $p_i$ 是后缀 $\\max$：未来的所有排名必须 $<x$，相当于压低了排名的上界。\n\n我们发现，随着 $i$ 的增加，可用的排名区间 $[l,r]$ 不断收缩。设 $k=r-l+1$，观察四种限制对 $k$ 的影响：\n\n- $p_i$ 是前缀 $\\min$ 或 $\\max$：上下界不变，总数 $+1$，故 $k \\gets k+1$。\n- $p_i$ 是后缀 $\\min$：选定 $x \\in [l,r]$，则下界变为 $x+1$，上界随着总数 $+1$。任取 $x \\in [l,r]$ 时 $k'$ 可以取遍 $1 \\sim k$，且 $k'$ 与 $x$ 双射。\n- $p_i$ 是后缀 $\\max$：同理 $k'$ 取遍 $1 \\sim k$。\n\n上述讨论说明，我们不必将 $[l,r]$ 放入 DP 状态，直接将 $k$ 作为 DP 的第二维即可转移。\n\n值得说明的是，仅用 $k$ 转移可能会忽略一些情况。例如，前缀 $\\min$ 强制 $x=1$，但如果当前下界 $l>1$ 就不可能选到 $x=1$。我们发现这种矛盾是静态的，即后缀 $\\min$ 之后又出现前缀 $\\min$，当作无解判掉即可。\n\n现在可以列出插入 DP：\n\n- 记 $f_{i,k}$ 为处理完 $p_1 \\sim p_i$ 后，当前 $k=r-l+1$ 的方案数。\n- 转移时考察 $i$ 位置的限制类型：\n  - $p_i$ 是前缀 $\\min$ 或前缀 $\\max$：$f_{i-1,k-1} \\to f_{i,k}$。\n  - $p_i$ 是后缀 $\\min$ 或后缀 $\\max$：$f_{i-1,k'} \\to f_{i,k}$。其中 $k' \\in [k,i]$。\n- DP 初值为 $f_{0,1}=1$。\n- 答案为 $\\sum \\limits_{k=1}^{n+1} f_{n,k}$。\n\n瓶颈在 $f_{i,k}=\\sum\\limits_{k' \\in [k,i]}f_{i-1,k'} $ 这个转移，对 $f$ 施加后缀和优化，复杂度 $O(n^2)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14568](https://www.luogu.com.cn/problem/P14568)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 对 $1 \\sim n$ 的排列 $p_i$，对每个位置 $i$ 给出下列四种限制之一：\n>\n> - $p_i < \\min \\limits_{j < i } p_j$。\n> - $p_i > \\max \\limits_{j < i } p_j$。\n> - $p_i < \\min \\limits_{j > i} p_j$。\n> - $p_i > \\max \\limits_{j > i} p_j$。\n>\n> 求排列 $p_i$ 的数目。\n>\n> $n \\le 5 \\times 10^3$，2 秒，512 MB。\n\n:::::success[题解]\n\n注意到我们只关心元素的相对大小。尝试按位置考虑，从左到右依次决定 $p_i$ 在 $p_1 \\sim p_i$ 中的排名。\n\n设当前考虑 $p_i$，其排名为 $x$。对四种限制进行分讨：\n\n- $p_i$ 是前缀 $\\min$：$p_i$ 在前缀的排名必为 $x=1$。\n- $p_i$ 是前缀 $\\max$：$p_i$ 在前缀的排名必为 $x=i$。\n- $p_i$ 是后缀 $\\min$：未来的所有排名必须 $>x$，相当于抬高了排名的下界。\n- $p_i$ 是后缀 $\\max$：未来的所有排名必须 $<x$，相当于压低了排名的上界。\n\n我们发现，随着 $i$ 的增加，可用的排名区间 $[l,r]$ 不断收缩。设 $k=r-l+1$，观察四种限制对 $k$ 的影响：\n\n- $p_i$ 是前缀 $\\min$ 或 $\\max$：上下界不变，总数 $+1$，故 $k \\gets k+1$。\n- $p_i$ 是后缀 $\\min$：选定 $x \\in [l,r]$，则下界变为 $x+1$，上界随着总数 $+1$。任取 $x \\in [l,r]$ 时 $k'$ 可以取遍 $1 \\sim k$，且 $k'$ 与 $x$ 双射。\n- $p_i$ 是后缀 $\\max$：同理 $k'$ 取遍 $1 \\sim k$。\n\n上述讨论说明，我们不必将 $[l,r]$ 放入 DP 状态，直接将 $k$ 作为 DP 的第二维即可转移。\n\n值得说明的是，仅用 $k$ 转移可能会忽略一些情况。例如，前缀 $\\min$ 强制 $x=1$，但如果当前下界 $l>1$ 就不可能选到 $x=1$。我们发现这种矛盾是静态的，即后缀 $\\min$ 之后又出现前缀 $\\min$，当作无解判掉即可。\n\n现在可以列出插入 DP：\n\n- 记 $f_{i,k}$ 为处理完 $p_1 \\sim p_i$ 后，当前 $k=r-l+1$ 的方案数。\n- 转移时考察 $i$ 位置的限制类型：\n  - $p_i$ 是前缀 $\\min$ 或前缀 $\\max$：$f_{i-1,k-1} \\to f_{i,k}$。\n  - $p_i$ 是后缀 $\\min$ 或后缀 $\\max$：$f_{i-1,k'} \\to f_{i,k}$。其中 $k' \\in [k,i]$。\n- DP 初值为 $f_{0,1}=1$。\n- 答案为 $\\sum \\limits_{k=1}^{n+1} f_{n,k}$。\n\n瓶颈在 $f_{i,k}=\\sum\\limits_{k' \\in [k,i]}f_{i-1,k'} $ 这个转移，对 $f$ 施加后缀和优化，复杂度 $O(n^2)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p14636",
+        "title": "[NOIP2025] 清仓甩卖",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P14636",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14636](https://www.luogu.com.cn/problem/P14636)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个物品，价值为 $a_i$。你需要确定物品体积 $w_i \\in \\{1,2\\}$，对于总体积为 $m$ 的 01 背包问题，使得下述策略在当前方案下取到最优解：\n>\n> - 将物品按性价比 $\\frac{a_i}{w_i}$ 为第一关键字降序，按 $a_i$ 为第二关键字降序，按 $i$ 为第三关键字升序排序。\n> - 依次考虑所有物品。若 $m \\ge w_i$ 则选择 $i$ 并令 $m \\gets m-w_i$，否则跳过。\n>\n> 求所有 $2^n$ 种方案中，合法的 $w_1 \\sim w_n$ 数目。\n>\n> 多测，$n \\le 5\\times 10^3$，$\\sum n \\le 5 \\times 10^4$，1 秒，512 MB。\n\n:::::success[题解]\n\n对贪心错误的情况计数。分析选择序列，取到劣解的情形只有以下两种：\n\n- 在前面选了一个 $1$ 物品 $x$，面对某个 $2$ 物品 $y$ 时只剩 $1$ 的体积，从而在最后选择 $1$ 物品 $z$ 且价值 $a_x+a_z<a_y$。\n- 在前面选了一个 $1$ 物品 $x$，面对某个 $2$ 物品 $y$ 时只剩 $1$ 的体积，且 $y$ 后面全是 $2$ 物品，价值 $a_x<a_y$。\n\n认为情形二的 $z=n+1$ 且 $a_z=0$，将分讨统一为一种。\n\n将物品按 $a_i$ 降序排序，枚举 $(x,y)$ 满足性价比 $\\frac{a_y}{2}<a_x$ 且价值 $a_y>a_x$。容易发现枚举 $(x,y)$ 不重不漏。描述限制为：\n\n- $x \\to y$ 的选择过程中不存在 $1$ 物品。\n- $y$ 前面的所有物品体积和恰为 $m-1$。\n\n根据第一个条件，分段对 $w_i$ 序列分析：\n\n- $1 \\sim y-1$ 段：无约束 $w_i\\in \\{1,2\\}$。\n- $y$ 位置：$w_y=2$。\n- $y+1\\sim x-1$ 段：\n  - 若 $w_i=1$ 则 $i$ 的性价比高于 $y$，扔到 $y$ 前面，合法。\n  - 若 $w_i=2$ 则 $i$ 的性价比在 $x\\sim y$ 之间，扔到 $y$ 后面，合法。\n- $x$ 位置：$w_x=1$。\n- $x+1 \\sim n$ 段：\n  - 若 $a_i>\\frac{a_y}{2}$ 则必须 $w_i=2$，否则 $i$ 被扔到 $x \\to y$ 过程中作为 $1$ 物品不合法。\n  - 若 $a_x+a_i \\ge a_y$ 则必须 $w_i=2$，否则 $i$ 不能作为合法的 $z$。\n  - 其余情况 $w_i \\in \\{1,2\\}$ 无限制，都能成为合法的 $z$。\n\n设 $y+1 \\sim x-1$ 段 $1$ 物品的数目为 $p$，$ 1\\sim y-1$ 段 $1$ 物品的数目为 $q$。选择过程 $1\\to y$ 的体积和恰为 $m-1$，得到方程\n$$\np+q+2(y-1-q)+1=m-1\\\\\n\\implies p-q+2y=m\n$$\n枚举 $q$ 则 $p=m+q-2y$，选法数 $\\dbinom{y-1}{q}\\dbinom{x-y-1}{p}$。由范德蒙德卷积\n$$\n\\sum_{q=0}^{y-1}\\dbinom{y-1}{q}\\dbinom{x-y-1}{m+q-2y}=\\boxed{\\binom{x-2}{m-y-1}}\n$$\n另一部分贡献系数来源于 $a_i<\\frac{a_y}{2} \\land a_x+a_i < a_y$ 的 $i$ 的数目 $c$，选法数 $\\boxed{2^c}$。\n\n实际上，由于 $a_x>\\frac{a_y}{2}$，只要 $a_i < a_y-a_x$ 就合法，循环枚举 $x,y$ 用双指针维护 $c$ 即可。\n\n总复杂度 $O(n^2)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14636](https://www.luogu.com.cn/problem/P14636)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个物品，价值为 $a_i$。你需要确定物品体积 $w_i \\in \\{1,2\\}$，对于总体积为 $m$ 的 01 背包问题，使得下述策略在当前方案下取到最优解：\n>\n> - 将物品按性价比 $\\frac{a_i}{w_i}$ 为第一关键字降序，按 $a_i$ 为第二关键字降序，按 $i$ 为第三关键字升序排序。\n> - 依次考虑所有物品。若 $m \\ge w_i$ 则选择 $i$ 并令 $m \\gets m-w_i$，否则跳过。\n>\n> 求所有 $2^n$ 种方案中，合法的 $w_1 \\sim w_n$ 数目。\n>\n> 多测，$n \\le 5\\times 10^3$，$\\sum n \\le 5 \\times 10^4$，1 秒，512 MB。\n\n:::::success[题解]\n\n对贪心错误的情况计数。分析选择序列，取到劣解的情形只有以下两种：\n\n- 在前面选了一个 $1$ 物品 $x$，面对某个 $2$ 物品 $y$ 时只剩 $1$ 的体积，从而在最后选择 $1$ 物品 $z$ 且价值 $a_x+a_z<a_y$。\n- 在前面选了一个 $1$ 物品 $x$，面对某个 $2$ 物品 $y$ 时只剩 $1$ 的体积，且 $y$ 后面全是 $2$ 物品，价值 $a_x<a_y$。\n\n认为情形二的 $z=n+1$ 且 $a_z=0$，将分讨统一为一种。\n\n将物品按 $a_i$ 降序排序，枚举 $(x,y)$ 满足性价比 $\\frac{a_y}{2}<a_x$ 且价值 $a_y>a_x$。容易发现枚举 $(x,y)$ 不重不漏。描述限制为：\n\n- $x \\to y$ 的选择过程中不存在 $1$ 物品。\n- $y$ 前面的所有物品体积和恰为 $m-1$。\n\n根据第一个条件，分段对 $w_i$ 序列分析：\n\n- $1 \\sim y-1$ 段：无约束 $w_i\\in \\{1,2\\}$。\n- $y$ 位置：$w_y=2$。\n- $y+1\\sim x-1$ 段：\n  - 若 $w_i=1$ 则 $i$ 的性价比高于 $y$，扔到 $y$ 前面，合法。\n  - 若 $w_i=2$ 则 $i$ 的性价比在 $x\\sim y$ 之间，扔到 $y$ 后面，合法。\n- $x$ 位置：$w_x=1$。\n- $x+1 \\sim n$ 段：\n  - 若 $a_i>\\frac{a_y}{2}$ 则必须 $w_i=2$，否则 $i$ 被扔到 $x \\to y$ 过程中作为 $1$ 物品不合法。\n  - 若 $a_x+a_i \\ge a_y$ 则必须 $w_i=2$，否则 $i$ 不能作为合法的 $z$。\n  - 其余情况 $w_i \\in \\{1,2\\}$ 无限制，都能成为合法的 $z$。\n\n设 $y+1 \\sim x-1$ 段 $1$ 物品的数目为 $p$，$ 1\\sim y-1$ 段 $1$ 物品的数目为 $q$。选择过程 $1\\to y$ 的体积和恰为 $m-1$，得到方程\n$$\np+q+2(y-1-q)+1=m-1\\\\\n\\implies p-q+2y=m\n$$\n枚举 $q$ 则 $p=m+q-2y$，选法数 $\\dbinom{y-1}{q}\\dbinom{x-y-1}{p}$。由范德蒙德卷积\n$$\n\\sum_{q=0}^{y-1}\\dbinom{y-1}{q}\\dbinom{x-y-1}{m+q-2y}=\\boxed{\\binom{x-2}{m-y-1}}\n$$\n另一部分贡献系数来源于 $a_i<\\frac{a_y}{2} \\land a_x+a_i < a_y$ 的 $i$ 的数目 $c$，选法数 $\\boxed{2^c}$。\n\n实际上，由于 $a_x>\\frac{a_y}{2}$，只要 $a_i < a_y-a_x$ 就合法，循环枚举 $x,y$ 用双指针维护 $c$ 即可。\n\n总复杂度 $O(n^2)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p14666",
+        "title": "[KenOI 2025] 游走题",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P14666",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14666](https://www.luogu.com.cn/problem/P14666)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定节点数为 $n$ 的有根树 $T$，根节点为 $1$。给定起点 $s$，从 $s$ 开始游走，每次走向任意相邻节点。\n>\n> 设当前点为 $u$，游走过程为：\n>\n> - 若下一步走到 $u$ 的父亲 $f$，断开 $(u,f)$ 边。\n> - 若 $u$ 没有出边停止游走。\n>\n> 求所有不同的游走方案的步数之和。称两个游走方案不同，当且仅当经过的节点集合不同。\n>\n> $n \\le 10^6$，1 秒，512 MB。\n\n:::::success[题解]\n\n考虑 $s=1$ 的性质 C。注意到只有返祖边被删除，故游走终点必为节点 $1$。考虑树形 DP：\n\n- 设 $f_u$ 表示 $u \\to u$ 的不同游走方案的步数和，$g_u$ 表示 $u \\to u$ 的不同游走方案数。\n\n- 枚举 $v \\in \\text{son}(u)$，考虑树形 DP 转移：\n\n  - 每个 $v$ 子树都必须进入，且子树方案独立，由乘法原理 $g_u=\\prod\\limits_{v \\in \\text{son}(u)} g_v$。\n\n  - 考察进入 $v$ 子树对 $f$ 的贡献：\n\n    - 边 $u \\to v$ 和 $v\\to u$ 各经过一次，总贡献 $2g_u$。\n    - 对于除 $v$ 外的其余子树，方案独立，由乘法原理贡献为 $\\prod\\limits_{w \\in \\text{son}(u) \\land v \\ne w} g_w=\\dfrac{g_u}{g_v}$。\n\n    综上，得到 $f$ 的转移方程\n    $$\n    f_u=\\sum_{v \\in \\text{son}(u)} \\left(f_v \\dfrac{g_u}{g_v}+2g_u\\right)=\\sum_{v \\in \\text{son}(u)} \\dfrac{g_u}{g_v}(f_v+2g_v)\n    $$\n\n扩展到 $s \\ne 1$ 的情况。取出 $s \\to 1$ 的根链，可以发现游走过程分为两个区域：\n\n- 根链上的子树：游走进入后，必须全部遍历才能返回，复用 $g,f$ 的转移即可。\n\n- 根链上的节点 $u$：走向父亲前，$u$ 可以选择性的进入分支子树，故 $u$ 处的转移为：\n\n  - 每个 $v$ 子树进入或不进入，由独立性 $g_u=\\prod\\limits_{v \\in \\text{son}(u)} (g_v+c_v)$。指示变量 $c_v \\in \\{0,1\\}$ 表示 $v$ 是否在主链上。\n\n  - 考察进入 $v$ 子树对 $f$ 的贡献：\n\n    - 若 $c_v=1$，边 $(u,v)$ 被经过 $2$ 次，步数 $f_v+2g_v$。\n    - 若 $c_v=0$，走过 $v \\to u$ 后边就会断开，只能经过一次边 $(u,v)$，步数 $f_v+g_v$。\n\n    最终转移还要乘上排除 $v$ 子树的方案数，得到\n    $$\n    f_u=\\sum\\limits_{v \\in \\text{son}(u)} \\dfrac{g_u}{g_v+c_v}(f_v+g_v+c_vg_v)\n    $$\n\n- 注意对根节点特判，答案为 $f_1$。\n\n观察到上述转移需要求 $g_v+c_v$ 的逆元，若 $g_v \\equiv -1$ 可能爆掉。考虑节点 $u$ 的儿子序列 $v_1 \\sim v_k$，预处理 $g_{v_i}+c_{v_i}$ 的前后缀积，求 $\\dfrac{g_u}{g_v+c_v}$ 转而用前后缀积拼起来即可。\n\n复杂度 $O(n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P14666](https://www.luogu.com.cn/problem/P14666)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定节点数为 $n$ 的有根树 $T$，根节点为 $1$。给定起点 $s$，从 $s$ 开始游走，每次走向任意相邻节点。\n>\n> 设当前点为 $u$，游走过程为：\n>\n> - 若下一步走到 $u$ 的父亲 $f$，断开 $(u,f)$ 边。\n> - 若 $u$ 没有出边停止游走。\n>\n> 求所有不同的游走方案的步数之和。称两个游走方案不同，当且仅当经过的节点集合不同。\n>\n> $n \\le 10^6$，1 秒，512 MB。\n\n:::::success[题解]\n\n考虑 $s=1$ 的性质 C。注意到只有返祖边被删除，故游走终点必为节点 $1$。考虑树形 DP：\n\n- 设 $f_u$ 表示 $u \\to u$ 的不同游走方案的步数和，$g_u$ 表示 $u \\to u$ 的不同游走方案数。\n\n- 枚举 $v \\in \\text{son}(u)$，考虑树形 DP 转移：\n\n  - 每个 $v$ 子树都必须进入，且子树方案独立，由乘法原理 $g_u=\\prod\\limits_{v \\in \\text{son}(u)} g_v$。\n\n  - 考察进入 $v$ 子树对 $f$ 的贡献：\n\n    - 边 $u \\to v$ 和 $v\\to u$ 各经过一次，总贡献 $2g_u$。\n    - 对于除 $v$ 外的其余子树，方案独立，由乘法原理贡献为 $\\prod\\limits_{w \\in \\text{son}(u) \\land v \\ne w} g_w=\\dfrac{g_u}{g_v}$。\n\n    综上，得到 $f$ 的转移方程\n    $$\n    f_u=\\sum_{v \\in \\text{son}(u)} \\left(f_v \\dfrac{g_u}{g_v}+2g_u\\right)=\\sum_{v \\in \\text{son}(u)} \\dfrac{g_u}{g_v}(f_v+2g_v)\n    $$\n\n扩展到 $s \\ne 1$ 的情况。取出 $s \\to 1$ 的根链，可以发现游走过程分为两个区域：\n\n- 根链上的子树：游走进入后，必须全部遍历才能返回，复用 $g,f$ 的转移即可。\n\n- 根链上的节点 $u$：走向父亲前，$u$ 可以选择性的进入分支子树，故 $u$ 处的转移为：\n\n  - 每个 $v$ 子树进入或不进入，由独立性 $g_u=\\prod\\limits_{v \\in \\text{son}(u)} (g_v+c_v)$。指示变量 $c_v \\in \\{0,1\\}$ 表示 $v$ 是否在主链上。\n\n  - 考察进入 $v$ 子树对 $f$ 的贡献：\n\n    - 若 $c_v=1$，边 $(u,v)$ 被经过 $2$ 次，步数 $f_v+2g_v$。\n    - 若 $c_v=0$，走过 $v \\to u$ 后边就会断开，只能经过一次边 $(u,v)$，步数 $f_v+g_v$。\n\n    最终转移还要乘上排除 $v$ 子树的方案数，得到\n    $$\n    f_u=\\sum\\limits_{v \\in \\text{son}(u)} \\dfrac{g_u}{g_v+c_v}(f_v+g_v+c_vg_v)\n    $$\n\n- 注意对根节点特判，答案为 $f_1$。\n\n观察到上述转移需要求 $g_v+c_v$ 的逆元，若 $g_v \\equiv -1$ 可能爆掉。考虑节点 $u$ 的儿子序列 $v_1 \\sim v_k$，预处理 $g_{v_i}+c_{v_i}$ 的前后缀积，求 $\\dfrac{g_u}{g_v+c_v}$ 转而用前后缀积拼起来即可。\n\n复杂度 $O(n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p15652",
+        "title": "[省选联考 2026] 排列游戏",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P15652",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P15652](https://www.luogu.com.cn/problem/P15652)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以向交互库询问一个区间的 $\\operatorname{mex}$。\n>\n> 还原这个排列。只要你给出的排列和正确排列每个区间的 $\\operatorname{mex}$ 相等即认为答案正确。\n>\n> $n \\le 3 \\times 10^4$，满分询问次数 $n$。\n\n:::::success[题解]\n\n在排列中，区间 $\\operatorname{mex}$ 等于补集 $\\min$。形式化地\n$$\n\\operatorname{mex} \\limits_{i=l}^r p_i=\\min\\left\\{\\min_{i=1}^{l-1} p_i, \\min _{i=r+1}^n p_i\\right\\}\n$$\n我们发现只有前后缀 $\\min$ 是有用的，知道这 $2n$ 个信息后其他询问可以直接拼出来，所以先做 $2n$ 次询问。\n\n询问完成后，在前后缀 $\\min$ 产生突变的位置，我们可以确定答案。而两个已确定数中间只需要比它大即可，可以任意填入。\n\n考虑缩减操作次数。我们发现问到 $0$ 以后前后缀 $\\min$ 一定是 $0$，可以省略询问。猜数模型，二分求出 $0$，次数 $n+\\log n$。\n\n进一步，可以先问前缀 $\\min$ 直到出现 $0$，此时我们就确定了 $0$ 的位置，从后面再开始问，次数压缩到 $n$。\n\n:::::\n\n::::info[代码]\n\n```cpp line-numbers\nvector<int> perm(int n) {\n    vector<int> pre(n), suf(n), res(n, -1);\n    int pos0 = n - 1;\n    for (int i = 0; i < n - 1; i++) {\n        pre[i] = query(i + 1, n - 1);\n        if (pre[i] == 0) {pos0 = i; break;}\n    }\n    for (int i = n - 1; i > pos0; i--) suf[i] = query(0, i - 1);\n    for (int i = 0; i < n - 1; i++) {\n        if (i == 0 || pre[i] != pre[i - 1]) res[i] = pre[i];\n    }\n    for (int i = n - 1; i >= 1; i--) {\n        if (i == n - 1 || suf[i + 1] != suf[i]) res[i] = suf[i];\n    }\n    set<int> q;\n    vector<int> vis(n);\n    for (int i = 0; i < n; i++) if (res[i] != -1) vis[res[i]] = 1;\n    for (int i = 0; i < n; i++) if (!vis[i]) q.emplace(i);\n    for (int l = -1, r = 0; r < n; r++) {\n        if (res[r] == -1) continue;\n        if (l == -1) {l = r; continue;}\n        int low = max(res[l], res[r]);\n        for (int i = l + 1; i < r; i++) {\n            assert(!q.empty());\n            auto it = q.upper_bound(low);\n            assert(it != q.end());\n            res[i] = *it;\n            q.erase(it);\n        }\n        l = r;\n    }\n    return res;\n}\n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P15652](https://www.luogu.com.cn/problem/P15652)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以向交互库询问一个区间的 $\\operatorname{mex}$。\n>\n> 还原这个排列。只要你给出的排列和正确排列每个区间的 $\\operatorname{mex}$ 相等即认为答案正确。\n>\n> $n \\le 3 \\times 10^4$，满分询问次数 $n$。\n\n:::::success[题解]\n\n在排列中，区间 $\\operatorname{mex}$ 等于补集 $\\min$。形式化地\n$$\n\\operatorname{mex} \\limits_{i=l}^r p_i=\\min\\left\\{\\min_{i=1}^{l-1} p_i, \\min _{i=r+1}^n p_i\\right\\}\n$$\n我们发现只有前后缀 $\\min$ 是有用的，知道这 $2n$ 个信息后其他询问可以直接拼出来，所以先做 $2n$ 次询问。\n\n询问完成后，在前后缀 $\\min$ 产生突变的位置，我们可以确定答案。而两个已确定数中间只需要比它大即可，可以任意填入。\n\n考虑缩减操作次数。我们发现问到 $0$ 以后前后缀 $\\min$ 一定是 $0$，可以省略询问。猜数模型，二分求出 $0$，次数 $n+\\log n$。\n\n进一步，可以先问前缀 $\\min$ 直到出现 $0$，此时我们就确定了 $0$ 的位置，从后面再开始问，次数压缩到 $n$。\n\n:::::\n\n::::info[代码]\n\n```cpp line-numbers\nvector<int> perm(int n) {\n    vector<int> pre(n), suf(n), res(n, -1);\n    int pos0 = n - 1;\n    for (int i = 0; i < n - 1; i++) {\n        pre[i] = query(i + 1, n - 1);\n        if (pre[i] == 0) {pos0 = i; break;}\n    }\n    for (int i = n - 1; i > pos0; i--) suf[i] = query(0, i - 1);\n    for (int i = 0; i < n - 1; i++) {\n        if (i == 0 || pre[i] != pre[i - 1]) res[i] = pre[i];\n    }\n    for (int i = n - 1; i >= 1; i--) {\n        if (i == n - 1 || suf[i + 1] != suf[i]) res[i] = suf[i];\n    }\n    set<int> q;\n    vector<int> vis(n);\n    for (int i = 0; i < n; i++) if (res[i] != -1) vis[res[i]] = 1;\n    for (int i = 0; i < n; i++) if (!vis[i]) q.emplace(i);\n    for (int l = -1, r = 0; r < n; r++) {\n        if (res[r] == -1) continue;\n        if (l == -1) {l = r; continue;}\n        int low = max(res[l], res[r]);\n        for (int i = l + 1; i < r; i++) {\n            assert(!q.empty());\n            auto it = q.upper_bound(low);\n            assert(it != q.end());\n            res[i] = *it;\n            q.erase(it);\n        }\n        l = r;\n    }\n    return res;\n}\n```\n\n::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p16415",
+        "title": "【MX-X28-T4】「FAOI-R12」落花雨",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P16415",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P16415](https://www.luogu.com.cn/problem/P16415)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的 01 串 $S$。若 $|S| \\ge 2$ 可以选择相邻数 $x,y$，删去 $x,y$ 后插入新数 $x \\text{ nor } y$。求任意次操作后可以得到的不同 01 串数目。\n>\n> 多测，$\\sum n \\le 10^6$，2 秒，512 MB。\n\n:::::success[题解]\n\n枚举最终串 $T$ 并判定 $S \\to T$ 是否合法。判定条件是，将 $S$ 划分为 $|T|$ 个非空子串，使得子串内经 $\\text{nor}$ 合并后可以变为对应的单个 $0$ 或 $1$。\n\n通过打表观察，若 $n \\ge 4$ 则任意串都能变为单 $0$ 和 $1$，无法变换的串只有以下 $10$ 种：\n\n- 无法变为 $0$：`1`、`00`、`010`；\n- 无法变成 $1$：`0`、`01`、`10`、`11`、`000`、`101`、`111`。\n\n考虑可行性 DP，设 $f_i$ 表示 $S$ 的 $(i,n]$ 后缀是否匹配 $T$ 的后缀。在 $T$ 的前端添加字符 $c \\in \\{0,1\\}$ 时，有转移\n$$\nf_i \\gets \\bigvee_{j>i \\land S(i,j]\\to c} f_j\n$$\n从右向左加所有字符，若 $f_0=1$ 则 $T$ 合法。内层 DP 是 NFA，可以状压 $\\{i \\mid f_i=1\\}$ 转化为 DFA。\n\n根据性质，长度 $\\ge 4$ 的串必然存在合法划分，故 $f_j \\to f_i$ 对 $i \\le j-4$ 恒成立，只保留最大的 $j\\sim j-3$ 就能转移。故 DFA 的节点可以构造为二元组 $(m,X)$：\n\n- $m=\\max\\limits_{f_i=1} i$。\n- $X=[f_{i-3},f_{i-2},f_{i-1},f_i]$，用 $4$ 位二进制数状压。\n\n内层 NFA 的状态数为 $n \\times 2^4$，转移 $(m,X) \\to (m',X')$ 可以枚举 $10$ 种特殊情况 $O(1)$ 算出。\n\n设计如下外层 DP：\n\n- 设 $g_{m,X}$ 表示走到状态 $(m,X)$ 的路径数。\n- 转移枚举 $c \\in \\{0,1\\}$ 并得到出边 $(m',X')$，令 $g_{m,X} \\to g_{m',X'}$。\n- DP 初值为 $g_{n,1}=1$。表示仅 $f_n=1$ 从而 $X=1$。\n- 答案为 $f_0=1$ 的所有 $g$ 的和，即 $m \\ge 4$ 或者 $m<4$ 且 $X$ 的对应位为 $1$。\n\n状态数 $16 \\times n$，转移 $2 \\times 10$，总复杂度 $O(20 \\times 16 \\times n)$，注意常数问题。[代码](https://www.luogu.com.cn/article/w8w4uuj7)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P16415](https://www.luogu.com.cn/problem/P16415)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的 01 串 $S$。若 $|S| \\ge 2$ 可以选择相邻数 $x,y$，删去 $x,y$ 后插入新数 $x \\text{ nor } y$。求任意次操作后可以得到的不同 01 串数目。\n>\n> 多测，$\\sum n \\le 10^6$，2 秒，512 MB。\n\n:::::success[题解]\n\n枚举最终串 $T$ 并判定 $S \\to T$ 是否合法。判定条件是，将 $S$ 划分为 $|T|$ 个非空子串，使得子串内经 $\\text{nor}$ 合并后可以变为对应的单个 $0$ 或 $1$。\n\n通过打表观察，若 $n \\ge 4$ 则任意串都能变为单 $0$ 和 $1$，无法变换的串只有以下 $10$ 种：\n\n- 无法变为 $0$：`1`、`00`、`010`；\n- 无法变成 $1$：`0`、`01`、`10`、`11`、`000`、`101`、`111`。\n\n考虑可行性 DP，设 $f_i$ 表示 $S$ 的 $(i,n]$ 后缀是否匹配 $T$ 的后缀。在 $T$ 的前端添加字符 $c \\in \\{0,1\\}$ 时，有转移\n$$\nf_i \\gets \\bigvee_{j>i \\land S(i,j]\\to c} f_j\n$$\n从右向左加所有字符，若 $f_0=1$ 则 $T$ 合法。内层 DP 是 NFA，可以状压 $\\{i \\mid f_i=1\\}$ 转化为 DFA。\n\n根据性质，长度 $\\ge 4$ 的串必然存在合法划分，故 $f_j \\to f_i$ 对 $i \\le j-4$ 恒成立，只保留最大的 $j\\sim j-3$ 就能转移。故 DFA 的节点可以构造为二元组 $(m,X)$：\n\n- $m=\\max\\limits_{f_i=1} i$。\n- $X=[f_{i-3},f_{i-2},f_{i-1},f_i]$，用 $4$ 位二进制数状压。\n\n内层 NFA 的状态数为 $n \\times 2^4$，转移 $(m,X) \\to (m',X')$ 可以枚举 $10$ 种特殊情况 $O(1)$ 算出。\n\n设计如下外层 DP：\n\n- 设 $g_{m,X}$ 表示走到状态 $(m,X)$ 的路径数。\n- 转移枚举 $c \\in \\{0,1\\}$ 并得到出边 $(m',X')$，令 $g_{m,X} \\to g_{m',X'}$。\n- DP 初值为 $g_{n,1}=1$。表示仅 $f_n=1$ 从而 $X=1$。\n- 答案为 $f_0=1$ 的所有 $g$ 的和，即 $m \\ge 4$ 或者 $m<4$ 且 $X$ 的对应位为 $1$。\n\n状态数 $16 \\times n$，转移 $2 \\times 10$，总复杂度 $O(20 \\times 16 \\times n)$，注意常数问题。[代码](https://www.luogu.com.cn/article/w8w4uuj7)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p16416",
+        "title": "【MX-X28-T5】「FAOI-R12」单人旅行",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P16416",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P16416](https://www.luogu.com.cn/problem/P16416)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的三个序列 $a_i,b_i,c_i$。考虑 $1 \\sim n$ 的排列 $p_i$，依次对 $i=1,2,\\cdots,n$ 执行如下操作：\n>\n> - 令 $t_i=\\text{mex}\\{c_{p_i},t_1,t_2,\\cdots,t_{i-1}\\}$。\n>\n> 定义排列 $p$ 的权值为 $\\prod \\limits_{i=1}^n (a_it_i+b_i)$，求所有排列的权值和。\n>\n> $n \\le 5 \\times 10^3$，$c_i \\le 10^9$，2 秒，512 MB。\n\n:::::success[题解]\n\n设 $M_i=\\{t_1,t_2,\\cdots,t_{i-1}\\}$，必有 $M_i=[1,i] \\setminus \\{x_i\\}$，其中 $x_i$ 是当前 $\\text{mex}$。对 $c_i$ 和 $x_i$ 的相等关系分讨：\n\n- 若 $c_i\\ne x_i$，则 $t_i=x_i$ 且 $x_{i+1}=i+1$。\n- 若 $c_i=x_i$，则 $t_i=i+1$ 且 $x_{i+1}=x_i$。\n\n令全集 $U=\\{1,2,\\cdots,n\\}$，枚举 $S \\subseteq U$ 满足：\n\n- 对 $i \\in S$，要求 $c_i \\ne x_i$。\n- 对 $i \\in U \\setminus S$，要求 $c_i = x_i$。\n\n将 $[c_i \\ne x_i]$ 容斥为 $1-[c_i =x_i]$。钦定 $T \\subseteq S$ 使得：\n\n- 对 $i\\in T$，要求 $c_i = x_i$。\n- 对 $i\\in S \\setminus T$ 无限制。\n\n容斥系数 $(-1)^{|T|}$。可以发现 $(T,S \\setminus T, U \\setminus S)$ 构成对全集 $U$ 的划分，带着容斥系数进行 DP：\n\n- 设 $f_{i,j}$ 为满足下列条件时，带容斥系数 $(-1)^{|T|}$ 的合法权值和：\n\n  - 仅考虑 $1 \\sim i$。\n  - 第 $i$ 个位置实际上满足 $c_i \\ne x_i$，则 $x_{i+1}=i+1$。\n  - 序列 $c$ 中消耗了 $j$ 个带限制元素，即约束 $c_i=x_i$ 的 $c_i$。\n  - 仅考虑 $T$ 和 $U \\setminus S$ 位置上填入的数。\n\n- 转移时，枚举连续 $k$ 个位置划入 $U \\setminus S$，接下来第 $i+k+1$ 个位置划入 $T$ 或 $S \\setminus T$。\n\n  - 对于位置 $i+1 \\sim i+k$：\n\n    - $x$ 恒为 $i+1$，产生的 $t$ 分别为 $i+2 \\sim i+k+1$。权值积 $\\prod \\limits_{u=1}^k \\left(a_{i+u} (i+u+1)+b_{i+u}\\right)$。\n\n    - 选定 $k$ 个 $=i+1$ 的数随意排列，方案数 $\\dbinom{\\text{cnt}_{i+1}}{k}k!$。\n\n    转移系数 $q=k!\\dbinom{\\text{cnt}_{i+1}}{k}\\prod \\limits_{u=1}^k \\left(a_{i+u} (i+u+1)+b_{i+u}\\right)$。\n\n    特别地，若 $i+k=n$，直接将 $q \\times f_{i,j}$ 累加到 $\\text{ans}_{j+k}$ 中并跳出循环，表示最后一个位置落在 $U \\setminus S$ 中。\n\n  - 对于位置 $i+k+1$，产生的 $t$ 为 $i+1$，贡献系数 $w=a_{i+k+1}(i+1) + b_{i+k+1}$。\n\n    - 划入 $T$，转移 $qw(\\text{cnt}_{i+1}-k)(-1)f_{i,j} \\to f_{i+k+1,j+k+1} $。其中 $\\text{cnt}_{i+1}-k$ 是选法数，$-1$ 是容斥系数。\n    - 划入 $S \\setminus T$，转移 $qw\\times f_{i,j} \\to f_{i+k+1, j+k}$。\n\n- DP 初值为 $f_{0,0}=1$。\n\n- 答案为 $\\sum \\limits_{j=0}^n (n-j)!(\\text{ans}_j+f_{n,j})$。系数 $(n-j)!$ 是 $|S \\setminus T|$ 个元素任意排列的方案数。\n\n注意 $\\sum \\text{cnt}_i=n$，从而总复杂度 $O(n^2)$。[代码](https://www.luogu.com.cn/article/3yi78w7h)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P16416](https://www.luogu.com.cn/problem/P16416)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $n$ 的三个序列 $a_i,b_i,c_i$。考虑 $1 \\sim n$ 的排列 $p_i$，依次对 $i=1,2,\\cdots,n$ 执行如下操作：\n>\n> - 令 $t_i=\\text{mex}\\{c_{p_i},t_1,t_2,\\cdots,t_{i-1}\\}$。\n>\n> 定义排列 $p$ 的权值为 $\\prod \\limits_{i=1}^n (a_it_i+b_i)$，求所有排列的权值和。\n>\n> $n \\le 5 \\times 10^3$，$c_i \\le 10^9$，2 秒，512 MB。\n\n:::::success[题解]\n\n设 $M_i=\\{t_1,t_2,\\cdots,t_{i-1}\\}$，必有 $M_i=[1,i] \\setminus \\{x_i\\}$，其中 $x_i$ 是当前 $\\text{mex}$。对 $c_i$ 和 $x_i$ 的相等关系分讨：\n\n- 若 $c_i\\ne x_i$，则 $t_i=x_i$ 且 $x_{i+1}=i+1$。\n- 若 $c_i=x_i$，则 $t_i=i+1$ 且 $x_{i+1}=x_i$。\n\n令全集 $U=\\{1,2,\\cdots,n\\}$，枚举 $S \\subseteq U$ 满足：\n\n- 对 $i \\in S$，要求 $c_i \\ne x_i$。\n- 对 $i \\in U \\setminus S$，要求 $c_i = x_i$。\n\n将 $[c_i \\ne x_i]$ 容斥为 $1-[c_i =x_i]$。钦定 $T \\subseteq S$ 使得：\n\n- 对 $i\\in T$，要求 $c_i = x_i$。\n- 对 $i\\in S \\setminus T$ 无限制。\n\n容斥系数 $(-1)^{|T|}$。可以发现 $(T,S \\setminus T, U \\setminus S)$ 构成对全集 $U$ 的划分，带着容斥系数进行 DP：\n\n- 设 $f_{i,j}$ 为满足下列条件时，带容斥系数 $(-1)^{|T|}$ 的合法权值和：\n\n  - 仅考虑 $1 \\sim i$。\n  - 第 $i$ 个位置实际上满足 $c_i \\ne x_i$，则 $x_{i+1}=i+1$。\n  - 序列 $c$ 中消耗了 $j$ 个带限制元素，即约束 $c_i=x_i$ 的 $c_i$。\n  - 仅考虑 $T$ 和 $U \\setminus S$ 位置上填入的数。\n\n- 转移时，枚举连续 $k$ 个位置划入 $U \\setminus S$，接下来第 $i+k+1$ 个位置划入 $T$ 或 $S \\setminus T$。\n\n  - 对于位置 $i+1 \\sim i+k$：\n\n    - $x$ 恒为 $i+1$，产生的 $t$ 分别为 $i+2 \\sim i+k+1$。权值积 $\\prod \\limits_{u=1}^k \\left(a_{i+u} (i+u+1)+b_{i+u}\\right)$。\n\n    - 选定 $k$ 个 $=i+1$ 的数随意排列，方案数 $\\dbinom{\\text{cnt}_{i+1}}{k}k!$。\n\n    转移系数 $q=k!\\dbinom{\\text{cnt}_{i+1}}{k}\\prod \\limits_{u=1}^k \\left(a_{i+u} (i+u+1)+b_{i+u}\\right)$。\n\n    特别地，若 $i+k=n$，直接将 $q \\times f_{i,j}$ 累加到 $\\text{ans}_{j+k}$ 中并跳出循环，表示最后一个位置落在 $U \\setminus S$ 中。\n\n  - 对于位置 $i+k+1$，产生的 $t$ 为 $i+1$，贡献系数 $w=a_{i+k+1}(i+1) + b_{i+k+1}$。\n\n    - 划入 $T$，转移 $qw(\\text{cnt}_{i+1}-k)(-1)f_{i,j} \\to f_{i+k+1,j+k+1} $。其中 $\\text{cnt}_{i+1}-k$ 是选法数，$-1$ 是容斥系数。\n    - 划入 $S \\setminus T$，转移 $qw\\times f_{i,j} \\to f_{i+k+1, j+k}$。\n\n- DP 初值为 $f_{0,0}=1$。\n\n- 答案为 $\\sum \\limits_{j=0}^n (n-j)!(\\text{ans}_j+f_{n,j})$。系数 $(n-j)!$ 是 $|S \\setminus T|$ 个元素任意排列的方案数。\n\n注意 $\\sum \\text{cnt}_i=n$，从而总复杂度 $O(n^2)$。[代码](https://www.luogu.com.cn/article/3yi78w7h)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p16536",
+        "title": "[THUPC 2026 决赛] 流光解密",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P16536",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P16536](https://www.luogu.com.cn/problem/P16536)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知 $n,k$ 和一棵节点数为 $n$ 的数。交互库逐边地给出这棵树，你需要在线地将给出的边定向。\n> - B：已知这棵树，还原 $k$。\n>\n> 交互库非自适应，即树的形态不会随交互流程改变。\n>\n> 多测，$T \\le 10^4$，$n \\le 30$，$1 \\le k \\le 2^{n-1}$。\n\n:::::success[题解]\n\n注意到 $k \\le 2^{n-1}$，考虑拆二进制，即我们需要用边的方向表示 $k-1$ 的二进制位。\n\n我们为每个点赋一个点权，节点 $i$ 的权值定义为 $k-1$ 在二进制下第 $i-2$ 位，节点 $1$ 的权值为 $0$。\n\n对于边 $u,v$，不妨设 $u<v$，我们约定 $u \\to v$ 的边权为 $0$，$v \\to u$ 的边权为 $1$。\n\n这样定向相当于给边赋权。考虑将边权设为两个节点的异或和。B 收到树后，从节点 $1$ 开始 DFS，做一遍树上前缀和即可得到 $k-1$。\n\n:::::\n\n:::::info[代码]\n\nA：\n\n```cpp line-numbers\nint n, k;\nvoid _main() {\n    cin >> n >> k, k--;\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        if (u > v) swap(u, v);\n        int a = k >> (u - 2) & 1, b = k >> (v - 2) & 1;\n        if (a ^ b) cout << v << ' ' << u << endl;\n        else cout << u << ' ' << v << endl;\n    }\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 40;\nint n, k;\nvector<pair<int, int>> e[N];\n\nvoid dfs(int u, int fa, int p) {\n    if (u > 1 && p) k |= 1 << (u - 2);\n    for (auto [v, w] : e[u]) \n        if (v != fa) dfs(v, u, p ^ w);\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) e[i].clear();\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v, u > v), e[v].emplace_back(u, u > v);\n    }\n    k = 0, dfs(1, -1, 0);\n    cout << k + 1 << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P16536](https://www.luogu.com.cn/problem/P16536)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知 $n,k$ 和一棵节点数为 $n$ 的数。交互库逐边地给出这棵树，你需要在线地将给出的边定向。\n> - B：已知这棵树，还原 $k$。\n>\n> 交互库非自适应，即树的形态不会随交互流程改变。\n>\n> 多测，$T \\le 10^4$，$n \\le 30$，$1 \\le k \\le 2^{n-1}$。\n\n:::::success[题解]\n\n注意到 $k \\le 2^{n-1}$，考虑拆二进制，即我们需要用边的方向表示 $k-1$ 的二进制位。\n\n我们为每个点赋一个点权，节点 $i$ 的权值定义为 $k-1$ 在二进制下第 $i-2$ 位，节点 $1$ 的权值为 $0$。\n\n对于边 $u,v$，不妨设 $u<v$，我们约定 $u \\to v$ 的边权为 $0$，$v \\to u$ 的边权为 $1$。\n\n这样定向相当于给边赋权。考虑将边权设为两个节点的异或和。B 收到树后，从节点 $1$ 开始 DFS，做一遍树上前缀和即可得到 $k-1$。\n\n:::::\n\n:::::info[代码]\n\nA：\n\n```cpp line-numbers\nint n, k;\nvoid _main() {\n    cin >> n >> k, k--;\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        if (u > v) swap(u, v);\n        int a = k >> (u - 2) & 1, b = k >> (v - 2) & 1;\n        if (a ^ b) cout << v << ' ' << u << endl;\n        else cout << u << ' ' << v << endl;\n    }\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 40;\nint n, k;\nvector<pair<int, int>> e[N];\n\nvoid dfs(int u, int fa, int p) {\n    if (u > 1 && p) k |= 1 << (u - 2);\n    for (auto [v, w] : e[u]) \n        if (v != fa) dfs(v, u, p ^ w);\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) e[i].clear();\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v, u > v), e[v].emplace_back(u, u > v);\n    }\n    k = 0, dfs(1, -1, 0);\n    cout << k + 1 << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p16958",
+        "title": "[SCCPC 2026] 括号序列",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P16958",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P16958](https://www.luogu.com.cn/problem/P16958)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定合法括号串 $S$，求有多少合法括号串 $T$ 满足 $|T| \\le |S|$ 且 $T$ 的字典序不大于 $S$。\n>\n> 多测，$\\sum |S| \\le 10^6$，2 秒，1024 MB。\n\n:::::success[题解]\n\n我们将括号串转化成格路。将左括号视作 $x \\gets x+1$，右括号视作 $y \\gets y+1$，则长为 $2n$ 的合法括号串双射到 $(0,0) \\to (n,n)$ 的不跨越 $y=x$ 的格路。\n\n特判 $T$ 是 $S$ 前缀的情形后，枚举并钦定 LCP。具体地，我们枚举 $S$ 的第 $i$ 位，在格路上钦定这样一个结构：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/8q4ivnal.png)\n\n在 LCP 之后 $T$ 不受字典序限制，枚举 $|T|=m$，则 $T$ 对应 $(x+1,y) \\to (m,m)$ 的格路。由单线反射容斥，将终点关于 $y=x+1$ 作对称可得\n$$\n\\binom{m-(x+1)+m-y}{m-y}-\\binom{m-1-(x-1)+m+1-y}{m+1-y}\n$$\n转而枚举 $m-y=k$，整理得到 $(x,y)$ 处的贡献为\n$$\n\\boxed{\\sum_{k=0}^{n-y} \\left(\\binom{2k+y-x-1}{k}-\\binom{2k+y-x-1}{k+1}\\right)}\n$$\n我们记\n$$\nf(a,b)=\\sum_{k=0}^b \\binom{2k+a}{k}\n$$\n则 $(x,y)$ 处的贡献可以写作 $f(y-x-1,n-y)-f(y-x-3,n-y+1)$。\n\n瓶颈在于 $f$ 的计算，暴力可以得到 $O(n^2)$ 做法。注意到 $f$ 的形式是一堆组合数加和，类比组合数下指标前缀和的莫队做法，我们考虑 $a,b$ 移动对 $f$ 的影响。$b$ 的移动是简单的：\n$$\n\\begin{aligned}\nf(a,b+1)&=f(a,b)+\\binom{2(b+1)+2}{b+1}\\\\\nf(a,b-1)&=f(a,b)-\\binom{2b+a}{b}\n\\end{aligned}\n$$\n我们需要观察 $a \\gets a\\pm 1$ 的影响。可以对 $a \\in [-8,-1], b\\in [0,8]$ 进行打表：\n\n```plain\n0       0       0       0       0       0       0       0       1\n0       0       0       0       0       0       0       1       10\n0       0       0       0       0       0       1       9       54\n0       0       0       0       0       1       8       44      209\n0       0       0       0       1       7       35      155     650\n0       0       0       1       6       27      111     441     1728\n0       0       1       5       20      76      286     1078    4081\n0       1       4       14      49      175     637     2353    8788\n```\n\n注意到以下等式成立：$441+637=1078$，$1278+2353=4081$，对其他位置验证也满足规律，猜测有\n$$\nf(a,b)=f(a-1,b)+f(a+1,b-1)\n$$\n而 $f(a+1,b-1) \\to f(a+1,b)$ 是容易的。从而\n$$\n\\boxed{\\begin{aligned}\nf(a,b)&=f(a-1,b)+f(a+1,b)-\\binom{2b+a+1}{b}\\\\\nf(a-1,b)&= f(a+1,b)-f(a,b)+\\binom{2b+a+1}{b}\n\\end{aligned}}\n$$\n维护 $f(a,b)$ 和 $f(a+1,b)$ 后可以递推 $f(a-1,b)$，从而 $a \\gets a-1$ 解决。对 $a \\gets a+1$ 可以逆用上式同理求得。\n\n注意到 $S$ 的枚举过程中，只有 $x \\gets x+1$ 和 $y \\gets y+1$ 两种操作，对应的移动是 $b \\gets b- 1$ 和 $a \\gets a\\pm 1$，且指针移动总次数 $O(n)$。故直接维护两个 $f$ 值的复杂度就是线性。\n\n复杂度 $O(n)$。[代码](https://qoj.ac/submission/2887256)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P16958](https://www.luogu.com.cn/problem/P16958)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定合法括号串 $S$，求有多少合法括号串 $T$ 满足 $|T| \\le |S|$ 且 $T$ 的字典序不大于 $S$。\n>\n> 多测，$\\sum |S| \\le 10^6$，2 秒，1024 MB。\n\n:::::success[题解]\n\n我们将括号串转化成格路。将左括号视作 $x \\gets x+1$，右括号视作 $y \\gets y+1$，则长为 $2n$ 的合法括号串双射到 $(0,0) \\to (n,n)$ 的不跨越 $y=x$ 的格路。\n\n特判 $T$ 是 $S$ 前缀的情形后，枚举并钦定 LCP。具体地，我们枚举 $S$ 的第 $i$ 位，在格路上钦定这样一个结构：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/8q4ivnal.png)\n\n在 LCP 之后 $T$ 不受字典序限制，枚举 $|T|=m$，则 $T$ 对应 $(x+1,y) \\to (m,m)$ 的格路。由单线反射容斥，将终点关于 $y=x+1$ 作对称可得\n$$\n\\binom{m-(x+1)+m-y}{m-y}-\\binom{m-1-(x-1)+m+1-y}{m+1-y}\n$$\n转而枚举 $m-y=k$，整理得到 $(x,y)$ 处的贡献为\n$$\n\\boxed{\\sum_{k=0}^{n-y} \\left(\\binom{2k+y-x-1}{k}-\\binom{2k+y-x-1}{k+1}\\right)}\n$$\n我们记\n$$\nf(a,b)=\\sum_{k=0}^b \\binom{2k+a}{k}\n$$\n则 $(x,y)$ 处的贡献可以写作 $f(y-x-1,n-y)-f(y-x-3,n-y+1)$。\n\n瓶颈在于 $f$ 的计算，暴力可以得到 $O(n^2)$ 做法。注意到 $f$ 的形式是一堆组合数加和，类比组合数下指标前缀和的莫队做法，我们考虑 $a,b$ 移动对 $f$ 的影响。$b$ 的移动是简单的：\n$$\n\\begin{aligned}\nf(a,b+1)&=f(a,b)+\\binom{2(b+1)+2}{b+1}\\\\\nf(a,b-1)&=f(a,b)-\\binom{2b+a}{b}\n\\end{aligned}\n$$\n我们需要观察 $a \\gets a\\pm 1$ 的影响。可以对 $a \\in [-8,-1], b\\in [0,8]$ 进行打表：\n\n```plain\n0       0       0       0       0       0       0       0       1\n0       0       0       0       0       0       0       1       10\n0       0       0       0       0       0       1       9       54\n0       0       0       0       0       1       8       44      209\n0       0       0       0       1       7       35      155     650\n0       0       0       1       6       27      111     441     1728\n0       0       1       5       20      76      286     1078    4081\n0       1       4       14      49      175     637     2353    8788\n```\n\n注意到以下等式成立：$441+637=1078$，$1278+2353=4081$，对其他位置验证也满足规律，猜测有\n$$\nf(a,b)=f(a-1,b)+f(a+1,b-1)\n$$\n而 $f(a+1,b-1) \\to f(a+1,b)$ 是容易的。从而\n$$\n\\boxed{\\begin{aligned}\nf(a,b)&=f(a-1,b)+f(a+1,b)-\\binom{2b+a+1}{b}\\\\\nf(a-1,b)&= f(a+1,b)-f(a,b)+\\binom{2b+a+1}{b}\n\\end{aligned}}\n$$\n维护 $f(a,b)$ 和 $f(a+1,b)$ 后可以递推 $f(a-1,b)$，从而 $a \\gets a-1$ 解决。对 $a \\gets a+1$ 可以逆用上式同理求得。\n\n注意到 $S$ 的枚举过程中，只有 $x \\gets x+1$ 和 $y \\gets y+1$ 两种操作，对应的移动是 $b \\gets b- 1$ 和 $a \\gets a\\pm 1$，且指针移动总次数 $O(n)$。故直接维护两个 $f$ 值的复杂度就是线性。\n\n复杂度 $O(n)$。[代码](https://qoj.ac/submission/2887256)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p17140",
+        "title": "[NOI 2026] 线段",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P17140",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P17140](https://www.luogu.com.cn/problem/P17140)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 条线段 $[l_i,r_i]$，保证 $[l_i,r_i] \\subseteq [1,m]$。定义线段集合 $S \\subseteq \\{1,2,\\cdots,n\\}$ 是优美的，当且仅当 $[l_u,r_u] \\cap [l_v,r_v] \\ne \\varnothing$ 时连边 $u \\leftrightarrow v$ 形成一棵树。\n>\n> 给定 $k \\le n$，对 $i=1,2,\\cdots,k$ 求出，$|S|=i$ 的优美集合数目。\n>\n> 多测，$T \\le 20$，$n \\le 3\\times 10^3$，$m \\le 10^3$，$\\sum k \\le 200$，4 秒，512 MB。\n\n:::::success[题解]\n\n树是连通无环图，区间图是弦图。综合两个性质得到充要条件：\n\n- 连通：$S$ 的并集是连续线段。\n- 无环：不存在某个点的覆盖次数 $\\ge 3$。\n\n将线段按左端点升序排序后逐个加入，按照条件设计 DP：\n\n- 设 $f_{i,j,x,y}$ 为满足下列条件的合法方案数：\n\n  - 仅考虑前 $i$ 条线段。\n  - $|S|=j$。\n  - 当前最大右端点位于 $x$，次大右端点位于 $y$。值 $=0$ 表示不存在。\n\n- 若不加入 $[l_i,r_i]$ 转移 $f_{i-1,j,x,y} \\to f_{i,j,x,y}$。加入 $[l_i,r_i]$ 的转移条件可画图分析：\n\n  ![image.png](https://cdn.luogu.com.cn/upload/image_hosting/hrbcfp0t.webp)\n\n  不难发现 $l_i>x$ 则不连通，$l_i\\le y$ 则成环。特判 $x=0$，只要 $l_i \\in (y,x]$ 就有转移\n  $$\n  f_{i-1,j,x,y} \\to f_{i,j+1,x',y'}\n  $$\n  其中 $x',y'$ 为集合 $\\{x,y,r_i\\}$ 的最大 / 次大值。由 $r_i >y$ 可以写作\n  $$\n  f_{i-1,j,x,y} \\to f_{i,j+1,\\max(x,r_i),\\min(x,r_i)}\n  $$\n\n- DP 初值为 $f_{0,0,0,0}=1$。\n\n- 答案为 $\\text{ans}_j=\\sum\\limits_{x,y} f_{n,x,y}$。\n\n对 $i$ 维度滚动数组，$j$ 倒序枚举，时间 $O(nm^2k)$ 空间 $O(m^2k)$ 无法通过。\n\n对 $y$ 维度动态维护前缀和\n$$\ns_{j,x}=\\sum_{y<l_i} f_{j,x,y}\n$$\n转移变为\n$$\nf_{j+1,\\max(x,r_i),\\min(x,r_i)} \\gets s_{j,x}\n$$\n注意到 $l_i$ 单调不降，当 $l_i$ 增加时更新 $s_{j,x} \\gets f_{j,x,y}$ 即可。特判 $x=0$ 的相关转移。\n\n显然 $y \\le x$，空间可以折半，时间 $O(nmk)$ 空间 $O(m^2k)$，经卡常可以通过。[代码](https://qoj.ac/submission/3189361)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P17140](https://www.luogu.com.cn/problem/P17140)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 条线段 $[l_i,r_i]$，保证 $[l_i,r_i] \\subseteq [1,m]$。定义线段集合 $S \\subseteq \\{1,2,\\cdots,n\\}$ 是优美的，当且仅当 $[l_u,r_u] \\cap [l_v,r_v] \\ne \\varnothing$ 时连边 $u \\leftrightarrow v$ 形成一棵树。\n>\n> 给定 $k \\le n$，对 $i=1,2,\\cdots,k$ 求出，$|S|=i$ 的优美集合数目。\n>\n> 多测，$T \\le 20$，$n \\le 3\\times 10^3$，$m \\le 10^3$，$\\sum k \\le 200$，4 秒，512 MB。\n\n:::::success[题解]\n\n树是连通无环图，区间图是弦图。综合两个性质得到充要条件：\n\n- 连通：$S$ 的并集是连续线段。\n- 无环：不存在某个点的覆盖次数 $\\ge 3$。\n\n将线段按左端点升序排序后逐个加入，按照条件设计 DP：\n\n- 设 $f_{i,j,x,y}$ 为满足下列条件的合法方案数：\n\n  - 仅考虑前 $i$ 条线段。\n  - $|S|=j$。\n  - 当前最大右端点位于 $x$，次大右端点位于 $y$。值 $=0$ 表示不存在。\n\n- 若不加入 $[l_i,r_i]$ 转移 $f_{i-1,j,x,y} \\to f_{i,j,x,y}$。加入 $[l_i,r_i]$ 的转移条件可画图分析：\n\n  ![image.png](https://cdn.luogu.com.cn/upload/image_hosting/hrbcfp0t.webp)\n\n  不难发现 $l_i>x$ 则不连通，$l_i\\le y$ 则成环。特判 $x=0$，只要 $l_i \\in (y,x]$ 就有转移\n  $$\n  f_{i-1,j,x,y} \\to f_{i,j+1,x',y'}\n  $$\n  其中 $x',y'$ 为集合 $\\{x,y,r_i\\}$ 的最大 / 次大值。由 $r_i >y$ 可以写作\n  $$\n  f_{i-1,j,x,y} \\to f_{i,j+1,\\max(x,r_i),\\min(x,r_i)}\n  $$\n\n- DP 初值为 $f_{0,0,0,0}=1$。\n\n- 答案为 $\\text{ans}_j=\\sum\\limits_{x,y} f_{n,x,y}$。\n\n对 $i$ 维度滚动数组，$j$ 倒序枚举，时间 $O(nm^2k)$ 空间 $O(m^2k)$ 无法通过。\n\n对 $y$ 维度动态维护前缀和\n$$\ns_{j,x}=\\sum_{y<l_i} f_{j,x,y}\n$$\n转移变为\n$$\nf_{j+1,\\max(x,r_i),\\min(x,r_i)} \\gets s_{j,x}\n$$\n注意到 $l_i$ 单调不降，当 $l_i$ 增加时更新 $s_{j,x} \\gets f_{j,x,y}$ 即可。特判 $x=0$ 的相关转移。\n\n显然 $y \\le x$，空间可以折半，时间 $O(nmk)$ 空间 $O(m^2k)$，经卡常可以通过。[代码](https://qoj.ac/submission/3189361)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -808,6 +3481,39 @@ const PROBLEMS_DATA = [
                     "区间查询"
                 ],
                 "source": "Xesir"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p1758",
+        "title": "[NOI2009] 管道取珠",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P1758",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P1758](https://www.luogu.com.cn/problem/P1758)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定两个长为 $n,m$ 的栈 $A,B$，第 $i$ 次操作任选一个栈，将其栈顶弹出并加入结果序列，直到 $A,B$ 均为空。\n>\n> 设本质不同的结果序列数目为 $k$，得到第 $i$ 种序列的方法数为 $a_i$，求 $\\sum a_i^2$。\n>\n> $n,m \\le 500$，2 秒，125 MB。\n\n:::::success[题解]\n\n根据 Product Trick，$\\sum a_i \\times a_i$ 可以视作进行两次操作，所得的结果序列相同的方案数。\n\n对着这个组合意义进行 DP：\n\n- 记 $f_{x,y,z}$ 为满足如下条件时，两次操作的结果序列相同的方案数：\n  - 两次操作均取出 $x$ 个元素。\n  - 第一次操作取出 $A$ 的前 $y$ 个元素。\n  - 第二次操作取出 $A$ 的前 $z$ 个元素。\n- 转移讨论两次操作中取 $A$ 或者 $B$，转移满足取出元素相同，对四种情形简单讨论即可。\n- DP 初值为 $f_{0,0,0}=1$。\n- 答案为 $f_{n+m,n,n}$。\n\n时空复杂度 $O(n^3)$，将 $x$ 维度滚动数组即可满足空间限制。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P1758](https://www.luogu.com.cn/problem/P1758)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定两个长为 $n,m$ 的栈 $A,B$，第 $i$ 次操作任选一个栈，将其栈顶弹出并加入结果序列，直到 $A,B$ 均为空。\n>\n> 设本质不同的结果序列数目为 $k$，得到第 $i$ 种序列的方法数为 $a_i$，求 $\\sum a_i^2$。\n>\n> $n,m \\le 500$，2 秒，125 MB。\n\n:::::success[题解]\n\n根据 Product Trick，$\\sum a_i \\times a_i$ 可以视作进行两次操作，所得的结果序列相同的方案数。\n\n对着这个组合意义进行 DP：\n\n- 记 $f_{x,y,z}$ 为满足如下条件时，两次操作的结果序列相同的方案数：\n  - 两次操作均取出 $x$ 个元素。\n  - 第一次操作取出 $A$ 的前 $y$ 个元素。\n  - 第二次操作取出 $A$ 的前 $z$ 个元素。\n- 转移讨论两次操作中取 $A$ 或者 $B$，转移满足取出元素相同，对四种情形简单讨论即可。\n- DP 初值为 $f_{0,0,0}=1$。\n- 答案为 $f_{n+m,n,n}$。\n\n时空复杂度 $O(n^3)$，将 $x$ 维度滚动数组即可满足空间限制。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -1245,6 +3951,39 @@ const PROBLEMS_DATA = [
         ]
     },
     {
+        "id": "prob-luogu-p3479",
+        "title": "[POI 2009] GAS-Fire Extinguishers",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P3479",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P3479](https://www.luogu.com.cn/problem/P3479)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根叶向树，根节点为 $1$。你需要在某些节点放置任意数量的元素，每个元素可以被分配给距离 $ \\le k$ 的节点，且最多分配给 $s$ 个不同节点。要求每个节点至少被分配到一个元素。最小化放置元素的总数目并输出。\n>\n> $n \\le 10^5$，$k \\le 20$，1 秒，125 MB。\n\n::::::success[题解]\n叶向树上的问题，考虑自底向上贪心。\n\n我们声称，元素应当尽量放置在深度较小的节点上。对于节点 $x$，若其子树中仍存在距离 $=k$ 的点 $u$ 未分配，则必须在 $x$ 处放置元素并分配给 $u$。\n\n可以用调整法说明上述策略的正确性。假设存在最优解，将 $x$ 替换为在其子树中的点 $v$，并将 $v$ 的元素分配给 $u$。记 $d(u,v)$ 为两点间距离，则 $d(u,v)<k$。\n\n现在将 $v$ 上的元素移动到 $x$，我们要证明这仍是一个最优解，即说明被 $v$ 覆盖的元素可以被 $x$ 覆盖：\n\n- 对 $u$ 点：根据定义 $d(x,u)=k$，必要性成立；\n- 对 $x$ 子树外：假定 $v$ 处元素还覆盖了 $x$ 子树外的节点 $w$，则满足 $d(v,w)=d(v,x)+d(x,w) \\le k$。移动到 $x$ 有 $d(x,w) \\le k$，故移动不会影响 $x$ 外的节点；\n- 对 $x$ 子树内：反证法，若存在 $y$ 使得其原本能被 $v$ 覆盖，但不能被 $x$ 覆盖，则其满足 $d(v,y )\\le k \\land d(x,y) > k$。根据定义，$d(x,u)=k$ 且 $u$ 是子树内最深的未分配节点，而这里 $y$ 比 $u$ 深，矛盾。所以不存在这样的 $y$。\n\n说明这一做法的正确性后，考虑设计树形 DP 来执行策略。\n\n记 $f_{i,x}$ 为在 $x$ 子树内，距离 $x$ 为 $i$ 的可分配数，$g_{i,x}$ 为子树内距离为 $i$ 的需求数目。DP 转移时，讨论在 $x$ 处新增元素，并且在 $x$ 处将余量 $f_{i,x}$ 与需要 $g_{j,x}$ 进行匹配。\n\n一种错误的策略为：将满足 $i+j \\le k$ 的所有余量—需求关系在当前 LCA 全部匹配。这种贪心会将极好的余量分配给容易满足的需求，从而导致较难满足的需求只能通过放置元素来解决。\n\n事实上，我们只应该在如下两种情况时进行匹配：\n\n1. 在 $i+j \\in \\{k-1,k\\}$ 时将其匹配。因为如果再往祖先移动，就有 $i \\gets i+1,j \\gets j+1$，此时 $i+j>k$ 失去匹配机会；\n2. 存在 $g_{k,x}>0$ 时，再向上走就无法处理这一需求，所以必须在 $x$ 处新建元素 $f_{0,x}$ 将其匹配。\n\n正确性容易说明，考虑上述过程相当于贡献延后 DP，且所有余量—需求关系最终都会在根节点正确处理。\n\n自底向上 DFS，对于当前节点 $x$ 有：\n\n- 首先，将儿子的需求上传到 $x$，距离增加 $1$，并在 $x$ 处新增一个距离为 $0$ 的需求：\n  - $f_{i+1,x}=\\sum\\limits_{v \\in \\operatorname{son}(u)} f_{i,v}$；\n  - $g_{i+1,x}=\\sum\\limits_{v \\in \\operatorname{son}(u)} g_{i,v}$；\n  - $g_{0,x}=1$。\n- 接下来处理第一类匹配。倒序枚举 $i = k,k-1,\\cdots,0$，并考虑 $j \\in \\{k-i,k-i-1\\}$。匹配的数目由 $\\min(g_{i,u},f_{j,u})$ 决定。\n- 在处理 $i=k$ 后，进行第二类匹配。计算出放置元素的数目 $a=\\lceil \\frac{g_{k,u}}{s} \\rceil$，然后清空 $g_{k,u} \\gets 0$，并将剩余元素加入 $f_{0,u}$。\n\n注意在根节点处，我们需要进行剩余匹配。首先将所有 $i+j \\le k$ 的 $g_{i,u}$ 和 $f_{j,u}$ 匹配后，求出剩余需求数目 $a$，将 $\\lceil \\frac{a}{s} \\rceil$ 加入答案。\n\n按照上述过程实现，可以做到 $O(nk)$。\n::::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5;\nint n, s, k;\nvector<int> e[N];\ni64 ans, f[21][N], g[21][N];\nvoid dfs(int u, int fa) {\n    for (int v : e[u]) { \n        if (v == fa) continue;\n        dfs(v, u);\n        for (int i = 0; i < k; i++) f[i + 1][u] += f[i][v], g[i + 1][u] += g[i][v];\n    }\n    g[0][u] = 1;\n    for (int i = k; i >= 0; i--) {\n        for (int j : {k - i, k - i - 1}) {\n            if (j < 0) continue;\n            i64 a = min(g[i][u], f[j][u]);\n            g[i][u] -= a, f[j][u] -= a;\n        }\n        if (i == k && g[k][u] > 0) {\n            i64 a = (g[k][u] + s - 1) / s;\n            ans += a, f[0][u] += a * s - g[k][u], g[k][u] = 0;\n        }\n    }\n}\n\nvoid _main() {\n    cin >> n >> s >> k;\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    dfs(1, -1);\n    for (int i = k; i >= 0; i--) {\n        for (int j = k - i; j >= 0; j--) {\n            i64 a = min(g[i][1], f[j][1]);\n            g[i][1] -= a, f[j][1] -= a;\n        }\n    }\n    i64 rem = 0;\n    for (int i = 0; i <= k; i++) rem += g[i][1];\n    cout << ans + (rem + s - 1) / s;\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P3479](https://www.luogu.com.cn/problem/P3479)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根叶向树，根节点为 $1$。你需要在某些节点放置任意数量的元素，每个元素可以被分配给距离 $ \\le k$ 的节点，且最多分配给 $s$ 个不同节点。要求每个节点至少被分配到一个元素。最小化放置元素的总数目并输出。\n>\n> $n \\le 10^5$，$k \\le 20$，1 秒，125 MB。\n\n::::::success[题解]\n叶向树上的问题，考虑自底向上贪心。\n\n我们声称，元素应当尽量放置在深度较小的节点上。对于节点 $x$，若其子树中仍存在距离 $=k$ 的点 $u$ 未分配，则必须在 $x$ 处放置元素并分配给 $u$。\n\n可以用调整法说明上述策略的正确性。假设存在最优解，将 $x$ 替换为在其子树中的点 $v$，并将 $v$ 的元素分配给 $u$。记 $d(u,v)$ 为两点间距离，则 $d(u,v)<k$。\n\n现在将 $v$ 上的元素移动到 $x$，我们要证明这仍是一个最优解，即说明被 $v$ 覆盖的元素可以被 $x$ 覆盖：\n\n- 对 $u$ 点：根据定义 $d(x,u)=k$，必要性成立；\n- 对 $x$ 子树外：假定 $v$ 处元素还覆盖了 $x$ 子树外的节点 $w$，则满足 $d(v,w)=d(v,x)+d(x,w) \\le k$。移动到 $x$ 有 $d(x,w) \\le k$，故移动不会影响 $x$ 外的节点；\n- 对 $x$ 子树内：反证法，若存在 $y$ 使得其原本能被 $v$ 覆盖，但不能被 $x$ 覆盖，则其满足 $d(v,y )\\le k \\land d(x,y) > k$。根据定义，$d(x,u)=k$ 且 $u$ 是子树内最深的未分配节点，而这里 $y$ 比 $u$ 深，矛盾。所以不存在这样的 $y$。\n\n说明这一做法的正确性后，考虑设计树形 DP 来执行策略。\n\n记 $f_{i,x}$ 为在 $x$ 子树内，距离 $x$ 为 $i$ 的可分配数，$g_{i,x}$ 为子树内距离为 $i$ 的需求数目。DP 转移时，讨论在 $x$ 处新增元素，并且在 $x$ 处将余量 $f_{i,x}$ 与需要 $g_{j,x}$ 进行匹配。\n\n一种错误的策略为：将满足 $i+j \\le k$ 的所有余量—需求关系在当前 LCA 全部匹配。这种贪心会将极好的余量分配给容易满足的需求，从而导致较难满足的需求只能通过放置元素来解决。\n\n事实上，我们只应该在如下两种情况时进行匹配：\n\n1. 在 $i+j \\in \\{k-1,k\\}$ 时将其匹配。因为如果再往祖先移动，就有 $i \\gets i+1,j \\gets j+1$，此时 $i+j>k$ 失去匹配机会；\n2. 存在 $g_{k,x}>0$ 时，再向上走就无法处理这一需求，所以必须在 $x$ 处新建元素 $f_{0,x}$ 将其匹配。\n\n正确性容易说明，考虑上述过程相当于贡献延后 DP，且所有余量—需求关系最终都会在根节点正确处理。\n\n自底向上 DFS，对于当前节点 $x$ 有：\n\n- 首先，将儿子的需求上传到 $x$，距离增加 $1$，并在 $x$ 处新增一个距离为 $0$ 的需求：\n  - $f_{i+1,x}=\\sum\\limits_{v \\in \\operatorname{son}(u)} f_{i,v}$；\n  - $g_{i+1,x}=\\sum\\limits_{v \\in \\operatorname{son}(u)} g_{i,v}$；\n  - $g_{0,x}=1$。\n- 接下来处理第一类匹配。倒序枚举 $i = k,k-1,\\cdots,0$，并考虑 $j \\in \\{k-i,k-i-1\\}$。匹配的数目由 $\\min(g_{i,u},f_{j,u})$ 决定。\n- 在处理 $i=k$ 后，进行第二类匹配。计算出放置元素的数目 $a=\\lceil \\frac{g_{k,u}}{s} \\rceil$，然后清空 $g_{k,u} \\gets 0$，并将剩余元素加入 $f_{0,u}$。\n\n注意在根节点处，我们需要进行剩余匹配。首先将所有 $i+j \\le k$ 的 $g_{i,u}$ 和 $f_{j,u}$ 匹配后，求出剩余需求数目 $a$，将 $\\lceil \\frac{a}{s} \\rceil$ 加入答案。\n\n按照上述过程实现，可以做到 $O(nk)$。\n::::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5;\nint n, s, k;\nvector<int> e[N];\ni64 ans, f[21][N], g[21][N];\nvoid dfs(int u, int fa) {\n    for (int v : e[u]) { \n        if (v == fa) continue;\n        dfs(v, u);\n        for (int i = 0; i < k; i++) f[i + 1][u] += f[i][v], g[i + 1][u] += g[i][v];\n    }\n    g[0][u] = 1;\n    for (int i = k; i >= 0; i--) {\n        for (int j : {k - i, k - i - 1}) {\n            if (j < 0) continue;\n            i64 a = min(g[i][u], f[j][u]);\n            g[i][u] -= a, f[j][u] -= a;\n        }\n        if (i == k && g[k][u] > 0) {\n            i64 a = (g[k][u] + s - 1) / s;\n            ans += a, f[0][u] += a * s - g[k][u], g[k][u] = 0;\n        }\n    }\n}\n\nvoid _main() {\n    cin >> n >> s >> k;\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    dfs(1, -1);\n    for (int i = k; i >= 0; i--) {\n        for (int j = k - i; j >= 0; j--) {\n            i64 a = min(g[i][1], f[j][1]);\n            g[i][1] -= a, f[j][1] -= a;\n        }\n    }\n    i64 rem = 0;\n    for (int i = 0; i <= k; i++) rem += g[i][1];\n    cout << ans + (rem + s - 1) / s;\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-luogu-p3515",
         "title": "P3515 [POI 2011] Lightning Conductor",
         "source": "lker",
@@ -1280,6 +4019,39 @@ const PROBLEMS_DATA = [
                     "四边形不等式"
                 ],
                 "source": "lker"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p3574",
+        "title": "[POI 2014] FAR-FarmCraft",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P3574",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P3574](https://www.luogu.com.cn/problem/P3574)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n$ 个点的有根树，根节点为 $1$。你从根节点开始游走，走过一条边的代价为 $1$，必须经过每条边恰好两次。\n>\n> 每个点有点权 $a_i$，当你游走到该点时，该点上会开始一个时长为 $a_i$ 的任务。最终回到根节点后，开始一个时长为 $a_1$ 的任务。最小化所有点完成任务的时间并输出。\n>\n> $n \\le 5 \\times 10^5$，1 秒，125 MB。\n\n:::::success[题解]\n考虑树形 DP，记 $f_u$ 为 $u$ 子树内的最大时间，$g_u$ 为将子树内游走完成的总时间。如果可以钦定一个游走儿子的顺序，就有转移：\n\n$$\n\\begin{aligned}\nf_u &\\gets \\max(f_u,f_v+g_u+1)\\\\\ng_u &\\gets  g_v+2\n\\end{aligned}\n$$\n\n关键在于确定 $f$。考虑和上一题一样做 exchange argument。考虑局部 $x,y$ 有：\n\n- 不交换：贡献为 $\\max(f_x+g_u+1, f_y+g_u+g_x+3)$；\n- 交换：贡献为 $\\max(f_y+g_u+1,f_x+g_u+g_y+3)$。\n\n钦定前者更优，于是\n\n$$\nf_y+g_u+g_x+3 <f_x+g_u+g_y+3 \\iff f_x-g_x>f_y-g_y\n$$\n\n这是一个严格偏序，按 $f_u-g_u$ 降序排序，然后做 DP 转移即可。复杂度 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 5e5 + 5;\nint n, a[N], f[N], g[N];\nvector<int> e[N];\nvoid dfs(int u, int fa) {\n    if (fa != -1) f[u] = a[u];\n    vector<int> vec;\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        dfs(v, u), vec.emplace_back(v);\n    }\n    sort(vec.begin(), vec.end(), [](int x, int y) -> bool {\n\t\treturn f[x] - g[x] > f[y] - g[y];\n\t});\n    for (int v : vec) chkmax(f[u], f[v] + g[u] + 1), g[u] += g[v] + 2;\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    dfs(1, -1);\n    cout << max(f[1], a[1] + g[1]);\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P3574](https://www.luogu.com.cn/problem/P3574)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n$ 个点的有根树，根节点为 $1$。你从根节点开始游走，走过一条边的代价为 $1$，必须经过每条边恰好两次。\n>\n> 每个点有点权 $a_i$，当你游走到该点时，该点上会开始一个时长为 $a_i$ 的任务。最终回到根节点后，开始一个时长为 $a_1$ 的任务。最小化所有点完成任务的时间并输出。\n>\n> $n \\le 5 \\times 10^5$，1 秒，125 MB。\n\n:::::success[题解]\n考虑树形 DP，记 $f_u$ 为 $u$ 子树内的最大时间，$g_u$ 为将子树内游走完成的总时间。如果可以钦定一个游走儿子的顺序，就有转移：\n\n$$\n\\begin{aligned}\nf_u &\\gets \\max(f_u,f_v+g_u+1)\\\\\ng_u &\\gets  g_v+2\n\\end{aligned}\n$$\n\n关键在于确定 $f$。考虑和上一题一样做 exchange argument。考虑局部 $x,y$ 有：\n\n- 不交换：贡献为 $\\max(f_x+g_u+1, f_y+g_u+g_x+3)$；\n- 交换：贡献为 $\\max(f_y+g_u+1,f_x+g_u+g_y+3)$。\n\n钦定前者更优，于是\n\n$$\nf_y+g_u+g_x+3 <f_x+g_u+g_y+3 \\iff f_x-g_x>f_y-g_y\n$$\n\n这是一个严格偏序，按 $f_u-g_u$ 降序排序，然后做 DP 转移即可。复杂度 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 5e5 + 5;\nint n, a[N], f[N], g[N];\nvector<int> e[N];\nvoid dfs(int u, int fa) {\n    if (fa != -1) f[u] = a[u];\n    vector<int> vec;\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        dfs(v, u), vec.emplace_back(v);\n    }\n    sort(vec.begin(), vec.end(), [](int x, int y) -> bool {\n\t\treturn f[x] - g[x] > f[y] - g[y];\n\t});\n    for (int v : vec) chkmax(f[u], f[v] + g[u] + 1), g[u] += g[v] + 2;\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    dfs(1, -1);\n    cout << max(f[1], a[1] + g[1]);\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -1583,6 +4355,138 @@ const PROBLEMS_DATA = [
         ]
     },
     {
+        "id": "prob-luogu-p4260",
+        "title": "[Code+#3] 博弈论与概率统计",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P4260",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4260](https://www.luogu.com.cn/problem/P4260)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有两个变量 $a,b$，初始 $a=b=0$。进行 $n+m$ 轮操作，一轮操作中：\n>\n> - 令 $a \\gets a+1, b \\gets \\max(0,b-1)$。概率为 $p$。\n> - 令 $a \\gets \\max(0,a-1), b \\gets b+1$。概率为 $1-p$。\n>\n> 且第一类操作恰好发生 $n$ 次。求 $a$ 的期望。\n>\n> 进行 $q$ 次询问，每轮询问均给出 $n,m,p$ 并输出答案。\n>\n> $q,n+m \\le 2.5 \\times 10^5$，1 秒，125 MB。\n\n::::::success[题解]\n\n容易发现 $p$ 是搞笑的，求出 $\\sum a$ 后除以 $\\binom{n+m}{n}$ 即为所求。\n\n设第一类操作进行 $x$ 次，第二类操作进行 $y$ 次。忽略与 $0$ 取 $\\max$ 的限制，则 $a=x-y$。\n\n设全过程 $a=0$ 时 $-1$ 共进行 $k$ 次，最终 $a=n+k-m$。只要算出 $k$ 对应的方案数即可。\n\n做一个单步容斥，即 $[x=k]=[x \\le k]-[x \\le k-1]$。根据分析，至多 $k$ 次的充要条件为，任意时刻 $y-x \\le k$。\n\n将 $(x,y)$ 拍到二维平面上，问题转化为从 $(0,0)$ 走到 $(n,m)$，不越过 $y=x+k$ 的格路数目。由单线反射容斥，将终点关于 $y=x+k+1$ 做对称可得\n$$\n\\binom{n+m}{n}-\\binom{n+m}{m-k-1}\n$$\n至少转恰好是作差，则 $\\text{ans}_k=\\dbinom{n+m}{m-k}-\\dbinom{n+m}{m-k-1}$。求和即为答案。\n\n- 若 $n \\ge m$，那么\n\n  $$\n  \\begin{aligned}\n  \\text{ans}&=\\sum_{k=0}^m (n+k-m) \\left(\\dbinom{n+m}{m-k}-\\dbinom{n+m}{m-k-1}\\right)\\\\\n  &=\\sum_{i=0}^m (n-i) \\left(\\dbinom{n+m}{i}-\\dbinom{n+m}{i-1}\\right)\\\\\n  &=\\sum_{i=0}^m (n-i) \\dbinom{n+m}{i}-\\sum_{i=0}^{m-1} (n-i-1)\\dbinom{n+m}{i}\\\\\n  &=\\boxed{\\sum_{i=0}^{m-1} \\binom{n+m}{i}+(n-m) \\binom{n+m}{m}}\n  \\end{aligned}\n  $$\n\n  第二步为换元 $i=m-k$，第三步后面的和式 $i \\gets i-1$，第四步为对位相减。\n\n- 若 $n \\le m$，同理化简得\n  $$\n  \\begin{aligned}\n  \\text{ans}&=\\sum_{k=m-n}^{m} (n+k-m) \\left(\\dbinom{n+m}{m-k}-\\dbinom{n+m}{m-k-1}\\right)\\\\\n  &=\\boxed{\\sum_{i=0}^{n-1} \\binom{n+m}{i}}\n  \\end{aligned}\n  $$\n\n问题转化为 $q$ 次询问组合数下指标前缀和，莫队解决即可，复杂度 $O(n\\sqrt{q})$。\n\n:::::info[组合数下指标前缀和]\n\n模板题：[AT_tenka1_2014_final_d 高橋君](https://www.luogu.com.cn/problem/AT_tenka1_2014_final_d)。\n\n> 进行 $q$ 次询问，给定 $n,m$，求\n> $$\n> f(n,m)=\\left(\\sum_{i=0}^m \\binom{n}{i}\\right) \\bmod (10^9+7)\n> $$\n> $q \\le 10^5$，$0 \\le n,m \\le 10^5$，6 秒，256 MB。\n\n考察莫队思想，只要 $n,m$ 移动后 $f(n,m)$ 可以由原本的值 $O(1)$ 递推得到。事实上：\n\n- $f(n,m+1)=f(n,m)+\\dbinom{n}{m+1}$。\n- $f(n,m-1)=f(n,m)-\\dbinom{n}{m}$。\n- $f(n+1,m)=2f(n,m)-\\dbinom{n}{m}$。\n- $f(n-1,m)=\\dfrac{f(n,m)+\\binom{n-1}{m}}{2}$。\n\n前两条转移显然，后两条由组合数递推式裂项可得。\n\n利用莫队构造，我们可以在 $O(n \\sqrt{q})$ 的复杂度内**离线**解决组合数下指标前缀和的问题。\n\n事实上这个问题也存在 $O(q+m \\log^2 m)$ 的离线解法，参见 <https://www.luogu.com.cn/article/xypg20ht>。\n\n:::::\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4260](https://www.luogu.com.cn/problem/P4260)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有两个变量 $a,b$，初始 $a=b=0$。进行 $n+m$ 轮操作，一轮操作中：\n>\n> - 令 $a \\gets a+1, b \\gets \\max(0,b-1)$。概率为 $p$。\n> - 令 $a \\gets \\max(0,a-1), b \\gets b+1$。概率为 $1-p$。\n>\n> 且第一类操作恰好发生 $n$ 次。求 $a$ 的期望。\n>\n> 进行 $q$ 次询问，每轮询问均给出 $n,m,p$ 并输出答案。\n>\n> $q,n+m \\le 2.5 \\times 10^5$，1 秒，125 MB。\n\n::::::success[题解]\n\n容易发现 $p$ 是搞笑的，求出 $\\sum a$ 后除以 $\\binom{n+m}{n}$ 即为所求。\n\n设第一类操作进行 $x$ 次，第二类操作进行 $y$ 次。忽略与 $0$ 取 $\\max$ 的限制，则 $a=x-y$。\n\n设全过程 $a=0$ 时 $-1$ 共进行 $k$ 次，最终 $a=n+k-m$。只要算出 $k$ 对应的方案数即可。\n\n做一个单步容斥，即 $[x=k]=[x \\le k]-[x \\le k-1]$。根据分析，至多 $k$ 次的充要条件为，任意时刻 $y-x \\le k$。\n\n将 $(x,y)$ 拍到二维平面上，问题转化为从 $(0,0)$ 走到 $(n,m)$，不越过 $y=x+k$ 的格路数目。由单线反射容斥，将终点关于 $y=x+k+1$ 做对称可得\n$$\n\\binom{n+m}{n}-\\binom{n+m}{m-k-1}\n$$\n至少转恰好是作差，则 $\\text{ans}_k=\\dbinom{n+m}{m-k}-\\dbinom{n+m}{m-k-1}$。求和即为答案。\n\n- 若 $n \\ge m$，那么\n\n  $$\n  \\begin{aligned}\n  \\text{ans}&=\\sum_{k=0}^m (n+k-m) \\left(\\dbinom{n+m}{m-k}-\\dbinom{n+m}{m-k-1}\\right)\\\\\n  &=\\sum_{i=0}^m (n-i) \\left(\\dbinom{n+m}{i}-\\dbinom{n+m}{i-1}\\right)\\\\\n  &=\\sum_{i=0}^m (n-i) \\dbinom{n+m}{i}-\\sum_{i=0}^{m-1} (n-i-1)\\dbinom{n+m}{i}\\\\\n  &=\\boxed{\\sum_{i=0}^{m-1} \\binom{n+m}{i}+(n-m) \\binom{n+m}{m}}\n  \\end{aligned}\n  $$\n\n  第二步为换元 $i=m-k$，第三步后面的和式 $i \\gets i-1$，第四步为对位相减。\n\n- 若 $n \\le m$，同理化简得\n  $$\n  \\begin{aligned}\n  \\text{ans}&=\\sum_{k=m-n}^{m} (n+k-m) \\left(\\dbinom{n+m}{m-k}-\\dbinom{n+m}{m-k-1}\\right)\\\\\n  &=\\boxed{\\sum_{i=0}^{n-1} \\binom{n+m}{i}}\n  \\end{aligned}\n  $$\n\n问题转化为 $q$ 次询问组合数下指标前缀和，莫队解决即可，复杂度 $O(n\\sqrt{q})$。\n\n:::::info[组合数下指标前缀和]\n\n模板题：[AT_tenka1_2014_final_d 高橋君](https://www.luogu.com.cn/problem/AT_tenka1_2014_final_d)。\n\n> 进行 $q$ 次询问，给定 $n,m$，求\n> $$\n> f(n,m)=\\left(\\sum_{i=0}^m \\binom{n}{i}\\right) \\bmod (10^9+7)\n> $$\n> $q \\le 10^5$，$0 \\le n,m \\le 10^5$，6 秒，256 MB。\n\n考察莫队思想，只要 $n,m$ 移动后 $f(n,m)$ 可以由原本的值 $O(1)$ 递推得到。事实上：\n\n- $f(n,m+1)=f(n,m)+\\dbinom{n}{m+1}$。\n- $f(n,m-1)=f(n,m)-\\dbinom{n}{m}$。\n- $f(n+1,m)=2f(n,m)-\\dbinom{n}{m}$。\n- $f(n-1,m)=\\dfrac{f(n,m)+\\binom{n-1}{m}}{2}$。\n\n前两条转移显然，后两条由组合数递推式裂项可得。\n\n利用莫队构造，我们可以在 $O(n \\sqrt{q})$ 的复杂度内**离线**解决组合数下指标前缀和的问题。\n\n事实上这个问题也存在 $O(q+m \\log^2 m)$ 的离线解法，参见 <https://www.luogu.com.cn/article/xypg20ht>。\n\n:::::\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p4362",
+        "title": "[NOI2002] 贪吃的九头龙",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P4362",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4362](https://www.luogu.com.cn/problem/P4362)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，边带权。你需要将这棵树 $m$ 染色，满足与根节点同色的节点数恰为 $k$。代价为两端点颜色相同的边的边权和，最小化代价并输出，或报告无解。\n>\n> $m,k \\le n \\le 300$，1 秒，125 MB。\n\n:::::success[题解]\n不妨设根节点的颜色为 $1$。我们钦定 $k$ 个节点的颜色为 $1$，则剩余点形成一个森林，需要 $m-1$ 染色。\n\n- 当 $m>2$ 时，容易构造所有边端点颜色不同的情况，比如按深度对 $m-1$ 取模染色。\n- 当 $m=2$ 时，森林中所有边都有贡献。\n\n据此设计树形 DP：$f_{0/1,u,i}$ 表示考虑 $u$ 的子树，$u$ 节点染色是否染成 $1$，子树内选择 $i$ 个染成 $1$ 的最小代价。枚举儿子 $v$ 并合并 DP 数组，转移是 $(\\min,+)$ 卷积：\n\n$$\nf_{0/1,u,i+j} \\gets f_{0/1,u,i}+f_{0/1,v,j}+w\n$$\n\n其中 $w$ 为转移时 $u \\to v$ 的边是否产生贡献，容易根据 $m$ 是否等于 $2$ 以及 $0/1$ 维的取值计算。\n\n注意合并 DP 时需要新建数组，不然会覆盖原本的取值。无解容易判断。\n\n正确的实现为树形背包复杂度，复杂度 $O(n^2)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 305, inf = 0x3f3f3f3f;\nint n, m, k;\nvector<pair<int, int>> e[N];\n\nint sz[N], f[2][N][N];\nvoid dfs(int u, int fa) {\n    f[0][u][0] = 0, f[1][u][1] = 0, sz[u] = 1;\n    for (auto [v, w] : e[u]) {\n        if (v == fa) continue;\n        dfs(v, u);\n        vector<int> f0(N, inf), f1(N, inf);\n        for (int i = min(sz[u], k); i >= 0; i--) {\n            for (int j = min(sz[v], k - i); j >= 0; j--) {\n                chkmin(f0[i + j], f[0][u][i] + f[0][v][j] + (m == 2) * w);\n                chkmin(f0[i + j], f[0][u][i] + f[1][v][j]);\n                chkmin(f1[i + j], f[1][u][i] + f[0][v][j]);\n                chkmin(f1[i + j], f[1][u][i] + f[1][v][j] + w);\n            }\n        }\n        sz[u] += sz[v];\n        copy(f0.begin(), f0.end(), f[0][u]), copy(f1.begin(), f1.end(), f[1][u]);\n    }\n}\n\nvoid _main() {\n    cin >> n >> m >> k;\n    if (n - k < m - 1) return cout << -1, void();\n    for (int i = 1, u, v, w; i < n; i++) {\n        cin >> u >> v >> w;\n        e[u].emplace_back(v, w), e[v].emplace_back(u, w);\n    } \n    memset(f, 0x3f, sizeof(f)), dfs(1, -1);\n    cout << f[1][1][k];\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4362](https://www.luogu.com.cn/problem/P4362)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，边带权。你需要将这棵树 $m$ 染色，满足与根节点同色的节点数恰为 $k$。代价为两端点颜色相同的边的边权和，最小化代价并输出，或报告无解。\n>\n> $m,k \\le n \\le 300$，1 秒，125 MB。\n\n:::::success[题解]\n不妨设根节点的颜色为 $1$。我们钦定 $k$ 个节点的颜色为 $1$，则剩余点形成一个森林，需要 $m-1$ 染色。\n\n- 当 $m>2$ 时，容易构造所有边端点颜色不同的情况，比如按深度对 $m-1$ 取模染色。\n- 当 $m=2$ 时，森林中所有边都有贡献。\n\n据此设计树形 DP：$f_{0/1,u,i}$ 表示考虑 $u$ 的子树，$u$ 节点染色是否染成 $1$，子树内选择 $i$ 个染成 $1$ 的最小代价。枚举儿子 $v$ 并合并 DP 数组，转移是 $(\\min,+)$ 卷积：\n\n$$\nf_{0/1,u,i+j} \\gets f_{0/1,u,i}+f_{0/1,v,j}+w\n$$\n\n其中 $w$ 为转移时 $u \\to v$ 的边是否产生贡献，容易根据 $m$ 是否等于 $2$ 以及 $0/1$ 维的取值计算。\n\n注意合并 DP 时需要新建数组，不然会覆盖原本的取值。无解容易判断。\n\n正确的实现为树形背包复杂度，复杂度 $O(n^2)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 305, inf = 0x3f3f3f3f;\nint n, m, k;\nvector<pair<int, int>> e[N];\n\nint sz[N], f[2][N][N];\nvoid dfs(int u, int fa) {\n    f[0][u][0] = 0, f[1][u][1] = 0, sz[u] = 1;\n    for (auto [v, w] : e[u]) {\n        if (v == fa) continue;\n        dfs(v, u);\n        vector<int> f0(N, inf), f1(N, inf);\n        for (int i = min(sz[u], k); i >= 0; i--) {\n            for (int j = min(sz[v], k - i); j >= 0; j--) {\n                chkmin(f0[i + j], f[0][u][i] + f[0][v][j] + (m == 2) * w);\n                chkmin(f0[i + j], f[0][u][i] + f[1][v][j]);\n                chkmin(f1[i + j], f[1][u][i] + f[0][v][j]);\n                chkmin(f1[i + j], f[1][u][i] + f[1][v][j] + w);\n            }\n        }\n        sz[u] += sz[v];\n        copy(f0.begin(), f0.end(), f[0][u]), copy(f1.begin(), f1.end(), f[1][u]);\n    }\n}\n\nvoid _main() {\n    cin >> n >> m >> k;\n    if (n - k < m - 1) return cout << -1, void();\n    for (int i = 1, u, v, w; i < n; i++) {\n        cin >> u >> v >> w;\n        e[u].emplace_back(v, w), e[v].emplace_back(u, w);\n    } \n    memset(f, 0x3f, sizeof(f)), dfs(1, -1);\n    cout << f[1][1][k];\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p4590",
+        "title": "[TJOI2018] 游园会",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P4590",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4590](https://www.luogu.com.cn/problem/P4590)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $k$ 的字符串 $S$。对每个 $i=0,1,\\cdots,k$，求出满足如下要求的本质不同字符串 $T$ 数目：\n>\n> - $T$ 的字符集为 $\\{\\tt{N},\\tt{O},\\tt{I}\\}$。\n> - $|T|=n$。\n> - $\\tt{NOI}$ 不是 $T$ 的子串。\n> - $\\text{LCS}(S,T)=i$。\n>\n> $n \\le 10^3$，$k \\le 15$，6 秒，250 MB。\n\n:::::success[题解]\n\n前三条限制是容易压进 DP 状态的。我们发现 $\\text{LCS}$ 难以刻画，因为直接去算两个串的 LCS 都需要 dp。\n\n不妨考察用于计算 LCS 的 dp。记 $f_{i,j}$ 为 $T[1:i]$ 与 $S[1:j]$ 的 LCS 长度，转移为\n$$\nf_{i,j}=\\max(f_{i-1,j},f_{i,j-1}, f_{i-1,j-1} +[T[i]=S[j]])\n$$\n对同一行的 $f$，根据经典结论有 $f_{i,j}-f_{i,j-1} \\in \\{0,1\\}$，从而考虑状压差分数组，状态数是 $O(2^k)$ 的。我们将差分数组代表的 01 串作为 DFA 的节点。\n\n这样，内层 DFA 的建立过程即为：枚举节点编码 $\\text{mask}$，将其还原为 DP 数组 $f_i$，再枚举出边字符 $c$，按照 DP 规则进行转移，得到新的 DP 数组 $f'_i$。将其压缩成 $\\text{mask}'$ 并记录转移边。\n\n建立 LCS 的 DFA 后，设计如下外层 DP：\n\n- 记 $f_{i,j,\\text{mask}}$ 为满足如下条件时，合法的 $T$ 的数目：\n  - $|T|=i$。\n  - $T$ 的末位匹配了 $\\tt{NOI}$ 的前 $j$ 位。\n  - $T$ 在内层 DFA 上的对应节点为 $\\text{mask}$。\n- 转移 $f_{i,j,\\text{mask}} \\to f_{i,j',\\text{mask}'}$。枚举出边字符 $c$，分别更新 $j'$ 和 $\\text{mask}'$，其中 $\\text{mask}'$ 由内层 DFA 走出边得到。对 $j' \\ge 3$ 的转移忽略。\n- DP 初值为 $f_{0,0,0}=1$，其中 $\\text{mask}=0$ 为内层 DFA 起点的编码。\n- 答案为 $\\text{ans}_k=\\sum \\limits_{\\text{popcount}(\\text{mask})=k} \\sum\\limits_{j=0 }^2 f_{n,j,\\text{mask}}$。利用 $\\text{popcount}$ 的原因是，$\\text{mask}$ 中 $1$ 的数目恰好等价于 $\\text{LCS}(S,T)$。\n\n时空复杂度 $O(2^kn)$。进一步对 $f$ 的第一维滚动数组，空间优化到 $O(2^k)$。 \n\n实际上，对内层 DFA 的状态进行搜索，只保留有效节点，可以得到 $O(|\\Sigma| n)$ 的复杂度，$|\\Sigma|$ 为 DFA 有效状态数。这里 $O(2^k)$ 的状压足以通过本题。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4590](https://www.luogu.com.cn/problem/P4590)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定长为 $k$ 的字符串 $S$。对每个 $i=0,1,\\cdots,k$，求出满足如下要求的本质不同字符串 $T$ 数目：\n>\n> - $T$ 的字符集为 $\\{\\tt{N},\\tt{O},\\tt{I}\\}$。\n> - $|T|=n$。\n> - $\\tt{NOI}$ 不是 $T$ 的子串。\n> - $\\text{LCS}(S,T)=i$。\n>\n> $n \\le 10^3$，$k \\le 15$，6 秒，250 MB。\n\n:::::success[题解]\n\n前三条限制是容易压进 DP 状态的。我们发现 $\\text{LCS}$ 难以刻画，因为直接去算两个串的 LCS 都需要 dp。\n\n不妨考察用于计算 LCS 的 dp。记 $f_{i,j}$ 为 $T[1:i]$ 与 $S[1:j]$ 的 LCS 长度，转移为\n$$\nf_{i,j}=\\max(f_{i-1,j},f_{i,j-1}, f_{i-1,j-1} +[T[i]=S[j]])\n$$\n对同一行的 $f$，根据经典结论有 $f_{i,j}-f_{i,j-1} \\in \\{0,1\\}$，从而考虑状压差分数组，状态数是 $O(2^k)$ 的。我们将差分数组代表的 01 串作为 DFA 的节点。\n\n这样，内层 DFA 的建立过程即为：枚举节点编码 $\\text{mask}$，将其还原为 DP 数组 $f_i$，再枚举出边字符 $c$，按照 DP 规则进行转移，得到新的 DP 数组 $f'_i$。将其压缩成 $\\text{mask}'$ 并记录转移边。\n\n建立 LCS 的 DFA 后，设计如下外层 DP：\n\n- 记 $f_{i,j,\\text{mask}}$ 为满足如下条件时，合法的 $T$ 的数目：\n  - $|T|=i$。\n  - $T$ 的末位匹配了 $\\tt{NOI}$ 的前 $j$ 位。\n  - $T$ 在内层 DFA 上的对应节点为 $\\text{mask}$。\n- 转移 $f_{i,j,\\text{mask}} \\to f_{i,j',\\text{mask}'}$。枚举出边字符 $c$，分别更新 $j'$ 和 $\\text{mask}'$，其中 $\\text{mask}'$ 由内层 DFA 走出边得到。对 $j' \\ge 3$ 的转移忽略。\n- DP 初值为 $f_{0,0,0}=1$，其中 $\\text{mask}=0$ 为内层 DFA 起点的编码。\n- 答案为 $\\text{ans}_k=\\sum \\limits_{\\text{popcount}(\\text{mask})=k} \\sum\\limits_{j=0 }^2 f_{n,j,\\text{mask}}$。利用 $\\text{popcount}$ 的原因是，$\\text{mask}$ 中 $1$ 的数目恰好等价于 $\\text{LCS}(S,T)$。\n\n时空复杂度 $O(2^kn)$。进一步对 $f$ 的第一维滚动数组，空间优化到 $O(2^k)$。 \n\n实际上，对内层 DFA 的状态进行搜索，只保留有效节点，可以得到 $O(|\\Sigma| n)$ 的复杂度，$|\\Sigma|$ 为 DFA 有效状态数。这里 $O(2^k)$ 的状压足以通过本题。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p4609",
+        "title": "[FJOI2016] 建筑师",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P4609",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4609](https://www.luogu.com.cn/problem/P4609)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $n,a,b$，求有多少个 $1 \\sim n$ 的排列 $p_i$ 满足前缀最大值的数目恰为 $a$，后缀最大值的数目恰为 $b$。\n>\n> 多测，$T \\le 2 \\times 10^5$，$n \\le 5 \\times 10^3$，$a,b \\le 100$，1 秒，250 MB。\n\n:::::success[题解]\n\n我们注意到，$n$ 一定是前后缀最大值。因此填入 $n$ 后排列被分成两部分，左边包含恰好 $a-1$ 个前缀最大值，右边包含恰好 $b-1$ 个后缀最大值。\n\n以左边为例，记前缀最大值的位置为 $p$，下一个前缀最大值的位置为 $q$，则将 $[p,q)$ 称为一个块。右边同理定义。根据定义，左边的块必须由块内最大值升序排序，右边必须降序排序。\n\n考虑如何构造一个块。通过观察，我们发现一个块和一个圆排列构成双射。对于一个圆排列，我们总可以从最大值处断开，并将其作为块的起始或结尾。因此，剩余 $n-1$ 个元素划分为 $(a-1)+(b-1)=a+b-2$ 个块的方案数对应着第一类斯特林数的组合意义。\n\n现在我们得到了这些块，只需确定块的排列顺序，而这是简单的。只需从 $a+b-2$ 个块中选出 $a-1$ 个放到左边，然后按照两边的排序规则排序即可。因此我们得到了本题的答案\n$$\n\\boxed{\\binom{a+b-2}{a-1}\\begin{bmatrix}\nn-1 \\\\\na+b-2\n\\end{bmatrix}}\n$$\n直接递推即可，复杂度 $O(na+T)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4609](https://www.luogu.com.cn/problem/P4609)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $n,a,b$，求有多少个 $1 \\sim n$ 的排列 $p_i$ 满足前缀最大值的数目恰为 $a$，后缀最大值的数目恰为 $b$。\n>\n> 多测，$T \\le 2 \\times 10^5$，$n \\le 5 \\times 10^3$，$a,b \\le 100$，1 秒，250 MB。\n\n:::::success[题解]\n\n我们注意到，$n$ 一定是前后缀最大值。因此填入 $n$ 后排列被分成两部分，左边包含恰好 $a-1$ 个前缀最大值，右边包含恰好 $b-1$ 个后缀最大值。\n\n以左边为例，记前缀最大值的位置为 $p$，下一个前缀最大值的位置为 $q$，则将 $[p,q)$ 称为一个块。右边同理定义。根据定义，左边的块必须由块内最大值升序排序，右边必须降序排序。\n\n考虑如何构造一个块。通过观察，我们发现一个块和一个圆排列构成双射。对于一个圆排列，我们总可以从最大值处断开，并将其作为块的起始或结尾。因此，剩余 $n-1$ 个元素划分为 $(a-1)+(b-1)=a+b-2$ 个块的方案数对应着第一类斯特林数的组合意义。\n\n现在我们得到了这些块，只需确定块的排列顺序，而这是简单的。只需从 $a+b-2$ 个块中选出 $a-1$ 个放到左边，然后按照两边的排序规则排序即可。因此我们得到了本题的答案\n$$\n\\boxed{\\binom{a+b-2}{a-1}\\begin{bmatrix}\nn-1 \\\\\na+b-2\n\\end{bmatrix}}\n$$\n直接递推即可，复杂度 $O(na+T)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-luogu-p4655",
         "title": "P4655 [CEOI 2017] Building Bridges",
         "source": "lker",
@@ -1661,6 +4565,39 @@ const PROBLEMS_DATA = [
                     "前缀和"
                 ],
                 "source": "lker"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p4785",
+        "title": "[BalticOI 2016] 交换 (Day2)",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P4785",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4785](https://www.luogu.com.cn/problem/P4785)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一个长为 $n$ 的排列 $a_i$。有 $n-1$ 轮操作，第 $k$ 次操作可以交换 $a_k$ 和 $a_{\\lfloor k/2\\rfloor}$。你需要最小化最终排列的字典序并输出。\n>\n> $n \\le 2 \\times 10^5$，1 秒，250 MB。\n\n:::::success[题解]\n思维自然且很有启发性的好题，点赞！\n\n题目中 $i \\to \\lfloor i/2 \\rfloor$ 的交换方式让我们联想到完全二叉树的堆式存储：将 $\\lfloor i/2 \\rfloor$ 视为 $i$ 的父亲，$i$ 的左右儿子为 $2i,2i+1$。\n\n对原排列建立完全二叉树，根节点为 $1$，则题目转化为最小化层序遍历字典序。\n\n我们按前序遍历的顺序依次考虑每个节点 $i$，则其最终值有三种可能：$x=a_i,y=a_{2i},z=a_{2i+1}$。贪心地，我们先让 $i$ 处的值最小，字典序一定更优。\n\n- 若 $x$ 是最小值，不做交换，左右子树分别递归求解；\n- 若 $y$ 是最小值，交换 $x \\to y$，然后左右子树递归求解；\n- 若 $z$ 是最小值，交换 $x \\to z$ 或者依次交换 $x \\to y, y \\to z$ 都可行。左右子树有 $x,y$ 和 $y,x$ 两种可能。\n\n这里需要说明一下，直接将较小值作为左子树根是错误的，因为较小值可能在左子树中被替换。\n\n我们将一个值沉入一棵子树，其必然经历若干次替换后停止在某个位置。这个位置可以通过模拟上述流程算出。\n\n设 $f(u,x)$ 为值 $x$ 沉入 $u$ 子树后的最终位置。在节点 $i$ 处，假定 $z$ 是最小值，不妨设 $x<y$\n，则我们计算出 $f(2i,x)$ 和 $f(2i+1,x)$，然后将 $x$ 沉入较小的一边即可。\n\n对于 $f(u,x)$ 的求解，可以模拟上述递归流程，其会在 $z$ 成为最小值时产生 $3$ 个分支，由递归式 $T(n)=3T(n/2)+O(1)$ 解得复杂度 $O(n^{\\log_2 3}) \\approx O(n^{1.585})$。加上递归求解，总复杂度为 $O(n^{1.585} \\log n)$，可以卡过。\n\n我们注意到 $x$ 一定来源于 $u$ 的祖先节点，这只会有 $O(\\log n)$ 个，所以可以对 $(u,x)$ 二元组记忆化。根据记搜实现方式，复杂度为 $O(n \\log^2 n) \\sim O(n \\log n)$。由于哈希表常数太大，使用 map 实现多一只 log 但跑的更快。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 2e5 + 5;\nint n, a[N], ans[N];\n\numap<int, int> mem[N];\nint f(int u, int val) {\n    int ls = u << 1, rs = u << 1 | 1;\n    if (ls > n) return u;\n    if (rs > n) return val < a[ls] ? u : f(ls, val);\n    if (mem[u].find(val) != mem[u].end()) return mem[u][val];\n    int m = min({val, a[ls], a[rs]});\n    if (m == val) return mem[u][val] = u;\n    if (m == a[ls]) return mem[u][val] = f(ls, val);\n    if (val < a[ls]) return mem[u][val] = min(f(ls, val), f(rs, val));\n    return mem[u][val] = f(ls, a[ls]) < f(rs, a[ls]) ? f(rs, val) : f(ls, val);\n}\nvoid solve(int u, int val) {\n    int ls = u << 1, rs = u << 1 | 1;\n    if (ls > n) return ans[u] = val, void();\n    if (rs > n) {\n        int v = a[ls];\n        if (v < val) swap(v, val);\n        return ans[u] = val, solve(ls, v), void();\n    }\n    int m = min({val, a[ls], a[rs]});\n    if (m == val) {\n        ans[u] = val, solve(ls, a[ls]), solve(rs, a[rs]);\n    } else if (m == a[ls]) {\n        ans[u] = a[ls], solve(ls, val), solve(rs, a[rs]); \n    } else {\n        ans[u] = a[rs];\n        int x = val, y = a[ls];\n        if (x > y) swap(x, y);\n        if (f(ls, x) < f(rs, x)) solve(ls, x), solve(rs, y);\n        else solve(ls, y), solve(rs, x);\n    }\n} \n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    a[n + 1] = 1e9, solve(1, a[1]);\n    for (int i = 1; i <= n; i++) cout << ans[i] << ' ';\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P4785](https://www.luogu.com.cn/problem/P4785)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一个长为 $n$ 的排列 $a_i$。有 $n-1$ 轮操作，第 $k$ 次操作可以交换 $a_k$ 和 $a_{\\lfloor k/2\\rfloor}$。你需要最小化最终排列的字典序并输出。\n>\n> $n \\le 2 \\times 10^5$，1 秒，250 MB。\n\n:::::success[题解]\n思维自然且很有启发性的好题，点赞！\n\n题目中 $i \\to \\lfloor i/2 \\rfloor$ 的交换方式让我们联想到完全二叉树的堆式存储：将 $\\lfloor i/2 \\rfloor$ 视为 $i$ 的父亲，$i$ 的左右儿子为 $2i,2i+1$。\n\n对原排列建立完全二叉树，根节点为 $1$，则题目转化为最小化层序遍历字典序。\n\n我们按前序遍历的顺序依次考虑每个节点 $i$，则其最终值有三种可能：$x=a_i,y=a_{2i},z=a_{2i+1}$。贪心地，我们先让 $i$ 处的值最小，字典序一定更优。\n\n- 若 $x$ 是最小值，不做交换，左右子树分别递归求解；\n- 若 $y$ 是最小值，交换 $x \\to y$，然后左右子树递归求解；\n- 若 $z$ 是最小值，交换 $x \\to z$ 或者依次交换 $x \\to y, y \\to z$ 都可行。左右子树有 $x,y$ 和 $y,x$ 两种可能。\n\n这里需要说明一下，直接将较小值作为左子树根是错误的，因为较小值可能在左子树中被替换。\n\n我们将一个值沉入一棵子树，其必然经历若干次替换后停止在某个位置。这个位置可以通过模拟上述流程算出。\n\n设 $f(u,x)$ 为值 $x$ 沉入 $u$ 子树后的最终位置。在节点 $i$ 处，假定 $z$ 是最小值，不妨设 $x<y$\n，则我们计算出 $f(2i,x)$ 和 $f(2i+1,x)$，然后将 $x$ 沉入较小的一边即可。\n\n对于 $f(u,x)$ 的求解，可以模拟上述递归流程，其会在 $z$ 成为最小值时产生 $3$ 个分支，由递归式 $T(n)=3T(n/2)+O(1)$ 解得复杂度 $O(n^{\\log_2 3}) \\approx O(n^{1.585})$。加上递归求解，总复杂度为 $O(n^{1.585} \\log n)$，可以卡过。\n\n我们注意到 $x$ 一定来源于 $u$ 的祖先节点，这只会有 $O(\\log n)$ 个，所以可以对 $(u,x)$ 二元组记忆化。根据记搜实现方式，复杂度为 $O(n \\log^2 n) \\sim O(n \\log n)$。由于哈希表常数太大，使用 map 实现多一只 log 但跑的更快。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 2e5 + 5;\nint n, a[N], ans[N];\n\numap<int, int> mem[N];\nint f(int u, int val) {\n    int ls = u << 1, rs = u << 1 | 1;\n    if (ls > n) return u;\n    if (rs > n) return val < a[ls] ? u : f(ls, val);\n    if (mem[u].find(val) != mem[u].end()) return mem[u][val];\n    int m = min({val, a[ls], a[rs]});\n    if (m == val) return mem[u][val] = u;\n    if (m == a[ls]) return mem[u][val] = f(ls, val);\n    if (val < a[ls]) return mem[u][val] = min(f(ls, val), f(rs, val));\n    return mem[u][val] = f(ls, a[ls]) < f(rs, a[ls]) ? f(rs, val) : f(ls, val);\n}\nvoid solve(int u, int val) {\n    int ls = u << 1, rs = u << 1 | 1;\n    if (ls > n) return ans[u] = val, void();\n    if (rs > n) {\n        int v = a[ls];\n        if (v < val) swap(v, val);\n        return ans[u] = val, solve(ls, v), void();\n    }\n    int m = min({val, a[ls], a[rs]});\n    if (m == val) {\n        ans[u] = val, solve(ls, a[ls]), solve(rs, a[rs]);\n    } else if (m == a[ls]) {\n        ans[u] = a[ls], solve(ls, val), solve(rs, a[rs]); \n    } else {\n        ans[u] = a[rs];\n        int x = val, y = a[ls];\n        if (x > y) swap(x, y);\n        if (f(ls, x) < f(rs, x)) solve(ls, x), solve(rs, y);\n        else solve(ls, y), solve(rs, x);\n    }\n} \n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    a[n + 1] = 1e9, solve(1, a[1]);\n    for (int i = 1; i <= n; i++) cout << ans[i] << ' ';\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -1782,6 +4719,138 @@ const PROBLEMS_DATA = [
                     "二次离线",
                     "分块",
                     "逆序对"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p5290",
+        "title": "[十二省联考 2019] 春节十二响",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P5290",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P5290](https://www.luogu.com.cn/problem/P5290)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵以 $1$ 为根的有根树，节点数为 $n$，点带权 $a_i$。你需要将这些节点划分为若干个集合 $S_1,S_2,\\cdots,S_k$，满足集合内部不存在祖先—后代关系。最小化 $\\sum\\limits_{i=1}^k \\max\\limits_{u \\in S_i} a_u$ 并输出。\n>\n> $n \\le 2 \\times 10^5$，1 秒，500 MB。\n\n:::::success[题解]\n\n对于点 $u$ 的两个儿子 $x,y$，由于集合不能存在祖先—后代关系，因此 $x$ 的答案需要与 $y$ 合并。\n\n注意到 $\\max$ 的四边形不等式 $a<b<c<d \\implies \\max(a,b)+\\max(c,d) < \\max(a,c)+\\max(b,d)$。根据 exchange argument 的理论，将 $x,y$ 的答案升序排序后依次配对，在局部即为最优。\n\n接下来证明局部最优不会影响祖先答案。将不升序列 $a_i,b_i$ 合并后的 $c_i=\\max(a_i,b_i)$ 也是一个不升序列。因此采用其他合并方法得到 $c'_i$ 并降序排序后必然有 $c'_i \\ge c_i$。\n\n子树 $u$ 继续向上合并时，提供一个更劣的 $c'_i$ 一定不优。因此上传 $c_i$ 就是全局最优。\n\n直接模拟即可 $O(n^2)$。用启发式合并维护优先队列就有 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 2e5 + 5;\nint n, a[N];\nvector<int> e[N];\npriority_queue<int> q[N];\nvoid join(int u, int v) {\n    if (q[u].size() < q[v].size()) swap(q[u], q[v]);\n    vector<int> vec;\n    while (!q[v].empty()) {\n        vec.emplace_back(max(q[u].top(), q[v].top()));\n        q[u].pop(), q[v].pop();\n    }\n    for (int i : vec) q[u].emplace(i);\n}\nvoid dfs(int u) {\n    for (int v : e[u]) dfs(v), join(u, v);\n    q[u].emplace(a[u]);\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    for (int v = 2, u; v <= n; v++) cin >> u, e[u].emplace_back(v);\n    dfs(1); i64 res = 0;\n    while (!q[1].empty()) res += q[1].top(), q[1].pop();\n    cout << res;\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P5290](https://www.luogu.com.cn/problem/P5290)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵以 $1$ 为根的有根树，节点数为 $n$，点带权 $a_i$。你需要将这些节点划分为若干个集合 $S_1,S_2,\\cdots,S_k$，满足集合内部不存在祖先—后代关系。最小化 $\\sum\\limits_{i=1}^k \\max\\limits_{u \\in S_i} a_u$ 并输出。\n>\n> $n \\le 2 \\times 10^5$，1 秒，500 MB。\n\n:::::success[题解]\n\n对于点 $u$ 的两个儿子 $x,y$，由于集合不能存在祖先—后代关系，因此 $x$ 的答案需要与 $y$ 合并。\n\n注意到 $\\max$ 的四边形不等式 $a<b<c<d \\implies \\max(a,b)+\\max(c,d) < \\max(a,c)+\\max(b,d)$。根据 exchange argument 的理论，将 $x,y$ 的答案升序排序后依次配对，在局部即为最优。\n\n接下来证明局部最优不会影响祖先答案。将不升序列 $a_i,b_i$ 合并后的 $c_i=\\max(a_i,b_i)$ 也是一个不升序列。因此采用其他合并方法得到 $c'_i$ 并降序排序后必然有 $c'_i \\ge c_i$。\n\n子树 $u$ 继续向上合并时，提供一个更劣的 $c'_i$ 一定不优。因此上传 $c_i$ 就是全局最优。\n\n直接模拟即可 $O(n^2)$。用启发式合并维护优先队列就有 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 2e5 + 5;\nint n, a[N];\nvector<int> e[N];\npriority_queue<int> q[N];\nvoid join(int u, int v) {\n    if (q[u].size() < q[v].size()) swap(q[u], q[v]);\n    vector<int> vec;\n    while (!q[v].empty()) {\n        vec.emplace_back(max(q[u].top(), q[v].top()));\n        q[u].pop(), q[v].pop();\n    }\n    for (int i : vec) q[u].emplace(i);\n}\nvoid dfs(int u) {\n    for (int v : e[u]) dfs(v), join(u, v);\n    q[u].emplace(a[u]);\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    for (int v = 2, u; v <= n; v++) cin >> u, e[u].emplace_back(v);\n    dfs(1); i64 res = 0;\n    while (!q[1].empty()) res += q[1].top(), q[1].pop();\n    cout << res;\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p5311",
+        "title": "[Ynoi2011] 成都七中",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P5311",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P5311](https://www.luogu.com.cn/problem/P5311)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给你一个 $n$ 个节点的无根树，点有颜色，$q$ 次查询给出 $l,r, x$，求保留 $[l,r]$ 中的节点后 $x$ 所在连通块颜色数。\n>\n> $n,q \\le 10^5$，1 秒，250 MB。\n\n:::::success[题解]\n\n记 $S_{x,[l,r]}$ 为保留 $[l,r]$ 后 $x$ 的可达点集，有关键观察：$\\forall y \\in S_{x,[l,r]}, S_{x,[l,r]}=S_{y,[l,r]}$。\n\n点分治起手，设分治中心为 $c$，则将 $c$ 作为代表元求解子树中的问题。具体地，对于子树中的询问 $(l,r,x)$，我们判断是否有 $c \\in S_{x,[l,r]}$，若满足条件则求解 $S_{c,[l,r]}$ 的答案，若不满足则作为子问题分治处理。\n\n现在问题转化为：求从 $c$ 出发，只经过 $[l,r]$ 的可达点集中的颜色数。\n\n设 $(u,v)$ 两点间的路径为 $p_1,p_2,\\cdots,p_k$，则 $(u,v)$ 可达当且仅当 $\\forall 1 \\le i \\le k, p_i \\in [l,r]$，即 $[\\min p, \\max p] \\subseteq [l,r]$。\n\n于是从 $c$ 开始自顶向下维护两个值 $mx_u, mn_u$，表示 $u$ 到 $c$ 的路径上的最大 / 最小编号，此时 $u$ 带贡献的必要条件是 $l \\le mn_u \\le mx_u \\le r$。用二维平面来刻画，将 $(mn_u,mx_u)$ 作为一个点，问题即：在 $x \\le l, y\\le r$ 的区域内数颜色。\n\n将颜色去重后进行二维数点。对于同种颜色，若存在两点 $(x_1,y_1),(x_2,y_2) $ 且 $x_1 \\le x_2, y_1 \\le y_2$，则 $(x_2,y_2)$ 是无用的。去重以后，将查询按 $l$ 降序排序，对 $x$ 扫描线。\n\n采用类似于 [HH 的项链](https://www.luogu.com.cn/problem/P1972)的处理方式，维护一个树状数组，同时记录每种颜色上一次出现的位置，激活新位置时要删除上一个位置。\n\n按照上述过程实现，视 $n,q,V$ 同阶复杂度 $O(n \\log^2 n)$。\n\n::::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1e5 + 5;\nusing query = tuple<int, int, int, int>;  // {l, r, x, id}\nusing point = tuple<int, int, int>;  // {x, y, col}\n\nstruct BIT {\n    int tr[N];\n    void add(int x, int c) {\n        for (; x < N; x += lowbit(x)) tr[x] += c;\n    }\n    int ask(int x) {\n        int res = 0;\n        for (; x >= 1; x -= lowbit(x)) res += tr[x];\n        return res;\n    }\n} B;\n\nint n, q, col[N], ans[N];\nvector<int> e[N];\n\nint ctr, cur, sz[N], vis[N];\nvoid dfs1(int u, int fa) {\n    sz[u] = 1;\n    for (int v : e[u]) {\n        if (v == fa || vis[v]) continue;\n        dfs1(v, u), sz[u] += sz[v];\n    }\n    if (!ctr && 2 * sz[u] >= cur) ctr = u;\n}\nvoid dfs2(int u, int fa) {\n    cur++;\n    for (int v : e[u]) if (v != fa && !vis[v]) dfs2(v, u);\n}\n\nint mn[N], mx[N], bel[N];\nvoid dfs3(int u, int fa, int minv, int maxv, int b, vector<int>& vec) {\n    minv = min(minv, u), maxv = max(maxv, u);\n    mn[u] = minv, mx[u] = maxv, bel[u] = b, vec.emplace_back(u);\n    for (int v : e[u]) if (v != fa && !vis[v]) dfs3(v, u, minv, maxv, b, vec);\n} \n\nint last[N];\nvector<query> child[N];\nvector<pair<int, int>> cp[N];\nvoid update(int u, vector<query>& q, vector<pair<int, vector<query>>>& nxt) {\n    vector<int> vec = {u};\n    mn[u] = u, mx[u] = u, bel[u] = -1;\n    for (int v : e[u]) {\n        if (!vis[v]) dfs3(v, u, u, u, v, vec);\n    }\n    vector<query> now;\n    for (auto& [l, r, x, id] : q) {\n        if (l <= mn[x] && mx[x] <= r) now.emplace_back(l, r, x, id);\n        else child[bel[x]].emplace_back(l, r, x, id);\n    }\n    for (int v : e[u]) {   // 下传询问\n        if (vis[v] || child[v].empty()) continue;\n        nxt.emplace_back(v, child[v]), child[v].clear();\n    }\n\n    // 扫描线\n    vector<point> p;\n    for (int v : vec) cp[col[v]].emplace_back(mn[v], mx[v]);\n    for (int v : vec) {   // 去重\n        if (cp[col[v]].empty()) continue;\n        sort(cp[col[v]].begin(), cp[col[v]].end(), greater<pair<int, int>>());\n        int ymin = 1e9;\n        for (auto& [x, y] : cp[col[v]]) {\n            if (y < ymin) ymin = y, p.emplace_back(x, y, col[v]);\n        }\n        cp[col[v]].clear();\n    }\n    sort(now.begin(), now.end(), greater<query>());\n    sort(p.begin(), p.end(), greater<point>());\n\n    int i = 0;\n    vector<int> undo;\n    for (auto& [l, r, x, id] : now) {\n        for (; i < (int)p.size() && get<0>(p[i]) >= l; i++) {\n            auto& [_, y, c] = p[i];\n            if (last[c]) B.add(last[c], -1);\n            last[c] = y, B.add(last[c], 1);\n            undo.emplace_back(c);\n        }\n        ans[id] = B.ask(r);\n    }\n    for (int c : undo) if (last[c]) B.add(last[c], -1), last[c] = 0;\n}\n\nvoid solve(int u, vector<query>& q) {\n    if (q.empty()) return;\n    vis[u] = true;\n    vector<pair<int, vector<query>>> nxt;\n    update(u, q, nxt);\n    for (auto& [v, vec] : nxt) {\n        cur = ctr = 0, dfs2(v, u), dfs1(v, u);\n        solve(ctr, vec);\n    }\n}\n\nvoid _main() {\n    cin >> n >> q;\n    for (int i = 1; i <= n; i++) cin >> col[i];\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    vector<query> vec;\n    for (int i = 1, l, r, x; i <= q; i++) {\n        cin >> l >> r >> x;\n        vec.emplace_back(l, r, x, i);\n    }\n    cur = n, dfs1(1, -1), solve(ctr, vec);\n    for (int i = 1; i <= q; i++) cout << ans[i] << '\\n'; \n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P5311](https://www.luogu.com.cn/problem/P5311)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给你一个 $n$ 个节点的无根树，点有颜色，$q$ 次查询给出 $l,r, x$，求保留 $[l,r]$ 中的节点后 $x$ 所在连通块颜色数。\n>\n> $n,q \\le 10^5$，1 秒，250 MB。\n\n:::::success[题解]\n\n记 $S_{x,[l,r]}$ 为保留 $[l,r]$ 后 $x$ 的可达点集，有关键观察：$\\forall y \\in S_{x,[l,r]}, S_{x,[l,r]}=S_{y,[l,r]}$。\n\n点分治起手，设分治中心为 $c$，则将 $c$ 作为代表元求解子树中的问题。具体地，对于子树中的询问 $(l,r,x)$，我们判断是否有 $c \\in S_{x,[l,r]}$，若满足条件则求解 $S_{c,[l,r]}$ 的答案，若不满足则作为子问题分治处理。\n\n现在问题转化为：求从 $c$ 出发，只经过 $[l,r]$ 的可达点集中的颜色数。\n\n设 $(u,v)$ 两点间的路径为 $p_1,p_2,\\cdots,p_k$，则 $(u,v)$ 可达当且仅当 $\\forall 1 \\le i \\le k, p_i \\in [l,r]$，即 $[\\min p, \\max p] \\subseteq [l,r]$。\n\n于是从 $c$ 开始自顶向下维护两个值 $mx_u, mn_u$，表示 $u$ 到 $c$ 的路径上的最大 / 最小编号，此时 $u$ 带贡献的必要条件是 $l \\le mn_u \\le mx_u \\le r$。用二维平面来刻画，将 $(mn_u,mx_u)$ 作为一个点，问题即：在 $x \\le l, y\\le r$ 的区域内数颜色。\n\n将颜色去重后进行二维数点。对于同种颜色，若存在两点 $(x_1,y_1),(x_2,y_2) $ 且 $x_1 \\le x_2, y_1 \\le y_2$，则 $(x_2,y_2)$ 是无用的。去重以后，将查询按 $l$ 降序排序，对 $x$ 扫描线。\n\n采用类似于 [HH 的项链](https://www.luogu.com.cn/problem/P1972)的处理方式，维护一个树状数组，同时记录每种颜色上一次出现的位置，激活新位置时要删除上一个位置。\n\n按照上述过程实现，视 $n,q,V$ 同阶复杂度 $O(n \\log^2 n)$。\n\n::::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1e5 + 5;\nusing query = tuple<int, int, int, int>;  // {l, r, x, id}\nusing point = tuple<int, int, int>;  // {x, y, col}\n\nstruct BIT {\n    int tr[N];\n    void add(int x, int c) {\n        for (; x < N; x += lowbit(x)) tr[x] += c;\n    }\n    int ask(int x) {\n        int res = 0;\n        for (; x >= 1; x -= lowbit(x)) res += tr[x];\n        return res;\n    }\n} B;\n\nint n, q, col[N], ans[N];\nvector<int> e[N];\n\nint ctr, cur, sz[N], vis[N];\nvoid dfs1(int u, int fa) {\n    sz[u] = 1;\n    for (int v : e[u]) {\n        if (v == fa || vis[v]) continue;\n        dfs1(v, u), sz[u] += sz[v];\n    }\n    if (!ctr && 2 * sz[u] >= cur) ctr = u;\n}\nvoid dfs2(int u, int fa) {\n    cur++;\n    for (int v : e[u]) if (v != fa && !vis[v]) dfs2(v, u);\n}\n\nint mn[N], mx[N], bel[N];\nvoid dfs3(int u, int fa, int minv, int maxv, int b, vector<int>& vec) {\n    minv = min(minv, u), maxv = max(maxv, u);\n    mn[u] = minv, mx[u] = maxv, bel[u] = b, vec.emplace_back(u);\n    for (int v : e[u]) if (v != fa && !vis[v]) dfs3(v, u, minv, maxv, b, vec);\n} \n\nint last[N];\nvector<query> child[N];\nvector<pair<int, int>> cp[N];\nvoid update(int u, vector<query>& q, vector<pair<int, vector<query>>>& nxt) {\n    vector<int> vec = {u};\n    mn[u] = u, mx[u] = u, bel[u] = -1;\n    for (int v : e[u]) {\n        if (!vis[v]) dfs3(v, u, u, u, v, vec);\n    }\n    vector<query> now;\n    for (auto& [l, r, x, id] : q) {\n        if (l <= mn[x] && mx[x] <= r) now.emplace_back(l, r, x, id);\n        else child[bel[x]].emplace_back(l, r, x, id);\n    }\n    for (int v : e[u]) {   // 下传询问\n        if (vis[v] || child[v].empty()) continue;\n        nxt.emplace_back(v, child[v]), child[v].clear();\n    }\n\n    // 扫描线\n    vector<point> p;\n    for (int v : vec) cp[col[v]].emplace_back(mn[v], mx[v]);\n    for (int v : vec) {   // 去重\n        if (cp[col[v]].empty()) continue;\n        sort(cp[col[v]].begin(), cp[col[v]].end(), greater<pair<int, int>>());\n        int ymin = 1e9;\n        for (auto& [x, y] : cp[col[v]]) {\n            if (y < ymin) ymin = y, p.emplace_back(x, y, col[v]);\n        }\n        cp[col[v]].clear();\n    }\n    sort(now.begin(), now.end(), greater<query>());\n    sort(p.begin(), p.end(), greater<point>());\n\n    int i = 0;\n    vector<int> undo;\n    for (auto& [l, r, x, id] : now) {\n        for (; i < (int)p.size() && get<0>(p[i]) >= l; i++) {\n            auto& [_, y, c] = p[i];\n            if (last[c]) B.add(last[c], -1);\n            last[c] = y, B.add(last[c], 1);\n            undo.emplace_back(c);\n        }\n        ans[id] = B.ask(r);\n    }\n    for (int c : undo) if (last[c]) B.add(last[c], -1), last[c] = 0;\n}\n\nvoid solve(int u, vector<query>& q) {\n    if (q.empty()) return;\n    vis[u] = true;\n    vector<pair<int, vector<query>>> nxt;\n    update(u, q, nxt);\n    for (auto& [v, vec] : nxt) {\n        cur = ctr = 0, dfs2(v, u), dfs1(v, u);\n        solve(ctr, vec);\n    }\n}\n\nvoid _main() {\n    cin >> n >> q;\n    for (int i = 1; i <= n; i++) cin >> col[i];\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    vector<query> vec;\n    for (int i = 1, l, r, x; i <= q; i++) {\n        cin >> l >> r >> x;\n        vec.emplace_back(l, r, x, i);\n    }\n    cur = n, dfs1(1, -1), solve(ctr, vec);\n    for (int i = 1; i <= q; i++) cout << ans[i] << '\\n'; \n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p5389",
+        "title": "[Cnoi2019] 数学课",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P5389",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P5389](https://www.luogu.com.cn/problem/P5389)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有长为 $n$ 的数列 $a_i=1+2+\\cdots+i$。独立地以概率 $p_i,p_j$ 分别选出两个元素 $a_i,a_j$，并等概率地选出整数 $x \\in [1,a_i], y \\in [1,a_j]$，求 $x>y$ 的概率。\n>\n> 其中，$p_i=\\dfrac{3i(i+1)}{n(n+1)(n+2)}$。$n$ 可能为 $+\\infty$。\n>\n> $1 \\le n \\le 10^{18}$，或者 $n=+\\infty$。1 秒，125 MB。\n\n:::::success[题解]\n\n注意到 $x,y$ 的地位完全相同，很自然地 $P(x<y)=P(x>y)$。那么由对称性我们只需计算 $\\dfrac{1-P(x=y)}{2}$。\n\n考虑枚举 $i,j$，然后直接列出答案式\n\n$$\nP(x=y)=\\sum_{i=1}^n \\sum_{j=1}^n p_ip_j \\dfrac{\\min(a_i,a_j)}{a_ia_j}\n$$\n\n我们发现 $\\dfrac{p_i}{a_i}$ 是一个不变量，具体地：\n\n$$\n\\dfrac{p_i}{a_i}=\\dfrac{3i(i+1)}{n(n+1)(n+2)} \\times \\dfrac{2}{i(i+1)}=\\dfrac{6}{n(n+1)(n+2)}\n$$\n\n记这一常数为 $C$，代入以后大力推式子\n\n$$\n\\begin{aligned}\nP(x=y)&=C^2\\sum_{i=1}^n \\sum_{j=1}^n \\min(a_i,a_j)\\\\\n&=C^2 \\sum_{i=1}^n \\left(\\sum_{j=1}^i a_j+\\sum_{j=i+1}^n a_i\\right)\\\\\n&=C^2 \\sum_{i=1}^n \\left(\\sum_{j=1}^i \\dfrac{j(j+1)}{2}+(n-i)\\dfrac{i(i+1)}{2}\\right)\\\\\n&=C^2 \\sum_{i=1}^n \\left(\\dfrac{i(i+1)(i+2)}{6}+\\dfrac{i(i+1)(n-i)}{2}\\right)\\\\\n&= C^2  \\sum_{i=1}^n \\left(\\dfrac{ni(i+1)}{2}+\\dfrac{(1-i)i(i+1)}{3}\\right)\\\\\n&=C^2 \\left(\\dfrac{3n+2}{6}\\sum_{i=1}^n i(i+1)-\\dfrac{1}{3} \\sum_{i=1}^n i^2 (i+1)\\right)\\\\\n&= C^2 \\left(\\dfrac{3n+2}{6}\\times \\dfrac{n(n+1)(n+2)}{3}  -\\dfrac{1}{3} \\times \\dfrac{n(n+1)(3n^2+7n+2)}{12}\\right)\\\\\n&=\\dfrac{C^2n(n+1)^2(n+2)}{12}\\\\\n&= \\dfrac{n(n+1)^2(n+2)}{12}\\times  \\dfrac{36}{n^2(n+1)^2(n+2)^2}\\\\\n&=\\boxed{\\dfrac{3}{n(n+2)}}\n\\end{aligned}\n$$\n\n这里用到了一些熟知结论：\n\n- $\\sum \\limits_{i=1}^n i =\\dfrac{n(n+1)}{2}$。\n- $\\sum \\limits_{i=1}^n i^2=\\dfrac{n(n+1)(n+2)}{6}$。\n- $\\sum\\limits_{i=1}^n i^3=\\dfrac{n^2(n+1)^2}{4}$。\n\n题目保证 $n,n+2$ 非零，故 $n$ 有限的情况可以 $O(\\log p)$ 解决。\n\n事实上，$\\lim\\limits_{n \\to +\\infty} \\dfrac{3}{n(n+2)}=0$，故 $n$ 为正无穷的情形答案就是 $\\dfrac{1}{2}$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P5389](https://www.luogu.com.cn/problem/P5389)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有长为 $n$ 的数列 $a_i=1+2+\\cdots+i$。独立地以概率 $p_i,p_j$ 分别选出两个元素 $a_i,a_j$，并等概率地选出整数 $x \\in [1,a_i], y \\in [1,a_j]$，求 $x>y$ 的概率。\n>\n> 其中，$p_i=\\dfrac{3i(i+1)}{n(n+1)(n+2)}$。$n$ 可能为 $+\\infty$。\n>\n> $1 \\le n \\le 10^{18}$，或者 $n=+\\infty$。1 秒，125 MB。\n\n:::::success[题解]\n\n注意到 $x,y$ 的地位完全相同，很自然地 $P(x<y)=P(x>y)$。那么由对称性我们只需计算 $\\dfrac{1-P(x=y)}{2}$。\n\n考虑枚举 $i,j$，然后直接列出答案式\n\n$$\nP(x=y)=\\sum_{i=1}^n \\sum_{j=1}^n p_ip_j \\dfrac{\\min(a_i,a_j)}{a_ia_j}\n$$\n\n我们发现 $\\dfrac{p_i}{a_i}$ 是一个不变量，具体地：\n\n$$\n\\dfrac{p_i}{a_i}=\\dfrac{3i(i+1)}{n(n+1)(n+2)} \\times \\dfrac{2}{i(i+1)}=\\dfrac{6}{n(n+1)(n+2)}\n$$\n\n记这一常数为 $C$，代入以后大力推式子\n\n$$\n\\begin{aligned}\nP(x=y)&=C^2\\sum_{i=1}^n \\sum_{j=1}^n \\min(a_i,a_j)\\\\\n&=C^2 \\sum_{i=1}^n \\left(\\sum_{j=1}^i a_j+\\sum_{j=i+1}^n a_i\\right)\\\\\n&=C^2 \\sum_{i=1}^n \\left(\\sum_{j=1}^i \\dfrac{j(j+1)}{2}+(n-i)\\dfrac{i(i+1)}{2}\\right)\\\\\n&=C^2 \\sum_{i=1}^n \\left(\\dfrac{i(i+1)(i+2)}{6}+\\dfrac{i(i+1)(n-i)}{2}\\right)\\\\\n&= C^2  \\sum_{i=1}^n \\left(\\dfrac{ni(i+1)}{2}+\\dfrac{(1-i)i(i+1)}{3}\\right)\\\\\n&=C^2 \\left(\\dfrac{3n+2}{6}\\sum_{i=1}^n i(i+1)-\\dfrac{1}{3} \\sum_{i=1}^n i^2 (i+1)\\right)\\\\\n&= C^2 \\left(\\dfrac{3n+2}{6}\\times \\dfrac{n(n+1)(n+2)}{3}  -\\dfrac{1}{3} \\times \\dfrac{n(n+1)(3n^2+7n+2)}{12}\\right)\\\\\n&=\\dfrac{C^2n(n+1)^2(n+2)}{12}\\\\\n&= \\dfrac{n(n+1)^2(n+2)}{12}\\times  \\dfrac{36}{n^2(n+1)^2(n+2)^2}\\\\\n&=\\boxed{\\dfrac{3}{n(n+2)}}\n\\end{aligned}\n$$\n\n这里用到了一些熟知结论：\n\n- $\\sum \\limits_{i=1}^n i =\\dfrac{n(n+1)}{2}$。\n- $\\sum \\limits_{i=1}^n i^2=\\dfrac{n(n+1)(n+2)}{6}$。\n- $\\sum\\limits_{i=1}^n i^3=\\dfrac{n^2(n+1)^2}{4}$。\n\n题目保证 $n,n+2$ 非零，故 $n$ 有限的情况可以 $O(\\log p)$ 解决。\n\n事实上，$\\lim\\limits_{n \\to +\\infty} \\dfrac{3}{n(n+2)}=0$，故 $n$ 为正无穷的情形答案就是 $\\dfrac{1}{2}$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p5521",
+        "title": "[yLOI2019] 梅深不见冬",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P5521",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P5521](https://www.luogu.com.cn/problem/P5521)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，带点有点权 $a_u$。\n>\n> 你初始持有 $f_u$ 个物品，位于节点 $1$。你可以在树上进行游走，可以选择进入一个未进入的子节点，或者回到父节点。\n>\n> 你需要在每个节点上放置若干物品。对于非叶节点 $u$，允许在其上放置物品的条件为：每个子节点 $v$ 的物品数都恰好为 $ a_v$。\n>\n> 你可以在任意时刻回收任意节点上的物品，且不需要走到对应点。\n>\n> 对于 $u=1,2,\\cdots,n$，求出在节点 $u$ 上放置 $a_u$ 个物品所需的 $f_u$ 的最小值。\n>\n> $n \\le 10^5+4$，1 秒，500 MB。\n\n:::::success[题解]\n考虑树形 DP，设 $f_u$ 为节点答案。注意到 $u$ 点可回收的物品数恰好为 $a_u$。我们钦定某种顺序，依次游走子树 $v_1,v_2,\\cdots,v_k$，那么有转移：\n\n$$\n\\begin{aligned}\nf_u &\\gets \\sum_{i=1}^{x-1} a_{v_i}+f_{v_x}, x =1,2,\\cdots,k\\\\\nf_u &\\gets \\sum_{i=1}^k a_i+f_u\n\\end{aligned}\n$$\n\n根据木桶原理这里做的是 chkmax。前面这个求和式表示之前回收的物品总数，容易前缀和维护。\n\n现在考虑如何对儿子 $v_i$ 排序，想到用 exchange argument，考虑局部，设两儿子为 $x,y$。\n\n记前面的和式为 $S$，则讨论先 $x$ 后 $y$ 和先 $y$ 后 $x$ 所造成的局部 $\\max$：\n\n- 先 $x$ 后 $y$：\n  - 处理 $x$ 时的需求量为 $S+f_x$。\n  - 处理 $y$ 时，$S \\gets S+a_x$，故需求量 $S+a_x+f_y$。\n  - 故局部峰值为 $\\max(S+f_x,S+a_x+f_y)=S+\\max(f_x,a_x+f_y)$。\n- 先 $y$ 后 $x$ 同理，得局部峰值 $S+\\max(f_y,a_y+f_x)$。\n\n令 $\\max(f_x,a_x+f_y)<\\max(f_y,a_y+f_x)$。\n\n根据 $a_x,a_y \\ge 1$，我们有 $f_x < f_x+a_y \\land a_x+f_y>f_y$，故原不等式写为\n\n$$\na_x+f_y<a_y+f_x \\iff f_x-a_x > f_y-a_y\n$$\n\n得证，按 $f_v-a_x$ 降序排序即可，显然严格全序。\n\n复杂度 $O(n \\log n)$。用邻项交换贪心来确定 DP 转移顺序，十分精妙。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 10;\nint n, a[N];\nvector<int> e[N];\ni64 f[N];\n\nvoid dfs(int u) {\n    for (int v : e[u]) dfs(v);\n    sort(e[u].begin(), e[u].end(), [](int x, int y) -> bool {\n        return f[x] - a[x] > f[y] - a[y]; \n    });\n    i64 sum = 0;\n    for (int v : e[u]) f[u] = max(f[u], sum + f[v]), sum += a[v];\n    f[u] = max(f[u], sum + a[u]);\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 2, x; i <= n; i++) cin >> x, e[x].emplace_back(i);\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    dfs(1);\n    for (int i = 1; i <= n; i++) cout << f[i] << ' '; \n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P5521](https://www.luogu.com.cn/problem/P5521)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，带点有点权 $a_u$。\n>\n> 你初始持有 $f_u$ 个物品，位于节点 $1$。你可以在树上进行游走，可以选择进入一个未进入的子节点，或者回到父节点。\n>\n> 你需要在每个节点上放置若干物品。对于非叶节点 $u$，允许在其上放置物品的条件为：每个子节点 $v$ 的物品数都恰好为 $ a_v$。\n>\n> 你可以在任意时刻回收任意节点上的物品，且不需要走到对应点。\n>\n> 对于 $u=1,2,\\cdots,n$，求出在节点 $u$ 上放置 $a_u$ 个物品所需的 $f_u$ 的最小值。\n>\n> $n \\le 10^5+4$，1 秒，500 MB。\n\n:::::success[题解]\n考虑树形 DP，设 $f_u$ 为节点答案。注意到 $u$ 点可回收的物品数恰好为 $a_u$。我们钦定某种顺序，依次游走子树 $v_1,v_2,\\cdots,v_k$，那么有转移：\n\n$$\n\\begin{aligned}\nf_u &\\gets \\sum_{i=1}^{x-1} a_{v_i}+f_{v_x}, x =1,2,\\cdots,k\\\\\nf_u &\\gets \\sum_{i=1}^k a_i+f_u\n\\end{aligned}\n$$\n\n根据木桶原理这里做的是 chkmax。前面这个求和式表示之前回收的物品总数，容易前缀和维护。\n\n现在考虑如何对儿子 $v_i$ 排序，想到用 exchange argument，考虑局部，设两儿子为 $x,y$。\n\n记前面的和式为 $S$，则讨论先 $x$ 后 $y$ 和先 $y$ 后 $x$ 所造成的局部 $\\max$：\n\n- 先 $x$ 后 $y$：\n  - 处理 $x$ 时的需求量为 $S+f_x$。\n  - 处理 $y$ 时，$S \\gets S+a_x$，故需求量 $S+a_x+f_y$。\n  - 故局部峰值为 $\\max(S+f_x,S+a_x+f_y)=S+\\max(f_x,a_x+f_y)$。\n- 先 $y$ 后 $x$ 同理，得局部峰值 $S+\\max(f_y,a_y+f_x)$。\n\n令 $\\max(f_x,a_x+f_y)<\\max(f_y,a_y+f_x)$。\n\n根据 $a_x,a_y \\ge 1$，我们有 $f_x < f_x+a_y \\land a_x+f_y>f_y$，故原不等式写为\n\n$$\na_x+f_y<a_y+f_x \\iff f_x-a_x > f_y-a_y\n$$\n\n得证，按 $f_v-a_x$ 降序排序即可，显然严格全序。\n\n复杂度 $O(n \\log n)$。用邻项交换贪心来确定 DP 转移顺序，十分精妙。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 10;\nint n, a[N];\nvector<int> e[N];\ni64 f[N];\n\nvoid dfs(int u) {\n    for (int v : e[u]) dfs(v);\n    sort(e[u].begin(), e[u].end(), [](int x, int y) -> bool {\n        return f[x] - a[x] > f[y] - a[y]; \n    });\n    i64 sum = 0;\n    for (int v : e[u]) f[u] = max(f[u], sum + f[v]), sum += a[v];\n    f[u] = max(f[u], sum + a[u]);\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 2, x; i <= n; i++) cin >> x, e[x].emplace_back(i);\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    dfs(1);\n    for (int i = 1; i <= n; i++) cout << f[i] << ' '; \n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
                 ],
                 "source": "stripe-python"
             }
@@ -1948,6 +5017,105 @@ const PROBLEMS_DATA = [
         ]
     },
     {
+        "id": "prob-luogu-p6475",
+        "title": "[NOI Online #2 入门组] 建设城市",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P6475",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P6475](https://www.luogu.com.cn/problem/P6475)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m,x,y$。求满足以下条件的正整数序列 $a_1 \\sim a_{2n}$ 的数目：\n>\n> - $a_i \\in [1,m]$。\n> - $a_1 \\le a_2 \\le \\cdots \\le a_n$。\n> - $a_{n+1} \\ge a_{n+2} \\ge \\cdots \\ge a_{2n}$。\n> - $a_x=a_y$。\n>\n> $n,m \\le 10^5$，1 秒，128 MB。\n\n:::::success[题解]\n\n::::info[不降序列计数]\n\n**问题** 对值域 $[l,r]$，长为 $n$ 的不降序列 $a_1 \\sim a_n$ 计数。\n\n我们令 $a_i \\gets a_i+i$，则值域变为 $[l+1,r+n]$，只要对递增序列 $a_1 \\sim a_n$ 计数。\n\n考虑从 $[l+1,r+n]$ 中取出 $n$ 个数，这些数自动升序排序，从而方案数 $\\dbinom{r-l+n}{n}=\\dbinom{r-l+n}{r-l}$。\n\n::::\n\n考虑枚举 $a_x=a_y=k$，对 $x,y$ 的位置分类讨论：\n\n- $x \\le n \\le y$：序列分为 $[1,x),(x,n], (n,y), (y,2n]$ 四段分步计数：\n\n  - $[1,x)$ 段：$[1,x)$ 段：对值域 $[1,k]$，长为 $x-1$ 的不降序列计数，方案数 $\\dbinom{k-1+x-1}{k-1}$。\n  - $(x,n]$ 段：对值域 $[k,m]$，长为 $n-x$ 的不降序列计数，方案数 $\\dbinom{m-k+n-x}{m-k}$。\n  - $(n,y)$ 段：对值域 $[k,m]$，长为 $y-n-1$ 的不升序列计数，方案数 $\\dbinom{m-k+y-n-1}{m-k}$。\n  - $(y,2n]$ 段：对值域 $[1,k]$，长为 $2n-y$ 的不升序列计数，方案数 $\\dbinom{k-1+2n-y}{k-1}$。\n    将四段的方案数相乘得到答案\n\n  $$\n  \\boxed{\\sum_{k=1}^{m} \\binom{k+x-2}{k-1} \\binom{m-k+n-x}{m-k} \\binom{m-k+y-n-1}{m-k} \\binom{k+2n-y-1}{k-1}}\n  $$\n\n- $x,y \\le n$：序列分为 $[1,x), (x,y), (y,n], (n,2n]$ 四段分步计数：\n\n  - $[1,x)$ 段：对值域 $[1,k]$，长为 $x-1$ 的不降序列计数，方案数 $\\dbinom{k-1+x-1}{k-1}$。\n  - $(x,y)$ 段：方案数为 $1$。\n  - $(y,n]$ 段：对值域 $[k,m]$，长为 $n-y$ 的不降序列计数，方案数 $\\dbinom{m-k+n-y}{m-k}$。\n  - $(n,2n]$ 段：对值域 $[1,m]$，长为 $n$ 的不升序列计数，方案数 $\\dbinom{m-1+n}{m-1}$。\n    将四段的方案数相乘得到答案\n\n  $$\n  \\boxed{\\binom{n+m-1}{m-1} \\sum_{k=1}^{m} \\binom{k+x-2}{k-1} \\binom{m-k+n-y}{m-k}}\n  $$\n\n  对于 $x,y \\ge n$ 的情形同理。\n\n复杂度 $O(m)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P6475](https://www.luogu.com.cn/problem/P6475)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m,x,y$。求满足以下条件的正整数序列 $a_1 \\sim a_{2n}$ 的数目：\n>\n> - $a_i \\in [1,m]$。\n> - $a_1 \\le a_2 \\le \\cdots \\le a_n$。\n> - $a_{n+1} \\ge a_{n+2} \\ge \\cdots \\ge a_{2n}$。\n> - $a_x=a_y$。\n>\n> $n,m \\le 10^5$，1 秒，128 MB。\n\n:::::success[题解]\n\n::::info[不降序列计数]\n\n**问题** 对值域 $[l,r]$，长为 $n$ 的不降序列 $a_1 \\sim a_n$ 计数。\n\n我们令 $a_i \\gets a_i+i$，则值域变为 $[l+1,r+n]$，只要对递增序列 $a_1 \\sim a_n$ 计数。\n\n考虑从 $[l+1,r+n]$ 中取出 $n$ 个数，这些数自动升序排序，从而方案数 $\\dbinom{r-l+n}{n}=\\dbinom{r-l+n}{r-l}$。\n\n::::\n\n考虑枚举 $a_x=a_y=k$，对 $x,y$ 的位置分类讨论：\n\n- $x \\le n \\le y$：序列分为 $[1,x),(x,n], (n,y), (y,2n]$ 四段分步计数：\n\n  - $[1,x)$ 段：$[1,x)$ 段：对值域 $[1,k]$，长为 $x-1$ 的不降序列计数，方案数 $\\dbinom{k-1+x-1}{k-1}$。\n  - $(x,n]$ 段：对值域 $[k,m]$，长为 $n-x$ 的不降序列计数，方案数 $\\dbinom{m-k+n-x}{m-k}$。\n  - $(n,y)$ 段：对值域 $[k,m]$，长为 $y-n-1$ 的不升序列计数，方案数 $\\dbinom{m-k+y-n-1}{m-k}$。\n  - $(y,2n]$ 段：对值域 $[1,k]$，长为 $2n-y$ 的不升序列计数，方案数 $\\dbinom{k-1+2n-y}{k-1}$。\n    将四段的方案数相乘得到答案\n\n  $$\n  \\boxed{\\sum_{k=1}^{m} \\binom{k+x-2}{k-1} \\binom{m-k+n-x}{m-k} \\binom{m-k+y-n-1}{m-k} \\binom{k+2n-y-1}{k-1}}\n  $$\n\n- $x,y \\le n$：序列分为 $[1,x), (x,y), (y,n], (n,2n]$ 四段分步计数：\n\n  - $[1,x)$ 段：对值域 $[1,k]$，长为 $x-1$ 的不降序列计数，方案数 $\\dbinom{k-1+x-1}{k-1}$。\n  - $(x,y)$ 段：方案数为 $1$。\n  - $(y,n]$ 段：对值域 $[k,m]$，长为 $n-y$ 的不降序列计数，方案数 $\\dbinom{m-k+n-y}{m-k}$。\n  - $(n,2n]$ 段：对值域 $[1,m]$，长为 $n$ 的不升序列计数，方案数 $\\dbinom{m-1+n}{m-1}$。\n    将四段的方案数相乘得到答案\n\n  $$\n  \\boxed{\\binom{n+m-1}{m-1} \\sum_{k=1}^{m} \\binom{k+x-2}{k-1} \\binom{m-k+n-y}{m-k}}\n  $$\n\n  对于 $x,y \\ge n$ 的情形同理。\n\n复杂度 $O(m)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p7044",
+        "title": "「MCOI-03」括号",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P7044",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7044](https://www.luogu.com.cn/problem/P7044)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 定义一个括号串的 $0$ 级权值为，将括号串修改为合法的最小操作次数。一次操作可以在任意位置插入或删除括号。\n>\n> 定义一个括号串的 $k$ 级权值为所有子串 $k-1$ 级权值之和。\n>\n> 给定长为 $n$ 的括号串，求出 $k$ 级权值。\n>\n> $n,k \\le 10^6$，1 秒，500 MB。\n\n:::::success[题解]\n\n设子串 $[l,r]$ 的 $0$ 级权值对最终答案的贡献系数为 $f_{l,r}$，初始 $f_{1,n}=1$。每轮迭代 $[l,r]$ 对 $[l',r'] \\subseteq [l,r]$ 有贡献，执行 $k$ 轮转移：\n$$\nf_{l,r} \\gets \\sum_{x=1}^l \\sum_{y=r}^n f_{x,y}\n$$\n预处理 $a_i$ 为第 $i$ 个括号的匹配位置，将贡献拆到字符上：\n\n- 若 $i$ 失配，只要 $i \\in [l,r]$ 就产生贡献，答案加上 $\\sum\\limits_{l=1}^i \\sum\\limits_{r=i}^n f_{l,r}$。\n- 若 $i$ 是左括号且与 $j=a_i$ 匹配，此时 $i \\in [l,r] \\land j \\notin [l,r]$ 有贡献，答案加上 $\\sum \\limits_{l=1}^i \\sum\\limits_{r=i}^{a_i-1} f_{l,r}$。\n- 若 $i$ 是右括号同理。\n\n我们考虑 $f_{l,r}$ 的组合意义，考察一组转移序列：\n\n- $1 \\le l_1 \\le l_2 \\le \\cdots \\le l_k \\le l$。等价于 $x_1+x_2+\\cdots+x_{k+1}=l-1$ 的非负整数解计数，方案数 $\\dbinom{l-1+k}{k}$。\n- $n \\ge r_1 \\ge r_2 \\cdots \\ge r_k \\ge r$。同理可得方案数 $\\dbinom{n-r+k}{k}$。\n- 由于 $l \\le r$ 恒成立，两部分相互独立。\n\n从而\n$$\n\\boxed{f_{l,r}=\\binom{l+k-1}{k} \\binom{n-r+k}{k}}\n$$\n对统计答案的部分，设 $g_{x,y}$ 为 $f_{l,r}$ 的二维前缀和，那么\n$$\n\\begin{aligned}\ng_{x,y}&=\\sum_{l=1}^x \\sum_{r=1}^y f_{l,r}\\\\\n&=\\sum_{l=1}^ x \\binom{l+k-1}{k} \\sum_{r=1}^y \\binom{n-r+k}{k}\\\\\n&= \\binom{x+k}{k+1} \\left(\\binom{n+k}{k+1}-\\binom{n+k-y}{k+1}\\right)\n\\end{aligned}\n$$\n预处理组合数即可 $O(1)$ 计算单个 $g$，总复杂度 $O(n+k)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7044](https://www.luogu.com.cn/problem/P7044)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 定义一个括号串的 $0$ 级权值为，将括号串修改为合法的最小操作次数。一次操作可以在任意位置插入或删除括号。\n>\n> 定义一个括号串的 $k$ 级权值为所有子串 $k-1$ 级权值之和。\n>\n> 给定长为 $n$ 的括号串，求出 $k$ 级权值。\n>\n> $n,k \\le 10^6$，1 秒，500 MB。\n\n:::::success[题解]\n\n设子串 $[l,r]$ 的 $0$ 级权值对最终答案的贡献系数为 $f_{l,r}$，初始 $f_{1,n}=1$。每轮迭代 $[l,r]$ 对 $[l',r'] \\subseteq [l,r]$ 有贡献，执行 $k$ 轮转移：\n$$\nf_{l,r} \\gets \\sum_{x=1}^l \\sum_{y=r}^n f_{x,y}\n$$\n预处理 $a_i$ 为第 $i$ 个括号的匹配位置，将贡献拆到字符上：\n\n- 若 $i$ 失配，只要 $i \\in [l,r]$ 就产生贡献，答案加上 $\\sum\\limits_{l=1}^i \\sum\\limits_{r=i}^n f_{l,r}$。\n- 若 $i$ 是左括号且与 $j=a_i$ 匹配，此时 $i \\in [l,r] \\land j \\notin [l,r]$ 有贡献，答案加上 $\\sum \\limits_{l=1}^i \\sum\\limits_{r=i}^{a_i-1} f_{l,r}$。\n- 若 $i$ 是右括号同理。\n\n我们考虑 $f_{l,r}$ 的组合意义，考察一组转移序列：\n\n- $1 \\le l_1 \\le l_2 \\le \\cdots \\le l_k \\le l$。等价于 $x_1+x_2+\\cdots+x_{k+1}=l-1$ 的非负整数解计数，方案数 $\\dbinom{l-1+k}{k}$。\n- $n \\ge r_1 \\ge r_2 \\cdots \\ge r_k \\ge r$。同理可得方案数 $\\dbinom{n-r+k}{k}$。\n- 由于 $l \\le r$ 恒成立，两部分相互独立。\n\n从而\n$$\n\\boxed{f_{l,r}=\\binom{l+k-1}{k} \\binom{n-r+k}{k}}\n$$\n对统计答案的部分，设 $g_{x,y}$ 为 $f_{l,r}$ 的二维前缀和，那么\n$$\n\\begin{aligned}\ng_{x,y}&=\\sum_{l=1}^x \\sum_{r=1}^y f_{l,r}\\\\\n&=\\sum_{l=1}^ x \\binom{l+k-1}{k} \\sum_{r=1}^y \\binom{n-r+k}{k}\\\\\n&= \\binom{x+k}{k+1} \\left(\\binom{n+k}{k+1}-\\binom{n+k-y}{k+1}\\right)\n\\end{aligned}\n$$\n预处理组合数即可 $O(1)$ 计算单个 $g$，总复杂度 $O(n+k)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p7109",
+        "title": "滴水不漏",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P7109",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7109](https://www.luogu.com.cn/problem/P7109)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个长为 $n$ 的序列 $a_i$，其中 $a_i$ 表示第 $i$ 个水杯中水的体积，第 $i$ 个水杯容量为 $i$。你可以给出 $i,j$，交互库将第 $i$ 个水杯中的水倒到第 $j$ 个水杯，并回答是否倒满。操作之间不独立。\n>\n> 还原原本的序列。\n>\n> $n \\le 10^3$，满分询问次数 $2 \\times 10^4$，交互库非自适应。\n\n:::::success[题解]\n考虑如下情景：当前需要确定 $x$ 水杯中水的体积，且 $[1,x)$ 的水杯均已清空。可以想到猜数模型，二分体积 $v$，然后倒水 $x \\to v$，根据是否倒满来判断，判断以后再撤销操作。\n\n我们依次确定每个水杯。如果能够做到这一点，询问次数就是 $2n \\log n$ 且跑不满。\n\n考虑用一个特殊水杯 $t$ 存多余的水。我们每次确定 $i$ 后将水导入，如果倒满就再次二分得到剩余水量，然后令 $t \\gets t-1$。同时还要记录一下 $t$ 被倒入多少水，这样减一下就是答案。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1005;\nint n, a[N];\nbool ask(int x, int y) {\n    cout << \"? \" << x << ' ' << y << endl;\n    int u; cin >> u;\n    return u;\n}\n\nint solve(int x, int lim) {\n    if (lim == x) {\n        if (ask(x, x)) return x;\n        lim--;\n    }\n    if (lim <= 0) return 0;\n    int l = 1, r = lim, res = 0;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (ask(x, mid)) l = mid + 1, res = mid;\n        else r = mid - 1;\n        ask(mid, x); \n    } return res;\n}\n\nvoid _main() {\n    cin >> n;\n    int t = n, sum = 0;\n    for (int i = 1; i <= n; i++) {\n        if (i == t) {\n            a[t] = solve(t, t) - sum;\n            break;\n        }\n        int cur = solve(i, i);\n        a[i] = cur;\n        while (cur > 0 && i < t) {\n            if (ask(i, t)) {\n                int x = solve(i, cur);\n                a[t] = t - (cur - x) - sum;\n                t--, sum = 0, cur = x;\n            } else {\n                sum += cur, cur = 0;\n            }\n        }\n        if (t <= i) break;\n    }\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7109](https://www.luogu.com.cn/problem/P7109)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个长为 $n$ 的序列 $a_i$，其中 $a_i$ 表示第 $i$ 个水杯中水的体积，第 $i$ 个水杯容量为 $i$。你可以给出 $i,j$，交互库将第 $i$ 个水杯中的水倒到第 $j$ 个水杯，并回答是否倒满。操作之间不独立。\n>\n> 还原原本的序列。\n>\n> $n \\le 10^3$，满分询问次数 $2 \\times 10^4$，交互库非自适应。\n\n:::::success[题解]\n考虑如下情景：当前需要确定 $x$ 水杯中水的体积，且 $[1,x)$ 的水杯均已清空。可以想到猜数模型，二分体积 $v$，然后倒水 $x \\to v$，根据是否倒满来判断，判断以后再撤销操作。\n\n我们依次确定每个水杯。如果能够做到这一点，询问次数就是 $2n \\log n$ 且跑不满。\n\n考虑用一个特殊水杯 $t$ 存多余的水。我们每次确定 $i$ 后将水导入，如果倒满就再次二分得到剩余水量，然后令 $t \\gets t-1$。同时还要记录一下 $t$ 被倒入多少水，这样减一下就是答案。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1005;\nint n, a[N];\nbool ask(int x, int y) {\n    cout << \"? \" << x << ' ' << y << endl;\n    int u; cin >> u;\n    return u;\n}\n\nint solve(int x, int lim) {\n    if (lim == x) {\n        if (ask(x, x)) return x;\n        lim--;\n    }\n    if (lim <= 0) return 0;\n    int l = 1, r = lim, res = 0;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (ask(x, mid)) l = mid + 1, res = mid;\n        else r = mid - 1;\n        ask(mid, x); \n    } return res;\n}\n\nvoid _main() {\n    cin >> n;\n    int t = n, sum = 0;\n    for (int i = 1; i <= n; i++) {\n        if (i == t) {\n            a[t] = solve(t, t) - sum;\n            break;\n        }\n        int cur = solve(i, i);\n        a[i] = cur;\n        while (cur > 0 && i < t) {\n            if (ask(i, t)) {\n                int x = solve(i, cur);\n                a[t] = t - (cur - x) - sum;\n                t--, sum = 0, cur = x;\n            } else {\n                sum += cur, cur = 0;\n            }\n        }\n        if (t <= i) break;\n    }\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-luogu-p7114",
         "title": "P7114 [NOIP2020] 字符串匹配",
         "source": "Xesir",
@@ -1983,6 +5151,105 @@ const PROBLEMS_DATA = [
                     "奇偶性"
                 ],
                 "source": "Xesir"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p7154",
+        "title": "[USACO20DEC] Sleeping Cows P",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P7154",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7154](https://www.luogu.com.cn/problem/P7154)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个左部点 $a_i$ 和 $n$ 个右部点 $b_i$。若 $a_i \\le b_j$ 则连边 $i \\to j$。\n>\n> 称二分图的一个匹配是极大的，当且仅当任意失配的左部点无法与失配的右部点匹配。对极大匹配计数。\n>\n> $n \\le 3 \\times 10^3$，1 秒，256 MB。\n\n:::::success[题解]\n\n刻画极大匹配的性质：\n\n- 若左部点 $i$ 失配，则 $a_i \\le b_j$ 的 $j$ 必须匹配。\n- 若右部点 $j$ 失配，则 $a_i \\le b_j$ 的 $i$ 必须匹配。\n\n我们将 $a_i,b_j$ 扔到一个数组 $x$ 里升序排序，数值相同则左部点在前。此时，失配的右部点全部位于失配的左部点的左侧。\n\n为叙述简便，下文称最终失配的点**被放弃**，最终得到匹配，但当前失配的点**被保留**。\n\n考虑延迟钦定 DP：\n\n- 设 $f_{0/1,i,j}$ 为满足下列条件时，合法匹配的数目：\n  - 仅考虑 $x_1 \\sim x_i$。\n  - 当前有 $j$ 个保留的左部点失配。\n  - 指示变量 $0/1$ 表示，$x_1 \\sim x_i$ 中是否存在被放弃的左部点。\n- 加入 $x_{i+1}$ 时对决策进行讨论：\n  - 若 $i+1$ 是左部点：\n    - 放弃 $x_{i+1}$，转移 $f_{0/1,i,j} \\to f_{1,i+1,j}$。\n    - 保留 $x_{i+1}$，转移 $f_{0/1,i,j} \\to f_{0/1,i+1,j+1}$。\n  - 若 $i+1$ 是右部点：\n    - 令 $x_{i+1}$ 匹配某个左部点，转移 $j \\times f_{0/1,i,j} \\to f_{0/1,i,j-1}$。\n    - 放弃 $x_{i+1}$，要求过去不存在放弃的左部点，转移 $f_{0,i,j} \\to f_{0,i+1,j}$。\n- DP 初值为 $f_{0,0,0}=1$。\n- 答案为 $f_{0/1,2n,0}$。\n\n复杂度 $O(n^2)$。本题给出了二分图匹配计数的延迟钦定 DP 套路。[代码](https://qoj.ac/submission/3015605)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7154](https://www.luogu.com.cn/problem/P7154)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个左部点 $a_i$ 和 $n$ 个右部点 $b_i$。若 $a_i \\le b_j$ 则连边 $i \\to j$。\n>\n> 称二分图的一个匹配是极大的，当且仅当任意失配的左部点无法与失配的右部点匹配。对极大匹配计数。\n>\n> $n \\le 3 \\times 10^3$，1 秒，256 MB。\n\n:::::success[题解]\n\n刻画极大匹配的性质：\n\n- 若左部点 $i$ 失配，则 $a_i \\le b_j$ 的 $j$ 必须匹配。\n- 若右部点 $j$ 失配，则 $a_i \\le b_j$ 的 $i$ 必须匹配。\n\n我们将 $a_i,b_j$ 扔到一个数组 $x$ 里升序排序，数值相同则左部点在前。此时，失配的右部点全部位于失配的左部点的左侧。\n\n为叙述简便，下文称最终失配的点**被放弃**，最终得到匹配，但当前失配的点**被保留**。\n\n考虑延迟钦定 DP：\n\n- 设 $f_{0/1,i,j}$ 为满足下列条件时，合法匹配的数目：\n  - 仅考虑 $x_1 \\sim x_i$。\n  - 当前有 $j$ 个保留的左部点失配。\n  - 指示变量 $0/1$ 表示，$x_1 \\sim x_i$ 中是否存在被放弃的左部点。\n- 加入 $x_{i+1}$ 时对决策进行讨论：\n  - 若 $i+1$ 是左部点：\n    - 放弃 $x_{i+1}$，转移 $f_{0/1,i,j} \\to f_{1,i+1,j}$。\n    - 保留 $x_{i+1}$，转移 $f_{0/1,i,j} \\to f_{0/1,i+1,j+1}$。\n  - 若 $i+1$ 是右部点：\n    - 令 $x_{i+1}$ 匹配某个左部点，转移 $j \\times f_{0/1,i,j} \\to f_{0/1,i,j-1}$。\n    - 放弃 $x_{i+1}$，要求过去不存在放弃的左部点，转移 $f_{0,i,j} \\to f_{0,i+1,j}$。\n- DP 初值为 $f_{0,0,0}=1$。\n- 答案为 $f_{0/1,2n,0}$。\n\n复杂度 $O(n^2)$。本题给出了二分图匹配计数的延迟钦定 DP 套路。[代码](https://qoj.ac/submission/3015605)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p7356",
+        "title": "「PMOI-1」游戏",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P7356",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7356](https://www.luogu.com.cn/problem/P7356)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 你需要与交互库博弈，交互库持有黑棋，你持有白棋，棋子只能下到坐标点上。\n>\n> 初始时，交互库第一步一定下在 $(0,0)$，之后双方轮流落子或 pass，直到局面上出现横竖斜任意方向连续的 `黑白白白`，则你胜利。设落子在 $(x,y)$，要求 $0 \\le x, y \\le 100$。\n>\n> 多测，$T \\le 10^3$，满分胜利步数 $4$。\n\n::::::success[题解]\n关键在于注意到下面这种结构是一步杀：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/gxn7vw1w.png)\n\n此时黑棋如果堵左边，白棋下在右边即可，反之下在左边。\n\n基于此，考虑第一步下在这个位置：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/itgodemb.png)\n\n如果黑棋不堵的话，白棋下在 $(3,3)$ 即一步杀。否则黑的落点必为 $(1,1),(2,2),(4,4)$ 之一。我们不用关心黑的落点，直接将局面下成这样：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/vhtzadh0.png)\n\n此时白棋威胁 $(0,2)$ 处的一步杀。我们分类讨论黑棋的堵法：\n\n- 堵 $(0,1)$ 则有如下杀法：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/c5b80tvu.png)\n\n- 堵 $(0,2)$ 则有如下杀法：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/1z0a6llj.png)\n\n- 堵 $(0,4)$ 则有如下杀法：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/3bhs3cdg.png)\n\n分类讨论并模拟即可。\n::::::\n\n::::::info[代码]\n\n```cpp line-numbers\nint x, y;\nvoid O(int x, int y) {cout << x << ' ' << y << endl;}\nvoid I() {cin >> x >> y;}\nvoid _main() {\n    O(2, 2), I();\n    if (x == y && (x == 1 || x == 3 || x == 4)) {\n        O(3, 0), I();\n        if (x == 1 && y == 0) {\n            O(4, 0), I();\n            if (x == 2 && y == 0) O(5, 0);\n            else O(2, 0);\n        } else if (x == 2 && y == 0) {\n            O(2, 3), I();\n            if (x == 2 && y == 1) O(2, 4);\n            else O(2, 1);\n        } else if (x == 4 && y == 0) {\n            O(1, 3), I();\n            if (x == 3 && y == 1) O(0, 4);\n            else O(3, 1);\n        } else {\n            O(2, 0), I();\n            if (x == 1 && y == 0) O(4, 0);\n            else O(1, 0);\n        }\n    } else {\n        O(3, 3), I();\n        if (x == 1 && y == 1) O(4, 4);\n        else O(1, 1);\n    }\n} \n```\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7356](https://www.luogu.com.cn/problem/P7356)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 你需要与交互库博弈，交互库持有黑棋，你持有白棋，棋子只能下到坐标点上。\n>\n> 初始时，交互库第一步一定下在 $(0,0)$，之后双方轮流落子或 pass，直到局面上出现横竖斜任意方向连续的 `黑白白白`，则你胜利。设落子在 $(x,y)$，要求 $0 \\le x, y \\le 100$。\n>\n> 多测，$T \\le 10^3$，满分胜利步数 $4$。\n\n::::::success[题解]\n关键在于注意到下面这种结构是一步杀：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/gxn7vw1w.png)\n\n此时黑棋如果堵左边，白棋下在右边即可，反之下在左边。\n\n基于此，考虑第一步下在这个位置：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/itgodemb.png)\n\n如果黑棋不堵的话，白棋下在 $(3,3)$ 即一步杀。否则黑的落点必为 $(1,1),(2,2),(4,4)$ 之一。我们不用关心黑的落点，直接将局面下成这样：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/vhtzadh0.png)\n\n此时白棋威胁 $(0,2)$ 处的一步杀。我们分类讨论黑棋的堵法：\n\n- 堵 $(0,1)$ 则有如下杀法：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/c5b80tvu.png)\n\n- 堵 $(0,2)$ 则有如下杀法：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/1z0a6llj.png)\n\n- 堵 $(0,4)$ 则有如下杀法：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/3bhs3cdg.png)\n\n分类讨论并模拟即可。\n::::::\n\n::::::info[代码]\n\n```cpp line-numbers\nint x, y;\nvoid O(int x, int y) {cout << x << ' ' << y << endl;}\nvoid I() {cin >> x >> y;}\nvoid _main() {\n    O(2, 2), I();\n    if (x == y && (x == 1 || x == 3 || x == 4)) {\n        O(3, 0), I();\n        if (x == 1 && y == 0) {\n            O(4, 0), I();\n            if (x == 2 && y == 0) O(5, 0);\n            else O(2, 0);\n        } else if (x == 2 && y == 0) {\n            O(2, 3), I();\n            if (x == 2 && y == 1) O(2, 4);\n            else O(2, 1);\n        } else if (x == 4 && y == 0) {\n            O(1, 3), I();\n            if (x == 3 && y == 1) O(0, 4);\n            else O(3, 1);\n        } else {\n            O(2, 0), I();\n            if (x == 1 && y == 0) O(4, 0);\n            else O(1, 0);\n        }\n    } else {\n        O(3, 3), I();\n        if (x == 1 && y == 1) O(4, 4);\n        else O(1, 1);\n    }\n} \n```\n\n::::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p7600",
+        "title": "[APIO2021] 封闭道路",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P7600",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7600](https://www.luogu.com.cn/problem/P7600)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n$ 个节点的无根树，边带权。对于每个 $k=0,1,\\cdots,n-1$ 求出：删去一些边使得每个点的度数 $\\le k$，最小化删去的边权之和。\n>\n> $n \\le 10^5$，1 秒，1024 MB。\n\n:::::success[题解]\n将问题转化为最大化保留边的边权和。\n\n首先是一个暴力 DP：记 $f_{u,k}$ 为不保留 $u$ 处返祖边时，子树内的答案；$g_{u,k}$ 为保留 $u$ 处返祖边时，子树内的答案。\n\n考虑先将儿子全选 $f_{u,k}$，然后反悔，选出 $g_{v,k}+w-f_{u,k}$ 最大的若干个。$f_{u,k}$ 应该由 $u$ 子树中前 $k$ 大的值转移，$g_{u,k}$ 则由前 $k-1$ 大的值转移。\n\n复杂度 $O(n^2 \\log n)$，可以获得 [24pts](https://qoj.ac/submission/2241847)。\n\n我们注意到，度数 $\\le k$ 的点不受约束。因此考虑枚举 $k$ 时对度数 $>k$ 的点建立虚树，然后在虚树上 DP。由于每个点只会出现度数次，虚树的大小之和就是 $O(n)$ 的。\n\n沿用 $f_u$ 和 $g_u$ 的状态。当我们位于节点 $u$ 时，其儿子被分为两类：\n\n- 虚树外的点：权值为 $w$；\n- 虚树内的点：权值为 $g_v+w-f_v$。\n\n那么只需要维护前 $k$ 大数的和就能转移。在建虚树时修改权值，对每个节点开一棵权值线段树维护，复杂度 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5, M = 1e9;\nint n, deg[N];\nvector<pair<int, int>> e[N];\n\nint dn, fa[N], sz[N], dep[N], son[N], top[N], dfn[N], wei[N];\nvoid dfs1(int u) {\n    sz[u] = 1, dfn[u] = ++dn;\n    for (auto [v, w] : e[u]) {\n        if (v == fa[u]) continue;\n        fa[v] = u, wei[v] = w, dep[v] = dep[u] + 1, dfs1(v), sz[u] += sz[v];\n        if (sz[v] > sz[son[u]]) son[u] = v;\n    }\n}\nvoid dfs2(int u, int t) {\n    top[u] = t;\n    if (son[u]) dfs2(son[u], t);\n    for (auto [v, w] : e[u]) if (v != fa[u] && v != son[u]) dfs2(v, v);\n}\nint lca(int u, int v) {\n    while (top[u] != top[v]) {\n        if (dep[top[u]] < dep[top[v]]) swap(u, v);\n        u = fa[top[u]];\n    } return dep[u] < dep[v] ? u : v;\n}\n\n#define ls lson[rt]\n#define rs rson[rt]\nint tot, rt[N], lson[N << 6], rson[N << 6], cnt[N << 6];\ni64 sum[N << 6]; \nvoid insert(i64 x, i64 l, i64 r, int& rt) {\n    if (!rt) rt = ++tot;\n    cnt[rt]++, sum[rt] += x;\n    if (l == r) return;\n    i64 mid = (l + r) >> 1;\n    if (x <= mid) insert(x, l, mid, ls);\n    else insert(x, mid + 1, r, rs);\n}\nvoid remove(i64 x, i64 l, i64 r, int& rt) {\n    if (!rt) rt = ++tot;\n    cnt[rt]--, sum[rt] -= x;\n    if (l == r) return;\n    i64 mid = (l + r) >> 1;\n    if (x <= mid) remove(x, l, mid, ls);\n    else remove(x, mid + 1, r, rs);\n}\ni64 ask(int k, i64 l, i64 r, int rt) {\n    if (rt == 0 || k <= 0) return 0;\n    if (cnt[rt] <= k) return sum[rt];\n    if (l == r) return l * k;\n    i64 mid = (l + r) >> 1;\n    if (cnt[rs] >= k) return ask(k, mid + 1, r, rs);\n    return sum[rs] + ask(k - cnt[rs], l, mid, ls);\n}\n\nbool keep[N];\nvector<int> nd[N], ev[N], dr[N];\ni64 f[N], g[N];\n\nvoid dfs3(int u, int k) {\n    f[u] = g[u] = 0;\n    i64 sum = 0;\n    vector<i64> son;\n    for (int v : ev[u]) {\n        dfs3(v, k);\n        if (fa[v] == u && keep[v]) sum += f[v], son.emplace_back(g[v] + wei[v] - f[v]);\n        else sum += f[v];\n    }\n    if (keep[u]) {\n        for (i64 x : son) if (x > 0) insert(x, 1, M, rt[u]);\n        f[u] = sum + ask(k, 1, M, rt[u]), g[u] = sum + ask(k - 1, 1, M, rt[u]);\n        for (i64 x : son) if (x > 0) remove(x, 1, M, rt[u]);\n    } else {\n        f[u] = sum, g[u] = 0;\n    }\n}\n\nvector<i64> minimum_closure_costs(int N, vector<int> U, vector<int> V, vector<int> W) {\n    n = N; i64 sum = 0;\n    for (int i = 0; i < n - 1; i++) {\n        int u = U[i] + 1, v = V[i] + 1, w = W[i];\n        e[u].emplace_back(v, w), e[v].emplace_back(u, w);\n        deg[u]++, deg[v]++, sum += w;\n    }\n    for (int u = 1; u <= n; u++) {\n        for (int i = 0; i < deg[u]; i++) nd[i].emplace_back(u);\n        dr[deg[u]].emplace_back(u);\n    }\n    dfs1(1), dfs2(1, 1);\n    vector<i64> ans(n); ans[0] = sum;\n    i64 bas = 0;\n    fill(keep + 1, keep + n + 1, true);\n    for (int k = 1; k < n; k++) {\n        for (int u : dr[k]) {\n            keep[u] = false;\n            for (auto [v, w] : e[u]) {\n                if (keep[v]) insert(w, 1, M, rt[v]);\n                else bas += w;\n            }\n        }\n        vector<int>& a = nd[k];\n        if (a.empty()) {\n            ans[k] = sum - bas;\n            continue;\n        }\n        sort(a.begin(), a.end(), [](int u, int v) {return dfn[u] < dfn[v];});\n        int len = a.size();\n        for (int i = 0; i < len - 1; i++) a.emplace_back(lca(a[i], a[i + 1]));\n        sort(a.begin(), a.end(), [](int u, int v) {return dfn[u] < dfn[v];});\n        a.erase(unique(a.begin(), a.end()), a.end());\n        for (int i = 0; i < (int)a.size() - 1; i++) \n            ev[lca(a[i], a[i + 1])].emplace_back(a[i + 1]);\n        dfs3(a[0], k);\n        ans[k] = sum - bas - f[a[0]];\n        for (int i : a) ev[i].clear();\n    }\n    return ans;\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P7600](https://www.luogu.com.cn/problem/P7600)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n$ 个节点的无根树，边带权。对于每个 $k=0,1,\\cdots,n-1$ 求出：删去一些边使得每个点的度数 $\\le k$，最小化删去的边权之和。\n>\n> $n \\le 10^5$，1 秒，1024 MB。\n\n:::::success[题解]\n将问题转化为最大化保留边的边权和。\n\n首先是一个暴力 DP：记 $f_{u,k}$ 为不保留 $u$ 处返祖边时，子树内的答案；$g_{u,k}$ 为保留 $u$ 处返祖边时，子树内的答案。\n\n考虑先将儿子全选 $f_{u,k}$，然后反悔，选出 $g_{v,k}+w-f_{u,k}$ 最大的若干个。$f_{u,k}$ 应该由 $u$ 子树中前 $k$ 大的值转移，$g_{u,k}$ 则由前 $k-1$ 大的值转移。\n\n复杂度 $O(n^2 \\log n)$，可以获得 [24pts](https://qoj.ac/submission/2241847)。\n\n我们注意到，度数 $\\le k$ 的点不受约束。因此考虑枚举 $k$ 时对度数 $>k$ 的点建立虚树，然后在虚树上 DP。由于每个点只会出现度数次，虚树的大小之和就是 $O(n)$ 的。\n\n沿用 $f_u$ 和 $g_u$ 的状态。当我们位于节点 $u$ 时，其儿子被分为两类：\n\n- 虚树外的点：权值为 $w$；\n- 虚树内的点：权值为 $g_v+w-f_v$。\n\n那么只需要维护前 $k$ 大数的和就能转移。在建虚树时修改权值，对每个节点开一棵权值线段树维护，复杂度 $O(n \\log n)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5, M = 1e9;\nint n, deg[N];\nvector<pair<int, int>> e[N];\n\nint dn, fa[N], sz[N], dep[N], son[N], top[N], dfn[N], wei[N];\nvoid dfs1(int u) {\n    sz[u] = 1, dfn[u] = ++dn;\n    for (auto [v, w] : e[u]) {\n        if (v == fa[u]) continue;\n        fa[v] = u, wei[v] = w, dep[v] = dep[u] + 1, dfs1(v), sz[u] += sz[v];\n        if (sz[v] > sz[son[u]]) son[u] = v;\n    }\n}\nvoid dfs2(int u, int t) {\n    top[u] = t;\n    if (son[u]) dfs2(son[u], t);\n    for (auto [v, w] : e[u]) if (v != fa[u] && v != son[u]) dfs2(v, v);\n}\nint lca(int u, int v) {\n    while (top[u] != top[v]) {\n        if (dep[top[u]] < dep[top[v]]) swap(u, v);\n        u = fa[top[u]];\n    } return dep[u] < dep[v] ? u : v;\n}\n\n#define ls lson[rt]\n#define rs rson[rt]\nint tot, rt[N], lson[N << 6], rson[N << 6], cnt[N << 6];\ni64 sum[N << 6]; \nvoid insert(i64 x, i64 l, i64 r, int& rt) {\n    if (!rt) rt = ++tot;\n    cnt[rt]++, sum[rt] += x;\n    if (l == r) return;\n    i64 mid = (l + r) >> 1;\n    if (x <= mid) insert(x, l, mid, ls);\n    else insert(x, mid + 1, r, rs);\n}\nvoid remove(i64 x, i64 l, i64 r, int& rt) {\n    if (!rt) rt = ++tot;\n    cnt[rt]--, sum[rt] -= x;\n    if (l == r) return;\n    i64 mid = (l + r) >> 1;\n    if (x <= mid) remove(x, l, mid, ls);\n    else remove(x, mid + 1, r, rs);\n}\ni64 ask(int k, i64 l, i64 r, int rt) {\n    if (rt == 0 || k <= 0) return 0;\n    if (cnt[rt] <= k) return sum[rt];\n    if (l == r) return l * k;\n    i64 mid = (l + r) >> 1;\n    if (cnt[rs] >= k) return ask(k, mid + 1, r, rs);\n    return sum[rs] + ask(k - cnt[rs], l, mid, ls);\n}\n\nbool keep[N];\nvector<int> nd[N], ev[N], dr[N];\ni64 f[N], g[N];\n\nvoid dfs3(int u, int k) {\n    f[u] = g[u] = 0;\n    i64 sum = 0;\n    vector<i64> son;\n    for (int v : ev[u]) {\n        dfs3(v, k);\n        if (fa[v] == u && keep[v]) sum += f[v], son.emplace_back(g[v] + wei[v] - f[v]);\n        else sum += f[v];\n    }\n    if (keep[u]) {\n        for (i64 x : son) if (x > 0) insert(x, 1, M, rt[u]);\n        f[u] = sum + ask(k, 1, M, rt[u]), g[u] = sum + ask(k - 1, 1, M, rt[u]);\n        for (i64 x : son) if (x > 0) remove(x, 1, M, rt[u]);\n    } else {\n        f[u] = sum, g[u] = 0;\n    }\n}\n\nvector<i64> minimum_closure_costs(int N, vector<int> U, vector<int> V, vector<int> W) {\n    n = N; i64 sum = 0;\n    for (int i = 0; i < n - 1; i++) {\n        int u = U[i] + 1, v = V[i] + 1, w = W[i];\n        e[u].emplace_back(v, w), e[v].emplace_back(u, w);\n        deg[u]++, deg[v]++, sum += w;\n    }\n    for (int u = 1; u <= n; u++) {\n        for (int i = 0; i < deg[u]; i++) nd[i].emplace_back(u);\n        dr[deg[u]].emplace_back(u);\n    }\n    dfs1(1), dfs2(1, 1);\n    vector<i64> ans(n); ans[0] = sum;\n    i64 bas = 0;\n    fill(keep + 1, keep + n + 1, true);\n    for (int k = 1; k < n; k++) {\n        for (int u : dr[k]) {\n            keep[u] = false;\n            for (auto [v, w] : e[u]) {\n                if (keep[v]) insert(w, 1, M, rt[v]);\n                else bas += w;\n            }\n        }\n        vector<int>& a = nd[k];\n        if (a.empty()) {\n            ans[k] = sum - bas;\n            continue;\n        }\n        sort(a.begin(), a.end(), [](int u, int v) {return dfn[u] < dfn[v];});\n        int len = a.size();\n        for (int i = 0; i < len - 1; i++) a.emplace_back(lca(a[i], a[i + 1]));\n        sort(a.begin(), a.end(), [](int u, int v) {return dfn[u] < dfn[v];});\n        a.erase(unique(a.begin(), a.end()), a.end());\n        for (int i = 0; i < (int)a.size() - 1; i++) \n            ev[lca(a[i], a[i + 1])].emplace_back(a[i + 1]);\n        dfs3(a[0], k);\n        ans[k] = sum - bas - f[a[0]];\n        for (int i : a) ev[i].clear();\n    }\n    return ans;\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -2038,6 +5305,402 @@ const PROBLEMS_DATA = [
                     "计数去重"
                 ],
                 "source": "Xesir"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p8320",
+        "title": "『JROI-4』Sunset",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P8320",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P8320](https://www.luogu.com.cn/problem/P8320)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以向交互库提出如下两种询问：\n>\n> 1. 给出 $k$，记 $p_i$ 的**当前**前缀 $\\max$ 数组为 $m_i$，求 $m$ 前缀 $[1,k]$ 中的颜色数。\n> 2. 给出 $k$，令 $p_k \\gets 0$。\n>\n> 还原这个排列。\n>\n> $n \\le 500$，满分询问次数 $\\le 5500$，交互库非自适应。\n\n:::::success[题解]\n思考题目给出的操作，考虑到二操作不可逆，因此其意义仅仅是确定 $k$ 位置上的数字后，清除其影响。\n\n注意到询问次数接近 $n \\log n$，考虑依次用二分确定每一个数字。\n\n接下来考虑前缀 $\\max$ 颜色数的性质。我们发现：当前缀 $\\max$ 越过最大值后，颜色数始终不会改变。\n\n基于此，考虑猜数模型，二分出当前 $\\max$ 的位置，然后将这个位置清零，再继续进行询问。\n\n询问次数为 $n \\log n$ 级别。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 505;\nint n, a[N];\nint ask(int x) {\n    cout << \"? 1 \" << x << endl;\n    int u; cin >> u;\n    return u;\n}\nvoid reset(int x) {cout << \"? 2 \" << x << endl;}\nvoid answer() {\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n}\n\nvoid _main() {\n    cin >> n;\n    for (int k = 1, v = n; k <= n; k++, v--){\n        int mx = ask(n), l = 1, r = n, p = -1;\n        while (l <= r) {\n            int mid = (l + r) >> 1;\n            if (ask(mid) == mx) r = mid - 1, p = mid;\n            else l = mid + 1;\n        }\n        a[p] = v, reset(p);\n    } answer();\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P8320](https://www.luogu.com.cn/problem/P8320)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个排列 $p_i$，长度为 $n$。你可以向交互库提出如下两种询问：\n>\n> 1. 给出 $k$，记 $p_i$ 的**当前**前缀 $\\max$ 数组为 $m_i$，求 $m$ 前缀 $[1,k]$ 中的颜色数。\n> 2. 给出 $k$，令 $p_k \\gets 0$。\n>\n> 还原这个排列。\n>\n> $n \\le 500$，满分询问次数 $\\le 5500$，交互库非自适应。\n\n:::::success[题解]\n思考题目给出的操作，考虑到二操作不可逆，因此其意义仅仅是确定 $k$ 位置上的数字后，清除其影响。\n\n注意到询问次数接近 $n \\log n$，考虑依次用二分确定每一个数字。\n\n接下来考虑前缀 $\\max$ 颜色数的性质。我们发现：当前缀 $\\max$ 越过最大值后，颜色数始终不会改变。\n\n基于此，考虑猜数模型，二分出当前 $\\max$ 的位置，然后将这个位置清零，再继续进行询问。\n\n询问次数为 $n \\log n$ 级别。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 505;\nint n, a[N];\nint ask(int x) {\n    cout << \"? 1 \" << x << endl;\n    int u; cin >> u;\n    return u;\n}\nvoid reset(int x) {cout << \"? 2 \" << x << endl;}\nvoid answer() {\n    cout << \"! \";\n    for (int i = 1; i <= n; i++) cout << a[i] << ' ';\n    cout << endl;\n}\n\nvoid _main() {\n    cin >> n;\n    for (int k = 1, v = n; k <= n; k++, v--){\n        int mx = ask(n), l = 1, r = n, p = -1;\n        while (l <= r) {\n            int mid = (l + r) >> 1;\n            if (ask(mid) == mx) r = mid - 1, p = mid;\n            else l = mid + 1;\n        }\n        a[p] = v, reset(p);\n    } answer();\n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p8321",
+        "title": "『JROI-4』沈阳大街 2",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P8321",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P8321](https://www.luogu.com.cn/problem/P8321)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定两个长为 $n$ 的序列 $a_i,b_i$，保证 $a_i$ 单调不降，$a_n \\ge \\min \\limits_{i=1}^n b_i$。对 $1 \\sim n$ 的排列 $p_i$，定义权值为\n> $$\n> \\prod_{i=1}^n \\min(a_i,b_{p_i})\n> $$\n> 每种排列等概率出现，求权值的期望。\n>\n> $n \\le 5 \\times 10^3$，1 秒，512 MB。\n\n:::::success[题解]\n\n考虑建 $n$ 阶完全二分图，边 $(i,j)$ 的边权为 $\\min(a_i,b_j)$，一组匹配的权值为匹配边边权的乘积，问题即对所有完美匹配的权值求和。\n\n将 $a_i,b_i$ 扔到同一个数组 $x$ 里降序排序。对于 $x_i \\to x_j$ 的匹配，边权确定为 $x_j$。\n\n考虑延迟钦定配对 DP：\n\n- 设 $f_{i,j}$ 为满足下列条件时，合法匹配的权值和：\n\n  - 仅考虑 $x_1 \\sim x_i$。\n  - 恰好匹配了 $j$ 对点。\n\n- 注意到左右部点的地位相同，直接考察决策：\n\n  - 令 $x_{i+1}$ 暂时失配，转移 $f_{i,j} \\to f_{i+1,j}$。\n\n  - 令 $x_{i+1}$ 与前缀中某个数匹配。预处理 $c_i$ 为 $x_1 \\sim x_i$ 中与 $x_{i+1}$ 不同部的点数，转移 $f_{i,j} \\times x_{i+1} \\times (c_i-j) \\to f_{i+1,j+1}$。\n\n    系数 $x_{i+1}$ 是权值，$c_i-j$ 是选法数。\n\n- DP 初值为 $f_{1,0}=1$。\n\n- 答案为 $f_{2n,n}$，除以 $n!$ 得到期望。\n\n复杂度 $O(n^2)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P8321](https://www.luogu.com.cn/problem/P8321)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定两个长为 $n$ 的序列 $a_i,b_i$，保证 $a_i$ 单调不降，$a_n \\ge \\min \\limits_{i=1}^n b_i$。对 $1 \\sim n$ 的排列 $p_i$，定义权值为\n> $$\n> \\prod_{i=1}^n \\min(a_i,b_{p_i})\n> $$\n> 每种排列等概率出现，求权值的期望。\n>\n> $n \\le 5 \\times 10^3$，1 秒，512 MB。\n\n:::::success[题解]\n\n考虑建 $n$ 阶完全二分图，边 $(i,j)$ 的边权为 $\\min(a_i,b_j)$，一组匹配的权值为匹配边边权的乘积，问题即对所有完美匹配的权值求和。\n\n将 $a_i,b_i$ 扔到同一个数组 $x$ 里降序排序。对于 $x_i \\to x_j$ 的匹配，边权确定为 $x_j$。\n\n考虑延迟钦定配对 DP：\n\n- 设 $f_{i,j}$ 为满足下列条件时，合法匹配的权值和：\n\n  - 仅考虑 $x_1 \\sim x_i$。\n  - 恰好匹配了 $j$ 对点。\n\n- 注意到左右部点的地位相同，直接考察决策：\n\n  - 令 $x_{i+1}$ 暂时失配，转移 $f_{i,j} \\to f_{i+1,j}$。\n\n  - 令 $x_{i+1}$ 与前缀中某个数匹配。预处理 $c_i$ 为 $x_1 \\sim x_i$ 中与 $x_{i+1}$ 不同部的点数，转移 $f_{i,j} \\times x_{i+1} \\times (c_i-j) \\to f_{i+1,j+1}$。\n\n    系数 $x_{i+1}$ 是权值，$c_i-j$ 是选法数。\n\n- DP 初值为 $f_{1,0}=1$。\n\n- 答案为 $f_{2n,n}$，除以 $n!$ 得到期望。\n\n复杂度 $O(n^2)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p8329",
+        "title": "[ZJOI2022] 树",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P8329",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P8329](https://www.luogu.com.cn/problem/P8329)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $N$。对于每个 $n=2,3,\\cdots,N$ 求出满足如下限制的有标号有根树对 $(T_1,T_2)$ 的数目：\n>\n> - $T_1$ 的根节点为 $1$，且 $f_i<i$。\n> - $T_2$ 的根节点为 $n$，且 $f_i>i$。\n> - $T_1,T_2$ 的叶子集合无交集且并集为全集。\n>\n> $N \\le 500$，2 秒，1024 MB。\n\n:::::success[题解]\n记全集 $U=\\{1,2,\\cdots,n\\}$，枚举 $T_1$ 的叶子集合 $S$ 和 $T_2$ 的叶子集合 $T$。记构造 $T_1$ 的方案数为 $f(S)$，构造 $T_2$ 的方案数为 $g(T)$。可以发现 $T_1,T_2$ 的构造是独立的，则答案为\n\n$$\n\\sum_ {S \\cap T =\\varnothing \\land S \\cup T=U} f(S) g(T)\n$$\n\n考虑做 FMT 状物，对 $f,g$ 做超集反演。定义 $F(A)$ 为叶子集合 $\\subseteq A$ 时构造 $T_1$ 的方案数，$G(B)$ 同理。答案转化为\n\n$$\n\\begin{aligned}\n&\\sum_ {S \\cap T =\\varnothing \\land S \\cup T=U} \\left(\\sum_{S \\subseteq A} (-1)^{|A|-|S|} F(A)\\right) \\left(\\sum_{T \\subseteq B} (-1)^{|B|-|S|} G(B)\\right)\\\\\n&=\\sum_{A,B \\subseteq U} F(A) G(B) \\sum_ {S \\subseteq A \\land (U \\setminus S) \\subseteq B} (-1)^{|A|-|S|} (-1)^{|B|-|U \\setminus S|}\\\\\n&=\\sum_{A,B \\subseteq U} F(A) G(B) \\sum_ {S \\subseteq A \\land (U \\setminus S) \\subseteq B} (-1)^{|A|+|B|-|U|}\n\\end{aligned}\n$$\n\n对于容斥系数 $\\sum\\limits_ {S \\subseteq A \\land (U \\setminus S) \\subseteq B} (-1)^{|A|+|B|-|U|}$，分析其组合意义：\n\n- 根据 $S \\subseteq A \\land (U \\setminus S) \\subseteq B$ 知 $U \\subseteq (A \\cup B)$，也即 $A\\cup B=U$。\n- 当 $A \\cup B=U$ 时，由二元容斥 $|A|+|B|-|U|=|A|+|B|-|A \\cup B|=|A \\cap B|$，故容斥系数为 $(-1)^{|A \\cap B|}$ 乘上满足 $S \\subseteq A \\land (U \\setminus S) \\subseteq B$ 的 $S$ 数目。\n- 考虑元素 $x \\in U$，分析 $x$ 的贡献：\n  - $x \\in A \\land x \\notin B$：必有 $x \\in S$，方案数 $1$。\n  - $x \\in B \\land x \\notin A$：必有 $x \\in (U \\setminus S)$，方案数 $1$。\n  - $x \\in A \\land x \\in B$：$x \\in S$ 或者 $x \\in (U \\setminus S)$ 均可，方案数 $2$。\n  - $x \\notin A \\land x \\notin B$：由 $A \\cup B=U$ 知这种情况不可能出现。\n- 综上所述，容斥系数 $(-1)^{|A \\cap B|} 2^{|A \\cap B|}=\\boxed{(-2)^{|A \\cap B|}}$。\n\n现在答案转化为 $\\sum \\limits_{A \\cup B=U} (-2)^{|A \\cap B|} F(A) G(B)$。接下来考虑推导 $F,G$ 的表达式，我们仍然从组合意义的角度来说明：\n\n- 由 $F$ 的定义式 $F(A) =\\sum \\limits_{A \\subseteq S} f(S)$ 知 $F$ 的组合意义是**钦定至少**，即钦定 $A$ 中的节点一定是叶子，其余节点不作要求。\n- 考虑从小到大加入节点 $i=2,3,\\cdots,n$：\n  - 在无限制时，有 $i-1$ 个父亲可以选择。\n  - 钦定后，在 $[1,i)$ 中且钦定为叶子的节点不能作为 $i$ 的父亲，方案数 $i-1-|A \\cap [1,i)|$。\n- $G$ 的推导同理，只是节点的加入顺序不同。\n\n根据上述分析，$F,G$ 的表达式为\n\n$$\nF(A)=\\sum_{i=1}^n \\left(i-1-|A \\cap [1,i)|\\right)\\\\\nG(B)=\\sum_{i=1}^n \\left(n-i-|B \\cap (i,n]|\\right)\n$$\n\n我们发现 $F,G$ 可以拆成每个 $i$ 的贡献之和，且这个贡献值只与 $A$ 的前缀信息和 $B$ 的后缀信息有关。考虑带着容斥系数 DP：\n\n- 记 $f_{i,x,y}$ 为满足下列条件的 $(-2)^{|A \\cap B| } F(A) G(B)$ 之和：\n  - 已确定节点 $[1,i]$ 在 $A$ 中的分布情况，并将 $A \\setminus [1,i]$ 归入集合 $B$。\n  - $|A \\cap [1,i)|=x$。\n  - $|B \\cap (i,n]|=y$。\n- 转移考虑刷表，从 $f_{i,x,y} $ 转移到 $f_{i+1,x',y'}$。转移系数由贡献和容斥系数两部分组成：\n  - 贡献系数：\n    - $F$ 的系数为 $(i+1-1-|A \\cap [1,i]|)=i-x$。\n    - $G$ 的系数为 $n-(i+1)-|B \\cap (i+1,n]|$，即 $n-i-1-y'$。\n    - 总系数 $(i-x)(n-i-1-y')$。\n  - 容斥系数：根据 $|A \\cup B|$ 的奇偶性变化确定。\n- 讨论 $i+1$ 的归属：\n  - 当 $i +1 \\in (A \\setminus B)$ 时：\n    - $x'=x+1$ 且 $y'=y$。\n    - $|A \\cup B|$ 不变，转移系数 $1 \\times (i-x) \\times (n-i-1-y)$。\n  - 当 $i+1 \\in (B \\setminus A)$ 时：\n    - $x'=x$ 且 $y'=y-1$。\n    - $|A \\cup B|$ 不变，转移系数 $1 \\times (i-x) \\times (n-i-y)$。\n  - 当 $i+1 \\in (A \\cap B)$ 时：\n    - $x'=x+1$ 且 $y'=y-1$。\n    - $|A \\cup B|$ 增加 $1$，转移系数 $-2 \\times (i-x)\\times (n-i-y)$。\n- DP 初值为 $f_{0,0,y}=1$，注意在转移时特判 $i=0$ 和 $i=n-1$ 的情形。\n- 答案为 $\\sum \\limits_{x=0}^n f_{n,x,0}$。\n\n在外层枚举 $n$，做一次 DP 的复杂度为 $O(n^3)$，总复杂度 $O(N^4)$，可以获得 [60 分](https://www.luogu.com.cn/record/278852527)。这个做法的问题在于，贡献系数依赖 $n$ 导致不枚举 $n$ 难以转移。\n\n考虑记 $z=n-i-y$，然后将 DP 状态改写为 $f_{i,x,z}$，此时贡献系数简化为 $(i-x)z'$，与 $n$ 无关。\n\n枚举 $i$ 时直接对所有 $f_{i,x,z}$ 做一轮转移。由于 $i=n-1$ 无法直接特判，考虑在计算答案时手动模拟最后一轮的转移，这样即可求出所有 $n$ 的答案。\n\n复杂度 $O(N^3)$。[代码](https://qoj.ac/submission/2887248)。\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P8329](https://www.luogu.com.cn/problem/P8329)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出 $N$。对于每个 $n=2,3,\\cdots,N$ 求出满足如下限制的有标号有根树对 $(T_1,T_2)$ 的数目：\n>\n> - $T_1$ 的根节点为 $1$，且 $f_i<i$。\n> - $T_2$ 的根节点为 $n$，且 $f_i>i$。\n> - $T_1,T_2$ 的叶子集合无交集且并集为全集。\n>\n> $N \\le 500$，2 秒，1024 MB。\n\n:::::success[题解]\n记全集 $U=\\{1,2,\\cdots,n\\}$，枚举 $T_1$ 的叶子集合 $S$ 和 $T_2$ 的叶子集合 $T$。记构造 $T_1$ 的方案数为 $f(S)$，构造 $T_2$ 的方案数为 $g(T)$。可以发现 $T_1,T_2$ 的构造是独立的，则答案为\n\n$$\n\\sum_ {S \\cap T =\\varnothing \\land S \\cup T=U} f(S) g(T)\n$$\n\n考虑做 FMT 状物，对 $f,g$ 做超集反演。定义 $F(A)$ 为叶子集合 $\\subseteq A$ 时构造 $T_1$ 的方案数，$G(B)$ 同理。答案转化为\n\n$$\n\\begin{aligned}\n&\\sum_ {S \\cap T =\\varnothing \\land S \\cup T=U} \\left(\\sum_{S \\subseteq A} (-1)^{|A|-|S|} F(A)\\right) \\left(\\sum_{T \\subseteq B} (-1)^{|B|-|S|} G(B)\\right)\\\\\n&=\\sum_{A,B \\subseteq U} F(A) G(B) \\sum_ {S \\subseteq A \\land (U \\setminus S) \\subseteq B} (-1)^{|A|-|S|} (-1)^{|B|-|U \\setminus S|}\\\\\n&=\\sum_{A,B \\subseteq U} F(A) G(B) \\sum_ {S \\subseteq A \\land (U \\setminus S) \\subseteq B} (-1)^{|A|+|B|-|U|}\n\\end{aligned}\n$$\n\n对于容斥系数 $\\sum\\limits_ {S \\subseteq A \\land (U \\setminus S) \\subseteq B} (-1)^{|A|+|B|-|U|}$，分析其组合意义：\n\n- 根据 $S \\subseteq A \\land (U \\setminus S) \\subseteq B$ 知 $U \\subseteq (A \\cup B)$，也即 $A\\cup B=U$。\n- 当 $A \\cup B=U$ 时，由二元容斥 $|A|+|B|-|U|=|A|+|B|-|A \\cup B|=|A \\cap B|$，故容斥系数为 $(-1)^{|A \\cap B|}$ 乘上满足 $S \\subseteq A \\land (U \\setminus S) \\subseteq B$ 的 $S$ 数目。\n- 考虑元素 $x \\in U$，分析 $x$ 的贡献：\n  - $x \\in A \\land x \\notin B$：必有 $x \\in S$，方案数 $1$。\n  - $x \\in B \\land x \\notin A$：必有 $x \\in (U \\setminus S)$，方案数 $1$。\n  - $x \\in A \\land x \\in B$：$x \\in S$ 或者 $x \\in (U \\setminus S)$ 均可，方案数 $2$。\n  - $x \\notin A \\land x \\notin B$：由 $A \\cup B=U$ 知这种情况不可能出现。\n- 综上所述，容斥系数 $(-1)^{|A \\cap B|} 2^{|A \\cap B|}=\\boxed{(-2)^{|A \\cap B|}}$。\n\n现在答案转化为 $\\sum \\limits_{A \\cup B=U} (-2)^{|A \\cap B|} F(A) G(B)$。接下来考虑推导 $F,G$ 的表达式，我们仍然从组合意义的角度来说明：\n\n- 由 $F$ 的定义式 $F(A) =\\sum \\limits_{A \\subseteq S} f(S)$ 知 $F$ 的组合意义是**钦定至少**，即钦定 $A$ 中的节点一定是叶子，其余节点不作要求。\n- 考虑从小到大加入节点 $i=2,3,\\cdots,n$：\n  - 在无限制时，有 $i-1$ 个父亲可以选择。\n  - 钦定后，在 $[1,i)$ 中且钦定为叶子的节点不能作为 $i$ 的父亲，方案数 $i-1-|A \\cap [1,i)|$。\n- $G$ 的推导同理，只是节点的加入顺序不同。\n\n根据上述分析，$F,G$ 的表达式为\n\n$$\nF(A)=\\sum_{i=1}^n \\left(i-1-|A \\cap [1,i)|\\right)\\\\\nG(B)=\\sum_{i=1}^n \\left(n-i-|B \\cap (i,n]|\\right)\n$$\n\n我们发现 $F,G$ 可以拆成每个 $i$ 的贡献之和，且这个贡献值只与 $A$ 的前缀信息和 $B$ 的后缀信息有关。考虑带着容斥系数 DP：\n\n- 记 $f_{i,x,y}$ 为满足下列条件的 $(-2)^{|A \\cap B| } F(A) G(B)$ 之和：\n  - 已确定节点 $[1,i]$ 在 $A$ 中的分布情况，并将 $A \\setminus [1,i]$ 归入集合 $B$。\n  - $|A \\cap [1,i)|=x$。\n  - $|B \\cap (i,n]|=y$。\n- 转移考虑刷表，从 $f_{i,x,y} $ 转移到 $f_{i+1,x',y'}$。转移系数由贡献和容斥系数两部分组成：\n  - 贡献系数：\n    - $F$ 的系数为 $(i+1-1-|A \\cap [1,i]|)=i-x$。\n    - $G$ 的系数为 $n-(i+1)-|B \\cap (i+1,n]|$，即 $n-i-1-y'$。\n    - 总系数 $(i-x)(n-i-1-y')$。\n  - 容斥系数：根据 $|A \\cup B|$ 的奇偶性变化确定。\n- 讨论 $i+1$ 的归属：\n  - 当 $i +1 \\in (A \\setminus B)$ 时：\n    - $x'=x+1$ 且 $y'=y$。\n    - $|A \\cup B|$ 不变，转移系数 $1 \\times (i-x) \\times (n-i-1-y)$。\n  - 当 $i+1 \\in (B \\setminus A)$ 时：\n    - $x'=x$ 且 $y'=y-1$。\n    - $|A \\cup B|$ 不变，转移系数 $1 \\times (i-x) \\times (n-i-y)$。\n  - 当 $i+1 \\in (A \\cap B)$ 时：\n    - $x'=x+1$ 且 $y'=y-1$。\n    - $|A \\cup B|$ 增加 $1$，转移系数 $-2 \\times (i-x)\\times (n-i-y)$。\n- DP 初值为 $f_{0,0,y}=1$，注意在转移时特判 $i=0$ 和 $i=n-1$ 的情形。\n- 答案为 $\\sum \\limits_{x=0}^n f_{n,x,0}$。\n\n在外层枚举 $n$，做一次 DP 的复杂度为 $O(n^3)$，总复杂度 $O(N^4)$，可以获得 [60 分](https://www.luogu.com.cn/record/278852527)。这个做法的问题在于，贡献系数依赖 $n$ 导致不枚举 $n$ 难以转移。\n\n考虑记 $z=n-i-y$，然后将 DP 状态改写为 $f_{i,x,z}$，此时贡献系数简化为 $(i-x)z'$，与 $n$ 无关。\n\n枚举 $i$ 时直接对所有 $f_{i,x,z}$ 做一轮转移。由于 $i=n-1$ 无法直接特判，考虑在计算答案时手动模拟最后一轮的转移，这样即可求出所有 $n$ 的答案。\n\n复杂度 $O(N^3)$。[代码](https://qoj.ac/submission/2887248)。\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p8494",
+        "title": "[IOI 2022] 最罕见的昆虫",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P8494",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P8494](https://www.luogu.com.cn/problem/P8494)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个序列 $a_i$，长度为 $n$。交互库会维护一个多重集合 $S$，你可以进行以下三种操作，每种操作至多 $T$ 次：\n>\n> - 给出 $i$，令 $S \\gets S \\cup \\{a_i\\}$。\n> - 给出 $i$，令 $S \\gets S \\setminus \\{a_i\\}$。\n> - 求 $S$ 中众数的出现次数。\n>\n> 要求 $S$ 中元素的下标两两不同。\n>\n> 求出原序列中出现最少的元素的出现次数。\n>\n> $n \\le 2 \\times 10^3$，满分要求 $T = 3n$。\n\n:::::success[题解]\n\n我们先扫描一遍序列求出颜色数：令 $i=1,2,\\cdots,n$ 并加入 $a_i$，若众数次数 $\\ge 2$ 则说明有重，将其弹出，否则新增一种颜色。设颜色数为 $c$。\n\n特判 $c=1$ 和 $c=n$ 的平凡情形。一般情况考虑二分答案 $x$ 转判定。\n\n受求颜色数的启发，给出如下流程：顺序扫描序列并加入 $a_i$，若众数次数 $>x$ 则将其弹出。设操作结束后集合大小为 $k$，答案不小于 $x$ 当且仅当 $k\\ge cx$。注意 check 前清空集合。\n\n直接做的操作次数为 $n \\log n$，可以获得 [47.5pts](https://qoj.ac/submission/2568813)。\n\n考察上述判定过程：\n\n- 若 $k\\ge cx$：此次 check 时加入的元素永久保留，不必清空 $S$。\n- 若 $k<cx$：此次 check 时排除的元素永久放弃，不必在之后 check 时考虑。\n\n用两个数组记录两类元素，一轮二分规模折半，询问次数 $\\sum \\limits_{i \\ge 0} \\dfrac{n}{2^i} \\approx 2n$，加上初始求 $c$ 大约是 $3n$。可以获得 [99.95pts](https://qoj.ac/submission/2568915)。\n\n需要卡常。一些常数优化：\n\n- 当 $k \\ge cx$ 时结束 check 过程；\n- 二分上界设为 $\\lfloor \\frac{n}{c} \\rfloor$；\n- 初始轮剩余的元素永久保留；\n- 奇数轮将 $\\text{mid}$ 加 $1$。\n\n提交后可以通过本题。\n\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint min_cardinality(int n) {\n    int c = 0;\n    vector<int> p, q, in(n), out(n);\n    #define add move_inside\n    #define del move_outside\n    #define ask press_button\n    for (int i = 0; i < n; i++) {\n        add(i);\n        if (ask() > 1) del(i);\n        else c++, p.emplace_back(i);\n    }\n    if (c == 1) return n;\n\n    for (int i : p) in[i] = true;\n    auto check = [&](int x) -> bool {\n        int cnt = 0; \n        p.clear(), q.clear();\n        for (int i = 0; i < n; i++) {\n            if (out[i]) continue;\n            if (in[i]) {\n                if (++cnt >= c * x) return true;\n                continue;\n            }\n            add(i);\n            if (ask() > x) del(i), q.emplace_back(i); \n            else cnt++, p.emplace_back(i);\n            if (cnt >= c * x) return true;\n        }\n        return false;\n    };\n    int l = 1, r = n / c, res = -1;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (check(mid)) {\n            res = mid, l = mid + 1;\n            for (int i : p) in[i] = true;\n        } else {\n            r = mid - 1;\n            for (int i : p) del(i);\n            for (int i : q) out[i] = true;\n        }\n    } return res;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P8494](https://www.luogu.com.cn/problem/P8494)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个序列 $a_i$，长度为 $n$。交互库会维护一个多重集合 $S$，你可以进行以下三种操作，每种操作至多 $T$ 次：\n>\n> - 给出 $i$，令 $S \\gets S \\cup \\{a_i\\}$。\n> - 给出 $i$，令 $S \\gets S \\setminus \\{a_i\\}$。\n> - 求 $S$ 中众数的出现次数。\n>\n> 要求 $S$ 中元素的下标两两不同。\n>\n> 求出原序列中出现最少的元素的出现次数。\n>\n> $n \\le 2 \\times 10^3$，满分要求 $T = 3n$。\n\n:::::success[题解]\n\n我们先扫描一遍序列求出颜色数：令 $i=1,2,\\cdots,n$ 并加入 $a_i$，若众数次数 $\\ge 2$ 则说明有重，将其弹出，否则新增一种颜色。设颜色数为 $c$。\n\n特判 $c=1$ 和 $c=n$ 的平凡情形。一般情况考虑二分答案 $x$ 转判定。\n\n受求颜色数的启发，给出如下流程：顺序扫描序列并加入 $a_i$，若众数次数 $>x$ 则将其弹出。设操作结束后集合大小为 $k$，答案不小于 $x$ 当且仅当 $k\\ge cx$。注意 check 前清空集合。\n\n直接做的操作次数为 $n \\log n$，可以获得 [47.5pts](https://qoj.ac/submission/2568813)。\n\n考察上述判定过程：\n\n- 若 $k\\ge cx$：此次 check 时加入的元素永久保留，不必清空 $S$。\n- 若 $k<cx$：此次 check 时排除的元素永久放弃，不必在之后 check 时考虑。\n\n用两个数组记录两类元素，一轮二分规模折半，询问次数 $\\sum \\limits_{i \\ge 0} \\dfrac{n}{2^i} \\approx 2n$，加上初始求 $c$ 大约是 $3n$。可以获得 [99.95pts](https://qoj.ac/submission/2568915)。\n\n需要卡常。一些常数优化：\n\n- 当 $k \\ge cx$ 时结束 check 过程；\n- 二分上界设为 $\\lfloor \\frac{n}{c} \\rfloor$；\n- 初始轮剩余的元素永久保留；\n- 奇数轮将 $\\text{mid}$ 加 $1$。\n\n提交后可以通过本题。\n\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nint min_cardinality(int n) {\n    int c = 0;\n    vector<int> p, q, in(n), out(n);\n    #define add move_inside\n    #define del move_outside\n    #define ask press_button\n    for (int i = 0; i < n; i++) {\n        add(i);\n        if (ask() > 1) del(i);\n        else c++, p.emplace_back(i);\n    }\n    if (c == 1) return n;\n\n    for (int i : p) in[i] = true;\n    auto check = [&](int x) -> bool {\n        int cnt = 0; \n        p.clear(), q.clear();\n        for (int i = 0; i < n; i++) {\n            if (out[i]) continue;\n            if (in[i]) {\n                if (++cnt >= c * x) return true;\n                continue;\n            }\n            add(i);\n            if (ask() > x) del(i), q.emplace_back(i); \n            else cnt++, p.emplace_back(i);\n            if (cnt >= c * x) return true;\n        }\n        return false;\n    };\n    int l = 1, r = n / c, res = -1;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (check(mid)) {\n            res = mid, l = mid + 1;\n            for (int i : p) in[i] = true;\n        } else {\n            r = mid - 1;\n            for (int i : p) del(i);\n            for (int i : q) out[i] = true;\n        }\n    } return res;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p9131",
+        "title": "[USACO23FEB] Problem Setting P",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P9131",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9131](https://www.luogu.com.cn/problem/P9131)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个集合 $S_i \\subseteq [0,m)$。对满足 $S_{i_1} \\subseteq S_{i_2}  \\subseteq \\cdots \\subseteq S_{i_k}$ 的下标序列 $i_1 \\sim i_k$ 计数。\n>\n> $n \\le 10^5$，$m \\le 20$，2 秒，512 MB。\n\n:::::success[题解]\n\n设 $f_S$ 表示以 $S$ 结尾的方案数。将相同集合缩起来，转移\n$$\nf_S \\gets \\left(\\sum_{i=1}^k \\binom{k}{i}i!\\right)\\sum_{T \\subset S} f_T\n$$\n转移系数 $h_S=\\sum\\limits_{i=1}^k \\binom{k}{i}i!$ 是内部选法数，其中 $k$ 是 $S$ 的出现次数。\n\n直接枚举子集，复杂度 $O(3^m)$ 无法通过，[代码](https://qoj.ac/submission/3139426)。\n\n转移 $f_S \\gets h_S \\sum \\limits_{T \\subset S} f_T$ 是**半在线 FMT**。按 $|S|$ 分层枚举，每层必然由之前的层贡献，做 $m$ 次 FMT 可以做到 $O(m^2 2^m)$。\n\n下面介绍 $O(m2^m)$ 的算法。维护辅助数组\n$$\ng_{k,S}=\\sum_{T \\subseteq S} [T \\cap [k,m)=S \\cap [k,m)] f_T\n$$\n用人话说，$T$ 与 $S$ 在高 $k$ 位上完全相同，低于 $k$ 的数值不受限制。则 $g$ 满足逐维递推\n$$\ng_{k+1,S} = \\left\\{\\begin{matrix}\ng_{k,S} & k\\notin S \\\\\ng_{k,S}+g_{k,S \\setminus \\{k\\}} & k\\in S\n\\end{matrix}\\right.\n$$\n边界 $g_{0,S}=f_S$。枚举并钦定 $i=\\max (S \\setminus T)$，则 $S$ 与 $T$ 的高 $i$ 位相同且低位无限制。按 $\\max (S \\setminus T)$ 分类不重不漏，于是\n$$\n\\sum \\limits_{T \\subset S} f_T=\\sum_{i \\in S} g_{i, S \\setminus \\{i\\}}\n$$\n计算完 $f$ 后立刻更新 $g$，枚举 $k$ 并递推即可。 \n\n时空复杂度 $O(m2^m)$。[代码](https://qoj.ac/submission/3139589)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9131](https://www.luogu.com.cn/problem/P9131)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个集合 $S_i \\subseteq [0,m)$。对满足 $S_{i_1} \\subseteq S_{i_2}  \\subseteq \\cdots \\subseteq S_{i_k}$ 的下标序列 $i_1 \\sim i_k$ 计数。\n>\n> $n \\le 10^5$，$m \\le 20$，2 秒，512 MB。\n\n:::::success[题解]\n\n设 $f_S$ 表示以 $S$ 结尾的方案数。将相同集合缩起来，转移\n$$\nf_S \\gets \\left(\\sum_{i=1}^k \\binom{k}{i}i!\\right)\\sum_{T \\subset S} f_T\n$$\n转移系数 $h_S=\\sum\\limits_{i=1}^k \\binom{k}{i}i!$ 是内部选法数，其中 $k$ 是 $S$ 的出现次数。\n\n直接枚举子集，复杂度 $O(3^m)$ 无法通过，[代码](https://qoj.ac/submission/3139426)。\n\n转移 $f_S \\gets h_S \\sum \\limits_{T \\subset S} f_T$ 是**半在线 FMT**。按 $|S|$ 分层枚举，每层必然由之前的层贡献，做 $m$ 次 FMT 可以做到 $O(m^2 2^m)$。\n\n下面介绍 $O(m2^m)$ 的算法。维护辅助数组\n$$\ng_{k,S}=\\sum_{T \\subseteq S} [T \\cap [k,m)=S \\cap [k,m)] f_T\n$$\n用人话说，$T$ 与 $S$ 在高 $k$ 位上完全相同，低于 $k$ 的数值不受限制。则 $g$ 满足逐维递推\n$$\ng_{k+1,S} = \\left\\{\\begin{matrix}\ng_{k,S} & k\\notin S \\\\\ng_{k,S}+g_{k,S \\setminus \\{k\\}} & k\\in S\n\\end{matrix}\\right.\n$$\n边界 $g_{0,S}=f_S$。枚举并钦定 $i=\\max (S \\setminus T)$，则 $S$ 与 $T$ 的高 $i$ 位相同且低位无限制。按 $\\max (S \\setminus T)$ 分类不重不漏，于是\n$$\n\\sum \\limits_{T \\subset S} f_T=\\sum_{i \\in S} g_{i, S \\setminus \\{i\\}}\n$$\n计算完 $f$ 后立刻更新 $g$，枚举 $k$ 并递推即可。 \n\n时空复杂度 $O(m2^m)$。[代码](https://qoj.ac/submission/3139589)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p9165",
+        "title": "「INOH」Round 1 - 意外",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P9165",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9165](https://www.luogu.com.cn/problem/P9165)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个长为 $100$ 的数组 $a_i$，需要传递一个数组 $b_i$。\n> - B：已知 $b_i$，还原原本的 $a_i$。\n>\n> 在通信过程中，每个数字有 $50\\%$ 的概率被交互库替换为为无效值。\n>\n> 满分要求 $b_i$ 的长度 $\\le 750$。\n\n:::::success[题解]\n考虑如下加密方式：构造序列 $a_i$ 的 GF\n\n$$\nf(x)=\\sum_{i=0}^{99} a_i x^i\n$$\n\n传输若干 $f(x)$。当 B 收到 $f(x)$ 后通过 Lagrange 插值即可得到 $f(x)$ 的系数表示，从而还原 $a_i$。\n\n取 $x=0,1,\\cdots,149$ 并将每个 $f(x)$ 复制 $5$ 次传输，当 B 收到后，如果某个位置出现超过两次，则认为这是正确值。并且 B 只需要 $100$ 个点值就能插值，故正确率极高。 \n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 105;\n\nvector<int> Encode(vector<int> vec) {\n    vector<int> a(750);\n    for (int x = 0; x < 150; x++) {\n        mint xp = 1, y = 0;\n        for (int i = 0; i < 100; i++, xp *= x) y += vec[i] * xp;\n\t\tfor (int i = 0; i < 5; i++) a[x + 150 * i] = y.val;\n    } \n\treturn a;\n}\n\nmint x[N], y[N], f[N], m[N], px[N];\nvector<int> Decode(vector<int> vec) {\n\tmemset(f, 0, sizeof(f)), memset(m, 0, sizeof(m)), memset(px, 0, sizeof(px));\n    int n = 0;\n    for (int i = 0; i < 150; i++) {\n\t\tmap<int, int> mp;\n\t\tfor (int j = 0; j < 5; j++) mp[vec[i + 150 * j]]++;\n\t\tfor (auto [k, v] : mp) \n\t\t\tif (v >= 2) {\n\t\t\t\tx[n] = i, y[n] = k, n++; \n\t\t\t\tbreak;\n\t\t\t}\n\t\tif (n >= 100) break;\n\t}\n    m[0] = 1;\n    for (int i = 0; i < n; i++) {\n        for (int j = i; j >= 0; j--) m[j + 1] += m[j], m[j] *= -x[i];\n    }\n    for (int i = 0; i < n; i++) {\n\t\tpx[i] = 1;\n\t\tfor (int j = 0; j < n; j++) {\n\t\t\tif (i != j) px[i] *= x[i] - x[j];\n\t\t}\n\t}\n\tfor (int i = 0; i < n; i++) {\n\t\tmint t = y[i] / px[i], k = m[n];\n\t\tfor (int j = n - 1; j >= 0; j--) f[j] += k * t, k = k * x[i] + m[j];\n\t}\n    vector<int> res(100);\n    for (int i = 0; i < 100; i++) res[i] = f[i].val;\n    return res;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9165](https://www.luogu.com.cn/problem/P9165)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个长为 $100$ 的数组 $a_i$，需要传递一个数组 $b_i$。\n> - B：已知 $b_i$，还原原本的 $a_i$。\n>\n> 在通信过程中，每个数字有 $50\\%$ 的概率被交互库替换为为无效值。\n>\n> 满分要求 $b_i$ 的长度 $\\le 750$。\n\n:::::success[题解]\n考虑如下加密方式：构造序列 $a_i$ 的 GF\n\n$$\nf(x)=\\sum_{i=0}^{99} a_i x^i\n$$\n\n传输若干 $f(x)$。当 B 收到 $f(x)$ 后通过 Lagrange 插值即可得到 $f(x)$ 的系数表示，从而还原 $a_i$。\n\n取 $x=0,1,\\cdots,149$ 并将每个 $f(x)$ 复制 $5$ 次传输，当 B 收到后，如果某个位置出现超过两次，则认为这是正确值。并且 B 只需要 $100$ 个点值就能插值，故正确率极高。 \n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 105;\n\nvector<int> Encode(vector<int> vec) {\n    vector<int> a(750);\n    for (int x = 0; x < 150; x++) {\n        mint xp = 1, y = 0;\n        for (int i = 0; i < 100; i++, xp *= x) y += vec[i] * xp;\n\t\tfor (int i = 0; i < 5; i++) a[x + 150 * i] = y.val;\n    } \n\treturn a;\n}\n\nmint x[N], y[N], f[N], m[N], px[N];\nvector<int> Decode(vector<int> vec) {\n\tmemset(f, 0, sizeof(f)), memset(m, 0, sizeof(m)), memset(px, 0, sizeof(px));\n    int n = 0;\n    for (int i = 0; i < 150; i++) {\n\t\tmap<int, int> mp;\n\t\tfor (int j = 0; j < 5; j++) mp[vec[i + 150 * j]]++;\n\t\tfor (auto [k, v] : mp) \n\t\t\tif (v >= 2) {\n\t\t\t\tx[n] = i, y[n] = k, n++; \n\t\t\t\tbreak;\n\t\t\t}\n\t\tif (n >= 100) break;\n\t}\n    m[0] = 1;\n    for (int i = 0; i < n; i++) {\n        for (int j = i; j >= 0; j--) m[j + 1] += m[j], m[j] *= -x[i];\n    }\n    for (int i = 0; i < n; i++) {\n\t\tpx[i] = 1;\n\t\tfor (int j = 0; j < n; j++) {\n\t\t\tif (i != j) px[i] *= x[i] - x[j];\n\t\t}\n\t}\n\tfor (int i = 0; i < n; i++) {\n\t\tmint t = y[i] / px[i], k = m[n];\n\t\tfor (int j = n - 1; j >= 0; j--) f[j] += k * t, k = k * x[i] + m[j];\n\t}\n    vector<int> res(100);\n    for (int i = 0; i < 100; i++) res[i] = f[i].val;\n    return res;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p9219",
+        "title": "「TAOI-1」Antipathy World",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P9219",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9219](https://www.luogu.com.cn/problem/P9219)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个序列 $a_i$，长度为 $n$。你可以给出 $i,j$，向交互库查询 $|a_i-a_j|$。\n>\n> 找出 $x$ 使得 $\\forall i \\ne x, a_x \\ge 2a_i$。\n>\n> 多测，$T \\le 25$，$n \\le 5 \\times 10^4$，满分询问次数 $\\lfloor n/2\\rfloor+2$。\n\n:::::success[题解]\n注意到询问次数与 $n/2$ 有关，考虑分组询问。对于 $i=1,3,\\cdots$，我们询问 $i,i+1$，得到 $\\lfloor n/2\\rfloor$ 个答案。\n\n这样一来，我们一定会得到一个最大差。设其位置为 $p$，则 $x$ 就在这一组或者没有问到的数里面。分类讨论一下：\n\n- 若 $n$ 为偶数：则 $x \\in \\{p,p+1\\}$，再任找一个 $y$，比较 $|a_p-a_y|$ 和 $|a_{p+1}-a_y|$ 即可。\n- 若 $n$ 为奇数：则 $x \\in \\{p,p+1,n\\}$，我们询问 $|a_p-a_n|$ 和 $|a_{p+1}-a_n|$，然后根据三个数的大小关系容易得到 $x$。\n\n容易发现操作次数恰好为 $\\lfloor n/2\\rfloor+2$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 5e4 + 5;\nint n, k, a[N];\nint ask(int x, int y) {\n    cout << \"? \" << x << ' ' << y << endl;\n    int u; cin >> u;\n    return u;\n}\n\nvoid _main() {\n    cin >> n >> k;\n    fill(a + 1, a + n + 1, 0);\n    for (int i = 1; i < n; i += 2) a[i] = ask(i, i + 1);\n    int p = max_element(a + 1, a + n + 1) - a;\n    if (n & 1) {\n        int x = ask(p, n), y = ask(p + 1, n);\n        if (x > a[p] && y > a[p]) cout << \"! \" << n << endl;\n        else if (x > y) cout << \"! \" << p << endl;\n        else cout << \"! \" << p + 1 << endl;\n    } else {\n        int x = 1;\n        if (p == 1) x = 3;\n        if (ask(p, x) > ask(p + 1, x)) cout << \"! \" << p << endl;\n        else cout << \"! \" << p + 1 << endl;\n    }\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9219](https://www.luogu.com.cn/problem/P9219)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个序列 $a_i$，长度为 $n$。你可以给出 $i,j$，向交互库查询 $|a_i-a_j|$。\n>\n> 找出 $x$ 使得 $\\forall i \\ne x, a_x \\ge 2a_i$。\n>\n> 多测，$T \\le 25$，$n \\le 5 \\times 10^4$，满分询问次数 $\\lfloor n/2\\rfloor+2$。\n\n:::::success[题解]\n注意到询问次数与 $n/2$ 有关，考虑分组询问。对于 $i=1,3,\\cdots$，我们询问 $i,i+1$，得到 $\\lfloor n/2\\rfloor$ 个答案。\n\n这样一来，我们一定会得到一个最大差。设其位置为 $p$，则 $x$ 就在这一组或者没有问到的数里面。分类讨论一下：\n\n- 若 $n$ 为偶数：则 $x \\in \\{p,p+1\\}$，再任找一个 $y$，比较 $|a_p-a_y|$ 和 $|a_{p+1}-a_y|$ 即可。\n- 若 $n$ 为奇数：则 $x \\in \\{p,p+1,n\\}$，我们询问 $|a_p-a_n|$ 和 $|a_{p+1}-a_n|$，然后根据三个数的大小关系容易得到 $x$。\n\n容易发现操作次数恰好为 $\\lfloor n/2\\rfloor+2$。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 5e4 + 5;\nint n, k, a[N];\nint ask(int x, int y) {\n    cout << \"? \" << x << ' ' << y << endl;\n    int u; cin >> u;\n    return u;\n}\n\nvoid _main() {\n    cin >> n >> k;\n    fill(a + 1, a + n + 1, 0);\n    for (int i = 1; i < n; i += 2) a[i] = ask(i, i + 1);\n    int p = max_element(a + 1, a + n + 1) - a;\n    if (n & 1) {\n        int x = ask(p, n), y = ask(p + 1, n);\n        if (x > a[p] && y > a[p]) cout << \"! \" << n << endl;\n        else if (x > y) cout << \"! \" << p << endl;\n        else cout << \"! \" << p + 1 << endl;\n    } else {\n        int x = 1;\n        if (p == 1) x = 3;\n        if (ask(p, x) > ask(p + 1, x)) cout << \"! \" << p << endl;\n        else cout << \"! \" << p + 1 << endl;\n    }\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p9527",
+        "title": "[JOIST 2022] 洒水器 / Sprinkler",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P9527",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9527](https://www.luogu.com.cn/problem/P9527)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n$ 个节点的无根树，点有点权 $a_i$。$q$ 次操作：\n>\n> 1. 给出 $u,k,x$，将距离 $u$ 不超过 $k$ 的点的点权乘 $x$。\n> 2. 给出 $u$，查询 $u$ 的点权。\n>\n> 对给出的模数取模，**不保证模数为质数**。\n>\n> $n \\le 2 \\times 10^5$，$q \\le 4 \\times 10^5$，$ k \\le 40$，4 秒，1024 MB。\n\n:::::success[题解]\n在树上每个节点维护若干标记：将 $u$ 子树中距离恰为 $i$ 的点乘上 $f_{i,u}$。\n\n修改时对这些标记进行更新：$f_{u,k}, f_{u,k-1}, f_{\\operatorname{fa}(u),k-2},f_{\\operatorname{fa}(u),k-3},\\cdots$，显然只会做 $O(k)$ 次。\n\n标记下传很困难，因此永久化。查询时需要跳父亲来得到标记。也只会跳 $O(k)$ 次。\n\n这个做法可以做到不重不漏。复杂度 $O(n+qk)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 2e5 + 5;\nint n, _mod, q, fa[N];\nvector<int> e[N];\nmint a[N], tag[41][N];\n\nvoid dfs(int u) {\n\tfor (int v : e[u]) {\n\t\tif (v == fa[u]) continue;\n\t\tfa[v] = u, dfs(v);\n\t}\n}\n\nvoid _main() {\n\tcin >> n >> _mod, mint::set_mod(_mod);\n\tfor (int i = 1, u, v; i < n; i++) {\n\t\tcin >> u >> v;\n\t\te[u].emplace_back(v), e[v].emplace_back(u);\n\t}\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tfa[1] = -1, dfs(1);\n\tfor (int i = 0; i <= 40; i++) fill(tag[i], tag[i] + n + 1, 1);\n\tcin >> q;\n\tfor (int opt, u, k, x; q--; ) {\n\t\tcin >> opt >> u;\n\t\tif (opt == 1) {\n\t\t\tcin >> k >> x;\n\t\t\tfor (int i = 0; i <= k; i++, u = fa[u]) {\n\t\t\t\tif (fa[u] == -1) {\n\t\t\t\t\tfor (int d = 0; d <= k - i; d++) tag[d][u] *= x;\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t\ttag[k - i][u] *= x;\n\t\t\t\tif (k - i - 1 >= 0) tag[k - i - 1][u] *= x;\n\t\t\t}\n\t\t} else {\n\t\t\tmint res = a[u];\n\t\t\tfor (int i = 0; i <= 40 && u != -1; i++, u = fa[u]) res *= tag[i][u];\n\t\t\tcout << res << '\\n';\n\t\t}\n\t}\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9527](https://www.luogu.com.cn/problem/P9527)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵 $n$ 个节点的无根树，点有点权 $a_i$。$q$ 次操作：\n>\n> 1. 给出 $u,k,x$，将距离 $u$ 不超过 $k$ 的点的点权乘 $x$。\n> 2. 给出 $u$，查询 $u$ 的点权。\n>\n> 对给出的模数取模，**不保证模数为质数**。\n>\n> $n \\le 2 \\times 10^5$，$q \\le 4 \\times 10^5$，$ k \\le 40$，4 秒，1024 MB。\n\n:::::success[题解]\n在树上每个节点维护若干标记：将 $u$ 子树中距离恰为 $i$ 的点乘上 $f_{i,u}$。\n\n修改时对这些标记进行更新：$f_{u,k}, f_{u,k-1}, f_{\\operatorname{fa}(u),k-2},f_{\\operatorname{fa}(u),k-3},\\cdots$，显然只会做 $O(k)$ 次。\n\n标记下传很困难，因此永久化。查询时需要跳父亲来得到标记。也只会跳 $O(k)$ 次。\n\n这个做法可以做到不重不漏。复杂度 $O(n+qk)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 2e5 + 5;\nint n, _mod, q, fa[N];\nvector<int> e[N];\nmint a[N], tag[41][N];\n\nvoid dfs(int u) {\n\tfor (int v : e[u]) {\n\t\tif (v == fa[u]) continue;\n\t\tfa[v] = u, dfs(v);\n\t}\n}\n\nvoid _main() {\n\tcin >> n >> _mod, mint::set_mod(_mod);\n\tfor (int i = 1, u, v; i < n; i++) {\n\t\tcin >> u >> v;\n\t\te[u].emplace_back(v), e[v].emplace_back(u);\n\t}\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tfa[1] = -1, dfs(1);\n\tfor (int i = 0; i <= 40; i++) fill(tag[i], tag[i] + n + 1, 1);\n\tcin >> q;\n\tfor (int opt, u, k, x; q--; ) {\n\t\tcin >> opt >> u;\n\t\tif (opt == 1) {\n\t\t\tcin >> k >> x;\n\t\t\tfor (int i = 0; i <= k; i++, u = fa[u]) {\n\t\t\t\tif (fa[u] == -1) {\n\t\t\t\t\tfor (int d = 0; d <= k - i; d++) tag[d][u] *= x;\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t\ttag[k - i][u] *= x;\n\t\t\t\tif (k - i - 1 >= 0) tag[k - i - 1][u] *= x;\n\t\t\t}\n\t\t} else {\n\t\t\tmint res = a[u];\n\t\t\tfor (int i = 0; i <= 40 && u != -1; i++, u = fa[u]) res *= tag[i][u];\n\t\t\tcout << res << '\\n';\n\t\t}\n\t}\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p9599",
+        "title": "[JOI Open 2018] 木琴 / Xylophone",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P9599",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9599](https://www.luogu.com.cn/problem/P9599)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个 $1\\sim n$ 的排列 $a_i$。保证 $1$ 所在位置小于 $n$ 所在位置。你可以向交互库询问区间极差。\n>\n> 还原这个排列。\n>\n> $n \\le 5 \\times 10^3$，满分询问次数 $10^4$。\n\n:::::success[题解]\n\n询问 $(i,i+1)$ 可以得到差分数组 $|d_i|=|a_i-a_{i-1}|$。\n\n询问 $(i-1,i,i+1)$ 得到 $k$ 分讨：\n\n- 若 $a_{i-1} <a_i<a_{i+1}$，则 $k=a_{i+1}-a_{i-1}$。    \n  注意到 $d_{i+1}+d_i=k$ 且 $d_{i+1} >0 \\land d_i >0$。\n- 若 $a_{i-1}>a_i>a_{i+1}$，则 $k=a_{i-1}-a_{i+1}$。    \n  注意到 $-d_{i+1}-d_i=k$ 且 $d_{i+1} < 0 \\land d_i < 0$。\n- 若 $a_{i-1}<a_i>a_{i+1}$，则 $d_i > 0 \\land d_{i+1}<0$。\n  - 若 $a_{i-1}<a_{i+1}$，则 $k=a_i-a_{i-1}=d_i$。\n  - 若 $a_{i+1}<a_{i-1}$，则 $k=a_i-a_{i+1}=-d_{i+1}$。\n- 若 $a_{i-1}>a_i<a_{i+1}$，则 $d_i< 0 \\land d_{i+1}>0$。\n  - 若 $a_{i-1}>a_{i+1}$，则 $k=a_{i-1}-a_i=-d_i$。\n  - 若 $a_{i+1}>a_{i-1}$，则 $k=a_{i+1}-a_i=d_{i+1}$。\n\n综上所述，当且仅当 $k=|d_i|+|d_{i+1}|$ 时 $d_id_{i+1}>0$。\n\n钦定 $a_1=C \\land d_2=\\pm |d_2|$ 递推出 $a_1 \\sim a_n$，则最小值对应 $1$，进而排列得以还原。在两种情况中取 $\\text{pos}(1)<\\text{pos}(n)$ 的那种即可。\n\n询问次数 $2n-3$。\n\n:::::\n\n:::::info[代码]\n```cpp line-numbers\n#define ask query\nint d[N], f[N], a[N];\nvoid solve(int N) {\n    for (int i = 2; i <= N; i++) d[i] = ask(i-1, i);\n    for (int i = 2; i < N; i++) \n        f[i] = (ask(i-1, i+1) == d[i] + d[i+1]);\n    for (int i = 2; i < N; i++) {\n        if (f[i]) d[i+1] = d[i] > 0 ? d[i+1] : -d[i+1];\n        else d[i+1] = d[i] > 0 ? -d[i+1] : d[i+1];\n    }\n    for (int i = 2; i <= N; i++) a[i] = a[i-1] + d[i];\n    int p = min_element(a + 1, a + N + 1) - a;\n    for (int i = 1; i <= p; i++) a[i] += 1 - a[p];\n    for (int i = p+1; i <= N; i++) a[i] = a[i-1] + d[i];\n    int x1 = find(a + 1, a + N + 1, 1) - a;\n    int xn = find(a + 1, a + N + 1, N) - a;\n    if (x1 > xn)  \n        for (int i = 1; i <= N; i++) a[i] = N - a[i] + 1;\n    for (int i = 1; i <= N; i++) answer(i, a[i]);\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9599](https://www.luogu.com.cn/problem/P9599)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个 $1\\sim n$ 的排列 $a_i$。保证 $1$ 所在位置小于 $n$ 所在位置。你可以向交互库询问区间极差。\n>\n> 还原这个排列。\n>\n> $n \\le 5 \\times 10^3$，满分询问次数 $10^4$。\n\n:::::success[题解]\n\n询问 $(i,i+1)$ 可以得到差分数组 $|d_i|=|a_i-a_{i-1}|$。\n\n询问 $(i-1,i,i+1)$ 得到 $k$ 分讨：\n\n- 若 $a_{i-1} <a_i<a_{i+1}$，则 $k=a_{i+1}-a_{i-1}$。    \n  注意到 $d_{i+1}+d_i=k$ 且 $d_{i+1} >0 \\land d_i >0$。\n- 若 $a_{i-1}>a_i>a_{i+1}$，则 $k=a_{i-1}-a_{i+1}$。    \n  注意到 $-d_{i+1}-d_i=k$ 且 $d_{i+1} < 0 \\land d_i < 0$。\n- 若 $a_{i-1}<a_i>a_{i+1}$，则 $d_i > 0 \\land d_{i+1}<0$。\n  - 若 $a_{i-1}<a_{i+1}$，则 $k=a_i-a_{i-1}=d_i$。\n  - 若 $a_{i+1}<a_{i-1}$，则 $k=a_i-a_{i+1}=-d_{i+1}$。\n- 若 $a_{i-1}>a_i<a_{i+1}$，则 $d_i< 0 \\land d_{i+1}>0$。\n  - 若 $a_{i-1}>a_{i+1}$，则 $k=a_{i-1}-a_i=-d_i$。\n  - 若 $a_{i+1}>a_{i-1}$，则 $k=a_{i+1}-a_i=d_{i+1}$。\n\n综上所述，当且仅当 $k=|d_i|+|d_{i+1}|$ 时 $d_id_{i+1}>0$。\n\n钦定 $a_1=C \\land d_2=\\pm |d_2|$ 递推出 $a_1 \\sim a_n$，则最小值对应 $1$，进而排列得以还原。在两种情况中取 $\\text{pos}(1)<\\text{pos}(n)$ 的那种即可。\n\n询问次数 $2n-3$。\n\n:::::\n\n:::::info[代码]\n```cpp line-numbers\n#define ask query\nint d[N], f[N], a[N];\nvoid solve(int N) {\n    for (int i = 2; i <= N; i++) d[i] = ask(i-1, i);\n    for (int i = 2; i < N; i++) \n        f[i] = (ask(i-1, i+1) == d[i] + d[i+1]);\n    for (int i = 2; i < N; i++) {\n        if (f[i]) d[i+1] = d[i] > 0 ? d[i+1] : -d[i+1];\n        else d[i+1] = d[i] > 0 ? -d[i+1] : d[i+1];\n    }\n    for (int i = 2; i <= N; i++) a[i] = a[i-1] + d[i];\n    int p = min_element(a + 1, a + N + 1) - a;\n    for (int i = 1; i <= p; i++) a[i] += 1 - a[p];\n    for (int i = p+1; i <= N; i++) a[i] = a[i-1] + d[i];\n    int x1 = find(a + 1, a + N + 1, 1) - a;\n    int xn = find(a + 1, a + N + 1, N) - a;\n    if (x1 > xn)  \n        for (int i = 1; i <= N; i++) a[i] = N - a[i] + 1;\n    for (int i = 1; i <= N; i++) answer(i, a[i]);\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p9669",
+        "title": "[ICPC 2022 Jinan R] DFS Order 2",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P9669",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9669](https://www.luogu.com.cn/problem/P9669)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$。对于每个 $x=1,2,\\cdots,n$ 和 $p=1,2,\\cdots,n$ 求出：在所有 DFS 序中，$x$ 位于 DFS 序第 $p$ 位的方案数。对 $998244353$ 取模。\n>\n> $n \\le 500$，1.5 秒，512 MB。\n\n:::::success[题解]\n根据 DFS 的规则，访问 $x$ 之前必然访问了 $x$ 的所有祖先和排在 $x$ 之前的兄弟子树。\n\n注意到总的 DFS 序数目为 $\\prod\\limits_{u=1}^n |\\operatorname{son}(u)|!$，其中 $\\operatorname{son}(u)$ 是 $u$ 的儿子集合。因此考虑计数转概率，计算 $x$ 位于 DFS 序第 $p$ 位的**概率**。\n\n对于祖先节点 $u$，我们希望走向其儿子 $v$，并通向 $x$ 的方向。记 $m=|\\operatorname{son}(u)|$，则我们选出 $i$ 个放在 $v$ 前面，剩下 $m-i-1$ 个放在后面。选出这种方案的概率系数为 $\\frac{i!(m-i-1)!}{m!}$。\n\n我们需要知道子树大小总和为 $k$ 的情况数。记 $f_{u,i,j}$ 为在 $u$ 的 $m$ 个儿子中选出 $i$ 个儿子且子树大小之和恰为 $j$ 的方案数。依次考虑儿子 $v$ 然后用 01 背包合并：$f_{u,i,j} \\gets f_{v,i-1,j-sz_v}$。\n\n分析向 $v$ 的路径时，我们不能算入 $v$ 自身的方案。因此使用**退背包**，算出不含 $v$ 的背包数组 $g_{u,i,j}$，复杂度 $O(n^3)$。\n\n得到以上信息后，将 $g$ 与对应概率相乘并求和，得到总概率，答案容易计算。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 505;\nint n, sz[N], dep[N];\nvector<int> e[N];\nmint fac[N], ifac[N], h[N][N], ans[N][N];\n\nvoid dfs1(int u, int fa) {\n    sz[u] = 1;\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        dep[v] = dep[u] + 1, dfs1(v, u), sz[u] += sz[v];\n    }\n}\nvoid dfs2(int u, int fa) {\n    if (e[u].size() == 1 && e[u][0] == fa) return;\n    int m = u == 1 ? e[u].size() : e[u].size() - 1;\n    vector<vector<mint>> f(m + 5, vector<mint>(sz[u] + 5));\n    f[0][0] = 1;\n    int sum = 0;\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        sum += sz[v];\n        for (int i = m; i >= 1; i--) {\n            for (int j = sum; j >= sz[v]; j--) f[i][j] += f[i - 1][j - sz[v]];\n        }\n    }\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        auto g = f;\n        for (int i = 1; i <= m; i++) {\n            for (int j = sz[v]; j <= sum; j++) g[i][j] -= g[i - 1][j - sz[v]];\n        }\n        vector<mint> p(sum + 5);\n        for (int j = 0; j <= sum - sz[v]; j++) {\n            for (int i = 0; i < m; i++) p[j] += g[i][j] * fac[i] * fac[m - i - 1] * ifac[m];\n        }\n        for (int i = 0; i <= n; i++) {\n            for (int j = 0; j <= sum - sz[v] && i + j <= n; j++) h[v][i + j] += h[u][i] * p[j];\n        }\n        dfs2(v, u);\n    }\n}\n\nvoid _main() {\n    fac[0] = ifac[0] = 1;\n    for (int i = 1; i < N; i++) fac[i] = fac[i - 1] * i, ifac[i] = ~fac[i];\n    cin >> n;\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    h[1][0] = 1, dfs1(1, -1), dfs2(1, -1);\n    mint t = fac[e[1].size()];\n    for (int i = 2; i <= n; i++) t *= fac[e[i].size() - 1];\n    for (int u = 1; u <= n; u++) {\n        for (int i = 0; i <= n; i++) {\n            int pos = 1 + dep[u] + i;\n            if (pos <= n) ans[u][pos] += h[u][i] * t; \n        }\n    }\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) cout << ans[i][j] << ' ';\n        cout << '\\n';\n    }\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9669](https://www.luogu.com.cn/problem/P9669)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$。对于每个 $x=1,2,\\cdots,n$ 和 $p=1,2,\\cdots,n$ 求出：在所有 DFS 序中，$x$ 位于 DFS 序第 $p$ 位的方案数。对 $998244353$ 取模。\n>\n> $n \\le 500$，1.5 秒，512 MB。\n\n:::::success[题解]\n根据 DFS 的规则，访问 $x$ 之前必然访问了 $x$ 的所有祖先和排在 $x$ 之前的兄弟子树。\n\n注意到总的 DFS 序数目为 $\\prod\\limits_{u=1}^n |\\operatorname{son}(u)|!$，其中 $\\operatorname{son}(u)$ 是 $u$ 的儿子集合。因此考虑计数转概率，计算 $x$ 位于 DFS 序第 $p$ 位的**概率**。\n\n对于祖先节点 $u$，我们希望走向其儿子 $v$，并通向 $x$ 的方向。记 $m=|\\operatorname{son}(u)|$，则我们选出 $i$ 个放在 $v$ 前面，剩下 $m-i-1$ 个放在后面。选出这种方案的概率系数为 $\\frac{i!(m-i-1)!}{m!}$。\n\n我们需要知道子树大小总和为 $k$ 的情况数。记 $f_{u,i,j}$ 为在 $u$ 的 $m$ 个儿子中选出 $i$ 个儿子且子树大小之和恰为 $j$ 的方案数。依次考虑儿子 $v$ 然后用 01 背包合并：$f_{u,i,j} \\gets f_{v,i-1,j-sz_v}$。\n\n分析向 $v$ 的路径时，我们不能算入 $v$ 自身的方案。因此使用**退背包**，算出不含 $v$ 的背包数组 $g_{u,i,j}$，复杂度 $O(n^3)$。\n\n得到以上信息后，将 $g$ 与对应概率相乘并求和，得到总概率，答案容易计算。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 505;\nint n, sz[N], dep[N];\nvector<int> e[N];\nmint fac[N], ifac[N], h[N][N], ans[N][N];\n\nvoid dfs1(int u, int fa) {\n    sz[u] = 1;\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        dep[v] = dep[u] + 1, dfs1(v, u), sz[u] += sz[v];\n    }\n}\nvoid dfs2(int u, int fa) {\n    if (e[u].size() == 1 && e[u][0] == fa) return;\n    int m = u == 1 ? e[u].size() : e[u].size() - 1;\n    vector<vector<mint>> f(m + 5, vector<mint>(sz[u] + 5));\n    f[0][0] = 1;\n    int sum = 0;\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        sum += sz[v];\n        for (int i = m; i >= 1; i--) {\n            for (int j = sum; j >= sz[v]; j--) f[i][j] += f[i - 1][j - sz[v]];\n        }\n    }\n    for (int v : e[u]) {\n        if (v == fa) continue;\n        auto g = f;\n        for (int i = 1; i <= m; i++) {\n            for (int j = sz[v]; j <= sum; j++) g[i][j] -= g[i - 1][j - sz[v]];\n        }\n        vector<mint> p(sum + 5);\n        for (int j = 0; j <= sum - sz[v]; j++) {\n            for (int i = 0; i < m; i++) p[j] += g[i][j] * fac[i] * fac[m - i - 1] * ifac[m];\n        }\n        for (int i = 0; i <= n; i++) {\n            for (int j = 0; j <= sum - sz[v] && i + j <= n; j++) h[v][i + j] += h[u][i] * p[j];\n        }\n        dfs2(v, u);\n    }\n}\n\nvoid _main() {\n    fac[0] = ifac[0] = 1;\n    for (int i = 1; i < N; i++) fac[i] = fac[i - 1] * i, ifac[i] = ~fac[i];\n    cin >> n;\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    h[1][0] = 1, dfs1(1, -1), dfs2(1, -1);\n    mint t = fac[e[1].size()];\n    for (int i = 2; i <= n; i++) t *= fac[e[i].size() - 1];\n    for (int u = 1; u <= n; u++) {\n        for (int i = 0; i <= n; i++) {\n            int pos = 1 + dep[u] + i;\n            if (pos <= n) ans[u][pos] += h[u][i] * t; \n        }\n    }\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) cout << ans[i][j] << ' ';\n        cout << '\\n';\n    }\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-luogu-p9755",
+        "title": "[CSP-S 2023] 种树",
+        "source": "stripe-python",
+        "oj": "洛谷",
+        "problemId": "P9755",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9755](https://www.luogu.com.cn/problem/P9755)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵节点树为 $n$ 的有根树，根节点为 $1$。每个节点上有一个任务。每个时刻，你可以标记一个节点，要求这个节点为根或其父亲已被标记。\n>\n> 对于被标记的节点，在第 $x$ 个时刻任务的完成度将会增加 $\\max(1,b_i+x\\times c_i)$。目标为所有节点 $i$ 上任务的完成度 $\\ge a_i$。初始时任务完成度均为 $0$。\n>\n> 求完成所有任务的最小时间。\n>\n> $1 \\le n \\le 10^5$，$1 \\le a_i \\le 10^{18}$，$1 \\le b_i \\le 10^9$，$-10^9 \\le c_i \\le 10^9$，保证答案 $\\le 10^9$，1 秒，512 MB。\n\n:::::success[题解]\n考虑特殊性质 A，即 $c_i=0$ 的情形。此时可以求出完成每个任务所需的时间 $t_i = \\lceil \\frac{a_i}{b_i} \\rceil$。考虑如下贪心：将节点按照 $t_i$ 升序排序，依次扫描每个节点，将对应的根链全部标记。\n\n由于答案取决于每个任务的最晚完成时间，因此考虑调整后一定不优，可以说明这个做法的正确性。\n\n上述算法直观的实现是树剖线段树，复杂度 $O( n \\log^2 n)$。但是这个过于魔怔了，考虑直接暴力，由于每个点最多被标记一次，跳父亲一共只有 $O(n)$ 次，因此复杂度正确。\n\n接下来考虑特殊性质 B，即链的情形。考虑二分答案 $x$，对于每个点求出 $f(x,l,r)$，表示节点 $x$ 在时间段 $[l,r]$ 完成度的变化量，即可进行 check。下面讲解 $f$ 的计算。\n\n- 若 $c_x \\ge 0$，此时增长量单调增，套等差数列求和即得 $f(x,l,r)=(r-l+1) \\times b_x+\\frac{(r-l+1)(l+r)}{2} c_x$。\n- 否则需要分类讨论。列不等式 $b_x+k\\times c_x \\le 1$ 得 $k_{\\min} =\\lfloor \\frac{1-b_x}{c_x} \\rfloor$，表示在时刻 $[k,+\\infty)$ 中增长量恒为 $1$。\n  - 若 $k < l$，则增长量恒为 $1$，此时 $f(x,l,r)=r-l+1$；\n  - 若 $k>r$，则增长量恒为等差数列，与 $c_x\\ge 0$ 的式子相同：$f(x,l,r)=(r-l+1)\\times b_x+\\frac{(r-l+1)(l+r)}{2} c_x$；\n  - 若 $k \\in [l,r]$，则增长量分为等差数列段和常数段。分段计算知 $f(x,l,r)=(k-l+1) \\times b_x+\\frac{(k-l+1)(l+k)}{2}c_x+r-k$。\n\n可以做到 $O(1)$ 求解。注意计算 $f$ 的过程需要 int128。\n\n考虑将 A & B 的做法结合起来。我们二分答案 $x$ 转判定，判定时再对每个节点二分一次，通过 $f$ 求出每个节点最晚完成任务的时间 $t_i$。\n\n按照 $t_i$ 升序排序，使用 A 性质的均摊 $O(n)$ 做法即可，复杂度 $O(n \\log n \\log V)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5;\nint n, fa[N], tag[N];\nvector<int> e[N];\nvoid dfs(int u) {\n    for (int v : e[u]) if (v != fa[u]) fa[v] = u, dfs(v); \n}\ni64 a[N], b[N], c[N], t[N];\ni128 f(int x, i128 l, i128 r) {\n    if (c[x] >= 0) return (r - l + 1) * b[x] + (r - l + 1) * (l + r) / 2 * c[x];\n    i64 k = (1 - b[x]) / c[x];\n    if (k < l) return r - l + 1;\n    if (k > r) return (r - l + 1) * b[x] + (r - l + 1) * (l + r) / 2 * c[x];\n    return (k - l + 1) * b[x] + (k - l + 1) * (l + k) / 2 * c[x] + r - k;\n}\n\nbool check(int x) {\n    for (int i = 1; i <= n; i++) {\n        if (f(i, 1, x) < a[i]) return false;\n        int l = 1, r = n;\n        while (l <= r) {\n            int mid = (l + r) >> 1;\n            if (f(i, mid, x) >= a[i]) l = mid + 1, t[i] = mid;\n            else r = mid - 1;\n        }\n    }\n    fill(tag + 1, tag + n + 1, 0);\n    vector<int> vec(n); iota(vec.begin(), vec.end(), 1);\n    sort(vec.begin(), vec.end(), [](int x, int y) -> bool {\n        return t[x] < t[y];\n    });\n    int cur = 0;\n    for (int i : vec) {\n        if (tag[i]) continue;\n        stack<int> st;\n        for (int j = i; j != -1 && !tag[j]; j = fa[j]) st.emplace(j);\n        while (!st.empty()) {\n            int u = st.top(); st.pop();\n            if (++cur > t[u]) return false;\n            tag[u] = true;\n        }\n    } return true;\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i] >> b[i] >> c[i];\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    fa[1] = -1, dfs(1); \n    int l = 0, r = 1e9, res = -1;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (check(mid)) res = mid, r = mid - 1;\n        else l = mid + 1;\n    } cout << res;\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[P9755](https://www.luogu.com.cn/problem/P9755)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定一棵节点树为 $n$ 的有根树，根节点为 $1$。每个节点上有一个任务。每个时刻，你可以标记一个节点，要求这个节点为根或其父亲已被标记。\n>\n> 对于被标记的节点，在第 $x$ 个时刻任务的完成度将会增加 $\\max(1,b_i+x\\times c_i)$。目标为所有节点 $i$ 上任务的完成度 $\\ge a_i$。初始时任务完成度均为 $0$。\n>\n> 求完成所有任务的最小时间。\n>\n> $1 \\le n \\le 10^5$，$1 \\le a_i \\le 10^{18}$，$1 \\le b_i \\le 10^9$，$-10^9 \\le c_i \\le 10^9$，保证答案 $\\le 10^9$，1 秒，512 MB。\n\n:::::success[题解]\n考虑特殊性质 A，即 $c_i=0$ 的情形。此时可以求出完成每个任务所需的时间 $t_i = \\lceil \\frac{a_i}{b_i} \\rceil$。考虑如下贪心：将节点按照 $t_i$ 升序排序，依次扫描每个节点，将对应的根链全部标记。\n\n由于答案取决于每个任务的最晚完成时间，因此考虑调整后一定不优，可以说明这个做法的正确性。\n\n上述算法直观的实现是树剖线段树，复杂度 $O( n \\log^2 n)$。但是这个过于魔怔了，考虑直接暴力，由于每个点最多被标记一次，跳父亲一共只有 $O(n)$ 次，因此复杂度正确。\n\n接下来考虑特殊性质 B，即链的情形。考虑二分答案 $x$，对于每个点求出 $f(x,l,r)$，表示节点 $x$ 在时间段 $[l,r]$ 完成度的变化量，即可进行 check。下面讲解 $f$ 的计算。\n\n- 若 $c_x \\ge 0$，此时增长量单调增，套等差数列求和即得 $f(x,l,r)=(r-l+1) \\times b_x+\\frac{(r-l+1)(l+r)}{2} c_x$。\n- 否则需要分类讨论。列不等式 $b_x+k\\times c_x \\le 1$ 得 $k_{\\min} =\\lfloor \\frac{1-b_x}{c_x} \\rfloor$，表示在时刻 $[k,+\\infty)$ 中增长量恒为 $1$。\n  - 若 $k < l$，则增长量恒为 $1$，此时 $f(x,l,r)=r-l+1$；\n  - 若 $k>r$，则增长量恒为等差数列，与 $c_x\\ge 0$ 的式子相同：$f(x,l,r)=(r-l+1)\\times b_x+\\frac{(r-l+1)(l+r)}{2} c_x$；\n  - 若 $k \\in [l,r]$，则增长量分为等差数列段和常数段。分段计算知 $f(x,l,r)=(k-l+1) \\times b_x+\\frac{(k-l+1)(l+k)}{2}c_x+r-k$。\n\n可以做到 $O(1)$ 求解。注意计算 $f$ 的过程需要 int128。\n\n考虑将 A & B 的做法结合起来。我们二分答案 $x$ 转判定，判定时再对每个节点二分一次，通过 $f$ 求出每个节点最晚完成任务的时间 $t_i$。\n\n按照 $t_i$ 升序排序，使用 A 性质的均摊 $O(n)$ 做法即可，复杂度 $O(n \\log n \\log V)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5;\nint n, fa[N], tag[N];\nvector<int> e[N];\nvoid dfs(int u) {\n    for (int v : e[u]) if (v != fa[u]) fa[v] = u, dfs(v); \n}\ni64 a[N], b[N], c[N], t[N];\ni128 f(int x, i128 l, i128 r) {\n    if (c[x] >= 0) return (r - l + 1) * b[x] + (r - l + 1) * (l + r) / 2 * c[x];\n    i64 k = (1 - b[x]) / c[x];\n    if (k < l) return r - l + 1;\n    if (k > r) return (r - l + 1) * b[x] + (r - l + 1) * (l + r) / 2 * c[x];\n    return (k - l + 1) * b[x] + (k - l + 1) * (l + k) / 2 * c[x] + r - k;\n}\n\nbool check(int x) {\n    for (int i = 1; i <= n; i++) {\n        if (f(i, 1, x) < a[i]) return false;\n        int l = 1, r = n;\n        while (l <= r) {\n            int mid = (l + r) >> 1;\n            if (f(i, mid, x) >= a[i]) l = mid + 1, t[i] = mid;\n            else r = mid - 1;\n        }\n    }\n    fill(tag + 1, tag + n + 1, 0);\n    vector<int> vec(n); iota(vec.begin(), vec.end(), 1);\n    sort(vec.begin(), vec.end(), [](int x, int y) -> bool {\n        return t[x] < t[y];\n    });\n    int cur = 0;\n    for (int i : vec) {\n        if (tag[i]) continue;\n        stack<int> st;\n        for (int j = i; j != -1 && !tag[j]; j = fa[j]) st.emplace(j);\n        while (!st.empty()) {\n            int u = st.top(); st.pop();\n            if (++cur > t[u]) return false;\n            tag[u] = true;\n        }\n    } return true;\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) cin >> a[i] >> b[i] >> c[i];\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    fa[1] = -1, dfs(1); \n    int l = 0, r = 1e9, res = -1;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (check(mid)) res = mid, r = mid - 1;\n        else l = mid + 1;\n    } cout << res;\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-noi2002",
+        "title": "P4362 [] 贪吃的九头龙",
+        "source": "stripe-python",
+        "oj": "来源未考证",
+        "problemId": "NOI2002",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[NOI2002](https://www.luogu.com.cn/problem/P4362)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，边带权。你需要将这棵树 $m$ 染色，满足与根节点同色的节点数恰为 $k$。代价为两端点颜色相同的边的边权和，最小化代价并输出，或报告无解。\n>\n> $m,k \\le n \\le 300$，1 秒，125 MB。\n\n:::::success[题解]\n不妨设根节点的颜色为 $1$。我们钦定 $k$ 个节点的颜色为 $1$，则剩余点形成一个森林，需要 $m-1$ 染色。\n\n- 当 $m>2$ 时，容易构造所有边端点颜色不同的情况，比如按深度对 $m-1$ 取模染色。\n- 当 $m=2$ 时，森林中所有边都有贡献。\n\n据此设计树形 DP：$f_{0/1,u,i}$ 表示考虑 $u$ 的子树，$u$ 节点染色是否染成 $1$，子树内选择 $i$ 个染成 $1$ 的最小代价。枚举儿子 $v$ 并合并 DP 数组，转移是 $(\\min,+)$ 卷积：\n\n$$\nf_{0/1,u,i+j} \\gets f_{0/1,u,i}+f_{0/1,v,j}+w\n$$\n\n其中 $w$ 为转移时 $u \\to v$ 的边是否产生贡献，容易根据 $m$ 是否等于 $2$ 以及 $0/1$ 维的取值计算。\n\n注意合并 DP 时需要新建数组，不然会覆盖原本的取值。无解容易判断。\n\n正确的实现为树形背包复杂度，复杂度 $O(n^2)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 305, inf = 0x3f3f3f3f;\nint n, m, k;\nvector<pair<int, int>> e[N];\n\nint sz[N], f[2][N][N];\nvoid dfs(int u, int fa) {\n    f[0][u][0] = 0, f[1][u][1] = 0, sz[u] = 1;\n    for (auto [v, w] : e[u]) {\n        if (v == fa) continue;\n        dfs(v, u);\n        vector<int> f0(N, inf), f1(N, inf);\n        for (int i = min(sz[u], k); i >= 0; i--) {\n            for (int j = min(sz[v], k - i); j >= 0; j--) {\n                chkmin(f0[i + j], f[0][u][i] + f[0][v][j] + (m == 2) * w);\n                chkmin(f0[i + j], f[0][u][i] + f[1][v][j]);\n                chkmin(f1[i + j], f[1][u][i] + f[0][v][j]);\n                chkmin(f1[i + j], f[1][u][i] + f[1][v][j] + w);\n            }\n        }\n        sz[u] += sz[v];\n        copy(f0.begin(), f0.end(), f[0][u]), copy(f1.begin(), f1.end(), f[1][u]);\n    }\n}\n\nvoid _main() {\n    cin >> n >> m >> k;\n    if (n - k < m - 1) return cout << -1, void();\n    for (int i = 1, u, v, w; i < n; i++) {\n        cin >> u >> v >> w;\n        e[u].emplace_back(v, w), e[v].emplace_back(u, w);\n    } \n    memset(f, 0x3f, sizeof(f)), dfs(1, -1);\n    cout << f[1][1][k];\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[NOI2002](https://www.luogu.com.cn/problem/P4362)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，边带权。你需要将这棵树 $m$ 染色，满足与根节点同色的节点数恰为 $k$。代价为两端点颜色相同的边的边权和，最小化代价并输出，或报告无解。\n>\n> $m,k \\le n \\le 300$，1 秒，125 MB。\n\n:::::success[题解]\n不妨设根节点的颜色为 $1$。我们钦定 $k$ 个节点的颜色为 $1$，则剩余点形成一个森林，需要 $m-1$ 染色。\n\n- 当 $m>2$ 时，容易构造所有边端点颜色不同的情况，比如按深度对 $m-1$ 取模染色。\n- 当 $m=2$ 时，森林中所有边都有贡献。\n\n据此设计树形 DP：$f_{0/1,u,i}$ 表示考虑 $u$ 的子树，$u$ 节点染色是否染成 $1$，子树内选择 $i$ 个染成 $1$ 的最小代价。枚举儿子 $v$ 并合并 DP 数组，转移是 $(\\min,+)$ 卷积：\n\n$$\nf_{0/1,u,i+j} \\gets f_{0/1,u,i}+f_{0/1,v,j}+w\n$$\n\n其中 $w$ 为转移时 $u \\to v$ 的边是否产生贡献，容易根据 $m$ 是否等于 $2$ 以及 $0/1$ 维的取值计算。\n\n注意合并 DP 时需要新建数组，不然会覆盖原本的取值。无解容易判断。\n\n正确的实现为树形背包复杂度，复杂度 $O(n^2)$。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 305, inf = 0x3f3f3f3f;\nint n, m, k;\nvector<pair<int, int>> e[N];\n\nint sz[N], f[2][N][N];\nvoid dfs(int u, int fa) {\n    f[0][u][0] = 0, f[1][u][1] = 0, sz[u] = 1;\n    for (auto [v, w] : e[u]) {\n        if (v == fa) continue;\n        dfs(v, u);\n        vector<int> f0(N, inf), f1(N, inf);\n        for (int i = min(sz[u], k); i >= 0; i--) {\n            for (int j = min(sz[v], k - i); j >= 0; j--) {\n                chkmin(f0[i + j], f[0][u][i] + f[0][v][j] + (m == 2) * w);\n                chkmin(f0[i + j], f[0][u][i] + f[1][v][j]);\n                chkmin(f1[i + j], f[1][u][i] + f[0][v][j]);\n                chkmin(f1[i + j], f[1][u][i] + f[1][v][j] + w);\n            }\n        }\n        sz[u] += sz[v];\n        copy(f0.begin(), f0.end(), f[0][u]), copy(f1.begin(), f1.end(), f[1][u]);\n    }\n}\n\nvoid _main() {\n    cin >> n >> m >> k;\n    if (n - k < m - 1) return cout << -1, void();\n    for (int i = 1, u, v, w; i < n; i++) {\n        cin >> u >> v >> w;\n        e[u].emplace_back(v, w), e[v].emplace_back(u, w);\n    } \n    memset(f, 0x3f, sizeof(f)), dfs(1, -1);\n    cout << f[1][1][k];\n} \n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -2466,6 +6129,336 @@ const PROBLEMS_DATA = [
         ]
     },
     {
+        "id": "prob-qoj-11116",
+        "title": "Yearning for Yonder",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ11116",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ11116](https://qoj.ac/problem/11116)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一棵大小为 $n$ 的带权树，树的形态从 Prufer 序列随机，边权从 $[1,k]$ 随机，$k$ 隐藏且保证 $k \\le 10^4$。可以向交互库询问树上两点距离。\n>\n> 还原这棵树。\n>\n> $n \\le 10^5$，满分询问次数 $7n$，交互库非自适应。\n\n:::::success[题解]\n首先我们可以用 $2n$ 次询问找到原树的直径，并且根据距离判断出每个点是在直径上，还是在子树中。\n\n可以将这些点划分到直径下挂的子树中，分治求解。\n\n由于树从 Prufer 序列随机，直径上点数的期望为 $O(\\sqrt{n})$，由递归式 $T(n)=\\sqrt{n} \\times T(\\sqrt{n})+O(n)$ 得 $T(n)=O(n \\log \\log n)$。\n\n由于我们知道了直径端点到子树中每个点的距离，询问次数可以变成 $n$ 次，可以通过本题。\n\n这里有一点细节，我们详细说明一下怎么算出距离。设分治的根节点为 $r$，当前子树中距 $r$ 最远的点为 $u$，$v$ 是我们枚举到的节点。\n\n此时，路径 $r \\to u$ 是一条主链。对于点 $v$，它到主链上会有一个投影点，记为 $w$，那么我们需要求 $d(r,w)$。列出方程：\n\n- $d(r,w)+d(v,w)=d(r,v)$；\n- $d(r,w)+d(u,w)=d(u,v)$；\n- $d(r,w)+d(u,w)=d(r,u)$。\n\n解得 $d(r,w)=\\frac{d(r,v)+d(r,u)-d(u,v)}{2}$。根据这个值可以就判断 $v$ 点所属的子树了。\n::::: \n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1e5 + 5;\nint ask(int u, int v) {\n    if (u == v) return 0;\n    cout << \"? \" << u << ' ' << v << endl;\n    int x; cin >> x;\n    return x;\n}\nint n;\nvector<tuple<int, int, int>> e;\n\nusing node = pair<int, int>;\nvoid solve(int rt, vector<node>& s) {\n    if (s.empty()) return;\n    sort(s.begin(), s.end());\n    auto [d, u] = s.back();\n    vector<int> t(s.size());\n    for (int i = 0; i < (int)s.size(); i++) t[i] = ask(u, s[i].second);\n    map<int, int> path;\n    map<int, vector<node>> sub;\n    path[0] = rt;\n    for (int i = 0; i < (int)s.size(); i++) {\n        auto [d1, v] = s[i];\n        int x = (d1 + d - t[i]) / 2;\n        if (x == d1) path[d1] = v;\n        else sub[x].emplace_back(d1 - x, v);\n    }\n    int cur = rt, pre = 0;\n    for (auto& [d1, v] : path) {\n        if (d1 == 0) continue;\n        e.emplace_back(cur, v, d1 - pre);\n        cur = v, pre = d1;\n    }\n    for (auto& [x, vec] : sub) solve(path[x], vec);\n}\n\nvoid _main() {\n    cin >> n, e.clear();\n    vector<node> s0;\n    for (int i = 2; i <= n; i++) s0.emplace_back(ask(1, i), i);\n    solve(1, s0);\n    cout << \"! \";\n    for (auto& [u, v, w] : e) cout << u << ' ' << v << ' ' << w << ' ';\n    cout << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ11116](https://qoj.ac/problem/11116)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一棵大小为 $n$ 的带权树，树的形态从 Prufer 序列随机，边权从 $[1,k]$ 随机，$k$ 隐藏且保证 $k \\le 10^4$。可以向交互库询问树上两点距离。\n>\n> 还原这棵树。\n>\n> $n \\le 10^5$，满分询问次数 $7n$，交互库非自适应。\n\n:::::success[题解]\n首先我们可以用 $2n$ 次询问找到原树的直径，并且根据距离判断出每个点是在直径上，还是在子树中。\n\n可以将这些点划分到直径下挂的子树中，分治求解。\n\n由于树从 Prufer 序列随机，直径上点数的期望为 $O(\\sqrt{n})$，由递归式 $T(n)=\\sqrt{n} \\times T(\\sqrt{n})+O(n)$ 得 $T(n)=O(n \\log \\log n)$。\n\n由于我们知道了直径端点到子树中每个点的距离，询问次数可以变成 $n$ 次，可以通过本题。\n\n这里有一点细节，我们详细说明一下怎么算出距离。设分治的根节点为 $r$，当前子树中距 $r$ 最远的点为 $u$，$v$ 是我们枚举到的节点。\n\n此时，路径 $r \\to u$ 是一条主链。对于点 $v$，它到主链上会有一个投影点，记为 $w$，那么我们需要求 $d(r,w)$。列出方程：\n\n- $d(r,w)+d(v,w)=d(r,v)$；\n- $d(r,w)+d(u,w)=d(u,v)$；\n- $d(r,w)+d(u,w)=d(r,u)$。\n\n解得 $d(r,w)=\\frac{d(r,v)+d(r,u)-d(u,v)}{2}$。根据这个值可以就判断 $v$ 点所属的子树了。\n::::: \n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1e5 + 5;\nint ask(int u, int v) {\n    if (u == v) return 0;\n    cout << \"? \" << u << ' ' << v << endl;\n    int x; cin >> x;\n    return x;\n}\nint n;\nvector<tuple<int, int, int>> e;\n\nusing node = pair<int, int>;\nvoid solve(int rt, vector<node>& s) {\n    if (s.empty()) return;\n    sort(s.begin(), s.end());\n    auto [d, u] = s.back();\n    vector<int> t(s.size());\n    for (int i = 0; i < (int)s.size(); i++) t[i] = ask(u, s[i].second);\n    map<int, int> path;\n    map<int, vector<node>> sub;\n    path[0] = rt;\n    for (int i = 0; i < (int)s.size(); i++) {\n        auto [d1, v] = s[i];\n        int x = (d1 + d - t[i]) / 2;\n        if (x == d1) path[d1] = v;\n        else sub[x].emplace_back(d1 - x, v);\n    }\n    int cur = rt, pre = 0;\n    for (auto& [d1, v] : path) {\n        if (d1 == 0) continue;\n        e.emplace_back(cur, v, d1 - pre);\n        cur = v, pre = d1;\n    }\n    for (auto& [x, vec] : sub) solve(path[x], vec);\n}\n\nvoid _main() {\n    cin >> n, e.clear();\n    vector<node> s0;\n    for (int i = 2; i <= n; i++) s0.emplace_back(ask(1, i), i);\n    solve(1, s0);\n    cout << \"! \";\n    for (auto& [u, v, w] : e) cout << u << ' ' << v << ' ' << w << ' ';\n    cout << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-141",
+        "title": "8 染色",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ141",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ141](http://qoj.ac/problem/141/statement/default)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个 $n$ 个点 $m$ 条边的无向图 $G$，并且得知 $G$ 的一个 $8$ 染色方案。可以传输一个 01 串 $S$。\n> - B：已知 $n$ 个点 $m$ 条边的无向图 $G$，并且收到 $S$。要求构造一个 $8$ 染色方案。\n>\n> $n \\le 2 \\times 10^5$，$m \\le 5 \\times 10^5$，满分要求 $|S| \\le 2.5 \\times 10^5$，时限 0.45s，空限 20MB。\n\n:::::success[题解]\n\nA 和 B 先不断删去度数 $<8$ 的点，得到新图 $G'$。只要 A 给 B 提示了 $G'$ 的 $8$ 染色，B 是容易按逆拓扑序贪心构造的。\n\n记 $G'$ 的点数为 $n'$，根据握手定理 $2m=\\sum d_u \\ge 8n'$，得 $n' \\le \\frac{m}{4}$。\n\n如果每个颜色占 3bit，总的 bit 数就是 $\\frac{3}{4} m =3.75 \\times 10^5$，只能获得 41.3pts。\n\n我们注意到 $2$ 染色是容易的。考虑将 $8$ 种颜色两两分组，然后传递 $4$ 个组的标号。bit 数为 $\\frac{1}{2}m$ 符合要求。\n\n可以证明，每一组在 $G'$ 中的导出子图都是二分图，因此可以黑白染色，于是 B 就得到了 $G'$ 的 $8$ 染色。\n\n注意精细实现，否则会被卡常卡空间。\n\n:::::\n\n:::::info[代码]\n\nA：\n\n```cpp line-numbers\nconst int N = 2e5 + 5;\nstatic int n, m, deg[N];\nstatic bitset<N> del;\nstatic vector<int> e[N];\n\nvector<int> Alice(int N, int M, vector<int> U, vector<int> V, vector<int> C) {\n\tn = N, m = M;\n    for (int i = 0; i < m; i++) {\n        int u = U[i] + 1, v = V[i] + 1;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n        deg[u]++, deg[v]++;\n    }\n    queue<int> q;\n    for (int i = 1; i <= n; i++) if (deg[i] < 8) q.emplace(i), del[i] = true;\n\twhile (!q.empty()) {\n        int u = q.front(); q.pop();\n        for (int v : e[u]) \n            if (--deg[v] < 8 && !del[v]) q.emplace(v), del[v] = true;\n    }\n    vector<int> vec;\n    for (int i = 1; i <= n; i++) if (!del[i]) \n\t\tvec.emplace_back(C[i - 1] >> 2 & 1), vec.emplace_back(C[i - 1] >> 1 & 1);\n    return vec;\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 2e5 + 5;\nstatic int n, m, deg[N];\nstatic bitset<N> del;\nstatic i16 typ[N], col[N];\nstatic vector<int> e[N];\n\nvoid dfs(int u, int t) {\n    for (int v : e[u]) {\n        if (col[v] != -1 || typ[v] != t) continue;\n        col[v] = col[u] ^ 1, dfs(v, t);\n    }\n}\n\nvector<int> Bob(int N, int M, vector<int> U, vector<int> V, vector<int> X) {\n    n = N, m = M;\n    for (int i = 0; i < m; i++) {\n        int u = U[i] + 1, v = V[i] + 1;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n        deg[u]++, deg[v]++;\n    }\n\tstack<int> st; queue<int> q;\n    for (int i = 1; i <= n; i++) if (deg[i] < 8) \n\t\tq.emplace(i), del[i] = true, st.emplace(i);\n\twhile (!q.empty()) {\n        int u = q.front(); q.pop();\n        for (int v : e[u]) \n            if (--deg[v] < 8 && !del[v]) \n\t\t\t\tq.emplace(v), del[v] = true, st.emplace(v);\n    }\n\tfill(col + 1, col + n + 1, -1), fill(typ + 1, typ + n + 1, -1);\n    for (int i = 1, p = 0; i <= n; i++) {\n        if (del[i]) continue;\n\t\ttyp[i] = X[p] * 4 + X[p + 1] * 2, p += 2;\n    }\n    for (int c : {0, 2, 4, 6}) {\n        for (int i = 1; i <= n; i++) \n\t\t\tif (col[i] == -1 && typ[i] == c) col[i] = 0, dfs(i, c);\n        for (int i = 1; i <= n; i++) \n\t\t\tif (typ[i] == c) col[i] += c;\n    }\n\twhile (!st.empty()) {\n\t\tint u = st.top(); st.pop();\n\t\tint mask = (1 << 8) - 1;\n\t\tfor (int v : e[u]) \n\t\t\tif (col[v] != -1) mask &= ~(1 << col[v]);\n\t\tcol[u] = ctz(mask);\n\t}\n    return vector<int>(col + 1, col + n + 1);\n}\n```\n\n:::::\n\n### 【未完成】[CF1442F Differentiating Games](https://www.luogu.com.cn/problem/CF1442F)\n\n## 博弈型\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ141](http://qoj.ac/problem/141/statement/default)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个 $n$ 个点 $m$ 条边的无向图 $G$，并且得知 $G$ 的一个 $8$ 染色方案。可以传输一个 01 串 $S$。\n> - B：已知 $n$ 个点 $m$ 条边的无向图 $G$，并且收到 $S$。要求构造一个 $8$ 染色方案。\n>\n> $n \\le 2 \\times 10^5$，$m \\le 5 \\times 10^5$，满分要求 $|S| \\le 2.5 \\times 10^5$，时限 0.45s，空限 20MB。\n\n:::::success[题解]\n\nA 和 B 先不断删去度数 $<8$ 的点，得到新图 $G'$。只要 A 给 B 提示了 $G'$ 的 $8$ 染色，B 是容易按逆拓扑序贪心构造的。\n\n记 $G'$ 的点数为 $n'$，根据握手定理 $2m=\\sum d_u \\ge 8n'$，得 $n' \\le \\frac{m}{4}$。\n\n如果每个颜色占 3bit，总的 bit 数就是 $\\frac{3}{4} m =3.75 \\times 10^5$，只能获得 41.3pts。\n\n我们注意到 $2$ 染色是容易的。考虑将 $8$ 种颜色两两分组，然后传递 $4$ 个组的标号。bit 数为 $\\frac{1}{2}m$ 符合要求。\n\n可以证明，每一组在 $G'$ 中的导出子图都是二分图，因此可以黑白染色，于是 B 就得到了 $G'$ 的 $8$ 染色。\n\n注意精细实现，否则会被卡常卡空间。\n\n:::::\n\n:::::info[代码]\n\nA：\n\n```cpp line-numbers\nconst int N = 2e5 + 5;\nstatic int n, m, deg[N];\nstatic bitset<N> del;\nstatic vector<int> e[N];\n\nvector<int> Alice(int N, int M, vector<int> U, vector<int> V, vector<int> C) {\n\tn = N, m = M;\n    for (int i = 0; i < m; i++) {\n        int u = U[i] + 1, v = V[i] + 1;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n        deg[u]++, deg[v]++;\n    }\n    queue<int> q;\n    for (int i = 1; i <= n; i++) if (deg[i] < 8) q.emplace(i), del[i] = true;\n\twhile (!q.empty()) {\n        int u = q.front(); q.pop();\n        for (int v : e[u]) \n            if (--deg[v] < 8 && !del[v]) q.emplace(v), del[v] = true;\n    }\n    vector<int> vec;\n    for (int i = 1; i <= n; i++) if (!del[i]) \n\t\tvec.emplace_back(C[i - 1] >> 2 & 1), vec.emplace_back(C[i - 1] >> 1 & 1);\n    return vec;\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 2e5 + 5;\nstatic int n, m, deg[N];\nstatic bitset<N> del;\nstatic i16 typ[N], col[N];\nstatic vector<int> e[N];\n\nvoid dfs(int u, int t) {\n    for (int v : e[u]) {\n        if (col[v] != -1 || typ[v] != t) continue;\n        col[v] = col[u] ^ 1, dfs(v, t);\n    }\n}\n\nvector<int> Bob(int N, int M, vector<int> U, vector<int> V, vector<int> X) {\n    n = N, m = M;\n    for (int i = 0; i < m; i++) {\n        int u = U[i] + 1, v = V[i] + 1;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n        deg[u]++, deg[v]++;\n    }\n\tstack<int> st; queue<int> q;\n    for (int i = 1; i <= n; i++) if (deg[i] < 8) \n\t\tq.emplace(i), del[i] = true, st.emplace(i);\n\twhile (!q.empty()) {\n        int u = q.front(); q.pop();\n        for (int v : e[u]) \n            if (--deg[v] < 8 && !del[v]) \n\t\t\t\tq.emplace(v), del[v] = true, st.emplace(v);\n    }\n\tfill(col + 1, col + n + 1, -1), fill(typ + 1, typ + n + 1, -1);\n    for (int i = 1, p = 0; i <= n; i++) {\n        if (del[i]) continue;\n\t\ttyp[i] = X[p] * 4 + X[p + 1] * 2, p += 2;\n    }\n    for (int c : {0, 2, 4, 6}) {\n        for (int i = 1; i <= n; i++) \n\t\t\tif (col[i] == -1 && typ[i] == c) col[i] = 0, dfs(i, c);\n        for (int i = 1; i <= n; i++) \n\t\t\tif (typ[i] == c) col[i] += c;\n    }\n\twhile (!st.empty()) {\n\t\tint u = st.top(); st.pop();\n\t\tint mask = (1 << 8) - 1;\n\t\tfor (int v : e[u]) \n\t\t\tif (col[v] != -1) mask &= ~(1 << col[v]);\n\t\tcol[u] = ctz(mask);\n\t}\n    return vector<int>(col + 1, col + n + 1);\n}\n```\n\n:::::\n\n### 【未完成】[CF1442F Differentiating Games](https://www.luogu.com.cn/problem/CF1442F)\n\n## 博弈型\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-14621",
+        "title": "Tearing Paper",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ14621",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ14621](https://qoj.ac/problem/14621)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 定义 $(0,0) \\to (n,m)$ 的格路是合法的，当且仅当矩形 $[a,c] \\times [b,d]$ 在格路同侧。求合法格路数目。\n>\n> 多测，$T \\le 10^4$，$n \\le 10^3$，$m \\le 10^6$，1 秒，256 MB。\n\n:::::success[题解]\n\n考虑分别计数不越过射线 $x \\le c \\land y=b$ 和 $x=a \\land y \\le d$ 的格路数目，二者相加即为所求。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/glnce3df.webp)\n\n以 $x=a \\land y \\le d$ 的计数为例，枚举 $i \\le a$，将格路拆成 $(0,0) \\to (i,d)$ 和 $(i,d+1) \\to (n,m)$ 两部分。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/757yaw88.webp)\n\n特判 $(0,0) \\to (a,d) \\to (a+1,d) \\to (n,m)$ 的情形。可列得答案式\n$$\n\\boxed{\\sum_{i=0}^a \\binom{i+d}{i}\\binom{n-i+m-(d+1)}{n-i}}\n$$\n对于 $x \\le c \\land y=b$ 同理求解，单测复杂度 $O(n+m)$ 无法通过。\n\n注意到 $n,m$ 不同阶，正难则反，枚举跨过 $y=b$ 的位置 $i$，将不合法格路拆成 $(0,0) \\to (i,b)$ 和 $(i,b+1) \\to (n,m)$ 两部分：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/o0liykgl.webp)\n\n根据减法原理得到\n$$\n\\boxed{\\binom{n+m}{n} - \\sum_{i=0}^{c-1} \\binom{i+b}{i} \\binom{n-i+m-(b+1)}{n-i}}\n$$\n必有 $a,c \\le n$，总复杂度 $O(m+Tn)$ 可以通过。[代码](https://qoj.ac/submission/3142249)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ14621](https://qoj.ac/problem/14621)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 定义 $(0,0) \\to (n,m)$ 的格路是合法的，当且仅当矩形 $[a,c] \\times [b,d]$ 在格路同侧。求合法格路数目。\n>\n> 多测，$T \\le 10^4$，$n \\le 10^3$，$m \\le 10^6$，1 秒，256 MB。\n\n:::::success[题解]\n\n考虑分别计数不越过射线 $x \\le c \\land y=b$ 和 $x=a \\land y \\le d$ 的格路数目，二者相加即为所求。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/glnce3df.webp)\n\n以 $x=a \\land y \\le d$ 的计数为例，枚举 $i \\le a$，将格路拆成 $(0,0) \\to (i,d)$ 和 $(i,d+1) \\to (n,m)$ 两部分。\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/757yaw88.webp)\n\n特判 $(0,0) \\to (a,d) \\to (a+1,d) \\to (n,m)$ 的情形。可列得答案式\n$$\n\\boxed{\\sum_{i=0}^a \\binom{i+d}{i}\\binom{n-i+m-(d+1)}{n-i}}\n$$\n对于 $x \\le c \\land y=b$ 同理求解，单测复杂度 $O(n+m)$ 无法通过。\n\n注意到 $n,m$ 不同阶，正难则反，枚举跨过 $y=b$ 的位置 $i$，将不合法格路拆成 $(0,0) \\to (i,b)$ 和 $(i,b+1) \\to (n,m)$ 两部分：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/o0liykgl.webp)\n\n根据减法原理得到\n$$\n\\boxed{\\binom{n+m}{n} - \\sum_{i=0}^{c-1} \\binom{i+b}{i} \\binom{n-i+m-(b+1)}{n-i}}\n$$\n必有 $a,c \\le n$，总复杂度 $O(m+Tn)$ 可以通过。[代码](https://qoj.ac/submission/3142249)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-15314",
+        "title": "Menji, we miss you!",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ15314",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ15314](https://qoj.ac/problem/15314/)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，保证节点儿子数目 $\\le 2$。交互库有一个隐藏的点 $x$。你可以给出 $u,k$，向交互库查询 $\\text{dis}(u,x) \\le k$ 是否成立。\n>\n> 找出点 $x$。\n>\n> 多测，$T \\le 100$，$n \\le 3 \\times 10^4$，满分询问次数 $40$，交互库自适应。\n\n:::::success[题解]\n考虑猜数模型，通过询问 $\\text{dis}(1,x)$ 可以在 $\\log n$ 次询问内得到节点 $x$ 的深度。\n\n得到深度 $d$ 以后，可以询问 $(u,d-d_u)$ 来确定 $x \\in \\text{subtree}(u)$ 是否成立。考虑通过搜子树的方法找到 $x$。\n\n可以得到一个候选集合 $S$。记 $f_u=\\sum \\limits_{v \\in \\text{subtree}(u)} [v \\in S]$。有结论：必然存在子树 $u$ 使得 $f_u \\ge \\frac{2}{3} |S|$。由二叉树的结构易证。\n\n考虑维护集合 $S$，每次取一个 $f_u$ 最接近 $\\frac{1}{2} |S|$ 的子树继续递归，那么询问次数为 $\\log_{1.5} n \\approx 1.7 \\log n$。总询问次数约 $2.7 \\log n$ 且完全跑不满，可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 3e4 + 5;\nbool ask(int u, int k) {\n    cout << \"? \" << u << ' ' << k << endl;\n    int x; cin >> x;\n    return x;\n}\nint n, dn, f[N], sz[N], dfn[N], dep[N];\nvector<int> e[N];\n\nvoid dfs1(int u) {\n    sz[u] = 1, dfn[u] = ++dn;\n    for (int v : e[u]) dep[v] = dep[u] + 1, dfs1(v), sz[u] += sz[v]; \n}\nvoid dfs2(int u) {\n    for (int v : e[u]) dfs2(v), f[u] += f[v];\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) e[i].clear();\n    for (int v = 2, u; v <= n; v++) cin >> u, e[u].emplace_back(v);\n    dn = 0, dfs1(1);\n    int l = 0, r = n, d = -1;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (ask(1, mid)) d = mid, r = mid - 1;\n        else l = mid + 1;\n    }\n    vector<int> vec;\n    for (int i = 1; i <= n; i++) \n        if (dep[i] == d) vec.emplace_back(i);\n    while (vec.size() > 1) {\n        fill(f, f + n + 1, 0);\n        for (int u : vec) f[u] = 1;\n        dfs2(1);\n        int u = 1, v = -1, t = vec.size() / 2;\n        while (true) {\n            int h = 0;\n            for (int v : e[u]) if (f[v] > f[h]) h = v;\n            if (f[h] <= t) {\n                v = h; break;\n            } u = h;\n        }\n        if (abs(f[u] - t) > abs(f[v] - t)) swap(u, v);\n        vector<int> nxt;\n        if (ask(u, d - dep[u])) {\n            for (int x : vec) if (dfn[u] <= dfn[x] && dfn[x] <= dfn[u] + sz[u] - 1) \n                nxt.emplace_back(x);\n        } else {\n            for (int x : vec) if (!(dfn[u] <= dfn[x] && dfn[x] <= dfn[u] + sz[u] - 1)) \n                nxt.emplace_back(x);\n        }\n        vec.swap(nxt);\n    }\n    cout << \"! \" << vec[0] << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ15314](https://qoj.ac/problem/15314/)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，保证节点儿子数目 $\\le 2$。交互库有一个隐藏的点 $x$。你可以给出 $u,k$，向交互库查询 $\\text{dis}(u,x) \\le k$ 是否成立。\n>\n> 找出点 $x$。\n>\n> 多测，$T \\le 100$，$n \\le 3 \\times 10^4$，满分询问次数 $40$，交互库自适应。\n\n:::::success[题解]\n考虑猜数模型，通过询问 $\\text{dis}(1,x)$ 可以在 $\\log n$ 次询问内得到节点 $x$ 的深度。\n\n得到深度 $d$ 以后，可以询问 $(u,d-d_u)$ 来确定 $x \\in \\text{subtree}(u)$ 是否成立。考虑通过搜子树的方法找到 $x$。\n\n可以得到一个候选集合 $S$。记 $f_u=\\sum \\limits_{v \\in \\text{subtree}(u)} [v \\in S]$。有结论：必然存在子树 $u$ 使得 $f_u \\ge \\frac{2}{3} |S|$。由二叉树的结构易证。\n\n考虑维护集合 $S$，每次取一个 $f_u$ 最接近 $\\frac{1}{2} |S|$ 的子树继续递归，那么询问次数为 $\\log_{1.5} n \\approx 1.7 \\log n$。总询问次数约 $2.7 \\log n$ 且完全跑不满，可以通过。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 3e4 + 5;\nbool ask(int u, int k) {\n    cout << \"? \" << u << ' ' << k << endl;\n    int x; cin >> x;\n    return x;\n}\nint n, dn, f[N], sz[N], dfn[N], dep[N];\nvector<int> e[N];\n\nvoid dfs1(int u) {\n    sz[u] = 1, dfn[u] = ++dn;\n    for (int v : e[u]) dep[v] = dep[u] + 1, dfs1(v), sz[u] += sz[v]; \n}\nvoid dfs2(int u) {\n    for (int v : e[u]) dfs2(v), f[u] += f[v];\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++) e[i].clear();\n    for (int v = 2, u; v <= n; v++) cin >> u, e[u].emplace_back(v);\n    dn = 0, dfs1(1);\n    int l = 0, r = n, d = -1;\n    while (l <= r) {\n        int mid = (l + r) >> 1;\n        if (ask(1, mid)) d = mid, r = mid - 1;\n        else l = mid + 1;\n    }\n    vector<int> vec;\n    for (int i = 1; i <= n; i++) \n        if (dep[i] == d) vec.emplace_back(i);\n    while (vec.size() > 1) {\n        fill(f, f + n + 1, 0);\n        for (int u : vec) f[u] = 1;\n        dfs2(1);\n        int u = 1, v = -1, t = vec.size() / 2;\n        while (true) {\n            int h = 0;\n            for (int v : e[u]) if (f[v] > f[h]) h = v;\n            if (f[h] <= t) {\n                v = h; break;\n            } u = h;\n        }\n        if (abs(f[u] - t) > abs(f[v] - t)) swap(u, v);\n        vector<int> nxt;\n        if (ask(u, d - dep[u])) {\n            for (int x : vec) if (dfn[u] <= dfn[x] && dfn[x] <= dfn[u] + sz[u] - 1) \n                nxt.emplace_back(x);\n        } else {\n            for (int x : vec) if (!(dfn[u] <= dfn[x] && dfn[x] <= dfn[u] + sz[u] - 1)) \n                nxt.emplace_back(x);\n        }\n        vec.swap(nxt);\n    }\n    cout << \"! \" << vec[0] << endl;\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-17760",
+        "title": "Telepathy",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ17760",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ17760](http://qoj.ac/problem/17760)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知 $n,k$ 和一个大小为 $k$ 的集合 $S$。保证 $S \\subseteq \\{1,2,\\cdots,n\\}$ 且 $k < \\frac{n}{2}$。\n>\n>   必须选择一个正整数 $x$ 使得 $x \\in [1,n] \\land x \\notin S$，令 $T = S \\cap \\{x\\}$。\n>\n> - B：已知 $n,k$ 和大小为 $k+1$ 的集合 $T$。找出 $T \\setminus S$，即 A 加的数字。\n>\n> 多测，$n \\le 10^6$，$\\sum n \\le 3 \\times 10^6$。\n\n:::::success[题解]\n\n在最坏情况下，有 $2 \\nmid n$ 且 $2k+1=n$，故只需解决这一情况，其余情形可以通过加元素转化到这种情况。\n\n考虑如下转化：对于 $[1,n]$ 中的每个数 $x$，若 $x \\in S$ 则令 $a_x=1$，否则令 $a_x=-1$。记 $f(x)=\\sum \\limits_{i=1}^n a_i$，画出 $x - f(x)$ 的图像：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/f24zqf6b.png)\n\n容易发现如下性质：\n\n- $f(n)=-1$。\n- $f$ 存在唯一的循环位移，使得 $\\forall i \\in [1,n), f(i) \\ge 0$。也即图中将坐标系移动到最低谷点的操作。\n\n这个实际上是 Raney 引理的构造。\n\n忽略 $f(n)$，则 $f(1) \\sim f(n-1)$ 相当于一个合法括号序列。考虑用括号序列的结构给 $S$ 构造双射。\n\n考虑 A 的策略。我们可以找到那个多出来的右括号 $-1$，也即寻找 $f(x)$ 在 $[1,n]$ 上第一个达到最小值的位置 $x$，并且将 $x$ 加入 $S$。\n\n考虑 B 的策略。我们去找循环位移的起点，即寻找 $f(x)$ 在 $[1,n]$ 上最后一个达到最小值的位置 $x$。根据唯一性，A 添加的数字就是 $x+1$。\n\n:::::\n\n:::::info[代码]\n\nA：\n\n```cpp line-numbers\nconst int N = 2e6 + 5;\nint n, k, a[N], s[N];\n\nvoid _main() {\n    cin >> n >> k;\n    for (int i = 1; i <= k; i++) cin >> s[i];\n    int m = 2 * n - 2 * k - 1;\n    fill(a + 1, a + m + 1, -1);\n    for (int i = 1; i <= k; i++) a[s[i]] = 1;\n    for (int i = n + 1; i <= m; i++) a[i] = 1;\n    int f = 0, mf = 0, x = 0;\n    for (int i = 1; i <= m; i++) {\n        f += a[i];\n        if (f < mf) mf = f, x = i;\n    }\n    for (int i = 1; i <= k; i++) cout << s[i] << ' ';\n    cout << x << '\\n';\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 2e6 + 5;\nint n, k, a[N], t[N];\n\nvoid _main() {\n    cin >> n >> k;\n    for (int i = 1; i <= k + 1; i++) cin >> t[i];\n    int m = 2 * n - 2 * k - 1;\n    fill(a + 1, a + m + 1, -1);\n    for (int i = 1; i <= k + 1; i++) a[t[i]] = 1;\n    for (int i = n + 1; i <= m; i++) a[i] = 1;\n    int f = 0, mf = 0, x = 0;\n    for (int i = 1; i <= m; i++) {\n        f += a[i];\n        if (f <= mf) mf = f, x = i;\n    } cout << x + 1 << '\\n';\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ17760](http://qoj.ac/problem/17760)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知 $n,k$ 和一个大小为 $k$ 的集合 $S$。保证 $S \\subseteq \\{1,2,\\cdots,n\\}$ 且 $k < \\frac{n}{2}$。\n>\n>   必须选择一个正整数 $x$ 使得 $x \\in [1,n] \\land x \\notin S$，令 $T = S \\cap \\{x\\}$。\n>\n> - B：已知 $n,k$ 和大小为 $k+1$ 的集合 $T$。找出 $T \\setminus S$，即 A 加的数字。\n>\n> 多测，$n \\le 10^6$，$\\sum n \\le 3 \\times 10^6$。\n\n:::::success[题解]\n\n在最坏情况下，有 $2 \\nmid n$ 且 $2k+1=n$，故只需解决这一情况，其余情形可以通过加元素转化到这种情况。\n\n考虑如下转化：对于 $[1,n]$ 中的每个数 $x$，若 $x \\in S$ 则令 $a_x=1$，否则令 $a_x=-1$。记 $f(x)=\\sum \\limits_{i=1}^n a_i$，画出 $x - f(x)$ 的图像：\n\n![](https://cdn.luogu.com.cn/upload/image_hosting/f24zqf6b.png)\n\n容易发现如下性质：\n\n- $f(n)=-1$。\n- $f$ 存在唯一的循环位移，使得 $\\forall i \\in [1,n), f(i) \\ge 0$。也即图中将坐标系移动到最低谷点的操作。\n\n这个实际上是 Raney 引理的构造。\n\n忽略 $f(n)$，则 $f(1) \\sim f(n-1)$ 相当于一个合法括号序列。考虑用括号序列的结构给 $S$ 构造双射。\n\n考虑 A 的策略。我们可以找到那个多出来的右括号 $-1$，也即寻找 $f(x)$ 在 $[1,n]$ 上第一个达到最小值的位置 $x$，并且将 $x$ 加入 $S$。\n\n考虑 B 的策略。我们去找循环位移的起点，即寻找 $f(x)$ 在 $[1,n]$ 上最后一个达到最小值的位置 $x$。根据唯一性，A 添加的数字就是 $x+1$。\n\n:::::\n\n:::::info[代码]\n\nA：\n\n```cpp line-numbers\nconst int N = 2e6 + 5;\nint n, k, a[N], s[N];\n\nvoid _main() {\n    cin >> n >> k;\n    for (int i = 1; i <= k; i++) cin >> s[i];\n    int m = 2 * n - 2 * k - 1;\n    fill(a + 1, a + m + 1, -1);\n    for (int i = 1; i <= k; i++) a[s[i]] = 1;\n    for (int i = n + 1; i <= m; i++) a[i] = 1;\n    int f = 0, mf = 0, x = 0;\n    for (int i = 1; i <= m; i++) {\n        f += a[i];\n        if (f < mf) mf = f, x = i;\n    }\n    for (int i = 1; i <= k; i++) cout << s[i] << ' ';\n    cout << x << '\\n';\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 2e6 + 5;\nint n, k, a[N], t[N];\n\nvoid _main() {\n    cin >> n >> k;\n    for (int i = 1; i <= k + 1; i++) cin >> t[i];\n    int m = 2 * n - 2 * k - 1;\n    fill(a + 1, a + m + 1, -1);\n    for (int i = 1; i <= k + 1; i++) a[t[i]] = 1;\n    for (int i = n + 1; i <= m; i++) a[i] = 1;\n    int f = 0, mf = 0, x = 0;\n    for (int i = 1; i <= m; i++) {\n        f += a[i];\n        if (f <= mf) mf = f, x = i;\n    } cout << x + 1 << '\\n';\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-18404",
+        "title": "Dangerous Data",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ18404",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ18404](http://qoj.ac/problem/18404)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知 $n,k$ 和大小为 $n+k$ 的集合 $S$，保证 $S \\subseteq [1,10^6]$。可以传递一个长为 $k$ 的序列 $a_i$，要求 $a_i \\in [0,2^{20})$。\n> - B：已知 $n,k$ 和长为 $k$ 的序列 $a_1 \\sim a_k$，以及大小为 $n$ 的集合 $T$。保证 $T \\subseteq S$，你需要找出 $S \\setminus T$，即缺失的 $k$ 个数字。\n>\n> $n \\le 10^5$，$k \\le 10$。\n\n:::::success[题解]\n\n取质数 $p \\in (10^6,2^{20})$，将所有数在 $\\mathbb{Z}_p$ 下运算。代码取 $p=10^6+3$。\n\n考虑构造多项式 $F(x)=\\prod\\limits_{v \\in S} (vx+1)$，并将 $F \\bmod x^{k+1}$ 的系数传递给 B。\n\n$F$ 的组合意义是：在 $S$ 中取出所有大小为 $k$ 的子集，统计子集元素之积的总和作为 $f_k$。可以说明 $f_0 \\sim f_{n+k}$ 与 $S$ 构成双射。\n\nB 收到 $F \\bmod x^{k+1}$ 后，构造 $T$ 的对应多项式 $G(x)=\\prod\\limits_{v \\in T} (vx+1)$，将 $G$ 除掉就得到\n$$\n\\begin{aligned}\nH(x)&=\\prod_{v \\in (S \\setminus T)} (vx+1)\\\\\nH&\\equiv \\dfrac{F}{G} \\pmod {x^{k+1}}\n\\end{aligned}\n$$\n又因为 $H$ 的次数不会超过 $k$，故直接有 $H=F \\times G^{-1}$ 成立。\n\n得到 $H$ 以后，令 $H(x)=0$ 求根即为 $S \\setminus T$。\n\n多项式运算使用暴力即可，复杂度 $O(nk)$。\n\n:::::\n\n:::::info[代码]\n\nA：\n\n```cpp line-numbers\nconst int N = 1.1e5;\nint n, k, a[N];\nmint f[20];\n\nvoid _main() {\n    cin >> n >> k;\n    f[0] = 1;\n    for (int p = 1, x; p <= n + k; p++) {\n        cin >> x;\n        for (int i = k; i >= 1; i--) f[i] += f[i - 1] * x;\n    } \n    for (int i = 1; i <= k; i++) cout << f[i] << ' ';\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 1.1e5;\nint n, k;\nmint f[20], g[20], gi[20], h[20];\n\nmint H(mint x) {\n    mint res = 0;\n    for (int i = k; i >= 0; i--) res = res * x + h[i];\n    return res;\n}\nvoid _main() {\n    cin >> n >> k;\n    for (int i = 1; i <= k; i++) cin >> f[i];\n    f[0] = g[0] = gi[0] = 1;\n    for (int p = 1, x; p <= n; p++) {\n        cin >> x;\n        for (int i = k; i >= 1; i--) g[i] += g[i - 1] * x;\n    } \n    for (int i = 1; i <= k; i++) \n        for (int j = 1; j <= i; j++) gi[i] -= g[j] * gi[i - j]; \n    for (int i = 0; i <= k; i++)\n        for (int j = 0; i + j <= k; j++) h[i + j] += f[i] * gi[j];\n    for (int i = 1; i <= 1e6; i++)\n        if (H(mint(-1) / i) == 0) cout << i << ' ';\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ18404](http://qoj.ac/problem/18404)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知 $n,k$ 和大小为 $n+k$ 的集合 $S$，保证 $S \\subseteq [1,10^6]$。可以传递一个长为 $k$ 的序列 $a_i$，要求 $a_i \\in [0,2^{20})$。\n> - B：已知 $n,k$ 和长为 $k$ 的序列 $a_1 \\sim a_k$，以及大小为 $n$ 的集合 $T$。保证 $T \\subseteq S$，你需要找出 $S \\setminus T$，即缺失的 $k$ 个数字。\n>\n> $n \\le 10^5$，$k \\le 10$。\n\n:::::success[题解]\n\n取质数 $p \\in (10^6,2^{20})$，将所有数在 $\\mathbb{Z}_p$ 下运算。代码取 $p=10^6+3$。\n\n考虑构造多项式 $F(x)=\\prod\\limits_{v \\in S} (vx+1)$，并将 $F \\bmod x^{k+1}$ 的系数传递给 B。\n\n$F$ 的组合意义是：在 $S$ 中取出所有大小为 $k$ 的子集，统计子集元素之积的总和作为 $f_k$。可以说明 $f_0 \\sim f_{n+k}$ 与 $S$ 构成双射。\n\nB 收到 $F \\bmod x^{k+1}$ 后，构造 $T$ 的对应多项式 $G(x)=\\prod\\limits_{v \\in T} (vx+1)$，将 $G$ 除掉就得到\n$$\n\\begin{aligned}\nH(x)&=\\prod_{v \\in (S \\setminus T)} (vx+1)\\\\\nH&\\equiv \\dfrac{F}{G} \\pmod {x^{k+1}}\n\\end{aligned}\n$$\n又因为 $H$ 的次数不会超过 $k$，故直接有 $H=F \\times G^{-1}$ 成立。\n\n得到 $H$ 以后，令 $H(x)=0$ 求根即为 $S \\setminus T$。\n\n多项式运算使用暴力即可，复杂度 $O(nk)$。\n\n:::::\n\n:::::info[代码]\n\nA：\n\n```cpp line-numbers\nconst int N = 1.1e5;\nint n, k, a[N];\nmint f[20];\n\nvoid _main() {\n    cin >> n >> k;\n    f[0] = 1;\n    for (int p = 1, x; p <= n + k; p++) {\n        cin >> x;\n        for (int i = k; i >= 1; i--) f[i] += f[i - 1] * x;\n    } \n    for (int i = 1; i <= k; i++) cout << f[i] << ' ';\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 1.1e5;\nint n, k;\nmint f[20], g[20], gi[20], h[20];\n\nmint H(mint x) {\n    mint res = 0;\n    for (int i = k; i >= 0; i--) res = res * x + h[i];\n    return res;\n}\nvoid _main() {\n    cin >> n >> k;\n    for (int i = 1; i <= k; i++) cin >> f[i];\n    f[0] = g[0] = gi[0] = 1;\n    for (int p = 1, x; p <= n; p++) {\n        cin >> x;\n        for (int i = k; i >= 1; i--) g[i] += g[i - 1] * x;\n    } \n    for (int i = 1; i <= k; i++) \n        for (int j = 1; j <= i; j++) gi[i] -= g[j] * gi[i - j]; \n    for (int i = 0; i <= k; i++)\n        for (int j = 0; i + j <= k; j++) h[i + j] += f[i] * gi[j];\n    for (int i = 1; i <= 1e6; i++)\n        if (H(mint(-1) / i) == 0) cout << i << ' ';\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-19066",
+        "title": "Historical Hits",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ19066",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ19066](https://qoj.ac/problem/19066)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个二元组 $(a_i,b_i)$。你需要将 $n$ 个二元组随机打乱，然后进行如下操作：\n>\n> - 维护集合 $S$，按打乱后的顺序依次考虑每个 $i$，若 $\\forall x \\in S, x \\notin [\\min(a_i,b_i),\\max(a_i,b_i)]$ 则令 $S \\gets S \\cup \\{a_i\\}$。\n>\n> 求 $|S|$ 的期望值。保证 $\\forall i\\ne j, a_i \\ne a_j$ 且 $a_i \\ne b_j$。\n>\n> $n \\le 3 \\times 10^3$，2 秒，1024 MB。\n\n:::::success[题解]\n\n考虑两个位置 $i,j$，若 $a_j \\in [\\min(a_i,b_i),\\max(a_i,b_i)]$ 则连边 $i \\to j$，表示 $i$ 可以阻止 $j$ 加入。在一般图上考虑问题，DP 状态需要记可达性等信息，状态数不可接受。\n\n这启发我们利用区间的性质。对 $a_i$ 离散化后对 $n$ 个二元组按 $a_i$ 升序排序，则 $i \\to j$ 对应的 $j$ 在新序列中构成连续段 $[x_i,y_i]$。容易证明 $i \\in [x_i,y_i]$。\n\n对 $k \\in S$，所有覆盖 $k$ 的区间 $k \\in [x_j,y_j]$ 都会失效。我们将一个极大空区间作为状态进行 DP：\n\n- 记 $f_{l,r}$ 为满足下列条件时 $\\Delta |S|$ 的期望：\n\n  - $l-1 \\in S \\land r+1 \\in S$。\n  - $\\forall k\\in [l,r], k\\notin S$。\n\n  显然对 $|S|$ 有影响的 $i$ 必满足 $[x_i,y_i] \\subseteq [l,r]$，故 $f_{l,r}$ 与外界独立。\n\n- 区间 DP 转移考虑枚举断点 $k$。设 $c_{l,r}$ 为 $[x_i,y_i] \\subseteq [l,r]$ 的 $i$ 的数目，特判 $c_{l,r}=0$ 后进行讨论：\n\n  - 取出 $k$ 的概率为 $\\frac{1}{c_{l,r}}$。\n  - 根据 DP 的组合意义，$k$ 是 $[l,r]$ 内部首先处理的位置，故 $k$ 必然能成功加入 $S$。\n  - $k$ 加入 $S$ 后，原区间 $[l,r]$ 分裂为 $[l,k)$ 和 $(k,r]$。\n\n  综上所述，我们有转移式\n  $$\n  \\boxed{f_{l,r}=1+\\dfrac{1}{c_{l,r}} \\sum_{k \\in [l,r]\\land [x_k,y_k] \\subseteq [l,r]} (f_{l,k-1}+f_{k+1,r})}\n  $$\n\n- DP 初值为 $f_{l,r}=0$。\n\n- 答案为 $f_{1,n}$。\n\n复杂度 $O(n^3)$ 无法通过。观察转移条件，利用区间 DP 转移顺序的特殊性对其进行优化。\n\n我们增量维护所有合法的 $k$。考虑 $r \\to r+1$ 时，新增的 $k$ 必有 $y_k=r \\land l \\le x_k$。将 $k$ 挂在 $y_k$ 处，令 $c_{l,r}$ 继承 $c_{l,r-1}$ 后枚举 $k$ 进行转移。对后面的求和式，令\n$$\np_{l,r}=\\sum_{k \\in [l,r] \\land [x_k,y_k] \\subseteq [l,r]} f_{l,k-1}\\\\\nq_{l,r}=\\sum_{k \\in [l,r] \\land [x_k,y_k] \\subseteq [l,r]} f_{k+1,r}\\\\\n$$\n内层对 $r$ 扫描线维护 $p$，对 $l$ 扫描线维护 $q$，最后再计算每个 $f_{l,r}$ 即可。\n\n复杂度 $O(n^2)$。[代码](https://qoj.ac/submission/2958060)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ19066](https://qoj.ac/problem/19066)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个二元组 $(a_i,b_i)$。你需要将 $n$ 个二元组随机打乱，然后进行如下操作：\n>\n> - 维护集合 $S$，按打乱后的顺序依次考虑每个 $i$，若 $\\forall x \\in S, x \\notin [\\min(a_i,b_i),\\max(a_i,b_i)]$ 则令 $S \\gets S \\cup \\{a_i\\}$。\n>\n> 求 $|S|$ 的期望值。保证 $\\forall i\\ne j, a_i \\ne a_j$ 且 $a_i \\ne b_j$。\n>\n> $n \\le 3 \\times 10^3$，2 秒，1024 MB。\n\n:::::success[题解]\n\n考虑两个位置 $i,j$，若 $a_j \\in [\\min(a_i,b_i),\\max(a_i,b_i)]$ 则连边 $i \\to j$，表示 $i$ 可以阻止 $j$ 加入。在一般图上考虑问题，DP 状态需要记可达性等信息，状态数不可接受。\n\n这启发我们利用区间的性质。对 $a_i$ 离散化后对 $n$ 个二元组按 $a_i$ 升序排序，则 $i \\to j$ 对应的 $j$ 在新序列中构成连续段 $[x_i,y_i]$。容易证明 $i \\in [x_i,y_i]$。\n\n对 $k \\in S$，所有覆盖 $k$ 的区间 $k \\in [x_j,y_j]$ 都会失效。我们将一个极大空区间作为状态进行 DP：\n\n- 记 $f_{l,r}$ 为满足下列条件时 $\\Delta |S|$ 的期望：\n\n  - $l-1 \\in S \\land r+1 \\in S$。\n  - $\\forall k\\in [l,r], k\\notin S$。\n\n  显然对 $|S|$ 有影响的 $i$ 必满足 $[x_i,y_i] \\subseteq [l,r]$，故 $f_{l,r}$ 与外界独立。\n\n- 区间 DP 转移考虑枚举断点 $k$。设 $c_{l,r}$ 为 $[x_i,y_i] \\subseteq [l,r]$ 的 $i$ 的数目，特判 $c_{l,r}=0$ 后进行讨论：\n\n  - 取出 $k$ 的概率为 $\\frac{1}{c_{l,r}}$。\n  - 根据 DP 的组合意义，$k$ 是 $[l,r]$ 内部首先处理的位置，故 $k$ 必然能成功加入 $S$。\n  - $k$ 加入 $S$ 后，原区间 $[l,r]$ 分裂为 $[l,k)$ 和 $(k,r]$。\n\n  综上所述，我们有转移式\n  $$\n  \\boxed{f_{l,r}=1+\\dfrac{1}{c_{l,r}} \\sum_{k \\in [l,r]\\land [x_k,y_k] \\subseteq [l,r]} (f_{l,k-1}+f_{k+1,r})}\n  $$\n\n- DP 初值为 $f_{l,r}=0$。\n\n- 答案为 $f_{1,n}$。\n\n复杂度 $O(n^3)$ 无法通过。观察转移条件，利用区间 DP 转移顺序的特殊性对其进行优化。\n\n我们增量维护所有合法的 $k$。考虑 $r \\to r+1$ 时，新增的 $k$ 必有 $y_k=r \\land l \\le x_k$。将 $k$ 挂在 $y_k$ 处，令 $c_{l,r}$ 继承 $c_{l,r-1}$ 后枚举 $k$ 进行转移。对后面的求和式，令\n$$\np_{l,r}=\\sum_{k \\in [l,r] \\land [x_k,y_k] \\subseteq [l,r]} f_{l,k-1}\\\\\nq_{l,r}=\\sum_{k \\in [l,r] \\land [x_k,y_k] \\subseteq [l,r]} f_{k+1,r}\\\\\n$$\n内层对 $r$ 扫描线维护 $p$，对 $l$ 扫描线维护 $q$，最后再计算每个 $f_{l,r}$ 即可。\n\n复杂度 $O(n^2)$。[代码](https://qoj.ac/submission/2958060)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-20297",
+        "title": "Legendary Game",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ20297",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ20297](https://qoj.ac/problem/20297)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,k$，对满足下列条件的长为 $n$ 的序列 $a_i$ 计数：\n>\n> - $a_i \\in [1,2n+k]$。\n> - $\\forall a_i \\in [1,n], a_{i+1} >n$。\n> - $\\forall a_i \\in (n+k,2n+k], a_{i+1} \\le n+k$。\n>\n> 除以 $A_{2n+k}^n$ 后输出。\n>\n> $n \\le 10^6$，$k \\le 100$，1 秒，256 MB。\n\n:::::success[题解]\n\n我们称 $[1,n]$ 为一类数，$(n,n+k]$ 为二类数，$(n+k,2n+k]$ 为三类数。设三种数在最终序列中出现 $c_1,c_2,c_3$ 次，则我们只关心每个位置的数字类型是否合法，最终令每类数自由排列，系数 $\\dbinom{k}{c_2}\\dbinom{n}{c_1} \\dbinom{n}{c_3}c_1!c_2!c_3!$。\n\n注意到 $k$ 的范围很小，考虑枚举 $x=c_2$。这 $x$ 个二类数将序列切分为 $x+1$ 段，每段内部必然是一 & 三交替的。枚举 $c_1$ 或 $c_3$ 的复杂度过大，我们转而关注每段长度的奇偶性。\n\n枚举 $x+1$ 段中存在 $y$ 个奇数段，再钦定 $y$ 个奇数段中恰有 $z$ 个满足：一类数比三类数多一个。选法数 $\\dbinom{x+1}{y} \\dbinom{y}{z}$。可以求得 $c_1-c_3=z-(y-z)$，联立 $c_1+c_2+c_3=n$ 可解出 $c_1,c_3$ 得到系数。\n\n对于偶数段，存在 `1313...` 和 `3131...` 两种排列方式，枚举 $x+1-y$ 个偶数段中有 $w$ 个非空，选法数 $\\dbinom{x+1-y}{w}$，贡献系数 $2^w$。\n\n还有一个系数是，将 $n-x$ 个元素划分为 $x+1$ 段，恰有 $y$ 个奇数段和 $w$ 个非空偶段的方案数。设奇数段长 $2a_i+1$，偶数段长 $2b_i$，可列得不定方程\n$$\n\\sum_{i=1}^y (2a_i+1)+\\sum_{i=1}^w 2b_i=n-x\n$$\n未知量的范围是 $a_i \\ge 0$ 且 $b_i \\ge 1$。令 $b_i'=b_i-1$，代入化简得\n$$\n\\sum_{i=0}^y a_i+\\sum_{i=1}^w b_i'=\\dfrac{n-x-y-2w}{2}\n$$\n这是 $y+w$ 个变量的不定方程解计数问题，答案为 $\\dbinom{\\frac{n-x-y-2w}{2}+y+w-1}{y+w-1}$。注意特判 $y=0 \\land w=0$ 的情形，所有段都是空段，方案数为 $1$。\n\n综上，给出本题的答案式子\n$$\n\\boxed{\\dbinom{k}{c_2}\\dbinom{n}{c_1} \\dbinom{n}{c_3}c_1!c_2!c_3!\\dbinom{x+1}{y} \\dbinom{y}{z}\\dbinom{x+1-y}{w}\\dbinom{\\frac{n-x-y-2w}{2}+y+w-1}{y+w-1}}\n$$\n复杂度 $O(k^4)$。[代码](https://qoj.ac/submission/3017580)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ20297](https://qoj.ac/problem/20297)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,k$，对满足下列条件的长为 $n$ 的序列 $a_i$ 计数：\n>\n> - $a_i \\in [1,2n+k]$。\n> - $\\forall a_i \\in [1,n], a_{i+1} >n$。\n> - $\\forall a_i \\in (n+k,2n+k], a_{i+1} \\le n+k$。\n>\n> 除以 $A_{2n+k}^n$ 后输出。\n>\n> $n \\le 10^6$，$k \\le 100$，1 秒，256 MB。\n\n:::::success[题解]\n\n我们称 $[1,n]$ 为一类数，$(n,n+k]$ 为二类数，$(n+k,2n+k]$ 为三类数。设三种数在最终序列中出现 $c_1,c_2,c_3$ 次，则我们只关心每个位置的数字类型是否合法，最终令每类数自由排列，系数 $\\dbinom{k}{c_2}\\dbinom{n}{c_1} \\dbinom{n}{c_3}c_1!c_2!c_3!$。\n\n注意到 $k$ 的范围很小，考虑枚举 $x=c_2$。这 $x$ 个二类数将序列切分为 $x+1$ 段，每段内部必然是一 & 三交替的。枚举 $c_1$ 或 $c_3$ 的复杂度过大，我们转而关注每段长度的奇偶性。\n\n枚举 $x+1$ 段中存在 $y$ 个奇数段，再钦定 $y$ 个奇数段中恰有 $z$ 个满足：一类数比三类数多一个。选法数 $\\dbinom{x+1}{y} \\dbinom{y}{z}$。可以求得 $c_1-c_3=z-(y-z)$，联立 $c_1+c_2+c_3=n$ 可解出 $c_1,c_3$ 得到系数。\n\n对于偶数段，存在 `1313...` 和 `3131...` 两种排列方式，枚举 $x+1-y$ 个偶数段中有 $w$ 个非空，选法数 $\\dbinom{x+1-y}{w}$，贡献系数 $2^w$。\n\n还有一个系数是，将 $n-x$ 个元素划分为 $x+1$ 段，恰有 $y$ 个奇数段和 $w$ 个非空偶段的方案数。设奇数段长 $2a_i+1$，偶数段长 $2b_i$，可列得不定方程\n$$\n\\sum_{i=1}^y (2a_i+1)+\\sum_{i=1}^w 2b_i=n-x\n$$\n未知量的范围是 $a_i \\ge 0$ 且 $b_i \\ge 1$。令 $b_i'=b_i-1$，代入化简得\n$$\n\\sum_{i=0}^y a_i+\\sum_{i=1}^w b_i'=\\dfrac{n-x-y-2w}{2}\n$$\n这是 $y+w$ 个变量的不定方程解计数问题，答案为 $\\dbinom{\\frac{n-x-y-2w}{2}+y+w-1}{y+w-1}$。注意特判 $y=0 \\land w=0$ 的情形，所有段都是空段，方案数为 $1$。\n\n综上，给出本题的答案式子\n$$\n\\boxed{\\dbinom{k}{c_2}\\dbinom{n}{c_1} \\dbinom{n}{c_3}c_1!c_2!c_3!\\dbinom{x+1}{y} \\dbinom{y}{z}\\dbinom{x+1-y}{w}\\dbinom{\\frac{n-x-y-2w}{2}+y+w-1}{y+w-1}}\n$$\n复杂度 $O(k^4)$。[代码](https://qoj.ac/submission/3017580)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-5309",
+        "title": "Guess Cycle Length",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ5309",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ5309](https://qoj.ac/problem/5309)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个大小为 $n$ 的环，环上节点的编号是一个 $1 \\sim n$ 的排列。你初始位于某个点，每次询问给出一个非负整数 $x$，向后走 $x$ 步并从交互库得知当前节点编号。\n>\n> 还原环的大小，即找出 $n$。\n>\n> $n \\le 10^9$，满分询问次数 $\\le 10^4$，交互库非自适应。\n\n:::::success[题解]\n注意到如果从起点走 $x,y$ 步后节点编号相同，则 $n \\mid (x-y)$。\n\n考虑 BSGS。设置一个阈值 $B$，先向后跳 $1,2,\\cdots,B$ 步，并将步数和节点编号对应插入一个哈希表。再跳 $B,2B,\\cdots,B^2$ 步。若 $n \\le B$ 则可以直接在第一轮得到答案，否则找到哈希表中第一个出现的数可以计算出答案。\n\n上述做法是确定性的，$B=\\sqrt{n}$ 最优，此时询问次数约 $2 \\times \\sqrt{10^9} \\approx 6 \\times 10^4$，无法通过。\n\n结论：$k$ 个 $[1,n]$ 内的随机变量，最大值的期望为 $\\frac{k}{k+1}n$。\n\n我们随机进行以下流程若干轮：从 $[1,10^9]$ 中随机一个正整数 $x$，并记录走 $x$ 步后的节点标号。由于交互库非自适应，我们找出编号的 $\\max$ 记为 $m$，则用 $m$ 来估计 $n$ 的数量级。\n\n这样 $m \\to n$ 的距离大大缩小了，考虑在这段距离上 BSGS。跑完 Baby Step 后，可以从起点开始，找到最接近 $m$ 的 $B$ 的倍数 $kB$，然后从 $kB$ 开始重复 Giant Step。\n\n经过简单调参即可通过，注意一些细节。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\n#define int long long\nconst int N = 1e9, B = 2000;\nint walk(int x) {\n    cout << \"walk \" << x << endl;\n    int a; cin >> a;\n    return a;\n}\nvoid guess(int x) {\n    cout << \"guess \" << x << endl;\n    exit(0);\n}\n\nvoid _main() {\n    int m = 0;\n    for (int i = 1; i <= 3000; i++) chkmax(m, walk(rand32() % N + 1));\n    umap<int, int> mp;\n    int x = -1;\n    for (int i = 1; i <= B; i++) {\n        x = walk(1), chkmax(m, x);\n        if (mp.find(x) != mp.end()) guess(i - mp[x]);\n        mp[x] = i;\n    }\n    int d = max(B, m / B * B);\n    if (d > B) x = walk(d - B);\n    while (true) {\n        if (mp.find(x) != mp.end() && d > mp[x]) guess(d - mp[x]);\n        x = walk(B), d += B;\n    }\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ5309](https://qoj.ac/problem/5309)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道交互题。\n>\n> 交互库隐藏了一个大小为 $n$ 的环，环上节点的编号是一个 $1 \\sim n$ 的排列。你初始位于某个点，每次询问给出一个非负整数 $x$，向后走 $x$ 步并从交互库得知当前节点编号。\n>\n> 还原环的大小，即找出 $n$。\n>\n> $n \\le 10^9$，满分询问次数 $\\le 10^4$，交互库非自适应。\n\n:::::success[题解]\n注意到如果从起点走 $x,y$ 步后节点编号相同，则 $n \\mid (x-y)$。\n\n考虑 BSGS。设置一个阈值 $B$，先向后跳 $1,2,\\cdots,B$ 步，并将步数和节点编号对应插入一个哈希表。再跳 $B,2B,\\cdots,B^2$ 步。若 $n \\le B$ 则可以直接在第一轮得到答案，否则找到哈希表中第一个出现的数可以计算出答案。\n\n上述做法是确定性的，$B=\\sqrt{n}$ 最优，此时询问次数约 $2 \\times \\sqrt{10^9} \\approx 6 \\times 10^4$，无法通过。\n\n结论：$k$ 个 $[1,n]$ 内的随机变量，最大值的期望为 $\\frac{k}{k+1}n$。\n\n我们随机进行以下流程若干轮：从 $[1,10^9]$ 中随机一个正整数 $x$，并记录走 $x$ 步后的节点标号。由于交互库非自适应，我们找出编号的 $\\max$ 记为 $m$，则用 $m$ 来估计 $n$ 的数量级。\n\n这样 $m \\to n$ 的距离大大缩小了，考虑在这段距离上 BSGS。跑完 Baby Step 后，可以从起点开始，找到最接近 $m$ 的 $B$ 的倍数 $kB$，然后从 $kB$ 开始重复 Giant Step。\n\n经过简单调参即可通过，注意一些细节。\n:::::\n\n:::::info[代码]\n\n```cpp line-numbers\n#define int long long\nconst int N = 1e9, B = 2000;\nint walk(int x) {\n    cout << \"walk \" << x << endl;\n    int a; cin >> a;\n    return a;\n}\nvoid guess(int x) {\n    cout << \"guess \" << x << endl;\n    exit(0);\n}\n\nvoid _main() {\n    int m = 0;\n    for (int i = 1; i <= 3000; i++) chkmax(m, walk(rand32() % N + 1));\n    umap<int, int> mp;\n    int x = -1;\n    for (int i = 1; i <= B; i++) {\n        x = walk(1), chkmax(m, x);\n        if (mp.find(x) != mp.end()) guess(i - mp[x]);\n        mp[x] = i;\n    }\n    int d = max(B, m / B * B);\n    if (d > B) x = walk(d - B);\n    while (true) {\n        if (mp.find(x) != mp.end() && d > mp[x]) guess(d - mp[x]);\n        x = walk(B), d += B;\n    }\n}\n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-qoj-8130",
+        "title": "Yet Another Balanced Coloring Problem",
+        "source": "stripe-python",
+        "oj": "QOJ",
+        "problemId": "QOJ8130",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ8130](https://qoj.ac/problem/8130)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出两棵大小为 $n,m$ 的有根树，根节点分别为 $n$ 和 $m$。保证两棵树的叶子节点均为 $1,2,\\cdots,k$。构造一种对叶子的黑白染色方案，使得对于每棵树，每个子树中黑点与白点的数目相差不超过 $1$。输出方案或报告无解。\n>\n> 多测，$\\sum (n+m) \\le 2 \\times 10^5$，1 秒，256 MB。\n\n:::::success[题解]\n先考虑一棵树的情形。\n\n叶向树问题，自底向上贪心。对于当前子树中未处理的叶子，我们在新图 $G$ 中将两个叶子连一条边，钦定其颜色不同。对 $G$ 做黑白染色就得到了构造，容易证明合法且有解。\n\n两棵树的情形，考虑套用上面的做法。正确性仍然显然。\n\n并且可以说明，这样做一定有解。注意到每个点的度数 $\\le 2$，则 $G$ 中链的情况是平凡的。而 DFS 过程相当于将两个匹配合并，有环也必为偶环。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5;\nint n, m;\nvector<int> e1[N], e2[N], e[N];\n\nint dfs1(int u, vector<int>* et) {\n    if (et[u].empty()) return u;\n    vector<int> vec;\n    for (int v : et[u]) {\n        int x = dfs1(v, et);\n        if (x != -1) vec.emplace_back(x);\n    }\n    while (vec.size() > 1) {\n        int x = vec.back(); vec.pop_back();\n        int y = vec.back(); vec.pop_back();\n        e[x].emplace_back(y), e[y].emplace_back(x);\n    }\n    return vec.empty() ? -1 : vec[0];\n}\n\nint col[N];\nvoid dfs2(int u) {\n    for (int v : e[u]) {\n        if (col[v] != -1) continue;\n        col[v] = col[u] ^ 1, dfs2(v);\n    }\n}\n\nvoid _main() {\n    cin >> n >> m;\n    for (int i = 1; i <= max(n, m); i++) e1[i].clear(), e2[i].clear(), e[i].clear();\n    for (int v = 1, u; v < n; v++) cin >> u, e1[u].emplace_back(v);\n    for (int v = 1, u; v < m; v++) cin >> u, e2[u].emplace_back(v);\n    dfs1(n, e1), dfs1(m, e2);\n    int k = 0;\n    for (int i = 1; i <= min(n, m); i++) if (e1[i].empty()) k++;\n    fill(col + 1, col + k + 1, -1);\n    for (int i = 1; i <= k; i++) {\n        if (col[i] != -1) continue;\n        col[i] = 0, dfs2(i); \n    }\n    for (int i = 1; i <= k; i++) cout << (col[i] ? 'R' : 'B');\n    cout << '\\n';\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[QOJ8130](https://qoj.ac/problem/8130)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出两棵大小为 $n,m$ 的有根树，根节点分别为 $n$ 和 $m$。保证两棵树的叶子节点均为 $1,2,\\cdots,k$。构造一种对叶子的黑白染色方案，使得对于每棵树，每个子树中黑点与白点的数目相差不超过 $1$。输出方案或报告无解。\n>\n> 多测，$\\sum (n+m) \\le 2 \\times 10^5$，1 秒，256 MB。\n\n:::::success[题解]\n先考虑一棵树的情形。\n\n叶向树问题，自底向上贪心。对于当前子树中未处理的叶子，我们在新图 $G$ 中将两个叶子连一条边，钦定其颜色不同。对 $G$ 做黑白染色就得到了构造，容易证明合法且有解。\n\n两棵树的情形，考虑套用上面的做法。正确性仍然显然。\n\n并且可以说明，这样做一定有解。注意到每个点的度数 $\\le 2$，则 $G$ 中链的情况是平凡的。而 DFS 过程相当于将两个匹配合并，有环也必为偶环。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 5;\nint n, m;\nvector<int> e1[N], e2[N], e[N];\n\nint dfs1(int u, vector<int>* et) {\n    if (et[u].empty()) return u;\n    vector<int> vec;\n    for (int v : et[u]) {\n        int x = dfs1(v, et);\n        if (x != -1) vec.emplace_back(x);\n    }\n    while (vec.size() > 1) {\n        int x = vec.back(); vec.pop_back();\n        int y = vec.back(); vec.pop_back();\n        e[x].emplace_back(y), e[y].emplace_back(x);\n    }\n    return vec.empty() ? -1 : vec[0];\n}\n\nint col[N];\nvoid dfs2(int u) {\n    for (int v : e[u]) {\n        if (col[v] != -1) continue;\n        col[v] = col[u] ^ 1, dfs2(v);\n    }\n}\n\nvoid _main() {\n    cin >> n >> m;\n    for (int i = 1; i <= max(n, m); i++) e1[i].clear(), e2[i].clear(), e[i].clear();\n    for (int v = 1, u; v < n; v++) cin >> u, e1[u].emplace_back(v);\n    for (int v = 1, u; v < m; v++) cin >> u, e2[u].emplace_back(v);\n    dfs1(n, e1), dfs1(m, e2);\n    int k = 0;\n    for (int i = 1; i <= min(n, m); i++) if (e1[i].empty()) k++;\n    fill(col + 1, col + k + 1, -1);\n    for (int i = 1; i <= k; i++) {\n        if (col[i] != -1) continue;\n        col[i] = 0, dfs2(i); \n    }\n    for (int i = 1; i <= k; i++) cout << (col[i] ? 'R' : 'B');\n    cout << '\\n';\n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
         "id": "prob-two-digit-string",
         "title": "两位数字符串（前缀和取模 + LCS）",
         "source": "",
@@ -2509,6 +6502,39 @@ const PROBLEMS_DATA = [
                     "构造"
                 ],
                 "source": ""
+            }
+        ]
+    },
+    {
+        "id": "prob-uoj-454",
+        "title": "【UER #8】打雪仗",
+        "source": "stripe-python",
+        "oj": "UOJ",
+        "problemId": "UOJ454",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "基础算法",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[UOJ454](https://uoj.ac/problem/454)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个长为 $2n$ 的 01 串 $S$。\n> - B：有 $n$ 个下标 $p_1,p_2,\\cdots,p_n$。输出这 $n$ 个下标上的字符。\n>\n> 两个程序之间可以通信，每轮通信只能传输一个 bit。\n>\n> $n \\le 1000$，满分通信次数 $\\le 1335$。\n\n:::::success[题解]\n核心是平衡规划思想。\n\n注意到 $m \\approx \\frac{4}{3}{n}$，这启示我们考虑三等分。将字符串切成三段以后，B 可以知道哪一段包含的 $p_i$ 最多，然后将这个信息传输给 A。A 直接将整段传输过去，次数为 $\\frac{2n}{3}$。\n\n剩下 $\\frac{4n}{3}$ 个位置中，我们注意到 A 发送的字符数上界为 $n-\\frac{n}{3}=\\frac{2n}{3}$，于是直接让 B 将位置信息压成一个 01 串传给 A，A 再把信息传送回去即可。\n\nA 的通信次数为 $\\frac{4n}{3}$，B 的通信次数为 $\\frac{4n}{3}+2$，均可通过。\n:::::\n\n:::::info[代码]\nA：\n\n```cpp line-numbers\nconst int N = 2005;\nint n, m, k, L[4], R[4];\nchar s[N];\nifstream fin;\n\nvoid _main() {\n    fin.open(\"alice.in\"), fin >> n >> m >> (s + 1), fin.close();\n\tL[1] = 1, R[1] = 2 * n / 3, L[2] = R[1] + 1, R[2] = 4 * n / 3, L[3] = R[2] + 1, R[3] = 2 * n;\n\tchar c1, c2; cin >> c1 >> c2;\n\tif (c1 == '0' && c2 == '1') k = 1;\n\telse if (c1 == '1' && c2 == '0') k = 2;\n\telse k = 3;\n\tfor (int i = L[k]; i <= R[k]; i++) cout << s[i];\n\tcout << flush;\n\tfor (int i = 1; i <= 2 * n; i++) {\n\t\tif (L[k] <= i && i <= R[k]) continue;\n\t\tchar c; cin >> c;\n\t\tif (c == '1') cout << s[i];\n\t}\n\tcout << flush;\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 2005;\nint n, m, p[N], L[4], R[4], cnt[4];\nbool need[N];\nchar s[N];\nifstream fin;\nofstream fout;\n\nvoid _main() {\n    fin.open(\"bob.in\"), fout.open(\"bob.out\");\n\tfin >> n >> m;\n\tfor (int i = 1; i <= n; i++) fin >> p[i], need[p[i]] = 1;\n\tfin.close();\n\tL[1] = 1, R[1] = 2 * n / 3, L[2] = R[1] + 1, R[2] = 4 * n / 3, L[3] = R[2] + 1, R[3] = 2 * n;\n\tfor (int k = 1; k <= 3; k++) {\n\t\tfor (int i = L[k]; i <= R[k]; i++) cnt[k] += need[i];\n\t}\n\tint k = max_element(cnt + 1, cnt + 4) - cnt;\n\tif (k == 1) cout << \"01\" << flush;\n\telse if (k == 2) cout << \"10\" << flush;\n\telse cout << \"11\" << flush;\n\tfor (int i = L[k]; i <= R[k]; i++) {\n\t\tchar c; cin >> c;\n\t\tif (need[i]) s[i] = c;\n\t}\n\tfor (int i = 1; i <= 2 * n; i++) {\n\t\tif (L[k] <= i && i <= R[k]) continue;\n\t\tcout << need[i];\n\t} cout << flush;\n\tfor (int i = 1; i <= 2 * n; i++) {\n\t\tif (L[k] <= i && i <= R[k]) continue;\n\t\tif (need[i]) {\n\t\t\tchar c; cin >> c;\n\t\t\ts[i] = c;\n\t\t}\n\t} \n\tfor (int i = 1; i <= n; i++) fout << s[p[i]];\n\tfout << flush, fout.close();\n}\n```\n\n:::::\n\n### 【未完成】[QOJ16236 Two-Way Communication](https://qoj.ac/problem/16236)\n\n### 【未完成】[CF1406E Deleting Numbers](https://www.luogu.com.cn/problem/CF1406E)\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[UOJ454](https://uoj.ac/problem/454)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 这是一道通信题。\n>\n> - A：已知一个长为 $2n$ 的 01 串 $S$。\n> - B：有 $n$ 个下标 $p_1,p_2,\\cdots,p_n$。输出这 $n$ 个下标上的字符。\n>\n> 两个程序之间可以通信，每轮通信只能传输一个 bit。\n>\n> $n \\le 1000$，满分通信次数 $\\le 1335$。\n\n:::::success[题解]\n核心是平衡规划思想。\n\n注意到 $m \\approx \\frac{4}{3}{n}$，这启示我们考虑三等分。将字符串切成三段以后，B 可以知道哪一段包含的 $p_i$ 最多，然后将这个信息传输给 A。A 直接将整段传输过去，次数为 $\\frac{2n}{3}$。\n\n剩下 $\\frac{4n}{3}$ 个位置中，我们注意到 A 发送的字符数上界为 $n-\\frac{n}{3}=\\frac{2n}{3}$，于是直接让 B 将位置信息压成一个 01 串传给 A，A 再把信息传送回去即可。\n\nA 的通信次数为 $\\frac{4n}{3}$，B 的通信次数为 $\\frac{4n}{3}+2$，均可通过。\n:::::\n\n:::::info[代码]\nA：\n\n```cpp line-numbers\nconst int N = 2005;\nint n, m, k, L[4], R[4];\nchar s[N];\nifstream fin;\n\nvoid _main() {\n    fin.open(\"alice.in\"), fin >> n >> m >> (s + 1), fin.close();\n\tL[1] = 1, R[1] = 2 * n / 3, L[2] = R[1] + 1, R[2] = 4 * n / 3, L[3] = R[2] + 1, R[3] = 2 * n;\n\tchar c1, c2; cin >> c1 >> c2;\n\tif (c1 == '0' && c2 == '1') k = 1;\n\telse if (c1 == '1' && c2 == '0') k = 2;\n\telse k = 3;\n\tfor (int i = L[k]; i <= R[k]; i++) cout << s[i];\n\tcout << flush;\n\tfor (int i = 1; i <= 2 * n; i++) {\n\t\tif (L[k] <= i && i <= R[k]) continue;\n\t\tchar c; cin >> c;\n\t\tif (c == '1') cout << s[i];\n\t}\n\tcout << flush;\n}\n```\n\nB：\n\n```cpp line-numbers\nconst int N = 2005;\nint n, m, p[N], L[4], R[4], cnt[4];\nbool need[N];\nchar s[N];\nifstream fin;\nofstream fout;\n\nvoid _main() {\n    fin.open(\"bob.in\"), fout.open(\"bob.out\");\n\tfin >> n >> m;\n\tfor (int i = 1; i <= n; i++) fin >> p[i], need[p[i]] = 1;\n\tfin.close();\n\tL[1] = 1, R[1] = 2 * n / 3, L[2] = R[1] + 1, R[2] = 4 * n / 3, L[3] = R[2] + 1, R[3] = 2 * n;\n\tfor (int k = 1; k <= 3; k++) {\n\t\tfor (int i = L[k]; i <= R[k]; i++) cnt[k] += need[i];\n\t}\n\tint k = max_element(cnt + 1, cnt + 4) - cnt;\n\tif (k == 1) cout << \"01\" << flush;\n\telse if (k == 2) cout << \"10\" << flush;\n\telse cout << \"11\" << flush;\n\tfor (int i = L[k]; i <= R[k]; i++) {\n\t\tchar c; cin >> c;\n\t\tif (need[i]) s[i] = c;\n\t}\n\tfor (int i = 1; i <= 2 * n; i++) {\n\t\tif (L[k] <= i && i <= R[k]) continue;\n\t\tcout << need[i];\n\t} cout << flush;\n\tfor (int i = 1; i <= 2 * n; i++) {\n\t\tif (L[k] <= i && i <= R[k]) continue;\n\t\tif (need[i]) {\n\t\t\tchar c; cin >> c;\n\t\t\ts[i] = c;\n\t\t}\n\t} \n\tfor (int i = 1; i <= n; i++) fout << s[p[i]];\n\tfout << flush, fout.close();\n}\n```\n\n:::::\n\n### 【未完成】[QOJ16236 Two-Way Communication](https://qoj.ac/problem/16236)\n\n### 【未完成】[CF1406E Deleting Numbers](https://www.luogu.com.cn/problem/CF1406E)\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     },
@@ -2746,6 +6772,303 @@ const PROBLEMS_DATA = [
                     "二进制"
                 ],
                 "source": ""
+            }
+        ]
+    },
+    {
+        "id": "prob-xxs0103",
+        "title": "局部函数",
+        "source": "stripe-python",
+        "oj": "来源未考证",
+        "problemId": "XXS0103",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[XXS0103](https://oj.xinxingshe.cn:444/d/xxs/p/NOIP260103)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 记 $U=\\{0,1,2,3\\}$。现有 $n$ 个变量 $x_i \\in U$，初始 $x_i=a_i$ 且 $x_0=x_{n+1}=0$。另给定 $n$ 个二元函数 $g_i : U^2 \\to U$。\n>\n> 考虑 $1\\sim n$ 的排列 $p_i$，对 $i=1,2,\\cdots,n$ 依次执行如下操作：\n>\n> - 记 $k=p_i$，令 $x_k \\gets g_k(x_{k-1},x_{k+1})$。\n>\n> 对所有排列 $p$，求可得 $x_1 \\sim x_n$ 最终序列的数目。\n>\n> $n \\le 2 \\times 10^5$，2 秒，512 MB。\n\n:::::success[题解]\n\n一个基本的刻画是，考虑相邻项 $u,v$，若 $x_u$ 的更新时刻早于 $x_v$ 则连边 $u \\to v$，建图是有向链。\n\n取任意拓扑序均可得到唯一的 $x_1 \\sim x_n$。考虑 $O(4^n)$ 枚举 $x_1 \\sim x_n$，根据上述刻画设计内层 DP：\n\n- 设 $f_{0/1,i}$ 为满足下列条件时，是否存在合法定向方案：\n  - $i$ 向右的边方向为 $0/1$。\n  - 仅考虑 $x_0 \\sim x_i$。\n- 转移分讨 $f_{0/1,i-1} \\to f_{0/1,i}$ 是否可行，只要根据 $a_i,x_i$ 和 $g_i$ 判定。\n- DP 初值为 $f_{{\\tt{R}},0}=1$。\n- 答案为 $f_{{\\tt{L}},n}$。\n\n只要记录 $(x_{i-1},x_i,f_{0,i-1}, f_{1,i-1})$ 四元组，内层 DP 就能建模为 DFA，状态信息量 $4^2 \\times 2^2=64$。考虑外层 DP：\n\n- 设 $f_{u,v,f_0,f_1,i}$ 为满足下列条件的方案数：\n  - $x_{i-1}=u \\land x_i=v$。\n  - $f_{0/1,i-1}=f_{0/1}$。\n  - 仅考虑 $x_0 \\sim x_i$。\n- 转移枚举 $x_{i+1}$ 的取值，可算出新的 $(u',v',f_0',f_1')$，转移 $f_{u,v,f_0,f_1,i-1} \\to f_{u',v',f_0',f_1',i}$ 即可。\n- DP 初值为 $f_{0,v,0,1,0}=1$。\n- 答案为 $\\sum\\limits_{u,f_1} f_{u,0,1,f_1,n}$。\n\n复杂度 $O(k^3 n)$，其中 $k=4$。[代码](https://www.cnblogs.com/stripe-python/p/23186973)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[XXS0103](https://oj.xinxingshe.cn:444/d/xxs/p/NOIP260103)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 记 $U=\\{0,1,2,3\\}$。现有 $n$ 个变量 $x_i \\in U$，初始 $x_i=a_i$ 且 $x_0=x_{n+1}=0$。另给定 $n$ 个二元函数 $g_i : U^2 \\to U$。\n>\n> 考虑 $1\\sim n$ 的排列 $p_i$，对 $i=1,2,\\cdots,n$ 依次执行如下操作：\n>\n> - 记 $k=p_i$，令 $x_k \\gets g_k(x_{k-1},x_{k+1})$。\n>\n> 对所有排列 $p$，求可得 $x_1 \\sim x_n$ 最终序列的数目。\n>\n> $n \\le 2 \\times 10^5$，2 秒，512 MB。\n\n:::::success[题解]\n\n一个基本的刻画是，考虑相邻项 $u,v$，若 $x_u$ 的更新时刻早于 $x_v$ 则连边 $u \\to v$，建图是有向链。\n\n取任意拓扑序均可得到唯一的 $x_1 \\sim x_n$。考虑 $O(4^n)$ 枚举 $x_1 \\sim x_n$，根据上述刻画设计内层 DP：\n\n- 设 $f_{0/1,i}$ 为满足下列条件时，是否存在合法定向方案：\n  - $i$ 向右的边方向为 $0/1$。\n  - 仅考虑 $x_0 \\sim x_i$。\n- 转移分讨 $f_{0/1,i-1} \\to f_{0/1,i}$ 是否可行，只要根据 $a_i,x_i$ 和 $g_i$ 判定。\n- DP 初值为 $f_{{\\tt{R}},0}=1$。\n- 答案为 $f_{{\\tt{L}},n}$。\n\n只要记录 $(x_{i-1},x_i,f_{0,i-1}, f_{1,i-1})$ 四元组，内层 DP 就能建模为 DFA，状态信息量 $4^2 \\times 2^2=64$。考虑外层 DP：\n\n- 设 $f_{u,v,f_0,f_1,i}$ 为满足下列条件的方案数：\n  - $x_{i-1}=u \\land x_i=v$。\n  - $f_{0/1,i-1}=f_{0/1}$。\n  - 仅考虑 $x_0 \\sim x_i$。\n- 转移枚举 $x_{i+1}$ 的取值，可算出新的 $(u',v',f_0',f_1')$，转移 $f_{u,v,f_0,f_1,i-1} \\to f_{u',v',f_0',f_1',i}$ 即可。\n- DP 初值为 $f_{0,v,0,1,0}=1$。\n- 答案为 $\\sum\\limits_{u,f_1} f_{u,0,1,f_1,n}$。\n\n复杂度 $O(k^3 n)$，其中 $k=4$。[代码](https://www.cnblogs.com/stripe-python/p/23186973)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-yloi2019",
+        "title": "P5521 [] 梅深不见冬",
+        "source": "stripe-python",
+        "oj": "来源未考证",
+        "problemId": "YLOI2019",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[YLOI2019](https://www.luogu.com.cn/problem/P5521)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，带点有点权 $a_u$。\n>\n> 你初始持有 $f_u$ 个物品，位于节点 $1$。你可以在树上进行游走，可以选择进入一个未进入的子节点，或者回到父节点。\n>\n> 你需要在每个节点上放置若干物品。对于非叶节点 $u$，允许在其上放置物品的条件为：每个子节点 $v$ 的物品数都恰好为 $ a_v$。\n>\n> 你可以在任意时刻回收任意节点上的物品，且不需要走到对应点。\n>\n> 对于 $u=1,2,\\cdots,n$，求出在节点 $u$ 上放置 $a_u$ 个物品所需的 $f_u$ 的最小值。\n>\n> $n \\le 10^5+4$，1 秒，500 MB。\n\n:::::success[题解]\n考虑树形 DP，设 $f_u$ 为节点答案。注意到 $u$ 点可回收的物品数恰好为 $a_u$。我们钦定某种顺序，依次游走子树 $v_1,v_2,\\cdots,v_k$，那么有转移：\n\n$$\n\\begin{aligned}\nf_u &\\gets \\sum_{i=1}^{x-1} a_{v_i}+f_{v_x}, x =1,2,\\cdots,k\\\\\nf_u &\\gets \\sum_{i=1}^k a_i+f_u\n\\end{aligned}\n$$\n\n根据木桶原理这里做的是 chkmax。前面这个求和式表示之前回收的物品总数，容易前缀和维护。\n\n现在考虑如何对儿子 $v_i$ 排序，想到用 exchange argument，考虑局部，设两儿子为 $x,y$。\n\n记前面的和式为 $S$，则讨论先 $x$ 后 $y$ 和先 $y$ 后 $x$ 所造成的局部 $\\max$：\n\n- 先 $x$ 后 $y$：\n  - 处理 $x$ 时的需求量为 $S+f_x$。\n  - 处理 $y$ 时，$S \\gets S+a_x$，故需求量 $S+a_x+f_y$。\n  - 故局部峰值为 $\\max(S+f_x,S+a_x+f_y)=S+\\max(f_x,a_x+f_y)$。\n- 先 $y$ 后 $x$ 同理，得局部峰值 $S+\\max(f_y,a_y+f_x)$。\n\n令 $\\max(f_x,a_x+f_y)<\\max(f_y,a_y+f_x)$。\n\n根据 $a_x,a_y \\ge 1$，我们有 $f_x < f_x+a_y \\land a_x+f_y>f_y$，故原不等式写为\n\n$$\na_x+f_y<a_y+f_x \\iff f_x-a_x > f_y-a_y\n$$\n\n得证，按 $f_v-a_x$ 降序排序即可，显然严格全序。\n\n复杂度 $O(n \\log n)$。用邻项交换贪心来确定 DP 转移顺序，十分精妙。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 10;\nint n, a[N];\nvector<int> e[N];\ni64 f[N];\n\nvoid dfs(int u) {\n    for (int v : e[u]) dfs(v);\n    sort(e[u].begin(), e[u].end(), [](int x, int y) -> bool {\n        return f[x] - a[x] > f[y] - a[y]; \n    });\n    i64 sum = 0;\n    for (int v : e[u]) f[u] = max(f[u], sum + f[v]), sum += a[v];\n    f[u] = max(f[u], sum + a[u]);\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 2, x; i <= n; i++) cin >> x, e[x].emplace_back(i);\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    dfs(1);\n    for (int i = 1; i <= n; i++) cout << f[i] << ' '; \n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[YLOI2019](https://www.luogu.com.cn/problem/P5521)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给出一棵节点数为 $n$ 的有根树，根节点为 $1$，带点有点权 $a_u$。\n>\n> 你初始持有 $f_u$ 个物品，位于节点 $1$。你可以在树上进行游走，可以选择进入一个未进入的子节点，或者回到父节点。\n>\n> 你需要在每个节点上放置若干物品。对于非叶节点 $u$，允许在其上放置物品的条件为：每个子节点 $v$ 的物品数都恰好为 $ a_v$。\n>\n> 你可以在任意时刻回收任意节点上的物品，且不需要走到对应点。\n>\n> 对于 $u=1,2,\\cdots,n$，求出在节点 $u$ 上放置 $a_u$ 个物品所需的 $f_u$ 的最小值。\n>\n> $n \\le 10^5+4$，1 秒，500 MB。\n\n:::::success[题解]\n考虑树形 DP，设 $f_u$ 为节点答案。注意到 $u$ 点可回收的物品数恰好为 $a_u$。我们钦定某种顺序，依次游走子树 $v_1,v_2,\\cdots,v_k$，那么有转移：\n\n$$\n\\begin{aligned}\nf_u &\\gets \\sum_{i=1}^{x-1} a_{v_i}+f_{v_x}, x =1,2,\\cdots,k\\\\\nf_u &\\gets \\sum_{i=1}^k a_i+f_u\n\\end{aligned}\n$$\n\n根据木桶原理这里做的是 chkmax。前面这个求和式表示之前回收的物品总数，容易前缀和维护。\n\n现在考虑如何对儿子 $v_i$ 排序，想到用 exchange argument，考虑局部，设两儿子为 $x,y$。\n\n记前面的和式为 $S$，则讨论先 $x$ 后 $y$ 和先 $y$ 后 $x$ 所造成的局部 $\\max$：\n\n- 先 $x$ 后 $y$：\n  - 处理 $x$ 时的需求量为 $S+f_x$。\n  - 处理 $y$ 时，$S \\gets S+a_x$，故需求量 $S+a_x+f_y$。\n  - 故局部峰值为 $\\max(S+f_x,S+a_x+f_y)=S+\\max(f_x,a_x+f_y)$。\n- 先 $y$ 后 $x$ 同理，得局部峰值 $S+\\max(f_y,a_y+f_x)$。\n\n令 $\\max(f_x,a_x+f_y)<\\max(f_y,a_y+f_x)$。\n\n根据 $a_x,a_y \\ge 1$，我们有 $f_x < f_x+a_y \\land a_x+f_y>f_y$，故原不等式写为\n\n$$\na_x+f_y<a_y+f_x \\iff f_x-a_x > f_y-a_y\n$$\n\n得证，按 $f_v-a_x$ 降序排序即可，显然严格全序。\n\n复杂度 $O(n \\log n)$。用邻项交换贪心来确定 DP 转移顺序，十分精妙。\n:::::\n\n:::::info[代码]\n```cpp line-numbers\nconst int N = 1e5 + 10;\nint n, a[N];\nvector<int> e[N];\ni64 f[N];\n\nvoid dfs(int u) {\n    for (int v : e[u]) dfs(v);\n    sort(e[u].begin(), e[u].end(), [](int x, int y) -> bool {\n        return f[x] - a[x] > f[y] - a[y]; \n    });\n    i64 sum = 0;\n    for (int v : e[u]) f[u] = max(f[u], sum + f[v]), sum += a[v];\n    f[u] = max(f[u], sum + a[u]);\n}\n\nvoid _main() {\n    cin >> n;\n    for (int i = 2, x; i <= n; i++) cin >> x, e[x].emplace_back(i);\n    for (int i = 1; i <= n; i++) cin >> a[i];\n    dfs(1);\n    for (int i = 1; i <= n; i++) cout << f[i] << ' '; \n}\n```\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-ynoi2011",
+        "title": "P5311 [] 成都七中",
+        "source": "stripe-python",
+        "oj": "来源未考证",
+        "problemId": "YNOI2011",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "图论",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[YNOI2011](https://www.luogu.com.cn/problem/P5311)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给你一个 $n$ 个节点的无根树，点有颜色，$q$ 次查询给出 $l,r, x$，求保留 $[l,r]$ 中的节点后 $x$ 所在连通块颜色数。\n>\n> $n,q \\le 10^5$，1 秒，250 MB。\n\n:::::success[题解]\n\n记 $S_{x,[l,r]}$ 为保留 $[l,r]$ 后 $x$ 的可达点集，有关键观察：$\\forall y \\in S_{x,[l,r]}, S_{x,[l,r]}=S_{y,[l,r]}$。\n\n点分治起手，设分治中心为 $c$，则将 $c$ 作为代表元求解子树中的问题。具体地，对于子树中的询问 $(l,r,x)$，我们判断是否有 $c \\in S_{x,[l,r]}$，若满足条件则求解 $S_{c,[l,r]}$ 的答案，若不满足则作为子问题分治处理。\n\n现在问题转化为：求从 $c$ 出发，只经过 $[l,r]$ 的可达点集中的颜色数。\n\n设 $(u,v)$ 两点间的路径为 $p_1,p_2,\\cdots,p_k$，则 $(u,v)$ 可达当且仅当 $\\forall 1 \\le i \\le k, p_i \\in [l,r]$，即 $[\\min p, \\max p] \\subseteq [l,r]$。\n\n于是从 $c$ 开始自顶向下维护两个值 $mx_u, mn_u$，表示 $u$ 到 $c$ 的路径上的最大 / 最小编号，此时 $u$ 带贡献的必要条件是 $l \\le mn_u \\le mx_u \\le r$。用二维平面来刻画，将 $(mn_u,mx_u)$ 作为一个点，问题即：在 $x \\le l, y\\le r$ 的区域内数颜色。\n\n将颜色去重后进行二维数点。对于同种颜色，若存在两点 $(x_1,y_1),(x_2,y_2) $ 且 $x_1 \\le x_2, y_1 \\le y_2$，则 $(x_2,y_2)$ 是无用的。去重以后，将查询按 $l$ 降序排序，对 $x$ 扫描线。\n\n采用类似于 [HH 的项链](https://www.luogu.com.cn/problem/P1972)的处理方式，维护一个树状数组，同时记录每种颜色上一次出现的位置，激活新位置时要删除上一个位置。\n\n按照上述过程实现，视 $n,q,V$ 同阶复杂度 $O(n \\log^2 n)$。\n\n::::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1e5 + 5;\nusing query = tuple<int, int, int, int>;  // {l, r, x, id}\nusing point = tuple<int, int, int>;  // {x, y, col}\n\nstruct BIT {\n    int tr[N];\n    void add(int x, int c) {\n        for (; x < N; x += lowbit(x)) tr[x] += c;\n    }\n    int ask(int x) {\n        int res = 0;\n        for (; x >= 1; x -= lowbit(x)) res += tr[x];\n        return res;\n    }\n} B;\n\nint n, q, col[N], ans[N];\nvector<int> e[N];\n\nint ctr, cur, sz[N], vis[N];\nvoid dfs1(int u, int fa) {\n    sz[u] = 1;\n    for (int v : e[u]) {\n        if (v == fa || vis[v]) continue;\n        dfs1(v, u), sz[u] += sz[v];\n    }\n    if (!ctr && 2 * sz[u] >= cur) ctr = u;\n}\nvoid dfs2(int u, int fa) {\n    cur++;\n    for (int v : e[u]) if (v != fa && !vis[v]) dfs2(v, u);\n}\n\nint mn[N], mx[N], bel[N];\nvoid dfs3(int u, int fa, int minv, int maxv, int b, vector<int>& vec) {\n    minv = min(minv, u), maxv = max(maxv, u);\n    mn[u] = minv, mx[u] = maxv, bel[u] = b, vec.emplace_back(u);\n    for (int v : e[u]) if (v != fa && !vis[v]) dfs3(v, u, minv, maxv, b, vec);\n} \n\nint last[N];\nvector<query> child[N];\nvector<pair<int, int>> cp[N];\nvoid update(int u, vector<query>& q, vector<pair<int, vector<query>>>& nxt) {\n    vector<int> vec = {u};\n    mn[u] = u, mx[u] = u, bel[u] = -1;\n    for (int v : e[u]) {\n        if (!vis[v]) dfs3(v, u, u, u, v, vec);\n    }\n    vector<query> now;\n    for (auto& [l, r, x, id] : q) {\n        if (l <= mn[x] && mx[x] <= r) now.emplace_back(l, r, x, id);\n        else child[bel[x]].emplace_back(l, r, x, id);\n    }\n    for (int v : e[u]) {   // 下传询问\n        if (vis[v] || child[v].empty()) continue;\n        nxt.emplace_back(v, child[v]), child[v].clear();\n    }\n\n    // 扫描线\n    vector<point> p;\n    for (int v : vec) cp[col[v]].emplace_back(mn[v], mx[v]);\n    for (int v : vec) {   // 去重\n        if (cp[col[v]].empty()) continue;\n        sort(cp[col[v]].begin(), cp[col[v]].end(), greater<pair<int, int>>());\n        int ymin = 1e9;\n        for (auto& [x, y] : cp[col[v]]) {\n            if (y < ymin) ymin = y, p.emplace_back(x, y, col[v]);\n        }\n        cp[col[v]].clear();\n    }\n    sort(now.begin(), now.end(), greater<query>());\n    sort(p.begin(), p.end(), greater<point>());\n\n    int i = 0;\n    vector<int> undo;\n    for (auto& [l, r, x, id] : now) {\n        for (; i < (int)p.size() && get<0>(p[i]) >= l; i++) {\n            auto& [_, y, c] = p[i];\n            if (last[c]) B.add(last[c], -1);\n            last[c] = y, B.add(last[c], 1);\n            undo.emplace_back(c);\n        }\n        ans[id] = B.ask(r);\n    }\n    for (int c : undo) if (last[c]) B.add(last[c], -1), last[c] = 0;\n}\n\nvoid solve(int u, vector<query>& q) {\n    if (q.empty()) return;\n    vis[u] = true;\n    vector<pair<int, vector<query>>> nxt;\n    update(u, q, nxt);\n    for (auto& [v, vec] : nxt) {\n        cur = ctr = 0, dfs2(v, u), dfs1(v, u);\n        solve(ctr, vec);\n    }\n}\n\nvoid _main() {\n    cin >> n >> q;\n    for (int i = 1; i <= n; i++) cin >> col[i];\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    vector<query> vec;\n    for (int i = 1, l, r, x; i <= q; i++) {\n        cin >> l >> r >> x;\n        vec.emplace_back(l, r, x, i);\n    }\n    cur = n, dfs1(1, -1), solve(ctr, vec);\n    for (int i = 1; i <= q; i++) cout << ans[i] << '\\n'; \n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[YNOI2011](https://www.luogu.com.cn/problem/P5311)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给你一个 $n$ 个节点的无根树，点有颜色，$q$ 次查询给出 $l,r, x$，求保留 $[l,r]$ 中的节点后 $x$ 所在连通块颜色数。\n>\n> $n,q \\le 10^5$，1 秒，250 MB。\n\n:::::success[题解]\n\n记 $S_{x,[l,r]}$ 为保留 $[l,r]$ 后 $x$ 的可达点集，有关键观察：$\\forall y \\in S_{x,[l,r]}, S_{x,[l,r]}=S_{y,[l,r]}$。\n\n点分治起手，设分治中心为 $c$，则将 $c$ 作为代表元求解子树中的问题。具体地，对于子树中的询问 $(l,r,x)$，我们判断是否有 $c \\in S_{x,[l,r]}$，若满足条件则求解 $S_{c,[l,r]}$ 的答案，若不满足则作为子问题分治处理。\n\n现在问题转化为：求从 $c$ 出发，只经过 $[l,r]$ 的可达点集中的颜色数。\n\n设 $(u,v)$ 两点间的路径为 $p_1,p_2,\\cdots,p_k$，则 $(u,v)$ 可达当且仅当 $\\forall 1 \\le i \\le k, p_i \\in [l,r]$，即 $[\\min p, \\max p] \\subseteq [l,r]$。\n\n于是从 $c$ 开始自顶向下维护两个值 $mx_u, mn_u$，表示 $u$ 到 $c$ 的路径上的最大 / 最小编号，此时 $u$ 带贡献的必要条件是 $l \\le mn_u \\le mx_u \\le r$。用二维平面来刻画，将 $(mn_u,mx_u)$ 作为一个点，问题即：在 $x \\le l, y\\le r$ 的区域内数颜色。\n\n将颜色去重后进行二维数点。对于同种颜色，若存在两点 $(x_1,y_1),(x_2,y_2) $ 且 $x_1 \\le x_2, y_1 \\le y_2$，则 $(x_2,y_2)$ 是无用的。去重以后，将查询按 $l$ 降序排序，对 $x$ 扫描线。\n\n采用类似于 [HH 的项链](https://www.luogu.com.cn/problem/P1972)的处理方式，维护一个树状数组，同时记录每种颜色上一次出现的位置，激活新位置时要删除上一个位置。\n\n按照上述过程实现，视 $n,q,V$ 同阶复杂度 $O(n \\log^2 n)$。\n\n::::::\n\n:::::info[代码]\n\n```cpp line-numbers\nconst int N = 1e5 + 5;\nusing query = tuple<int, int, int, int>;  // {l, r, x, id}\nusing point = tuple<int, int, int>;  // {x, y, col}\n\nstruct BIT {\n    int tr[N];\n    void add(int x, int c) {\n        for (; x < N; x += lowbit(x)) tr[x] += c;\n    }\n    int ask(int x) {\n        int res = 0;\n        for (; x >= 1; x -= lowbit(x)) res += tr[x];\n        return res;\n    }\n} B;\n\nint n, q, col[N], ans[N];\nvector<int> e[N];\n\nint ctr, cur, sz[N], vis[N];\nvoid dfs1(int u, int fa) {\n    sz[u] = 1;\n    for (int v : e[u]) {\n        if (v == fa || vis[v]) continue;\n        dfs1(v, u), sz[u] += sz[v];\n    }\n    if (!ctr && 2 * sz[u] >= cur) ctr = u;\n}\nvoid dfs2(int u, int fa) {\n    cur++;\n    for (int v : e[u]) if (v != fa && !vis[v]) dfs2(v, u);\n}\n\nint mn[N], mx[N], bel[N];\nvoid dfs3(int u, int fa, int minv, int maxv, int b, vector<int>& vec) {\n    minv = min(minv, u), maxv = max(maxv, u);\n    mn[u] = minv, mx[u] = maxv, bel[u] = b, vec.emplace_back(u);\n    for (int v : e[u]) if (v != fa && !vis[v]) dfs3(v, u, minv, maxv, b, vec);\n} \n\nint last[N];\nvector<query> child[N];\nvector<pair<int, int>> cp[N];\nvoid update(int u, vector<query>& q, vector<pair<int, vector<query>>>& nxt) {\n    vector<int> vec = {u};\n    mn[u] = u, mx[u] = u, bel[u] = -1;\n    for (int v : e[u]) {\n        if (!vis[v]) dfs3(v, u, u, u, v, vec);\n    }\n    vector<query> now;\n    for (auto& [l, r, x, id] : q) {\n        if (l <= mn[x] && mx[x] <= r) now.emplace_back(l, r, x, id);\n        else child[bel[x]].emplace_back(l, r, x, id);\n    }\n    for (int v : e[u]) {   // 下传询问\n        if (vis[v] || child[v].empty()) continue;\n        nxt.emplace_back(v, child[v]), child[v].clear();\n    }\n\n    // 扫描线\n    vector<point> p;\n    for (int v : vec) cp[col[v]].emplace_back(mn[v], mx[v]);\n    for (int v : vec) {   // 去重\n        if (cp[col[v]].empty()) continue;\n        sort(cp[col[v]].begin(), cp[col[v]].end(), greater<pair<int, int>>());\n        int ymin = 1e9;\n        for (auto& [x, y] : cp[col[v]]) {\n            if (y < ymin) ymin = y, p.emplace_back(x, y, col[v]);\n        }\n        cp[col[v]].clear();\n    }\n    sort(now.begin(), now.end(), greater<query>());\n    sort(p.begin(), p.end(), greater<point>());\n\n    int i = 0;\n    vector<int> undo;\n    for (auto& [l, r, x, id] : now) {\n        for (; i < (int)p.size() && get<0>(p[i]) >= l; i++) {\n            auto& [_, y, c] = p[i];\n            if (last[c]) B.add(last[c], -1);\n            last[c] = y, B.add(last[c], 1);\n            undo.emplace_back(c);\n        }\n        ans[id] = B.ask(r);\n    }\n    for (int c : undo) if (last[c]) B.add(last[c], -1), last[c] = 0;\n}\n\nvoid solve(int u, vector<query>& q) {\n    if (q.empty()) return;\n    vis[u] = true;\n    vector<pair<int, vector<query>>> nxt;\n    update(u, q, nxt);\n    for (auto& [v, vec] : nxt) {\n        cur = ctr = 0, dfs2(v, u), dfs1(v, u);\n        solve(ctr, vec);\n    }\n}\n\nvoid _main() {\n    cin >> n >> q;\n    for (int i = 1; i <= n; i++) cin >> col[i];\n    for (int i = 1, u, v; i < n; i++) {\n        cin >> u >> v;\n        e[u].emplace_back(v), e[v].emplace_back(u);\n    }\n    vector<query> vec;\n    for (int i = 1, l, r, x; i <= q; i++) {\n        cin >> l >> r >> x;\n        vec.emplace_back(l, r, x, i);\n    }\n    cur = n, dfs1(1, -1), solve(ctr, vec);\n    for (int i = 1; i <= q; i++) cout << ans[i] << '\\n'; \n} \n```\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-zr-3365",
+        "title": "马戏表演",
+        "source": "stripe-python",
+        "oj": "正睿",
+        "problemId": "ZR3365",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3365](https://www.zhengruioi.com/problem/3365)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$。对 $1 \\sim n$ 的排列 $p_i$，设 $c_i$ 表示 $p_i$ 成为了多少个区间 $\\max$，形式化地 $c_i=\\sum \\limits_{i \\in [l,r]} \\left[\\max \\limits_{j=l}^r a_j=a_i\\right]$。\n>\n> 求 $\\forall i \\in [1,n], c_i \\le m$ 的 $p$ 的数目。\n>\n> $n \\le 10^7$，$m \\le \\binom{n+1}{2}$，2 秒，512 MB。\n\n:::::success[题解]\n\n我们在大根笛卡尔树上 DP。枚举 $\\max$ 的位置为 $x$，则 $c_x=x(n+1-x)$。\n\n**性质** 若 $c_x \\le m$，则 $[1,x)$ 和 $(x,n]$ 中更短的一侧必然合法。\n\n**证明** 不妨设 $2x\\le n$ 且 $i \\in [1,x)$，只要证 $i(x-i) < c_x$。放缩 $i(x-i) < x^2$， 又有 $x(n+1-x) > x^2+x > x^2$ 即证。\n\n设 $f_n$ 为长为 $n$ 的合法排列数目。若 $\\left\\lceil \\dfrac{n}{2}\\right\\rceil\\left(\\left\\lfloor \\dfrac{n}{2} \\right\\rfloor+1\\right) \\le m$ 则排列必然合法，$f_n=n!$。否则按照性质进行 DP：\n\n- 枚举最大值的位置 $x$，钦定 $2x \\le n$，由对称性答案 $\\times 2$ 即可。\n- 从 $n$ 个数中选 $x-1$ 个数放在左侧，方案数 $A_n^{x-1}$。\n- 右侧 $n-x$ 个数只关心相对大小，视作排列计数，答案为 $f_{n-x}$。\n\n从而转移方程为\n$$\nf_n=2 \\times \\sum_{2x \\le n \\land x(n+1-x) \\le m} A_n^{x-1} f_{n-x}\n$$\n拆开排列数推式子：\n$$\n\\begin{aligned}\nf_n&=2\\sum_{2x \\le n} [x(n+1-x) \\le m] \\dfrac{n!}{(n-x+1)!}f_{n-x}\\\\\n&= \\boxed{2\\dfrac{n!}{n}\\sum_{2x \\le n} [x(n+1-x) \\le m] \\dfrac{f_{n-x}}{(n-x)!}}\n\\end{aligned}\n$$\n满足 $2x \\le n \\land x(n+1-x) \\le m$ 的 $x$ 是一段前缀，可以解不等式 $O(1)$ 求出，维护 $\\dfrac{f_n}{n!}$ 的前缀和即可。使用线性逆元并预处理阶乘，复杂度 $O(n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3365](https://www.zhengruioi.com/problem/3365)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n,m$。对 $1 \\sim n$ 的排列 $p_i$，设 $c_i$ 表示 $p_i$ 成为了多少个区间 $\\max$，形式化地 $c_i=\\sum \\limits_{i \\in [l,r]} \\left[\\max \\limits_{j=l}^r a_j=a_i\\right]$。\n>\n> 求 $\\forall i \\in [1,n], c_i \\le m$ 的 $p$ 的数目。\n>\n> $n \\le 10^7$，$m \\le \\binom{n+1}{2}$，2 秒，512 MB。\n\n:::::success[题解]\n\n我们在大根笛卡尔树上 DP。枚举 $\\max$ 的位置为 $x$，则 $c_x=x(n+1-x)$。\n\n**性质** 若 $c_x \\le m$，则 $[1,x)$ 和 $(x,n]$ 中更短的一侧必然合法。\n\n**证明** 不妨设 $2x\\le n$ 且 $i \\in [1,x)$，只要证 $i(x-i) < c_x$。放缩 $i(x-i) < x^2$， 又有 $x(n+1-x) > x^2+x > x^2$ 即证。\n\n设 $f_n$ 为长为 $n$ 的合法排列数目。若 $\\left\\lceil \\dfrac{n}{2}\\right\\rceil\\left(\\left\\lfloor \\dfrac{n}{2} \\right\\rfloor+1\\right) \\le m$ 则排列必然合法，$f_n=n!$。否则按照性质进行 DP：\n\n- 枚举最大值的位置 $x$，钦定 $2x \\le n$，由对称性答案 $\\times 2$ 即可。\n- 从 $n$ 个数中选 $x-1$ 个数放在左侧，方案数 $A_n^{x-1}$。\n- 右侧 $n-x$ 个数只关心相对大小，视作排列计数，答案为 $f_{n-x}$。\n\n从而转移方程为\n$$\nf_n=2 \\times \\sum_{2x \\le n \\land x(n+1-x) \\le m} A_n^{x-1} f_{n-x}\n$$\n拆开排列数推式子：\n$$\n\\begin{aligned}\nf_n&=2\\sum_{2x \\le n} [x(n+1-x) \\le m] \\dfrac{n!}{(n-x+1)!}f_{n-x}\\\\\n&= \\boxed{2\\dfrac{n!}{n}\\sum_{2x \\le n} [x(n+1-x) \\le m] \\dfrac{f_{n-x}}{(n-x)!}}\n\\end{aligned}\n$$\n满足 $2x \\le n \\land x(n+1-x) \\le m$ 的 $x$ 是一段前缀，可以解不等式 $O(1)$ 求出，维护 $\\dfrac{f_n}{n!}$ 的前缀和即可。使用线性逆元并预处理阶乘，复杂度 $O(n)$。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-zr-3382",
+        "title": "冒泡排序 / bubble",
+        "source": "stripe-python",
+        "oj": "正睿",
+        "problemId": "ZR3382",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3382](https://www.zhengruioi.com/problem/3382)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 对长为 $n$ 的排列 $a_i$，定义一轮双向冒泡排序为：\n>\n> - 顺次枚举 $i=1,2,\\cdots,n-1$，若 $a_i>a_{i+1}$ 则交换 $(i,i+1)$。\n> - 顺次枚举 $i=n-1,n-2,\\cdots,1$，若 $a_i>a_{i+1}$ 则交换 $(i,i+1)$。\n>\n> 给定 $n,k$，求 $k$ 轮双向冒泡后变为递增的排列 $a$ 数目。\n>\n> $n,k \\le 10^4$，1 秒，512 MB。\n\n:::::success[题解]\n\n**结论** 设 $f(a)=\\max \\limits_{i=1}^n \\sum\\limits_{j<i} [a_j>i]$，则排列 $a$ 合法的充要条件为 $f(a) \\le k$。\n\n**证明** 根据排序网络的 01 原理，任取阈值 $x$，将 $\\le x$ 的数视作 $0$，$>x$ 的数视作 $1$，则 $a$ 合法等价于 01 序列在 $k$ 轮双向冒泡后有序。\n\n设 $q_x$ 为前 $x$ 位中 $1$ 的数目，则后 $n-x$ 位中恰有 $q_x$ 个 $0$。分讨可得，一轮双向冒泡令 $q_x \\gets \\max(0,q_x-1)$。\n\n只要 $\\forall x, q_x \\le k$。定义 $f(a)=\\max \\limits_{i=1}^n q_i$ 则 $f(a) \\le k$，证毕。\n\n下面对 $f(a) \\le k$ 的排列计数。将 $i \\to a_i$ 描述为二分图匹配，从小到大扫描，设计延迟钦定配对 DP：\n\n- 设 $f_{i,j}$ 为满足下列条件的合法方案数：\n\n  - 仅考虑标号为 $1\\sim i$ 的左右部点。\n  - 恰好匹配了 $j$ 对点。\n\n- 转移 $f_{i-1,j} \\to f_{i,j'}$，加入左右部点 $i$，分讨匹配方式：\n\n  - 将两点都加入待定部分，转移 $f_{i-1,j} \\to f_{i,j}$。\n  - 将左部点 $i$ 配给待定右部点，令右部点待定，转移 $q \\times f_{i-1,j} \\to f_{i,j+1}$。系数 $q=i-1-j$ 为上一步的失配点对数。\n  - 将右部点 $i$ 配给待定左部点，令左部点待定，转移 $q \\times f_{i-1,j} \\to f_{i,j+1}$。\n  - 将左右部点 $i$ 直接匹配，转移 $f_{i-1,j} \\to f_{i,j+1}$。\n  - 将左部点 $i$ 配给待定右部点，同时将右部点 $i$ 配给待定左部点，转移 $q^2 \\times f_{i-1,j}\\to f_{i,j+2}$。\n\n  前 $i$ 个位置中，有 $j$ 个位置的数字 $\\le i$，那么 $q_i=i-j$。只保留 $q_i \\le k$ 的状态即可满足约束。\n\n- DP 初值为 $f_{0,0}=1$。\n\n- 答案为 $f_{n,n}$。\n\n复杂度 $O(n^2)$，对 $j$ 维度滚动数组即可空间线性。[代码](https://www.cnblogs.com/stripe-python/p/23220077)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3382](https://www.zhengruioi.com/problem/3382)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 对长为 $n$ 的排列 $a_i$，定义一轮双向冒泡排序为：\n>\n> - 顺次枚举 $i=1,2,\\cdots,n-1$，若 $a_i>a_{i+1}$ 则交换 $(i,i+1)$。\n> - 顺次枚举 $i=n-1,n-2,\\cdots,1$，若 $a_i>a_{i+1}$ 则交换 $(i,i+1)$。\n>\n> 给定 $n,k$，求 $k$ 轮双向冒泡后变为递增的排列 $a$ 数目。\n>\n> $n,k \\le 10^4$，1 秒，512 MB。\n\n:::::success[题解]\n\n**结论** 设 $f(a)=\\max \\limits_{i=1}^n \\sum\\limits_{j<i} [a_j>i]$，则排列 $a$ 合法的充要条件为 $f(a) \\le k$。\n\n**证明** 根据排序网络的 01 原理，任取阈值 $x$，将 $\\le x$ 的数视作 $0$，$>x$ 的数视作 $1$，则 $a$ 合法等价于 01 序列在 $k$ 轮双向冒泡后有序。\n\n设 $q_x$ 为前 $x$ 位中 $1$ 的数目，则后 $n-x$ 位中恰有 $q_x$ 个 $0$。分讨可得，一轮双向冒泡令 $q_x \\gets \\max(0,q_x-1)$。\n\n只要 $\\forall x, q_x \\le k$。定义 $f(a)=\\max \\limits_{i=1}^n q_i$ 则 $f(a) \\le k$，证毕。\n\n下面对 $f(a) \\le k$ 的排列计数。将 $i \\to a_i$ 描述为二分图匹配，从小到大扫描，设计延迟钦定配对 DP：\n\n- 设 $f_{i,j}$ 为满足下列条件的合法方案数：\n\n  - 仅考虑标号为 $1\\sim i$ 的左右部点。\n  - 恰好匹配了 $j$ 对点。\n\n- 转移 $f_{i-1,j} \\to f_{i,j'}$，加入左右部点 $i$，分讨匹配方式：\n\n  - 将两点都加入待定部分，转移 $f_{i-1,j} \\to f_{i,j}$。\n  - 将左部点 $i$ 配给待定右部点，令右部点待定，转移 $q \\times f_{i-1,j} \\to f_{i,j+1}$。系数 $q=i-1-j$ 为上一步的失配点对数。\n  - 将右部点 $i$ 配给待定左部点，令左部点待定，转移 $q \\times f_{i-1,j} \\to f_{i,j+1}$。\n  - 将左右部点 $i$ 直接匹配，转移 $f_{i-1,j} \\to f_{i,j+1}$。\n  - 将左部点 $i$ 配给待定右部点，同时将右部点 $i$ 配给待定左部点，转移 $q^2 \\times f_{i-1,j}\\to f_{i,j+2}$。\n\n  前 $i$ 个位置中，有 $j$ 个位置的数字 $\\le i$，那么 $q_i=i-j$。只保留 $q_i \\le k$ 的状态即可满足约束。\n\n- DP 初值为 $f_{0,0}=1$。\n\n- 答案为 $f_{n,n}$。\n\n复杂度 $O(n^2)$，对 $j$ 维度滚动数组即可空间线性。[代码](https://www.cnblogs.com/stripe-python/p/23220077)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-zr-3554",
+        "title": "抽卡",
+        "source": "stripe-python",
+        "oj": "正睿",
+        "problemId": "ZR3554",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3554](https://www.zhengruioi.com/problem/3554)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 种卡，每种卡有三种颜色，共 $3n$ 张不同卡牌。一轮抽卡包含 $m$ 次独立抽取：\n>\n> - 前 $m-1$ 次抽卡中，抽到第 $i$ 种卡的概率为 $p_i$，抽取失败的概率为 $1-\\sum \\limits_{i=1}^n p_i$。\n> - 最后一次抽卡中，抽到第 $i$ 种卡的概率为 $q_i$，抽取失败的概率为 $1-\\sum \\limits_{i=1}^n q_i$。\n> - 抽到某种卡后，等可能性地获得三种颜色之一。\n>\n> 求集齐 $3n$ 种不同卡牌的轮数期望，保证期望存在。\n>\n> $\\textcolor{red}{n \\le 9}$，$m \\le 64$，1 秒，512 MB。\n\n:::::success[题解]\n\n设第 $i$ 张卡牌的抽取时间为 $t_i$，题目即求 $E(\\max t_i)$。由 max-min 容斥：\n$$\nE\\left(\\max_{i \\in U} t_i\\right)=\\sum_{S \\subseteq U}(-1)^{|S|-1} E\\left(\\min_{i \\in S} t_i\\right)\n$$\n组合意义是，配上 $(-1)^{|S|-1}$ 的容斥系数，转而计算 $S$ 中任意卡牌被抽取的期望轮数。\n\n设 $p=\\sum \\limits_{i \\in S}\\frac{1}{3}p_i$，$q=\\sum\\limits_{i \\in S} \\frac{1}{3}q_i$，单步容斥得一轮成功的概率为 $1-(1-p)^{m-1}(1-q)$。由几何分布，期望轮数\n$$\nE\\left(\\min_{i \\in S} t_i\\right)=\\boxed{\\dfrac{1}{1-(1-p)^{m-1}(1-q)}}\n$$\n直接枚举 $S$ 的复杂度为 $O(8^n)$，无法通过。利用颜色的对称性，可以用四进制数编码 $S$，枚举每种卡牌在 $S$ 中出现的次数，对应系数为 $\\binom{3}{\\text{cnt}}$。\n\n复杂度 $O(4^n)$。[代码](https://www.zhengruioi.com/submission/1094623)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3554](https://www.zhengruioi.com/problem/3554)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 种卡，每种卡有三种颜色，共 $3n$ 张不同卡牌。一轮抽卡包含 $m$ 次独立抽取：\n>\n> - 前 $m-1$ 次抽卡中，抽到第 $i$ 种卡的概率为 $p_i$，抽取失败的概率为 $1-\\sum \\limits_{i=1}^n p_i$。\n> - 最后一次抽卡中，抽到第 $i$ 种卡的概率为 $q_i$，抽取失败的概率为 $1-\\sum \\limits_{i=1}^n q_i$。\n> - 抽到某种卡后，等可能性地获得三种颜色之一。\n>\n> 求集齐 $3n$ 种不同卡牌的轮数期望，保证期望存在。\n>\n> $\\textcolor{red}{n \\le 9}$，$m \\le 64$，1 秒，512 MB。\n\n:::::success[题解]\n\n设第 $i$ 张卡牌的抽取时间为 $t_i$，题目即求 $E(\\max t_i)$。由 max-min 容斥：\n$$\nE\\left(\\max_{i \\in U} t_i\\right)=\\sum_{S \\subseteq U}(-1)^{|S|-1} E\\left(\\min_{i \\in S} t_i\\right)\n$$\n组合意义是，配上 $(-1)^{|S|-1}$ 的容斥系数，转而计算 $S$ 中任意卡牌被抽取的期望轮数。\n\n设 $p=\\sum \\limits_{i \\in S}\\frac{1}{3}p_i$，$q=\\sum\\limits_{i \\in S} \\frac{1}{3}q_i$，单步容斥得一轮成功的概率为 $1-(1-p)^{m-1}(1-q)$。由几何分布，期望轮数\n$$\nE\\left(\\min_{i \\in S} t_i\\right)=\\boxed{\\dfrac{1}{1-(1-p)^{m-1}(1-q)}}\n$$\n直接枚举 $S$ 的复杂度为 $O(8^n)$，无法通过。利用颜色的对称性，可以用四进制数编码 $S$，枚举每种卡牌在 $S$ 中出现的次数，对应系数为 $\\binom{3}{\\text{cnt}}$。\n\n复杂度 $O(4^n)$。[代码](https://www.zhengruioi.com/submission/1094623)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-zr-3643",
+        "title": "覆色",
+        "source": "stripe-python",
+        "oj": "正睿",
+        "problemId": "ZR3643",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3643](https://www.zhengruioi.com/problem/3643)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个格子，你需要进行 $m$ 次操作，第 $i$ 次操作选择两个相邻格子，将其颜色染为 $i$。\n>\n> 求 $m$ 次操作后，所有格子均染色的不同颜色序列数，注意颜色序列与操作过程无关。\n>\n> $n \\le 4 \\times 10^3$，$m \\le 10^8$，2 秒，256 MB。\n\n:::::success[题解]\n\n设颜色序列为 $a_1 \\sim a_n$，则 $a$ 合法的充要条件为：\n\n- $\\forall i \\in [1,n], a_i \\in [1,m]$ 且 $m$ 出现。\n- 每种颜色形成段长为 $1$ 或 $2$ 的颜色段。\n- 若某段的数值大于两边，则长度必为 $2$。认为 $a_0=a_{n+1}=0$。\n\n必要性易证。充分性考虑先染 $1$ 段，再让 $2$ 段覆盖，未出现的颜色都可以放在 $m$ 的位置让 $m$ 覆盖掉。\n\n问题转化为 $a$ 序列计数。令 $f_{n,k}$ 为恰有 $k$ 个峰值的 $1 \\sim n$ 的排列数目，视 $p_0=p_{n+1}=0$。枚举颜色段数 $x$ 和峰值段数 $y$，分步计数：\n\n- 从 $[1,m)$ 中选 $x-1$ 种颜色，方案数 $\\binom{m-1}{x-1}$。\n- 将颜色段的排名视作 $1 \\sim x$ 的排列，钦定 $y$ 个峰值，方案数 $f_{x,y}$。\n- 序列恰有 $n-x$ 个 $2$ 段，其中 $y$ 个是峰值段，剩余 $n-x-y$ 个非峰值段。从 $x-y$ 个非峰值段中任取若干，钦定为 $2$ 段，方案数 $\\binom{x-y}{n-x-y}$。\n\n综上，求出 $f$ 的答案为\n$$\n\\boxed{\\sum_{x=1}^{n} \\binom{m-1}{x-1} \\sum_{y=1}^n \\binom{x-y}{n-x-y}f_{x,y}}\n$$\n下面考虑 $f$ 的求解。我们只关心局部相对大小，考虑从小到大插入 DP：\n\n- 转移在 $1 \\sim n-1$ 的排列中插入当前 $\\max$，进行分讨：\n  - 插入到峰值邻位：峰值数不变。由于峰点互不相邻，插入位置 $2k$ 个，转移 $2k \\times f_{n,k} \\to  f_{n+1,k}$。\n  - 插入后成为新峰值：峰值数 $+1$，插入位置 $n+1-2k$ 个，转移 $(n+1-2k)\\times f_{n,k} \\to f_{n+1,k+1}$。\n- DP 初值为 $f_{1,1}=1$。\n\n利用 $\\binom{m-1}{x-1}=\\frac{1}{(x-1)!}(m-1)^{\\underline{x-1}}$，枚举 $x$ 的过程中递推出组合数，总复杂度 $O(n^2)$。[代码](https://www.zhengruioi.com/submission/1114017)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3643](https://www.zhengruioi.com/problem/3643)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 现有 $n$ 个格子，你需要进行 $m$ 次操作，第 $i$ 次操作选择两个相邻格子，将其颜色染为 $i$。\n>\n> 求 $m$ 次操作后，所有格子均染色的不同颜色序列数，注意颜色序列与操作过程无关。\n>\n> $n \\le 4 \\times 10^3$，$m \\le 10^8$，2 秒，256 MB。\n\n:::::success[题解]\n\n设颜色序列为 $a_1 \\sim a_n$，则 $a$ 合法的充要条件为：\n\n- $\\forall i \\in [1,n], a_i \\in [1,m]$ 且 $m$ 出现。\n- 每种颜色形成段长为 $1$ 或 $2$ 的颜色段。\n- 若某段的数值大于两边，则长度必为 $2$。认为 $a_0=a_{n+1}=0$。\n\n必要性易证。充分性考虑先染 $1$ 段，再让 $2$ 段覆盖，未出现的颜色都可以放在 $m$ 的位置让 $m$ 覆盖掉。\n\n问题转化为 $a$ 序列计数。令 $f_{n,k}$ 为恰有 $k$ 个峰值的 $1 \\sim n$ 的排列数目，视 $p_0=p_{n+1}=0$。枚举颜色段数 $x$ 和峰值段数 $y$，分步计数：\n\n- 从 $[1,m)$ 中选 $x-1$ 种颜色，方案数 $\\binom{m-1}{x-1}$。\n- 将颜色段的排名视作 $1 \\sim x$ 的排列，钦定 $y$ 个峰值，方案数 $f_{x,y}$。\n- 序列恰有 $n-x$ 个 $2$ 段，其中 $y$ 个是峰值段，剩余 $n-x-y$ 个非峰值段。从 $x-y$ 个非峰值段中任取若干，钦定为 $2$ 段，方案数 $\\binom{x-y}{n-x-y}$。\n\n综上，求出 $f$ 的答案为\n$$\n\\boxed{\\sum_{x=1}^{n} \\binom{m-1}{x-1} \\sum_{y=1}^n \\binom{x-y}{n-x-y}f_{x,y}}\n$$\n下面考虑 $f$ 的求解。我们只关心局部相对大小，考虑从小到大插入 DP：\n\n- 转移在 $1 \\sim n-1$ 的排列中插入当前 $\\max$，进行分讨：\n  - 插入到峰值邻位：峰值数不变。由于峰点互不相邻，插入位置 $2k$ 个，转移 $2k \\times f_{n,k} \\to  f_{n+1,k}$。\n  - 插入后成为新峰值：峰值数 $+1$，插入位置 $n+1-2k$ 个，转移 $(n+1-2k)\\times f_{n,k} \\to f_{n+1,k+1}$。\n- DP 初值为 $f_{1,1}=1$。\n\n利用 $\\binom{m-1}{x-1}=\\frac{1}{(x-1)!}(m-1)^{\\underline{x-1}}$，枚举 $x$ 的过程中递推出组合数，总复杂度 $O(n^2)$。[代码](https://www.zhengruioi.com/submission/1114017)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-zr-3652",
+        "title": "特征值",
+        "source": "stripe-python",
+        "oj": "正睿",
+        "problemId": "ZR3652",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3652](https://www.zhengruioi.com/problem/3652)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $m,k$。对数组 $a_1 \\sim a_n$，定义 $f(a)$ 为：一次操作选定 $i \\in [1,n]$，令 $a_i \\gets a_i \\pm 1$，使得 $m \\mid \\sum \\limits_{i=1}^n a_i$ 的最小操作次数。\n>\n> 对数组 $a_1 \\sim a_n$，定义特征值 $F(a)=\\min\\limits_{[l,r] \\subseteq [1,n]} f(a_l \\sim a_r)$。对每个 $n=1,2,\\cdots,m-1$ 求出，所有长为 $n$ 的序列 $a_i$ 满足 $a_i \\in [0,m)$ 的 $F^k(a)$ 之和。\n>\n> 多测，$T \\le 20$，$m \\le 2\\times 10^5$，$k \\le 10^9$，1 秒，128 MB。\n\n:::::success[题解]\n\n设 $S=\\sum \\limits_{i=1}^n a_i$，则 $f(a)=\\min(S \\bmod m, m - S \\bmod m)$。代入 $F$ 的定义后，两个 $\\min$ 可以拆掉，变为\n$$\n\\begin{aligned}\nF(a)&=\\min\\left(\\min_{[l,r] \\subseteq [1,n]} \\left(\\sum_{i=l}^r a_i\\right) \\bmod m, \\min_{[l,r] \\subseteq [1,n]} \\left( \\left(\\sum_{i=l}^r a_i\\right)-\\left(\\sum_{i=l}^r a_i\\right) \\bmod m\\right)\\right)\\\\\n&=\\min\\left(\\min_{[l,r] \\subseteq [1,n]} (p_r-p_{l-1}) \\bmod m, \\min_{[l,r] \\subseteq [1,n]} \\left(p_r-p_{l-1}-(p_r-p_{l-1}) \\bmod m\\right)\\right)\n\\end{aligned}\n$$\n其中 $p_n=\\left(\\sum \\limits_{i=1}^n a_i\\right) \\bmod m$。注意到 $p_1 \\sim p_n$ 和 $a_1 \\sim a_n$ 是双射，转而对 $p$ 计数。\n\n考虑枚举 $x=F(a)$ 并计数 $p_1 \\sim p_n$ 的数目，乘上 $x^k$ 作为答案。不妨将恰好容斥为选择至少，记 $c(x,n)$ 为 $F(a) \\ge x$ 的 $a_1 \\sim a_n$ 的数目，则 $n$ 的答案为\n$$\n\\text{ans}_n=\\sum_{x=0}^n x^k (c(x,n)-c(x+1,n))\n$$\n下面考虑 $c$ 的求法。由 $F(a) \\ge x$ 可列得约束：\n$$\n\\forall 0\\le i<j\\le n,\\left\\{\\begin{matrix}\n (p_j-p_i) \\bmod m &\\ge x\\\\\n p_j-p_i-(p_j-p_i) \\bmod m &\\ge x\n\\end{matrix}\\right.\n$$\n令 $i=0$ 可得 $p_j \\in [x,m-x]$，条件转化为 $\\forall i<j, |p_i-p_j| \\ge x$。\n\n取升序序列 $s_1 \\sim s_n$，满足下列两个条件：\n\n- $\\forall i\\in [1,n),s_{i+1}-s_i \\ge x$。\n- $\\forall i\\in [1,n], s_i \\in [x,m-x]$。\n\n可以证明 $p_1 \\sim p_n$ 的升序排列和 $s_1 \\sim s_n$ 是双射。对 $s$ 计数后乘系数 $n!$ 即可。\n\n令 $t_i=s_i-x \\times i$，则 $t_i \\in [0,m-x(n+1)]$ 且 $t_i \\ge t_{i+1}$。令 $u=m-x(n+1)$，由不降序列计数，答案为\n$$\nc(x,n)=\\binom{u+n}{n}n!\n$$\n合法条件为 $u \\ge 0$，解得 $x \\le \\frac{m}{n+1}$。外层循环枚举 $n$，内层枚举 $x$ 到 $\\frac{m}{n+1}$ 是调和型枚举。 \n\n注意预处理 $x^k$ 的值，总复杂度 $O(m \\log k+m \\log m)$。[代码](https://www.zhengruioi.com/submission/1113700)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3652](https://www.zhengruioi.com/problem/3652)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $m,k$。对数组 $a_1 \\sim a_n$，定义 $f(a)$ 为：一次操作选定 $i \\in [1,n]$，令 $a_i \\gets a_i \\pm 1$，使得 $m \\mid \\sum \\limits_{i=1}^n a_i$ 的最小操作次数。\n>\n> 对数组 $a_1 \\sim a_n$，定义特征值 $F(a)=\\min\\limits_{[l,r] \\subseteq [1,n]} f(a_l \\sim a_r)$。对每个 $n=1,2,\\cdots,m-1$ 求出，所有长为 $n$ 的序列 $a_i$ 满足 $a_i \\in [0,m)$ 的 $F^k(a)$ 之和。\n>\n> 多测，$T \\le 20$，$m \\le 2\\times 10^5$，$k \\le 10^9$，1 秒，128 MB。\n\n:::::success[题解]\n\n设 $S=\\sum \\limits_{i=1}^n a_i$，则 $f(a)=\\min(S \\bmod m, m - S \\bmod m)$。代入 $F$ 的定义后，两个 $\\min$ 可以拆掉，变为\n$$\n\\begin{aligned}\nF(a)&=\\min\\left(\\min_{[l,r] \\subseteq [1,n]} \\left(\\sum_{i=l}^r a_i\\right) \\bmod m, \\min_{[l,r] \\subseteq [1,n]} \\left( \\left(\\sum_{i=l}^r a_i\\right)-\\left(\\sum_{i=l}^r a_i\\right) \\bmod m\\right)\\right)\\\\\n&=\\min\\left(\\min_{[l,r] \\subseteq [1,n]} (p_r-p_{l-1}) \\bmod m, \\min_{[l,r] \\subseteq [1,n]} \\left(p_r-p_{l-1}-(p_r-p_{l-1}) \\bmod m\\right)\\right)\n\\end{aligned}\n$$\n其中 $p_n=\\left(\\sum \\limits_{i=1}^n a_i\\right) \\bmod m$。注意到 $p_1 \\sim p_n$ 和 $a_1 \\sim a_n$ 是双射，转而对 $p$ 计数。\n\n考虑枚举 $x=F(a)$ 并计数 $p_1 \\sim p_n$ 的数目，乘上 $x^k$ 作为答案。不妨将恰好容斥为选择至少，记 $c(x,n)$ 为 $F(a) \\ge x$ 的 $a_1 \\sim a_n$ 的数目，则 $n$ 的答案为\n$$\n\\text{ans}_n=\\sum_{x=0}^n x^k (c(x,n)-c(x+1,n))\n$$\n下面考虑 $c$ 的求法。由 $F(a) \\ge x$ 可列得约束：\n$$\n\\forall 0\\le i<j\\le n,\\left\\{\\begin{matrix}\n (p_j-p_i) \\bmod m &\\ge x\\\\\n p_j-p_i-(p_j-p_i) \\bmod m &\\ge x\n\\end{matrix}\\right.\n$$\n令 $i=0$ 可得 $p_j \\in [x,m-x]$，条件转化为 $\\forall i<j, |p_i-p_j| \\ge x$。\n\n取升序序列 $s_1 \\sim s_n$，满足下列两个条件：\n\n- $\\forall i\\in [1,n),s_{i+1}-s_i \\ge x$。\n- $\\forall i\\in [1,n], s_i \\in [x,m-x]$。\n\n可以证明 $p_1 \\sim p_n$ 的升序排列和 $s_1 \\sim s_n$ 是双射。对 $s$ 计数后乘系数 $n!$ 即可。\n\n令 $t_i=s_i-x \\times i$，则 $t_i \\in [0,m-x(n+1)]$ 且 $t_i \\ge t_{i+1}$。令 $u=m-x(n+1)$，由不降序列计数，答案为\n$$\nc(x,n)=\\binom{u+n}{n}n!\n$$\n合法条件为 $u \\ge 0$，解得 $x \\le \\frac{m}{n+1}$。外层循环枚举 $n$，内层枚举 $x$ 到 $\\frac{m}{n+1}$ 是调和型枚举。 \n\n注意预处理 $x^k$ 的值，总复杂度 $O(m \\log k+m \\log m)$。[代码](https://www.zhengruioi.com/submission/1113700)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
+            }
+        ]
+    },
+    {
+        "id": "prob-zr-3695",
+        "title": "字典",
+        "source": "stripe-python",
+        "oj": "正睿",
+        "problemId": "ZR3695",
+        "difficulty": "暂未评定",
+        "cfRating": "NaN",
+        "category": "数学",
+        "knowledgePoints": [
+            ""
+        ],
+        "tags": [
+            "题解"
+        ],
+        "timeComplexity": "未知",
+        "spaceComplexity": "未知",
+        "codePath": "",
+        "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3695](https://www.zhengruioi.com/problem/3695)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个字符串 $S_i$，字符集 $\\Sigma=\\{{\\tt{a}},{\\tt{b}},\\cdots,{\\tt{z}}\\}$。从 $\\Sigma$ 的 $26!$ 种排列中随机选取一个，并按照该顺序定义字典序。\n>\n> 对每个 $i$ 求出 $S_i$ 的字典序排名方差。\n>\n> $\\sum |S_i| \\le 5 \\times 10^5$，3 秒，1024 MB。\n\n:::::success[题解]\n\n考虑使用 $\\text{Var}(X)=\\mathbb E[(X-\\mathbb E [X])^2]$ 计算方差，下文讨论 $X$ 相对均值的波动。\n\n枚举下标对 $(i,j)$，设 $S_i$ 与 $S_j$ 在 LCP 后第一个字符为 $f(i,j)=(x,y)$。忽略 $S_i$ 或 $S_j$ 是对方前缀的情形，因为常数不影响方差。\n\n连边 $x \\to y$，边权 $w(x,y)=\\sum \\limits_{i=1}^n \\sum \\limits_{j=1}^n [f(i,j)=(x,y)]$。若 $y<x$ 则相对均值贡献 $+\\frac{w}{2}$，否则贡献 $-\\frac{w}{2}$。 \n\n取两条边，设波动分别为 $u,v$，方差\n$$\n\\mathbb E[(u+v)^2]=\\mathbb E[u^2]+2\\mathbb E[uv]+\\mathbb E[v^2]\n$$\n考察边 $e_1,e_2$ 的位置关系：\n\n- 取同一条边 $a \\to b$：乘积项期望 $\\frac{w^2}{4}$。\n- 取不共点边 $a \\to b, c\\to d$：事件独立，同号与异号概率相同，期望 $0$。\n- 取三角状 $a \\to b, a \\to c$：枚举 $6$ 种排列可算得，同号 $4$ 种异号 $2$ 种，期望 $\\frac{4-2}{6}\\times\\frac{w_1w_2}{4}=\\frac{w_1w_2}{12}$。\n- 取三点链 $a \\to b, b\\to c$：枚举 $6$ 种排列可算得，同号 $2$ 种异号 $4$ 种，期望 $\\frac{2-4}{6} \\times \\frac{w_1w_2}{4}=-\\frac{w_1w_2}{12}$。\n\n直接将这些值相加就是方差，不过复杂度不可接受，还需要进一步推导。\n\n定义节点 $x$ 的出边权和减去入边权和为 $b_x$。我们发现 $T=\\frac{1}{12} \\sum \\limits_{x \\in V} b_x^2$ 其实就几乎算完了。因为 $b_x^2$ 的组合意义是将 $x$ 的两条关联边相乘，同进同出均正，而一进一出为负，恰好与上面讨论的规则相同。\n\n唯一算漏的地方是取同一条边两次时贡献 $\\frac{3w^2}{12}$，但 $T$ 中只计入了 $2w^2$。补上 $S=\\sum \\limits_{e \\in E} w^2(e)$ 就完全正确了：\n$$\n\\boxed {\\text{Var}(r)=\\dfrac{S+T}{12}}\n$$\n只要求出每个 $i$ 对应的 $S+T$ 即可。\n\n维护矩阵 $D_{x,y}=w(x,y)-w(y,x)$，从而\n$$\n\\begin{aligned}\nb_x&=\\sum_{y} D_{x,y}\\\\\nS&=\\sum_{x < y} D^2_{x,y}\\\\\nT&=\\sum_{x} b_x^2\n\\end{aligned}\n$$\n对 $S_1 \\sim S_n$ 建立 Trie 树，逐位读入 $S_i$ 转移。设当前转移边为字符 $x$，枚举兄弟边 $y$，动态维护\n$$\nD_{x,y} \\gets D_{x,y} + \\text{sz}_{\\delta(u,y)}\\\\\nD_{y,x} \\gets D_{y,x} - \\text{sz}_{\\delta(u,y)}\n$$\n在终止状态计算答案即可，容易做到 $O(L |\\Sigma|^2)$。\n\n优化是简单的，维护 $b_x$ 后对于 $D$ 的单点修改容易 $O(1)$ 更新 $S,T$。注意修改后要撤销而非清空，复杂度才是对的。\n\n总复杂度 $O(L |\\Sigma|)$。[代码](https://www.cnblogs.com/stripe-python/p/23348906)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+        "versions": [
+            {
+                "author": "stripe-python",
+                "content": "> 本题解由 stripe-python 授权合并，保留原文讲解与代码；原题面/样例/数据范围未收录，统一标注为「暂无」，可点上方原题链接查看。\n\n## 题目描述\n\n暂无（原题：[ZR3695](https://www.zhengruioi.com/problem/3695)）。\n\n### 输入格式\n\n暂无\n\n### 输出格式\n\n暂无\n\n### 数据范围\n\n暂无\n\n## 样例\n\n暂无\n\n## 解题思路\n\n> 给定 $n$ 个字符串 $S_i$，字符集 $\\Sigma=\\{{\\tt{a}},{\\tt{b}},\\cdots,{\\tt{z}}\\}$。从 $\\Sigma$ 的 $26!$ 种排列中随机选取一个，并按照该顺序定义字典序。\n>\n> 对每个 $i$ 求出 $S_i$ 的字典序排名方差。\n>\n> $\\sum |S_i| \\le 5 \\times 10^5$，3 秒，1024 MB。\n\n:::::success[题解]\n\n考虑使用 $\\text{Var}(X)=\\mathbb E[(X-\\mathbb E [X])^2]$ 计算方差，下文讨论 $X$ 相对均值的波动。\n\n枚举下标对 $(i,j)$，设 $S_i$ 与 $S_j$ 在 LCP 后第一个字符为 $f(i,j)=(x,y)$。忽略 $S_i$ 或 $S_j$ 是对方前缀的情形，因为常数不影响方差。\n\n连边 $x \\to y$，边权 $w(x,y)=\\sum \\limits_{i=1}^n \\sum \\limits_{j=1}^n [f(i,j)=(x,y)]$。若 $y<x$ 则相对均值贡献 $+\\frac{w}{2}$，否则贡献 $-\\frac{w}{2}$。 \n\n取两条边，设波动分别为 $u,v$，方差\n$$\n\\mathbb E[(u+v)^2]=\\mathbb E[u^2]+2\\mathbb E[uv]+\\mathbb E[v^2]\n$$\n考察边 $e_1,e_2$ 的位置关系：\n\n- 取同一条边 $a \\to b$：乘积项期望 $\\frac{w^2}{4}$。\n- 取不共点边 $a \\to b, c\\to d$：事件独立，同号与异号概率相同，期望 $0$。\n- 取三角状 $a \\to b, a \\to c$：枚举 $6$ 种排列可算得，同号 $4$ 种异号 $2$ 种，期望 $\\frac{4-2}{6}\\times\\frac{w_1w_2}{4}=\\frac{w_1w_2}{12}$。\n- 取三点链 $a \\to b, b\\to c$：枚举 $6$ 种排列可算得，同号 $2$ 种异号 $4$ 种，期望 $\\frac{2-4}{6} \\times \\frac{w_1w_2}{4}=-\\frac{w_1w_2}{12}$。\n\n直接将这些值相加就是方差，不过复杂度不可接受，还需要进一步推导。\n\n定义节点 $x$ 的出边权和减去入边权和为 $b_x$。我们发现 $T=\\frac{1}{12} \\sum \\limits_{x \\in V} b_x^2$ 其实就几乎算完了。因为 $b_x^2$ 的组合意义是将 $x$ 的两条关联边相乘，同进同出均正，而一进一出为负，恰好与上面讨论的规则相同。\n\n唯一算漏的地方是取同一条边两次时贡献 $\\frac{3w^2}{12}$，但 $T$ 中只计入了 $2w^2$。补上 $S=\\sum \\limits_{e \\in E} w^2(e)$ 就完全正确了：\n$$\n\\boxed {\\text{Var}(r)=\\dfrac{S+T}{12}}\n$$\n只要求出每个 $i$ 对应的 $S+T$ 即可。\n\n维护矩阵 $D_{x,y}=w(x,y)-w(y,x)$，从而\n$$\n\\begin{aligned}\nb_x&=\\sum_{y} D_{x,y}\\\\\nS&=\\sum_{x < y} D^2_{x,y}\\\\\nT&=\\sum_{x} b_x^2\n\\end{aligned}\n$$\n对 $S_1 \\sim S_n$ 建立 Trie 树，逐位读入 $S_i$ 转移。设当前转移边为字符 $x$，枚举兄弟边 $y$，动态维护\n$$\nD_{x,y} \\gets D_{x,y} + \\text{sz}_{\\delta(u,y)}\\\\\nD_{y,x} \\gets D_{y,x} - \\text{sz}_{\\delta(u,y)}\n$$\n在终止状态计算答案即可，容易做到 $O(L |\\Sigma|^2)$。\n\n优化是简单的，维护 $b_x$ 后对于 $D$ 的单点修改容易 $O(1)$ 更新 $S,T$。注意修改后要撤销而非清空，复杂度才是对的。\n\n总复杂度 $O(L |\\Sigma|)$。[代码](https://www.cnblogs.com/stripe-python/p/23348906)。\n\n:::::\n\n## 逐行代码解析\n\n原文以完整代码给出实现，未逐行拆解；实现见上节代码块。\n\n## 复杂度分析\n\n见原文正文中的说明。\n\n## 常见陷阱与注意事项\n\n见原文正文中的说明。\n\n## 对比与扩展\n\n见原文正文中的说明。",
+                "codePath": "",
+                "timeComplexity": "未知",
+                "spaceComplexity": "未知",
+                "tags": [
+                    "题解"
+                ],
+                "source": "stripe-python"
             }
         ]
     }

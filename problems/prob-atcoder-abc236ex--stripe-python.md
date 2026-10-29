@@ -1,7 +1,7 @@
 ---
-id: prob-abc236ex
+id: prob-atcoder-abc236ex
 title: 'Distinct Multiples'
-oj: '来源未考证'
+oj: 'AtCoder'
 problemId: 'ABC236EX'
 difficulty: '暂未评定'
 cfRating: 'NaN'

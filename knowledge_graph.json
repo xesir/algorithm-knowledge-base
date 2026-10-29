@@ -2812,6 +2812,12 @@
                 "hub-basic"
             ],
             "related": []
+        },
+        "basic-interactive-models": {
+            "prerequisites": [
+                "hub-basic"
+            ],
+            "related": []
         }
     }
 }

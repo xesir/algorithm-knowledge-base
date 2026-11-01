@@ -261,6 +261,9 @@
         },
         "实用工具|STL与pbds": {
             "description": "STL 容器、pb_ds 与 bitset：用现成实现换开发时间，同时关注复杂度与常数。"
+        },
+        "图论|分层图": {
+            "description": "把资源/状态并入最短路节点（显式建层或隐式状态扩展），用于「最多 k 次免费」「方向/持有状态」类最短路建模。"
         }
     },
     "subSubcategories": {
@@ -428,6 +431,9 @@
         },
         "实用工具|STL与pbds|bitset": {
             "description": "以机器字并行等常数手段压缩时间或空间的工程优化技巧。bitset 通法条目讲语法、三步改造与各类变体（可行性背包、可达性、偏序、布尔矩阵、LCS、位并行 BFS 等），Floyd 案例单独成篇。"
+        },
+        "基础算法|搜索|启发式搜索": {
+            "description": "用可采纳的启发函数 h(n) 引导搜索方向：A* 按 f(n)=g(n)+h(n) 扩展，适合第 K 短路与大规模状态空间。"
         }
     },
     "knowledgePoints": {
@@ -1583,7 +1589,9 @@
             "prerequisites": [
                 "hub-basic"
             ],
-            "related": []
+            "related": [
+                "basic-regret-greedy"
+            ]
         },
         "basic-dfs": {
             "prerequisites": [
@@ -1960,7 +1968,8 @@
             "related": [
                 "basic-permutation-dfs",
                 "basic-combination-dfs",
-                "graph-dijkstra-heap"
+                "graph-dijkstra-heap",
+                "basic-astar"
             ]
         },
         "str-hash": {
@@ -2825,6 +2834,51 @@
                 "math-combinatorics"
             ],
             "related": []
+        },
+        "ds-bit-second-prefix": {
+            "prerequisites": [
+                "hub-ds",
+                "ds-prefix-sum-1d"
+            ],
+            "related": [
+                "ds-bit-second-diff"
+            ]
+        },
+        "ds-bit-second-diff": {
+            "prerequisites": [
+                "hub-ds",
+                "ds-diff-1d"
+            ],
+            "related": [
+                "ds-bit-second-prefix"
+            ]
+        },
+        "basic-astar": {
+            "prerequisites": [
+                "hub-basic",
+                "hub-basic-search",
+                "graph-dijkstra-heap"
+            ],
+            "related": [
+                "basic-bfs-bidirectional"
+            ]
+        },
+        "graph-layered": {
+            "prerequisites": [
+                "hub-graph",
+                "hub-graph-modeling",
+                "graph-dijkstra-heap"
+            ],
+            "related": []
+        },
+        "basic-regret-greedy": {
+            "prerequisites": [
+                "hub-basic",
+                "basic-greedy"
+            ],
+            "related": [
+                "basic-greedy"
+            ]
         }
     }
 }

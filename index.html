@@ -1285,6 +1285,168 @@
             font-size: 1rem;
         }
 
+        /* ===== Author Pages ===== */
+        .mode-switcher .mode-btn { padding-left: 0.25rem; padding-right: 0.25rem; white-space: nowrap; }
+        .author-side-count {
+            float: right;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+        .authors-page { max-width: 1100px; }
+        .author-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+        .author-card {
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem 1.1rem;
+            background: var(--bg-secondary);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .author-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        .author-card-head {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.75rem;
+        }
+        .author-avatar {
+            width: 2.6rem;
+            height: 2.6rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+        .author-card-name { font-weight: 600; font-size: 0.98rem; color: var(--text); word-break: break-all; }
+        .author-card-sub {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .author-rate-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+        .author-rate-num { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
+        .author-bar {
+            height: 0.35rem;
+            border-radius: 999px;
+            background: var(--hover-bg);
+            overflow: hidden;
+            margin: 0.45rem 0 0.55rem;
+        }
+        .author-bar-fill { height: 100%; background: linear-gradient(90deg, #6366f1, #8b5cf6); }
+        .author-card-meta {
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .author-page { max-width: 980px; }
+        .author-back {
+            display: inline-block;
+            font-size: 0.82rem;
+            color: var(--primary);
+            cursor: pointer;
+            margin-bottom: 0.9rem;
+        }
+        .author-back:hover { text-decoration: underline; }
+        .author-hero { display: flex; align-items: center; gap: 1rem; margin: 0 0 1.2rem; }
+        .author-hero .author-avatar { width: 4rem; height: 4rem; font-size: 1.6rem; }
+        .author-hero h1 { margin: 0; font-size: 1.5rem; }
+        .author-signature {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+        .author-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 0.8rem;
+        }
+        .author-stat {
+            border: 1px solid var(--border);
+            border-radius: 0.6rem;
+            padding: 0.7rem 0.6rem;
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+        .author-stat-num { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+        .author-stat-label { font-size: 0.74rem; color: var(--text-secondary); margin-top: 0.15rem; }
+        .author-note { font-size: 0.74rem; color: var(--text-secondary); margin: 0.35rem 0 0.9rem; }
+        .author-section { margin-top: 1.5rem; }
+        .author-section h2 { font-size: 1.05rem; margin-bottom: 0.6rem; }
+        .author-empty {
+            border: 1px dashed var(--border);
+            border-radius: 0.6rem;
+            padding: 0.9rem 1rem;
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+        }
+        .author-honor-list { margin: 0; padding-left: 1.2rem; font-size: 0.86rem; }
+        .author-contrib-group {
+            border: 1px solid var(--border);
+            border-radius: 0.6rem;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .author-contrib-title {
+            padding: 0.5rem 0.85rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+        .author-contrib-title span {
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 0.74rem;
+            margin-left: 0.4rem;
+        }
+        .author-contrib-list { list-style: none; margin: 0; padding: 0.3rem 0; }
+        .author-contrib-cat {
+            padding: 0.4rem 0.9rem 0.2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .author-contrib-item {
+            padding: 0.3rem 0.9rem 0.3rem 1.4rem;
+            font-size: 0.86rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+        .author-contrib-item:hover { background: var(--hover-bg); color: var(--primary); }
+        .author-contrib-sub {
+            color: var(--text-secondary);
+            font-size: 0.73rem;
+            margin-left: 0.45rem;
+        }
+
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
             #sidebar {
@@ -1309,6 +1471,7 @@
                 <div class="mode-switcher">
                     <button class="mode-btn active" id="mode-kp" onclick="switchMode('kp')">📖 知识点</button>
                     <button class="mode-btn" id="mode-prob" onclick="switchMode('prob')">📝 题目专辑</button>
+                    <button class="mode-btn" id="mode-author" onclick="switchMode('author')">👤 作者</button>
                 </div>
                 <div class="search-box">
                     <input type="text" id="search-input" placeholder="搜索知识点... (按 / 聚焦)">
@@ -1325,7 +1488,7 @@
                     <div class="tag-filter-tags" id="tag-filter-tags"></div>
                     <div class="tag-filter-more" onclick="openTagModal()">更多 ▼</div>
                 </div>
-                <div class="catalog-btn" id="catalog-btn" onclick="if(currentMode==='kp'){showCatalog();}else{showProblemCatalog();}">📑 总目录</div>
+                <div class="catalog-btn" id="catalog-btn" onclick="openCatalogForMode()">📑 总目录</div>
             </div>
             <nav id="sidebar-nav"></nav>
             <div class="sidebar-footer"><span id="kp-count">…</span> 个知识点</div>
@@ -1346,7 +1509,8 @@
     <script>
         // ===== State =====
         let currentId = null;
-        let currentMode = 'kp'; // 'kp' = 知识点, 'prob' = 题目专辑
+        let currentMode = 'kp'; // 'kp' = 知识点, 'prob' = 题目专辑, 'author' = 作者专栏
+        let currentAuthor = null; // 作者专栏当前作者
         let isDark = localStorage.getItem('theme') === 'dark';
         let selectedTags = new Set();  // 当前选中的标签
         let tagMode = 'intersection';   // 'intersection' = 交集(AND), 'union' = 并集(OR)
@@ -1407,25 +1571,41 @@
             // Keyboard
             document.addEventListener('keydown', handleKeyboard);
 
-            // Hash routing
-            window.addEventListener('hashchange', function() {
-                var hash = location.hash.slice(1);
-                if (hash && KNOWLEDGE_DATA.find(function(k) { return k.id === hash; })) {
-                    switchMode('kp');
-                    selectKP(hash);
-                } else if (hash && typeof PROBLEMS_DATA !== 'undefined' && PROBLEMS_DATA.find(function(p) { return p.id === hash; })) {
-                    switchMode('prob');
-                    selectProblem(hash);
-                }
-            });
+            // Hash routing：#authors / #author/<名字> / 知识点 id / 题目 id
+            window.addEventListener('hashchange', handleRoute);
 
             // Load from hash or default to catalog
+            handleRoute();
+        }
+
+        function handleRoute() {
             var hash = location.hash.slice(1);
+            if (hash === 'authors') {
+                switchMode('author');
+                showAuthors();
+                return;
+            }
+            if (hash.indexOf('author/') === 0) {
+                var authorName = decodeURIComponent(hash.slice(7));
+                switchMode('author');
+                selectAuthor(authorName);
+                return;
+            }
             if (hash && KNOWLEDGE_DATA.find(function(k) { return k.id === hash; })) {
+                // 已经在看这一条时不再重渲染：否则会把「指定作者版本」重置回主版本
+                if (currentMode === 'kp' && currentId === hash) return;
+                switchMode('kp');
                 selectKP(hash);
-            } else if (hash && typeof PROBLEMS_DATA !== 'undefined' && PROBLEMS_DATA.find(function(p) { return p.id === hash; })) {
+                return;
+            }
+            if (hash && typeof PROBLEMS_DATA !== 'undefined' && PROBLEMS_DATA.find(function(p) { return p.id === hash; })) {
+                if (currentMode === 'prob' && currentId === hash) return;
                 switchMode('prob');
                 selectProblem(hash);
+                return;
+            }
+            if (currentMode === 'author') {
+                showAuthors();
             } else {
                 showCatalog();
             }
@@ -1530,8 +1710,10 @@
         function doSearch() {
             if (currentMode === 'kp') {
                 buildSidebar(searchInput.value);
-            } else {
+            } else if (currentMode === 'prob') {
                 buildProblemSidebar(searchInput.value);
+            } else {
+                buildAuthorSidebar(searchInput.value);
             }
         }
 
@@ -1926,6 +2108,7 @@
                 });
             }
             metaHtml += '<button class="viz-btn" onclick="openStarMap(\'' + kp.id + '\')">🌌 星图</button>';
+            metaHtml += '<button class="viz-btn" onclick="openAuthor(\'' + escAttr(ver.author) + '\')">👤 作者</button>';
             metaHtml += '</div>';
 
             // Render content: 三步法保护 LaTeX（实现见 renderMarkdownWithMath）
@@ -2231,19 +2414,37 @@
             currentMode = mode;
             document.getElementById('mode-kp').classList.toggle('active', mode === 'kp');
             document.getElementById('mode-prob').classList.toggle('active', mode === 'prob');
+            document.getElementById('mode-author').classList.toggle('active', mode === 'author');
             searchInput.value = '';
             selectedTags.clear();
             renderTagFilter();
             updateFooter();
+            // 作者专栏没有标签筛选；目录按钮改为作者列表
+            var tagFilterEl = document.getElementById('tag-filter');
+            if (tagFilterEl) tagFilterEl.style.display = (mode === 'author') ? 'none' : '';
+            var catalogBtn = document.getElementById('catalog-btn');
+            if (catalogBtn) catalogBtn.textContent = (mode === 'author') ? '📑 作者列表' : '📑 总目录';
             if (mode === 'kp') {
                 buildSidebar();
                 searchInput.placeholder = '搜索知识点... (按 / 聚焦)';
                 showCatalog();
-            } else {
+            } else if (mode === 'prob') {
                 buildProblemSidebar();
                 searchInput.placeholder = '搜索题目... (按 / 聚焦)';
                 showProblemCatalog();
+            } else {
+                currentAuthor = null;
+                buildAuthorSidebar();
+                searchInput.placeholder = '搜索作者... (按 / 聚焦)';
+                showAuthors();
             }
+        }
+
+        // 目录按钮：按当前模式打开对应总览
+        function openCatalogForMode() {
+            if (currentMode === 'kp') showCatalog();
+            else if (currentMode === 'prob') showProblemCatalog();
+            else showAuthors();
         }
 
         function updateFooter() {
@@ -2251,13 +2452,248 @@
             if (currentMode === 'kp') {
                 count = KNOWLEDGE_DATA.length;
                 label = '个知识点';
-            } else {
+            } else if (currentMode === 'prob') {
                 count = (typeof PROBLEMS_DATA !== 'undefined') ? PROBLEMS_DATA.length : 0;
                 label = '个题目';
+            } else {
+                var pack = sortedAuthors();
+                count = pack.authors.length;
+                label = '位作者';
             }
             // 整块重写，避免再引用被 innerHTML 替换掉的旧节点
             document.querySelector('.sidebar-footer').innerHTML =
                 '<span id="kp-count">' + count + '</span> ' + label;
+        }
+
+        // ===== 作者专栏 =====
+        // 战绩 / 签名目前留空：以后直接在这里填（honors 填字符串数组，signature 填字符串）
+        var AUTHOR_PROFILES = {
+            'world-needs-sunday': { signature: '', honors: [] },
+            'Fohen': { signature: '', honors: [] },
+            'Xesir': { signature: '', honors: [] },
+            'lker': { signature: '', honors: [] },
+            'stripe-python': { signature: '', honors: [] }
+        };
+
+        function authorProfile(name) {
+            return AUTHOR_PROFILES[name] || { signature: '', honors: [] };
+        }
+
+        function authorInitial(name) {
+            var s = String(name || '?').trim();
+            return s ? s.charAt(0).toUpperCase() : '?';
+        }
+
+        function authorRateText(rate) {
+            return (rate * 100).toFixed(1) + '%';
+        }
+
+        // 统计每位作者的署名版本（知识点 + 题目），贡献率 = 作者署名版本数 ÷ 全站版本总数
+        function getAuthorStats() {
+            var stats = {};
+            function ensure(name) {
+                if (!stats[name]) stats[name] = { name: name, kp: [], prob: [], total: 0, rate: 0 };
+                return stats[name];
+            }
+            (typeof AUTHORS !== 'undefined' ? AUTHORS : []).forEach(ensure);
+            (typeof KNOWLEDGE_DATA !== 'undefined' ? KNOWLEDGE_DATA : []).forEach(function(kp) {
+                (kp.versions || []).forEach(function(v, i) {
+                    ensure(v.author || 'world-needs-sunday').kp.push({
+                        id: kp.id, title: kp.title, category: kp.category || '未分类',
+                        subcategory: kp.subcategory || '', verIdx: i
+                    });
+                });
+            });
+            if (typeof PROBLEMS_DATA !== 'undefined') {
+                PROBLEMS_DATA.forEach(function(prob) {
+                    (prob.versions || []).forEach(function(v, i) {
+                        ensure(v.author || 'world-needs-sunday').prob.push({
+                            id: prob.id, title: prob.title, category: prob.category || '未分类',
+                            oj: prob.oj || '', problemId: prob.problemId || '', verIdx: i
+                        });
+                    });
+                });
+            }
+            var totalAll = 0;
+            Object.keys(stats).forEach(function(name) { totalAll += stats[name].kp.length + stats[name].prob.length; });
+            Object.keys(stats).forEach(function(name) {
+                var s = stats[name];
+                s.total = s.kp.length + s.prob.length;
+                s.rate = totalAll ? s.total / totalAll : 0;
+            });
+            return { stats: stats, totalAll: totalAll };
+        }
+
+        // 按署名版本数从高到低；同数时按名字排序
+        function sortedAuthors() {
+            var pack = getAuthorStats();
+            var arr = Object.keys(pack.stats).map(function(n) { return pack.stats[n]; });
+            arr.sort(function(a, b) { return (b.total - a.total) || String(a.name).localeCompare(String(b.name)); });
+            return { authors: arr, totalAll: pack.totalAll };
+        }
+
+        function uniqueCount(list) {
+            var seen = {};
+            var n = 0;
+            list.forEach(function(x) { if (!seen[x.id]) { seen[x.id] = 1; n++; } });
+            return n;
+        }
+
+        // 侧栏作者列表（搜索只过滤作者名与签名）
+        function buildAuthorSidebar(filter) {
+            var q = (filter || '').toLowerCase();
+            var pack = sortedAuthors();
+            var html = '';
+            var shown = 0;
+            pack.authors.forEach(function(a) {
+                var prof = authorProfile(a.name);
+                if (q && String(a.name).toLowerCase().indexOf(q) < 0 &&
+                    String(prof.signature || '').toLowerCase().indexOf(q) < 0) return;
+                shown++;
+                var active = (currentAuthor === a.name) ? ' active' : '';
+                html += '<div class="kp-item' + active + '" onclick="selectAuthor(\'' + escAttr(a.name) + '\')" title="' +
+                    escAttr(a.name + ' · 贡献率 ' + authorRateText(a.rate)) + '">' +
+                    escHtml(a.name) + '<span class="author-side-count">' + a.total + '</span></div>';
+            });
+            if (!shown) html = '<div class="no-results">未找到匹配的作者</div>';
+            sidebarNav.innerHTML = html;
+        }
+
+        // 作者列表页
+        function showAuthors() {
+            currentAuthor = null;
+            var pack = sortedAuthors();
+            document.title = '作者专栏 · 算法知识点查询系统';
+            var html = '<div class="authors-page">';
+            html += '<h1>👤 作者专栏</h1>';
+            html += '<div class="catalog-desc">按贡献排名浏览本站作者。贡献率 = 该作者署名版本数 ÷ 全站知识点与题目版本总数（当前共 ' +
+                pack.totalAll + ' 个版本）；同一栏目的多作者版本分别计入。</div>';
+            html += '<div class="author-grid">';
+            pack.authors.forEach(function(a) {
+                var prof = authorProfile(a.name);
+                var sig = prof.signature ? escHtml(prof.signature) : '暂无签名';
+                var honors = (prof.honors && prof.honors.length) ? escHtml(prof.honors.join(' · ')) : '暂无战绩（待补充）';
+                html += '<div class="author-card" onclick="selectAuthor(\'' + escAttr(a.name) + '\')">';
+                html += '<div class="author-card-head">';
+                html += '<div class="author-avatar">' + escHtml(authorInitial(a.name)) + '</div>';
+                html += '<div style="min-width:0;"><div class="author-card-name">' + escHtml(a.name) + '</div>';
+                html += '<div class="author-card-sub">' + honors + '</div></div>';
+                html += '</div>';
+                html += '<div class="author-rate-row"><span>贡献率</span><span class="author-rate-num">' + authorRateText(a.rate) + '</span></div>';
+                html += '<div class="author-bar"><div class="author-bar-fill" style="width:' +
+                    Math.max(a.rate * 100, 1.5).toFixed(1) + '%"></div></div>';
+                html += '<div class="author-card-meta">知识点版本 ' + a.kp.length + ' · 题目版本 ' + a.prob.length + ' ｜ ' + sig + '</div>';
+                html += '</div>';
+            });
+            html += '</div></div>';
+            contentEl.innerHTML = html;
+            window.scrollTo(0, 0);
+            document.getElementById('sidebar').classList.remove('open');
+        }
+
+        function selectAuthor(name) {
+            var pack = sortedAuthors();
+            var target = null;
+            pack.authors.forEach(function(a) { if (a.name === name) target = a; });
+            if (!target) return;
+            currentAuthor = name;
+            var hash = 'author/' + encodeURIComponent(name);
+            if (location.hash.slice(1) !== hash) location.hash = hash;
+            renderAuthorProfile(target, pack.totalAll);
+            buildAuthorSidebar(searchInput.value);
+            document.getElementById('sidebar').classList.remove('open');
+        }
+
+        // 作者主页：贡献率 / 贡献栏目 / 战绩（留空）/ 签名（留空）
+        function renderAuthorProfile(a, totalAll) {
+            var prof = authorProfile(a.name);
+            document.title = a.name + ' · 作者专栏 · 算法知识点查询系统';
+            var html = '<div class="author-page">';
+            html += '<div class="author-back" onclick="showAuthors()">← 返回作者列表</div>';
+            html += '<div class="author-hero">';
+            html += '<div class="author-avatar">' + escHtml(authorInitial(a.name)) + '</div>';
+            html += '<div><h1>' + escHtml(a.name) + '</h1>';
+            html += '<div class="author-signature">签名：' + (prof.signature ? escHtml(prof.signature) : '暂无（待补充）') + '</div></div>';
+            html += '</div>';
+
+            html += '<div class="author-stats">';
+            html += '<div class="author-stat"><div class="author-stat-num">' + authorRateText(a.rate) + '</div><div class="author-stat-label">贡献率</div></div>';
+            html += '<div class="author-stat"><div class="author-stat-num">' + a.total + '</div><div class="author-stat-label">署名版本</div></div>';
+            html += '<div class="author-stat"><div class="author-stat-num">' + totalAll + '</div><div class="author-stat-label">全站版本</div></div>';
+            html += '<div class="author-stat"><div class="author-stat-num">' + uniqueCount(a.kp) + '</div><div class="author-stat-label">知识点</div></div>';
+            html += '<div class="author-stat"><div class="author-stat-num">' + uniqueCount(a.prob) + '</div><div class="author-stat-label">题目</div></div>';
+            html += '</div>';
+            html += '<div class="author-bar"><div class="author-bar-fill" style="width:' + (a.rate * 100).toFixed(1) + '%"></div></div>';
+            html += '<div class="author-note">贡献率 = 该作者署名版本数 ÷ 全站知识点与题目版本总数。</div>';
+
+            html += '<div class="author-section"><h2>🏆 战绩</h2>';
+            if (prof.honors && prof.honors.length) {
+                html += '<ul class="author-honor-list">';
+                prof.honors.forEach(function(h) { html += '<li>' + escHtml(h) + '</li>'; });
+                html += '</ul>';
+            } else {
+                html += '<div class="author-empty">暂无战绩（待补充：奖项、比赛名次等）</div>';
+            }
+            html += '</div>';
+
+            html += '<div class="author-section"><h2>📚 贡献栏目</h2>';
+            html += '<div class="author-note">共 ' + a.total + ' 个署名版本：知识点 ' + a.kp.length +
+                ' 版、题目 ' + a.prob.length + ' 版；点击条目直接打开该作者的版本。</div>';
+            html += renderAuthorContrib(a.kp, '知识点', true);
+            html += renderAuthorContrib(a.prob, '题目', false);
+            html += '</div>';
+
+            html += '</div>';
+            contentEl.innerHTML = html;
+            window.scrollTo(0, 0);
+        }
+
+        function renderAuthorContrib(list, kind, isKp) {
+            if (!list.length) return '<div class="author-empty">该栏目下暂无' + kind + '</div>';
+            var groups = {};
+            list.forEach(function(item) {
+                if (!groups[item.category]) groups[item.category] = [];
+                groups[item.category].push(item);
+            });
+            var html = '<div class="author-contrib-group">';
+            html += '<div class="author-contrib-title">' + kind + ' · 按大类<span>共 ' + list.length + ' 版</span></div>';
+            html += '<ul class="author-contrib-list">';
+            Object.keys(groups).sort().forEach(function(cat) {
+                html += '<li class="author-contrib-cat">' + escHtml(cat) + '<span class="author-contrib-sub">' + groups[cat].length + ' 条</span></li>';
+                groups[cat].forEach(function(item) {
+                    var sub = isKp ? item.subcategory : [item.oj, item.problemId].filter(Boolean).join(' ');
+                    var click = isKp
+                        ? 'goKpVersion(\'' + item.id + '\',' + item.verIdx + ')'
+                        : 'goProblemVersion(\'' + item.id + '\',' + item.verIdx + ')';
+                    html += '<li class="author-contrib-item" onclick="' + click + '">' + escHtml(item.title) +
+                        (sub ? '<span class="author-contrib-sub">' + escHtml(sub) + '</span>' : '') + '</li>';
+                });
+            });
+            html += '</ul></div>';
+            return html;
+        }
+
+        // 打开某条目的「指定作者版本」
+        function goKpVersion(id, verIdx) {
+            if (currentMode !== 'kp') switchMode('kp');
+            selectKP(id);
+            if (typeof verIdx === 'number' && verIdx > 0) switchVersion(verIdx);
+        }
+
+        function goProblemVersion(id, verIdx) {
+            if (currentMode !== 'prob') switchMode('prob');
+            selectProblem(id);
+            if (typeof verIdx === 'number' && verIdx > 0) switchProbVersion(verIdx);
+        }
+
+        // 从条目页跳到当前版本作者的专栏
+        function openAuthor(name) {
+            if (!name) return;
+            if (typeof AUTHOR_PROFILES !== 'undefined' && !AUTHOR_PROFILES[name]) {
+                AUTHOR_PROFILES[name] = { signature: '', honors: [] };
+            }
+            switchMode('author');
+            selectAuthor(name);
         }
 
         // ===== Build Problem Sidebar =====
@@ -2401,6 +2837,7 @@
                 metaHtml += '<span class="badge badge-source">👤 ' + escHtml(ver.source) + '</span>';
             }
             metaHtml += '<button class="viz-btn" onclick="openStarMap(\'' + prob.id + '\')">🌌 星图</button>';
+            metaHtml += '<button class="viz-btn" onclick="openAuthor(\'' + escAttr(ver.author) + '\')">👤 作者</button>';
             metaHtml += '</div>';
 
             // Render content: 三步法保护 LaTeX（实现见 renderMarkdownWithMath）

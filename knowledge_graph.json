@@ -434,6 +434,9 @@
         },
         "基础算法|搜索|启发式搜索": {
             "description": "用可采纳的启发函数 h(n) 引导搜索方向：A* 按 f(n)=g(n)+h(n) 扩展，适合第 K 短路与大规模状态空间。"
+        },
+        "实用工具|初赛指南|真题题解": {
+            "description": "历届 CSP 第一轮真题的逐题题解：单项选择、阅读程序、完善程序，附答案与陷阱说明。"
         }
     },
     "knowledgePoints": {
@@ -2116,7 +2119,8 @@
             "related": [
                 "math-quick-pow-basic",
                 "ds-bit-point-range",
-                "basic-digit-power-cycle-self"
+                "basic-digit-power-cycle-self",
+                "exam-csp-s-2026-round1"
             ]
         },
         "graph-scc-dag-dp": {
@@ -2878,6 +2882,14 @@
             ],
             "related": [
                 "basic-greedy"
+            ]
+        },
+        "exam-csp-s-2026-round1": {
+            "prerequisites": [
+                "hub-exam"
+            ],
+            "related": [
+                "exam-bit-operation"
             ]
         }
     }

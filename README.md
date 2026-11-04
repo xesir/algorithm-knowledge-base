@@ -204,3 +204,8 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - 修复原讲义中的 HTML 转义（`&lt;` / `&gt;`）、伪代码缩进、缺失的字符串操作第 11 项，并补写线性 DP、记忆化搜索的推导与说明；原讲义中的代码片段保留为节选，未代写实现。
 - `build.js` 的 `AUTHOR_KEYS` 新增 `dbywsc`；`knowledge_graph.json` 新增 5 个节点的 parent / prerequisites。
 - 规模：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
+
+## 备注（2026-11-04 · 本轮会话纪要与备份）
+
+- 本轮完整纪要见 [`docs/会话纪要-2026-11-04.md`](docs/会话纪要-2026-11-04.md)。
+- 备份 tag：`backup-before-major-rework-20261104`；全量 zip：`..\backup_AKB_20261104.zip`（仓库全量，含 `.git`）。

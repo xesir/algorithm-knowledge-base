@@ -3,6 +3,7 @@ id: math-prime-factor-state-compression
 title: '质因子状态压缩 trick'
 category: '数学'
 subcategory: '数论基础'
+subSubcategory: '素数'
 tags: ["质因子","状态压缩","数论","trick"]
 timeComplexity: '见原文'
 spaceComplexity: '见原文'

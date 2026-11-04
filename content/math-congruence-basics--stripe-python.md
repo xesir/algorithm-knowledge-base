@@ -3,6 +3,7 @@ id: math-congruence-basics
 title: '同余与模运算（快速幂 / 乘法逆元 / Modint）'
 category: '数学'
 subcategory: '数论基础'
+subSubcategory: '同余与模运算'
 tags: ['同余', '快速幂', '乘法逆元', 'Modint']
 timeComplexity: '见原文'
 spaceComplexity: '见原文'

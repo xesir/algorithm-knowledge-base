@@ -225,7 +225,8 @@ function build() {
             tags: primary.tags,
             codePath: primary.codePath,
             prerequisites: graphEntry.prerequisites || [],
-            related: graphEntry.related || []
+            related: graphEntry.related || [],
+            parent: graphEntry.parent || ''
         });
 
         console.log(`  ✓ ${baseId}（${vers.length} 版本）— ${primary.meta.title || ''}`);

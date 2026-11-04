@@ -2,8 +2,7 @@
 id: math-01-fractional
 title: '0/1 分数规划'
 category: 数学
-subcategory: 数论基础
-subSubcategory: '同余与模运算'
+subcategory: 数学基础
 tags: ["数学", "分数规划", "二分答案", "01分数规划"]
 timeComplexity: '视具体实现（二分次数 × 内层判定）'
 spaceComplexity: '视具体实现'

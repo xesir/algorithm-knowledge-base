@@ -3,6 +3,7 @@ id: math-prime-theory
 title: '质数理论基础（判定 / 筛法 / 算术基本定理）'
 category: '数学'
 subcategory: '数论基础'
+subSubcategory: '素数'
 tags: ['质数', '素数筛', '威尔逊定理', '算术基本定理']
 timeComplexity: '见原文'
 spaceComplexity: '见原文'

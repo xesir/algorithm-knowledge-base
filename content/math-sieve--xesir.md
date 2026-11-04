@@ -1,6 +1,6 @@
 ---
-id: math-sieve-eratosthenes
-title: '素数筛法（埃氏筛与线性筛）'
+id: math-sieve
+title: '筛法：埃氏筛与线性筛'
 category: 数学
 subcategory: 数论基础
 subSubcategory: '素数'

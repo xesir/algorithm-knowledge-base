@@ -333,6 +333,11 @@ function checkFile(kind, filename) {
           else if (!/^[a-z0-9][a-z0-9-]*$/.test(target)) warn('W014', rel, 2, `${field} 中的 "${target}" 不像合法 id`);
         });
       });
+      // 三级知识点：父栏目（从属关系）
+      if (entry.parent) {
+        if (entry.parent === id) warn('W044', rel, 2, 'parent 指向自己');
+        else if (!graphKP[entry.parent]) warn('W044', rel, 2, `parent "${entry.parent}" 不在 knowledge_graph.json 中`, '先给父知识点登记图谱条目');
+      }
     }
   }
 

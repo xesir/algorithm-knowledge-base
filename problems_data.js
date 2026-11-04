@@ -1961,8 +1961,7 @@ const PROBLEMS_DATA = [
         "cfRating": "NaN",
         "category": "数学",
         "knowledgePoints": [
-            "math-factorization",
-            "math-pollard-rho"
+            "math-factorization"
         ],
         "tags": [
             "数论",

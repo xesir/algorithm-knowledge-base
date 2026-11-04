@@ -3,6 +3,7 @@ id: math-euler-phi
 title: '欧拉函数'
 category: '数学'
 subcategory: '数论基础'
+subSubcategory: '数论函数'
 tags: ['欧拉函数', '积性函数', '筛法']
 timeComplexity: '见原文'
 spaceComplexity: '见原文'

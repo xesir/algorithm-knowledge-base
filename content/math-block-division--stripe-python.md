@@ -3,6 +3,7 @@ id: math-block-division
 title: '整除分块（数论分块）'
 category: '数学'
 subcategory: '数论基础'
+subSubcategory: '数论函数'
 tags: ['整除分块', '数论分块', '下取整求和']
 timeComplexity: '见原文'
 spaceComplexity: '见原文'

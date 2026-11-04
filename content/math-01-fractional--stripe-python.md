@@ -2,7 +2,7 @@
 id: math-01-fractional
 title: '0/1 分数规划'
 category: '数学'
-subcategory: '数论计数'
+subcategory: '数学基础'
 tags: ['分数规划', '二分答案', '最优比率']
 timeComplexity: '见原文'
 spaceComplexity: '见原文'

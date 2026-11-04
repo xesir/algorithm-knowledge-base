@@ -1,8 +1,9 @@
 ---
-id: math-gcd-theory
+id: math-gcd-lcm
 title: '最大公约数与扩展欧几里得'
 category: '数学'
 subcategory: '数论基础'
+subSubcategory: '数论函数'
 tags: ['gcd', 'lcm', 'exgcd', '裴蜀定理']
 timeComplexity: '见原文'
 spaceComplexity: '见原文'

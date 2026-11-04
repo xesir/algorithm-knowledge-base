@@ -3,6 +3,7 @@ id: math-number-theory-theorems
 title: '数论常用定理：费马小定理与扩展欧拉定理'
 category: '数学'
 subcategory: '数论基础'
+subSubcategory: '同余与模运算'
 tags: ['费马小定理', '欧拉定理', '降幂']
 timeComplexity: '见原文'
 spaceComplexity: '见原文'

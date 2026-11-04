@@ -1447,6 +1447,56 @@
             margin-left: 0.45rem;
         }
 
+        /* ===== 三级知识点（父 / 子栏目） ===== */
+        .kp-item.kp-item-child {
+            padding-left: 3.3rem;
+            font-size: 0.78rem;
+        }
+        .kp-item.kp-item-child::before {
+            content: '└ ';
+            color: var(--text-sidebar-muted);
+        }
+        .catalog-kp-item.catalog-kp-child {
+            padding-left: 1.7rem;
+        }
+        .catalog-kp-item.catalog-kp-child::before {
+            content: '└ ';
+            color: var(--text-secondary);
+            margin-right: 0.15rem;
+        }
+        .subcategory-kp-card.kp-card-child {
+            margin-left: 1.1rem;
+            border-left: 2px solid var(--border);
+        }
+        .kp-parent-bar {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin: 0.35rem 0 0.1rem;
+        }
+        .kp-parent-link { color: var(--primary); cursor: pointer; }
+        .kp-parent-link:hover { text-decoration: underline; }
+        .kp-children-section {
+            margin-top: 1.6rem;
+            border-top: 1px dashed var(--border);
+            padding-top: 1rem;
+        }
+        .kp-children-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; }
+        .kp-children-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .kp-child-chip {
+            padding: 0.35rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            background: var(--bg-secondary);
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+        .kp-child-chip:hover { border-color: var(--primary); color: var(--primary); }
+        .viz-edge-parent {
+            stroke: rgba(168, 85, 247, 0.85);
+            stroke-width: 1.6;
+            stroke-dasharray: 7 4;
+        }
+
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
             #sidebar {
@@ -1880,6 +1930,44 @@
             });
         }
 
+        // ===== 三级知识点：父 / 子栏目 =====
+        // 层级信息来自 knowledge_graph.json 的 parent 字段（build.js 注入 KNOWLEDGE_DATA）
+        function kpTitleCompare(a, b) {
+            return String(a.title).localeCompare(String(b.title), 'zh-Hans-CN');
+        }
+
+        function kpChildrenOf(id) {
+            return KNOWLEDGE_DATA.filter(function(k) { return k.parent === id; }).sort(kpTitleCompare);
+        }
+
+        // 把同一分组内的条目按父子关系拆成「根 + 子列表」；父不在本组时子项当根显示（搜索过滤时不会丢条目）
+        function splitKpHierarchy(items) {
+            var ids = {};
+            items.forEach(function(k) { ids[k.id] = 1; });
+            var roots = [], children = {};
+            items.forEach(function(k) {
+                if (k.parent && k.parent !== k.id && ids[k.parent]) {
+                    if (!children[k.parent]) children[k.parent] = [];
+                    children[k.parent].push(k);
+                } else {
+                    roots.push(k);
+                }
+            });
+            roots.sort(kpTitleCompare);
+            Object.keys(children).forEach(function(id) { children[id].sort(kpTitleCompare); });
+            return { roots: roots, children: children };
+        }
+
+        function kpItemHtml(kp, extraCls) {
+            var active = currentId === kp.id ? ' active' : '';
+            return '<div class="kp-item' + (extraCls || '') + active + '" onclick="selectKP(\'' + kp.id + '\')" title="' + escAttr(kp.title) + '">' + escHtml(kp.title) + '</div>';
+        }
+
+        function catalogKpItemHtml(kp, isChild) {
+            return '<li class="catalog-kp-item' + (isChild ? ' catalog-kp-child' : '') + '" onclick="selectKP(\'' + kp.id + '\')" title="' + escAttr(kp.title) + '">' +
+                escHtml(kp.title) + '</li>';
+        }
+
         function buildSidebar(filter) {
             filter = filter || '';
             var hasFilter = filter || selectedTags.size > 0;
@@ -1935,10 +2023,12 @@
                         if (ssub) {
                             html += '<div class="subsubcategory">' + escHtml(ssub) + '</div>';
                         }
-                        ssubs[ssub].forEach(function(kp) {
-                            var active = currentId === kp.id ? ' active' : '';
-                            var subCls = ssub ? ' kp-item-sub' : '';
-                            html += '<div class="kp-item' + subCls + active + '" onclick="selectKP(\'' + kp.id + '\')" title="' + escAttr(kp.title) + '">' + escHtml(kp.title) + '</div>';
+                        var grouped = splitKpHierarchy(ssubs[ssub]);
+                        grouped.roots.forEach(function(kp) {
+                            html += kpItemHtml(kp, ssub ? ' kp-item-sub' : '');
+                            (grouped.children[kp.id] || []).forEach(function(child) {
+                                html += kpItemHtml(child, ' kp-item-child');
+                            });
                         });
                     });
                     html += '</div></div>';
@@ -2111,6 +2201,23 @@
             metaHtml += '<button class="viz-btn" onclick="openAuthor(\'' + escAttr(ver.author) + '\')">👤 作者</button>';
             metaHtml += '</div>';
 
+            // 三级栏目：上级栏目 / 子栏目
+            var parentKp = kp.parent ? KNOWLEDGE_DATA.find(function(k) { return k.id === kp.parent; }) : null;
+            var childKps = kpChildrenOf(kp.id);
+            var parentHtml = parentKp
+                ? '<div class="kp-parent-bar">上级栏目：<span class="kp-parent-link" onclick="selectKP(\'' + parentKp.id + '\')">' + escHtml(parentKp.title) + '</span></div>'
+                : '';
+            var childrenHtml = '';
+            if (childKps.length) {
+                childrenHtml = '<div class="kp-children-section">' +
+                    '<div class="kp-children-title">📂 子栏目（' + childKps.length + '）</div>' +
+                    '<div class="kp-children-grid">';
+                childKps.forEach(function(child) {
+                    childrenHtml += '<span class="kp-child-chip" onclick="selectKP(\'' + child.id + '\')" title="' + escAttr(child.title) + '">' + escHtml(child.title) + '</span>';
+                });
+                childrenHtml += '</div></div>';
+            }
+
             // Render content: 三步法保护 LaTeX（实现见 renderMarkdownWithMath）
             var contentHtml = '';
             try {
@@ -2191,10 +2298,12 @@
                 '<article class="article">' +
                 '<h1>' + escHtml(kp.title) + '</h1>' +
                 tabsHtml +
+                parentHtml +
                 metaHtml +
                 prereqHtml +
                 '<div class="markdown-body">' + contentHtml + '</div>' +
                 codeHtml +
+                childrenHtml +
                 relatedHtml +
                 navHtml +
                 '</article>';
@@ -2312,9 +2421,12 @@
                         if (ssub) {
                             html += '<li class="catalog-subsub-title">' + escHtml(ssub) + '</li>';
                         }
-                        ssubs[ssub].forEach(function(kp) {
-                            html += '<li class="catalog-kp-item" onclick="selectKP(\'' + kp.id + '\')" title="' + escAttr(kp.title) + '">' +
-                                escHtml(kp.title) + '</li>';
+                        var grouped = splitKpHierarchy(ssubs[ssub]);
+                        grouped.roots.forEach(function(kp) {
+                            html += catalogKpItemHtml(kp, false);
+                            (grouped.children[kp.id] || []).forEach(function(child) {
+                                html += catalogKpItemHtml(child, true);
+                            });
                         });
                     });
                     html += '</ul></div>';
@@ -2361,7 +2473,7 @@
                     if (ssub) ssubGroups.push({ name: ssub, items: ssubs[ssub] });
                     else flatKps = flatKps.concat(ssubs[ssub]);
                 });
-                flatKps.forEach(function(kp) { html += renderKpCard(kp); });
+                if (flatKps.length) html += renderKpCardList(flatKps);
                 ssubGroups.forEach(function(group) {
                     var ssubMeta = (typeof SUBSUBCATEGORY_META !== 'undefined' &&
                         SUBSUBCATEGORY_META[subKey + '|' + group.name]) || {};
@@ -2372,7 +2484,7 @@
                         html += '<p class="subsubcategory-block-desc">' + escHtml(ssubMeta.description) + '</p>';
                     }
                     html += '<div class="subsubcategory-block-grid">';
-                    group.items.forEach(function(kp) { html += renderKpCard(kp); });
+                    html += renderKpCardList(group.items);
                     html += '</div></div>';
                 });
                 html += '</div></div>';
@@ -3070,8 +3182,21 @@
         }
 
         // ===== Helpers =====
-        function renderKpCard(kp) {
-            return '<div class="subcategory-kp-card" onclick="selectKP(\'' + kp.id + '\')" title="' + escAttr(kp.title) + '">' + escHtml(kp.title) + '</div>';
+        function renderKpCard(kp, isChild) {
+            return '<div class="subcategory-kp-card' + (isChild ? ' kp-card-child' : '') + '" onclick="selectKP(\'' + kp.id + '\')" title="' + escAttr(kp.title) + '">' + escHtml(kp.title) + '</div>';
+        }
+
+        // 分类概览里的卡片：父卡片在前，子栏目缩进跟随
+        function renderKpCardList(items) {
+            var grouped = splitKpHierarchy(items);
+            var out = '';
+            grouped.roots.forEach(function(kp) {
+                out += renderKpCard(kp, false);
+                (grouped.children[kp.id] || []).forEach(function(child) {
+                    out += renderKpCard(child, true);
+                });
+            });
+            return out;
         }
 
         // 洛谷评级 → 图标 / 徽章样式（配色与洛谷一致）/ 统计分组
@@ -3249,9 +3374,14 @@
             }
             function nodeOf(id) { return probById[id] || kpById[id]; }
 
-            var pre = [], dep = [], rel = [], seen = {};
+            var pre = [], dep = [], rel = [], par = [], chd = [], seen = {};
             seen[nodeId] = 1;
             if (kp) {
+                // 三级栏目：父栏目 / 子栏目（双箭头表示从属）
+                if (kp.parent && kpById[kp.parent] && !seen[kp.parent]) { seen[kp.parent] = 1; par.push(kp.parent); }
+                KNOWLEDGE_DATA.forEach(function(k) {
+                    if (!seen[k.id] && k.parent === nodeId) { seen[k.id] = 1; chd.push(k.id); }
+                });
                 (kp.prerequisites || []).forEach(function(id) {
                     if (kpById[id] && !seen[id]) { seen[id] = 1; pre.push(id); }
                 });
@@ -3281,7 +3411,7 @@
             var W = 1040, H = 760, cx = W / 2, cy = H / 2;
             var R1 = 220, R2 = 320;
             var pos = {};
-            var totalNodes = pre.length + dep.length + rel.length;
+            var totalNodes = pre.length + dep.length + rel.length + par.length + chd.length;
             // 邻居很多时（例如大类总述），弧形会挤成一团；改用“中心 + 两列邻居”的布局
             var columnLayout = totalNodes > 12;
             if (columnLayout) cx = 300;
@@ -3294,7 +3424,7 @@
                 }
             }
             if (columnLayout) {
-                var list = pre.concat(dep, rel);
+                var list = par.concat(pre, chd, dep, rel);
                 var perCol = Math.ceil(list.length / 2);
                 var colX = [560, 810];
                 for (var li = 0; li < list.length; li++) {
@@ -3305,8 +3435,8 @@
                     pos[list[li]] = { x: colX[col], y: yy };
                 }
             } else {
-                placeArc(pre, R1, 110, 250);
-                placeArc(dep, R1, -70, 70);
+                placeArc(pre.concat(par), R1, 110, 250);
+                placeArc(dep.concat(chd), R1, -70, 70);
                 for (var i = 0; i < rel.length; i++) {
                     var ra = (-90 + i * 360 / rel.length) * Math.PI / 180;
                     pos[rel[i]] = { x: cx + Math.cos(ra) * R2, y: cy + Math.sin(ra) * R2 };
@@ -3316,7 +3446,9 @@
             VIZ_INFO = {};
             var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet">';
             svg += '<defs><marker id="viz-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">' +
-                   '<path d="M0,0 L10,5 L0,10 z" fill="rgba(96,165,250,0.9)"/></marker></defs>';
+                   '<path d="M0,0 L10,5 L0,10 z" fill="rgba(96,165,250,0.9)"/></marker>' +
+                   '<marker id="viz-arrow-parent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">' +
+                   '<path d="M0,0 L10,5 L0,10 z" fill="rgba(168,85,247,0.9)"/></marker></defs>';
 
             function edgePoint(a, b, shrinkA, shrinkB) {
                 var dx = b.x - a.x, dy = b.y - a.y;
@@ -3335,6 +3467,14 @@
             dep.forEach(function(id) {
                 var e = edgePoint({ x: cx, y: cy }, pos[id], 50, 14);
                 svg += '<line class="viz-edge-pre" x1="' + e.x1 + '" y1="' + e.y1 + '" x2="' + e.x2 + '" y2="' + e.y2 + '" marker-end="url(#viz-arrow)"/>';
+            });
+            par.forEach(function(id) {
+                var e = edgePoint(pos[id], { x: cx, y: cy }, 14, 50);
+                svg += '<line class="viz-edge-parent" x1="' + e.x1 + '" y1="' + e.y1 + '" x2="' + e.x2 + '" y2="' + e.y2 + '" marker-start="url(#viz-arrow-parent)" marker-end="url(#viz-arrow-parent)"/>';
+            });
+            chd.forEach(function(id) {
+                var e = edgePoint({ x: cx, y: cy }, pos[id], 50, 14);
+                svg += '<line class="viz-edge-parent" x1="' + e.x1 + '" y1="' + e.y1 + '" x2="' + e.x2 + '" y2="' + e.y2 + '" marker-start="url(#viz-arrow-parent)" marker-end="url(#viz-arrow-parent)"/>';
             });
             rel.forEach(function(id) {
                 var e = edgePoint(pos[id], { x: cx, y: cy }, 14, 38);
@@ -3377,13 +3517,13 @@
                 return out;
             }
 
-            pre.concat(dep, rel).forEach(function(id) {
+            par.concat(pre, chd, dep, rel).forEach(function(id) {
                 var p = pos[id];
                 if (probById[id]) svg += drawNode(probById[id], true, p.x, p.y, 10, false);
                 else svg += drawNode(kpById[id], false, p.x, p.y, 11, false);
             });
             svg += drawNode(centerNode, centerIsProb, cx, cy, centerIsProb ? 20 : 26, true);
-            if (pre.length + dep.length + rel.length === 0) {
+            if (pre.length + dep.length + rel.length + par.length + chd.length === 0) {
                 var emptyMsg = centerIsProb ? '该题目暂未登记知识点' : '该知识点暂未登记前置或关联节点';
                 svg += '<text class="viz-label" x="' + cx + '" y="' + (cy + 78) + '" text-anchor="middle">' + emptyMsg + '</text>';
             }
@@ -3403,6 +3543,7 @@
             });
             legend += '<span><i style="background:rgba(96,165,250,0.9)"></i>前置→高阶</span>';
             legend += '<span><i style="background:rgba(148,163,184,0.6)"></i>关联（无向）</span>';
+            legend += '<span><i style="background:rgba(168,85,247,0.9)"></i>⇄ 从属（父/子栏目）</span>';
             document.getElementById('star-legend').innerHTML = legend;
 
             var body = document.getElementById('star-body');

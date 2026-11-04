@@ -43,7 +43,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-bfs-bidirectional"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-base-conversion",
@@ -83,7 +84,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-bfs",
@@ -141,7 +143,8 @@ const KNOWLEDGE_DATA = [
             "hub-basic",
             "hub-basic-search"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-bfs-bidirectional",
@@ -189,7 +192,8 @@ const KNOWLEDGE_DATA = [
             "basic-combination-dfs",
             "graph-dijkstra-heap",
             "basic-astar"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-big-integer-library",
@@ -230,7 +234,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-high-precision"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-bitset-general",
@@ -278,7 +283,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-bitset"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-bitset",
@@ -322,7 +328,8 @@ const KNOWLEDGE_DATA = [
             "graph-floyd",
             "basic-bitset-general",
             "basic-sqrt-decomposition"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-bubble-select-sort",
@@ -377,7 +384,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-combination-dfs",
@@ -427,7 +435,8 @@ const KNOWLEDGE_DATA = [
             "basic-meet-in-middle-binary-search",
             "math-stars-and-bars",
             "basic-bfs-bidirectional"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-dfs",
@@ -483,7 +492,8 @@ const KNOWLEDGE_DATA = [
             "hub-basic",
             "hub-basic-search"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-digit-power-cycle-self",
@@ -530,7 +540,8 @@ const KNOWLEDGE_DATA = [
             "math-quick-pow-basic",
             "str-hash",
             "exam-bit-operation"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-discretization",
@@ -573,7 +584,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-segtree-discretize",
             "ds-bit-point-range"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-divide-conquer-closest-pair",
@@ -620,7 +632,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-divide-conquer-merge-inversion"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-divide-conquer-merge-inversion",
@@ -669,7 +682,8 @@ const KNOWLEDGE_DATA = [
             "basic-quickselect-kth",
             "basic-radix-sort-k",
             "basic-shell-sort"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-doubling",
@@ -724,7 +738,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-greedy",
@@ -781,7 +796,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-regret-greedy"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-greedy-block-building",
@@ -822,7 +838,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-greedy-snow-shoveling"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-greedy-snow-shoveling",
@@ -863,7 +880,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-greedy-block-building"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-high-precision",
@@ -924,7 +942,8 @@ const KNOWLEDGE_DATA = [
             "math-quick-pow-highprecision",
             "dp-digit-count",
             "basic-big-integer-library"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-high-precision-div",
@@ -964,7 +983,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "basic-high-precision"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-interactive-models",
@@ -1002,7 +1022,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-interval-merge",
@@ -1047,7 +1068,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-interval-scheduling",
             "basic-divide-conquer-merge-inversion"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-interval-scheduling",
@@ -1091,7 +1113,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-interval-merge"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-kittengen",
@@ -1130,7 +1153,8 @@ const KNOWLEDGE_DATA = [
             "hub-utility-debug",
             "basic-stress-random-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-meet-in-middle-binary-search",
@@ -1179,7 +1203,8 @@ const KNOWLEDGE_DATA = [
             "basic-meet-in-middle-two-pointer",
             "basic-permutation-dfs",
             "basic-combination-dfs"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-meet-in-middle-two-pointer",
@@ -1226,7 +1251,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-meet-in-middle-binary-search"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-offline",
@@ -1281,7 +1307,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-other"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-permutation-dfs",
@@ -1329,7 +1356,8 @@ const KNOWLEDGE_DATA = [
             "basic-meet-in-middle-binary-search",
             "basic-bfs-bidirectional",
             "graph-bipartite-dfs-coloring"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-problem-solving-patterns",
@@ -1367,7 +1395,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-quickselect-kth",
@@ -1419,7 +1448,8 @@ const KNOWLEDGE_DATA = [
             "ds-dual-heap",
             "basic-radix-sort-k",
             "basic-random-mt19937"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-radix-sort-k",
@@ -1465,7 +1495,8 @@ const KNOWLEDGE_DATA = [
             "basic-quickselect-kth",
             "basic-divide-conquer-merge-inversion",
             "basic-shell-sort"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-random-mt19937",
@@ -1508,7 +1539,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-quickselect-kth",
             "basic-random-sa-point"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-random-sa-permutation",
@@ -1551,7 +1583,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-random-sa-point"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-random-sa-point",
@@ -1595,7 +1628,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-random-mt19937",
             "basic-random-sa-permutation"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-regret-greedy",
@@ -1640,7 +1674,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-greedy"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-shell-sort",
@@ -1683,7 +1718,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-radix-sort-k",
             "basic-divide-conquer-merge-inversion"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-space-test",
@@ -1723,7 +1759,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-timing"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-sqrt-decomposition",
@@ -1768,7 +1805,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-bitset",
             "math-block-division"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-stress-basic",
@@ -1810,7 +1848,8 @@ const KNOWLEDGE_DATA = [
             "basic-random-mt19937",
             "basic-timing"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-stress-checker",
@@ -1851,7 +1890,8 @@ const KNOWLEDGE_DATA = [
             "hub-utility-debug",
             "basic-stress-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-stress-graph-gen",
@@ -1894,7 +1934,8 @@ const KNOWLEDGE_DATA = [
             "hub-utility-debug",
             "basic-stress-random-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-stress-interactive",
@@ -1935,7 +1976,8 @@ const KNOWLEDGE_DATA = [
             "hub-utility-debug",
             "basic-stress-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-stress-precision",
@@ -1976,7 +2018,8 @@ const KNOWLEDGE_DATA = [
             "hub-utility-debug",
             "basic-stress-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-stress-random-basic",
@@ -2017,7 +2060,8 @@ const KNOWLEDGE_DATA = [
             "hub-utility-debug",
             "basic-random-mt19937"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-stress-tree-gen",
@@ -2060,7 +2104,8 @@ const KNOWLEDGE_DATA = [
             "hub-utility-debug",
             "basic-stress-random-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-template-header",
@@ -2115,7 +2160,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-other"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-ternary-search",
@@ -2156,7 +2202,8 @@ const KNOWLEDGE_DATA = [
             "hub-basic",
             "hub-basic-divide"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-timing",
@@ -2212,7 +2259,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-space-test"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "basic-tricks-dp",
@@ -2250,7 +2298,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-tricks-ds",
@@ -2288,7 +2337,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-tricks-graph",
@@ -2326,7 +2376,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-tricks-math",
@@ -2364,7 +2415,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-tricks-sequence",
@@ -2402,7 +2454,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-two-pointer",
@@ -2457,7 +2510,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "basic-two-pointer-cycle",
@@ -2503,7 +2557,8 @@ const KNOWLEDGE_DATA = [
             "ds-monoqueue-1d",
             "str-minimal-representation",
             "dp-linear-lis-binary"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-01bag-2d",
@@ -2546,7 +2601,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-01bag-standard",
             "dp-01bag-record"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-01bag-record",
@@ -2590,7 +2646,8 @@ const KNOWLEDGE_DATA = [
             "dp-01bag-standard",
             "dp-count-01bag",
             "dp-01bag-2d"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-01bag-standard",
@@ -2666,7 +2723,8 @@ const KNOWLEDGE_DATA = [
             "dp-count-01bag",
             "dp-multi-bag-binary",
             "dp-tree-01bag"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-bitmask-hamilton",
@@ -2728,7 +2786,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "graph-floyd",
             "graph-dijkstra-heap"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-bracket-sequence",
@@ -2766,7 +2825,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-dp"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-complete-bag",
@@ -2835,7 +2895,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-01bag-standard",
             "dp-group-bag"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-count-01bag",
@@ -2878,7 +2939,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-01bag-standard",
             "dp-01bag-record"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-digit-count",
@@ -2923,7 +2985,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-high-precision",
             "dp-interval-stone-merge"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-digit-memo",
@@ -2982,7 +3045,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-digit-count"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-expectation",
@@ -3037,7 +3101,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-dp"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-formula-method",
@@ -3079,7 +3144,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-dp"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-grid-number-pick",
@@ -3119,7 +3185,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-linear-triangle"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-grid-state",
@@ -3174,7 +3241,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-bitmask-hamilton"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-group-bag",
@@ -3229,7 +3297,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-01bag-standard",
             "dp-complete-bag"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-integer-partition",
@@ -3270,7 +3339,8 @@ const KNOWLEDGE_DATA = [
             "dp-complete-bag",
             "hub-dp"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-interval-paint",
@@ -3310,7 +3380,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-interval-stone-merge"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-interval-stone-merge",
@@ -3386,7 +3457,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "dp-digit-count"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-interval-synthesis",
@@ -3426,7 +3498,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-interval-stone-merge"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-knapsack-overview",
@@ -3466,7 +3539,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-dp"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-linear-edit-distance",
@@ -3524,7 +3598,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-linear-lcs-length",
             "dp-linear-lcs-substring"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-linear-lcs-length",
@@ -3600,7 +3675,8 @@ const KNOWLEDGE_DATA = [
             "dp-linear-lcs-substring",
             "dp-linear-edit-distance",
             "dp-linear-lis-binary"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-linear-lcs-output",
@@ -3645,7 +3721,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-linear-lcs-length",
             "dp-linear-lcs-substring"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-linear-lcs-substring",
@@ -3689,7 +3766,8 @@ const KNOWLEDGE_DATA = [
             "dp-linear-lcs-length",
             "dp-linear-lcs-output",
             "dp-linear-edit-distance"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-linear-lis-binary",
@@ -3752,7 +3830,8 @@ const KNOWLEDGE_DATA = [
             "dp-linear-maxsub",
             "basic-two-pointer-cycle",
             "dp-linear-triangle"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-linear-lis-bit-count",
@@ -3802,7 +3881,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-linear-lis-binary",
             "ds-bit-point-range"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-linear-maxsub",
@@ -3845,7 +3925,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-linear-triangle",
             "dp-linear-lis-binary"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-linear-triangle",
@@ -3915,7 +3996,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-linear-maxsub",
             "dp-linear-lis-binary"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-mixed-bag",
@@ -3959,7 +4041,8 @@ const KNOWLEDGE_DATA = [
             "dp-complete-bag",
             "dp-multi-bag-binary"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-multi-bag-binary",
@@ -4017,7 +4100,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-multi-bag-monotone",
             "dp-01bag-standard"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-multi-bag-monotone",
@@ -4061,7 +4145,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-multi-bag-binary",
             "ds-monoqueue-1d"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-opt-monotone-queue",
@@ -4099,7 +4184,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-dp"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-opt-sos",
@@ -4141,7 +4227,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-dp"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-rerooting",
@@ -4196,7 +4283,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-tree-dance"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-subset-dp",
@@ -4236,7 +4324,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-bitmask-hamilton"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-tree-01bag",
@@ -4281,7 +4370,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-tree-dance",
             "dp-01bag-standard"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-tree-bag-optimize",
@@ -4338,7 +4428,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "dp-tree-dance"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-tree-color-edge",
@@ -4378,7 +4469,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-tree-01bag"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "dp-tree-dance",
@@ -4419,7 +4511,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "dp-tree-01bag",
             "dp-tree-bag-optimize"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "dp-tree-min-dominating",
@@ -4474,7 +4567,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-tree-dance"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-avl-tree",
@@ -4514,7 +4608,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "ds-balanced-tree-overview"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-balanced-tree-overview",
@@ -4557,7 +4652,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "ds-avl-tree"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-bit-point-range",
@@ -4640,7 +4736,8 @@ const KNOWLEDGE_DATA = [
             "basic-divide-conquer-merge-inversion",
             "exam-bit-operation",
             "basic-discretization"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-bit-range-point",
@@ -4685,7 +4782,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-bit-point-range",
             "ds-segtree-basic"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-bit-second-diff",
@@ -4728,7 +4826,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "ds-bit-second-prefix"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-bit-second-prefix",
@@ -4771,7 +4870,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "ds-bit-second-diff"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-block-2d",
@@ -4808,7 +4908,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "hub-ds-block"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-block-decomposition",
@@ -4887,7 +4988,8 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-basic",
             "ds-monoqueue-2d",
             "basic-quickselect-kth"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-block-time",
@@ -4924,7 +5026,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "hub-ds-block"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-block-tree",
@@ -4961,7 +5064,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "hub-ds-block"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-block-value-domain",
@@ -5000,7 +5104,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "hub-ds-block"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-bst",
@@ -5043,7 +5148,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "ds-balanced-tree-overview"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-cartesian-tree",
@@ -5086,7 +5192,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "graph-lca-tarjan"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-diff-1d",
@@ -5149,7 +5256,8 @@ const KNOWLEDGE_DATA = [
             "ds-diff-2d",
             "ds-prefix-sum-tree",
             "ds-diff-tree"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-diff-2d",
@@ -5198,7 +5306,8 @@ const KNOWLEDGE_DATA = [
             "ds-prefix-sum-2d",
             "ds-diff-1d",
             "ds-diff-tree"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-diff-tree",
@@ -5249,7 +5358,8 @@ const KNOWLEDGE_DATA = [
             "graph-lca-tarjan",
             "graph-hld-segtree",
             "ds-diff-2d"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-dsu-on-tree",
@@ -5288,7 +5398,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "graph-tree-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-dual-heap",
@@ -5336,7 +5447,8 @@ const KNOWLEDGE_DATA = [
             "basic-quickselect-kth",
             "ds-stack-prefix-max",
             "ds-monostack-histogram"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-fast-block-list",
@@ -5378,7 +5490,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "ds-index-tree-block-list"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-fhq-treap",
@@ -5436,7 +5549,8 @@ const KNOWLEDGE_DATA = [
             "ds-bst",
             "ds-balanced-tree-overview"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-hash-table",
@@ -5478,7 +5592,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-ds"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-heap",
@@ -5518,7 +5633,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-ds"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-hld-segtree",
@@ -5562,7 +5678,8 @@ const KNOWLEDGE_DATA = [
             "graph-hld-segtree",
             "hub-ds-segtree"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-index-tree-block-list",
@@ -5604,7 +5721,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "ds-fast-block-list"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-linked-list",
@@ -5644,7 +5762,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-ds"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-mo-team",
@@ -5719,7 +5838,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-block-decomposition",
             "ds-monoqueue-1d"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-mo-team-modify",
@@ -5761,7 +5881,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "hub-ds-block"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-monoqueue-1d",
@@ -5826,7 +5947,8 @@ const KNOWLEDGE_DATA = [
             "ds-stack-prefix-max",
             "ds-mo-team",
             "ds-monostack-histogram"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-monoqueue-2d",
@@ -5872,7 +5994,8 @@ const KNOWLEDGE_DATA = [
             "ds-monoqueue-1d",
             "ds-block-decomposition",
             "ds-monostack-histogram"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-monostack-histogram",
@@ -5917,7 +6040,8 @@ const KNOWLEDGE_DATA = [
             "ds-monoqueue-1d",
             "ds-monoqueue-2d",
             "ds-dual-heap"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-odt",
@@ -5975,7 +6099,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-ds"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-offline-2d-count",
@@ -6014,7 +6139,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "ds-bit-point-range"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-pbds",
@@ -6069,7 +6195,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-stl"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-persistent-overview",
@@ -6125,7 +6252,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-ds"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-persistent-segtree-3919",
@@ -6170,7 +6298,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-persistent-segtree-template",
             "ds-segtree-basic"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-persistent-segtree-kth",
@@ -6215,7 +6344,8 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-weight",
             "hub-ds-segtree"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-persistent-segtree-template",
@@ -6271,7 +6401,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-persistent-segtree-3919",
             "ds-segtree-basic"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-prefix-sum-1d",
@@ -6333,7 +6464,8 @@ const KNOWLEDGE_DATA = [
             "ds-prefix-sum-2d",
             "ds-bit-point-range",
             "str-hash"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-prefix-sum-2d",
@@ -6382,7 +6514,8 @@ const KNOWLEDGE_DATA = [
             "ds-diff-1d",
             "ds-diff-2d",
             "ds-prefix-sum-tree"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-prefix-sum-tree",
@@ -6431,7 +6564,8 @@ const KNOWLEDGE_DATA = [
             "graph-lca-tarjan",
             "graph-hld-segtree",
             "ds-diff-tree"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-rmq-linear",
@@ -6470,7 +6604,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "ds-st-table-1"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-scapegoat-tree",
@@ -6528,7 +6663,8 @@ const KNOWLEDGE_DATA = [
             "ds-bst",
             "ds-balanced-tree-overview"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-segtree-basic",
@@ -6599,7 +6735,8 @@ const KNOWLEDGE_DATA = [
             "ds-st-table-1",
             "ds-st-table-2",
             "ds-block-decomposition"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-segtree-combined",
@@ -6642,7 +6779,8 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-basic",
             "hub-ds-segtree"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-segtree-discretize",
@@ -6701,7 +6839,8 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-basic",
             "ds-segtree-mul",
             "basic-discretization"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-segtree-dynamic",
@@ -6759,7 +6898,8 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-basic",
             "hub-ds-segtree"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-segtree-mul",
@@ -6821,7 +6961,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-segtree-basic",
             "ds-segtree-discretize"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-segtree-weight",
@@ -6879,7 +7020,8 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-basic",
             "hub-ds-segtree"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-splay",
@@ -6925,7 +7067,8 @@ const KNOWLEDGE_DATA = [
             "graph-lca-hld",
             "ds-dual-heap",
             "basic-quickselect-kth"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-sqrt-tree",
@@ -6962,7 +7105,8 @@ const KNOWLEDGE_DATA = [
             "hub-ds",
             "hub-ds-block"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-st-table-1",
@@ -7021,7 +7165,8 @@ const KNOWLEDGE_DATA = [
             "ds-st-table-2",
             "ds-segtree-basic",
             "ds-stack-prefix-max"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-st-table-2",
@@ -7066,7 +7211,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-st-table-1",
             "ds-segtree-basic"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-stack-prefix-max",
@@ -7111,7 +7257,8 @@ const KNOWLEDGE_DATA = [
             "ds-monoqueue-1d",
             "ds-st-table-1",
             "ds-monostack-histogram"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-stl-associative",
@@ -7166,7 +7313,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-stl"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-stl-list",
@@ -7206,7 +7354,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-stl"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-stl-queue",
@@ -7261,7 +7410,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-stl"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-stl-stack",
@@ -7314,7 +7464,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-stl"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-stl-tips",
@@ -7354,7 +7505,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-stl"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-stl-vector",
@@ -7409,7 +7561,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-stl"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "ds-trie",
@@ -7472,7 +7625,8 @@ const KNOWLEDGE_DATA = [
             "str-kmp",
             "ds-segtree-basic",
             "ds-trie-01-max-xor"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-trie-01-max-xor",
@@ -7519,7 +7673,8 @@ const KNOWLEDGE_DATA = [
             "math-quick-pow-basic",
             "ds-segtree-basic",
             "ds-trie"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-uf-basic",
@@ -7578,7 +7733,8 @@ const KNOWLEDGE_DATA = [
             "ds-uf-extended-domain",
             "ds-uf-weighted-old",
             "graph-lca-tarjan"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-uf-extended-domain",
@@ -7621,7 +7777,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-uf-basic",
             "ds-uf-weighted-food"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-uf-rank",
@@ -7664,7 +7821,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-uf-basic",
             "ds-uf-weighted-old"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-uf-weighted-food",
@@ -7707,7 +7865,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-uf-weighted-old",
             "ds-uf-extended-domain"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "ds-uf-weighted-old",
@@ -7749,7 +7908,8 @@ const KNOWLEDGE_DATA = [
             "ds-uf-weighted-food",
             "ds-uf-basic",
             "ds-uf-rank"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "exam-bit-operation",
@@ -7798,7 +7958,8 @@ const KNOWLEDGE_DATA = [
             "ds-bit-point-range",
             "basic-digit-power-cycle-self",
             "exam-csp-s-2026-round1"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "exam-csp-s-2026-round1",
@@ -7842,7 +8003,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "exam-bit-operation"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "gram-auto",
@@ -7884,7 +8046,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "gram-macro"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "gram-builtin",
@@ -7926,7 +8089,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-gram"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "gram-io-tips",
@@ -7968,7 +8132,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-io"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "gram-local-debug",
@@ -8010,7 +8175,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility-debug"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "gram-macro",
@@ -8054,7 +8220,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "gram-auto"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "gram-sequence",
@@ -8098,7 +8265,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "gram-struct"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "gram-struct",
@@ -8143,7 +8311,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "gram-type-overview",
             "gram-sequence"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "gram-type-overview",
@@ -8187,7 +8356,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "gram-struct"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-basic",
@@ -8242,7 +8412,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-graph"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-bellman-ford",
@@ -8290,7 +8461,8 @@ const KNOWLEDGE_DATA = [
             "graph-spfa",
             "graph-dijkstra-heap",
             "graph-johnson"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-bipartite-dfs-coloring",
@@ -8335,7 +8507,8 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-cut-vertex",
             "basic-permutation-dfs",
             "graph-bipartite-hungarian"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-bipartite-hungarian",
@@ -8381,7 +8554,8 @@ const KNOWLEDGE_DATA = [
             "graph-bipartite-dfs-coloring",
             "graph-kruskal",
             "basic-divide-conquer-merge-inversion"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-boruvka",
@@ -8434,7 +8608,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "graph-kruskal"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-centroid",
@@ -8478,7 +8653,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "graph-hld-segtree",
             "graph-lca-doubling"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-congruence-shortest-path",
@@ -8517,7 +8693,8 @@ const KNOWLEDGE_DATA = [
             "hub-graph",
             "hub-graph-modeling"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-cyclic-tree",
@@ -8557,7 +8734,8 @@ const KNOWLEDGE_DATA = [
             "graph-tree-basic",
             "hub-graph-tree"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-dag-shortest-path",
@@ -8605,7 +8783,8 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-scc",
             "graph-scc-condensation",
             "graph-scc-dag-dp"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-difference-constraints",
@@ -8661,7 +8840,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "graph-modeling"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-dijkstra-heap",
@@ -8731,7 +8911,8 @@ const KNOWLEDGE_DATA = [
             "graph-spfa",
             "graph-topo-sort",
             "basic-bfs-bidirectional"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-e-dcc-condensation",
@@ -8778,7 +8959,8 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-bridge",
             "graph-scc-condensation",
             "graph-tarjan-cut-vertex"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-floyd",
@@ -8848,7 +9030,8 @@ const KNOWLEDGE_DATA = [
             "dp-bitmask-hamilton",
             "graph-dag-shortest-path",
             "basic-bitset"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-hld-segtree",
@@ -8929,7 +9112,8 @@ const KNOWLEDGE_DATA = [
             "ds-diff-tree",
             "ds-prefix-sum-tree",
             "graph-centroid"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-johnson",
@@ -8979,7 +9163,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "graph-floyd",
             "graph-bellman-ford"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-kosaraju",
@@ -9034,7 +9219,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "graph-tarjan-scc"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-kruskal",
@@ -9102,7 +9288,8 @@ const KNOWLEDGE_DATA = [
             "graph-prim",
             "ds-uf-basic",
             "graph-bipartite-hungarian"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-layered",
@@ -9144,7 +9331,8 @@ const KNOWLEDGE_DATA = [
             "hub-graph-modeling",
             "graph-dijkstra-heap"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-lca-doubling",
@@ -9207,7 +9395,8 @@ const KNOWLEDGE_DATA = [
             "graph-lca-tarjan",
             "graph-lca-hld",
             "graph-centroid"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-lca-hld",
@@ -9255,7 +9444,8 @@ const KNOWLEDGE_DATA = [
             "graph-lca-tarjan",
             "graph-hld-segtree",
             "ds-splay"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-lca-tarjan",
@@ -9310,7 +9500,8 @@ const KNOWLEDGE_DATA = [
             "ds-prefix-sum-tree",
             "ds-diff-tree",
             "ds-cartesian-tree"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-modeling",
@@ -9353,7 +9544,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "graph-difference-constraints"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-network-flow",
@@ -9411,7 +9603,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-graph"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-prim",
@@ -9494,7 +9687,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "graph-kruskal",
             "graph-dijkstra-heap"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-scc-condensation",
@@ -9542,7 +9736,8 @@ const KNOWLEDGE_DATA = [
             "graph-e-dcc-condensation",
             "graph-tarjan-bridge",
             "graph-scc-dag-dp"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-scc-dag-dp",
@@ -9593,7 +9788,8 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-scc",
             "graph-dag-shortest-path",
             "graph-topo-sort"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-spfa",
@@ -9675,7 +9871,8 @@ const KNOWLEDGE_DATA = [
             "graph-bellman-ford",
             "graph-dijkstra-heap",
             "graph-dag-shortest-path"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-storage",
@@ -9731,7 +9928,8 @@ const KNOWLEDGE_DATA = [
             "graph-basic",
             "hub-graph"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-tarjan-bridge",
@@ -9778,7 +9976,8 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-scc",
             "graph-scc-condensation",
             "graph-e-dcc-condensation"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-tarjan-cut-vertex",
@@ -9824,7 +10023,8 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-bridge",
             "graph-e-dcc-condensation",
             "graph-bipartite-dfs-coloring"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-tarjan-scc",
@@ -9903,7 +10103,8 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-bridge",
             "graph-bipartite-dfs-coloring",
             "graph-scc-dag-dp"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-topo-sort",
@@ -9967,7 +10168,8 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-scc",
             "graph-scc-condensation",
             "graph-scc-dag-dp"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "graph-tree-basic",
@@ -10024,7 +10226,8 @@ const KNOWLEDGE_DATA = [
             "hub-graph",
             "hub-graph-tree"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "graph-virtual-tree",
@@ -10081,7 +10284,8 @@ const KNOWLEDGE_DATA = [
             "hub-graph",
             "hub-graph-tree"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-basic-divide",
@@ -10119,7 +10323,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-basic-search",
@@ -10157,7 +10362,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-basic",
@@ -10191,7 +10397,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-dp",
@@ -10225,7 +10432,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-ds-block",
@@ -10263,7 +10471,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-ds"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-ds-segtree",
@@ -10301,7 +10510,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-ds"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-ds",
@@ -10335,7 +10545,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-exam",
@@ -10371,7 +10582,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-gram",
@@ -10407,7 +10619,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-graph-modeling",
@@ -10445,7 +10658,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-graph"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-graph-tree",
@@ -10483,7 +10697,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-graph"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-graph",
@@ -10517,7 +10732,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-io",
@@ -10553,7 +10769,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-math-number-theory",
@@ -10589,7 +10806,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-math",
@@ -10623,7 +10841,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-str",
@@ -10659,7 +10878,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-basic"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-utility-debug",
@@ -10697,7 +10917,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-utility-other",
@@ -10735,7 +10956,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-utility-random",
@@ -10773,7 +10995,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-utility-stl",
@@ -10811,7 +11034,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-utility"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "hub-utility",
@@ -10845,7 +11069,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "io-fast-io",
@@ -10885,12 +11110,13 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-io"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-01-fractional",
         "category": "数学",
-        "subcategory": "数论计数",
+        "subcategory": "数学基础",
         "subSubcategory": "",
         "title": "0/1 分数规划",
         "hub": false,
@@ -10950,7 +11176,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-binomial-inversion",
@@ -10989,7 +11216,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-bit-operation",
@@ -11042,7 +11270,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-bit-operation-advanced",
@@ -11078,7 +11307,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-block-division",
@@ -11162,7 +11392,8 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "basic-sqrt-decomposition"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-bsgs",
@@ -11207,7 +11438,8 @@ const KNOWLEDGE_DATA = [
             "math-modular-arithmetic",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-cartesian-plane",
@@ -11247,7 +11479,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-catalan",
@@ -11284,7 +11517,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-combinatorics",
@@ -11355,7 +11589,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-complex",
@@ -11393,13 +11628,14 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-congruence-basics",
         "category": "数学",
         "subcategory": "数论基础",
-        "subSubcategory": "",
+        "subSubcategory": "同余与模运算",
         "title": "同余与模运算（快速幂 / 乘法逆元 / Modint）",
         "hub": false,
         "versions": [
@@ -11432,7 +11668,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-counting-misc",
@@ -11469,7 +11706,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-counting-principles",
@@ -11508,7 +11746,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-crt",
@@ -11575,7 +11814,8 @@ const KNOWLEDGE_DATA = [
             "math-modular-inverse",
             "math-gcd-lcm",
             "math-quick-pow-basic"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-derangement",
@@ -11612,7 +11852,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-euler-phi",
@@ -11679,18 +11920,16 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数学\\数论基础\\欧拉函数\\源.cpp",
         "prerequisites": [
-            "math-sieve-eratosthenes",
+            "math-sieve",
             "hub-math-number-theory"
         ],
         "related": [
             "math-gcd-lcm",
-            "math-sieve-eratosthenes",
+            "math-sieve",
             "math-quick-pow-basic",
-            "math-linear-sieve-phi",
-            "math-linear-sieve-divisor-count",
-            "math-linear-sieve-divisor-sum",
             "math-modular-inverse"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-eulerian-number",
@@ -11729,7 +11968,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-exgcd",
@@ -11774,7 +12014,8 @@ const KNOWLEDGE_DATA = [
             "math-gcd-lcm",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-factorization",
@@ -11798,6 +12039,21 @@ const KNOWLEDGE_DATA = [
                     "Pollard-Rho"
                 ],
                 "source": "Xesir"
+            },
+            {
+                "author": "Fohen",
+                "content": "## 算法原理\r\n\r\nPollard-Rho 用于**大整数的质因数分解**。当 $n$ 大到 $10^{18}$ 级别，试除法需要枚举到 $\\sqrt{n} \\approx 10^9$，直接超时。Pollard-Rho 把「逐个试因子」换成「**随机猜因子**」，借助**生日悖论**大幅降低尝试次数。\r\n\r\n**生日悖论**：一个房间要多少人，才能让「至少两个人同一天生日」的概率超过 50%？直觉是 183 人（365 的一半），但答案是 **23 人**。原因在于比较对象不是「某个人和你是否同天」，而是「任意两个人之间」：$k$ 个人两两配对的组合数是 $\\binom{k}{2} \\approx \\frac{k^2}{2}$，随 $k$ 平方增长，碰撞来得远比直觉早。\r\n\r\n把生日悖论搬到因数分解上：设 $n$ 有一个（未知的）质因子 $p$，必有 $p \\le \\sqrt{n}$。若随机生成 $k$ 个数并对 $p$ 取模，当 $k \\approx \\sqrt{p}$ 时，几乎必然有两个数同余，即 $x_i \\equiv x_j \\pmod{p}$。此时 $p \\mid (x_i - x_j)$，于是 $\\gcd(\\lvert x_i - x_j \\rvert, n)$ 是 $p$ 的倍数，极大概率就是 $n$ 的一个**非平凡因子**（既不是 $1$ 也不是 $n$）。\r\n\r\n关键点在于 $p \\le \\sqrt{n}$，所以 $\\sqrt{p} \\le n^{1/4}$：只需约 $n^{1/4}$ 次随机「碰撞」就能挖出一个因子，比试除法的 $\\sqrt{n}$ 快得多。找到因子后递归分解，直到全部拆成质数。\r\n\r\n具体怎么生成随机数？Pollard-Rho 用一个**伪随机递推** $x_{i+1} \\equiv (x_i^2 + c) \\pmod{n}$。因为状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」整体形似希腊字母 $\\rho$，算法因此得名。对 $p$ 取模后状态只有 $p$ 种，环更短（约 $\\sqrt{p}$），所以在模 $p$ 意义下先碰撞、在模 $n$ 意义下尚未碰撞——正是这种「差」暴露了因子。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**伪随机递推**：\r\n\r\n$$\r\nx_{i+1} \\equiv (x_i^2 + c) \\pmod{n}, \\qquad c \\not\\equiv 0,\\ -2 \\pmod{n}\r\n$$\r\n\r\n**生日悖论（碰撞概率）**：$k$ 个数中至少有一对模 $p$ 同余的概率约为\r\n\r\n$$\r\nP \\approx 1 - e^{-k^2 / (2p)}\r\n$$\r\n\r\n当 $k \\approx \\sqrt{p}$ 时 $P$ 超过 $50\\%$。\r\n\r\n**碰撞给出因子**：若 $x_i \\equiv x_j \\pmod{p}$ 且 $x_i \\not\\equiv x_j \\pmod{n}$，则\r\n\r\n$$\r\nd = \\gcd(\\lvert x_i - x_j \\rvert, n), \\qquad 1 < d < n\r\n$$\r\n\r\n**复杂度依据**：$p \\le \\sqrt{n} \\implies \\sqrt{p} \\le n^{1/4}$，因此期望尝试次数为 $O(n^{1/4})$。\r\n\r\n## 逐行代码解析\r\n\r\nPollard-Rho 的完整实现还需配合 Miller-Rabin 素性测试与防溢出模乘，下面用伪代码分模块讲解核心流程。\r\n\r\n### 模块一：伪随机递推与 ρ 形结构\r\n\r\n```cpp\r\n// 伪随机递推：x_{i+1} ≡ (x_i^2 + c) (mod n)\r\nlong long f(long long x, long long c, long long n) {\r\n    return ((__int128)x * x + c) % n;   // __int128 防止 x*x 溢出\r\n}\r\n```\r\n\r\n- 递推是「伪随机」的：给定 $n$ 与 $c$ 后序列完全确定，但取值在 $[0, n)$ 上乱跳。\r\n- 状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」构成 $\\rho$ 形，是算法名字的由来。\r\n- 平方项让相邻值快速散开；改变 $c$ 可换一条新序列，供失败时重试。\r\n\r\n### 模块二：Floyd 判环（龟兔赛跑）\r\n\r\n```cpp\r\n// 快慢指针在「模 p 的环」上必然相遇，差值暴露因子\r\nx = f(x, c, n);              // 慢指针（乌龟）走一步\r\ny = f(f(y, c, n), c, n);     // 快指针（兔子）走两步\r\nd = gcd(abs(x - y), n);      // 相遇时 |x - y| 是 p 的倍数\r\n```\r\n\r\n- 无需存下整条序列：只维护两个指针 $x$（慢）与 $y$（快）。\r\n- 当序列在模 $p$ 上成环时，快慢指针必然在同一环内追上，即 $x \\equiv y \\pmod{p}$。\r\n- 此时 $p \\mid (x - y)$，$\\gcd(\\lvert x - y \\rvert, n)$ 就是候选因子 $d$。\r\n\r\n### 模块三：单次 Pollard-Rho 找非平凡因子\r\n\r\n```cpp\r\nlong long pollard_rho(long long n) {\r\n    if (n % 2 == 0) return 2;             // 偶数特判，直接拆出 2\r\n    long long c = rand() % (n - 1) + 1;   // 随机常数 c（避开 0 与 -2）\r\n    long long x = rand() % n, y = x, d = 1;\r\n    while (d == 1) {                      // 未碰撞则继续推进\r\n        x = f(x, c, n);\r\n        y = f(f(y, c, n), c, n);\r\n        d = gcd(abs(x - y), n);\r\n    }\r\n    return d == n ? pollard_rho(n) : d;   // d==n 撞在模 n 上，换 c 重试\r\n}\r\n```\r\n\r\n- $d = 1$ 说明还没碰撞，继续推进序列。\r\n- $d = n$ 说明 $x \\equiv y \\pmod{n}$，这次运气不好，换随机 $c$ 重新跑。\r\n- $1 < d < n$ 时，$d$ 就是一个非平凡因子。\r\n\r\n### 模块四：Miller-Rabin 判质数 + 递归分解\r\n\r\n```cpp\r\nvoid factorize(long long n, vector<long long>& fac) {\r\n    if (n == 1) return;\r\n    if (is_prime(n)) { fac.push_back(n); return; }   // Miller-Rabin 判定质数\r\n    long long d = pollard_rho(n);                    // 拆出非平凡因子\r\n    factorize(d, fac);                               // 递归分解 d\r\n    factorize(n / d, fac);                           // 递归分解另一半\r\n}\r\n```\r\n\r\n- `is_prime` 用 Miller-Rabin 随机化素性测试，误判概率可忽略（详见「对比与扩展」）。\r\n- 找到因子 $d$ 后对 $d$ 与 $n/d$ 分别递归，直到全部拆成质数。\r\n- 分工：Pollard-Rho 负责「拆」，Miller-Rabin 负责「判定是否还要拆」。\r\n\r\n## 复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 时间 | $O(n^{1/4})$（期望） | 每个因子期望 $O(n^{1/4})$ 次迭代找到；每次迭代一次模乘与一次 gcd |\r\n| 空间 | $O(1)$ | Floyd 判环只需两个指针，不存整条序列 |\r\n\r\n**与试除法对比**：试除法 $O(\\sqrt{n})$，Pollard-Rho $O(n^{1/4})$。当 $n = 10^{18}$ 时，$\\sqrt{n} \\approx 10^9$ 已经扛不住，而 $n^{1/4} \\approx 3 \\times 10^4$ 瞬间完成。\r\n\r\n## 适用场景\r\n\r\n- 大整数质因数分解：$n$ 到 $10^{18}$ 甚至更大（配合 Miller-Rabin），试除法顶不住时。\r\n- 只需单个非平凡因子（不要求全部质因子）时，可只调用一次 `pollard_rho`。\r\n- 数论题里对 $n$ 做唯一分解、求 $\\varphi(n)$、求约数个数/约数和等，当 $\\sqrt{n}$ 过不了时。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **模乘溢出**：$x \\cdot x$ 在 $n$ 接近 $2^{63}$ 时会溢出，必须用 `__int128` 或龟速乘做模乘。\r\n2. **$d = n$ 的失败**：撞在模 $n$ 上得到的 $\\gcd = n$ 不是有效因子，必须换 $c$ 重试（递归重跑）。\r\n3. **$c$ 的取值**：$c = 0$ 或 $c = -2$ 时序列会退化（很快循环），应避开。\r\n4. **初值固定**：随机化初始 $x$ 与 $c$，否则对某些 $n$ 可能反复失败。\r\n5. **必须配合素性测试**：Pollard-Rho 只能拆合数，需 Miller-Rabin 先判质数，否则会无限递归。\r\n6. **偶数特判**：偶数 $n$ 直接返回 $2$，否则平方递推在偶数上表现差。\r\n\r\n## 对比与扩展\r\n\r\n| 方法 | 复杂度 | 适用 |\r\n|------|--------|------|\r\n| 试除法 | $O(\\sqrt{n})$ | $n \\le 10^{12}$ 左右 |\r\n| Pollard-Rho | $O(n^{1/4})$（期望） | $n$ 到 $10^{18}$ 甚至更大 |\r\n| 埃氏筛 / 线性筛 | $O(n\\log\\log n)$ / $O(n)$ | 批量筛出 $[1,n]$ 的质因子，$n \\le 10^7$ |\r\n\r\n扩展：\r\n\r\n- **Miller-Rabin**：随机化素性测试，与 Pollard-Rho 组成完整的「大整数分解」工具链。\r\n- **Brent 判环**：Floyd 判环的改进版，减少 gcd 调用次数，常数更小。\r\n- **平方根攻击思想**：Pollard-Rho 是「用碰撞把 $O(n)$ 降到 $O(\\sqrt{n})$」的典型例子，同源的还有 BSGS（大步小步）、Meet-in-the-Middle 等，核心都是生日悖论。",
+                "codePath": "",
+                "timeComplexity": "O(n^{1/4})",
+                "spaceComplexity": "O(1)",
+                "tags": [
+                    "数学",
+                    "数论",
+                    "质因数分解",
+                    "随机化算法",
+                    "生日悖论"
+                ],
+                "source": "Fohen (QQ 3370864672)"
             }
         ],
         "content": "## 算法原理\n\n根据**算术基本定理**，任何一个大于 1 的整数都能唯一地分解成若干个素数的乘积。比如 $12 = 2^2 \\times 3$，$114514 = 2 \\times 31 \\times 1847$。\n\n问题来了：**给一个数，怎么快速把它拆开？**\n\n### 朴素算法：试除法\n\n最直接的想法：从 2 开始，一个一个试除。如果 $i$ 能整除 $n$，那 $i$ 就是一个质因子，然后把 $n$ 里的 $i$ 全部除掉，继续试。\n\n**为什么只试到 $\\sqrt n$？** 因为因数成对出现，如果 $n$ 有大于 $\\sqrt n$ 的因子，那它一定对应一个小于 $\\sqrt n$ 的因子。\n\n试除法的复杂度是 $O(\\sqrt n)$。$n$ 在 $10^{12}$ 以内还能跑，但到了 $10^{18}$ 就扛不住了。这时候就需要更骚的操作。\n\n## 核心公式 / 状态定义与转移方程\n\n**算术基本定理**：\n\n$$\nn = p_1^{a_1} p_2^{a_2} \\cdots p_k^{a_k}, \\qquad p_1 < p_2 < \\cdots < p_k\n$$\n\n**试除法的循环不变量**：每轮开始前，当前剩下的 $n$ 已经不含任何小于 $i$ 的质因子。所以\n\n$$\n\\text{若 } i \\mid n,\\ \\text{则 } i \\text{ 必为质数}\n$$\n\n这个结论很关键：我们根本不需要判断 $i$ 是不是质数，因为比 $i$ 小的因子早就被除干净了，能整除当前 $n$ 的 $i$ 一定是质数。\n\n**循环边界**：只要 $i^2 \\le n$ 就继续。循环结束时若还有 $n > 1$，剩下的这个 $n$ 一定是个质数（否则它会有不超过 $\\sqrt n$ 的因子，早被除掉了）。\n\n## 逐行代码解析\n\n### 模块一：主循环找质因子\n\n```cpp\nvector<int> breakdown(int n) {\n    vector<int> res;\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            while (n % i == 0) n /= i;\n            res.push_back(i);\n        }\n    }\n```\n\n- `res` 存分解出来的质因子。\n- `i * i <= n` 里的 `n` 是**当前**的 `n`，不是原始的 `n`。每除掉一个因子，上界都会跟着变小，循环会提前结束。\n- `if (n % i == 0)`：找到一个质因子（依据上面那条不变量，能整除的一定是质数）。\n- `while (n % i == 0) n /= i;`：把 $i$ 的幂次全部除干净。这一步既是\"去重\"，也保证了后面不会再把同一个质因子算第二次。\n\n### 模块二：收尾\n\n```cpp\n    if (n > 1) res.push_back(n);\n    return res;\n}\n```\n\n- 循环结束后如果 `n > 1`，说明剩下的是一个大于 $\\sqrt{\\text{原}n}$ 的质因子，要单独补进去。\n- 这一步不能省：比如 $n = 14$，循环在 $i = 2$ 时把 2 除走，剩下的 7 不会再被任何 $i$ 扫到。\n- 返回的是**不同的**质因子（每个只出现一次），因为 `while` 把重复的幂次都除掉了。如果需要带指数的分解式，得另外记次数。\n\n## 复杂度分析\n\n| 方法 | 时间复杂度 | 空间复杂度 |\n|---|---|---|\n| 试除法 | $O(\\sqrt n)$ | $O(1)$（不计返回的 vector） |\n| 先线性筛再分解（$n$ 不大时） | $O(\\sqrt n)$ 预处理 + $O(\\log n)$ 单次 | $O(\\sqrt n)$ |\n| Pollard-Rho | 期望 $O(n^{1/4})$ 找到一个非平凡因子 | 视实现而定 |\n\n试除法最坏情况是 $n$ 为质数，要试到 $\\sqrt n$；平均情况因为会不断除掉小因子，实际循环次数远小于 $\\sqrt n$。\n\n## 适用场景\n\n- **单个数分解**：$n \\le 10^{12}$ 时直接试除，够用且好写。\n- **欧拉函数、约数个数、约数和**：都建立在质因数分解之上。\n- **判断一个数是不是完全平方 / 完全立方**：分解后看指数即可。\n- **多组数据**：先线性筛出 $\\sqrt{\\max n}$ 以内的质数，再用质数表去试除，能省掉大量无用枚举。\n\n## 常见陷阱与注意事项\n\n1. **收尾的 `if (n > 1)` 漏写**：这是最常见的错误，$n = 2p$（$p$ 是大质数）这类数据会直接少一个因子。\n2. **`i * i <= n` 的溢出**：`i`、`n` 是 `int` 且 $n$ 接近 $2^{31}$ 时 `i * i` 会溢出成负数，循环提前结束。用 `long long` 或写 `i <= n / i`。\n3. **返回的是去重后的质因子**：如果你的题目要的是\"$12 = 2^2 \\times 3$\"这种带指数的形式，这个函数给不了，得自己在 `while` 里数次数。\n4. **忘了 `n` 会被改**：函数参数是按值传递的，所以外面传进来的数不会被改；但如果自己写的时候用了引用，调用完之后原来的 `n` 就变成 1 了。\n5. **$n = 1$ 或 $n = 0$**：$1$ 没有质因子，函数返回空 vector；$0$ 和负数不在算术基本定理的范围内，要特判。\n\n## 对比与扩展：Pollard-Rho\n\n当 $n$ 大到 $10^{18}$ 级别，试除法直接暴毙。Pollard-Rho 算法应运而生。\n\n它的核心思想非常粗暴，就是**随机猜因子**。\n\n> 不考虑年份，一个房间要多少人，才能让**至少两个人同一天生日**的概率超过 50%？\n> 直觉告诉你可能是 183 人（365 的一半）。但答案是——**23 人**。\n> 为什么会这样？因为比较的对象不是\"某个人和你同一天\"，而是\"任意两个人之间\"。人数一多，两两配对的组合数暴涨，撞车的概率就上去了。\n\n把这个思路搬到因数分解上：与其一个一个试因子，不如随机生成一堆数，看它们之间有没有\"碰撞\"——即两个数的差的绝对值正好是 $n$ 的因子。\n\nPollard-Rho 利用这个思想，可以在期望 $O(n^{1/4})$ 的时间内找到一个非平凡因子（既不是 1 也不是 $n$ 本身的因子）。找到之后递归分解，直到全部拆成质数。\n\n> ~~别问我具体怎么操作，我也不会，等我学完再说 soon~~\n\n一句话总结：试除法是\"暴力枚举因子\"，Pollard-Rho 是\"随机撞因子\"。前者 $O(\\sqrt n)$，后者期望 $O(n^{1/4})$；$n = 10^{18}$ 时前者要试 $10^9$ 次，后者只到 $10^4$ 量级，差了四个数量级。",
@@ -11812,10 +12068,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数学\\数论基础\\质因数分解\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "math-sieve-eratosthenes",
-            "hub-math-number-theory"
+            "math-sieve",
+            "hub-math-number-theory",
+            "math-miller-rabin"
         ],
-        "related": []
+        "related": [
+            "math-miller-rabin"
+        ],
+        "parent": ""
     },
     {
         "id": "math-gauss-elimination",
@@ -11867,7 +12127,8 @@ const KNOWLEDGE_DATA = [
             "math-matrix-multiplication",
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-gcd-lcm",
@@ -11892,6 +12153,20 @@ const KNOWLEDGE_DATA = [
                     "递归"
                 ],
                 "source": ""
+            },
+            {
+                "author": "stripe-python",
+                "content": "> 本文由 stripe-python 授权合并，正文保留原文结构与表述；原文为《OI 中的数学基础》（[博客版](https://stripepython.github.io/2025/10/05/OI%20%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/)），本页按主题拆分。\n\n## 3. 最大公约数\n\n定义**最大公约数** $\\gcd(a,b)$ 为：满足 $k \\mid a$ 且 $k \\mid b$ 的最大的 $k$。定义 $\\gcd(a,0)=0$。\n\n定义最小公倍数 $\\operatorname{lcm}(a,b)$ 为：满足 $a \\mid k$ 且 $b \\mid k$ 的最小的 $k$。\n\n## 3.1 求解 GCD\n\n### 3.1.1 分解质因数法\n\n将两数分解质因数：$a=p_1^{a_1}p_2^{a_2} \\cdots, b=a=p_1^{b_1}p_2^{b_2} \\cdots$，则 $\\gcd(a,b)=p_1^{\\min(a_1,b_1)}p_2^{\\min(a_2,b_2)} \\cdots$，复杂度为 $O(\\sqrt{n})$。\n\n这证明：求 gcd 和求最小值有共通之处。\n\n### 3.1.2 辗转相除法\n\nGCD 有如下性质：\n\n$\\gcd(a,b)=\\gcd(b,a \\bmod b)$利用此可递归计算 gcd，出口为 $\\gcd(a,0)=a$。复杂度 $O(\\log (a+b))$。\n\n```cpp\nint gcd(int a, int b) {return b == 0 ? a : gcd(b, a % b);}\n```\n\nC++ STL 中有函数 `std::__gcd`，为迭代的辗转相除法实现，复杂度为 $O(\\log n)$，可以直接使用。\n\n### 3.1.3 更相减损法\n\nGCD 有如下性质：\n\n$\\gcd(a,b)=\\gcd(a-b,b)$如果直接递归计算，复杂度为 $O(n)$。Stein 算法对此进行了优化：\n\n若 $2\\mid a$ 且 $2\\mid b$，则 $\\gcd(a,b)=2\\gcd(\\dfrac{a}{2},\\dfrac{b}{2})$。而若只有 $2 \\mid  a$，则 $\\gcd(a,b)=\\gcd(\\dfrac{a}{2},b)$。这启示我们可以在过程中除掉约数 $2$，然后再更相减损，复杂度就降到了 $O(\\log n)$。Stein 算法常用于大整数的 GCD。\n\nStein 算法可以借助二进制内置函数优化，称作 Binary GCD，理论复杂度 $O(\\log (a+b))$，但在实际表现中可以看作大常数 $O(1)$。这份代码的速度比 `std::__gcd` 更快，可以卡过 [P5435](https://www.luogu.com.cn/problem/P5435)。\n\n```cpp\ntemplate <class T> constexpr T gcd(T a, T b) {\n\tint az = ctz(a), bz = ctz(b), z = min(az, bz);\n\tfor (b >>= bz; a; ) {\n\t\ta >>= az; int d = a - b;\n\t\taz = ctz(a - b), b = min(a, b), a = abs(d);\n\t} return b << z;\n}\n```\n\n## 3.2 exGCD\n\nexGCD 用于求解形如 $ax+by=\\gcd(a,b)$ 一类的不定方程。\n\n### 3.2.1 裴蜀定理\n\n对于任意非零整数 $a,b$，$ax+by=c$ 有整数解当且仅当 $c \\mid  \\gcd(a,b)$。\n\n#### 推论\n\n若 $a_1,a_2,a_3,\\cdots,a_n$ 是不全为 $0$ 的整数，则存在整数 $x_1,x_2,x_3,\\cdots,x_n$ 使得\n\n$a_1x_1+a_2x_2+a_3x_3+\\cdots+a_nx_n=\\gcd(a_1,a_2,a_3,\\cdots,a_n)$其逆定理也成立。\n\n### 3.2.2 不定方程\n\n由 $\\gcd(a,b)=\\gcd(b,a\\bmod b)$ 得：\n\n$$\n\\begin{aligned}\nax+by&=bx'+(a\\bmod b)y'\\\\\n&=bx'+(a-b\\lfloor \\dfrac{a}{b} \\rfloor)y'\\\\\n&=ay'+b(x'-y'\\lfloor \\dfrac{a}{b} \\rfloor)\n\\end{aligned}\n$$\n\n递归式：$x=y',y=x'-y'\\lfloor \\dfrac{a}{b} \\rfloor$，这样就可以 $O(\\log (a+b))$ 求解。\n\n```cpp\nvoid exgcd(int a, int b, int& x, int& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n```\n\n可以证明，通过这种方法得到的 $x,y$ 在值域范围内。所以不用担心溢出的问题。\n\n### 3.2.3 乘法逆元\n\n逆元就是模意义下的倒数：求 $x \\equiv \\dfrac{1}{a} \\pmod m$ 的解。\n\n移项得：$ax \\equiv 1 \\pmod m$，即为求解不定方程 $ax-bm=1$，用 exGCD 求解即可。\n\n这里可以发现，$x$ 在模 $m$ 意义下有逆元当且仅当 $x,m$ 互质。利用乘法逆元，可以实现模意义下的除法。\n\n### 3.2.4 线性方程组\n\n这里的线性方程组是指求一个最小的 $x$ 满足\n\n$$\n\\left\\{\\begin{matrix}\nx \\equiv a_1 \\pmod {m_1} \\\\\nx \\equiv a_2 \\pmod {m_2} \\\\\n\\cdots \\\\\nx \\equiv a_n \\pmod {m_n}\n\\end{matrix}\\right.\n$$\n\n两两考虑。比如我们把前两个方程变成不定方程：$x=m_1p+a_1=m_2q+a_2$。则 $m_1p-m_2q=a_2-a_1$，利用 exGCD 解出一组可行解 $(p,q)$，然后这两个方程组的共同解为 $x \\equiv (m_1p+a_1) \\pmod {\\operatorname{lcm}(m_1,m_2)}$。然后把 $n$ 个方程都这么合并起来即可。这种方法叫 exCRT。\n\n至于为什么不说 CRT，因为我觉得 exCRT 比 CRT 更容易理解，适用范围更广，代码还好写。\n\n## 3.3 常用性质\n\n这里我们不加证明地给出一些 $\\gcd$ 的性质。\n\n1. $\\gcd(a, b) \\times \\operatorname{lcm}(a,b)=ab$。\n2. $\\gcd(a,b) \\le |a- b|$。\n3. $\\gcd(b,a \\bmod b)=\\gcd(a,b)$。\n4. $\\gcd(a,b)=\\gcd(a-b,b)$。\n5. $\\gcd(a,b)=\\sum_{x \\mid a, x\\mid b} \\varphi(x)$。$\\varphi(x)$ 为下文第 4 章要讲的欧拉函数。\n6. $\\gcd(a,b)=c$，则 $\\gcd(\\dfrac{a}{c},\\dfrac{b}{c})=1$。证明见第一道例题。\n\n## 3.4 例题\n\n前面是 GCD 性质和裴蜀定理应用题，后面是 exGCD & exCRT 例题。\n\n### P1072 [NOIP 2009 提高组] Hankson 的趣味题\n\n注意到性质 6：若 $\\gcd(a,b)=c$，且 $a=k_1c,b=k_2c$，则 $\\gcd(k_1,k_2)=1$。\n\n证明：考虑反证法，设 $K=\\gcd(k_1,k_2) \\ne 1$，则存在不为 $1$ 的正整数 $p,q$ 使得 $k_1=pK,k_2=qK$，因而 $a=pKc,b=qKc$，$\\gcd(a,b)=Kc \\ne c$，故原结论成立。\n\n由题可得：$x=a_1 p$，$b_1=xq$，其中 $p,q$ 为正整数。\n\n由上述结论得：$\\gcd(\\dfrac{a_0}{a_1},\\dfrac{x}{a_1})=1$。又有 $\\operatorname{lcm}(x,b_0)=b_1$，故 $\\gcd(\\dfrac{b_1}{x},\\dfrac{b_1}{b_0})=1$。且 $x\\mid b_1$，枚举 $x$ 并判断即可，复杂度 $O(\\sqrt{b_1} \\log V)$。\n\n```cpp\nint a0, a1, b0, b1;\nvoid _main() {\n\tcin >> a0 >> a1 >> b0 >> b1;\n\tint cnt = 0;\n\tfor (int x = 1; x * x <= b1; x++) {\n\t\tif (b1 % x) continue;\n\t\tif (x % a1 == 0 && __gcd(x / a1, a0 / a1) == 1 && __gcd(b1 / x, b1 / b0) == 1) cnt++;\n\t\tint y = b1 / x;\n\t\tif (x == y) continue;\n\t\tif (y % a1 == 0 && __gcd(y / a1, a0 / a1) == 1 && __gcd(b1 / y, b1 / b0) == 1) cnt++;\n\t}\n\tcout << cnt << '\\n';\n}\n```\n\n### UVA10622 完全P次方数 Perfect P-th Powers\n\n将 $x$ 分解质因数为 ${p_1}^{c_1} {p_2}^{c_2} {p_3}^{c_3} \\cdots$。注意到 $(a^xb^y)^z=a^{xz} b^{xz}$。所以 $p=\\gcd(c_1,c_2,c_3,\\cdots)$。\n\n需要注意 $x$ 不一定是正数。此时 $p$ 不能是偶数，不然 $a^p$ 就是正数了。\n\n```cpp\n#define int long long\nint x;\nvoid _main() {\n\twhile (cin >> x, x) {\n\t\tvector<int> c;\n\t\tbool neg = x < 0;\n\t\tx = abs(x);\n\t\tfor (int i = 2; i * i <= x; i++) {\n\t\t\tif (x % i) continue;\n\t\t\tc.emplace_back(0);\n\t\t\twhile (x % i == 0) x /= i, c.back()++;\n\t\t}\n\t\tif (x != 1) c.emplace_back(1);\n\t\tint g = 0;\n\t\tfor (int i : c) g = __gcd(g, i);\n\t\tif (neg) g >>= __builtin_ctzll(g);\n\t\tcout << g << '\\n';\n\t}\n}\n```\n\n### CF1499D The Number of Pairs\n\n设 $a=n\\times \\gcd(a,b),b=m \\times \\gcd(a,b)$，大力推式子：\n\n$$\n\\begin{aligned}\nc \\times \\operatorname{lcm(a,b)}-d\\times \\gcd(a,b)&=x\\\\\nc \\times \\dfrac{ab}{\\gcd(a,b)}-d\\times \\gcd(a,b)&=x\\\\\nc nm \\times \\gcd(a,b)-d\\times \\gcd(a,b)&=x\\\\\n\\gcd(a,b)&=\\dfrac{x}{cnm-d}\n\\end{aligned}\n$$\n\n说明 $(cnm-d) \\mid x$。$O(\\sqrt{x})$ 地枚举 $x$ 的因子 $i$。移项有 $cnm=d+i$，即 $c \\mid (d+i)$。再将 $\\dfrac{d+i}{c}$ 分解质因数，对于每种质因子只有全给 $n$ 和全给 $m$ 两种选择，否则会使得 $(cnm-d) \\nmid x$。用线性筛先得到每个数的质因子个数，则贡献为 $2^{cnt}$。复杂度 $O(n+T\\sqrt{n})$。\n\n```cpp\nconst int N = 2e7 + 5;\nbitset<N> isprime;\nint cnt[N], prime[N];\nvoid init() {\n\tisprime.set(), isprime[0] = isprime[1] = false;\n\tfor (int i = 2; i < N; i++) {\n\t\tif (isprime[i]) prime[++prime[0]] = i, cnt[i] = 1;\n\t\tfor (int j = 1; j <= prime[0] && 1LL * i * prime[j] < N; j++) {\n\t\t\tisprime[i * prime[j]] = false;\n\t\t\tif (i % prime[j] == 0) {\n\t\t\t\tcnt[i * prime[j]] = cnt[i];\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tcnt[i * prime[j]] = cnt[i] + 1;\n\t\t}\n\t}\n}\n\nlong long c, d, x;\nlong long f(int x) {\n\tif ((x + d) % c) return 0;\n\treturn 1LL << cnt[(x + d) / c];\n}\nvoid _main() {\n\tcin >> c >> d >> x;\n\tlong long res = 0;\n\tfor (long long i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tres += f(i);\n\t\tif (i * i != x) res += f(x / i);\n\t} cout << res << '\\n';\n}\n```\n\n### CF2148G Farmer John’s Last Wish\n\n不难发现满足 $\\gcd_{i=1}^{k} a_i \\ne \\gcd_{i=1}^{k+1} a_i$ 的最大的 $k$ 等价于满足 $\\gcd_{i=1}^{n} a_i \\ne \\gcd_{i=1}^{k+1} a_i$ 的最大的 $k$。\n\n考虑对前缀 $p$ 的解法，记 $\\gcd_{i=1}^{len} p_i = g$，则找到最长的都是 $g$ 的倍数的一段放在前面，这段长度就是答案。动态维护 $f_i$ 表示当前前缀中 $i$ 的倍数数目，答案即为 $\\max f_{i \\times g}$。\n\n由于每次操作使得 $g$ 变为原本的因子，故 $g$ 的倍数集合只增不删，枚举 $g$ 的倍数 $j \\times g$，将 $j \\times g$ 加入集合并更新答案。然后遍历 $a_i$ 的因子 $j$，更新 $f_j$，当 $j$ 是 $g$ 的倍数时更新答案。\n\n注意到复杂度为 $O(n^2)$。可以发现 $g$ 降到 $1$ 最多 $O(\\log V)$ 次，可以对 $g$ 的变化记忆化一下。复杂度为 $O(n \\log V+n\\log n)$。\n\n```cpp\nconst int N = 2e5 + 5;\nint n, a[N], f[N], vis[N], tag[N];\nvector<int> fac[N];\n\nvoid prework() {\n\tfor (int i = 1; i < N; i++) {\n\t\tfor (int j = i; j < N; j += i) fac[j].emplace_back(i);\n\t}\n}\nvoid _main() {\n\tmemset(f, 0, sizeof(int) * (n + 1)), memset(vis, 0, sizeof(int) * (n + 1)), memset(tag, 0, sizeof(int) * (n + 1));\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tint g = a[1], cur = 0;\n\tfor (int i = 1; i <= n; i++, g = __gcd(g, a[i])) {\n\t\tif (!tag[g]) {\n\t\t\tfor (int j = 2; j * g <= n; j++) vis[j * g] = true, cur = max(cur, f[j * g]);\n\t\t\ttag[g] = true;\n\t\t}\n\t\tfor (int j : fac[a[i]]) {\n\t\t\tf[j]++;\n\t\t\tif (vis[j]) cur = max(cur, f[j]);\n\t\t} cout << cur << ' ';\n\t} cout << '\\n';\n}\n```\n\n### P8255 [NOI Online 2022 入门组] 数学游戏\n\n考虑对 $z,x,y$ 质因数分解得：\n\n$\\prod {p_i}^{z_i}=\\prod {p_i}^{x_i+y_i+\\min(x_i,y_i)}$即 $z_i=x_i+y_i+\\min(x_i,y_i)$。分类讨论：\n\n1. 若 $y_i \\ge x_i$，则 $z_i=x_i+2y_i$，解得 $y_i=\\dfrac{z_i-x_i}{2}$。\n2. 若 $y_i < x_i$，则 $z_i=2x_i+y_i$，解得 $y_i=z_i-2x_i$。\n\n因此，$y_i=\\min(\\dfrac{z_i-x_i}{2},z_i-2x_i)$。\n\n想想指数出现 $\\min$、除法、减号、乘法的意义：就是取 $\\gcd$，开方，除法，乘方。通过配凑系数得到：\n\n$y=\\dfrac{x}{z\\sqrt{\\gcd(x^2,\\frac{x}{z})}}$不能整除，不能开方均判为无解。\n\n```cpp\nconst double eps = 1e-8;\nint x, z;\n\nvoid _main() {\n\tcin >> x >> z;\n\tif (z % x) return cout << -1 << '\\n', void();\n\tint128 t = z / x, u = __gcd((int128) x * x, t), us = sqrt(1.0L * u) + 0.5;\n\tif (u != us * us) return cout << -1 << '\\n', void();\n\tcout << (long long) (t / us) << '\\n';\n}\n```\n\n### P4549 【模板】裴蜀定理\n\n由 $\\gcd(a,b,c)=\\gcd(a,\\gcd(b, c))$ 得\n\n$\\sum_{i=1}^{n} a_i x_i = \\gcd_{i=1}^{n} |a_i|$而题目中记 $\\sum x_i$ 为 $S$，根据裴蜀定理可知 $\\gcd_{i=1}^{n} |a_i|$ 是 $S$ 的约数，$S$ 最小时二者相等。也就是求所有数的 $\\gcd$。\n\n### CF510D Fox And Jumping\n\n根据裴蜀定理的推论，能跳到所有位置当且仅当我们选出的长度的 $\\gcd=1$。于是设 $dp_i$ 表示选择一些长度使得其最大公约数为 $i$ 的最小代价，采用刷表，枚举 $i,j \\in [1,n]$ 易得\n\n$dp_{\\gcd(l_i, j)} \\gets \\min(dp_{\\gcd(l_i, j)}, c_{i}+v)$对于单个转移，有\n\n$dp_{l_i} \\gets \\min(dp_{l_i},c_i)$由于下标能到 $10^9$，暴力 dp 是不行的。但是有用的 $dp$ 值不多，于是我们用 `std::map` 维护转移，复杂度比较玄学。\n\n```cpp\nconst int N = 305;\nint n, l[N], c[N];\nmap<int, int> dp;\nvoid upd(int x, int v) {\n\tif (!dp.count(x)) dp[x] = v;\n\telse dp[x] = min(dp[x], v);\n}\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> l[i];\n\tfor (int i = 1; i <= n; i++) cin >> c[i];\n\tfor (int i = 1; i <= n; i++) {\n\t\tfor (const auto& h : dp) {\n\t\t\tint j = h.first, v = h.second;\n\t\t\tupd(__gcd(l[i], j), c[i] + v);\n\t\t} upd(l[i], c[i]);\n\t}\n\tcout << (dp.count(1) ? dp[1] : -1);\n}\n```\n\n### *P2520 [HAOI2011] 向量\n\n不了解向量运算法则请翻到下文 22.1 线性代数部分。\n\n对于 $(-a,-b)$ 这样的向量，可以视为减去 $(a,b)$，其余同理，这样八种就变成了四种。问题转化为求 $c,d,e,f \\in \\mathbb{N}$ 使得 $c(a,b)+d(a,-b)+e(b,a)+f(b,-a)=(x,y)$，拆开得到\n\n$$\n\\left\\{\\begin{matrix}\na(c+d)+b(e+f)=x \\\\\na(e-f)+b(c-d)=y\n\\end{matrix}\\right.\n$$\n\n根据裴蜀定理，上面方程组有整数解的必要条件是 $\\gcd(a,b) \\mid x$ 且 $\\gcd(a,b) \\mid y$。\n\n但是这样只能保证 $c+d,e+f,e-f,c-d \\in \\mathbb{N}$，而 $c,d,e,f$ 会出现 $\\dfrac{1}{2}$ 的情况。\n\n所以有解的充要条件是 $\\gcd(a,b) \\mid x$ 且 $\\gcd(a,b) \\mid y$ 且 $c+d,c-d$ 奇偶性相同、$e+f,e-f$ 奇偶性相同。\n\n设 $c+d=2k_1+m_1,c-d=2k_2+m_1,e+f=2k_3+m_2,e-f=2k_4+m_2$，且 $m_1,m_2 \\in \\{0,1\\}$，得到\n\n$$\n\\left\\{\\begin{matrix}\na(2k_1+m_1)+b(2k_3+m_2)=x \\\\\na(2k_4+m_2)+b(2k_2+m_1)=y\n\\end{matrix}\\right.\n$$\n\n分四种情况讨论。以 $m_1=m_2=0$ 为例，等式两边同除 $2$可得 $\\gcd(a,b) \\mid \\dfrac{x}{2}$，即 $2\\gcd(a,b) \\mid x$，对于 $y$ 同理。\n\n以 $m_1=0,m_2=1$ 为例，同加 $b$ 再同除 $2$，化简得到 $2 \\gcd(a,b) \\mid (x+b)$。\n\n剩下两种类似。四种可能或起来即可。\n\n```cpp\nlong long a, b, x, y;\n\nvoid _main() {\n\tcin >> a >> b >> x >> y;\n\tlong long g = __gcd(a, b);\n\tif (x % g || y % g) return cout << \"N\\n\", void();\n\tg *= 2;\n\tif (x % g == 0 && y % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + b) % g == 0 && (y + a) % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + a) % g == 0 && (y + b) % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + a + b) % g == 0 && (y + a + b) % g == 0) return cout << \"Y\\n\", void();\n\tcout << \"N\\n\";\n}\n```\n\n### *P3518 [POI 2011] SEJ-Strongbox\n\n设密码集合为 $S$，则 $\\forall i,j \\in S, (i+j) \\bmod n \\in S$。考虑对于 $i \\in S$，必然有 $\\forall k \\in \\mathbb{N}^+, ki \\bmod n \\in S$，所以首先考虑 $ki \\bmod n$ 能取到哪些数。\n\n首先讨论 $\\gcd(i,n)=1$，此时 $ki \\bmod n$ 取遍 $0,1,2,3,\\cdots,n-1$。因为同余方程 $ki \\equiv x \\pmod n$ 必然有解。一般地，猜想 $i \\in S$ 使得 $ki=x \\pmod n$ 有解，即 $\\gcd(k,n)=1$，反证法得到 $ki \\bmod n$ 取到了所有 $\\gcd(i,n)$ 的倍数。\n\n对于 $i \\notin S$，$i$ 的所有因子也不是密码。根据这个判定方法，枚举 $d \\mid \\gcd(m_k,n)$，若合法，则对于 $d \\in S$ 的密码数量就是 $\\dfrac{n}{d}$。复杂度 $O(k \\sqrt {\\gcd(m_k,n)})$，可以获得 76pts。\n\n```cpp\n#define int long long\nconst int N = 2.5e5 + 5;\nint n, k, a[N];\nbool check(int x) {\n\tfor (int i = 1; i < k; i++) {\n\t\tif (a[i] % x == 0) return false;\n\t} return true;\n}\n\nvoid _main() {\n\tcin >> n >> k;\n\tfor (int i = 1; i <= k; i++) cin >> a[i];\n\tint x = __gcd(n, a[k]);\n\tfor (int i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tif (check(i)) return cout << n / i, void();\n\t}\n\tfor (int i = sqrt(x) + 1; i >= 1; i--) {\n\t\tif (x % i) continue;\n\t\tif (check(x / i)) return cout << n / (x / i), void();\n\t}\n}\n```\n\n考虑优化。枚举因子最多只有 $10^7$，思考如何快速 `check`。首先令 $a_i \\gets \\gcd(a_i,x)$，显然不影响结果。接着对 $x$ 质因数分解。注意到 $2\\times 3\\times 5\\times 7\\times 11\\times 13\\times 17\\times 19\\times 23\\times 29\\times 31\\times 37\\times 41\\times 43>10^{14}$，考虑对于每个 $a_i$ 直接按质因子爆搜因数。使用哈希表记忆化搜索，复杂度大概是 $O(k \\log V+\\sqrt{V}+d(V) \\omega(V))$。\n\n```cpp\n#define int long long\nconst int N = 2.5e5 + 5;\nint n, k, a[N];\nbool check(int x) {\n\tfor (int i = 1; i < k; i++) {\n\t\tif (a[i] % x == 0) return false;\n\t} return true;\n}\nvector<int> p;\nvoid decompose(int x) {\n\tfor (int i = 2; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tp.emplace_back(i);\n\t\twhile (x % i == 0) x /= i;\n\t}\n\tif (x != 1) p.emplace_back(x);\n}\nunordered_set<int> f;\nvoid dfs(int x) {\n\tif (f.count(x)) return;\n\tf.emplace(x);\n\tfor (int i : p) {\n\t\tif (x % i == 0) dfs(x / i);\n\t}\n}\n\nvoid _main() {\n\tcin >> n >> k;\n\tfor (int i = 1; i <= k; i++) cin >> a[i];\n\tint x = __gcd(n, a[k]);\n\tdecompose(x);\n\tfor (int i = 1; i < k; i++) dfs(__gcd(a[i], x));\n\tfor (int i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tif (!f.count(i)) return cout << n / i, void();\n\t}\n\tfor (int i = sqrt(x) + 1; i >= 1; i--) {\n\t\tif (x % i) continue;\n\t\tif (!f.count(x / i)) return cout << n / (x / i), void();\n\t}\n}\n```\n\n### P1082 [NOIP 2012 提高组] 同余方程\n\n这东西我们在之前的乘法逆元讲过方法了，就是用 exGCD 解方程 $ax-by=1$。输入保证有解，意味着 $\\gcd(a,b)=1$，所以这就是 exGCD 方程的标准形式。细节上，求出 $x$ 以后要处理负数问题。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n\nlong long a, b;\nvoid _main() {\n\tcin >> a >> b;\n\tlong long x, y; exgcd(a, b, x, y);\n\tcout << (x % b + b) % b;\n}\n```\n\n### P5656 【模板】二元一次不定方程 (exgcd)\n\n首先由裴蜀定理判无解，若 $c$ 不是 $\\gcd(a,b)$ 的倍数则直接无解。\n\n设 $\\gcd(a,b)=d$。考虑用 exGCD 求解方程 $ax+by=d$，将解记作 $x_0,y_0$。则\n\n$ax_0+by_0=d\\\\$方程两边同乘 $\\dfrac{c}{d}$ 转化为所求：\n\n$a\\dfrac{cx_0}{d}+b\\dfrac{cy_0}{d}=c\\\\$故原方程的一组解为 $x_1=\\dfrac{cx_0}{d},y_1=\\dfrac{cy_0}{d}$。\n\n接下来考虑构造通解形式，设\n\n$a(x_1+m)+b(y_0+n)=c$不难发现 $m,n$ 满足条件 $am+bn=0$。仍然利用裴蜀定理，解得 $m=p \\times \\dfrac{b}{d}, n=-p \\times {a}{d}$，其中 $p$ 是正整数。于是我们得到原方程的通解\n\n$$\n\\left\\{\\begin{matrix}\nx=x_1+p \\times \\dfrac{b}{d} \\\\\ny=y_1-p \\times \\dfrac{a}{d}\n\\end{matrix}\\right.\n$$\n\n考虑求解数与最值。找 $x_{\\min}$ 即为解关于 $k$ 的不等式\n\n$x_1+km \\ge 1$由于式中的值均为整数，故\n\n$k \\ge \\lceil \\dfrac{1-x_1}{m} \\rceil$由于 $y$ 随 $x$ 的增大而减小，故 $x_{\\min}$ 所对应的 $y$ 就是 $y_{\\max}$。接下来我们用 $y_{\\max}$ 推 $y_{\\min}$。推导一下，可以发现\n\n$y_{\\min}=y_{\\max} \\bmod n$于是 $x_{\\max}$ 加上同样多的 $m$ 即可：\n\n$x_{\\max}=x_{\\min} + \\lfloor \\dfrac{y_{\\max}-1}{n} \\times m \\rfloor$解数就是 $[y_{\\min},y_{\\max}]$ 中解的个数，即\n\n$\\lfloor \\dfrac{y_{\\max}-1}{n} +1 \\rfloor$至此本题在 $O(\\log V)$ 内解决，$V$ 为值域。\n\n在实现中，我们可以将 $a,b,c$ 都除去 $d$，这样可以简化代码。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n\nlong long a, b, c;\n\nvoid _main() {\n\tcin >> a >> b >> c;\n\tlong long d = __gcd(a, b);\n\tif (c % d) return cout << -1 << '\\n', void();\n\ta /= d, b /= d, c /= d;\n\tlong long x0, y0; exgcd(a, b, x0, y0);\n\tlong long x1 = c * x0, y1 = c * y0;\n\tint xmin = (x1 > 0 && x1 % b != 0) ? x1 % b : x1 % b + b;\n\tint ymax = (c - xmin * a) / b;\n\tint ymin = (y1 > 0 && y1 % a != 0) ? y1 % a : y1 % a + a;\n\tint xmax = (c - ymin * b) / a;\n\tif (xmax <= 0) cout << xmin << ' ' << ymin << '\\n';\n\telse cout << (ymax - ymin) / a + 1 << ' ' << xmin << ' ' << ymin << ' ' << xmax << ' ' << ymax << ' ' << '\\n';\n}\n```\n\n### P1516 青蛙的约会\n\n设相遇时两只青蛙跳了 $t$ 次，则\n\n$(n-m)t+kL=x-y$即求解 $t$ 的最小非负整数解。在不定方程 $ax+by=c$ 中，我们把 $n-m$ 视作 $a$，$L$ 视作 $b$，$x-y$ 视作 $c$，则应用上一题的方法来求解。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\nlong long x, y, m, n, L;\n\nvoid _main() {\n\tcin >> x >> y >> m >> n >> L;\n\tlong long a = n - m, b = L, c = x - y;\n\tif (a < 0) a = -a, c = -c;\n\tlong long d = __gcd(a, b);\n\tif (c % d) return cout << \"Impossible\", void();\n\ta /= d, b /= d, c /= d;\n\tlong long x0, y0; exgcd(a, b, x0, y0);\n\tlong long x1 = c * x0;\n\tcout << ((x1 > 0 && x1 % b != 0) ? x1 % b : x1 % b + b);\n}\n```\n\n### P12952 [GCJ Farewell Round #2] Intruder Outsmarting\n\n我们考虑第 $i$ 个转轮，设调整它 $a$ 次，调整第 $w-i+1$ 个转轮 $b$ 次，则有同余方程：\n\n$X_i+Da \\equiv X_{w-i+1}+Db \\pmod N$其中 $i \\le \\lfloor \\dfrac{W}{2} \\rfloor$。显然这个玩意没法 exCRT，于是我们把它变成不定方程：\n\n$$\nD(a-b) \\equiv X_{w-i+1}-X_i \\pmod N\\\\\nD(a-b)-kN=X_{w-i+1}-X_i\n$$\n\n等号右边是已知量，将 $a-b$ 和 $k$ 看作未知数，先判无解，然后使用 exGCD 求出 $D(a-b)-kN=\\gcd(D,N)$ 的解。我们需要求出 $a+b$ 的最小值。设 $p=a-b$，分类讨论：\n\n- 若 $p \\ge 0$，则 $a-b=p$，即 $a+b=2b+p$，当 $b=0$ 且 $p$ 为最小非负整数解时，$a+b$ 取得最小值。\n- 若 $p<0$，则 $b-a=-p$，即 $a+b=2a-p$，当 $a=0$ 且 $p$ 为最大非负整数解的相反数时，$a-b$ 取得最小值。\n\n至此，套用模板题的方法，本题解决。\n\n```cpp\nconst int N = 2005;\n#define int long long\nvoid exgcd(int a, int b, int& x, int &y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\nint w, n, d, x[N];\n\nvoid _main(int kase) {\n\tcout << \"Case #\" << kase << \": \";\n\tcin >> w >> n >> d;\n\tfor (int i = 1; i <= w; i++) cin >> x[i];\n\tint g = __gcd(n, d), n0 = n / g, res = 0;\n\tfor (int i = 1; i <= w / 2; i++) {\n\t\tif ((x[i] - x[w - i + 1]) % g) return cout << \"IMPOSSIBLE\\n\", void();\n\t\tint a, b; exgcd(d, n, a, b);\n\t\tint p = a * ((x[w - i + 1] - x[i]) / g % n0) % n0;\n\t\tif (p >= 0) p %= n0, res += min(p, n0 - p);\n\t\telse {\n\t\t\tint q = p + n0 * ceil(-1.0 * p / n0);\n\t\t\tres += min(q, n0 - q);\n\t\t}\n\t} cout << res << '\\n';\n}\n```\n\n### P4777 【模板】扩展中国剩余定理（EXCRT）\n\n板子题。给个代码：\n\n```cpp\nconst int N = 1e5 + 5;\n\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (!b) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\ntemplate <class T> T crt(int n, const T* a, const T* m) {\n\tT x = 0, y = 0, p = m[1], res = a[1];\n\tfor (int i = 2; i <= n; i++) {\n\t\tT a0 = p, b0 = m[i], c = (a[i] - res % b0 + b0) % b0, g = __gcd(a0, b0);\n\t\tif (c % g) return -1;\n\t\texgcd(a0, b0, x, y);\n\t\tx = (__int128) x * c / g % b0, res += x * p, p = p / __gcd(p, b0) * b0, res = (res % p + p) % p;\n\t}\n\treturn res;\n}\n\nint n;\nlong long a[N], m[N];\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> m[i] >> a[i];\n\tcout << crt(n, a, m);\n}\n```\n\nexCRT 很重要的一个用途是对于模数不是质数的情况，我们把模数分解质因数，然后分别计算对这些质因数取模的结果，最后用 exCRT 合并。\n\n### P3868 [TJOI2009] 猜数字\n\n对于 $(x-a_i) \\mid  b_i$，可以变形为 $x-a_i \\equiv 0 \\pmod {b_i}$，然后再移项就是 $x \\equiv a_i \\pmod {b_i}$。于是解这个同余方程组即可。\n\n细节上注意 $a_i$ 可能为负，需要对 $b_i$ 取模处理，另外这题会爆 `long long`，不过上面板子里已经开了 `__int128` 了。\n\n```cpp\nconst int N = 15;\nint n;\nlong long a[N], b[N];\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tfor (int i = 1; i <= n; i++) cin >> b[i];\n\tfor (int i = 1; i <= n; i++) a[i] = (a[i] % b[i] + b[i]) % b[i];\n\tcout << crt(n, a, b);\n}\n```\n\n### *P4774 [NOI2018] 屠龙勇士\n\n首先把题目翻译过来，发现每条龙所对应的攻击力是确定的，记作 $b_i$。可以用一个 std::multiset 模拟攻击过程，现在问题是求\n\n$$\n\\left\\{\\begin{matrix}\nb_1x \\equiv a_1 \\pmod {p_1} \\\\\nb_2x \\equiv a_2 \\pmod {p_2} \\\\\n\\cdots \\\\\nb_nx \\equiv a_n \\pmod {p_n}\n\\end{matrix}\\right.\n$$\n\n的最小正整数解 $x$。\n\n对于 $bx \\equiv a \\pmod p$，拆开：\n\n$bx-py=a$上 exGCD 求出一组特解 $x_0,y_0$，根据模板题的通解公式有\n\n$x=x_0+k \\dfrac{p}{\\gcd(b,p)}$同模 $\\dfrac{p}{\\gcd(b,p)}$ 化为同余式\n\n$x\\equiv x_0 \\pmod {\\dfrac{p}{\\gcd(b,p)}}$问题解决。之后使用普通的 exCRT 解出 $x$ 即可。\n\n还有一些特判：\n\n- 上面这种只适用于 $a_i \\le p_i$ 的情况。对于 $a_i>p_i$ 的情况，根据数据点分治有 $p_i=1$，那么答案就是 $\\max_{i=1}^{n} \\lceil \\dfrac{a_i}{b_i} \\rceil$，需要特判。\n- 当所有的 $p_i=a_i$ 时，$x=0$。但是这是错的，应该求出所有刀数取 $\\operatorname{lcm}$。\n\n```cpp\nconst int N = 1e5 + 5;\nint n, m;\nlong long a[N], b[N], p[N], c[N], x, x0[N];\nmultiset<long long> st;\n\nvoid _main() {\n\tst.clear();\n\tcin >> n >> m;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tbool f1 = false, f2 = true;\n\tfor (int i = 1; i <= n; i++) {\n\t\tcin >> p[i];\n\t\tif (a[i] > p[i]) f1 = true;\n\t\tif (a[i] != p[i]) f2 = false;\n\t}\n\tfor (int i = 1; i <= n; i++) cin >> c[i];\n\tfor (int i = 1; i <= m; i++) cin >> x, st.emplace(x);\n\tfor (int i = 1; i <= n; i++) {\n\t\tauto it = st.upper_bound(a[i]);\n\t\tif (it != st.begin()) it--;\n\t\tb[i] = *it, st.erase(it), st.emplace(c[i]);\n\t\tdebug(b[i]);\n\t}\n\tif (f1) {\n\t\tlong long res = 0;\n\t\tfor (int i = 1; i <= n; i++) res = max(res, (a[i] + b[i] - 1) / b[i]);\n\t\treturn cout << res << '\\n', void();\n\t}\n\tif (f2) {\n\t\tlong long res = 1;\n\t\tfor (int i = 1; i <= n; i++) {\n\t\t\tlong long v = p[i] / __gcd(p[i], b[i]);\n\t\t\tres = res / __gcd(res, v) * v;\n\t\t} return cout << res << '\\n', void();\n\t}\n\tfor (int i = 1; i <= n; i++) {\n\t\tif (b[i] % p[i] == 0) {\n\t\t\tif (p[i] == a[i]) x0[i] = 0, p[i] = 1;\n\t\t\telse return cout << -1 << '\\n', void();\n\t\t\tcontinue;\n\t\t}\n\t\tlong long g = __gcd(b[i], p[i]);\n\t\tif (a[i] % g) return cout << -1 << '\\n', void();\n\t\tlong long y0;\n\t\texgcd(b[i], p[i], x0[i], y0);\n\t\tp[i] /= g, x0[i] = (x0[i] % p[i] + p[i]) % p[i];\n\t\tx0[i] = (int128) x0[i] * (a[i] / g) % p[i];\n\t}\n\tcout << crt(n, x0, p) << '\\n';\n}\n```",
+                "codePath": "",
+                "timeComplexity": "见原文",
+                "spaceComplexity": "见原文",
+                "tags": [
+                    "gcd",
+                    "lcm",
+                    "exgcd",
+                    "裴蜀定理"
+                ],
+                "source": "stripe-python"
             }
         ],
         "content": "## GCD 与 LCM（欧几里得算法）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 最大公约数 GCD\r\n\r\n**定义**：对于两个正整数 $a, b$，它们的最大公约数（Greatest Common Divisor, GCD）是能同时整除 $a$ 和 $b$ 的最大正整数，记作 $\\gcd(a, b)$。\r\n\r\n例：$\\gcd(12, 18) = 6$，$\\gcd(7, 13) = 1$（两数互质）。\r\n\r\n### 1.2 欧几里得算法（辗转相除法）\r\n\r\n**核心等式**：\r\n\r\n$$\\gcd(a, b) = \\gcd(b, a \\bmod b)$$\r\n\r\n**为什么成立？** 设 $d = \\gcd(a, b)$，即 $d \\mid a$ 且 $d \\mid b$。令 $a = q \\cdot b + r$（其中 $0 \\le r < b$，$r = a \\bmod b$），则：\r\n\r\n- $d \\mid a$ 且 $d \\mid b$ → $d \\mid (a - q \\cdot b) = r$ → $d$ 也是 $b$ 和 $r$ 的公约数\r\n- 反过来，若 $d' \\mid b$ 且 $d' \\mid r$，则 $d' \\mid (q \\cdot b + r) = a$ → $d'$ 也是 $a$ 和 $b$ 的公约数\r\n\r\n因此 $\\{a, b\\}$ 的公约数集合与 $\\{b, a \\bmod b\\}$ 的公约数集合完全相同，最大元自然也相同 ✓\r\n\r\n**终止条件**：当 $b = 0$ 时，$\\gcd(a, 0) = a$（任何数与 0 的最大公约数是它本身）。\r\n\r\n### 1.3 最小公倍数 LCM\r\n\r\n**定义**：对于两个正整数 $a, b$，它们的最小公倍数（Least Common Multiple, LCM）是能同时被 $a$ 和 $b$ 整除的最小正整数，记作 $\\text{lcm}(a, b)$。\r\n\r\n例：$\\text{lcm}(12, 18) = 36$，$\\text{lcm}(7, 13) = 91$。\r\n\r\n**核心公式**：\r\n\r\n$$\\gcd(a, b) \\times \\text{lcm}(a, b) = a \\times b$$\r\n\r\n变形得：\r\n\r\n$$\\text{lcm}(a, b) = \\frac{a \\times b}{\\gcd(a, b)}$$\r\n\r\n**为什么成立？** 从质因数分解角度看：设 $a = \\prod p_i^{e_i}$，$b = \\prod p_i^{f_i}$，则\r\n\r\n- $\\gcd(a, b) = \\prod p_i^{\\min(e_i, f_i)}$\r\n- $\\text{lcm}(a, b) = \\prod p_i^{\\max(e_i, f_i)}$\r\n\r\n显然 $\\min(e_i, f_i) + \\max(e_i, f_i) = e_i + f_i$，对应指数相加即乘积等式成立 ✓\r\n\r\n### 1.4 防溢出技巧：先除后乘\r\n\r\n直接写 `a * b / gcd(a, b)` 有溢出风险：当 $a, b$ 都是 $10^9$ 时，$a \\times b$ 可达 $10^{18}$，`int` 存不下。即使 `long long`，若 $a, b$ 更大也会溢出。\r\n\r\n正确写法：\r\n\r\n$$\\text{lcm}(a, b) = \\frac{a}{\\gcd(a, b)} \\times b$$\r\n\r\n先除后乘，中间值更小，溢出概率大幅降低。本代码即采用此写法。\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 欧几里得算法递归式\r\n\r\n$$\r\n\\gcd(a, b) =\r\n\\begin{cases}\r\na, & b = 0 \\\\\r\n\\gcd(b, a \\bmod b), & b \\neq 0\r\n\\end{cases}\r\n$$\r\n\r\n### 2.2 复杂度分析\r\n\r\n欧几里得算法的时间复杂度为 $O(\\log \\min(a, b))$。\r\n\r\n**证明思路**（拉梅定理，Lamé's Theorem）：欧几里得算法的步数不超过较小数的十进制位数的 5 倍。\r\n\r\n直觉上，$a \\bmod b$ 至少比 $a$ 小一半（当 $b \\le a/2$ 时显然；当 $b > a/2$ 时，$a \\bmod b = a - b < a/2$），因此每次递归规模至少减半，步数为对数级。\r\n\r\n### 2.3 性质速查\r\n\r\n| 性质 | 公式 |\r\n|------|------|\r\n| 交换律 | $\\gcd(a, b) = \\gcd(b, a)$ |\r\n| 结合律 | $\\gcd(\\gcd(a, b), c) = \\gcd(a, \\gcd(b, c))$ |\r\n| 分配律 | $\\gcd(k \\cdot a, k \\cdot b) = k \\cdot \\gcd(a, b)$ |\r\n| 互质条件 | $\\gcd(a, b) = 1 \\iff a, b$ 互质 |\r\n| 贝祖定理 | 存在整数 $x, y$ 使得 $a \\cdot x + b \\cdot y = \\gcd(a, b)$ |\r\n| GCD-LCM 关系 | $\\gcd(a, b) \\times \\text{lcm}(a, b) = a \\times b$ |\r\n| LCM 分配律 | $\\text{lcm}(k \\cdot a, k \\cdot b) = k \\cdot \\text{lcm}(a, b)$ |\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n```\r\n\r\n标准头文件与命名空间。\r\n\r\n### 3.1 _gcd —— 欧几里得算法递归实现\r\n\r\n```cpp\r\nlong long _gcd(long long a, long long b)\r\n{\r\n    return b ? _gcd(b, a % b) : a;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `long long _gcd(long long a, long long b)` | 参数用 `long long`，支持大数；函数名前加下划线避免与 `std::gcd`（C++17）冲突 |\r\n| 2 | `return b ? _gcd(b, a % b) : a;` | 三元运算符一行实现：若 $b \\neq 0$，递归调用 `_gcd(b, a % b)`；若 $b = 0$，返回 $a$（终止条件） |\r\n\r\n**执行示例**：$\\gcd(48, 18)$\r\n\r\n$$\r\n\\begin{align*}\r\n\\gcd(48, 18) &= \\gcd(18, 48 \\bmod 18) = \\gcd(18, 12) \\\\\r\n&= \\gcd(12, 18 \\bmod 12) = \\gcd(12, 6) \\\\\r\n&= \\gcd(6, 12 \\bmod 6) = \\gcd(6, 0) \\\\\r\n&= 6 \\quad ✓\r\n\\end{align*}\r\n$$\r\n\r\n递归 3 层即得出结果。\r\n\r\n### 3.2 _lcm —— 最小公倍数\r\n\r\n```cpp\r\nlong long _lcm(long long a, long long b)\r\n{\r\n    return a / _gcd(a, b) * b;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `a / _gcd(a, b) * b` | **先除后乘**防溢出：$a / \\gcd$ 必为整数（$\\gcd$ 整除 $a$），再乘 $b$ 结果与 $a \\times b / \\gcd$ 相同但中间值更小 |\r\n\r\n> **注意**：`a / gcd * b` 与 `b / gcd * a` 结果相同，但从溢出角度看，先用较大的数去除更安全。\r\n\r\n### 3.3 main —— 多组测试\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int t;\r\n    cin >> t;\r\n    while (t--)\r\n    {\r\n        long long a, b;\r\n        cin >> a >> b;\r\n        cout << _gcd(a, b) << ' ' << _lcm(a, b) << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `ios::sync_with_stdio(false); cin.tie(nullptr);` | 快速 IO，多组数据时加速输入输出 |\r\n| 3-4 | `int t; cin >> t;` | 读入测试用例组数 |\r\n| 5-8 | `while (t--) { cin >> a >> b; cout << ... << '\\n'; }` | 每组读入两个数，输出 GCD 和 LCM，用 `'\\n'` 代替 `endl` 避免刷新缓冲区 |\r\n\r\n### 3.4 运行示例\r\n\r\n输入：\r\n```\r\n3\r\n12 18\r\n7 13\r\n100 25\r\n```\r\n\r\n输出：\r\n```\r\n6 36\r\n1 91\r\n25 100\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 时间（GCD） | $O(\\log \\min(a, b))$ | 欧几里得算法，递归深度为对数级 |\r\n| 时间（LCM） | $O(\\log \\min(a, b))$ | 多一次除法和乘法，常数级额外开销 |\r\n| 空间 | $O(\\log \\min(a, b))$ | 递归栈深度；迭代版为 $O(1)$ |\r\n\r\n对于 $a, b \\le 10^{18}$，递归深度约 60 层，几乎瞬间完成。\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **约分 / 化简分数** | 分子分母同除以 GCD，得到最简分数 |\r\n| **求最小公倍数** | 周期问题、调度问题中求重复周期 |\r\n| **扩展欧几里得** | 求模逆元、解贝祖方程（GCD 是基础） |\r\n| **数论计数** | 利用 GCD/LCM 性质统计满足条件的数对 |\r\n| **判断互质** | $\\gcd(a, b) = 1$ 即互质，数论中常见条件 |\r\n| **多个数的 GCD/LCM** | 结合律保证可依次迭代计算：$\\gcd(a, b, c) = \\gcd(\\gcd(a, b), c)$ |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 a < b 时算法仍正确\r\n\r\n$\\gcd(18, 48)$ → $\\gcd(48, 18 \\bmod 48) = \\gcd(48, 18)$，自动交换。**不需要**在调用前保证 $a \\ge b$。\r\n\r\n### 6.2 参数为 0 的情况\r\n\r\n- $\\gcd(a, 0) = a$（算法本身已处理，是终止条件）\r\n- $\\gcd(0, 0)$ 无定义，数学上不存在，代码会返回 0\r\n- $\\text{lcm}(a, 0) = 0$（任何数都是 0 的倍数），但代码中 `a / gcd(a,0) * 0 = a / a * 0 = 0`，结果正确\r\n\r\n### 6.3 负数的 GCD\r\n\r\n数学上 GCD 始终为正。若输入可能为负，需取绝对值：`_gcd(abs(a), abs(b))`。本代码假设输入为正整数。\r\n\r\n### 6.4 溢出问题\r\n\r\n- `a * b / gcd` 写法可能溢出，必须先除后乘：`a / gcd * b`\r\n- 即使先除后乘，若 $a, b$ 都接近 `long long` 上限（$9 \\times 10^{18}$），LCM 仍可能溢出；此时需用 `__int128` 或高精度\r\n\r\n### 6.5 递归深度\r\n\r\n对 $10^{18}$ 以内的数，递归深度约 60 层，不会栈溢出。但若有严格要求，可改写为迭代版：\r\n\r\n```cpp\r\nlong long _gcd(long long a, long long b)\r\n{\r\n    while (b) { a %= b; swap(a, b); }\r\n    return a;\r\n}\r\n```\r\n\r\n### 6.6 C++17 内置 gcd\r\n\r\nC++17 在 `<numeric>` 中提供了 `std::gcd` 和 `std::lcm`，但竞赛环境不一定支持，手写版本更稳妥。\r\n\r\n### 6.7 多个数的 GCD/LCM\r\n\r\n利用结合律迭代即可：\r\n\r\n```cpp\r\nlong long gcd_n(vector<long long>& v)\r\n{\r\n    long long res = v[0];\r\n    for (int i = 1; i < v.size(); i++)\r\n        res = _gcd(res, v[i]);\r\n    return res;\r\n}\r\n```\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 递归版 vs 迭代版\r\n\r\n| 维度 | 递归版 | 迭代版 |\r\n|------|--------|--------|\r\n| 代码长度 | 一行，极其简洁 | 三行循环 |\r\n| 空间 | $O(\\log n)$ 栈空间 | $O(1)$ |\r\n| 可读性 | 接近数学定义，直观 | 稍低 |\r\n| 栈溢出风险 | 极低（约 60 层） | 无 |\r\n| 性能 | 函数调用开销略大 | 更快 |\r\n\r\n### 7.2 更慢的方法：质因数分解法\r\n\r\n先分别分解 $a, b$ 的质因数，再取指数的 min/max。复杂度为 $O(\\sqrt{a} + \\sqrt{b})$，远劣于欧几里得算法的 $O(\\log \\min(a,b))$，仅在需要质因数信息时使用。\r\n\r\n### 7.3 扩展欧几里得算法\r\n\r\n欧几里得算法的扩展版本，不仅求 $\\gcd(a, b)$，还求贝祖系数 $x, y$ 使得 $a \\cdot x + b \\cdot y = \\gcd(a, b)$。是求模逆元、解线性同余方程的基础。\r\n\r\n### 7.4 二进制 GCD（Stein 算法）\r\n\r\n用移位和减法代替取模，在某些硬件上更快，且特别适合大整数（高精度）实现。核心利用：\r\n\r\n- $\\gcd(2a, 2b) = 2 \\cdot \\gcd(a, b)$\r\n- $\\gcd(2a, b) = \\gcd(a, b)$（$b$ 为奇数）\r\n- $\\gcd(a, b) = \\gcd(|a-b|, \\min(a, b))$（$a, b$ 均为奇数）\r\n\r\n### 7.5 一句话总结\r\n\r\nGCD 是数论的基石算法，欧几里得算法用一行递归实现了 $O(\\log n)$ 的极致效率；LCM 通过 `先除后乘` 的公式从 GCD 衍生而来，两者共同构成了数论计数、模运算、扩展欧几里得等高级算法的基础。掌握 GCD 的性质与实现，是学习数论的第一步。",
@@ -11913,50 +12188,11 @@ const KNOWLEDGE_DATA = [
         "related": [
             "math-lcm-pair-count",
             "math-quick-pow-basic",
-            "math-sieve-eratosthenes",
+            "math-sieve",
             "math-euler-phi",
-            "math-linear-sieve-phi",
             "math-crt"
-        ]
-    },
-    {
-        "id": "math-gcd-theory",
-        "category": "数学",
-        "subcategory": "数论基础",
-        "subSubcategory": "",
-        "title": "最大公约数与扩展欧几里得",
-        "hub": false,
-        "versions": [
-            {
-                "author": "stripe-python",
-                "content": "> 本文由 stripe-python 授权合并，正文保留原文结构与表述；原文为《OI 中的数学基础》（[博客版](https://stripepython.github.io/2025/10/05/OI%20%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/)），本页按主题拆分。\n\n## 3. 最大公约数\n\n定义**最大公约数** $\\gcd(a,b)$ 为：满足 $k \\mid a$ 且 $k \\mid b$ 的最大的 $k$。定义 $\\gcd(a,0)=0$。\n\n定义最小公倍数 $\\operatorname{lcm}(a,b)$ 为：满足 $a \\mid k$ 且 $b \\mid k$ 的最小的 $k$。\n\n## 3.1 求解 GCD\n\n### 3.1.1 分解质因数法\n\n将两数分解质因数：$a=p_1^{a_1}p_2^{a_2} \\cdots, b=a=p_1^{b_1}p_2^{b_2} \\cdots$，则 $\\gcd(a,b)=p_1^{\\min(a_1,b_1)}p_2^{\\min(a_2,b_2)} \\cdots$，复杂度为 $O(\\sqrt{n})$。\n\n这证明：求 gcd 和求最小值有共通之处。\n\n### 3.1.2 辗转相除法\n\nGCD 有如下性质：\n\n$\\gcd(a,b)=\\gcd(b,a \\bmod b)$利用此可递归计算 gcd，出口为 $\\gcd(a,0)=a$。复杂度 $O(\\log (a+b))$。\n\n```cpp\nint gcd(int a, int b) {return b == 0 ? a : gcd(b, a % b);}\n```\n\nC++ STL 中有函数 `std::__gcd`，为迭代的辗转相除法实现，复杂度为 $O(\\log n)$，可以直接使用。\n\n### 3.1.3 更相减损法\n\nGCD 有如下性质：\n\n$\\gcd(a,b)=\\gcd(a-b,b)$如果直接递归计算，复杂度为 $O(n)$。Stein 算法对此进行了优化：\n\n若 $2\\mid a$ 且 $2\\mid b$，则 $\\gcd(a,b)=2\\gcd(\\dfrac{a}{2},\\dfrac{b}{2})$。而若只有 $2 \\mid  a$，则 $\\gcd(a,b)=\\gcd(\\dfrac{a}{2},b)$。这启示我们可以在过程中除掉约数 $2$，然后再更相减损，复杂度就降到了 $O(\\log n)$。Stein 算法常用于大整数的 GCD。\n\nStein 算法可以借助二进制内置函数优化，称作 Binary GCD，理论复杂度 $O(\\log (a+b))$，但在实际表现中可以看作大常数 $O(1)$。这份代码的速度比 `std::__gcd` 更快，可以卡过 [P5435](https://www.luogu.com.cn/problem/P5435)。\n\n```cpp\ntemplate <class T> constexpr T gcd(T a, T b) {\n\tint az = ctz(a), bz = ctz(b), z = min(az, bz);\n\tfor (b >>= bz; a; ) {\n\t\ta >>= az; int d = a - b;\n\t\taz = ctz(a - b), b = min(a, b), a = abs(d);\n\t} return b << z;\n}\n```\n\n## 3.2 exGCD\n\nexGCD 用于求解形如 $ax+by=\\gcd(a,b)$ 一类的不定方程。\n\n### 3.2.1 裴蜀定理\n\n对于任意非零整数 $a,b$，$ax+by=c$ 有整数解当且仅当 $c \\mid  \\gcd(a,b)$。\n\n#### 推论\n\n若 $a_1,a_2,a_3,\\cdots,a_n$ 是不全为 $0$ 的整数，则存在整数 $x_1,x_2,x_3,\\cdots,x_n$ 使得\n\n$a_1x_1+a_2x_2+a_3x_3+\\cdots+a_nx_n=\\gcd(a_1,a_2,a_3,\\cdots,a_n)$其逆定理也成立。\n\n### 3.2.2 不定方程\n\n由 $\\gcd(a,b)=\\gcd(b,a\\bmod b)$ 得：\n\n$$\n\\begin{aligned}\nax+by&=bx'+(a\\bmod b)y'\\\\\n&=bx'+(a-b\\lfloor \\dfrac{a}{b} \\rfloor)y'\\\\\n&=ay'+b(x'-y'\\lfloor \\dfrac{a}{b} \\rfloor)\n\\end{aligned}\n$$\n\n递归式：$x=y',y=x'-y'\\lfloor \\dfrac{a}{b} \\rfloor$，这样就可以 $O(\\log (a+b))$ 求解。\n\n```cpp\nvoid exgcd(int a, int b, int& x, int& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n```\n\n可以证明，通过这种方法得到的 $x,y$ 在值域范围内。所以不用担心溢出的问题。\n\n### 3.2.3 乘法逆元\n\n逆元就是模意义下的倒数：求 $x \\equiv \\dfrac{1}{a} \\pmod m$ 的解。\n\n移项得：$ax \\equiv 1 \\pmod m$，即为求解不定方程 $ax-bm=1$，用 exGCD 求解即可。\n\n这里可以发现，$x$ 在模 $m$ 意义下有逆元当且仅当 $x,m$ 互质。利用乘法逆元，可以实现模意义下的除法。\n\n### 3.2.4 线性方程组\n\n这里的线性方程组是指求一个最小的 $x$ 满足\n\n$$\n\\left\\{\\begin{matrix}\nx \\equiv a_1 \\pmod {m_1} \\\\\nx \\equiv a_2 \\pmod {m_2} \\\\\n\\cdots \\\\\nx \\equiv a_n \\pmod {m_n}\n\\end{matrix}\\right.\n$$\n\n两两考虑。比如我们把前两个方程变成不定方程：$x=m_1p+a_1=m_2q+a_2$。则 $m_1p-m_2q=a_2-a_1$，利用 exGCD 解出一组可行解 $(p,q)$，然后这两个方程组的共同解为 $x \\equiv (m_1p+a_1) \\pmod {\\operatorname{lcm}(m_1,m_2)}$。然后把 $n$ 个方程都这么合并起来即可。这种方法叫 exCRT。\n\n至于为什么不说 CRT，因为我觉得 exCRT 比 CRT 更容易理解，适用范围更广，代码还好写。\n\n## 3.3 常用性质\n\n这里我们不加证明地给出一些 $\\gcd$ 的性质。\n\n1. $\\gcd(a, b) \\times \\operatorname{lcm}(a,b)=ab$。\n2. $\\gcd(a,b) \\le |a- b|$。\n3. $\\gcd(b,a \\bmod b)=\\gcd(a,b)$。\n4. $\\gcd(a,b)=\\gcd(a-b,b)$。\n5. $\\gcd(a,b)=\\sum_{x \\mid a, x\\mid b} \\varphi(x)$。$\\varphi(x)$ 为下文第 4 章要讲的欧拉函数。\n6. $\\gcd(a,b)=c$，则 $\\gcd(\\dfrac{a}{c},\\dfrac{b}{c})=1$。证明见第一道例题。\n\n## 3.4 例题\n\n前面是 GCD 性质和裴蜀定理应用题，后面是 exGCD & exCRT 例题。\n\n### P1072 [NOIP 2009 提高组] Hankson 的趣味题\n\n注意到性质 6：若 $\\gcd(a,b)=c$，且 $a=k_1c,b=k_2c$，则 $\\gcd(k_1,k_2)=1$。\n\n证明：考虑反证法，设 $K=\\gcd(k_1,k_2) \\ne 1$，则存在不为 $1$ 的正整数 $p,q$ 使得 $k_1=pK,k_2=qK$，因而 $a=pKc,b=qKc$，$\\gcd(a,b)=Kc \\ne c$，故原结论成立。\n\n由题可得：$x=a_1 p$，$b_1=xq$，其中 $p,q$ 为正整数。\n\n由上述结论得：$\\gcd(\\dfrac{a_0}{a_1},\\dfrac{x}{a_1})=1$。又有 $\\operatorname{lcm}(x,b_0)=b_1$，故 $\\gcd(\\dfrac{b_1}{x},\\dfrac{b_1}{b_0})=1$。且 $x\\mid b_1$，枚举 $x$ 并判断即可，复杂度 $O(\\sqrt{b_1} \\log V)$。\n\n```cpp\nint a0, a1, b0, b1;\nvoid _main() {\n\tcin >> a0 >> a1 >> b0 >> b1;\n\tint cnt = 0;\n\tfor (int x = 1; x * x <= b1; x++) {\n\t\tif (b1 % x) continue;\n\t\tif (x % a1 == 0 && __gcd(x / a1, a0 / a1) == 1 && __gcd(b1 / x, b1 / b0) == 1) cnt++;\n\t\tint y = b1 / x;\n\t\tif (x == y) continue;\n\t\tif (y % a1 == 0 && __gcd(y / a1, a0 / a1) == 1 && __gcd(b1 / y, b1 / b0) == 1) cnt++;\n\t}\n\tcout << cnt << '\\n';\n}\n```\n\n### UVA10622 完全P次方数 Perfect P-th Powers\n\n将 $x$ 分解质因数为 ${p_1}^{c_1} {p_2}^{c_2} {p_3}^{c_3} \\cdots$。注意到 $(a^xb^y)^z=a^{xz} b^{xz}$。所以 $p=\\gcd(c_1,c_2,c_3,\\cdots)$。\n\n需要注意 $x$ 不一定是正数。此时 $p$ 不能是偶数，不然 $a^p$ 就是正数了。\n\n```cpp\n#define int long long\nint x;\nvoid _main() {\n\twhile (cin >> x, x) {\n\t\tvector<int> c;\n\t\tbool neg = x < 0;\n\t\tx = abs(x);\n\t\tfor (int i = 2; i * i <= x; i++) {\n\t\t\tif (x % i) continue;\n\t\t\tc.emplace_back(0);\n\t\t\twhile (x % i == 0) x /= i, c.back()++;\n\t\t}\n\t\tif (x != 1) c.emplace_back(1);\n\t\tint g = 0;\n\t\tfor (int i : c) g = __gcd(g, i);\n\t\tif (neg) g >>= __builtin_ctzll(g);\n\t\tcout << g << '\\n';\n\t}\n}\n```\n\n### CF1499D The Number of Pairs\n\n设 $a=n\\times \\gcd(a,b),b=m \\times \\gcd(a,b)$，大力推式子：\n\n$$\n\\begin{aligned}\nc \\times \\operatorname{lcm(a,b)}-d\\times \\gcd(a,b)&=x\\\\\nc \\times \\dfrac{ab}{\\gcd(a,b)}-d\\times \\gcd(a,b)&=x\\\\\nc nm \\times \\gcd(a,b)-d\\times \\gcd(a,b)&=x\\\\\n\\gcd(a,b)&=\\dfrac{x}{cnm-d}\n\\end{aligned}\n$$\n\n说明 $(cnm-d) \\mid x$。$O(\\sqrt{x})$ 地枚举 $x$ 的因子 $i$。移项有 $cnm=d+i$，即 $c \\mid (d+i)$。再将 $\\dfrac{d+i}{c}$ 分解质因数，对于每种质因子只有全给 $n$ 和全给 $m$ 两种选择，否则会使得 $(cnm-d) \\nmid x$。用线性筛先得到每个数的质因子个数，则贡献为 $2^{cnt}$。复杂度 $O(n+T\\sqrt{n})$。\n\n```cpp\nconst int N = 2e7 + 5;\nbitset<N> isprime;\nint cnt[N], prime[N];\nvoid init() {\n\tisprime.set(), isprime[0] = isprime[1] = false;\n\tfor (int i = 2; i < N; i++) {\n\t\tif (isprime[i]) prime[++prime[0]] = i, cnt[i] = 1;\n\t\tfor (int j = 1; j <= prime[0] && 1LL * i * prime[j] < N; j++) {\n\t\t\tisprime[i * prime[j]] = false;\n\t\t\tif (i % prime[j] == 0) {\n\t\t\t\tcnt[i * prime[j]] = cnt[i];\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tcnt[i * prime[j]] = cnt[i] + 1;\n\t\t}\n\t}\n}\n\nlong long c, d, x;\nlong long f(int x) {\n\tif ((x + d) % c) return 0;\n\treturn 1LL << cnt[(x + d) / c];\n}\nvoid _main() {\n\tcin >> c >> d >> x;\n\tlong long res = 0;\n\tfor (long long i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tres += f(i);\n\t\tif (i * i != x) res += f(x / i);\n\t} cout << res << '\\n';\n}\n```\n\n### CF2148G Farmer John’s Last Wish\n\n不难发现满足 $\\gcd_{i=1}^{k} a_i \\ne \\gcd_{i=1}^{k+1} a_i$ 的最大的 $k$ 等价于满足 $\\gcd_{i=1}^{n} a_i \\ne \\gcd_{i=1}^{k+1} a_i$ 的最大的 $k$。\n\n考虑对前缀 $p$ 的解法，记 $\\gcd_{i=1}^{len} p_i = g$，则找到最长的都是 $g$ 的倍数的一段放在前面，这段长度就是答案。动态维护 $f_i$ 表示当前前缀中 $i$ 的倍数数目，答案即为 $\\max f_{i \\times g}$。\n\n由于每次操作使得 $g$ 变为原本的因子，故 $g$ 的倍数集合只增不删，枚举 $g$ 的倍数 $j \\times g$，将 $j \\times g$ 加入集合并更新答案。然后遍历 $a_i$ 的因子 $j$，更新 $f_j$，当 $j$ 是 $g$ 的倍数时更新答案。\n\n注意到复杂度为 $O(n^2)$。可以发现 $g$ 降到 $1$ 最多 $O(\\log V)$ 次，可以对 $g$ 的变化记忆化一下。复杂度为 $O(n \\log V+n\\log n)$。\n\n```cpp\nconst int N = 2e5 + 5;\nint n, a[N], f[N], vis[N], tag[N];\nvector<int> fac[N];\n\nvoid prework() {\n\tfor (int i = 1; i < N; i++) {\n\t\tfor (int j = i; j < N; j += i) fac[j].emplace_back(i);\n\t}\n}\nvoid _main() {\n\tmemset(f, 0, sizeof(int) * (n + 1)), memset(vis, 0, sizeof(int) * (n + 1)), memset(tag, 0, sizeof(int) * (n + 1));\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tint g = a[1], cur = 0;\n\tfor (int i = 1; i <= n; i++, g = __gcd(g, a[i])) {\n\t\tif (!tag[g]) {\n\t\t\tfor (int j = 2; j * g <= n; j++) vis[j * g] = true, cur = max(cur, f[j * g]);\n\t\t\ttag[g] = true;\n\t\t}\n\t\tfor (int j : fac[a[i]]) {\n\t\t\tf[j]++;\n\t\t\tif (vis[j]) cur = max(cur, f[j]);\n\t\t} cout << cur << ' ';\n\t} cout << '\\n';\n}\n```\n\n### P8255 [NOI Online 2022 入门组] 数学游戏\n\n考虑对 $z,x,y$ 质因数分解得：\n\n$\\prod {p_i}^{z_i}=\\prod {p_i}^{x_i+y_i+\\min(x_i,y_i)}$即 $z_i=x_i+y_i+\\min(x_i,y_i)$。分类讨论：\n\n1. 若 $y_i \\ge x_i$，则 $z_i=x_i+2y_i$，解得 $y_i=\\dfrac{z_i-x_i}{2}$。\n2. 若 $y_i < x_i$，则 $z_i=2x_i+y_i$，解得 $y_i=z_i-2x_i$。\n\n因此，$y_i=\\min(\\dfrac{z_i-x_i}{2},z_i-2x_i)$。\n\n想想指数出现 $\\min$、除法、减号、乘法的意义：就是取 $\\gcd$，开方，除法，乘方。通过配凑系数得到：\n\n$y=\\dfrac{x}{z\\sqrt{\\gcd(x^2,\\frac{x}{z})}}$不能整除，不能开方均判为无解。\n\n```cpp\nconst double eps = 1e-8;\nint x, z;\n\nvoid _main() {\n\tcin >> x >> z;\n\tif (z % x) return cout << -1 << '\\n', void();\n\tint128 t = z / x, u = __gcd((int128) x * x, t), us = sqrt(1.0L * u) + 0.5;\n\tif (u != us * us) return cout << -1 << '\\n', void();\n\tcout << (long long) (t / us) << '\\n';\n}\n```\n\n### P4549 【模板】裴蜀定理\n\n由 $\\gcd(a,b,c)=\\gcd(a,\\gcd(b, c))$ 得\n\n$\\sum_{i=1}^{n} a_i x_i = \\gcd_{i=1}^{n} |a_i|$而题目中记 $\\sum x_i$ 为 $S$，根据裴蜀定理可知 $\\gcd_{i=1}^{n} |a_i|$ 是 $S$ 的约数，$S$ 最小时二者相等。也就是求所有数的 $\\gcd$。\n\n### CF510D Fox And Jumping\n\n根据裴蜀定理的推论，能跳到所有位置当且仅当我们选出的长度的 $\\gcd=1$。于是设 $dp_i$ 表示选择一些长度使得其最大公约数为 $i$ 的最小代价，采用刷表，枚举 $i,j \\in [1,n]$ 易得\n\n$dp_{\\gcd(l_i, j)} \\gets \\min(dp_{\\gcd(l_i, j)}, c_{i}+v)$对于单个转移，有\n\n$dp_{l_i} \\gets \\min(dp_{l_i},c_i)$由于下标能到 $10^9$，暴力 dp 是不行的。但是有用的 $dp$ 值不多，于是我们用 `std::map` 维护转移，复杂度比较玄学。\n\n```cpp\nconst int N = 305;\nint n, l[N], c[N];\nmap<int, int> dp;\nvoid upd(int x, int v) {\n\tif (!dp.count(x)) dp[x] = v;\n\telse dp[x] = min(dp[x], v);\n}\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> l[i];\n\tfor (int i = 1; i <= n; i++) cin >> c[i];\n\tfor (int i = 1; i <= n; i++) {\n\t\tfor (const auto& h : dp) {\n\t\t\tint j = h.first, v = h.second;\n\t\t\tupd(__gcd(l[i], j), c[i] + v);\n\t\t} upd(l[i], c[i]);\n\t}\n\tcout << (dp.count(1) ? dp[1] : -1);\n}\n```\n\n### *P2520 [HAOI2011] 向量\n\n不了解向量运算法则请翻到下文 22.1 线性代数部分。\n\n对于 $(-a,-b)$ 这样的向量，可以视为减去 $(a,b)$，其余同理，这样八种就变成了四种。问题转化为求 $c,d,e,f \\in \\mathbb{N}$ 使得 $c(a,b)+d(a,-b)+e(b,a)+f(b,-a)=(x,y)$，拆开得到\n\n$$\n\\left\\{\\begin{matrix}\na(c+d)+b(e+f)=x \\\\\na(e-f)+b(c-d)=y\n\\end{matrix}\\right.\n$$\n\n根据裴蜀定理，上面方程组有整数解的必要条件是 $\\gcd(a,b) \\mid x$ 且 $\\gcd(a,b) \\mid y$。\n\n但是这样只能保证 $c+d,e+f,e-f,c-d \\in \\mathbb{N}$，而 $c,d,e,f$ 会出现 $\\dfrac{1}{2}$ 的情况。\n\n所以有解的充要条件是 $\\gcd(a,b) \\mid x$ 且 $\\gcd(a,b) \\mid y$ 且 $c+d,c-d$ 奇偶性相同、$e+f,e-f$ 奇偶性相同。\n\n设 $c+d=2k_1+m_1,c-d=2k_2+m_1,e+f=2k_3+m_2,e-f=2k_4+m_2$，且 $m_1,m_2 \\in \\{0,1\\}$，得到\n\n$$\n\\left\\{\\begin{matrix}\na(2k_1+m_1)+b(2k_3+m_2)=x \\\\\na(2k_4+m_2)+b(2k_2+m_1)=y\n\\end{matrix}\\right.\n$$\n\n分四种情况讨论。以 $m_1=m_2=0$ 为例，等式两边同除 $2$可得 $\\gcd(a,b) \\mid \\dfrac{x}{2}$，即 $2\\gcd(a,b) \\mid x$，对于 $y$ 同理。\n\n以 $m_1=0,m_2=1$ 为例，同加 $b$ 再同除 $2$，化简得到 $2 \\gcd(a,b) \\mid (x+b)$。\n\n剩下两种类似。四种可能或起来即可。\n\n```cpp\nlong long a, b, x, y;\n\nvoid _main() {\n\tcin >> a >> b >> x >> y;\n\tlong long g = __gcd(a, b);\n\tif (x % g || y % g) return cout << \"N\\n\", void();\n\tg *= 2;\n\tif (x % g == 0 && y % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + b) % g == 0 && (y + a) % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + a) % g == 0 && (y + b) % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + a + b) % g == 0 && (y + a + b) % g == 0) return cout << \"Y\\n\", void();\n\tcout << \"N\\n\";\n}\n```\n\n### *P3518 [POI 2011] SEJ-Strongbox\n\n设密码集合为 $S$，则 $\\forall i,j \\in S, (i+j) \\bmod n \\in S$。考虑对于 $i \\in S$，必然有 $\\forall k \\in \\mathbb{N}^+, ki \\bmod n \\in S$，所以首先考虑 $ki \\bmod n$ 能取到哪些数。\n\n首先讨论 $\\gcd(i,n)=1$，此时 $ki \\bmod n$ 取遍 $0,1,2,3,\\cdots,n-1$。因为同余方程 $ki \\equiv x \\pmod n$ 必然有解。一般地，猜想 $i \\in S$ 使得 $ki=x \\pmod n$ 有解，即 $\\gcd(k,n)=1$，反证法得到 $ki \\bmod n$ 取到了所有 $\\gcd(i,n)$ 的倍数。\n\n对于 $i \\notin S$，$i$ 的所有因子也不是密码。根据这个判定方法，枚举 $d \\mid \\gcd(m_k,n)$，若合法，则对于 $d \\in S$ 的密码数量就是 $\\dfrac{n}{d}$。复杂度 $O(k \\sqrt {\\gcd(m_k,n)})$，可以获得 76pts。\n\n```cpp\n#define int long long\nconst int N = 2.5e5 + 5;\nint n, k, a[N];\nbool check(int x) {\n\tfor (int i = 1; i < k; i++) {\n\t\tif (a[i] % x == 0) return false;\n\t} return true;\n}\n\nvoid _main() {\n\tcin >> n >> k;\n\tfor (int i = 1; i <= k; i++) cin >> a[i];\n\tint x = __gcd(n, a[k]);\n\tfor (int i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tif (check(i)) return cout << n / i, void();\n\t}\n\tfor (int i = sqrt(x) + 1; i >= 1; i--) {\n\t\tif (x % i) continue;\n\t\tif (check(x / i)) return cout << n / (x / i), void();\n\t}\n}\n```\n\n考虑优化。枚举因子最多只有 $10^7$，思考如何快速 `check`。首先令 $a_i \\gets \\gcd(a_i,x)$，显然不影响结果。接着对 $x$ 质因数分解。注意到 $2\\times 3\\times 5\\times 7\\times 11\\times 13\\times 17\\times 19\\times 23\\times 29\\times 31\\times 37\\times 41\\times 43>10^{14}$，考虑对于每个 $a_i$ 直接按质因子爆搜因数。使用哈希表记忆化搜索，复杂度大概是 $O(k \\log V+\\sqrt{V}+d(V) \\omega(V))$。\n\n```cpp\n#define int long long\nconst int N = 2.5e5 + 5;\nint n, k, a[N];\nbool check(int x) {\n\tfor (int i = 1; i < k; i++) {\n\t\tif (a[i] % x == 0) return false;\n\t} return true;\n}\nvector<int> p;\nvoid decompose(int x) {\n\tfor (int i = 2; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tp.emplace_back(i);\n\t\twhile (x % i == 0) x /= i;\n\t}\n\tif (x != 1) p.emplace_back(x);\n}\nunordered_set<int> f;\nvoid dfs(int x) {\n\tif (f.count(x)) return;\n\tf.emplace(x);\n\tfor (int i : p) {\n\t\tif (x % i == 0) dfs(x / i);\n\t}\n}\n\nvoid _main() {\n\tcin >> n >> k;\n\tfor (int i = 1; i <= k; i++) cin >> a[i];\n\tint x = __gcd(n, a[k]);\n\tdecompose(x);\n\tfor (int i = 1; i < k; i++) dfs(__gcd(a[i], x));\n\tfor (int i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tif (!f.count(i)) return cout << n / i, void();\n\t}\n\tfor (int i = sqrt(x) + 1; i >= 1; i--) {\n\t\tif (x % i) continue;\n\t\tif (!f.count(x / i)) return cout << n / (x / i), void();\n\t}\n}\n```\n\n### P1082 [NOIP 2012 提高组] 同余方程\n\n这东西我们在之前的乘法逆元讲过方法了，就是用 exGCD 解方程 $ax-by=1$。输入保证有解，意味着 $\\gcd(a,b)=1$，所以这就是 exGCD 方程的标准形式。细节上，求出 $x$ 以后要处理负数问题。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n\nlong long a, b;\nvoid _main() {\n\tcin >> a >> b;\n\tlong long x, y; exgcd(a, b, x, y);\n\tcout << (x % b + b) % b;\n}\n```\n\n### P5656 【模板】二元一次不定方程 (exgcd)\n\n首先由裴蜀定理判无解，若 $c$ 不是 $\\gcd(a,b)$ 的倍数则直接无解。\n\n设 $\\gcd(a,b)=d$。考虑用 exGCD 求解方程 $ax+by=d$，将解记作 $x_0,y_0$。则\n\n$ax_0+by_0=d\\\\$方程两边同乘 $\\dfrac{c}{d}$ 转化为所求：\n\n$a\\dfrac{cx_0}{d}+b\\dfrac{cy_0}{d}=c\\\\$故原方程的一组解为 $x_1=\\dfrac{cx_0}{d},y_1=\\dfrac{cy_0}{d}$。\n\n接下来考虑构造通解形式，设\n\n$a(x_1+m)+b(y_0+n)=c$不难发现 $m,n$ 满足条件 $am+bn=0$。仍然利用裴蜀定理，解得 $m=p \\times \\dfrac{b}{d}, n=-p \\times {a}{d}$，其中 $p$ 是正整数。于是我们得到原方程的通解\n\n$$\n\\left\\{\\begin{matrix}\nx=x_1+p \\times \\dfrac{b}{d} \\\\\ny=y_1-p \\times \\dfrac{a}{d}\n\\end{matrix}\\right.\n$$\n\n考虑求解数与最值。找 $x_{\\min}$ 即为解关于 $k$ 的不等式\n\n$x_1+km \\ge 1$由于式中的值均为整数，故\n\n$k \\ge \\lceil \\dfrac{1-x_1}{m} \\rceil$由于 $y$ 随 $x$ 的增大而减小，故 $x_{\\min}$ 所对应的 $y$ 就是 $y_{\\max}$。接下来我们用 $y_{\\max}$ 推 $y_{\\min}$。推导一下，可以发现\n\n$y_{\\min}=y_{\\max} \\bmod n$于是 $x_{\\max}$ 加上同样多的 $m$ 即可：\n\n$x_{\\max}=x_{\\min} + \\lfloor \\dfrac{y_{\\max}-1}{n} \\times m \\rfloor$解数就是 $[y_{\\min},y_{\\max}]$ 中解的个数，即\n\n$\\lfloor \\dfrac{y_{\\max}-1}{n} +1 \\rfloor$至此本题在 $O(\\log V)$ 内解决，$V$ 为值域。\n\n在实现中，我们可以将 $a,b,c$ 都除去 $d$，这样可以简化代码。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n\nlong long a, b, c;\n\nvoid _main() {\n\tcin >> a >> b >> c;\n\tlong long d = __gcd(a, b);\n\tif (c % d) return cout << -1 << '\\n', void();\n\ta /= d, b /= d, c /= d;\n\tlong long x0, y0; exgcd(a, b, x0, y0);\n\tlong long x1 = c * x0, y1 = c * y0;\n\tint xmin = (x1 > 0 && x1 % b != 0) ? x1 % b : x1 % b + b;\n\tint ymax = (c - xmin * a) / b;\n\tint ymin = (y1 > 0 && y1 % a != 0) ? y1 % a : y1 % a + a;\n\tint xmax = (c - ymin * b) / a;\n\tif (xmax <= 0) cout << xmin << ' ' << ymin << '\\n';\n\telse cout << (ymax - ymin) / a + 1 << ' ' << xmin << ' ' << ymin << ' ' << xmax << ' ' << ymax << ' ' << '\\n';\n}\n```\n\n### P1516 青蛙的约会\n\n设相遇时两只青蛙跳了 $t$ 次，则\n\n$(n-m)t+kL=x-y$即求解 $t$ 的最小非负整数解。在不定方程 $ax+by=c$ 中，我们把 $n-m$ 视作 $a$，$L$ 视作 $b$，$x-y$ 视作 $c$，则应用上一题的方法来求解。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\nlong long x, y, m, n, L;\n\nvoid _main() {\n\tcin >> x >> y >> m >> n >> L;\n\tlong long a = n - m, b = L, c = x - y;\n\tif (a < 0) a = -a, c = -c;\n\tlong long d = __gcd(a, b);\n\tif (c % d) return cout << \"Impossible\", void();\n\ta /= d, b /= d, c /= d;\n\tlong long x0, y0; exgcd(a, b, x0, y0);\n\tlong long x1 = c * x0;\n\tcout << ((x1 > 0 && x1 % b != 0) ? x1 % b : x1 % b + b);\n}\n```\n\n### P12952 [GCJ Farewell Round #2] Intruder Outsmarting\n\n我们考虑第 $i$ 个转轮，设调整它 $a$ 次，调整第 $w-i+1$ 个转轮 $b$ 次，则有同余方程：\n\n$X_i+Da \\equiv X_{w-i+1}+Db \\pmod N$其中 $i \\le \\lfloor \\dfrac{W}{2} \\rfloor$。显然这个玩意没法 exCRT，于是我们把它变成不定方程：\n\n$$\nD(a-b) \\equiv X_{w-i+1}-X_i \\pmod N\\\\\nD(a-b)-kN=X_{w-i+1}-X_i\n$$\n\n等号右边是已知量，将 $a-b$ 和 $k$ 看作未知数，先判无解，然后使用 exGCD 求出 $D(a-b)-kN=\\gcd(D,N)$ 的解。我们需要求出 $a+b$ 的最小值。设 $p=a-b$，分类讨论：\n\n- 若 $p \\ge 0$，则 $a-b=p$，即 $a+b=2b+p$，当 $b=0$ 且 $p$ 为最小非负整数解时，$a+b$ 取得最小值。\n- 若 $p<0$，则 $b-a=-p$，即 $a+b=2a-p$，当 $a=0$ 且 $p$ 为最大非负整数解的相反数时，$a-b$ 取得最小值。\n\n至此，套用模板题的方法，本题解决。\n\n```cpp\nconst int N = 2005;\n#define int long long\nvoid exgcd(int a, int b, int& x, int &y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\nint w, n, d, x[N];\n\nvoid _main(int kase) {\n\tcout << \"Case #\" << kase << \": \";\n\tcin >> w >> n >> d;\n\tfor (int i = 1; i <= w; i++) cin >> x[i];\n\tint g = __gcd(n, d), n0 = n / g, res = 0;\n\tfor (int i = 1; i <= w / 2; i++) {\n\t\tif ((x[i] - x[w - i + 1]) % g) return cout << \"IMPOSSIBLE\\n\", void();\n\t\tint a, b; exgcd(d, n, a, b);\n\t\tint p = a * ((x[w - i + 1] - x[i]) / g % n0) % n0;\n\t\tif (p >= 0) p %= n0, res += min(p, n0 - p);\n\t\telse {\n\t\t\tint q = p + n0 * ceil(-1.0 * p / n0);\n\t\t\tres += min(q, n0 - q);\n\t\t}\n\t} cout << res << '\\n';\n}\n```\n\n### P4777 【模板】扩展中国剩余定理（EXCRT）\n\n板子题。给个代码：\n\n```cpp\nconst int N = 1e5 + 5;\n\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (!b) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\ntemplate <class T> T crt(int n, const T* a, const T* m) {\n\tT x = 0, y = 0, p = m[1], res = a[1];\n\tfor (int i = 2; i <= n; i++) {\n\t\tT a0 = p, b0 = m[i], c = (a[i] - res % b0 + b0) % b0, g = __gcd(a0, b0);\n\t\tif (c % g) return -1;\n\t\texgcd(a0, b0, x, y);\n\t\tx = (__int128) x * c / g % b0, res += x * p, p = p / __gcd(p, b0) * b0, res = (res % p + p) % p;\n\t}\n\treturn res;\n}\n\nint n;\nlong long a[N], m[N];\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> m[i] >> a[i];\n\tcout << crt(n, a, m);\n}\n```\n\nexCRT 很重要的一个用途是对于模数不是质数的情况，我们把模数分解质因数，然后分别计算对这些质因数取模的结果，最后用 exCRT 合并。\n\n### P3868 [TJOI2009] 猜数字\n\n对于 $(x-a_i) \\mid  b_i$，可以变形为 $x-a_i \\equiv 0 \\pmod {b_i}$，然后再移项就是 $x \\equiv a_i \\pmod {b_i}$。于是解这个同余方程组即可。\n\n细节上注意 $a_i$ 可能为负，需要对 $b_i$ 取模处理，另外这题会爆 `long long`，不过上面板子里已经开了 `__int128` 了。\n\n```cpp\nconst int N = 15;\nint n;\nlong long a[N], b[N];\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tfor (int i = 1; i <= n; i++) cin >> b[i];\n\tfor (int i = 1; i <= n; i++) a[i] = (a[i] % b[i] + b[i]) % b[i];\n\tcout << crt(n, a, b);\n}\n```\n\n### *P4774 [NOI2018] 屠龙勇士\n\n首先把题目翻译过来，发现每条龙所对应的攻击力是确定的，记作 $b_i$。可以用一个 std::multiset 模拟攻击过程，现在问题是求\n\n$$\n\\left\\{\\begin{matrix}\nb_1x \\equiv a_1 \\pmod {p_1} \\\\\nb_2x \\equiv a_2 \\pmod {p_2} \\\\\n\\cdots \\\\\nb_nx \\equiv a_n \\pmod {p_n}\n\\end{matrix}\\right.\n$$\n\n的最小正整数解 $x$。\n\n对于 $bx \\equiv a \\pmod p$，拆开：\n\n$bx-py=a$上 exGCD 求出一组特解 $x_0,y_0$，根据模板题的通解公式有\n\n$x=x_0+k \\dfrac{p}{\\gcd(b,p)}$同模 $\\dfrac{p}{\\gcd(b,p)}$ 化为同余式\n\n$x\\equiv x_0 \\pmod {\\dfrac{p}{\\gcd(b,p)}}$问题解决。之后使用普通的 exCRT 解出 $x$ 即可。\n\n还有一些特判：\n\n- 上面这种只适用于 $a_i \\le p_i$ 的情况。对于 $a_i>p_i$ 的情况，根据数据点分治有 $p_i=1$，那么答案就是 $\\max_{i=1}^{n} \\lceil \\dfrac{a_i}{b_i} \\rceil$，需要特判。\n- 当所有的 $p_i=a_i$ 时，$x=0$。但是这是错的，应该求出所有刀数取 $\\operatorname{lcm}$。\n\n```cpp\nconst int N = 1e5 + 5;\nint n, m;\nlong long a[N], b[N], p[N], c[N], x, x0[N];\nmultiset<long long> st;\n\nvoid _main() {\n\tst.clear();\n\tcin >> n >> m;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tbool f1 = false, f2 = true;\n\tfor (int i = 1; i <= n; i++) {\n\t\tcin >> p[i];\n\t\tif (a[i] > p[i]) f1 = true;\n\t\tif (a[i] != p[i]) f2 = false;\n\t}\n\tfor (int i = 1; i <= n; i++) cin >> c[i];\n\tfor (int i = 1; i <= m; i++) cin >> x, st.emplace(x);\n\tfor (int i = 1; i <= n; i++) {\n\t\tauto it = st.upper_bound(a[i]);\n\t\tif (it != st.begin()) it--;\n\t\tb[i] = *it, st.erase(it), st.emplace(c[i]);\n\t\tdebug(b[i]);\n\t}\n\tif (f1) {\n\t\tlong long res = 0;\n\t\tfor (int i = 1; i <= n; i++) res = max(res, (a[i] + b[i] - 1) / b[i]);\n\t\treturn cout << res << '\\n', void();\n\t}\n\tif (f2) {\n\t\tlong long res = 1;\n\t\tfor (int i = 1; i <= n; i++) {\n\t\t\tlong long v = p[i] / __gcd(p[i], b[i]);\n\t\t\tres = res / __gcd(res, v) * v;\n\t\t} return cout << res << '\\n', void();\n\t}\n\tfor (int i = 1; i <= n; i++) {\n\t\tif (b[i] % p[i] == 0) {\n\t\t\tif (p[i] == a[i]) x0[i] = 0, p[i] = 1;\n\t\t\telse return cout << -1 << '\\n', void();\n\t\t\tcontinue;\n\t\t}\n\t\tlong long g = __gcd(b[i], p[i]);\n\t\tif (a[i] % g) return cout << -1 << '\\n', void();\n\t\tlong long y0;\n\t\texgcd(b[i], p[i], x0[i], y0);\n\t\tp[i] /= g, x0[i] = (x0[i] % p[i] + p[i]) % p[i];\n\t\tx0[i] = (int128) x0[i] * (a[i] / g) % p[i];\n\t}\n\tcout << crt(n, x0, p) << '\\n';\n}\n```",
-                "codePath": "",
-                "timeComplexity": "见原文",
-                "spaceComplexity": "见原文",
-                "tags": [
-                    "gcd",
-                    "lcm",
-                    "exgcd",
-                    "裴蜀定理"
-                ],
-                "source": "stripe-python"
-            }
         ],
-        "content": "> 本文由 stripe-python 授权合并，正文保留原文结构与表述；原文为《OI 中的数学基础》（[博客版](https://stripepython.github.io/2025/10/05/OI%20%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/)），本页按主题拆分。\n\n## 3. 最大公约数\n\n定义**最大公约数** $\\gcd(a,b)$ 为：满足 $k \\mid a$ 且 $k \\mid b$ 的最大的 $k$。定义 $\\gcd(a,0)=0$。\n\n定义最小公倍数 $\\operatorname{lcm}(a,b)$ 为：满足 $a \\mid k$ 且 $b \\mid k$ 的最小的 $k$。\n\n## 3.1 求解 GCD\n\n### 3.1.1 分解质因数法\n\n将两数分解质因数：$a=p_1^{a_1}p_2^{a_2} \\cdots, b=a=p_1^{b_1}p_2^{b_2} \\cdots$，则 $\\gcd(a,b)=p_1^{\\min(a_1,b_1)}p_2^{\\min(a_2,b_2)} \\cdots$，复杂度为 $O(\\sqrt{n})$。\n\n这证明：求 gcd 和求最小值有共通之处。\n\n### 3.1.2 辗转相除法\n\nGCD 有如下性质：\n\n$\\gcd(a,b)=\\gcd(b,a \\bmod b)$利用此可递归计算 gcd，出口为 $\\gcd(a,0)=a$。复杂度 $O(\\log (a+b))$。\n\n```cpp\nint gcd(int a, int b) {return b == 0 ? a : gcd(b, a % b);}\n```\n\nC++ STL 中有函数 `std::__gcd`，为迭代的辗转相除法实现，复杂度为 $O(\\log n)$，可以直接使用。\n\n### 3.1.3 更相减损法\n\nGCD 有如下性质：\n\n$\\gcd(a,b)=\\gcd(a-b,b)$如果直接递归计算，复杂度为 $O(n)$。Stein 算法对此进行了优化：\n\n若 $2\\mid a$ 且 $2\\mid b$，则 $\\gcd(a,b)=2\\gcd(\\dfrac{a}{2},\\dfrac{b}{2})$。而若只有 $2 \\mid  a$，则 $\\gcd(a,b)=\\gcd(\\dfrac{a}{2},b)$。这启示我们可以在过程中除掉约数 $2$，然后再更相减损，复杂度就降到了 $O(\\log n)$。Stein 算法常用于大整数的 GCD。\n\nStein 算法可以借助二进制内置函数优化，称作 Binary GCD，理论复杂度 $O(\\log (a+b))$，但在实际表现中可以看作大常数 $O(1)$。这份代码的速度比 `std::__gcd` 更快，可以卡过 [P5435](https://www.luogu.com.cn/problem/P5435)。\n\n```cpp\ntemplate <class T> constexpr T gcd(T a, T b) {\n\tint az = ctz(a), bz = ctz(b), z = min(az, bz);\n\tfor (b >>= bz; a; ) {\n\t\ta >>= az; int d = a - b;\n\t\taz = ctz(a - b), b = min(a, b), a = abs(d);\n\t} return b << z;\n}\n```\n\n## 3.2 exGCD\n\nexGCD 用于求解形如 $ax+by=\\gcd(a,b)$ 一类的不定方程。\n\n### 3.2.1 裴蜀定理\n\n对于任意非零整数 $a,b$，$ax+by=c$ 有整数解当且仅当 $c \\mid  \\gcd(a,b)$。\n\n#### 推论\n\n若 $a_1,a_2,a_3,\\cdots,a_n$ 是不全为 $0$ 的整数，则存在整数 $x_1,x_2,x_3,\\cdots,x_n$ 使得\n\n$a_1x_1+a_2x_2+a_3x_3+\\cdots+a_nx_n=\\gcd(a_1,a_2,a_3,\\cdots,a_n)$其逆定理也成立。\n\n### 3.2.2 不定方程\n\n由 $\\gcd(a,b)=\\gcd(b,a\\bmod b)$ 得：\n\n$$\n\\begin{aligned}\nax+by&=bx'+(a\\bmod b)y'\\\\\n&=bx'+(a-b\\lfloor \\dfrac{a}{b} \\rfloor)y'\\\\\n&=ay'+b(x'-y'\\lfloor \\dfrac{a}{b} \\rfloor)\n\\end{aligned}\n$$\n\n递归式：$x=y',y=x'-y'\\lfloor \\dfrac{a}{b} \\rfloor$，这样就可以 $O(\\log (a+b))$ 求解。\n\n```cpp\nvoid exgcd(int a, int b, int& x, int& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n```\n\n可以证明，通过这种方法得到的 $x,y$ 在值域范围内。所以不用担心溢出的问题。\n\n### 3.2.3 乘法逆元\n\n逆元就是模意义下的倒数：求 $x \\equiv \\dfrac{1}{a} \\pmod m$ 的解。\n\n移项得：$ax \\equiv 1 \\pmod m$，即为求解不定方程 $ax-bm=1$，用 exGCD 求解即可。\n\n这里可以发现，$x$ 在模 $m$ 意义下有逆元当且仅当 $x,m$ 互质。利用乘法逆元，可以实现模意义下的除法。\n\n### 3.2.4 线性方程组\n\n这里的线性方程组是指求一个最小的 $x$ 满足\n\n$$\n\\left\\{\\begin{matrix}\nx \\equiv a_1 \\pmod {m_1} \\\\\nx \\equiv a_2 \\pmod {m_2} \\\\\n\\cdots \\\\\nx \\equiv a_n \\pmod {m_n}\n\\end{matrix}\\right.\n$$\n\n两两考虑。比如我们把前两个方程变成不定方程：$x=m_1p+a_1=m_2q+a_2$。则 $m_1p-m_2q=a_2-a_1$，利用 exGCD 解出一组可行解 $(p,q)$，然后这两个方程组的共同解为 $x \\equiv (m_1p+a_1) \\pmod {\\operatorname{lcm}(m_1,m_2)}$。然后把 $n$ 个方程都这么合并起来即可。这种方法叫 exCRT。\n\n至于为什么不说 CRT，因为我觉得 exCRT 比 CRT 更容易理解，适用范围更广，代码还好写。\n\n## 3.3 常用性质\n\n这里我们不加证明地给出一些 $\\gcd$ 的性质。\n\n1. $\\gcd(a, b) \\times \\operatorname{lcm}(a,b)=ab$。\n2. $\\gcd(a,b) \\le |a- b|$。\n3. $\\gcd(b,a \\bmod b)=\\gcd(a,b)$。\n4. $\\gcd(a,b)=\\gcd(a-b,b)$。\n5. $\\gcd(a,b)=\\sum_{x \\mid a, x\\mid b} \\varphi(x)$。$\\varphi(x)$ 为下文第 4 章要讲的欧拉函数。\n6. $\\gcd(a,b)=c$，则 $\\gcd(\\dfrac{a}{c},\\dfrac{b}{c})=1$。证明见第一道例题。\n\n## 3.4 例题\n\n前面是 GCD 性质和裴蜀定理应用题，后面是 exGCD & exCRT 例题。\n\n### P1072 [NOIP 2009 提高组] Hankson 的趣味题\n\n注意到性质 6：若 $\\gcd(a,b)=c$，且 $a=k_1c,b=k_2c$，则 $\\gcd(k_1,k_2)=1$。\n\n证明：考虑反证法，设 $K=\\gcd(k_1,k_2) \\ne 1$，则存在不为 $1$ 的正整数 $p,q$ 使得 $k_1=pK,k_2=qK$，因而 $a=pKc,b=qKc$，$\\gcd(a,b)=Kc \\ne c$，故原结论成立。\n\n由题可得：$x=a_1 p$，$b_1=xq$，其中 $p,q$ 为正整数。\n\n由上述结论得：$\\gcd(\\dfrac{a_0}{a_1},\\dfrac{x}{a_1})=1$。又有 $\\operatorname{lcm}(x,b_0)=b_1$，故 $\\gcd(\\dfrac{b_1}{x},\\dfrac{b_1}{b_0})=1$。且 $x\\mid b_1$，枚举 $x$ 并判断即可，复杂度 $O(\\sqrt{b_1} \\log V)$。\n\n```cpp\nint a0, a1, b0, b1;\nvoid _main() {\n\tcin >> a0 >> a1 >> b0 >> b1;\n\tint cnt = 0;\n\tfor (int x = 1; x * x <= b1; x++) {\n\t\tif (b1 % x) continue;\n\t\tif (x % a1 == 0 && __gcd(x / a1, a0 / a1) == 1 && __gcd(b1 / x, b1 / b0) == 1) cnt++;\n\t\tint y = b1 / x;\n\t\tif (x == y) continue;\n\t\tif (y % a1 == 0 && __gcd(y / a1, a0 / a1) == 1 && __gcd(b1 / y, b1 / b0) == 1) cnt++;\n\t}\n\tcout << cnt << '\\n';\n}\n```\n\n### UVA10622 完全P次方数 Perfect P-th Powers\n\n将 $x$ 分解质因数为 ${p_1}^{c_1} {p_2}^{c_2} {p_3}^{c_3} \\cdots$。注意到 $(a^xb^y)^z=a^{xz} b^{xz}$。所以 $p=\\gcd(c_1,c_2,c_3,\\cdots)$。\n\n需要注意 $x$ 不一定是正数。此时 $p$ 不能是偶数，不然 $a^p$ 就是正数了。\n\n```cpp\n#define int long long\nint x;\nvoid _main() {\n\twhile (cin >> x, x) {\n\t\tvector<int> c;\n\t\tbool neg = x < 0;\n\t\tx = abs(x);\n\t\tfor (int i = 2; i * i <= x; i++) {\n\t\t\tif (x % i) continue;\n\t\t\tc.emplace_back(0);\n\t\t\twhile (x % i == 0) x /= i, c.back()++;\n\t\t}\n\t\tif (x != 1) c.emplace_back(1);\n\t\tint g = 0;\n\t\tfor (int i : c) g = __gcd(g, i);\n\t\tif (neg) g >>= __builtin_ctzll(g);\n\t\tcout << g << '\\n';\n\t}\n}\n```\n\n### CF1499D The Number of Pairs\n\n设 $a=n\\times \\gcd(a,b),b=m \\times \\gcd(a,b)$，大力推式子：\n\n$$\n\\begin{aligned}\nc \\times \\operatorname{lcm(a,b)}-d\\times \\gcd(a,b)&=x\\\\\nc \\times \\dfrac{ab}{\\gcd(a,b)}-d\\times \\gcd(a,b)&=x\\\\\nc nm \\times \\gcd(a,b)-d\\times \\gcd(a,b)&=x\\\\\n\\gcd(a,b)&=\\dfrac{x}{cnm-d}\n\\end{aligned}\n$$\n\n说明 $(cnm-d) \\mid x$。$O(\\sqrt{x})$ 地枚举 $x$ 的因子 $i$。移项有 $cnm=d+i$，即 $c \\mid (d+i)$。再将 $\\dfrac{d+i}{c}$ 分解质因数，对于每种质因子只有全给 $n$ 和全给 $m$ 两种选择，否则会使得 $(cnm-d) \\nmid x$。用线性筛先得到每个数的质因子个数，则贡献为 $2^{cnt}$。复杂度 $O(n+T\\sqrt{n})$。\n\n```cpp\nconst int N = 2e7 + 5;\nbitset<N> isprime;\nint cnt[N], prime[N];\nvoid init() {\n\tisprime.set(), isprime[0] = isprime[1] = false;\n\tfor (int i = 2; i < N; i++) {\n\t\tif (isprime[i]) prime[++prime[0]] = i, cnt[i] = 1;\n\t\tfor (int j = 1; j <= prime[0] && 1LL * i * prime[j] < N; j++) {\n\t\t\tisprime[i * prime[j]] = false;\n\t\t\tif (i % prime[j] == 0) {\n\t\t\t\tcnt[i * prime[j]] = cnt[i];\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tcnt[i * prime[j]] = cnt[i] + 1;\n\t\t}\n\t}\n}\n\nlong long c, d, x;\nlong long f(int x) {\n\tif ((x + d) % c) return 0;\n\treturn 1LL << cnt[(x + d) / c];\n}\nvoid _main() {\n\tcin >> c >> d >> x;\n\tlong long res = 0;\n\tfor (long long i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tres += f(i);\n\t\tif (i * i != x) res += f(x / i);\n\t} cout << res << '\\n';\n}\n```\n\n### CF2148G Farmer John’s Last Wish\n\n不难发现满足 $\\gcd_{i=1}^{k} a_i \\ne \\gcd_{i=1}^{k+1} a_i$ 的最大的 $k$ 等价于满足 $\\gcd_{i=1}^{n} a_i \\ne \\gcd_{i=1}^{k+1} a_i$ 的最大的 $k$。\n\n考虑对前缀 $p$ 的解法，记 $\\gcd_{i=1}^{len} p_i = g$，则找到最长的都是 $g$ 的倍数的一段放在前面，这段长度就是答案。动态维护 $f_i$ 表示当前前缀中 $i$ 的倍数数目，答案即为 $\\max f_{i \\times g}$。\n\n由于每次操作使得 $g$ 变为原本的因子，故 $g$ 的倍数集合只增不删，枚举 $g$ 的倍数 $j \\times g$，将 $j \\times g$ 加入集合并更新答案。然后遍历 $a_i$ 的因子 $j$，更新 $f_j$，当 $j$ 是 $g$ 的倍数时更新答案。\n\n注意到复杂度为 $O(n^2)$。可以发现 $g$ 降到 $1$ 最多 $O(\\log V)$ 次，可以对 $g$ 的变化记忆化一下。复杂度为 $O(n \\log V+n\\log n)$。\n\n```cpp\nconst int N = 2e5 + 5;\nint n, a[N], f[N], vis[N], tag[N];\nvector<int> fac[N];\n\nvoid prework() {\n\tfor (int i = 1; i < N; i++) {\n\t\tfor (int j = i; j < N; j += i) fac[j].emplace_back(i);\n\t}\n}\nvoid _main() {\n\tmemset(f, 0, sizeof(int) * (n + 1)), memset(vis, 0, sizeof(int) * (n + 1)), memset(tag, 0, sizeof(int) * (n + 1));\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tint g = a[1], cur = 0;\n\tfor (int i = 1; i <= n; i++, g = __gcd(g, a[i])) {\n\t\tif (!tag[g]) {\n\t\t\tfor (int j = 2; j * g <= n; j++) vis[j * g] = true, cur = max(cur, f[j * g]);\n\t\t\ttag[g] = true;\n\t\t}\n\t\tfor (int j : fac[a[i]]) {\n\t\t\tf[j]++;\n\t\t\tif (vis[j]) cur = max(cur, f[j]);\n\t\t} cout << cur << ' ';\n\t} cout << '\\n';\n}\n```\n\n### P8255 [NOI Online 2022 入门组] 数学游戏\n\n考虑对 $z,x,y$ 质因数分解得：\n\n$\\prod {p_i}^{z_i}=\\prod {p_i}^{x_i+y_i+\\min(x_i,y_i)}$即 $z_i=x_i+y_i+\\min(x_i,y_i)$。分类讨论：\n\n1. 若 $y_i \\ge x_i$，则 $z_i=x_i+2y_i$，解得 $y_i=\\dfrac{z_i-x_i}{2}$。\n2. 若 $y_i < x_i$，则 $z_i=2x_i+y_i$，解得 $y_i=z_i-2x_i$。\n\n因此，$y_i=\\min(\\dfrac{z_i-x_i}{2},z_i-2x_i)$。\n\n想想指数出现 $\\min$、除法、减号、乘法的意义：就是取 $\\gcd$，开方，除法，乘方。通过配凑系数得到：\n\n$y=\\dfrac{x}{z\\sqrt{\\gcd(x^2,\\frac{x}{z})}}$不能整除，不能开方均判为无解。\n\n```cpp\nconst double eps = 1e-8;\nint x, z;\n\nvoid _main() {\n\tcin >> x >> z;\n\tif (z % x) return cout << -1 << '\\n', void();\n\tint128 t = z / x, u = __gcd((int128) x * x, t), us = sqrt(1.0L * u) + 0.5;\n\tif (u != us * us) return cout << -1 << '\\n', void();\n\tcout << (long long) (t / us) << '\\n';\n}\n```\n\n### P4549 【模板】裴蜀定理\n\n由 $\\gcd(a,b,c)=\\gcd(a,\\gcd(b, c))$ 得\n\n$\\sum_{i=1}^{n} a_i x_i = \\gcd_{i=1}^{n} |a_i|$而题目中记 $\\sum x_i$ 为 $S$，根据裴蜀定理可知 $\\gcd_{i=1}^{n} |a_i|$ 是 $S$ 的约数，$S$ 最小时二者相等。也就是求所有数的 $\\gcd$。\n\n### CF510D Fox And Jumping\n\n根据裴蜀定理的推论，能跳到所有位置当且仅当我们选出的长度的 $\\gcd=1$。于是设 $dp_i$ 表示选择一些长度使得其最大公约数为 $i$ 的最小代价，采用刷表，枚举 $i,j \\in [1,n]$ 易得\n\n$dp_{\\gcd(l_i, j)} \\gets \\min(dp_{\\gcd(l_i, j)}, c_{i}+v)$对于单个转移，有\n\n$dp_{l_i} \\gets \\min(dp_{l_i},c_i)$由于下标能到 $10^9$，暴力 dp 是不行的。但是有用的 $dp$ 值不多，于是我们用 `std::map` 维护转移，复杂度比较玄学。\n\n```cpp\nconst int N = 305;\nint n, l[N], c[N];\nmap<int, int> dp;\nvoid upd(int x, int v) {\n\tif (!dp.count(x)) dp[x] = v;\n\telse dp[x] = min(dp[x], v);\n}\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> l[i];\n\tfor (int i = 1; i <= n; i++) cin >> c[i];\n\tfor (int i = 1; i <= n; i++) {\n\t\tfor (const auto& h : dp) {\n\t\t\tint j = h.first, v = h.second;\n\t\t\tupd(__gcd(l[i], j), c[i] + v);\n\t\t} upd(l[i], c[i]);\n\t}\n\tcout << (dp.count(1) ? dp[1] : -1);\n}\n```\n\n### *P2520 [HAOI2011] 向量\n\n不了解向量运算法则请翻到下文 22.1 线性代数部分。\n\n对于 $(-a,-b)$ 这样的向量，可以视为减去 $(a,b)$，其余同理，这样八种就变成了四种。问题转化为求 $c,d,e,f \\in \\mathbb{N}$ 使得 $c(a,b)+d(a,-b)+e(b,a)+f(b,-a)=(x,y)$，拆开得到\n\n$$\n\\left\\{\\begin{matrix}\na(c+d)+b(e+f)=x \\\\\na(e-f)+b(c-d)=y\n\\end{matrix}\\right.\n$$\n\n根据裴蜀定理，上面方程组有整数解的必要条件是 $\\gcd(a,b) \\mid x$ 且 $\\gcd(a,b) \\mid y$。\n\n但是这样只能保证 $c+d,e+f,e-f,c-d \\in \\mathbb{N}$，而 $c,d,e,f$ 会出现 $\\dfrac{1}{2}$ 的情况。\n\n所以有解的充要条件是 $\\gcd(a,b) \\mid x$ 且 $\\gcd(a,b) \\mid y$ 且 $c+d,c-d$ 奇偶性相同、$e+f,e-f$ 奇偶性相同。\n\n设 $c+d=2k_1+m_1,c-d=2k_2+m_1,e+f=2k_3+m_2,e-f=2k_4+m_2$，且 $m_1,m_2 \\in \\{0,1\\}$，得到\n\n$$\n\\left\\{\\begin{matrix}\na(2k_1+m_1)+b(2k_3+m_2)=x \\\\\na(2k_4+m_2)+b(2k_2+m_1)=y\n\\end{matrix}\\right.\n$$\n\n分四种情况讨论。以 $m_1=m_2=0$ 为例，等式两边同除 $2$可得 $\\gcd(a,b) \\mid \\dfrac{x}{2}$，即 $2\\gcd(a,b) \\mid x$，对于 $y$ 同理。\n\n以 $m_1=0,m_2=1$ 为例，同加 $b$ 再同除 $2$，化简得到 $2 \\gcd(a,b) \\mid (x+b)$。\n\n剩下两种类似。四种可能或起来即可。\n\n```cpp\nlong long a, b, x, y;\n\nvoid _main() {\n\tcin >> a >> b >> x >> y;\n\tlong long g = __gcd(a, b);\n\tif (x % g || y % g) return cout << \"N\\n\", void();\n\tg *= 2;\n\tif (x % g == 0 && y % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + b) % g == 0 && (y + a) % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + a) % g == 0 && (y + b) % g == 0) return cout << \"Y\\n\", void();\n\tif ((x + a + b) % g == 0 && (y + a + b) % g == 0) return cout << \"Y\\n\", void();\n\tcout << \"N\\n\";\n}\n```\n\n### *P3518 [POI 2011] SEJ-Strongbox\n\n设密码集合为 $S$，则 $\\forall i,j \\in S, (i+j) \\bmod n \\in S$。考虑对于 $i \\in S$，必然有 $\\forall k \\in \\mathbb{N}^+, ki \\bmod n \\in S$，所以首先考虑 $ki \\bmod n$ 能取到哪些数。\n\n首先讨论 $\\gcd(i,n)=1$，此时 $ki \\bmod n$ 取遍 $0,1,2,3,\\cdots,n-1$。因为同余方程 $ki \\equiv x \\pmod n$ 必然有解。一般地，猜想 $i \\in S$ 使得 $ki=x \\pmod n$ 有解，即 $\\gcd(k,n)=1$，反证法得到 $ki \\bmod n$ 取到了所有 $\\gcd(i,n)$ 的倍数。\n\n对于 $i \\notin S$，$i$ 的所有因子也不是密码。根据这个判定方法，枚举 $d \\mid \\gcd(m_k,n)$，若合法，则对于 $d \\in S$ 的密码数量就是 $\\dfrac{n}{d}$。复杂度 $O(k \\sqrt {\\gcd(m_k,n)})$，可以获得 76pts。\n\n```cpp\n#define int long long\nconst int N = 2.5e5 + 5;\nint n, k, a[N];\nbool check(int x) {\n\tfor (int i = 1; i < k; i++) {\n\t\tif (a[i] % x == 0) return false;\n\t} return true;\n}\n\nvoid _main() {\n\tcin >> n >> k;\n\tfor (int i = 1; i <= k; i++) cin >> a[i];\n\tint x = __gcd(n, a[k]);\n\tfor (int i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tif (check(i)) return cout << n / i, void();\n\t}\n\tfor (int i = sqrt(x) + 1; i >= 1; i--) {\n\t\tif (x % i) continue;\n\t\tif (check(x / i)) return cout << n / (x / i), void();\n\t}\n}\n```\n\n考虑优化。枚举因子最多只有 $10^7$，思考如何快速 `check`。首先令 $a_i \\gets \\gcd(a_i,x)$，显然不影响结果。接着对 $x$ 质因数分解。注意到 $2\\times 3\\times 5\\times 7\\times 11\\times 13\\times 17\\times 19\\times 23\\times 29\\times 31\\times 37\\times 41\\times 43>10^{14}$，考虑对于每个 $a_i$ 直接按质因子爆搜因数。使用哈希表记忆化搜索，复杂度大概是 $O(k \\log V+\\sqrt{V}+d(V) \\omega(V))$。\n\n```cpp\n#define int long long\nconst int N = 2.5e5 + 5;\nint n, k, a[N];\nbool check(int x) {\n\tfor (int i = 1; i < k; i++) {\n\t\tif (a[i] % x == 0) return false;\n\t} return true;\n}\nvector<int> p;\nvoid decompose(int x) {\n\tfor (int i = 2; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tp.emplace_back(i);\n\t\twhile (x % i == 0) x /= i;\n\t}\n\tif (x != 1) p.emplace_back(x);\n}\nunordered_set<int> f;\nvoid dfs(int x) {\n\tif (f.count(x)) return;\n\tf.emplace(x);\n\tfor (int i : p) {\n\t\tif (x % i == 0) dfs(x / i);\n\t}\n}\n\nvoid _main() {\n\tcin >> n >> k;\n\tfor (int i = 1; i <= k; i++) cin >> a[i];\n\tint x = __gcd(n, a[k]);\n\tdecompose(x);\n\tfor (int i = 1; i < k; i++) dfs(__gcd(a[i], x));\n\tfor (int i = 1; i * i <= x; i++) {\n\t\tif (x % i) continue;\n\t\tif (!f.count(i)) return cout << n / i, void();\n\t}\n\tfor (int i = sqrt(x) + 1; i >= 1; i--) {\n\t\tif (x % i) continue;\n\t\tif (!f.count(x / i)) return cout << n / (x / i), void();\n\t}\n}\n```\n\n### P1082 [NOIP 2012 提高组] 同余方程\n\n这东西我们在之前的乘法逆元讲过方法了，就是用 exGCD 解方程 $ax-by=1$。输入保证有解，意味着 $\\gcd(a,b)=1$，所以这就是 exGCD 方程的标准形式。细节上，求出 $x$ 以后要处理负数问题。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n\nlong long a, b;\nvoid _main() {\n\tcin >> a >> b;\n\tlong long x, y; exgcd(a, b, x, y);\n\tcout << (x % b + b) % b;\n}\n```\n\n### P5656 【模板】二元一次不定方程 (exgcd)\n\n首先由裴蜀定理判无解，若 $c$ 不是 $\\gcd(a,b)$ 的倍数则直接无解。\n\n设 $\\gcd(a,b)=d$。考虑用 exGCD 求解方程 $ax+by=d$，将解记作 $x_0,y_0$。则\n\n$ax_0+by_0=d\\\\$方程两边同乘 $\\dfrac{c}{d}$ 转化为所求：\n\n$a\\dfrac{cx_0}{d}+b\\dfrac{cy_0}{d}=c\\\\$故原方程的一组解为 $x_1=\\dfrac{cx_0}{d},y_1=\\dfrac{cy_0}{d}$。\n\n接下来考虑构造通解形式，设\n\n$a(x_1+m)+b(y_0+n)=c$不难发现 $m,n$ 满足条件 $am+bn=0$。仍然利用裴蜀定理，解得 $m=p \\times \\dfrac{b}{d}, n=-p \\times {a}{d}$，其中 $p$ 是正整数。于是我们得到原方程的通解\n\n$$\n\\left\\{\\begin{matrix}\nx=x_1+p \\times \\dfrac{b}{d} \\\\\ny=y_1-p \\times \\dfrac{a}{d}\n\\end{matrix}\\right.\n$$\n\n考虑求解数与最值。找 $x_{\\min}$ 即为解关于 $k$ 的不等式\n\n$x_1+km \\ge 1$由于式中的值均为整数，故\n\n$k \\ge \\lceil \\dfrac{1-x_1}{m} \\rceil$由于 $y$ 随 $x$ 的增大而减小，故 $x_{\\min}$ 所对应的 $y$ 就是 $y_{\\max}$。接下来我们用 $y_{\\max}$ 推 $y_{\\min}$。推导一下，可以发现\n\n$y_{\\min}=y_{\\max} \\bmod n$于是 $x_{\\max}$ 加上同样多的 $m$ 即可：\n\n$x_{\\max}=x_{\\min} + \\lfloor \\dfrac{y_{\\max}-1}{n} \\times m \\rfloor$解数就是 $[y_{\\min},y_{\\max}]$ 中解的个数，即\n\n$\\lfloor \\dfrac{y_{\\max}-1}{n} +1 \\rfloor$至此本题在 $O(\\log V)$ 内解决，$V$ 为值域。\n\n在实现中，我们可以将 $a,b,c$ 都除去 $d$，这样可以简化代码。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\n\nlong long a, b, c;\n\nvoid _main() {\n\tcin >> a >> b >> c;\n\tlong long d = __gcd(a, b);\n\tif (c % d) return cout << -1 << '\\n', void();\n\ta /= d, b /= d, c /= d;\n\tlong long x0, y0; exgcd(a, b, x0, y0);\n\tlong long x1 = c * x0, y1 = c * y0;\n\tint xmin = (x1 > 0 && x1 % b != 0) ? x1 % b : x1 % b + b;\n\tint ymax = (c - xmin * a) / b;\n\tint ymin = (y1 > 0 && y1 % a != 0) ? y1 % a : y1 % a + a;\n\tint xmax = (c - ymin * b) / a;\n\tif (xmax <= 0) cout << xmin << ' ' << ymin << '\\n';\n\telse cout << (ymax - ymin) / a + 1 << ' ' << xmin << ' ' << ymin << ' ' << xmax << ' ' << ymax << ' ' << '\\n';\n}\n```\n\n### P1516 青蛙的约会\n\n设相遇时两只青蛙跳了 $t$ 次，则\n\n$(n-m)t+kL=x-y$即求解 $t$ 的最小非负整数解。在不定方程 $ax+by=c$ 中，我们把 $n-m$ 视作 $a$，$L$ 视作 $b$，$x-y$ 视作 $c$，则应用上一题的方法来求解。\n\n```cpp\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\nlong long x, y, m, n, L;\n\nvoid _main() {\n\tcin >> x >> y >> m >> n >> L;\n\tlong long a = n - m, b = L, c = x - y;\n\tif (a < 0) a = -a, c = -c;\n\tlong long d = __gcd(a, b);\n\tif (c % d) return cout << \"Impossible\", void();\n\ta /= d, b /= d, c /= d;\n\tlong long x0, y0; exgcd(a, b, x0, y0);\n\tlong long x1 = c * x0;\n\tcout << ((x1 > 0 && x1 % b != 0) ? x1 % b : x1 % b + b);\n}\n```\n\n### P12952 [GCJ Farewell Round #2] Intruder Outsmarting\n\n我们考虑第 $i$ 个转轮，设调整它 $a$ 次，调整第 $w-i+1$ 个转轮 $b$ 次，则有同余方程：\n\n$X_i+Da \\equiv X_{w-i+1}+Db \\pmod N$其中 $i \\le \\lfloor \\dfrac{W}{2} \\rfloor$。显然这个玩意没法 exCRT，于是我们把它变成不定方程：\n\n$$\nD(a-b) \\equiv X_{w-i+1}-X_i \\pmod N\\\\\nD(a-b)-kN=X_{w-i+1}-X_i\n$$\n\n等号右边是已知量，将 $a-b$ 和 $k$ 看作未知数，先判无解，然后使用 exGCD 求出 $D(a-b)-kN=\\gcd(D,N)$ 的解。我们需要求出 $a+b$ 的最小值。设 $p=a-b$，分类讨论：\n\n- 若 $p \\ge 0$，则 $a-b=p$，即 $a+b=2b+p$，当 $b=0$ 且 $p$ 为最小非负整数解时，$a+b$ 取得最小值。\n- 若 $p<0$，则 $b-a=-p$，即 $a+b=2a-p$，当 $a=0$ 且 $p$ 为最大非负整数解的相反数时，$a-b$ 取得最小值。\n\n至此，套用模板题的方法，本题解决。\n\n```cpp\nconst int N = 2005;\n#define int long long\nvoid exgcd(int a, int b, int& x, int &y) {\n\tif (b == 0) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\nint w, n, d, x[N];\n\nvoid _main(int kase) {\n\tcout << \"Case #\" << kase << \": \";\n\tcin >> w >> n >> d;\n\tfor (int i = 1; i <= w; i++) cin >> x[i];\n\tint g = __gcd(n, d), n0 = n / g, res = 0;\n\tfor (int i = 1; i <= w / 2; i++) {\n\t\tif ((x[i] - x[w - i + 1]) % g) return cout << \"IMPOSSIBLE\\n\", void();\n\t\tint a, b; exgcd(d, n, a, b);\n\t\tint p = a * ((x[w - i + 1] - x[i]) / g % n0) % n0;\n\t\tif (p >= 0) p %= n0, res += min(p, n0 - p);\n\t\telse {\n\t\t\tint q = p + n0 * ceil(-1.0 * p / n0);\n\t\t\tres += min(q, n0 - q);\n\t\t}\n\t} cout << res << '\\n';\n}\n```\n\n### P4777 【模板】扩展中国剩余定理（EXCRT）\n\n板子题。给个代码：\n\n```cpp\nconst int N = 1e5 + 5;\n\ntemplate <class T> void exgcd(T a, T b, T& x, T& y) {\n\tif (!b) return x = 1, y = 0, void();\n\texgcd(b, a % b, y, x), y -= a / b * x;\n}\ntemplate <class T> T crt(int n, const T* a, const T* m) {\n\tT x = 0, y = 0, p = m[1], res = a[1];\n\tfor (int i = 2; i <= n; i++) {\n\t\tT a0 = p, b0 = m[i], c = (a[i] - res % b0 + b0) % b0, g = __gcd(a0, b0);\n\t\tif (c % g) return -1;\n\t\texgcd(a0, b0, x, y);\n\t\tx = (__int128) x * c / g % b0, res += x * p, p = p / __gcd(p, b0) * b0, res = (res % p + p) % p;\n\t}\n\treturn res;\n}\n\nint n;\nlong long a[N], m[N];\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> m[i] >> a[i];\n\tcout << crt(n, a, m);\n}\n```\n\nexCRT 很重要的一个用途是对于模数不是质数的情况，我们把模数分解质因数，然后分别计算对这些质因数取模的结果，最后用 exCRT 合并。\n\n### P3868 [TJOI2009] 猜数字\n\n对于 $(x-a_i) \\mid  b_i$，可以变形为 $x-a_i \\equiv 0 \\pmod {b_i}$，然后再移项就是 $x \\equiv a_i \\pmod {b_i}$。于是解这个同余方程组即可。\n\n细节上注意 $a_i$ 可能为负，需要对 $b_i$ 取模处理，另外这题会爆 `long long`，不过上面板子里已经开了 `__int128` 了。\n\n```cpp\nconst int N = 15;\nint n;\nlong long a[N], b[N];\n\nvoid _main() {\n\tcin >> n;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tfor (int i = 1; i <= n; i++) cin >> b[i];\n\tfor (int i = 1; i <= n; i++) a[i] = (a[i] % b[i] + b[i]) % b[i];\n\tcout << crt(n, a, b);\n}\n```\n\n### *P4774 [NOI2018] 屠龙勇士\n\n首先把题目翻译过来，发现每条龙所对应的攻击力是确定的，记作 $b_i$。可以用一个 std::multiset 模拟攻击过程，现在问题是求\n\n$$\n\\left\\{\\begin{matrix}\nb_1x \\equiv a_1 \\pmod {p_1} \\\\\nb_2x \\equiv a_2 \\pmod {p_2} \\\\\n\\cdots \\\\\nb_nx \\equiv a_n \\pmod {p_n}\n\\end{matrix}\\right.\n$$\n\n的最小正整数解 $x$。\n\n对于 $bx \\equiv a \\pmod p$，拆开：\n\n$bx-py=a$上 exGCD 求出一组特解 $x_0,y_0$，根据模板题的通解公式有\n\n$x=x_0+k \\dfrac{p}{\\gcd(b,p)}$同模 $\\dfrac{p}{\\gcd(b,p)}$ 化为同余式\n\n$x\\equiv x_0 \\pmod {\\dfrac{p}{\\gcd(b,p)}}$问题解决。之后使用普通的 exCRT 解出 $x$ 即可。\n\n还有一些特判：\n\n- 上面这种只适用于 $a_i \\le p_i$ 的情况。对于 $a_i>p_i$ 的情况，根据数据点分治有 $p_i=1$，那么答案就是 $\\max_{i=1}^{n} \\lceil \\dfrac{a_i}{b_i} \\rceil$，需要特判。\n- 当所有的 $p_i=a_i$ 时，$x=0$。但是这是错的，应该求出所有刀数取 $\\operatorname{lcm}$。\n\n```cpp\nconst int N = 1e5 + 5;\nint n, m;\nlong long a[N], b[N], p[N], c[N], x, x0[N];\nmultiset<long long> st;\n\nvoid _main() {\n\tst.clear();\n\tcin >> n >> m;\n\tfor (int i = 1; i <= n; i++) cin >> a[i];\n\tbool f1 = false, f2 = true;\n\tfor (int i = 1; i <= n; i++) {\n\t\tcin >> p[i];\n\t\tif (a[i] > p[i]) f1 = true;\n\t\tif (a[i] != p[i]) f2 = false;\n\t}\n\tfor (int i = 1; i <= n; i++) cin >> c[i];\n\tfor (int i = 1; i <= m; i++) cin >> x, st.emplace(x);\n\tfor (int i = 1; i <= n; i++) {\n\t\tauto it = st.upper_bound(a[i]);\n\t\tif (it != st.begin()) it--;\n\t\tb[i] = *it, st.erase(it), st.emplace(c[i]);\n\t\tdebug(b[i]);\n\t}\n\tif (f1) {\n\t\tlong long res = 0;\n\t\tfor (int i = 1; i <= n; i++) res = max(res, (a[i] + b[i] - 1) / b[i]);\n\t\treturn cout << res << '\\n', void();\n\t}\n\tif (f2) {\n\t\tlong long res = 1;\n\t\tfor (int i = 1; i <= n; i++) {\n\t\t\tlong long v = p[i] / __gcd(p[i], b[i]);\n\t\t\tres = res / __gcd(res, v) * v;\n\t\t} return cout << res << '\\n', void();\n\t}\n\tfor (int i = 1; i <= n; i++) {\n\t\tif (b[i] % p[i] == 0) {\n\t\t\tif (p[i] == a[i]) x0[i] = 0, p[i] = 1;\n\t\t\telse return cout << -1 << '\\n', void();\n\t\t\tcontinue;\n\t\t}\n\t\tlong long g = __gcd(b[i], p[i]);\n\t\tif (a[i] % g) return cout << -1 << '\\n', void();\n\t\tlong long y0;\n\t\texgcd(b[i], p[i], x0[i], y0);\n\t\tp[i] /= g, x0[i] = (x0[i] % p[i] + p[i]) % p[i];\n\t\tx0[i] = (int128) x0[i] * (a[i] / g) % p[i];\n\t}\n\tcout << crt(n, x0, p) << '\\n';\n}\n```",
-        "timeComplexity": "见原文",
-        "spaceComplexity": "见原文",
-        "tags": [
-            "gcd",
-            "lcm",
-            "exgcd",
-            "裴蜀定理"
-        ],
-        "codePath": "",
-        "prerequisites": [
-            "hub-math",
-            "hub-math-number-theory"
-        ],
-        "related": []
+        "parent": ""
     },
     {
         "id": "math-group-theory",
@@ -12013,7 +12249,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-inclusion-exclusion",
@@ -12052,7 +12289,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-lagrange-interpolation",
@@ -12088,7 +12326,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-lcm-pair-count",
@@ -12137,7 +12376,8 @@ const KNOWLEDGE_DATA = [
             "math-gcd-lcm",
             "math-quick-pow-basic",
             "math-stars-and-bars"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-linear-algebra",
@@ -12206,163 +12446,8 @@ const KNOWLEDGE_DATA = [
             "math-matrix-multiplication",
             "hub-math"
         ],
-        "related": []
-    },
-    {
-        "id": "math-linear-sieve-divisor-count",
-        "category": "数学",
-        "subcategory": "数论基础",
-        "subSubcategory": "素数",
-        "title": "线性筛求约数个数（欧拉筛批量预处理）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 线性筛求约数个数（欧拉筛批量预处理）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n约数个数函数 $d(n)$（也称 $\\sigma_0(n)$ 或 $\\tau(n)$）表示 $n$ 的正约数个数。当需要查询 $[1, n]$ 内大量数的约数个数（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\r\n\r\n**思路**：利用约数个数的积性，结合线性筛框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $d(i)$，之后每次查询 $O(1)$。\r\n\r\n### 1.2 约数个数公式\r\n\r\n设 $n$ 的质因数分解为 $n = p_1^{\\alpha_1} \\cdot p_2^{\\alpha_2} \\cdots p_s^{\\alpha_s}$，则：\r\n\r\n$$d(n) = \\prod_{i=1}^{s} (\\alpha_i + 1)$$\r\n\r\n**直觉理解**：每个质因子 $p_i$ 可以取 $0, 1, 2, \\ldots, \\alpha_i$ 次方，共 $\\alpha_i + 1$ 种选择，各质因子独立组合，所以总数是各 $(\\alpha_i + 1)$ 的乘积。\r\n\r\n**示例**：\r\n\r\n| $n$ | 分解 | $d(n)$ | 约数 |\r\n|-----|------|--------|------|\r\n| 1 | 1 | 1 | {1} |\r\n| 2 | $2^1$ | 2 | {1, 2} |\r\n| 4 | $2^2$ | 3 | {1, 2, 4} |\r\n| 6 | $2^1 \\times 3^1$ | $2 \\times 2 = 4$ | {1, 2, 3, 6} |\r\n| 12 | $2^2 \\times 3^1$ | $3 \\times 2 = 6$ | {1, 2, 3, 4, 6, 12} |\r\n\r\n### 1.3 积性与线性筛\r\n\r\n约数个数函数 $d(n)$ 是**积性函数**：当 $\\gcd(a, b) = 1$ 时，$d(ab) = d(a) \\cdot d(b)$。\r\n\r\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $d(m)$。关键在于额外维护一个辅助数组 $a[\\,]$，记录每个数的最小质因子的指数。\r\n\r\n### 1.4 两种递推情况\r\n\r\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\r\n\r\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\r\n\r\n$$d(i \\times p_j) = d(i) \\times d(p_j) = d(i) \\times 2$$\r\n\r\n因为 $p_j$ 是 $i \\times p_j$ 的新质因子（指数为 1），所以 $a(i \\times p_j) = 1$。\r\n\r\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\r\n\r\n此时 $p_j$ 已经是 $i$ 的最小质因子。设 $i$ 中 $p_j$ 的指数为 $k$（即 $a(i) = k$），则 $i \\times p_j$ 中 $p_j$ 的指数变为 $k + 1$。\r\n\r\n设 $i = p_j^k \\times t$（$\\gcd(t, p_j) = 1$），则：\r\n\r\n$$d(i) = (k + 1) \\times d(t)$$\r\n\r\n$$d(i \\times p_j) = (k + 2) \\times d(t) = \\frac{(k+2)}{(k+1)} \\times d(i) = \\frac{a(i \\times p_j) + 1}{a(i \\times p_j)} \\times d(i)$$\r\n\r\n其中 $a(i \\times p_j) = k + 1 = a(i) + 1$，所以：\r\n\r\n$$d(i \\times p_j) = d(i) \\, / \\, a(i \\times p_j) \\times (a(i \\times p_j) + 1)$$\r\n\r\n> **为什么先除后乘？** $a(i \\times p_j) = k + 1$ 整除 $d(i) = (k+1) \\times d(t)$，所以 $d(i) / a(i \\times p_j) = d(t)$ 是整数。先除保证整除，再乘避免分数运算。\r\n\r\n### 1.5 边界与初始值\r\n\r\n- $d(1) = 1$（1 只有一个约数——自身）\r\n- 质数 $p$ 的 $d(p) = 2$（约数为 1 和 $p$），$a(p) = 1$（最小质因子指数为 1）\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 状态定义\r\n\r\n| 数组 | 含义 |\r\n|------|------|\r\n| `vis[i]` | $i$ 是否已被筛过（是否为合数） |\r\n| `prime` | 已发现的质数表，按升序存储 |\r\n| `a[i]` | $i$ 的最小质因子的指数 |\r\n| `d[i]` | 约数个数 $d(i)$ |\r\n\r\n### 2.2 转移方程\r\n\r\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$（$p_j \\le n / i$）：\r\n\r\n$$\r\na(i \\cdot p_j) =\r\n\\begin{cases}\r\n1, & i \\bmod p_j \\neq 0 \\\\\r\na(i) + 1, & i \\bmod p_j = 0\r\n\\end{cases}\r\n$$\r\n\r\n$$\r\nd(i \\cdot p_j) =\r\n\\begin{cases}\r\n2 \\cdot d(i), & i \\bmod p_j \\neq 0 \\quad (\\text{新质因子，积性}) \\\\\r\nd(i) \\, / \\, a(i \\cdot p_j) \\times (a(i \\cdot p_j) + 1), & i \\bmod p_j = 0 \\quad (\\text{指数}+1)\r\n\\end{cases}\r\n$$\r\n\r\n### 2.3 线性时间证明\r\n\r\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\r\n\r\n因此总操作次数恰好等于合数个数加上质数个数，总共 $O(n)$。\r\n\r\n### 2.4 辅助数组 a 的作用\r\n\r\n$a[\\,]$ 数组记录每个数的最小质因子指数，是情况二递推的关键。在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以：\r\n\r\n- 当 $p_j$ 不整除 $i$ 时，$p_j$ 是 $i \\times p_j$ 的新质因子，指数为 1\r\n- 当 $p_j$ 整除 $i$ 时，$p_j$ 是 $i$ 的最小质因子，$i \\times p_j$ 中 $p_j$ 的指数 = $i$ 中 $p_j$ 的指数 + 1\r\n\r\n没有 $a[\\,]$ 数组，就无法在情况二中正确递推——因为需要知道\"旧指数\"才能算\"新指数\"，进而更新 $d$ 值。\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nvector<int> prime;\r\nvector<int> a, d;\r\n```\r\n\r\n全局变量：`prime` 存质数表，`a` 存最小质因子指数，`d` 存约数个数。\r\n\r\n### 3.1 d_sieve —— 线性筛求约数个数\r\n\r\n```cpp\r\nvoid d_sieve(int n)\r\n{\r\n    prime.clear();\r\n    prime.reserve(n / 15 + 16);\r\n    a.assign(n + 1, 0);\r\n    d.assign(n + 1, 0);\r\n    d[1] = 1;\r\n    vector<bool> vis(n + 1, false);\r\n    for (int i = 2; i <= n; i++)\r\n    {\r\n        if (!vis[i])\r\n        {\r\n            prime.emplace_back(i);\r\n            d[i] = 2;\r\n            a[i] = 1;\r\n        }\r\n        for (int j = 0; prime[j] <= n / i; j++)\r\n        {\r\n            int m = prime[j] * i;\r\n            vis[m] = true;\r\n            if (i % prime[j])\r\n            {\r\n                a[m] = 1;\r\n                d[m] = d[i] * 2;\r\n            }\r\n            else\r\n            {\r\n                a[m] = a[i] + 1;\r\n                d[m] = d[i] / a[m] * (a[m] + 1);\r\n                break;\r\n            }\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `prime.clear(); prime.reserve(n / 15 + 16);` | 清空质数表，预留空间（质数密度约 $n / \\ln n$） |\r\n| 2-3 | `a.assign(n + 1, 0); d.assign(n + 1, 0);` | 辅助数组和约数个数数组初始化为 0 |\r\n| 4 | `d[1] = 1;` | 边界 $d(1) = 1$ |\r\n| 5 | `vector<bool> vis(n + 1, false);` | 标记数组，初始全 false（未被筛） |\r\n| 6 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\r\n| 7-11 | `if (!vis[i]) { prime.push_back(i); d[i] = 2; a[i] = 1; }` | $i$ 未被筛 → 质数，$d(p) = 2$，$a(p) = 1$ |\r\n| 12 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，`n/i` 防止越界 |\r\n| 13-14 | `int m = prime[j] * i; vis[m] = true;` | 计算 $m = i \\times p_j$ 并标记为合数 |\r\n| 15-18 | `if (i % prime[j]) { a[m] = 1; d[m] = d[i] * 2; }` | 情况一：$p_j$ 不整除 $i$ → 新质因子，$d(m) = 2 \\cdot d(i)$，$a(m) = 1$ |\r\n| 19-22 | `else { a[m] = a[i]+1; d[m] = d[i]/a[m]*(a[m]+1); break; }` | 情况二：$p_j$ 整除 $i$ → 指数 +1，$d(m) = d(i)/a(m) \\cdot (a(m)+1)$；`break` 保证线性 |\r\n\r\n### 3.2 手动模拟（n = 12）\r\n\r\n| $i$ | 操作 | 新增质数 | $a$ 值更新 | $d$ 值更新 |\r\n|-----|------|---------|-----------|-----------|\r\n| 2 | `vis[2]=false` → 质数 | 2 | $a(2)=1$ | $d(2)=2$ |\r\n| 2 | `j=0, p=2, 2≤6` | — | $a(4)=a(2)+1=2$ | $d(4)=d(2)/2 \\times 3 = 3$（2%2=0, break） |\r\n| 3 | `vis[3]=false` → 质数 | 3 | $a(3)=1$ | $d(3)=2$ |\r\n| 3 | `j=0, p=2, 2≤4` | — | $a(6)=1$ | $d(6)=d(3) \\times 2 = 4$（3%2≠0） |\r\n| 3 | `j=1, p=3, 3≤4` | — | $a(9)=a(3)+1=2$ | $d(9)=d(3)/2 \\times 3 = 3$（3%3=0, break） |\r\n| 4 | `vis[4]=true` → 非质数 | — | — | — |\r\n| 4 | `j=0, p=2, 2≤3` | — | $a(8)=a(4)+1=3$ | $d(8)=d(4)/3 \\times 4 = 4$（4%2=0, break） |\r\n| 5 | `vis[5]=false` → 质数 | 5 | $a(5)=1$ | $d(5)=2$ |\r\n| 5 | `j=0, p=2, 2≤2` | — | $a(10)=1$ | $d(10)=d(5) \\times 2 = 4$（5%2≠0） |\r\n| 5 | `j=1, p=3, 3≤2` | — | — | （3 > 12/5=2，内层结束） |\r\n| 6 | `vis[6]=true` → 非质数 | — | — | — |\r\n| 6 | `j=0, p=2, 2≤2` | — | $a(12)=a(6)+1=2$ | $d(12)=d(6)/2 \\times 3 = 6$（6%2=0, break） |\r\n\r\n**验证**：\r\n- $d(4) = 3$ ✓ {1, 2, 4}\r\n- $d(6) = 4$ ✓ {1, 2, 3, 6}\r\n- $d(8) = 4$ ✓ {1, 2, 4, 8}\r\n- $d(9) = 3$ ✓ {1, 3, 9}\r\n- $d(10) = 4$ ✓ {1, 2, 5, 10}\r\n- $d(12) = 6$ ✓ {1, 2, 3, 4, 6, 12}\r\n\r\n全部正确 ✓\r\n\r\n### 3.3 main —— 预处理 + 多组查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int n, q;\r\n    cin >> n >> q;\r\n    d_sieve(n);\r\n    for (int i = 1; i <= q; i++)\r\n    {\r\n        int x;\r\n        cin >> x;\r\n        cout << d[x] << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\r\n| 3 | `d_sieve(n);` | 一次预处理，求出所有 $d(1..n)$ |\r\n| 4-7 | `for (int i = 1; i <= q; i++) { cin >> x; cout << d[x]; }` | 每次查询 $O(1)$ |\r\n\r\n### 3.4 运行示例\r\n\r\n输入：\r\n```\r\n12 4\r\n4\r\n6\r\n9\r\n12\r\n```\r\n\r\n输出：\r\n```\r\n3\r\n4\r\n3\r\n6\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\r\n| 单次查询 | $O(1)$ | 数组下标访问 |\r\n| 空间 | $O(n)$ | `vis` + `a` + `d` + `prime`（质数约 $n / \\ln n$ 个） |\r\n\r\n**与单次试除法对比**：\r\n\r\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\r\n|------|--------|---------|------------------------|\r\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\r\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **大量约数个数查询** | 预处理后每次 $O(1)$，适合百万级查询 |\r\n| **约数相关计数** | 如 $\\sum_{i=1}^{n} d(i)$、约数和等问题的预处理步骤 |\r\n| **数论函数筛法练习** | $d(n)$ 需要额外维护 $a[\\,]$ 数组，是线性筛积性函数的经典进阶案例 |\r\n| **配合其他积性函数** | 线性筛可同时求 $d$、$\\varphi$、$\\mu$ 等，一次筛法多个产出 |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 a 数组的含义\r\n\r\n`a[i]` 存的是 $i$ 的**最小质因子**的指数，不是任意质因子的指数。在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以 $a[\\,]$ 记录的恰好是最小质因子指数。\r\n\r\n### 6.2 先除后乘防溢出\r\n\r\n`d[m] = d[i] / a[m] * (a[m] + 1)` 必须先除后乘。因为 $a(m) = a(i) + 1$ 整除 $d(i) = (a(i)+1) \\times d(t)$，先除得到整数 $d(t)$，再乘 $(a(m)+1)$ 不溢出。若写成 `d[i] * (a[m]+1) / a[m]`，中间值 `d[i] * (a[m]+1)` 可能溢出。\r\n\r\n### 6.3 vis 数组不能省去\r\n\r\n与线性筛求欧拉函数不同，本代码**不能**用 `!d[i]` 代替 `vis[i]` 判质数。因为 $d(1) = 1$ 非零，而质数的 $d(p) = 2$ 也非零，合数的 $d$ 值也非零——$d$ 数组中没有值为 0 的元素可用于标记\"未访问\"。因此必须额外维护 `vis` 数组。\r\n\r\n### 6.4 d[1] 的初始化\r\n\r\n$d(1) = 1$ 必须手动赋值，因为循环从 $i=2$ 开始，1 不会被处理。若遗漏，`d[1]` 保持 0，查询时返回错误结果。\r\n\r\n### 6.5 break 的位置\r\n\r\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$（退化为埃氏筛）。`break` 是保证线性时间的关键。\r\n\r\n### 6.6 质数 d 值的赋值位置\r\n\r\n$d(p) = 2$ 和 $a(p) = 1$ 在发现质数时赋值（外层 `if (!vis[i])` 分支），而不是在内层循环中。因为质数只会在外层被识别，不会作为合数 $i \\times p_j$ 被标记。\r\n\r\n### 6.7 数据类型选择\r\n\r\n当 $n$ 较大时（如 $n \\ge 10^6$），$d(n)$ 的最大值远小于 $n$（高度合成数的 $d$ 值也不超过几千），`int` 完全够用。但 $a[\\,]$ 数组值也很小，`int` 足够。\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 线性筛求 φ vs 求 d\r\n\r\n| 维度 | 求 $\\varphi$ | 求 $d$ |\r\n|------|-------------|--------|\r\n| 辅助数组 | 无（`phi` 兼作标记） | 需要额外 `a[]` 记录最小质因子指数 |\r\n| 质数标记 | `!phi[i]` 判断质数 | 必须额外维护 `vis[]` |\r\n| 情况一递推 | $(p-1) \\cdot \\varphi(i)$ | $2 \\cdot d(i)$ |\r\n| 情况二递推 | $p \\cdot \\varphi(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ |\r\n| 递推复杂度 | 直接乘法 | 需要先除后乘（涉及中间量 $d(t)$） |\r\n\r\n求 $d$ 比求 $\\varphi$ 更复杂的原因：$\\varphi$ 在情况二中只需乘 $p$（因为质因子集合不变，$\\varphi(ip) = p \\cdot \\varphi(i)$ 直接成立）；而 $d$ 在情况二中需要修改最小质因子指数对应的因子（从 $(k+1)$ 变为 $(k+2)$），必须知道 $k$ 的值，因此需要额外维护 $a[\\,]$ 数组。\r\n\r\n### 7.2 埃氏筛求 d 的写法\r\n\r\n埃氏筛也能求 $d$，思路是初始化 `d[i] = 1`，对每个质数 $p$ 遍历其倍数，逐个乘入 $(\\alpha+1)$ 因子。但需要额外记录指数，实现不如线性筛优雅。\r\n\r\n### 7.3 用线性筛求其他积性函数\r\n\r\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\r\n\r\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ | 额外信息 |\r\n|------|---------------------|------------------|---------|\r\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ | 无 |\r\n| 约数个数 $d$ | $2 \\cdot d(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ | 最小质因子指数 $a$ |\r\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ | 无 |\r\n| 约数和 $\\sigma$ | $\\sigma(i) \\cdot (1+p)$ | 需额外维护等比数列和 | 最小质因子幂和 |\r\n\r\n### 7.4 约数求和函数 $\\sigma(n)$\r\n\r\n约数求和 $\\sigma(n) = \\sum_{d \\mid n} d$ 也是积性函数。线性筛求 $\\sigma$ 需要额外维护最小质因子的等比数列和 $S$（即 $1 + p + p^2 + \\cdots + p^k$），递推更复杂：\r\n\r\n- 情况一（$p$ 不整除 $i$）：$\\sigma(ip) = \\sigma(i) \\cdot (1+p)$，$S(ip) = 1+p$\r\n- 情况二（$p$ 整除 $i$）：$S(ip) = S(i) \\cdot p + 1$，$\\sigma(ip) = \\sigma(i) / S(i) \\cdot S(ip)$\r\n\r\n### 7.5 一句话总结\r\n\r\n线性筛求约数个数是线性筛积性函数的经典进阶案例：在 $O(n)$ 时间内求出 $[1, n]$ 内所有 $d(i)$。核心在于额外维护最小质因子指数数组 $a[\\,]$，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 不整除 $i$ 时 $d(ip) = 2 \\cdot d(i)$，整除时 $d(ip) = d(i) / a(m) \\cdot (a(m)+1)$。与求 $\\varphi$ 不同，求 $d$ 无法用 `d` 数组本身判质数，必须额外维护 `vis` 标记数组。",
-                "codePath": "数学\\数论基础\\线性筛求约数个数\\源.cpp",
-                "timeComplexity": "O(n)（预处理）+ O(1)（单次查询）",
-                "spaceComplexity": "O(n)",
-                "tags": [
-                    "数学",
-                    "数论",
-                    "约数个数",
-                    "线性筛",
-                    "欧拉筛",
-                    "积性函数",
-                    "预处理"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 线性筛求约数个数（欧拉筛批量预处理）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n约数个数函数 $d(n)$（也称 $\\sigma_0(n)$ 或 $\\tau(n)$）表示 $n$ 的正约数个数。当需要查询 $[1, n]$ 内大量数的约数个数（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\r\n\r\n**思路**：利用约数个数的积性，结合线性筛框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $d(i)$，之后每次查询 $O(1)$。\r\n\r\n### 1.2 约数个数公式\r\n\r\n设 $n$ 的质因数分解为 $n = p_1^{\\alpha_1} \\cdot p_2^{\\alpha_2} \\cdots p_s^{\\alpha_s}$，则：\r\n\r\n$$d(n) = \\prod_{i=1}^{s} (\\alpha_i + 1)$$\r\n\r\n**直觉理解**：每个质因子 $p_i$ 可以取 $0, 1, 2, \\ldots, \\alpha_i$ 次方，共 $\\alpha_i + 1$ 种选择，各质因子独立组合，所以总数是各 $(\\alpha_i + 1)$ 的乘积。\r\n\r\n**示例**：\r\n\r\n| $n$ | 分解 | $d(n)$ | 约数 |\r\n|-----|------|--------|------|\r\n| 1 | 1 | 1 | {1} |\r\n| 2 | $2^1$ | 2 | {1, 2} |\r\n| 4 | $2^2$ | 3 | {1, 2, 4} |\r\n| 6 | $2^1 \\times 3^1$ | $2 \\times 2 = 4$ | {1, 2, 3, 6} |\r\n| 12 | $2^2 \\times 3^1$ | $3 \\times 2 = 6$ | {1, 2, 3, 4, 6, 12} |\r\n\r\n### 1.3 积性与线性筛\r\n\r\n约数个数函数 $d(n)$ 是**积性函数**：当 $\\gcd(a, b) = 1$ 时，$d(ab) = d(a) \\cdot d(b)$。\r\n\r\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $d(m)$。关键在于额外维护一个辅助数组 $a[\\,]$，记录每个数的最小质因子的指数。\r\n\r\n### 1.4 两种递推情况\r\n\r\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\r\n\r\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\r\n\r\n$$d(i \\times p_j) = d(i) \\times d(p_j) = d(i) \\times 2$$\r\n\r\n因为 $p_j$ 是 $i \\times p_j$ 的新质因子（指数为 1），所以 $a(i \\times p_j) = 1$。\r\n\r\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\r\n\r\n此时 $p_j$ 已经是 $i$ 的最小质因子。设 $i$ 中 $p_j$ 的指数为 $k$（即 $a(i) = k$），则 $i \\times p_j$ 中 $p_j$ 的指数变为 $k + 1$。\r\n\r\n设 $i = p_j^k \\times t$（$\\gcd(t, p_j) = 1$），则：\r\n\r\n$$d(i) = (k + 1) \\times d(t)$$\r\n\r\n$$d(i \\times p_j) = (k + 2) \\times d(t) = \\frac{(k+2)}{(k+1)} \\times d(i) = \\frac{a(i \\times p_j) + 1}{a(i \\times p_j)} \\times d(i)$$\r\n\r\n其中 $a(i \\times p_j) = k + 1 = a(i) + 1$，所以：\r\n\r\n$$d(i \\times p_j) = d(i) \\, / \\, a(i \\times p_j) \\times (a(i \\times p_j) + 1)$$\r\n\r\n> **为什么先除后乘？** $a(i \\times p_j) = k + 1$ 整除 $d(i) = (k+1) \\times d(t)$，所以 $d(i) / a(i \\times p_j) = d(t)$ 是整数。先除保证整除，再乘避免分数运算。\r\n\r\n### 1.5 边界与初始值\r\n\r\n- $d(1) = 1$（1 只有一个约数——自身）\r\n- 质数 $p$ 的 $d(p) = 2$（约数为 1 和 $p$），$a(p) = 1$（最小质因子指数为 1）\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 状态定义\r\n\r\n| 数组 | 含义 |\r\n|------|------|\r\n| `vis[i]` | $i$ 是否已被筛过（是否为合数） |\r\n| `prime` | 已发现的质数表，按升序存储 |\r\n| `a[i]` | $i$ 的最小质因子的指数 |\r\n| `d[i]` | 约数个数 $d(i)$ |\r\n\r\n### 2.2 转移方程\r\n\r\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$（$p_j \\le n / i$）：\r\n\r\n$$\r\na(i \\cdot p_j) =\r\n\\begin{cases}\r\n1, & i \\bmod p_j \\neq 0 \\\\\r\na(i) + 1, & i \\bmod p_j = 0\r\n\\end{cases}\r\n$$\r\n\r\n$$\r\nd(i \\cdot p_j) =\r\n\\begin{cases}\r\n2 \\cdot d(i), & i \\bmod p_j \\neq 0 \\quad (\\text{新质因子，积性}) \\\\\r\nd(i) \\, / \\, a(i \\cdot p_j) \\times (a(i \\cdot p_j) + 1), & i \\bmod p_j = 0 \\quad (\\text{指数}+1)\r\n\\end{cases}\r\n$$\r\n\r\n### 2.3 线性时间证明\r\n\r\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\r\n\r\n因此总操作次数恰好等于合数个数加上质数个数，总共 $O(n)$。\r\n\r\n### 2.4 辅助数组 a 的作用\r\n\r\n$a[\\,]$ 数组记录每个数的最小质因子指数，是情况二递推的关键。在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以：\r\n\r\n- 当 $p_j$ 不整除 $i$ 时，$p_j$ 是 $i \\times p_j$ 的新质因子，指数为 1\r\n- 当 $p_j$ 整除 $i$ 时，$p_j$ 是 $i$ 的最小质因子，$i \\times p_j$ 中 $p_j$ 的指数 = $i$ 中 $p_j$ 的指数 + 1\r\n\r\n没有 $a[\\,]$ 数组，就无法在情况二中正确递推——因为需要知道\"旧指数\"才能算\"新指数\"，进而更新 $d$ 值。\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nvector<int> prime;\r\nvector<int> a, d;\r\n```\r\n\r\n全局变量：`prime` 存质数表，`a` 存最小质因子指数，`d` 存约数个数。\r\n\r\n### 3.1 d_sieve —— 线性筛求约数个数\r\n\r\n```cpp\r\nvoid d_sieve(int n)\r\n{\r\n    prime.clear();\r\n    prime.reserve(n / 15 + 16);\r\n    a.assign(n + 1, 0);\r\n    d.assign(n + 1, 0);\r\n    d[1] = 1;\r\n    vector<bool> vis(n + 1, false);\r\n    for (int i = 2; i <= n; i++)\r\n    {\r\n        if (!vis[i])\r\n        {\r\n            prime.emplace_back(i);\r\n            d[i] = 2;\r\n            a[i] = 1;\r\n        }\r\n        for (int j = 0; prime[j] <= n / i; j++)\r\n        {\r\n            int m = prime[j] * i;\r\n            vis[m] = true;\r\n            if (i % prime[j])\r\n            {\r\n                a[m] = 1;\r\n                d[m] = d[i] * 2;\r\n            }\r\n            else\r\n            {\r\n                a[m] = a[i] + 1;\r\n                d[m] = d[i] / a[m] * (a[m] + 1);\r\n                break;\r\n            }\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `prime.clear(); prime.reserve(n / 15 + 16);` | 清空质数表，预留空间（质数密度约 $n / \\ln n$） |\r\n| 2-3 | `a.assign(n + 1, 0); d.assign(n + 1, 0);` | 辅助数组和约数个数数组初始化为 0 |\r\n| 4 | `d[1] = 1;` | 边界 $d(1) = 1$ |\r\n| 5 | `vector<bool> vis(n + 1, false);` | 标记数组，初始全 false（未被筛） |\r\n| 6 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\r\n| 7-11 | `if (!vis[i]) { prime.push_back(i); d[i] = 2; a[i] = 1; }` | $i$ 未被筛 → 质数，$d(p) = 2$，$a(p) = 1$ |\r\n| 12 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，`n/i` 防止越界 |\r\n| 13-14 | `int m = prime[j] * i; vis[m] = true;` | 计算 $m = i \\times p_j$ 并标记为合数 |\r\n| 15-18 | `if (i % prime[j]) { a[m] = 1; d[m] = d[i] * 2; }` | 情况一：$p_j$ 不整除 $i$ → 新质因子，$d(m) = 2 \\cdot d(i)$，$a(m) = 1$ |\r\n| 19-22 | `else { a[m] = a[i]+1; d[m] = d[i]/a[m]*(a[m]+1); break; }` | 情况二：$p_j$ 整除 $i$ → 指数 +1，$d(m) = d(i)/a(m) \\cdot (a(m)+1)$；`break` 保证线性 |\r\n\r\n### 3.2 手动模拟（n = 12）\r\n\r\n| $i$ | 操作 | 新增质数 | $a$ 值更新 | $d$ 值更新 |\r\n|-----|------|---------|-----------|-----------|\r\n| 2 | `vis[2]=false` → 质数 | 2 | $a(2)=1$ | $d(2)=2$ |\r\n| 2 | `j=0, p=2, 2≤6` | — | $a(4)=a(2)+1=2$ | $d(4)=d(2)/2 \\times 3 = 3$（2%2=0, break） |\r\n| 3 | `vis[3]=false` → 质数 | 3 | $a(3)=1$ | $d(3)=2$ |\r\n| 3 | `j=0, p=2, 2≤4` | — | $a(6)=1$ | $d(6)=d(3) \\times 2 = 4$（3%2≠0） |\r\n| 3 | `j=1, p=3, 3≤4` | — | $a(9)=a(3)+1=2$ | $d(9)=d(3)/2 \\times 3 = 3$（3%3=0, break） |\r\n| 4 | `vis[4]=true` → 非质数 | — | — | — |\r\n| 4 | `j=0, p=2, 2≤3` | — | $a(8)=a(4)+1=3$ | $d(8)=d(4)/3 \\times 4 = 4$（4%2=0, break） |\r\n| 5 | `vis[5]=false` → 质数 | 5 | $a(5)=1$ | $d(5)=2$ |\r\n| 5 | `j=0, p=2, 2≤2` | — | $a(10)=1$ | $d(10)=d(5) \\times 2 = 4$（5%2≠0） |\r\n| 5 | `j=1, p=3, 3≤2` | — | — | （3 > 12/5=2，内层结束） |\r\n| 6 | `vis[6]=true` → 非质数 | — | — | — |\r\n| 6 | `j=0, p=2, 2≤2` | — | $a(12)=a(6)+1=2$ | $d(12)=d(6)/2 \\times 3 = 6$（6%2=0, break） |\r\n\r\n**验证**：\r\n- $d(4) = 3$ ✓ {1, 2, 4}\r\n- $d(6) = 4$ ✓ {1, 2, 3, 6}\r\n- $d(8) = 4$ ✓ {1, 2, 4, 8}\r\n- $d(9) = 3$ ✓ {1, 3, 9}\r\n- $d(10) = 4$ ✓ {1, 2, 5, 10}\r\n- $d(12) = 6$ ✓ {1, 2, 3, 4, 6, 12}\r\n\r\n全部正确 ✓\r\n\r\n### 3.3 main —— 预处理 + 多组查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int n, q;\r\n    cin >> n >> q;\r\n    d_sieve(n);\r\n    for (int i = 1; i <= q; i++)\r\n    {\r\n        int x;\r\n        cin >> x;\r\n        cout << d[x] << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\r\n| 3 | `d_sieve(n);` | 一次预处理，求出所有 $d(1..n)$ |\r\n| 4-7 | `for (int i = 1; i <= q; i++) { cin >> x; cout << d[x]; }` | 每次查询 $O(1)$ |\r\n\r\n### 3.4 运行示例\r\n\r\n输入：\r\n```\r\n12 4\r\n4\r\n6\r\n9\r\n12\r\n```\r\n\r\n输出：\r\n```\r\n3\r\n4\r\n3\r\n6\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\r\n| 单次查询 | $O(1)$ | 数组下标访问 |\r\n| 空间 | $O(n)$ | `vis` + `a` + `d` + `prime`（质数约 $n / \\ln n$ 个） |\r\n\r\n**与单次试除法对比**：\r\n\r\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\r\n|------|--------|---------|------------------------|\r\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\r\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **大量约数个数查询** | 预处理后每次 $O(1)$，适合百万级查询 |\r\n| **约数相关计数** | 如 $\\sum_{i=1}^{n} d(i)$、约数和等问题的预处理步骤 |\r\n| **数论函数筛法练习** | $d(n)$ 需要额外维护 $a[\\,]$ 数组，是线性筛积性函数的经典进阶案例 |\r\n| **配合其他积性函数** | 线性筛可同时求 $d$、$\\varphi$、$\\mu$ 等，一次筛法多个产出 |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 a 数组的含义\r\n\r\n`a[i]` 存的是 $i$ 的**最小质因子**的指数，不是任意质因子的指数。在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以 $a[\\,]$ 记录的恰好是最小质因子指数。\r\n\r\n### 6.2 先除后乘防溢出\r\n\r\n`d[m] = d[i] / a[m] * (a[m] + 1)` 必须先除后乘。因为 $a(m) = a(i) + 1$ 整除 $d(i) = (a(i)+1) \\times d(t)$，先除得到整数 $d(t)$，再乘 $(a(m)+1)$ 不溢出。若写成 `d[i] * (a[m]+1) / a[m]`，中间值 `d[i] * (a[m]+1)` 可能溢出。\r\n\r\n### 6.3 vis 数组不能省去\r\n\r\n与线性筛求欧拉函数不同，本代码**不能**用 `!d[i]` 代替 `vis[i]` 判质数。因为 $d(1) = 1$ 非零，而质数的 $d(p) = 2$ 也非零，合数的 $d$ 值也非零——$d$ 数组中没有值为 0 的元素可用于标记\"未访问\"。因此必须额外维护 `vis` 数组。\r\n\r\n### 6.4 d[1] 的初始化\r\n\r\n$d(1) = 1$ 必须手动赋值，因为循环从 $i=2$ 开始，1 不会被处理。若遗漏，`d[1]` 保持 0，查询时返回错误结果。\r\n\r\n### 6.5 break 的位置\r\n\r\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$（退化为埃氏筛）。`break` 是保证线性时间的关键。\r\n\r\n### 6.6 质数 d 值的赋值位置\r\n\r\n$d(p) = 2$ 和 $a(p) = 1$ 在发现质数时赋值（外层 `if (!vis[i])` 分支），而不是在内层循环中。因为质数只会在外层被识别，不会作为合数 $i \\times p_j$ 被标记。\r\n\r\n### 6.7 数据类型选择\r\n\r\n当 $n$ 较大时（如 $n \\ge 10^6$），$d(n)$ 的最大值远小于 $n$（高度合成数的 $d$ 值也不超过几千），`int` 完全够用。但 $a[\\,]$ 数组值也很小，`int` 足够。\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 线性筛求 φ vs 求 d\r\n\r\n| 维度 | 求 $\\varphi$ | 求 $d$ |\r\n|------|-------------|--------|\r\n| 辅助数组 | 无（`phi` 兼作标记） | 需要额外 `a[]` 记录最小质因子指数 |\r\n| 质数标记 | `!phi[i]` 判断质数 | 必须额外维护 `vis[]` |\r\n| 情况一递推 | $(p-1) \\cdot \\varphi(i)$ | $2 \\cdot d(i)$ |\r\n| 情况二递推 | $p \\cdot \\varphi(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ |\r\n| 递推复杂度 | 直接乘法 | 需要先除后乘（涉及中间量 $d(t)$） |\r\n\r\n求 $d$ 比求 $\\varphi$ 更复杂的原因：$\\varphi$ 在情况二中只需乘 $p$（因为质因子集合不变，$\\varphi(ip) = p \\cdot \\varphi(i)$ 直接成立）；而 $d$ 在情况二中需要修改最小质因子指数对应的因子（从 $(k+1)$ 变为 $(k+2)$），必须知道 $k$ 的值，因此需要额外维护 $a[\\,]$ 数组。\r\n\r\n### 7.2 埃氏筛求 d 的写法\r\n\r\n埃氏筛也能求 $d$，思路是初始化 `d[i] = 1`，对每个质数 $p$ 遍历其倍数，逐个乘入 $(\\alpha+1)$ 因子。但需要额外记录指数，实现不如线性筛优雅。\r\n\r\n### 7.3 用线性筛求其他积性函数\r\n\r\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\r\n\r\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ | 额外信息 |\r\n|------|---------------------|------------------|---------|\r\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ | 无 |\r\n| 约数个数 $d$ | $2 \\cdot d(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ | 最小质因子指数 $a$ |\r\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ | 无 |\r\n| 约数和 $\\sigma$ | $\\sigma(i) \\cdot (1+p)$ | 需额外维护等比数列和 | 最小质因子幂和 |\r\n\r\n### 7.4 约数求和函数 $\\sigma(n)$\r\n\r\n约数求和 $\\sigma(n) = \\sum_{d \\mid n} d$ 也是积性函数。线性筛求 $\\sigma$ 需要额外维护最小质因子的等比数列和 $S$（即 $1 + p + p^2 + \\cdots + p^k$），递推更复杂：\r\n\r\n- 情况一（$p$ 不整除 $i$）：$\\sigma(ip) = \\sigma(i) \\cdot (1+p)$，$S(ip) = 1+p$\r\n- 情况二（$p$ 整除 $i$）：$S(ip) = S(i) \\cdot p + 1$，$\\sigma(ip) = \\sigma(i) / S(i) \\cdot S(ip)$\r\n\r\n### 7.5 一句话总结\r\n\r\n线性筛求约数个数是线性筛积性函数的经典进阶案例：在 $O(n)$ 时间内求出 $[1, n]$ 内所有 $d(i)$。核心在于额外维护最小质因子指数数组 $a[\\,]$，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 不整除 $i$ 时 $d(ip) = 2 \\cdot d(i)$，整除时 $d(ip) = d(i) / a(m) \\cdot (a(m)+1)$。与求 $\\varphi$ 不同，求 $d$ 无法用 `d` 数组本身判质数，必须额外维护 `vis` 标记数组。",
-        "timeComplexity": "O(n)（预处理）+ O(1)（单次查询）",
-        "spaceComplexity": "O(n)",
-        "tags": [
-            "数学",
-            "数论",
-            "约数个数",
-            "线性筛",
-            "欧拉筛",
-            "积性函数",
-            "预处理"
-        ],
-        "codePath": "数学\\数论基础\\线性筛求约数个数\\源.cpp",
-        "prerequisites": [
-            "math-sieve-eratosthenes",
-            "math-linear-sieve-phi",
-            "hub-math-number-theory"
-        ],
-        "related": [
-            "math-linear-sieve-phi",
-            "math-sieve-eratosthenes",
-            "math-euler-phi",
-            "math-linear-sieve-divisor-sum"
-        ]
-    },
-    {
-        "id": "math-linear-sieve-divisor-sum",
-        "category": "数学",
-        "subcategory": "数论基础",
-        "subSubcategory": "素数",
-        "title": "线性筛求约数和（欧拉筛批量预处理）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 线性筛求约数和（欧拉筛批量预处理）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n约数和函数 $\\sigma(n)$（即 $f(n)$）表示 $n$ 的所有正约数之和。当需要查询 $[1, n]$ 内大量数的约数和（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\r\n\r\n**思路**：利用约数和的积性，结合线性筛框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $\\sigma(i)$，之后每次查询 $O(1)$。\r\n\r\n### 1.2 约数和公式\r\n\r\n设 $n$ 的质因数分解为 $n = p_1^{\\alpha_1} \\cdot p_2^{\\alpha_2} \\cdots p_s^{\\alpha_s}$，则：\r\n\r\n$$\\sigma(n) = \\prod_{i=1}^{s} \\left(1 + p_i + p_i^2 + \\cdots + p_i^{\\alpha_i}\\right)$$\r\n\r\n**直觉理解**：每个质因子 $p_i$ 的贡献是一个等比数列和 $1 + p_i + p_i^2 + \\cdots + p_i^{\\alpha_i}$。各质因子的约数独立组合（由积性），所以总和是各等比数列和的乘积。\r\n\r\n**示例**：\r\n\r\n| $n$ | 分解 | $\\sigma(n)$ | 约数 |\r\n|-----|------|------------|------|\r\n| 1 | 1 | 1 | {1} |\r\n| 2 | $2^1$ | $1+2 = 3$ | {1, 2} |\r\n| 4 | $2^2$ | $1+2+4 = 7$ | {1, 2, 4} |\r\n| 6 | $2^1 \\times 3^1$ | $(1+2)(1+3) = 12$ | {1, 2, 3, 6} |\r\n| 12 | $2^2 \\times 3^1$ | $(1+2+4)(1+3) = 28$ | {1, 2, 3, 4, 6, 12} |\r\n\r\n### 1.3 积性与线性筛\r\n\r\n约数和函数 $\\sigma(n)$ 是**积性函数**：当 $\\gcd(a, b) = 1$ 时，$\\sigma(ab) = \\sigma(a) \\cdot \\sigma(b)$。\r\n\r\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $\\sigma(m)$。关键在于额外维护一个辅助数组 $g[\\,]$，记录每个数的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$。\r\n\r\n### 1.4 两种递推情况\r\n\r\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\r\n\r\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\r\n\r\n$$\\sigma(i \\times p_j) = \\sigma(i) \\times \\sigma(p_j) = \\sigma(i) \\times (1 + p_j)$$\r\n\r\n因为 $p_j$ 是 $i \\times p_j$ 的新质因子（指数为 1），对应的等比数列和为 $1 + p_j$，所以 $g(i \\times p_j) = 1 + p_j$。\r\n\r\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\r\n\r\n此时 $p_j$ 已经是 $i$ 的最小质因子。设 $i$ 中 $p_j$ 的指数为 $k$，则 $i \\times p_j$ 中 $p_j$ 的指数变为 $k+1$。\r\n\r\n$i$ 的等比数列和为 $g(i) = 1 + p_j + p_j^2 + \\cdots + p_j^k$。\r\n\r\n$i \\times p_j$ 的等比数列和为 $g(i \\times p_j) = 1 + p_j + p_j^2 + \\cdots + p_j^{k+1} = p_j \\times g(i) + 1$。\r\n\r\n因为 $\\sigma(i) = g(i) \\times \\sigma(t)$（$t = i / p_j^k$，$p_j \\nmid t$），所以：\r\n\r\n$$\\sigma(i \\times p_j) = g(i \\times p_j) \\times \\sigma(t) = \\frac{g(i \\times p_j)}{g(i)} \\times \\sigma(i) = \\sigma(i) \\, / \\, g(i) \\times g(i \\times p_j)$$\r\n\r\n> **为什么先除后乘？** $g(i) = 1 + p_j + \\cdots + p_j^k$ 整除 $\\sigma(i) = g(i) \\times \\sigma(t)$，所以 $\\sigma(i) / g(i) = \\sigma(t)$ 是整数。先除保证整除，再乘避免分数运算。\r\n\r\n### 1.5 边界与初始值\r\n\r\n- $\\sigma(1) = 1$（1 只有一个约数——自身），$g(1) = 1$\r\n- 质数 $p$ 的 $\\sigma(p) = 1 + p$，$g(p) = 1 + p$（最小质因子就是自身，指数为 1）\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 状态定义\r\n\r\n| 数组 | 含义 |\r\n|------|------|\r\n| `vis[i]` | $i$ 是否已被筛过（是否为合数） |\r\n| `prime` | 已发现的质数表，按升序存储 |\r\n| `g[i]` | $i$ 的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$ |\r\n| `f[i]` | 约数和 $\\sigma(i)$ |\r\n\r\n### 2.2 转移方程\r\n\r\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$（$p_j \\le n / i$），设 $m = i \\times p_j$：\r\n\r\n$$\r\ng(m) =\r\n\\begin{cases}\r\n1 + p_j, & i \\bmod p_j \\neq 0 \\\\\r\np_j \\cdot g(i) + 1, & i \\bmod p_j = 0\r\n\\end{cases}\r\n$$\r\n\r\n$$\r\n\\sigma(m) =\r\n\\begin{cases}\r\n\\sigma(i) \\cdot (1 + p_j), & i \\bmod p_j \\neq 0 \\quad (\\text{新质因子，积性}) \\\\\r\n\\sigma(i) \\, / \\, g(i) \\cdot g(m), & i \\bmod p_j = 0 \\quad (\\text{指数}+1\\text{，替换等比和})\r\n\\end{cases}\r\n$$\r\n\r\n### 2.3 线性时间证明\r\n\r\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\r\n\r\n因此总操作次数恰好等于合数个数加上质数个数，总共 $O(n)$。\r\n\r\n### 2.4 辅助数组 g 的作用\r\n\r\n$g[\\,]$ 数组记录每个数的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$（$k$ 为该质因子在数中的指数），是情况二递推的关键。\r\n\r\n在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以：\r\n\r\n- 当 $p_j$ 不整除 $i$ 时，$p_j$ 是新质因子，指数为 1，$g(m) = 1 + p_j$\r\n- 当 $p_j$ 整除 $i$ 时，$p_j$ 是 $i$ 的最小质因子，$i \\times p_j$ 中 $p_j$ 的指数 +1，等比数列和从 $g(i)$ 扩展为 $p_j \\cdot g(i) + 1$\r\n\r\n没有 $g[\\,]$ 数组，就无法在情况二中正确递推——因为需要知道\"旧等比和\"才能算\"新等比和\"，进而更新 $\\sigma$ 值。\r\n\r\n### 2.5 f 和 g 的关系\r\n\r\n对于任意 $n$，设其最小质因子为 $p$，指数为 $k$，则 $n = p^k \\times t$（$p \\nmid t$）：\r\n\r\n$$g(n) = 1 + p + p^2 + \\cdots + p^k$$\r\n\r\n$$\\sigma(n) = g(n) \\times \\sigma(t)$$\r\n\r\n当 $n$ 是质数时，$k = 1$，$t = 1$，$g(p) = 1 + p$，$\\sigma(p) = (1+p) \\times \\sigma(1) = 1 + p$，两者相等。\r\n\r\n当 $n = 1$ 时，$g(1) = \\sigma(1) = 1$，也是一致的。\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nvector<int> prime;\r\nvector<long long> g, f;\r\n```\r\n\r\n全局变量：`prime` 存质数表，`g` 存最小质因子等比数列和，`f` 存约数和。注意 `g` 和 `f` 用 `long long`，因为约数和可能很大。\r\n\r\n### 3.1 f_sieve —— 线性筛求约数和\r\n\r\n```cpp\r\nvoid f_sieve(int n)\r\n{\r\n    prime.clear();\r\n    prime.reserve(n / 15 + 16);\r\n    g.assign(n + 1, 0);\r\n    f.assign(n + 1, 0);\r\n    f[1] = g[1] = 1;\r\n    vector<bool> vis(n + 1, false);\r\n    for (int i = 2; i <= n; i++)\r\n    {\r\n        if (!vis[i])\r\n        {\r\n            g[i] = f[i] = i + 1;\r\n            prime.emplace_back(i);\r\n        }\r\n        for (int j = 0; prime[j] <= n / i; j++)\r\n        {\r\n            long long m = prime[j] * i;\r\n            vis[m] = true;\r\n            if (i % prime[j])\r\n            {\r\n                g[m] = 1 + prime[j];\r\n                f[m] = f[i] * g[m];\r\n            }\r\n            else\r\n            {\r\n                g[m] = g[i] * prime[j] + 1;\r\n                f[m] = f[i] / g[i] * g[m];\r\n                break;\r\n            }\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `prime.clear(); prime.reserve(n / 15 + 16);` | 清空质数表，预留空间（质数密度约 $n / \\ln n$） |\r\n| 2-3 | `g.assign(n + 1, 0); f.assign(n + 1, 0);` | 辅助数组和约数和数组初始化为 0 |\r\n| 4 | `f[1] = g[1] = 1;` | 边界 $\\sigma(1) = g(1) = 1$ |\r\n| 5 | `vector<bool> vis(n + 1, false);` | 标记数组，初始全 false（未被筛） |\r\n| 6 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\r\n| 7-10 | `if (!vis[i]) { g[i] = f[i] = i + 1; prime.emplace_back(i); }` | $i$ 未被筛 → 质数，$g(p) = f(p) = 1 + p$，加入质数表 |\r\n| 11 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，`n/i` 防止越界 |\r\n| 12-13 | `long long m = prime[j] * i; vis[m] = true;` | 计算 $m = i \\times p_j$ 并标记为合数（用 `long long` 防溢出） |\r\n| 14-17 | `if (i % prime[j]) { g[m] = 1 + prime[j]; f[m] = f[i] * g[m]; }` | 情况一：$p_j$ 不整除 $i$ → 新质因子，$g(m) = 1+p$，$\\sigma(m) = \\sigma(i) \\cdot (1+p)$ |\r\n| 18-21 | `else { g[m] = g[i]*p+1; f[m] = f[i]/g[i]*g[m]; break; }` | 情况二：$p_j$ 整除 $i$ → 扩展等比和 $g(m) = p \\cdot g(i) + 1$，$\\sigma(m) = \\sigma(i)/g(i) \\cdot g(m)$；`break` 保证线性 |\r\n\r\n### 3.2 手动模拟（n = 12）\r\n\r\n| $i$ | 操作 | 新增质数 | $g$ 值更新 | $f$ 值更新 |\r\n|-----|------|---------|-----------|-----------|\r\n| 2 | `vis[2]=false` → 质数 | 2 | $g(2)=3$ | $f(2)=3$ |\r\n| 2 | `j=0, p=2, 2≤6` | — | $g(4)=g(2) \\times 2+1=7$ | $f(4)=f(2)/g(2) \\times 7 = 7$（2%2=0, break） |\r\n| 3 | `vis[3]=false` → 质数 | 3 | $g(3)=4$ | $f(3)=4$ |\r\n| 3 | `j=0, p=2, 2≤4` | — | $g(6)=1+2=3$ | $f(6)=f(3) \\times 3 = 12$（3%2≠0） |\r\n| 3 | `j=1, p=3, 3≤4` | — | $g(9)=g(3) \\times 3+1=13$ | $f(9)=f(3)/g(3) \\times 13 = 13$（3%3=0, break） |\r\n| 4 | `vis[4]=true` → 非质数 | — | — | — |\r\n| 4 | `j=0, p=2, 2≤3` | — | $g(8)=g(4) \\times 2+1=15$ | $f(8)=f(4)/g(4) \\times 15 = 15$（4%2=0, break） |\r\n| 5 | `vis[5]=false` → 质数 | 5 | $g(5)=6$ | $f(5)=6$ |\r\n| 5 | `j=0, p=2, 2≤2` | — | $g(10)=1+2=3$ | $f(10)=f(5) \\times 3 = 18$（5%2≠0） |\r\n| 5 | `j=1, p=3, 3≤2` | — | — | （3 > 12/5=2，内层结束） |\r\n| 6 | `vis[6]=true` → 非质数 | — | — | — |\r\n| 6 | `j=0, p=2, 2≤2` | — | $g(12)=g(6) \\times 2+1=7$ | $f(12)=f(6)/g(6) \\times 7 = 28$（6%2=0, break） |\r\n\r\n**验证**：\r\n- $\\sigma(4) = 1+2+4 = 7$ ✓\r\n- $\\sigma(6) = 1+2+3+6 = 12$ ✓\r\n- $\\sigma(8) = 1+2+4+8 = 15$ ✓\r\n- $\\sigma(9) = 1+3+9 = 13$ ✓\r\n- $\\sigma(10) = 1+2+5+10 = 18$ ✓\r\n- $\\sigma(12) = 1+2+3+4+6+12 = 28$ ✓\r\n\r\n全部正确 ✓\r\n\r\n### 3.3 main —— 预处理 + 多组查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int n, q;\r\n    cin >> n >> q;\r\n    f_sieve(n);\r\n    for (int i = 1; i <= q; i++)\r\n    {\r\n        int x;\r\n        cin >> x;\r\n        cout << f[x] << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\r\n| 3 | `f_sieve(n);` | 一次预处理，求出所有 $\\sigma(1..n)$ |\r\n| 4-7 | `for (int i = 1; i <= q; i++) { cin >> x; cout << f[x]; }` | 每次查询 $O(1)$ |\r\n\r\n### 3.4 运行示例\r\n\r\n输入：\r\n```\r\n12 4\r\n4\r\n6\r\n9\r\n12\r\n```\r\n\r\n输出：\r\n```\r\n7\r\n12\r\n13\r\n28\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\r\n| 单次查询 | $O(1)$ | 数组下标访问 |\r\n| 空间 | $O(n)$ | `vis` + `g` + `f` + `prime`（质数约 $n / \\ln n$ 个） |\r\n\r\n**与单次试除法对比**：\r\n\r\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\r\n|------|--------|---------|------------------------|\r\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\r\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **大约数和查询** | 预处理后每次 $O(1)$，适合百万级查询 |\r\n| **约数相关计数** | 如 $\\sum_{i=1}^{n} \\sigma(i)$、亲和数判定等问题的预处理步骤 |\r\n| **积性函数筛法进阶** | $\\sigma$ 需要额外维护等比数列和 $g$，是线性筛积性函数中最复杂的经典案例 |\r\n| **配合其他积性函数** | 线性筛可同时求 $\\sigma$、$d$、$\\varphi$、$\\mu$ 等，一次筛法多个产出 |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 g 数组的含义\r\n\r\n`g[i]` 存的是 $i$ 的**最小质因子**对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$，不是任意质因子的等比和，也不是约数和本身。对于质数 $p$，$g(p) = 1 + p = \\sigma(p)$，两者恰好相等，这容易造成误解。但对于质数幂 $p^k$（$k \\ge 2$），$g(p^k) = 1 + p + \\cdots + p^k \\ne \\sigma(p^k) = 1 + p + \\cdots + p^k$...实际上两者相等，因为 $p^k$ 只有一个质因子。真正的区别体现在有多个质因子时。\r\n\r\n### 6.2 先除后乘防溢出\r\n\r\n`f[m] = f[i] / g[i] * g[m]` 必须先除后乘。因为 $g(i) = 1 + p + \\cdots + p^k$ 整除 $\\sigma(i) = g(i) \\times \\sigma(t)$，所以 $\\sigma(i) / g(i) = \\sigma(t)$ 是整数。先除得到整数 $\\sigma(t)$，再乘 $g(m)$ 不溢出。若写成 `f[i] * g[m] / g[i]`，中间值 `f[i] * g[m]` 可能溢出 `long long`。\r\n\r\n### 6.3 vis 数组不能省去\r\n\r\n与线性筛求欧拉函数不同，本代码**不能**用 `!f[i]` 代替 `vis[i]` 判质数。因为 $f(1) = 1$ 非零，质数的 $f(p) = 1 + p$ 也非零，合数的 $f$ 值也非零——$f$ 数组中没有值为 0 的元素可用于标记\"未访问\"。因此必须额外维护 `vis` 数组。\r\n\r\n### 6.4 long long 的必要性\r\n\r\n约数和 $\\sigma(n)$ 可能远大于 $n$。例如 $\\sigma(2520) = \\sigma(2^3 \\times 3^2 \\times 5 \\times 7) = 15 \\times 13 \\times 6 \\times 8 = 9360$，是 $n$ 的 3.7 倍。当 $n = 10^6$ 时，$\\sigma$ 值可能超过 `int` 上限。因此 `g` 和 `f` 数组必须用 `long long`。\r\n\r\n### 6.5 m 的类型\r\n\r\n`long long m = prime[j] * i;` 中 `m` 用 `long long` 而非 `int`。虽然 `prime[j] * i <= n` 不会溢出 `int`，但后续 `g[m]` 和 `f[m]` 的下标访问需要正确的下标值，使用 `long long` 更安全。\r\n\r\n### 6.6 break 的位置\r\n\r\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$。`break` 是保证线性时间的关键。\r\n\r\n### 6.7 质数 f 和 g 值的赋值位置\r\n\r\n$g(p) = f(p) = 1 + p$ 在发现质数时赋值（外层 `if (!vis[i])` 分支），而不是在内层循环中。因为质数只会在外层被识别，不会作为合数 $i \\times p_j$ 被标记。\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 三种线性筛积性函数对比\r\n\r\n| 维度 | 求 $\\varphi$ | 求 $d$ | 求 $\\sigma$ |\r\n|------|-------------|--------|------------|\r\n| 辅助数组 | 无 | $a[\\,]$（最小质因子指数） | $g[\\,]$（最小质因子等比和） |\r\n| 质数标记 | `!phi[i]` 兼作标记 | 必须额外 `vis[]` | 必须额外 `vis[]` |\r\n| 情况一递推 | $(p-1) \\cdot \\varphi(i)$ | $2 \\cdot d(i)$ | $(1+p) \\cdot \\sigma(i)$ |\r\n| 情况二递推 | $p \\cdot \\varphi(i)$ | $d(i)/a(m) \\cdot (a(m)+1)$ | $\\sigma(i)/g(i) \\cdot g(m)$ |\r\n| 辅助数组更新 | 无 | $a(m) = a(i)+1$ | $g(m) = g(i) \\cdot p + 1$ |\r\n| 数据类型 | `int` 足够 | `int` 足够 | 必须 `long long` |\r\n| 递推复杂度 | 直接乘法 | 先除后乘 | 先除后乘 |\r\n\r\n求 $\\sigma$ 是三种中最复杂的：需要维护等比数列和 $g$，且结果可能溢出 `int`。但核心思想一致——利用积性，对最小质因子\"新出现\"和\"重复出现\"分两种情况递推。\r\n\r\n### 7.2 等比数列和 g 的递推公式\r\n\r\n$g$ 的递推 $g(m) = g(i) \\times p + 1$ 来自等比数列的扩展：\r\n\r\n$$g(i) = 1 + p + p^2 + \\cdots + p^k$$\r\n\r\n$$g(m) = 1 + p + p^2 + \\cdots + p^{k+1} = p \\times (1 + p + \\cdots + p^k) + 1 = p \\times g(i) + 1$$\r\n\r\n这个递推避免了直接计算 $p^{k+1}$，只需一次乘法和一次加法。\r\n\r\n### 7.3 用线性筛求其他积性函数\r\n\r\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\r\n\r\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ | 额外信息 |\r\n|------|---------------------|------------------|---------|\r\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ | 无 |\r\n| 约数个数 $d$ | $2 \\cdot d(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ | 最小质因子指数 $a$ |\r\n| 约数和 $\\sigma$ | $(1+p) \\cdot \\sigma(i)$ | $\\sigma(i)/g(i) \\cdot g(m)$ | 最小质因子等比和 $g$ |\r\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ | 无 |\r\n\r\n### 7.4 三种筛法的统一框架\r\n\r\n三个线性筛知识点（求 $\\varphi$、求 $d$、求 $\\sigma$）共享相同的外层循环和内层 `break` 机制，区别仅在于：\r\n\r\n1. **质数时的赋值**：$\\varphi(p) = p-1$，$d(p) = 2$，$\\sigma(p) = 1+p$\r\n2. **情况一的递推**：分别用 $(p-1)$、$2$、$(1+p)$ 乘\r\n3. **情况二的递推**：$\\varphi$ 直接乘 $p$；$d$ 需要辅助数组 $a$；$\\sigma$ 需要辅助数组 $g$\r\n4. **辅助数组的更新**：$a(m) = a(i)+1$（指数+1），$g(m) = g(i) \\cdot p + 1$（等比和扩展）\r\n\r\n理解了这套统一框架，就能举一反三地用线性筛求任意积性函数。\r\n\r\n### 7.5 一句话总结\r\n\r\n线性筛求约数和是线性筛积性函数中最复杂的经典案例：在 $O(n)$ 时间内求出 $[1, n]$ 内所有 $\\sigma(i)$。核心在于额外维护最小质因子等比数列和数组 $g$，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 不整除 $i$ 时 $\\sigma(ip) = (1+p) \\cdot \\sigma(i)$，整除时 $g(ip) = p \\cdot g(i) + 1$，$\\sigma(ip) = \\sigma(i)/g(i) \\cdot g(ip)$。与求 $d$ 类似，求 $\\sigma$ 也无法用 $f$ 数组本身判质数，必须额外维护 `vis` 标记数组，且 $g$ 和 $f$ 必须用 `long long` 防溢出。",
-                "codePath": "数学\\数论基础\\线性筛求约数和\\源.cpp",
-                "timeComplexity": "O(n)（预处理）+ O(1)（单次查询）",
-                "spaceComplexity": "O(n)",
-                "tags": [
-                    "数学",
-                    "数论",
-                    "约数和",
-                    "线性筛",
-                    "欧拉筛",
-                    "积性函数",
-                    "预处理"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 线性筛求约数和（欧拉筛批量预处理）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n约数和函数 $\\sigma(n)$（即 $f(n)$）表示 $n$ 的所有正约数之和。当需要查询 $[1, n]$ 内大量数的约数和（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\r\n\r\n**思路**：利用约数和的积性，结合线性筛框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $\\sigma(i)$，之后每次查询 $O(1)$。\r\n\r\n### 1.2 约数和公式\r\n\r\n设 $n$ 的质因数分解为 $n = p_1^{\\alpha_1} \\cdot p_2^{\\alpha_2} \\cdots p_s^{\\alpha_s}$，则：\r\n\r\n$$\\sigma(n) = \\prod_{i=1}^{s} \\left(1 + p_i + p_i^2 + \\cdots + p_i^{\\alpha_i}\\right)$$\r\n\r\n**直觉理解**：每个质因子 $p_i$ 的贡献是一个等比数列和 $1 + p_i + p_i^2 + \\cdots + p_i^{\\alpha_i}$。各质因子的约数独立组合（由积性），所以总和是各等比数列和的乘积。\r\n\r\n**示例**：\r\n\r\n| $n$ | 分解 | $\\sigma(n)$ | 约数 |\r\n|-----|------|------------|------|\r\n| 1 | 1 | 1 | {1} |\r\n| 2 | $2^1$ | $1+2 = 3$ | {1, 2} |\r\n| 4 | $2^2$ | $1+2+4 = 7$ | {1, 2, 4} |\r\n| 6 | $2^1 \\times 3^1$ | $(1+2)(1+3) = 12$ | {1, 2, 3, 6} |\r\n| 12 | $2^2 \\times 3^1$ | $(1+2+4)(1+3) = 28$ | {1, 2, 3, 4, 6, 12} |\r\n\r\n### 1.3 积性与线性筛\r\n\r\n约数和函数 $\\sigma(n)$ 是**积性函数**：当 $\\gcd(a, b) = 1$ 时，$\\sigma(ab) = \\sigma(a) \\cdot \\sigma(b)$。\r\n\r\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $\\sigma(m)$。关键在于额外维护一个辅助数组 $g[\\,]$，记录每个数的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$。\r\n\r\n### 1.4 两种递推情况\r\n\r\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\r\n\r\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\r\n\r\n$$\\sigma(i \\times p_j) = \\sigma(i) \\times \\sigma(p_j) = \\sigma(i) \\times (1 + p_j)$$\r\n\r\n因为 $p_j$ 是 $i \\times p_j$ 的新质因子（指数为 1），对应的等比数列和为 $1 + p_j$，所以 $g(i \\times p_j) = 1 + p_j$。\r\n\r\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\r\n\r\n此时 $p_j$ 已经是 $i$ 的最小质因子。设 $i$ 中 $p_j$ 的指数为 $k$，则 $i \\times p_j$ 中 $p_j$ 的指数变为 $k+1$。\r\n\r\n$i$ 的等比数列和为 $g(i) = 1 + p_j + p_j^2 + \\cdots + p_j^k$。\r\n\r\n$i \\times p_j$ 的等比数列和为 $g(i \\times p_j) = 1 + p_j + p_j^2 + \\cdots + p_j^{k+1} = p_j \\times g(i) + 1$。\r\n\r\n因为 $\\sigma(i) = g(i) \\times \\sigma(t)$（$t = i / p_j^k$，$p_j \\nmid t$），所以：\r\n\r\n$$\\sigma(i \\times p_j) = g(i \\times p_j) \\times \\sigma(t) = \\frac{g(i \\times p_j)}{g(i)} \\times \\sigma(i) = \\sigma(i) \\, / \\, g(i) \\times g(i \\times p_j)$$\r\n\r\n> **为什么先除后乘？** $g(i) = 1 + p_j + \\cdots + p_j^k$ 整除 $\\sigma(i) = g(i) \\times \\sigma(t)$，所以 $\\sigma(i) / g(i) = \\sigma(t)$ 是整数。先除保证整除，再乘避免分数运算。\r\n\r\n### 1.5 边界与初始值\r\n\r\n- $\\sigma(1) = 1$（1 只有一个约数——自身），$g(1) = 1$\r\n- 质数 $p$ 的 $\\sigma(p) = 1 + p$，$g(p) = 1 + p$（最小质因子就是自身，指数为 1）\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 状态定义\r\n\r\n| 数组 | 含义 |\r\n|------|------|\r\n| `vis[i]` | $i$ 是否已被筛过（是否为合数） |\r\n| `prime` | 已发现的质数表，按升序存储 |\r\n| `g[i]` | $i$ 的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$ |\r\n| `f[i]` | 约数和 $\\sigma(i)$ |\r\n\r\n### 2.2 转移方程\r\n\r\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$（$p_j \\le n / i$），设 $m = i \\times p_j$：\r\n\r\n$$\r\ng(m) =\r\n\\begin{cases}\r\n1 + p_j, & i \\bmod p_j \\neq 0 \\\\\r\np_j \\cdot g(i) + 1, & i \\bmod p_j = 0\r\n\\end{cases}\r\n$$\r\n\r\n$$\r\n\\sigma(m) =\r\n\\begin{cases}\r\n\\sigma(i) \\cdot (1 + p_j), & i \\bmod p_j \\neq 0 \\quad (\\text{新质因子，积性}) \\\\\r\n\\sigma(i) \\, / \\, g(i) \\cdot g(m), & i \\bmod p_j = 0 \\quad (\\text{指数}+1\\text{，替换等比和})\r\n\\end{cases}\r\n$$\r\n\r\n### 2.3 线性时间证明\r\n\r\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\r\n\r\n因此总操作次数恰好等于合数个数加上质数个数，总共 $O(n)$。\r\n\r\n### 2.4 辅助数组 g 的作用\r\n\r\n$g[\\,]$ 数组记录每个数的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$（$k$ 为该质因子在数中的指数），是情况二递推的关键。\r\n\r\n在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以：\r\n\r\n- 当 $p_j$ 不整除 $i$ 时，$p_j$ 是新质因子，指数为 1，$g(m) = 1 + p_j$\r\n- 当 $p_j$ 整除 $i$ 时，$p_j$ 是 $i$ 的最小质因子，$i \\times p_j$ 中 $p_j$ 的指数 +1，等比数列和从 $g(i)$ 扩展为 $p_j \\cdot g(i) + 1$\r\n\r\n没有 $g[\\,]$ 数组，就无法在情况二中正确递推——因为需要知道\"旧等比和\"才能算\"新等比和\"，进而更新 $\\sigma$ 值。\r\n\r\n### 2.5 f 和 g 的关系\r\n\r\n对于任意 $n$，设其最小质因子为 $p$，指数为 $k$，则 $n = p^k \\times t$（$p \\nmid t$）：\r\n\r\n$$g(n) = 1 + p + p^2 + \\cdots + p^k$$\r\n\r\n$$\\sigma(n) = g(n) \\times \\sigma(t)$$\r\n\r\n当 $n$ 是质数时，$k = 1$，$t = 1$，$g(p) = 1 + p$，$\\sigma(p) = (1+p) \\times \\sigma(1) = 1 + p$，两者相等。\r\n\r\n当 $n = 1$ 时，$g(1) = \\sigma(1) = 1$，也是一致的。\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nvector<int> prime;\r\nvector<long long> g, f;\r\n```\r\n\r\n全局变量：`prime` 存质数表，`g` 存最小质因子等比数列和，`f` 存约数和。注意 `g` 和 `f` 用 `long long`，因为约数和可能很大。\r\n\r\n### 3.1 f_sieve —— 线性筛求约数和\r\n\r\n```cpp\r\nvoid f_sieve(int n)\r\n{\r\n    prime.clear();\r\n    prime.reserve(n / 15 + 16);\r\n    g.assign(n + 1, 0);\r\n    f.assign(n + 1, 0);\r\n    f[1] = g[1] = 1;\r\n    vector<bool> vis(n + 1, false);\r\n    for (int i = 2; i <= n; i++)\r\n    {\r\n        if (!vis[i])\r\n        {\r\n            g[i] = f[i] = i + 1;\r\n            prime.emplace_back(i);\r\n        }\r\n        for (int j = 0; prime[j] <= n / i; j++)\r\n        {\r\n            long long m = prime[j] * i;\r\n            vis[m] = true;\r\n            if (i % prime[j])\r\n            {\r\n                g[m] = 1 + prime[j];\r\n                f[m] = f[i] * g[m];\r\n            }\r\n            else\r\n            {\r\n                g[m] = g[i] * prime[j] + 1;\r\n                f[m] = f[i] / g[i] * g[m];\r\n                break;\r\n            }\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `prime.clear(); prime.reserve(n / 15 + 16);` | 清空质数表，预留空间（质数密度约 $n / \\ln n$） |\r\n| 2-3 | `g.assign(n + 1, 0); f.assign(n + 1, 0);` | 辅助数组和约数和数组初始化为 0 |\r\n| 4 | `f[1] = g[1] = 1;` | 边界 $\\sigma(1) = g(1) = 1$ |\r\n| 5 | `vector<bool> vis(n + 1, false);` | 标记数组，初始全 false（未被筛） |\r\n| 6 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\r\n| 7-10 | `if (!vis[i]) { g[i] = f[i] = i + 1; prime.emplace_back(i); }` | $i$ 未被筛 → 质数，$g(p) = f(p) = 1 + p$，加入质数表 |\r\n| 11 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，`n/i` 防止越界 |\r\n| 12-13 | `long long m = prime[j] * i; vis[m] = true;` | 计算 $m = i \\times p_j$ 并标记为合数（用 `long long` 防溢出） |\r\n| 14-17 | `if (i % prime[j]) { g[m] = 1 + prime[j]; f[m] = f[i] * g[m]; }` | 情况一：$p_j$ 不整除 $i$ → 新质因子，$g(m) = 1+p$，$\\sigma(m) = \\sigma(i) \\cdot (1+p)$ |\r\n| 18-21 | `else { g[m] = g[i]*p+1; f[m] = f[i]/g[i]*g[m]; break; }` | 情况二：$p_j$ 整除 $i$ → 扩展等比和 $g(m) = p \\cdot g(i) + 1$，$\\sigma(m) = \\sigma(i)/g(i) \\cdot g(m)$；`break` 保证线性 |\r\n\r\n### 3.2 手动模拟（n = 12）\r\n\r\n| $i$ | 操作 | 新增质数 | $g$ 值更新 | $f$ 值更新 |\r\n|-----|------|---------|-----------|-----------|\r\n| 2 | `vis[2]=false` → 质数 | 2 | $g(2)=3$ | $f(2)=3$ |\r\n| 2 | `j=0, p=2, 2≤6` | — | $g(4)=g(2) \\times 2+1=7$ | $f(4)=f(2)/g(2) \\times 7 = 7$（2%2=0, break） |\r\n| 3 | `vis[3]=false` → 质数 | 3 | $g(3)=4$ | $f(3)=4$ |\r\n| 3 | `j=0, p=2, 2≤4` | — | $g(6)=1+2=3$ | $f(6)=f(3) \\times 3 = 12$（3%2≠0） |\r\n| 3 | `j=1, p=3, 3≤4` | — | $g(9)=g(3) \\times 3+1=13$ | $f(9)=f(3)/g(3) \\times 13 = 13$（3%3=0, break） |\r\n| 4 | `vis[4]=true` → 非质数 | — | — | — |\r\n| 4 | `j=0, p=2, 2≤3` | — | $g(8)=g(4) \\times 2+1=15$ | $f(8)=f(4)/g(4) \\times 15 = 15$（4%2=0, break） |\r\n| 5 | `vis[5]=false` → 质数 | 5 | $g(5)=6$ | $f(5)=6$ |\r\n| 5 | `j=0, p=2, 2≤2` | — | $g(10)=1+2=3$ | $f(10)=f(5) \\times 3 = 18$（5%2≠0） |\r\n| 5 | `j=1, p=3, 3≤2` | — | — | （3 > 12/5=2，内层结束） |\r\n| 6 | `vis[6]=true` → 非质数 | — | — | — |\r\n| 6 | `j=0, p=2, 2≤2` | — | $g(12)=g(6) \\times 2+1=7$ | $f(12)=f(6)/g(6) \\times 7 = 28$（6%2=0, break） |\r\n\r\n**验证**：\r\n- $\\sigma(4) = 1+2+4 = 7$ ✓\r\n- $\\sigma(6) = 1+2+3+6 = 12$ ✓\r\n- $\\sigma(8) = 1+2+4+8 = 15$ ✓\r\n- $\\sigma(9) = 1+3+9 = 13$ ✓\r\n- $\\sigma(10) = 1+2+5+10 = 18$ ✓\r\n- $\\sigma(12) = 1+2+3+4+6+12 = 28$ ✓\r\n\r\n全部正确 ✓\r\n\r\n### 3.3 main —— 预处理 + 多组查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int n, q;\r\n    cin >> n >> q;\r\n    f_sieve(n);\r\n    for (int i = 1; i <= q; i++)\r\n    {\r\n        int x;\r\n        cin >> x;\r\n        cout << f[x] << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\r\n| 3 | `f_sieve(n);` | 一次预处理，求出所有 $\\sigma(1..n)$ |\r\n| 4-7 | `for (int i = 1; i <= q; i++) { cin >> x; cout << f[x]; }` | 每次查询 $O(1)$ |\r\n\r\n### 3.4 运行示例\r\n\r\n输入：\r\n```\r\n12 4\r\n4\r\n6\r\n9\r\n12\r\n```\r\n\r\n输出：\r\n```\r\n7\r\n12\r\n13\r\n28\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\r\n| 单次查询 | $O(1)$ | 数组下标访问 |\r\n| 空间 | $O(n)$ | `vis` + `g` + `f` + `prime`（质数约 $n / \\ln n$ 个） |\r\n\r\n**与单次试除法对比**：\r\n\r\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\r\n|------|--------|---------|------------------------|\r\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\r\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **大约数和查询** | 预处理后每次 $O(1)$，适合百万级查询 |\r\n| **约数相关计数** | 如 $\\sum_{i=1}^{n} \\sigma(i)$、亲和数判定等问题的预处理步骤 |\r\n| **积性函数筛法进阶** | $\\sigma$ 需要额外维护等比数列和 $g$，是线性筛积性函数中最复杂的经典案例 |\r\n| **配合其他积性函数** | 线性筛可同时求 $\\sigma$、$d$、$\\varphi$、$\\mu$ 等，一次筛法多个产出 |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 g 数组的含义\r\n\r\n`g[i]` 存的是 $i$ 的**最小质因子**对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$，不是任意质因子的等比和，也不是约数和本身。对于质数 $p$，$g(p) = 1 + p = \\sigma(p)$，两者恰好相等，这容易造成误解。但对于质数幂 $p^k$（$k \\ge 2$），$g(p^k) = 1 + p + \\cdots + p^k \\ne \\sigma(p^k) = 1 + p + \\cdots + p^k$...实际上两者相等，因为 $p^k$ 只有一个质因子。真正的区别体现在有多个质因子时。\r\n\r\n### 6.2 先除后乘防溢出\r\n\r\n`f[m] = f[i] / g[i] * g[m]` 必须先除后乘。因为 $g(i) = 1 + p + \\cdots + p^k$ 整除 $\\sigma(i) = g(i) \\times \\sigma(t)$，所以 $\\sigma(i) / g(i) = \\sigma(t)$ 是整数。先除得到整数 $\\sigma(t)$，再乘 $g(m)$ 不溢出。若写成 `f[i] * g[m] / g[i]`，中间值 `f[i] * g[m]` 可能溢出 `long long`。\r\n\r\n### 6.3 vis 数组不能省去\r\n\r\n与线性筛求欧拉函数不同，本代码**不能**用 `!f[i]` 代替 `vis[i]` 判质数。因为 $f(1) = 1$ 非零，质数的 $f(p) = 1 + p$ 也非零，合数的 $f$ 值也非零——$f$ 数组中没有值为 0 的元素可用于标记\"未访问\"。因此必须额外维护 `vis` 数组。\r\n\r\n### 6.4 long long 的必要性\r\n\r\n约数和 $\\sigma(n)$ 可能远大于 $n$。例如 $\\sigma(2520) = \\sigma(2^3 \\times 3^2 \\times 5 \\times 7) = 15 \\times 13 \\times 6 \\times 8 = 9360$，是 $n$ 的 3.7 倍。当 $n = 10^6$ 时，$\\sigma$ 值可能超过 `int` 上限。因此 `g` 和 `f` 数组必须用 `long long`。\r\n\r\n### 6.5 m 的类型\r\n\r\n`long long m = prime[j] * i;` 中 `m` 用 `long long` 而非 `int`。虽然 `prime[j] * i <= n` 不会溢出 `int`，但后续 `g[m]` 和 `f[m]` 的下标访问需要正确的下标值，使用 `long long` 更安全。\r\n\r\n### 6.6 break 的位置\r\n\r\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$。`break` 是保证线性时间的关键。\r\n\r\n### 6.7 质数 f 和 g 值的赋值位置\r\n\r\n$g(p) = f(p) = 1 + p$ 在发现质数时赋值（外层 `if (!vis[i])` 分支），而不是在内层循环中。因为质数只会在外层被识别，不会作为合数 $i \\times p_j$ 被标记。\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 三种线性筛积性函数对比\r\n\r\n| 维度 | 求 $\\varphi$ | 求 $d$ | 求 $\\sigma$ |\r\n|------|-------------|--------|------------|\r\n| 辅助数组 | 无 | $a[\\,]$（最小质因子指数） | $g[\\,]$（最小质因子等比和） |\r\n| 质数标记 | `!phi[i]` 兼作标记 | 必须额外 `vis[]` | 必须额外 `vis[]` |\r\n| 情况一递推 | $(p-1) \\cdot \\varphi(i)$ | $2 \\cdot d(i)$ | $(1+p) \\cdot \\sigma(i)$ |\r\n| 情况二递推 | $p \\cdot \\varphi(i)$ | $d(i)/a(m) \\cdot (a(m)+1)$ | $\\sigma(i)/g(i) \\cdot g(m)$ |\r\n| 辅助数组更新 | 无 | $a(m) = a(i)+1$ | $g(m) = g(i) \\cdot p + 1$ |\r\n| 数据类型 | `int` 足够 | `int` 足够 | 必须 `long long` |\r\n| 递推复杂度 | 直接乘法 | 先除后乘 | 先除后乘 |\r\n\r\n求 $\\sigma$ 是三种中最复杂的：需要维护等比数列和 $g$，且结果可能溢出 `int`。但核心思想一致——利用积性，对最小质因子\"新出现\"和\"重复出现\"分两种情况递推。\r\n\r\n### 7.2 等比数列和 g 的递推公式\r\n\r\n$g$ 的递推 $g(m) = g(i) \\times p + 1$ 来自等比数列的扩展：\r\n\r\n$$g(i) = 1 + p + p^2 + \\cdots + p^k$$\r\n\r\n$$g(m) = 1 + p + p^2 + \\cdots + p^{k+1} = p \\times (1 + p + \\cdots + p^k) + 1 = p \\times g(i) + 1$$\r\n\r\n这个递推避免了直接计算 $p^{k+1}$，只需一次乘法和一次加法。\r\n\r\n### 7.3 用线性筛求其他积性函数\r\n\r\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\r\n\r\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ | 额外信息 |\r\n|------|---------------------|------------------|---------|\r\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ | 无 |\r\n| 约数个数 $d$ | $2 \\cdot d(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ | 最小质因子指数 $a$ |\r\n| 约数和 $\\sigma$ | $(1+p) \\cdot \\sigma(i)$ | $\\sigma(i)/g(i) \\cdot g(m)$ | 最小质因子等比和 $g$ |\r\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ | 无 |\r\n\r\n### 7.4 三种筛法的统一框架\r\n\r\n三个线性筛知识点（求 $\\varphi$、求 $d$、求 $\\sigma$）共享相同的外层循环和内层 `break` 机制，区别仅在于：\r\n\r\n1. **质数时的赋值**：$\\varphi(p) = p-1$，$d(p) = 2$，$\\sigma(p) = 1+p$\r\n2. **情况一的递推**：分别用 $(p-1)$、$2$、$(1+p)$ 乘\r\n3. **情况二的递推**：$\\varphi$ 直接乘 $p$；$d$ 需要辅助数组 $a$；$\\sigma$ 需要辅助数组 $g$\r\n4. **辅助数组的更新**：$a(m) = a(i)+1$（指数+1），$g(m) = g(i) \\cdot p + 1$（等比和扩展）\r\n\r\n理解了这套统一框架，就能举一反三地用线性筛求任意积性函数。\r\n\r\n### 7.5 一句话总结\r\n\r\n线性筛求约数和是线性筛积性函数中最复杂的经典案例：在 $O(n)$ 时间内求出 $[1, n]$ 内所有 $\\sigma(i)$。核心在于额外维护最小质因子等比数列和数组 $g$，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 不整除 $i$ 时 $\\sigma(ip) = (1+p) \\cdot \\sigma(i)$，整除时 $g(ip) = p \\cdot g(i) + 1$，$\\sigma(ip) = \\sigma(i)/g(i) \\cdot g(ip)$。与求 $d$ 类似，求 $\\sigma$ 也无法用 $f$ 数组本身判质数，必须额外维护 `vis` 标记数组，且 $g$ 和 $f$ 必须用 `long long` 防溢出。",
-        "timeComplexity": "O(n)（预处理）+ O(1)（单次查询）",
-        "spaceComplexity": "O(n)",
-        "tags": [
-            "数学",
-            "数论",
-            "约数和",
-            "线性筛",
-            "欧拉筛",
-            "积性函数",
-            "预处理"
-        ],
-        "codePath": "数学\\数论基础\\线性筛求约数和\\源.cpp",
-        "prerequisites": [
-            "math-sieve-eratosthenes",
-            "math-linear-sieve-phi",
-            "math-linear-sieve-divisor-count",
-            "hub-math-number-theory"
-        ],
-        "related": [
-            "math-linear-sieve-phi",
-            "math-linear-sieve-divisor-count",
-            "math-sieve-eratosthenes",
-            "math-euler-phi"
-        ]
-    },
-    {
-        "id": "math-linear-sieve-phi",
-        "category": "数学",
-        "subcategory": "数论基础",
-        "subSubcategory": "素数",
-        "title": "线性筛求欧拉函数（欧拉筛批量预处理）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 线性筛求欧拉函数（欧拉筛批量预处理）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n当需要查询 $[1, n]$ 内大量数的欧拉函数值（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\r\n\r\n**思路转变**：利用欧拉函数的积性，结合线性筛（欧拉筛）框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $\\varphi(i)$，之后每次查询 $O(1)$。\r\n\r\n### 1.2 线性筛回顾\r\n\r\n线性筛（欧拉筛）是埃氏筛的优化版本，**每个合数只被它的最小质因子筛掉一次**，因此时间复杂度严格 $O(n)$。\r\n\r\n核心机制：\r\n\r\n- 维护质数表 `prime`，按从小到大顺序存储已发现的质数\r\n- 对每个 $i$ 从 2 到 $n$，若 $i$ 未被标记，则 $i$ 是质数，加入 `prime`\r\n- 对每个质数 $p_j$，标记 $i \\times p_j$ 为合数；当 $i \\bmod p_j = 0$ 时 `break`——因为 $p_j$ 是 $i$ 的最小质因子，再往后的 $p_k > p_j$ 会导致 $i \\times p_k$ 的最小质因子不是 $p_k$，会被重复标记\r\n\r\n### 1.3 φ 的两种递推情况\r\n\r\n欧拉函数是积性函数：当 $\\gcd(a, b) = 1$ 时，$\\varphi(ab) = \\varphi(a)\\varphi(b)$。\r\n\r\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $\\varphi(m)$：\r\n\r\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\r\n\r\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\r\n\r\n$$\\varphi(i \\times p_j) = \\varphi(i) \\times \\varphi(p_j) = \\varphi(i) \\times (p_j - 1)$$\r\n\r\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\r\n\r\n此时 $p_j$ 已经是 $i$ 的质因子，所以 $i \\times p_j$ 与 $i$ 的**质因子集合完全相同**（只是 $p_j$ 的指数加了 1）。\r\n\r\n设 $i = p_j^k \\times t$（$\\gcd(t, p_j) = 1$），则 $\\varphi(i) = \\varphi(p_j^k) \\times \\varphi(t) = p_j^k \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t)$。\r\n\r\n而 $\\varphi(i \\times p_j) = \\varphi(p_j^{k+1} \\times t) = \\varphi(p_j^{k+1}) \\times \\varphi(t) = p_j^{k+1} \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t) = p_j \\times \\left(p_j^k \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t)\\right) = p_j \\times \\varphi(i)$。\r\n\r\n即：\r\n\r\n$$\\varphi(i \\times p_j) = p_j \\times \\varphi(i)$$\r\n\r\n> **直觉理解**：$i$ 和 $ip$ 的不同质因子集合完全一样，所以 $\\varphi(ip) = ip \\cdot \\prod \\frac{q-1}{q} = p \\cdot \\left(i \\cdot \\prod \\frac{q-1}{q}\\right) = p \\cdot \\varphi(i)$。\r\n\r\n### 1.4 边界与初始值\r\n\r\n- $\\varphi(1) = 1$（1 与自身互质）\r\n- 质数 $p$ 的 $\\varphi(p) = p - 1$（质数与 $[1, p-1]$ 全部互质）\r\n\r\n这两个值分别在初始化和发现质数时直接赋值，作为递推的起点。\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 状态定义\r\n\r\n| 数组 | 含义 |\r\n|------|------|\r\n| `phi[i]` | 欧拉函数值 $\\varphi(i)$；$\\varphi(i) = 0$ 表示 $i$ 尚未被访问（即 $i$ 是质数） |\r\n| `prime` | 已发现的质数表，按升序存储 |\r\n\r\n> **关键技巧**：不使用单独的标记数组 `prime_vis`，而是直接利用 `phi` 数组判质数——$\\varphi(i) = 0$ 当且仅当 $i$ 尚未被任何更小的数筛到，即 $i$ 是质数。发现质数时立即赋值 $\\varphi(p) = p - 1$（$\\ge 1$），使后续访问时 `phi[i]` 非零。这种\"一数多用\"省去了整个 `prime_vis` 数组。\r\n\r\n### 2.2 转移方程\r\n\r\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$：\r\n\r\n$$\r\n\\varphi(i \\cdot p_j) =\r\n\\begin{cases}\r\n(p_j - 1) \\cdot \\varphi(i), & i \\bmod p_j \\neq 0 \\quad (\\text{互质，直接用积性}) \\\\\r\np_j \\cdot \\varphi(i), & i \\bmod p_j = 0 \\quad (\\text{不互质，质因子集合不变})\r\n\\end{cases}\r\n$$\r\n\r\n### 2.3 线性时间证明\r\n\r\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\r\n\r\n因此总操作次数恰好等于合数个数，加上质数个数，总共 $n$ 次级别，即 $O(n)$。\r\n\r\n### 2.4 附带功能\r\n\r\n线性筛一次运行可以同时得到：\r\n- **质数表** `prime`：所有 $\\le n$ 的质数\r\n- **质数判定**：$\\varphi(i) = i - 1$ 当且仅当 $i$ 为质数，$O(1)$ 查询\r\n- **欧拉函数** `phi[i]`：所有 $\\varphi(i)$ 的值\r\n- **最小质因子**（可扩展）：只需多开一个数组记录每个合数被哪个质数筛掉\r\n\r\n这种\"一次筛法、多个产出\"的特性是线性筛最强大的地方。\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nvector<int> prime, phi;\r\n```\r\n\r\n全局变量：`prime` 存质数表，`phi` 存欧拉函数值（同时兼作质数标记）。\r\n\r\n### 3.1 phi_sieve —— 线性筛求欧拉函数\r\n\r\n```cpp\r\nvoid phi_sieve(int n)\r\n{\r\n    phi.assign(n + 1, 0);\r\n    prime.clear();\r\n    phi[1] = 1;\r\n    for (int i = 2; i <= n; i++)\r\n    {\r\n        if (!phi[i])\r\n        {\r\n            phi[i] = i - 1;\r\n            prime.emplace_back(i);\r\n        }\r\n        for (int j = 0; prime[j] <= n / i; j++)\r\n        {\r\n            if (i % prime[j]) phi[i * prime[j]] = (prime[j] - 1) * phi[i];\r\n            else\r\n            {\r\n                phi[i * prime[j]] = prime[j] * phi[i];\r\n                break;\r\n            }\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `phi.assign(n + 1, 0);` | φ 数组初始化为 0，0 同时表示\"未访问\" |\r\n| 2 | `prime.clear();` | 清空质数表 |\r\n| 3 | `phi[1] = 1;` | 边界 $\\varphi(1) = 1$ |\r\n| 4 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\r\n| 5-8 | `if (!phi[i]) { phi[i] = i - 1; prime.emplace_back(i); }` | $\\varphi(i) = 0$ 即未被筛过 → $i$ 是质数，赋值 $\\varphi(i) = i-1$ 并加入质数表 |\r\n| 9 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，用 `n/i` 防止 `i*prime[j]` 越界 |\r\n| 10 | `if (i % prime[j]) phi[...] = (p-1) * phi[i];` | 情况一：$p_j$ 不整除 $i$ → 积性，$\\varphi(ip) = (p-1) \\cdot \\varphi(i)$ |\r\n| 11-14 | `else { phi[...] = p * phi[i]; break; }` | 情况二：$p_j$ 整除 $i$ → $\\varphi(ip) = p \\cdot \\varphi(i)$；然后 `break`（保证线性） |\r\n\r\n**与旧写法的对比**：旧代码额外维护 `vector<bool> prime_vis` 标记数组，在内层循环中先执行 `prime_vis[i * prime[j]] = false` 再分支。新代码直接用 `!phi[i]` 判断质数——因为 $\\varphi(i) = 0$ 当且仅当 $i$ 尚未被任何更小的数筛到（即 $i$ 是质数）。合数的 `phi` 值在内层循环中被直接赋值（非零），无需额外的标记数组。\r\n\r\n### 3.2 手动模拟（n = 12）\r\n\r\n| $i$ | 操作 | 新增质数 | φ 值更新 |\r\n|-----|------|---------|---------|\r\n| 2 | `phi[2]==0` → 质数 | 2 | $\\varphi(2)=1$ |\r\n| 2 | `j=0, prime[0]=2, 2<=6` | — | $\\varphi(4) = 2 \\times \\varphi(2) = 2$（2%2=0, break） |\r\n| 3 | `phi[3]==0` → 质数 | 3 | $\\varphi(3)=2$ |\r\n| 3 | `j=0, prime[0]=2, 2<=4` | — | $\\varphi(6) = (2-1) \\times \\varphi(3) = 2$（3%2≠0） |\r\n| 3 | `j=1, prime[1]=3, 3<=4` | — | $\\varphi(9) = 3 \\times \\varphi(3) = 6$（3%3=0, break） |\r\n| 4 | `phi[4]==2≠0` → 非质数 | — | — |\r\n| 4 | `j=0, prime[0]=2, 2<=3` | — | $\\varphi(8) = 2 \\times \\varphi(4) = 4$（4%2=0, break） |\r\n| 5 | `phi[5]==0` → 质数 | 5 | $\\varphi(5)=4$ |\r\n| 5 | `j=0, prime[0]=2, 2<=2` | — | $\\varphi(10) = (2-1) \\times \\varphi(5) = 4$（5%2≠0） |\r\n| 5 | `j=1, prime[1]=3, 3<=2` | — | （3 > 12/5=2，内层结束） |\r\n| 6 | `phi[6]==2≠0` → 非质数 | — | — |\r\n| 6 | `j=0, prime[0]=2, 2<=2` | — | $\\varphi(12) = 2 \\times \\varphi(6) = 4$（6%2=0, break） |\r\n\r\n**验证**：\r\n- $\\varphi(4) = 2$ ✓ {1, 3}\r\n- $\\varphi(6) = 2$ ✓ {1, 5}\r\n- $\\varphi(9) = 6$ ✓ {1, 2, 4, 5, 7, 8}\r\n- $\\varphi(8) = 4$ ✓ {1, 3, 5, 7}\r\n- $\\varphi(10) = 4$ ✓ {1, 3, 7, 9}\r\n- $\\varphi(12) = 4$ ✓ {1, 5, 7, 11}\r\n\r\n全部正确 ✓\r\n\r\n### 3.3 main —— 预处理 + 多组查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int n, q;\r\n    cin >> n >> q;\r\n    phi_sieve(n);\r\n    while (q--)\r\n    {\r\n        int n;\r\n        cin >> n;\r\n        if (phi[n] == n - 1) cout << n << \"为质数\\n\";\r\n        else cout << n << \"为合数\\n\";\r\n        cout << n << \"的欧拉函数的值为: \" << phi[n];\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\r\n| 3 | `phi_sieve(n);` | 一次预处理，求出所有 $\\varphi(1..n)$ |\r\n| 4-7 | `while (q--) { ... }` | 每次查询 $O(1)$，同时判定质数 + 输出 φ 值 |\r\n\r\n### 3.4 运行示例\r\n\r\n输入：\r\n```\r\n12 3\r\n4\r\n7\r\n12\r\n```\r\n\r\n输出：\r\n```\r\n4为合数\r\n4的欧拉函数的值为: 2\r\n7为质数\r\n7的欧拉函数的值为: 6\r\n12为合数\r\n12的欧拉函数的值为: 4\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\r\n| 单次查询 | $O(1)$ | 数组下标访问 |\r\n| 空间 | $O(n)$ | `phi` + `prime`（质数约 $n / \\ln n$ 个） |\r\n\r\n**与单次求值对比**：\r\n\r\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\r\n|------|--------|---------|------------------------|\r\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\r\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\r\n\r\n当查询量大时，线性筛批量预处理碾压单次求值。\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **大量 φ 值查询** | 预处理后每次 $O(1)$，适合百万级查询 |\r\n| **数论计数** | 很多计数问题需要枚举 φ 值或利用 φ 的求和公式 |\r\n| **同时需要质数表和 φ** | 一次筛法同时得到，效率最高 |\r\n| **莫比乌斯函数/其他积性函数** | 同样的线性筛框架，换递推公式即可 |\r\n| **最小质因子查询** | 略加修改可同时记录每个数的最小质因子 |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 内层循环的终止条件\r\n\r\n`prime[j] <= n / i` 而非 `i * prime[j] <= n`。前者用除法避免了乘法溢出，同时保证 `i * prime[j]` 不会越界。若写 `i * prime[j] <= n`，当 $n$ 接近 `int` 上限时可能溢出。\r\n\r\n### 6.2 break 的位置\r\n\r\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$（退化为埃氏筛）。`break` 是保证线性时间的关键。\r\n\r\n### 6.3 phi[1] 的初始化\r\n\r\n$\\varphi(1) = 1$ 必须手动赋值，因为循环从 $i=2$ 开始，1 不会被处理。若遗漏，所有包含因子 1 的积性递推都会出错（不过本题中 1 不参与递推，影响较小，但仍是标准做法）。\r\n\r\n### 6.4 质数 φ 值的赋值位置\r\n\r\n$\\varphi(p) = p - 1$ 在发现质数时赋值，而不是在内层循环中。因为质数 $p$ 只会在外层 `if (prime_vis[i])` 分支中被识别，不会作为合数 $i \\times p_j$ 被标记。\r\n\r\n### 6.5 数据类型选择\r\n\r\n当 $n$ 较大时（如 $n \\ge 10^6$），$\\varphi(n)$ 可能接近 $n$，`int` 可能不够。建议用 `long long` 存储 `phi` 数组。质数表 `prime` 用 `int` 通常没问题（$10^7$ 以内质数约 66 万个，存下标完全够）。\r\n\r\n### 6.6 phi 数组兼作质数标记\r\n\r\n本代码不使用单独的 `prime_vis` 标记数组，而是直接用 `!phi[i]`（即 $\\varphi(i) = 0$）判断质数。这要求：\r\n\r\n- 初始化时 `phi` 全部赋 0，只有 $\\varphi(1) = 1$ 手动设置\r\n- 质数在发现时赋值 $\\varphi(p) = p - 1 \\ge 1$，使后续 `phi[p]` 非零\r\n- 合数在内层循环中被直接赋值（两种情况的结果都 $\\ge 1$），也不会保持为 0\r\n\r\n**注意**：$\\varphi(1) = 1$ 必须在循环前手动赋值，否则 `!phi[1]` 为真会误判 1 为质数。\r\n\r\n### 6.7 全局变量 vs 局部变量\r\n\r\n代码中 `prime` 和 `phi` 是全局变量。好处是 `phi_sieve` 只需一个参数 $n$；坏处是多组测试数据间可能冲突。竞赛中常用全局变量（方便调试），但应注意在每组测试前调用 `clear()`。\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 埃氏筛 vs 线性筛求 φ\r\n\r\n| 维度 | 埃氏筛 + φ | 线性筛求 φ |\r\n|------|-----------|-----------|\r\n| 时间复杂度 | $O(n \\log \\log n)$ | $O(n)$ |\r\n| 实现难度 | 简单（埃氏筛框架 + 每质数更新 φ） | 中等（需理解两种递推情况 + break 机制） |\r\n| 附带产物 | 质数判定 | 质数表 + 质数判定 + 可扩展最小质因子 |\r\n| 实际速度 | $n \\le 10^7$ 时相近 | $n > 10^7$ 时更快 |\r\n| 空间 | 少（只有 phi） | 多一个质数表（约 $n / \\ln n$ 个元素） |\r\n\r\n### 7.2 埃氏筛求 φ 的写法\r\n\r\n埃氏筛也能求 φ，思路是初始化 `phi[i] = i`，然后对每个质数 $p$，遍历 $p$ 的倍数 $j$，执行 `phi[j] = phi[j] / p * (p - 1)`。每个质数只更新一次倍数，因此不同质因子各乘一次 $\\frac{p-1}{p}$，结果正确。\r\n\r\n```cpp\r\nvector<int> phi(n + 1);\r\nfor (int i = 1; i <= n; i++) phi[i] = i;\r\nfor (int i = 2; i <= n; i++)\r\n    if (phi[i] == i)  // i 是质数\r\n        for (int j = i; j <= n; j += i)\r\n            phi[j] = phi[j] / i * (i - 1);\r\n```\r\n\r\n### 7.3 用线性筛求其他积性函数\r\n\r\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\r\n\r\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ |\r\n|------|---------------------|------------------|\r\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ |\r\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ |\r\n| 约数个数 $d$ | $2 \\cdot d(i)$ | 需额外记录最小质因子的指数 |\r\n| 约数和 $\\sigma$ | $(1+p) \\cdot \\sigma(i)$ | 需额外记录等比数列信息 |\r\n| 最小质因子 | $p$ | $p$（直接赋值） |\r\n\r\n### 7.4 线性筛求最小质因子\r\n\r\n略加修改，把 `prime_vis` 替换为 `min_prime_factor` 数组，在标记合数时记录最小质因子：\r\n\r\n```cpp\r\nvector<int> mpf(n + 1, 0);  // 最小质因子\r\n...\r\nmpf[i * prime[j]] = prime[j];\r\n```\r\n\r\n有了最小质因子，可以快速对任意数做质因数分解（每次除以最小质因子）。\r\n\r\n### 7.5 一句话总结\r\n\r\n线性筛求欧拉函数是\"一次筛法、多个产出\"的典范：在 $O(n)$ 时间内同时得到质数表、质数判定和所有 φ 值。核心在于利用 φ 的积性，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 整除 $i$ 时 $\\varphi(ip) = p \\cdot \\varphi(i)$，不整除时 $\\varphi(ip) = (p-1) \\cdot \\varphi(i)$。配合 `break` 保证每个合数只被最小质因子筛一次，实现严格线性复杂度。代码直接用 `!phi[i]` 判质数，省去单独的标记数组。当查询量大时，线性筛远优于单次试除求值。",
-                "codePath": "数学\\数论基础\\线性筛求欧拉函数\\源.cpp",
-                "timeComplexity": "O(n)（预处理）+ O(1)（单次查询）",
-                "spaceComplexity": "O(n)",
-                "tags": [
-                    "数学",
-                    "数论",
-                    "欧拉函数",
-                    "线性筛",
-                    "欧拉筛",
-                    "积性函数",
-                    "预处理"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 线性筛求欧拉函数（欧拉筛批量预处理）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n当需要查询 $[1, n]$ 内大量数的欧拉函数值（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\r\n\r\n**思路转变**：利用欧拉函数的积性，结合线性筛（欧拉筛）框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $\\varphi(i)$，之后每次查询 $O(1)$。\r\n\r\n### 1.2 线性筛回顾\r\n\r\n线性筛（欧拉筛）是埃氏筛的优化版本，**每个合数只被它的最小质因子筛掉一次**，因此时间复杂度严格 $O(n)$。\r\n\r\n核心机制：\r\n\r\n- 维护质数表 `prime`，按从小到大顺序存储已发现的质数\r\n- 对每个 $i$ 从 2 到 $n$，若 $i$ 未被标记，则 $i$ 是质数，加入 `prime`\r\n- 对每个质数 $p_j$，标记 $i \\times p_j$ 为合数；当 $i \\bmod p_j = 0$ 时 `break`——因为 $p_j$ 是 $i$ 的最小质因子，再往后的 $p_k > p_j$ 会导致 $i \\times p_k$ 的最小质因子不是 $p_k$，会被重复标记\r\n\r\n### 1.3 φ 的两种递推情况\r\n\r\n欧拉函数是积性函数：当 $\\gcd(a, b) = 1$ 时，$\\varphi(ab) = \\varphi(a)\\varphi(b)$。\r\n\r\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $\\varphi(m)$：\r\n\r\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\r\n\r\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\r\n\r\n$$\\varphi(i \\times p_j) = \\varphi(i) \\times \\varphi(p_j) = \\varphi(i) \\times (p_j - 1)$$\r\n\r\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\r\n\r\n此时 $p_j$ 已经是 $i$ 的质因子，所以 $i \\times p_j$ 与 $i$ 的**质因子集合完全相同**（只是 $p_j$ 的指数加了 1）。\r\n\r\n设 $i = p_j^k \\times t$（$\\gcd(t, p_j) = 1$），则 $\\varphi(i) = \\varphi(p_j^k) \\times \\varphi(t) = p_j^k \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t)$。\r\n\r\n而 $\\varphi(i \\times p_j) = \\varphi(p_j^{k+1} \\times t) = \\varphi(p_j^{k+1}) \\times \\varphi(t) = p_j^{k+1} \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t) = p_j \\times \\left(p_j^k \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t)\\right) = p_j \\times \\varphi(i)$。\r\n\r\n即：\r\n\r\n$$\\varphi(i \\times p_j) = p_j \\times \\varphi(i)$$\r\n\r\n> **直觉理解**：$i$ 和 $ip$ 的不同质因子集合完全一样，所以 $\\varphi(ip) = ip \\cdot \\prod \\frac{q-1}{q} = p \\cdot \\left(i \\cdot \\prod \\frac{q-1}{q}\\right) = p \\cdot \\varphi(i)$。\r\n\r\n### 1.4 边界与初始值\r\n\r\n- $\\varphi(1) = 1$（1 与自身互质）\r\n- 质数 $p$ 的 $\\varphi(p) = p - 1$（质数与 $[1, p-1]$ 全部互质）\r\n\r\n这两个值分别在初始化和发现质数时直接赋值，作为递推的起点。\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 状态定义\r\n\r\n| 数组 | 含义 |\r\n|------|------|\r\n| `phi[i]` | 欧拉函数值 $\\varphi(i)$；$\\varphi(i) = 0$ 表示 $i$ 尚未被访问（即 $i$ 是质数） |\r\n| `prime` | 已发现的质数表，按升序存储 |\r\n\r\n> **关键技巧**：不使用单独的标记数组 `prime_vis`，而是直接利用 `phi` 数组判质数——$\\varphi(i) = 0$ 当且仅当 $i$ 尚未被任何更小的数筛到，即 $i$ 是质数。发现质数时立即赋值 $\\varphi(p) = p - 1$（$\\ge 1$），使后续访问时 `phi[i]` 非零。这种\"一数多用\"省去了整个 `prime_vis` 数组。\r\n\r\n### 2.2 转移方程\r\n\r\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$：\r\n\r\n$$\r\n\\varphi(i \\cdot p_j) =\r\n\\begin{cases}\r\n(p_j - 1) \\cdot \\varphi(i), & i \\bmod p_j \\neq 0 \\quad (\\text{互质，直接用积性}) \\\\\r\np_j \\cdot \\varphi(i), & i \\bmod p_j = 0 \\quad (\\text{不互质，质因子集合不变})\r\n\\end{cases}\r\n$$\r\n\r\n### 2.3 线性时间证明\r\n\r\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\r\n\r\n因此总操作次数恰好等于合数个数，加上质数个数，总共 $n$ 次级别，即 $O(n)$。\r\n\r\n### 2.4 附带功能\r\n\r\n线性筛一次运行可以同时得到：\r\n- **质数表** `prime`：所有 $\\le n$ 的质数\r\n- **质数判定**：$\\varphi(i) = i - 1$ 当且仅当 $i$ 为质数，$O(1)$ 查询\r\n- **欧拉函数** `phi[i]`：所有 $\\varphi(i)$ 的值\r\n- **最小质因子**（可扩展）：只需多开一个数组记录每个合数被哪个质数筛掉\r\n\r\n这种\"一次筛法、多个产出\"的特性是线性筛最强大的地方。\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nvector<int> prime, phi;\r\n```\r\n\r\n全局变量：`prime` 存质数表，`phi` 存欧拉函数值（同时兼作质数标记）。\r\n\r\n### 3.1 phi_sieve —— 线性筛求欧拉函数\r\n\r\n```cpp\r\nvoid phi_sieve(int n)\r\n{\r\n    phi.assign(n + 1, 0);\r\n    prime.clear();\r\n    phi[1] = 1;\r\n    for (int i = 2; i <= n; i++)\r\n    {\r\n        if (!phi[i])\r\n        {\r\n            phi[i] = i - 1;\r\n            prime.emplace_back(i);\r\n        }\r\n        for (int j = 0; prime[j] <= n / i; j++)\r\n        {\r\n            if (i % prime[j]) phi[i * prime[j]] = (prime[j] - 1) * phi[i];\r\n            else\r\n            {\r\n                phi[i * prime[j]] = prime[j] * phi[i];\r\n                break;\r\n            }\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `phi.assign(n + 1, 0);` | φ 数组初始化为 0，0 同时表示\"未访问\" |\r\n| 2 | `prime.clear();` | 清空质数表 |\r\n| 3 | `phi[1] = 1;` | 边界 $\\varphi(1) = 1$ |\r\n| 4 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\r\n| 5-8 | `if (!phi[i]) { phi[i] = i - 1; prime.emplace_back(i); }` | $\\varphi(i) = 0$ 即未被筛过 → $i$ 是质数，赋值 $\\varphi(i) = i-1$ 并加入质数表 |\r\n| 9 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，用 `n/i` 防止 `i*prime[j]` 越界 |\r\n| 10 | `if (i % prime[j]) phi[...] = (p-1) * phi[i];` | 情况一：$p_j$ 不整除 $i$ → 积性，$\\varphi(ip) = (p-1) \\cdot \\varphi(i)$ |\r\n| 11-14 | `else { phi[...] = p * phi[i]; break; }` | 情况二：$p_j$ 整除 $i$ → $\\varphi(ip) = p \\cdot \\varphi(i)$；然后 `break`（保证线性） |\r\n\r\n**与旧写法的对比**：旧代码额外维护 `vector<bool> prime_vis` 标记数组，在内层循环中先执行 `prime_vis[i * prime[j]] = false` 再分支。新代码直接用 `!phi[i]` 判断质数——因为 $\\varphi(i) = 0$ 当且仅当 $i$ 尚未被任何更小的数筛到（即 $i$ 是质数）。合数的 `phi` 值在内层循环中被直接赋值（非零），无需额外的标记数组。\r\n\r\n### 3.2 手动模拟（n = 12）\r\n\r\n| $i$ | 操作 | 新增质数 | φ 值更新 |\r\n|-----|------|---------|---------|\r\n| 2 | `phi[2]==0` → 质数 | 2 | $\\varphi(2)=1$ |\r\n| 2 | `j=0, prime[0]=2, 2<=6` | — | $\\varphi(4) = 2 \\times \\varphi(2) = 2$（2%2=0, break） |\r\n| 3 | `phi[3]==0` → 质数 | 3 | $\\varphi(3)=2$ |\r\n| 3 | `j=0, prime[0]=2, 2<=4` | — | $\\varphi(6) = (2-1) \\times \\varphi(3) = 2$（3%2≠0） |\r\n| 3 | `j=1, prime[1]=3, 3<=4` | — | $\\varphi(9) = 3 \\times \\varphi(3) = 6$（3%3=0, break） |\r\n| 4 | `phi[4]==2≠0` → 非质数 | — | — |\r\n| 4 | `j=0, prime[0]=2, 2<=3` | — | $\\varphi(8) = 2 \\times \\varphi(4) = 4$（4%2=0, break） |\r\n| 5 | `phi[5]==0` → 质数 | 5 | $\\varphi(5)=4$ |\r\n| 5 | `j=0, prime[0]=2, 2<=2` | — | $\\varphi(10) = (2-1) \\times \\varphi(5) = 4$（5%2≠0） |\r\n| 5 | `j=1, prime[1]=3, 3<=2` | — | （3 > 12/5=2，内层结束） |\r\n| 6 | `phi[6]==2≠0` → 非质数 | — | — |\r\n| 6 | `j=0, prime[0]=2, 2<=2` | — | $\\varphi(12) = 2 \\times \\varphi(6) = 4$（6%2=0, break） |\r\n\r\n**验证**：\r\n- $\\varphi(4) = 2$ ✓ {1, 3}\r\n- $\\varphi(6) = 2$ ✓ {1, 5}\r\n- $\\varphi(9) = 6$ ✓ {1, 2, 4, 5, 7, 8}\r\n- $\\varphi(8) = 4$ ✓ {1, 3, 5, 7}\r\n- $\\varphi(10) = 4$ ✓ {1, 3, 7, 9}\r\n- $\\varphi(12) = 4$ ✓ {1, 5, 7, 11}\r\n\r\n全部正确 ✓\r\n\r\n### 3.3 main —— 预处理 + 多组查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int n, q;\r\n    cin >> n >> q;\r\n    phi_sieve(n);\r\n    while (q--)\r\n    {\r\n        int n;\r\n        cin >> n;\r\n        if (phi[n] == n - 1) cout << n << \"为质数\\n\";\r\n        else cout << n << \"为合数\\n\";\r\n        cout << n << \"的欧拉函数的值为: \" << phi[n];\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\r\n| 3 | `phi_sieve(n);` | 一次预处理，求出所有 $\\varphi(1..n)$ |\r\n| 4-7 | `while (q--) { ... }` | 每次查询 $O(1)$，同时判定质数 + 输出 φ 值 |\r\n\r\n### 3.4 运行示例\r\n\r\n输入：\r\n```\r\n12 3\r\n4\r\n7\r\n12\r\n```\r\n\r\n输出：\r\n```\r\n4为合数\r\n4的欧拉函数的值为: 2\r\n7为质数\r\n7的欧拉函数的值为: 6\r\n12为合数\r\n12的欧拉函数的值为: 4\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\r\n| 单次查询 | $O(1)$ | 数组下标访问 |\r\n| 空间 | $O(n)$ | `phi` + `prime`（质数约 $n / \\ln n$ 个） |\r\n\r\n**与单次求值对比**：\r\n\r\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\r\n|------|--------|---------|------------------------|\r\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\r\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\r\n\r\n当查询量大时，线性筛批量预处理碾压单次求值。\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **大量 φ 值查询** | 预处理后每次 $O(1)$，适合百万级查询 |\r\n| **数论计数** | 很多计数问题需要枚举 φ 值或利用 φ 的求和公式 |\r\n| **同时需要质数表和 φ** | 一次筛法同时得到，效率最高 |\r\n| **莫比乌斯函数/其他积性函数** | 同样的线性筛框架，换递推公式即可 |\r\n| **最小质因子查询** | 略加修改可同时记录每个数的最小质因子 |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 内层循环的终止条件\r\n\r\n`prime[j] <= n / i` 而非 `i * prime[j] <= n`。前者用除法避免了乘法溢出，同时保证 `i * prime[j]` 不会越界。若写 `i * prime[j] <= n`，当 $n$ 接近 `int` 上限时可能溢出。\r\n\r\n### 6.2 break 的位置\r\n\r\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$（退化为埃氏筛）。`break` 是保证线性时间的关键。\r\n\r\n### 6.3 phi[1] 的初始化\r\n\r\n$\\varphi(1) = 1$ 必须手动赋值，因为循环从 $i=2$ 开始，1 不会被处理。若遗漏，所有包含因子 1 的积性递推都会出错（不过本题中 1 不参与递推，影响较小，但仍是标准做法）。\r\n\r\n### 6.4 质数 φ 值的赋值位置\r\n\r\n$\\varphi(p) = p - 1$ 在发现质数时赋值，而不是在内层循环中。因为质数 $p$ 只会在外层 `if (prime_vis[i])` 分支中被识别，不会作为合数 $i \\times p_j$ 被标记。\r\n\r\n### 6.5 数据类型选择\r\n\r\n当 $n$ 较大时（如 $n \\ge 10^6$），$\\varphi(n)$ 可能接近 $n$，`int` 可能不够。建议用 `long long` 存储 `phi` 数组。质数表 `prime` 用 `int` 通常没问题（$10^7$ 以内质数约 66 万个，存下标完全够）。\r\n\r\n### 6.6 phi 数组兼作质数标记\r\n\r\n本代码不使用单独的 `prime_vis` 标记数组，而是直接用 `!phi[i]`（即 $\\varphi(i) = 0$）判断质数。这要求：\r\n\r\n- 初始化时 `phi` 全部赋 0，只有 $\\varphi(1) = 1$ 手动设置\r\n- 质数在发现时赋值 $\\varphi(p) = p - 1 \\ge 1$，使后续 `phi[p]` 非零\r\n- 合数在内层循环中被直接赋值（两种情况的结果都 $\\ge 1$），也不会保持为 0\r\n\r\n**注意**：$\\varphi(1) = 1$ 必须在循环前手动赋值，否则 `!phi[1]` 为真会误判 1 为质数。\r\n\r\n### 6.7 全局变量 vs 局部变量\r\n\r\n代码中 `prime` 和 `phi` 是全局变量。好处是 `phi_sieve` 只需一个参数 $n$；坏处是多组测试数据间可能冲突。竞赛中常用全局变量（方便调试），但应注意在每组测试前调用 `clear()`。\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 埃氏筛 vs 线性筛求 φ\r\n\r\n| 维度 | 埃氏筛 + φ | 线性筛求 φ |\r\n|------|-----------|-----------|\r\n| 时间复杂度 | $O(n \\log \\log n)$ | $O(n)$ |\r\n| 实现难度 | 简单（埃氏筛框架 + 每质数更新 φ） | 中等（需理解两种递推情况 + break 机制） |\r\n| 附带产物 | 质数判定 | 质数表 + 质数判定 + 可扩展最小质因子 |\r\n| 实际速度 | $n \\le 10^7$ 时相近 | $n > 10^7$ 时更快 |\r\n| 空间 | 少（只有 phi） | 多一个质数表（约 $n / \\ln n$ 个元素） |\r\n\r\n### 7.2 埃氏筛求 φ 的写法\r\n\r\n埃氏筛也能求 φ，思路是初始化 `phi[i] = i`，然后对每个质数 $p$，遍历 $p$ 的倍数 $j$，执行 `phi[j] = phi[j] / p * (p - 1)`。每个质数只更新一次倍数，因此不同质因子各乘一次 $\\frac{p-1}{p}$，结果正确。\r\n\r\n```cpp\r\nvector<int> phi(n + 1);\r\nfor (int i = 1; i <= n; i++) phi[i] = i;\r\nfor (int i = 2; i <= n; i++)\r\n    if (phi[i] == i)  // i 是质数\r\n        for (int j = i; j <= n; j += i)\r\n            phi[j] = phi[j] / i * (i - 1);\r\n```\r\n\r\n### 7.3 用线性筛求其他积性函数\r\n\r\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\r\n\r\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ |\r\n|------|---------------------|------------------|\r\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ |\r\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ |\r\n| 约数个数 $d$ | $2 \\cdot d(i)$ | 需额外记录最小质因子的指数 |\r\n| 约数和 $\\sigma$ | $(1+p) \\cdot \\sigma(i)$ | 需额外记录等比数列信息 |\r\n| 最小质因子 | $p$ | $p$（直接赋值） |\r\n\r\n### 7.4 线性筛求最小质因子\r\n\r\n略加修改，把 `prime_vis` 替换为 `min_prime_factor` 数组，在标记合数时记录最小质因子：\r\n\r\n```cpp\r\nvector<int> mpf(n + 1, 0);  // 最小质因子\r\n...\r\nmpf[i * prime[j]] = prime[j];\r\n```\r\n\r\n有了最小质因子，可以快速对任意数做质因数分解（每次除以最小质因子）。\r\n\r\n### 7.5 一句话总结\r\n\r\n线性筛求欧拉函数是\"一次筛法、多个产出\"的典范：在 $O(n)$ 时间内同时得到质数表、质数判定和所有 φ 值。核心在于利用 φ 的积性，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 整除 $i$ 时 $\\varphi(ip) = p \\cdot \\varphi(i)$，不整除时 $\\varphi(ip) = (p-1) \\cdot \\varphi(i)$。配合 `break` 保证每个合数只被最小质因子筛一次，实现严格线性复杂度。代码直接用 `!phi[i]` 判质数，省去单独的标记数组。当查询量大时，线性筛远优于单次试除求值。",
-        "timeComplexity": "O(n)（预处理）+ O(1)（单次查询）",
-        "spaceComplexity": "O(n)",
-        "tags": [
-            "数学",
-            "数论",
-            "欧拉函数",
-            "线性筛",
-            "欧拉筛",
-            "积性函数",
-            "预处理"
-        ],
-        "codePath": "数学\\数论基础\\线性筛求欧拉函数\\源.cpp",
-        "prerequisites": [
-            "math-euler-phi",
-            "math-sieve-eratosthenes",
-            "hub-math-number-theory"
-        ],
-        "related": [
-            "math-euler-phi",
-            "math-sieve-eratosthenes",
-            "math-gcd-lcm",
-            "math-linear-sieve-divisor-count",
-            "math-linear-sieve-divisor-sum",
-            "math-modular-inverse"
-        ]
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-matrix-linear-recurrence",
@@ -12408,7 +12493,8 @@ const KNOWLEDGE_DATA = [
             "math-matrix-quick-pow",
             "math-matrix-multiplication",
             "math-quick-pow-basic"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-matrix-multiplication",
@@ -12465,7 +12551,8 @@ const KNOWLEDGE_DATA = [
             "math-quick-pow-basic",
             "math-matrix-quick-pow",
             "math-matrix-linear-recurrence"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-matrix-quick-pow",
@@ -12510,7 +12597,8 @@ const KNOWLEDGE_DATA = [
             "math-matrix-multiplication",
             "math-quick-pow-basic",
             "math-matrix-linear-recurrence"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-miller-rabin",
@@ -12568,8 +12656,9 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [
-            "math-pollard-rho"
-        ]
+            "math-factorization"
+        ],
+        "parent": ""
     },
     {
         "id": "math-modular-arithmetic",
@@ -12631,7 +12720,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-modular-inverse",
@@ -12681,9 +12771,10 @@ const KNOWLEDGE_DATA = [
         "related": [
             "math-quick-pow-basic",
             "math-euler-phi",
-            "math-linear-sieve-phi",
+            "math-sieve",
             "math-crt"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-nested-radical",
@@ -12721,7 +12812,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-number-theory-basic",
@@ -12781,13 +12873,14 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-number-theory-theorems",
         "category": "数学",
         "subcategory": "数论基础",
-        "subSubcategory": "",
+        "subSubcategory": "同余与模运算",
         "title": "数论常用定理：费马小定理与扩展欧拉定理",
         "hub": false,
         "versions": [
@@ -12818,7 +12911,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-oi-foundations",
@@ -12856,7 +12950,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-partition",
@@ -12893,62 +12988,20 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
-    },
-    {
-        "id": "math-pollard-rho",
-        "category": "数学",
-        "subcategory": "数论基础",
-        "subSubcategory": "素数",
-        "title": "Pollard-Rho 质因数分解",
-        "hub": false,
-        "versions": [
-            {
-                "author": "Fohen",
-                "content": "## 算法原理\r\n\r\nPollard-Rho 用于**大整数的质因数分解**。当 $n$ 大到 $10^{18}$ 级别，试除法需要枚举到 $\\sqrt{n} \\approx 10^9$，直接超时。Pollard-Rho 把「逐个试因子」换成「**随机猜因子**」，借助**生日悖论**大幅降低尝试次数。\r\n\r\n**生日悖论**：一个房间要多少人，才能让「至少两个人同一天生日」的概率超过 50%？直觉是 183 人（365 的一半），但答案是 **23 人**。原因在于比较对象不是「某个人和你是否同天」，而是「任意两个人之间」：$k$ 个人两两配对的组合数是 $\\binom{k}{2} \\approx \\frac{k^2}{2}$，随 $k$ 平方增长，碰撞来得远比直觉早。\r\n\r\n把生日悖论搬到因数分解上：设 $n$ 有一个（未知的）质因子 $p$，必有 $p \\le \\sqrt{n}$。若随机生成 $k$ 个数并对 $p$ 取模，当 $k \\approx \\sqrt{p}$ 时，几乎必然有两个数同余，即 $x_i \\equiv x_j \\pmod{p}$。此时 $p \\mid (x_i - x_j)$，于是 $\\gcd(\\lvert x_i - x_j \\rvert, n)$ 是 $p$ 的倍数，极大概率就是 $n$ 的一个**非平凡因子**（既不是 $1$ 也不是 $n$）。\r\n\r\n关键点在于 $p \\le \\sqrt{n}$，所以 $\\sqrt{p} \\le n^{1/4}$：只需约 $n^{1/4}$ 次随机「碰撞」就能挖出一个因子，比试除法的 $\\sqrt{n}$ 快得多。找到因子后递归分解，直到全部拆成质数。\r\n\r\n具体怎么生成随机数？Pollard-Rho 用一个**伪随机递推** $x_{i+1} \\equiv (x_i^2 + c) \\pmod{n}$。因为状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」整体形似希腊字母 $\\rho$，算法因此得名。对 $p$ 取模后状态只有 $p$ 种，环更短（约 $\\sqrt{p}$），所以在模 $p$ 意义下先碰撞、在模 $n$ 意义下尚未碰撞——正是这种「差」暴露了因子。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**伪随机递推**：\r\n\r\n$$\r\nx_{i+1} \\equiv (x_i^2 + c) \\pmod{n}, \\qquad c \\not\\equiv 0,\\ -2 \\pmod{n}\r\n$$\r\n\r\n**生日悖论（碰撞概率）**：$k$ 个数中至少有一对模 $p$ 同余的概率约为\r\n\r\n$$\r\nP \\approx 1 - e^{-k^2 / (2p)}\r\n$$\r\n\r\n当 $k \\approx \\sqrt{p}$ 时 $P$ 超过 $50\\%$。\r\n\r\n**碰撞给出因子**：若 $x_i \\equiv x_j \\pmod{p}$ 且 $x_i \\not\\equiv x_j \\pmod{n}$，则\r\n\r\n$$\r\nd = \\gcd(\\lvert x_i - x_j \\rvert, n), \\qquad 1 < d < n\r\n$$\r\n\r\n**复杂度依据**：$p \\le \\sqrt{n} \\implies \\sqrt{p} \\le n^{1/4}$，因此期望尝试次数为 $O(n^{1/4})$。\r\n\r\n## 逐行代码解析\r\n\r\nPollard-Rho 的完整实现还需配合 Miller-Rabin 素性测试与防溢出模乘，下面用伪代码分模块讲解核心流程。\r\n\r\n### 模块一：伪随机递推与 ρ 形结构\r\n\r\n```cpp\r\n// 伪随机递推：x_{i+1} ≡ (x_i^2 + c) (mod n)\r\nlong long f(long long x, long long c, long long n) {\r\n    return ((__int128)x * x + c) % n;   // __int128 防止 x*x 溢出\r\n}\r\n```\r\n\r\n- 递推是「伪随机」的：给定 $n$ 与 $c$ 后序列完全确定，但取值在 $[0, n)$ 上乱跳。\r\n- 状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」构成 $\\rho$ 形，是算法名字的由来。\r\n- 平方项让相邻值快速散开；改变 $c$ 可换一条新序列，供失败时重试。\r\n\r\n### 模块二：Floyd 判环（龟兔赛跑）\r\n\r\n```cpp\r\n// 快慢指针在「模 p 的环」上必然相遇，差值暴露因子\r\nx = f(x, c, n);              // 慢指针（乌龟）走一步\r\ny = f(f(y, c, n), c, n);     // 快指针（兔子）走两步\r\nd = gcd(abs(x - y), n);      // 相遇时 |x - y| 是 p 的倍数\r\n```\r\n\r\n- 无需存下整条序列：只维护两个指针 $x$（慢）与 $y$（快）。\r\n- 当序列在模 $p$ 上成环时，快慢指针必然在同一环内追上，即 $x \\equiv y \\pmod{p}$。\r\n- 此时 $p \\mid (x - y)$，$\\gcd(\\lvert x - y \\rvert, n)$ 就是候选因子 $d$。\r\n\r\n### 模块三：单次 Pollard-Rho 找非平凡因子\r\n\r\n```cpp\r\nlong long pollard_rho(long long n) {\r\n    if (n % 2 == 0) return 2;             // 偶数特判，直接拆出 2\r\n    long long c = rand() % (n - 1) + 1;   // 随机常数 c（避开 0 与 -2）\r\n    long long x = rand() % n, y = x, d = 1;\r\n    while (d == 1) {                      // 未碰撞则继续推进\r\n        x = f(x, c, n);\r\n        y = f(f(y, c, n), c, n);\r\n        d = gcd(abs(x - y), n);\r\n    }\r\n    return d == n ? pollard_rho(n) : d;   // d==n 撞在模 n 上，换 c 重试\r\n}\r\n```\r\n\r\n- $d = 1$ 说明还没碰撞，继续推进序列。\r\n- $d = n$ 说明 $x \\equiv y \\pmod{n}$，这次运气不好，换随机 $c$ 重新跑。\r\n- $1 < d < n$ 时，$d$ 就是一个非平凡因子。\r\n\r\n### 模块四：Miller-Rabin 判质数 + 递归分解\r\n\r\n```cpp\r\nvoid factorize(long long n, vector<long long>& fac) {\r\n    if (n == 1) return;\r\n    if (is_prime(n)) { fac.push_back(n); return; }   // Miller-Rabin 判定质数\r\n    long long d = pollard_rho(n);                    // 拆出非平凡因子\r\n    factorize(d, fac);                               // 递归分解 d\r\n    factorize(n / d, fac);                           // 递归分解另一半\r\n}\r\n```\r\n\r\n- `is_prime` 用 Miller-Rabin 随机化素性测试，误判概率可忽略（详见「对比与扩展」）。\r\n- 找到因子 $d$ 后对 $d$ 与 $n/d$ 分别递归，直到全部拆成质数。\r\n- 分工：Pollard-Rho 负责「拆」，Miller-Rabin 负责「判定是否还要拆」。\r\n\r\n## 复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 时间 | $O(n^{1/4})$（期望） | 每个因子期望 $O(n^{1/4})$ 次迭代找到；每次迭代一次模乘与一次 gcd |\r\n| 空间 | $O(1)$ | Floyd 判环只需两个指针，不存整条序列 |\r\n\r\n**与试除法对比**：试除法 $O(\\sqrt{n})$，Pollard-Rho $O(n^{1/4})$。当 $n = 10^{18}$ 时，$\\sqrt{n} \\approx 10^9$ 已经扛不住，而 $n^{1/4} \\approx 3 \\times 10^4$ 瞬间完成。\r\n\r\n## 适用场景\r\n\r\n- 大整数质因数分解：$n$ 到 $10^{18}$ 甚至更大（配合 Miller-Rabin），试除法顶不住时。\r\n- 只需单个非平凡因子（不要求全部质因子）时，可只调用一次 `pollard_rho`。\r\n- 数论题里对 $n$ 做唯一分解、求 $\\varphi(n)$、求约数个数/约数和等，当 $\\sqrt{n}$ 过不了时。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **模乘溢出**：$x \\cdot x$ 在 $n$ 接近 $2^{63}$ 时会溢出，必须用 `__int128` 或龟速乘做模乘。\r\n2. **$d = n$ 的失败**：撞在模 $n$ 上得到的 $\\gcd = n$ 不是有效因子，必须换 $c$ 重试（递归重跑）。\r\n3. **$c$ 的取值**：$c = 0$ 或 $c = -2$ 时序列会退化（很快循环），应避开。\r\n4. **初值固定**：随机化初始 $x$ 与 $c$，否则对某些 $n$ 可能反复失败。\r\n5. **必须配合素性测试**：Pollard-Rho 只能拆合数，需 Miller-Rabin 先判质数，否则会无限递归。\r\n6. **偶数特判**：偶数 $n$ 直接返回 $2$，否则平方递推在偶数上表现差。\r\n\r\n## 对比与扩展\r\n\r\n| 方法 | 复杂度 | 适用 |\r\n|------|--------|------|\r\n| 试除法 | $O(\\sqrt{n})$ | $n \\le 10^{12}$ 左右 |\r\n| Pollard-Rho | $O(n^{1/4})$（期望） | $n$ 到 $10^{18}$ 甚至更大 |\r\n| 埃氏筛 / 线性筛 | $O(n\\log\\log n)$ / $O(n)$ | 批量筛出 $[1,n]$ 的质因子，$n \\le 10^7$ |\r\n\r\n扩展：\r\n\r\n- **Miller-Rabin**：随机化素性测试，与 Pollard-Rho 组成完整的「大整数分解」工具链。\r\n- **Brent 判环**：Floyd 判环的改进版，减少 gcd 调用次数，常数更小。\r\n- **平方根攻击思想**：Pollard-Rho 是「用碰撞把 $O(n)$ 降到 $O(\\sqrt{n})$」的典型例子，同源的还有 BSGS（大步小步）、Meet-in-the-Middle 等，核心都是生日悖论。",
-                "codePath": "",
-                "timeComplexity": "O(n^{1/4})",
-                "spaceComplexity": "O(1)",
-                "tags": [
-                    "数学",
-                    "数论",
-                    "质因数分解",
-                    "随机化算法",
-                    "生日悖论"
-                ],
-                "source": "Fohen (QQ 3370864672)"
-            }
-        ],
-        "content": "## 算法原理\r\n\r\nPollard-Rho 用于**大整数的质因数分解**。当 $n$ 大到 $10^{18}$ 级别，试除法需要枚举到 $\\sqrt{n} \\approx 10^9$，直接超时。Pollard-Rho 把「逐个试因子」换成「**随机猜因子**」，借助**生日悖论**大幅降低尝试次数。\r\n\r\n**生日悖论**：一个房间要多少人，才能让「至少两个人同一天生日」的概率超过 50%？直觉是 183 人（365 的一半），但答案是 **23 人**。原因在于比较对象不是「某个人和你是否同天」，而是「任意两个人之间」：$k$ 个人两两配对的组合数是 $\\binom{k}{2} \\approx \\frac{k^2}{2}$，随 $k$ 平方增长，碰撞来得远比直觉早。\r\n\r\n把生日悖论搬到因数分解上：设 $n$ 有一个（未知的）质因子 $p$，必有 $p \\le \\sqrt{n}$。若随机生成 $k$ 个数并对 $p$ 取模，当 $k \\approx \\sqrt{p}$ 时，几乎必然有两个数同余，即 $x_i \\equiv x_j \\pmod{p}$。此时 $p \\mid (x_i - x_j)$，于是 $\\gcd(\\lvert x_i - x_j \\rvert, n)$ 是 $p$ 的倍数，极大概率就是 $n$ 的一个**非平凡因子**（既不是 $1$ 也不是 $n$）。\r\n\r\n关键点在于 $p \\le \\sqrt{n}$，所以 $\\sqrt{p} \\le n^{1/4}$：只需约 $n^{1/4}$ 次随机「碰撞」就能挖出一个因子，比试除法的 $\\sqrt{n}$ 快得多。找到因子后递归分解，直到全部拆成质数。\r\n\r\n具体怎么生成随机数？Pollard-Rho 用一个**伪随机递推** $x_{i+1} \\equiv (x_i^2 + c) \\pmod{n}$。因为状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」整体形似希腊字母 $\\rho$，算法因此得名。对 $p$ 取模后状态只有 $p$ 种，环更短（约 $\\sqrt{p}$），所以在模 $p$ 意义下先碰撞、在模 $n$ 意义下尚未碰撞——正是这种「差」暴露了因子。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**伪随机递推**：\r\n\r\n$$\r\nx_{i+1} \\equiv (x_i^2 + c) \\pmod{n}, \\qquad c \\not\\equiv 0,\\ -2 \\pmod{n}\r\n$$\r\n\r\n**生日悖论（碰撞概率）**：$k$ 个数中至少有一对模 $p$ 同余的概率约为\r\n\r\n$$\r\nP \\approx 1 - e^{-k^2 / (2p)}\r\n$$\r\n\r\n当 $k \\approx \\sqrt{p}$ 时 $P$ 超过 $50\\%$。\r\n\r\n**碰撞给出因子**：若 $x_i \\equiv x_j \\pmod{p}$ 且 $x_i \\not\\equiv x_j \\pmod{n}$，则\r\n\r\n$$\r\nd = \\gcd(\\lvert x_i - x_j \\rvert, n), \\qquad 1 < d < n\r\n$$\r\n\r\n**复杂度依据**：$p \\le \\sqrt{n} \\implies \\sqrt{p} \\le n^{1/4}$，因此期望尝试次数为 $O(n^{1/4})$。\r\n\r\n## 逐行代码解析\r\n\r\nPollard-Rho 的完整实现还需配合 Miller-Rabin 素性测试与防溢出模乘，下面用伪代码分模块讲解核心流程。\r\n\r\n### 模块一：伪随机递推与 ρ 形结构\r\n\r\n```cpp\r\n// 伪随机递推：x_{i+1} ≡ (x_i^2 + c) (mod n)\r\nlong long f(long long x, long long c, long long n) {\r\n    return ((__int128)x * x + c) % n;   // __int128 防止 x*x 溢出\r\n}\r\n```\r\n\r\n- 递推是「伪随机」的：给定 $n$ 与 $c$ 后序列完全确定，但取值在 $[0, n)$ 上乱跳。\r\n- 状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」构成 $\\rho$ 形，是算法名字的由来。\r\n- 平方项让相邻值快速散开；改变 $c$ 可换一条新序列，供失败时重试。\r\n\r\n### 模块二：Floyd 判环（龟兔赛跑）\r\n\r\n```cpp\r\n// 快慢指针在「模 p 的环」上必然相遇，差值暴露因子\r\nx = f(x, c, n);              // 慢指针（乌龟）走一步\r\ny = f(f(y, c, n), c, n);     // 快指针（兔子）走两步\r\nd = gcd(abs(x - y), n);      // 相遇时 |x - y| 是 p 的倍数\r\n```\r\n\r\n- 无需存下整条序列：只维护两个指针 $x$（慢）与 $y$（快）。\r\n- 当序列在模 $p$ 上成环时，快慢指针必然在同一环内追上，即 $x \\equiv y \\pmod{p}$。\r\n- 此时 $p \\mid (x - y)$，$\\gcd(\\lvert x - y \\rvert, n)$ 就是候选因子 $d$。\r\n\r\n### 模块三：单次 Pollard-Rho 找非平凡因子\r\n\r\n```cpp\r\nlong long pollard_rho(long long n) {\r\n    if (n % 2 == 0) return 2;             // 偶数特判，直接拆出 2\r\n    long long c = rand() % (n - 1) + 1;   // 随机常数 c（避开 0 与 -2）\r\n    long long x = rand() % n, y = x, d = 1;\r\n    while (d == 1) {                      // 未碰撞则继续推进\r\n        x = f(x, c, n);\r\n        y = f(f(y, c, n), c, n);\r\n        d = gcd(abs(x - y), n);\r\n    }\r\n    return d == n ? pollard_rho(n) : d;   // d==n 撞在模 n 上，换 c 重试\r\n}\r\n```\r\n\r\n- $d = 1$ 说明还没碰撞，继续推进序列。\r\n- $d = n$ 说明 $x \\equiv y \\pmod{n}$，这次运气不好，换随机 $c$ 重新跑。\r\n- $1 < d < n$ 时，$d$ 就是一个非平凡因子。\r\n\r\n### 模块四：Miller-Rabin 判质数 + 递归分解\r\n\r\n```cpp\r\nvoid factorize(long long n, vector<long long>& fac) {\r\n    if (n == 1) return;\r\n    if (is_prime(n)) { fac.push_back(n); return; }   // Miller-Rabin 判定质数\r\n    long long d = pollard_rho(n);                    // 拆出非平凡因子\r\n    factorize(d, fac);                               // 递归分解 d\r\n    factorize(n / d, fac);                           // 递归分解另一半\r\n}\r\n```\r\n\r\n- `is_prime` 用 Miller-Rabin 随机化素性测试，误判概率可忽略（详见「对比与扩展」）。\r\n- 找到因子 $d$ 后对 $d$ 与 $n/d$ 分别递归，直到全部拆成质数。\r\n- 分工：Pollard-Rho 负责「拆」，Miller-Rabin 负责「判定是否还要拆」。\r\n\r\n## 复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 时间 | $O(n^{1/4})$（期望） | 每个因子期望 $O(n^{1/4})$ 次迭代找到；每次迭代一次模乘与一次 gcd |\r\n| 空间 | $O(1)$ | Floyd 判环只需两个指针，不存整条序列 |\r\n\r\n**与试除法对比**：试除法 $O(\\sqrt{n})$，Pollard-Rho $O(n^{1/4})$。当 $n = 10^{18}$ 时，$\\sqrt{n} \\approx 10^9$ 已经扛不住，而 $n^{1/4} \\approx 3 \\times 10^4$ 瞬间完成。\r\n\r\n## 适用场景\r\n\r\n- 大整数质因数分解：$n$ 到 $10^{18}$ 甚至更大（配合 Miller-Rabin），试除法顶不住时。\r\n- 只需单个非平凡因子（不要求全部质因子）时，可只调用一次 `pollard_rho`。\r\n- 数论题里对 $n$ 做唯一分解、求 $\\varphi(n)$、求约数个数/约数和等，当 $\\sqrt{n}$ 过不了时。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **模乘溢出**：$x \\cdot x$ 在 $n$ 接近 $2^{63}$ 时会溢出，必须用 `__int128` 或龟速乘做模乘。\r\n2. **$d = n$ 的失败**：撞在模 $n$ 上得到的 $\\gcd = n$ 不是有效因子，必须换 $c$ 重试（递归重跑）。\r\n3. **$c$ 的取值**：$c = 0$ 或 $c = -2$ 时序列会退化（很快循环），应避开。\r\n4. **初值固定**：随机化初始 $x$ 与 $c$，否则对某些 $n$ 可能反复失败。\r\n5. **必须配合素性测试**：Pollard-Rho 只能拆合数，需 Miller-Rabin 先判质数，否则会无限递归。\r\n6. **偶数特判**：偶数 $n$ 直接返回 $2$，否则平方递推在偶数上表现差。\r\n\r\n## 对比与扩展\r\n\r\n| 方法 | 复杂度 | 适用 |\r\n|------|--------|------|\r\n| 试除法 | $O(\\sqrt{n})$ | $n \\le 10^{12}$ 左右 |\r\n| Pollard-Rho | $O(n^{1/4})$（期望） | $n$ 到 $10^{18}$ 甚至更大 |\r\n| 埃氏筛 / 线性筛 | $O(n\\log\\log n)$ / $O(n)$ | 批量筛出 $[1,n]$ 的质因子，$n \\le 10^7$ |\r\n\r\n扩展：\r\n\r\n- **Miller-Rabin**：随机化素性测试，与 Pollard-Rho 组成完整的「大整数分解」工具链。\r\n- **Brent 判环**：Floyd 判环的改进版，减少 gcd 调用次数，常数更小。\r\n- **平方根攻击思想**：Pollard-Rho 是「用碰撞把 $O(n)$ 降到 $O(\\sqrt{n})$」的典型例子，同源的还有 BSGS（大步小步）、Meet-in-the-Middle 等，核心都是生日悖论。",
-        "timeComplexity": "O(n^{1/4})",
-        "spaceComplexity": "O(1)",
-        "tags": [
-            "数学",
-            "数论",
-            "质因数分解",
-            "随机化算法",
-            "生日悖论"
-        ],
-        "codePath": "",
-        "prerequisites": [
-            "math-miller-rabin",
-            "hub-math-number-theory"
-        ],
-        "related": [
-            "math-miller-rabin"
-        ]
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-prime-factor-state-compression",
         "category": "数学",
         "subcategory": "数论基础",
-        "subSubcategory": "",
+        "subSubcategory": "素数",
         "title": "质因子状态压缩 trick",
         "hub": false,
         "versions": [
             {
                 "author": "stripe-python",
-                "content": "> 本文由 stripe-python 授权合并，保留原文结构与表述。\n由于本人在 9.26 模拟赛中的 T2 二十分钟瞪出了做法，然后自己否掉导致写了 2h 喜提 240pts，故对这类题目作一个总结。\n\n## AT_abc195_f [ABC195F] Coprime Present\n\n这题就是本人模拟赛的那个 T2。\n\n\r\n一个思路是注意到最大答案在 $2 \\times 10^8$ 左右，可以进行 $O(ans)$ 的搜索，但需要 `__int128` 状压和神秘减枝，赛时想了 1.5h 无果。\n\n回归题目发现 $r-l \\le 72$ 这个神秘限制。显然 $a,b$ 能同时选当且仅当质因子交集为空。记 $S_a$ 表示 $a$ 的质因子集合。\n\n若 $a, b$ 满足 $S_a \\cap S_b=A$，且 $\\forall i \\in S, i>72$，则 $|a-b|>72$，必然不满足这一限制。所以 $S_a$ 中只有 $\\le 72$ 的数是有用的。\n\n通过打表发现，$[2,72]$ 中的质数只有 $20$ 个，故 $S_a$ 可以状态压缩存下。进一步考虑一个状压 DP，用 $f_{S}$ 表示质因子集合为 $S$ 时的选法，考虑加入 $a$ 对 $f_{S}$ 的影响。\n\n记 $T=S_a$，则对于每个 $S$，当且仅当 $S \\cup T =\\varnothing$ 时 $T$ 才能加入 $S$ 中。刷表法转移：$f_{S \\cap T} \\gets f_S$。\n\n边界为 $f_{\\varnothing}=1$。\n\n复杂度 $O(2^w n)$，其中 $w \\le 20$。\n\r\n\n\r\n赛时 AC 代码。\n\n```cpp\n#define int long long\nconst int N = 21;\n\nint l, r, f[1 << N];\nconst int p[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,\n\t43, 47, 53, 59, 61, 67, 71};  // 20个\n\nvoid _main() {\n\tcin >> l >> r;\n\tf[0] = 1;\n\tfor (int i = l; i <= r; i++) {\n\t\tint x = 0;\n\t\tfor (int j = 0; j < 20; j++) {\n\t\t\tif (i % p[j]) continue;\n\t\t\tx |= 1 << j;\n\t\t}\n\t\tfor (int j = 0; j < (1 << 20); j++) {\n\t\t\tif ((x & j) == 0) f[x | j] += f[j];\n\t\t}\n\t}\n\tint res = 0;\n\tfor (int i = 0; i < (1 << 20); i++) res += f[i];\n\tcout << res;\n}\n```\n\n## P2150 [NOI2015] 寿司晚宴\n\n\r\n两个子集中的数字两两互质，等价于子集中的质因数集合交集为空。\n\n我们先从 30pts 开始考虑。因为 $n \\le 30$，那么质因数只有 $10$ 个。设 $dp_{i,S,T}$ 表示当前考虑到第 $i$ 个数，质因子集合为 $S,T$ 的方案数。对于 $[2,n]$ 分解质因数，把质因数状压一波。枚举与 $S,T$ 无交集的 $D$，刷表法转移：\n\n$$\ndp_{i+1,S \\cup D,T} \\gets dp_{i,S,T}\\\\\r\ndp_{i+1,S,T \\cup D} \\gets dp_{i,S,T}\n$$\n\n然后对于 $S \\cap D=\\varnothing$ 的每个 $S,T$ 统计答案。可以滚动数组优化，时间复杂度为 $O(2^{2w} n)$，其中 $w \\le 10$。和上面那题没什么区别。\n\n然后直接考虑正解。因为 $500$ 以内的质数有 $95$ 个，暴力 DP 直接爆炸。但是我们发现 $n$ 以内的数大于 $\\sqrt{n}$ 的质因子最多只有一个，也就是大于 $23$ 的质因子最多一个。那么我们以 $23$ 为分界点，考虑在两侧分别 DP。也就是根号分治一波。\n\n具体地，对于 $[2,500]$ 以内的数，我们先找出其最大质因子并按其排序，然后对每一个连续段统计答案。而 $23$ 以内的质数只有 $8$ 个，于是仍然令 $dp_{i,S,T}$ 表示考虑到第 $i$ 个数，质因子集合分别为 $S,T$ 的方案数，但是此时 $|S|,|T| \\le 8$。接着考虑最大质因子的贡献，由于它只能被一个子集选走，令 $f_{i,S,T}$ 表示考虑到第 $i$ 个数，其最大质因子只能被第一个子集选走的方案数，$g_{i,S,T}$ 表示其最大质因子只能被第二个子集选走的方案数，仍然刷表转移：\n\n$$\nf_{i+1,S \\cup D,t} \\gets f_{i,S,T}\\\\\r\ng_{i+1,S,T \\cup D} \\gets g_{i,S,T}\n$$\n\n把 $f,g$ 都合并到 $dp$ 里，需要容斥一下，因为会把不选的情况算两遍：\n\n$dp_{i+1,S,T} = f_{i,S,T}+g_{i,S,T}-dp_{i,S,T}$滚动数组优化空间，注意要像 01 背包那样倒序枚举了。答案即为 $\\sum_{S \\cap T = \\varnothing} dp_{n,S,T}$。\n\n至此，时间复杂度优化到 $O(4^w n)$，其中 $w \\le 8$。\n\r\n\n```cpp\nconst int N = 505, M = 1 << 8;\n\nint prime[] = {0, 2, 3, 5, 7, 11, 13, 17, 19};\nint n, p;\nstruct node {\n\tint v, p, s;\n\tnode() : v(0), p(-1), s(0) {}\n\tvoid get() {\n\t\tint x = v;\n\t\tfor (int i = 1; i <= 8; i++) {\n\t\t\tif (x % prime[i]) continue;\n\t\t\ts |= 1 << (i - 1);\n\t\t\twhile (x % prime[i] == 0) x /= prime[i];\n\t\t}\n\t\tif (x != 1) p = x;\n\t}\n} a[N];\nint dp[N][N], f[N][N], g[N][N];\n\nvoid _main() {\n\tcin >> n >> p;\n\tfor (int i = 2; i <= n; i++) a[i].v = i, a[i].get();\n\tsort(a + 2, a + n + 1, [](const node& x, const node& y) -> bool {\n\t\treturn x.p < y.p;\n\t});\n\tdp[0][0] = 1;\n\tfor (int i = 2; i <= n; i++) {\n\t\tif (i == 2 || a[i].p != a[i - 1].p || a[i].p == -1) {  // 新连续段\n\t\t\tmemcpy(f, dp, sizeof(f)), memcpy(g, dp, sizeof(g));\n\t\t}\n#define add(x, y) ((x) += (y), (x) >= p ? (x) -= p : (x))\n#define madd(x, y) ((x) + (y) >= p ? (x) + (y) - p : (x) + (y))\n#define msub(x, y) ((x) - (y) < 0 ? (x) - (y) + p : (x) - (y))\n\t\tfor (int s = M - 1; s >= 0; s--) {\n\t\t\tfor (int t = M - 1; t >= 0; t--) {\n\t\t\t\tif (s & t) continue;\n\t\t\t\tif ((a[i].s & t) == 0) add(f[a[i].s | s][t], f[s][t]);\n\t\t\t\tif ((a[i].s & s) == 0) add(g[s][a[i].s | t], g[s][t]);\n\t\t\t}\n\t\t}\n\t\tif (i == n || a[i].p != a[i + 1].p || a[i].p == -1) {  // 下一个点是新连续段\n\t\t\tfor (int s = 0; s < M; s++) {\n\t\t\t\tfor (int t = 0; t < M; t++) {\n\t\t\t\t\tif (s & t) continue;\n\t\t\t\t\tdp[s][t] = msub(madd(f[s][t], g[s][t]), dp[s][t]);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tint res = 0;\n\tfor (int s = 0; s < M; s++) {\n\t\tfor (int t = 0; t < M; t++) {\n\t\t\tif (s & t) continue;\n\t\t\tadd(res, dp[s][t]);\n\t\t}\n\t} cout << res;\n}\n```\n\n## P8292 [省选联考 2022] 卡牌\n\n\r\n注意到 $s_i \\le 30$ 的部分分。样例解释告诉我们可以正难则反。记给出的质数集合为 $P$，枚举一个 $S \\subseteq P$，设 $f(S)$ 表示表示选出若干卡牌的集合 $T$，满足 $\\forall i \\in S, i \\nmid \\prod T$ 的方案数。\n\n由于 $[2,30]$ 中的质数数目为 $10$，对于 $S$ 只有 $2^{10}$ 种可能，预处理出来即可。\n\n这样是一个容斥的过程，答案为\n\n$\\sum_{S \\subseteq P} (-1)^{|S|} f(S)$复杂度 $O(2^w n+2^w \\sum c)$，其中 $w \\le 10$。\n\n考虑优化。注意到 $s_i \\le 2000$ 时依旧沿用上题的根号分治，将质因子分成 $\\le 43$ 和 $>43$ 两部分。则 $[2,43]$ 中共有 $14$ 个质数，这部分的处理使用上面的容斥即可。",
+                "content": "> 本文由 stripe-python 授权合并，保留原文结构与表述。\n由于本人在 9.26 模拟赛中的 T2 二十分钟瞪出了做法，然后自己否掉导致写了 2h 喜提 240pts，故对这类题目作一个总结。\n\n## AT_abc195_f [ABC195F] Coprime Present\n\n这题就是本人模拟赛的那个 T2。\n\n\n一个思路是注意到最大答案在 $2 \\times 10^8$ 左右，可以进行 $O(ans)$ 的搜索，但需要 `__int128` 状压和神秘减枝，赛时想了 1.5h 无果。\n\n回归题目发现 $r-l \\le 72$ 这个神秘限制。显然 $a,b$ 能同时选当且仅当质因子交集为空。记 $S_a$ 表示 $a$ 的质因子集合。\n\n若 $a, b$ 满足 $S_a \\cap S_b=A$，且 $\\forall i \\in S, i>72$，则 $|a-b|>72$，必然不满足这一限制。所以 $S_a$ 中只有 $\\le 72$ 的数是有用的。\n\n通过打表发现，$[2,72]$ 中的质数只有 $20$ 个，故 $S_a$ 可以状态压缩存下。进一步考虑一个状压 DP，用 $f_{S}$ 表示质因子集合为 $S$ 时的选法，考虑加入 $a$ 对 $f_{S}$ 的影响。\n\n记 $T=S_a$，则对于每个 $S$，当且仅当 $S \\cup T =\\varnothing$ 时 $T$ 才能加入 $S$ 中。刷表法转移：$f_{S \\cap T} \\gets f_S$。\n\n边界为 $f_{\\varnothing}=1$。\n\n复杂度 $O(2^w n)$，其中 $w \\le 20$。\n\n\n\n赛时 AC 代码。\n\n```cpp\n#define int long long\nconst int N = 21;\n\nint l, r, f[1 << N];\nconst int p[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,\n\t43, 47, 53, 59, 61, 67, 71};  // 20个\n\nvoid _main() {\n\tcin >> l >> r;\n\tf[0] = 1;\n\tfor (int i = l; i <= r; i++) {\n\t\tint x = 0;\n\t\tfor (int j = 0; j < 20; j++) {\n\t\t\tif (i % p[j]) continue;\n\t\t\tx |= 1 << j;\n\t\t}\n\t\tfor (int j = 0; j < (1 << 20); j++) {\n\t\t\tif ((x & j) == 0) f[x | j] += f[j];\n\t\t}\n\t}\n\tint res = 0;\n\tfor (int i = 0; i < (1 << 20); i++) res += f[i];\n\tcout << res;\n}\n```\n\n## P2150 [NOI2015] 寿司晚宴\n\n\n两个子集中的数字两两互质，等价于子集中的质因数集合交集为空。\n\n我们先从 30pts 开始考虑。因为 $n \\le 30$，那么质因数只有 $10$ 个。设 $dp_{i,S,T}$ 表示当前考虑到第 $i$ 个数，质因子集合为 $S,T$ 的方案数。对于 $[2,n]$ 分解质因数，把质因数状压一波。枚举与 $S,T$ 无交集的 $D$，刷表法转移：\n\n$$\ndp_{i+1,S \\cup D,T} \\gets dp_{i,S,T}\\\\\ndp_{i+1,S,T \\cup D} \\gets dp_{i,S,T}\n$$\n\n然后对于 $S \\cap D=\\varnothing$ 的每个 $S,T$ 统计答案。可以滚动数组优化，时间复杂度为 $O(2^{2w} n)$，其中 $w \\le 10$。和上面那题没什么区别。\n\n然后直接考虑正解。因为 $500$ 以内的质数有 $95$ 个，暴力 DP 直接爆炸。但是我们发现 $n$ 以内的数大于 $\\sqrt{n}$ 的质因子最多只有一个，也就是大于 $23$ 的质因子最多一个。那么我们以 $23$ 为分界点，考虑在两侧分别 DP。也就是根号分治一波。\n\n具体地，对于 $[2,500]$ 以内的数，我们先找出其最大质因子并按其排序，然后对每一个连续段统计答案。而 $23$ 以内的质数只有 $8$ 个，于是仍然令 $dp_{i,S,T}$ 表示考虑到第 $i$ 个数，质因子集合分别为 $S,T$ 的方案数，但是此时 $|S|,|T| \\le 8$。接着考虑最大质因子的贡献，由于它只能被一个子集选走，令 $f_{i,S,T}$ 表示考虑到第 $i$ 个数，其最大质因子只能被第一个子集选走的方案数，$g_{i,S,T}$ 表示其最大质因子只能被第二个子集选走的方案数，仍然刷表转移：\n\n$$\nf_{i+1,S \\cup D,t} \\gets f_{i,S,T}\\\\\ng_{i+1,S,T \\cup D} \\gets g_{i,S,T}\n$$\n\n把 $f,g$ 都合并到 $dp$ 里，需要容斥一下，因为会把不选的情况算两遍：\n\n$dp_{i+1,S,T} = f_{i,S,T}+g_{i,S,T}-dp_{i,S,T}$滚动数组优化空间，注意要像 01 背包那样倒序枚举了。答案即为 $\\sum_{S \\cap T = \\varnothing} dp_{n,S,T}$。\n\n至此，时间复杂度优化到 $O(4^w n)$，其中 $w \\le 8$。\n\n\n```cpp\nconst int N = 505, M = 1 << 8;\n\nint prime[] = {0, 2, 3, 5, 7, 11, 13, 17, 19};\nint n, p;\nstruct node {\n\tint v, p, s;\n\tnode() : v(0), p(-1), s(0) {}\n\tvoid get() {\n\t\tint x = v;\n\t\tfor (int i = 1; i <= 8; i++) {\n\t\t\tif (x % prime[i]) continue;\n\t\t\ts |= 1 << (i - 1);\n\t\t\twhile (x % prime[i] == 0) x /= prime[i];\n\t\t}\n\t\tif (x != 1) p = x;\n\t}\n} a[N];\nint dp[N][N], f[N][N], g[N][N];\n\nvoid _main() {\n\tcin >> n >> p;\n\tfor (int i = 2; i <= n; i++) a[i].v = i, a[i].get();\n\tsort(a + 2, a + n + 1, [](const node& x, const node& y) -> bool {\n\t\treturn x.p < y.p;\n\t});\n\tdp[0][0] = 1;\n\tfor (int i = 2; i <= n; i++) {\n\t\tif (i == 2 || a[i].p != a[i - 1].p || a[i].p == -1) {  // 新连续段\n\t\t\tmemcpy(f, dp, sizeof(f)), memcpy(g, dp, sizeof(g));\n\t\t}\n#define add(x, y) ((x) += (y), (x) >= p ? (x) -= p : (x))\n#define madd(x, y) ((x) + (y) >= p ? (x) + (y) - p : (x) + (y))\n#define msub(x, y) ((x) - (y) < 0 ? (x) - (y) + p : (x) - (y))\n\t\tfor (int s = M - 1; s >= 0; s--) {\n\t\t\tfor (int t = M - 1; t >= 0; t--) {\n\t\t\t\tif (s & t) continue;\n\t\t\t\tif ((a[i].s & t) == 0) add(f[a[i].s | s][t], f[s][t]);\n\t\t\t\tif ((a[i].s & s) == 0) add(g[s][a[i].s | t], g[s][t]);\n\t\t\t}\n\t\t}\n\t\tif (i == n || a[i].p != a[i + 1].p || a[i].p == -1) {  // 下一个点是新连续段\n\t\t\tfor (int s = 0; s < M; s++) {\n\t\t\t\tfor (int t = 0; t < M; t++) {\n\t\t\t\t\tif (s & t) continue;\n\t\t\t\t\tdp[s][t] = msub(madd(f[s][t], g[s][t]), dp[s][t]);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tint res = 0;\n\tfor (int s = 0; s < M; s++) {\n\t\tfor (int t = 0; t < M; t++) {\n\t\t\tif (s & t) continue;\n\t\t\tadd(res, dp[s][t]);\n\t\t}\n\t} cout << res;\n}\n```\n\n## P8292 [省选联考 2022] 卡牌\n\n\n注意到 $s_i \\le 30$ 的部分分。样例解释告诉我们可以正难则反。记给出的质数集合为 $P$，枚举一个 $S \\subseteq P$，设 $f(S)$ 表示表示选出若干卡牌的集合 $T$，满足 $\\forall i \\in S, i \\nmid \\prod T$ 的方案数。\n\n由于 $[2,30]$ 中的质数数目为 $10$，对于 $S$ 只有 $2^{10}$ 种可能，预处理出来即可。\n\n这样是一个容斥的过程，答案为\n\n$\\sum_{S \\subseteq P} (-1)^{|S|} f(S)$复杂度 $O(2^w n+2^w \\sum c)$，其中 $w \\le 10$。\n\n考虑优化。注意到 $s_i \\le 2000$ 时依旧沿用上题的根号分治，将质因子分成 $\\le 43$ 和 $>43$ 两部分。则 $[2,43]$ 中共有 $14$ 个质数，这部分的处理使用上面的容斥即可。",
                 "codePath": "",
                 "timeComplexity": "见原文",
                 "spaceComplexity": "见原文",
@@ -12961,7 +13014,7 @@ const KNOWLEDGE_DATA = [
                 "source": "stripe-python"
             }
         ],
-        "content": "> 本文由 stripe-python 授权合并，保留原文结构与表述。\n由于本人在 9.26 模拟赛中的 T2 二十分钟瞪出了做法，然后自己否掉导致写了 2h 喜提 240pts，故对这类题目作一个总结。\n\n## AT_abc195_f [ABC195F] Coprime Present\n\n这题就是本人模拟赛的那个 T2。\n\n\r\n一个思路是注意到最大答案在 $2 \\times 10^8$ 左右，可以进行 $O(ans)$ 的搜索，但需要 `__int128` 状压和神秘减枝，赛时想了 1.5h 无果。\n\n回归题目发现 $r-l \\le 72$ 这个神秘限制。显然 $a,b$ 能同时选当且仅当质因子交集为空。记 $S_a$ 表示 $a$ 的质因子集合。\n\n若 $a, b$ 满足 $S_a \\cap S_b=A$，且 $\\forall i \\in S, i>72$，则 $|a-b|>72$，必然不满足这一限制。所以 $S_a$ 中只有 $\\le 72$ 的数是有用的。\n\n通过打表发现，$[2,72]$ 中的质数只有 $20$ 个，故 $S_a$ 可以状态压缩存下。进一步考虑一个状压 DP，用 $f_{S}$ 表示质因子集合为 $S$ 时的选法，考虑加入 $a$ 对 $f_{S}$ 的影响。\n\n记 $T=S_a$，则对于每个 $S$，当且仅当 $S \\cup T =\\varnothing$ 时 $T$ 才能加入 $S$ 中。刷表法转移：$f_{S \\cap T} \\gets f_S$。\n\n边界为 $f_{\\varnothing}=1$。\n\n复杂度 $O(2^w n)$，其中 $w \\le 20$。\n\r\n\n\r\n赛时 AC 代码。\n\n```cpp\n#define int long long\nconst int N = 21;\n\nint l, r, f[1 << N];\nconst int p[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,\n\t43, 47, 53, 59, 61, 67, 71};  // 20个\n\nvoid _main() {\n\tcin >> l >> r;\n\tf[0] = 1;\n\tfor (int i = l; i <= r; i++) {\n\t\tint x = 0;\n\t\tfor (int j = 0; j < 20; j++) {\n\t\t\tif (i % p[j]) continue;\n\t\t\tx |= 1 << j;\n\t\t}\n\t\tfor (int j = 0; j < (1 << 20); j++) {\n\t\t\tif ((x & j) == 0) f[x | j] += f[j];\n\t\t}\n\t}\n\tint res = 0;\n\tfor (int i = 0; i < (1 << 20); i++) res += f[i];\n\tcout << res;\n}\n```\n\n## P2150 [NOI2015] 寿司晚宴\n\n\r\n两个子集中的数字两两互质，等价于子集中的质因数集合交集为空。\n\n我们先从 30pts 开始考虑。因为 $n \\le 30$，那么质因数只有 $10$ 个。设 $dp_{i,S,T}$ 表示当前考虑到第 $i$ 个数，质因子集合为 $S,T$ 的方案数。对于 $[2,n]$ 分解质因数，把质因数状压一波。枚举与 $S,T$ 无交集的 $D$，刷表法转移：\n\n$$\ndp_{i+1,S \\cup D,T} \\gets dp_{i,S,T}\\\\\r\ndp_{i+1,S,T \\cup D} \\gets dp_{i,S,T}\n$$\n\n然后对于 $S \\cap D=\\varnothing$ 的每个 $S,T$ 统计答案。可以滚动数组优化，时间复杂度为 $O(2^{2w} n)$，其中 $w \\le 10$。和上面那题没什么区别。\n\n然后直接考虑正解。因为 $500$ 以内的质数有 $95$ 个，暴力 DP 直接爆炸。但是我们发现 $n$ 以内的数大于 $\\sqrt{n}$ 的质因子最多只有一个，也就是大于 $23$ 的质因子最多一个。那么我们以 $23$ 为分界点，考虑在两侧分别 DP。也就是根号分治一波。\n\n具体地，对于 $[2,500]$ 以内的数，我们先找出其最大质因子并按其排序，然后对每一个连续段统计答案。而 $23$ 以内的质数只有 $8$ 个，于是仍然令 $dp_{i,S,T}$ 表示考虑到第 $i$ 个数，质因子集合分别为 $S,T$ 的方案数，但是此时 $|S|,|T| \\le 8$。接着考虑最大质因子的贡献，由于它只能被一个子集选走，令 $f_{i,S,T}$ 表示考虑到第 $i$ 个数，其最大质因子只能被第一个子集选走的方案数，$g_{i,S,T}$ 表示其最大质因子只能被第二个子集选走的方案数，仍然刷表转移：\n\n$$\nf_{i+1,S \\cup D,t} \\gets f_{i,S,T}\\\\\r\ng_{i+1,S,T \\cup D} \\gets g_{i,S,T}\n$$\n\n把 $f,g$ 都合并到 $dp$ 里，需要容斥一下，因为会把不选的情况算两遍：\n\n$dp_{i+1,S,T} = f_{i,S,T}+g_{i,S,T}-dp_{i,S,T}$滚动数组优化空间，注意要像 01 背包那样倒序枚举了。答案即为 $\\sum_{S \\cap T = \\varnothing} dp_{n,S,T}$。\n\n至此，时间复杂度优化到 $O(4^w n)$，其中 $w \\le 8$。\n\r\n\n```cpp\nconst int N = 505, M = 1 << 8;\n\nint prime[] = {0, 2, 3, 5, 7, 11, 13, 17, 19};\nint n, p;\nstruct node {\n\tint v, p, s;\n\tnode() : v(0), p(-1), s(0) {}\n\tvoid get() {\n\t\tint x = v;\n\t\tfor (int i = 1; i <= 8; i++) {\n\t\t\tif (x % prime[i]) continue;\n\t\t\ts |= 1 << (i - 1);\n\t\t\twhile (x % prime[i] == 0) x /= prime[i];\n\t\t}\n\t\tif (x != 1) p = x;\n\t}\n} a[N];\nint dp[N][N], f[N][N], g[N][N];\n\nvoid _main() {\n\tcin >> n >> p;\n\tfor (int i = 2; i <= n; i++) a[i].v = i, a[i].get();\n\tsort(a + 2, a + n + 1, [](const node& x, const node& y) -> bool {\n\t\treturn x.p < y.p;\n\t});\n\tdp[0][0] = 1;\n\tfor (int i = 2; i <= n; i++) {\n\t\tif (i == 2 || a[i].p != a[i - 1].p || a[i].p == -1) {  // 新连续段\n\t\t\tmemcpy(f, dp, sizeof(f)), memcpy(g, dp, sizeof(g));\n\t\t}\n#define add(x, y) ((x) += (y), (x) >= p ? (x) -= p : (x))\n#define madd(x, y) ((x) + (y) >= p ? (x) + (y) - p : (x) + (y))\n#define msub(x, y) ((x) - (y) < 0 ? (x) - (y) + p : (x) - (y))\n\t\tfor (int s = M - 1; s >= 0; s--) {\n\t\t\tfor (int t = M - 1; t >= 0; t--) {\n\t\t\t\tif (s & t) continue;\n\t\t\t\tif ((a[i].s & t) == 0) add(f[a[i].s | s][t], f[s][t]);\n\t\t\t\tif ((a[i].s & s) == 0) add(g[s][a[i].s | t], g[s][t]);\n\t\t\t}\n\t\t}\n\t\tif (i == n || a[i].p != a[i + 1].p || a[i].p == -1) {  // 下一个点是新连续段\n\t\t\tfor (int s = 0; s < M; s++) {\n\t\t\t\tfor (int t = 0; t < M; t++) {\n\t\t\t\t\tif (s & t) continue;\n\t\t\t\t\tdp[s][t] = msub(madd(f[s][t], g[s][t]), dp[s][t]);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tint res = 0;\n\tfor (int s = 0; s < M; s++) {\n\t\tfor (int t = 0; t < M; t++) {\n\t\t\tif (s & t) continue;\n\t\t\tadd(res, dp[s][t]);\n\t\t}\n\t} cout << res;\n}\n```\n\n## P8292 [省选联考 2022] 卡牌\n\n\r\n注意到 $s_i \\le 30$ 的部分分。样例解释告诉我们可以正难则反。记给出的质数集合为 $P$，枚举一个 $S \\subseteq P$，设 $f(S)$ 表示表示选出若干卡牌的集合 $T$，满足 $\\forall i \\in S, i \\nmid \\prod T$ 的方案数。\n\n由于 $[2,30]$ 中的质数数目为 $10$，对于 $S$ 只有 $2^{10}$ 种可能，预处理出来即可。\n\n这样是一个容斥的过程，答案为\n\n$\\sum_{S \\subseteq P} (-1)^{|S|} f(S)$复杂度 $O(2^w n+2^w \\sum c)$，其中 $w \\le 10$。\n\n考虑优化。注意到 $s_i \\le 2000$ 时依旧沿用上题的根号分治，将质因子分成 $\\le 43$ 和 $>43$ 两部分。则 $[2,43]$ 中共有 $14$ 个质数，这部分的处理使用上面的容斥即可。",
+        "content": "> 本文由 stripe-python 授权合并，保留原文结构与表述。\n由于本人在 9.26 模拟赛中的 T2 二十分钟瞪出了做法，然后自己否掉导致写了 2h 喜提 240pts，故对这类题目作一个总结。\n\n## AT_abc195_f [ABC195F] Coprime Present\n\n这题就是本人模拟赛的那个 T2。\n\n\n一个思路是注意到最大答案在 $2 \\times 10^8$ 左右，可以进行 $O(ans)$ 的搜索，但需要 `__int128` 状压和神秘减枝，赛时想了 1.5h 无果。\n\n回归题目发现 $r-l \\le 72$ 这个神秘限制。显然 $a,b$ 能同时选当且仅当质因子交集为空。记 $S_a$ 表示 $a$ 的质因子集合。\n\n若 $a, b$ 满足 $S_a \\cap S_b=A$，且 $\\forall i \\in S, i>72$，则 $|a-b|>72$，必然不满足这一限制。所以 $S_a$ 中只有 $\\le 72$ 的数是有用的。\n\n通过打表发现，$[2,72]$ 中的质数只有 $20$ 个，故 $S_a$ 可以状态压缩存下。进一步考虑一个状压 DP，用 $f_{S}$ 表示质因子集合为 $S$ 时的选法，考虑加入 $a$ 对 $f_{S}$ 的影响。\n\n记 $T=S_a$，则对于每个 $S$，当且仅当 $S \\cup T =\\varnothing$ 时 $T$ 才能加入 $S$ 中。刷表法转移：$f_{S \\cap T} \\gets f_S$。\n\n边界为 $f_{\\varnothing}=1$。\n\n复杂度 $O(2^w n)$，其中 $w \\le 20$。\n\n\n\n赛时 AC 代码。\n\n```cpp\n#define int long long\nconst int N = 21;\n\nint l, r, f[1 << N];\nconst int p[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,\n\t43, 47, 53, 59, 61, 67, 71};  // 20个\n\nvoid _main() {\n\tcin >> l >> r;\n\tf[0] = 1;\n\tfor (int i = l; i <= r; i++) {\n\t\tint x = 0;\n\t\tfor (int j = 0; j < 20; j++) {\n\t\t\tif (i % p[j]) continue;\n\t\t\tx |= 1 << j;\n\t\t}\n\t\tfor (int j = 0; j < (1 << 20); j++) {\n\t\t\tif ((x & j) == 0) f[x | j] += f[j];\n\t\t}\n\t}\n\tint res = 0;\n\tfor (int i = 0; i < (1 << 20); i++) res += f[i];\n\tcout << res;\n}\n```\n\n## P2150 [NOI2015] 寿司晚宴\n\n\n两个子集中的数字两两互质，等价于子集中的质因数集合交集为空。\n\n我们先从 30pts 开始考虑。因为 $n \\le 30$，那么质因数只有 $10$ 个。设 $dp_{i,S,T}$ 表示当前考虑到第 $i$ 个数，质因子集合为 $S,T$ 的方案数。对于 $[2,n]$ 分解质因数，把质因数状压一波。枚举与 $S,T$ 无交集的 $D$，刷表法转移：\n\n$$\ndp_{i+1,S \\cup D,T} \\gets dp_{i,S,T}\\\\\ndp_{i+1,S,T \\cup D} \\gets dp_{i,S,T}\n$$\n\n然后对于 $S \\cap D=\\varnothing$ 的每个 $S,T$ 统计答案。可以滚动数组优化，时间复杂度为 $O(2^{2w} n)$，其中 $w \\le 10$。和上面那题没什么区别。\n\n然后直接考虑正解。因为 $500$ 以内的质数有 $95$ 个，暴力 DP 直接爆炸。但是我们发现 $n$ 以内的数大于 $\\sqrt{n}$ 的质因子最多只有一个，也就是大于 $23$ 的质因子最多一个。那么我们以 $23$ 为分界点，考虑在两侧分别 DP。也就是根号分治一波。\n\n具体地，对于 $[2,500]$ 以内的数，我们先找出其最大质因子并按其排序，然后对每一个连续段统计答案。而 $23$ 以内的质数只有 $8$ 个，于是仍然令 $dp_{i,S,T}$ 表示考虑到第 $i$ 个数，质因子集合分别为 $S,T$ 的方案数，但是此时 $|S|,|T| \\le 8$。接着考虑最大质因子的贡献，由于它只能被一个子集选走，令 $f_{i,S,T}$ 表示考虑到第 $i$ 个数，其最大质因子只能被第一个子集选走的方案数，$g_{i,S,T}$ 表示其最大质因子只能被第二个子集选走的方案数，仍然刷表转移：\n\n$$\nf_{i+1,S \\cup D,t} \\gets f_{i,S,T}\\\\\ng_{i+1,S,T \\cup D} \\gets g_{i,S,T}\n$$\n\n把 $f,g$ 都合并到 $dp$ 里，需要容斥一下，因为会把不选的情况算两遍：\n\n$dp_{i+1,S,T} = f_{i,S,T}+g_{i,S,T}-dp_{i,S,T}$滚动数组优化空间，注意要像 01 背包那样倒序枚举了。答案即为 $\\sum_{S \\cap T = \\varnothing} dp_{n,S,T}$。\n\n至此，时间复杂度优化到 $O(4^w n)$，其中 $w \\le 8$。\n\n\n```cpp\nconst int N = 505, M = 1 << 8;\n\nint prime[] = {0, 2, 3, 5, 7, 11, 13, 17, 19};\nint n, p;\nstruct node {\n\tint v, p, s;\n\tnode() : v(0), p(-1), s(0) {}\n\tvoid get() {\n\t\tint x = v;\n\t\tfor (int i = 1; i <= 8; i++) {\n\t\t\tif (x % prime[i]) continue;\n\t\t\ts |= 1 << (i - 1);\n\t\t\twhile (x % prime[i] == 0) x /= prime[i];\n\t\t}\n\t\tif (x != 1) p = x;\n\t}\n} a[N];\nint dp[N][N], f[N][N], g[N][N];\n\nvoid _main() {\n\tcin >> n >> p;\n\tfor (int i = 2; i <= n; i++) a[i].v = i, a[i].get();\n\tsort(a + 2, a + n + 1, [](const node& x, const node& y) -> bool {\n\t\treturn x.p < y.p;\n\t});\n\tdp[0][0] = 1;\n\tfor (int i = 2; i <= n; i++) {\n\t\tif (i == 2 || a[i].p != a[i - 1].p || a[i].p == -1) {  // 新连续段\n\t\t\tmemcpy(f, dp, sizeof(f)), memcpy(g, dp, sizeof(g));\n\t\t}\n#define add(x, y) ((x) += (y), (x) >= p ? (x) -= p : (x))\n#define madd(x, y) ((x) + (y) >= p ? (x) + (y) - p : (x) + (y))\n#define msub(x, y) ((x) - (y) < 0 ? (x) - (y) + p : (x) - (y))\n\t\tfor (int s = M - 1; s >= 0; s--) {\n\t\t\tfor (int t = M - 1; t >= 0; t--) {\n\t\t\t\tif (s & t) continue;\n\t\t\t\tif ((a[i].s & t) == 0) add(f[a[i].s | s][t], f[s][t]);\n\t\t\t\tif ((a[i].s & s) == 0) add(g[s][a[i].s | t], g[s][t]);\n\t\t\t}\n\t\t}\n\t\tif (i == n || a[i].p != a[i + 1].p || a[i].p == -1) {  // 下一个点是新连续段\n\t\t\tfor (int s = 0; s < M; s++) {\n\t\t\t\tfor (int t = 0; t < M; t++) {\n\t\t\t\t\tif (s & t) continue;\n\t\t\t\t\tdp[s][t] = msub(madd(f[s][t], g[s][t]), dp[s][t]);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tint res = 0;\n\tfor (int s = 0; s < M; s++) {\n\t\tfor (int t = 0; t < M; t++) {\n\t\t\tif (s & t) continue;\n\t\t\tadd(res, dp[s][t]);\n\t\t}\n\t} cout << res;\n}\n```\n\n## P8292 [省选联考 2022] 卡牌\n\n\n注意到 $s_i \\le 30$ 的部分分。样例解释告诉我们可以正难则反。记给出的质数集合为 $P$，枚举一个 $S \\subseteq P$，设 $f(S)$ 表示表示选出若干卡牌的集合 $T$，满足 $\\forall i \\in S, i \\nmid \\prod T$ 的方案数。\n\n由于 $[2,30]$ 中的质数数目为 $10$，对于 $S$ 只有 $2^{10}$ 种可能，预处理出来即可。\n\n这样是一个容斥的过程，答案为\n\n$\\sum_{S \\subseteq P} (-1)^{|S|} f(S)$复杂度 $O(2^w n+2^w \\sum c)$，其中 $w \\le 10$。\n\n考虑优化。注意到 $s_i \\le 2000$ 时依旧沿用上题的根号分治，将质因子分成 $\\le 43$ 和 $>43$ 两部分。则 $[2,43]$ 中共有 $14$ 个质数，这部分的处理使用上面的容斥即可。",
         "timeComplexity": "见原文",
         "spaceComplexity": "见原文",
         "tags": [
@@ -12976,13 +13029,14 @@ const KNOWLEDGE_DATA = [
             "math-factorization",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-prime-theory",
         "category": "数学",
         "subcategory": "数论基础",
-        "subSubcategory": "",
+        "subSubcategory": "素数",
         "title": "质数理论基础（判定 / 筛法 / 算术基本定理）",
         "hub": false,
         "versions": [
@@ -13015,7 +13069,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "hub-math-number-theory"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-probability",
@@ -13054,7 +13109,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-quick-pow-basic",
@@ -13119,12 +13175,13 @@ const KNOWLEDGE_DATA = [
             "math-matrix-multiplication",
             "math-matrix-quick-pow",
             "math-gcd-lcm",
-            "math-sieve-eratosthenes",
+            "math-sieve",
             "math-euler-phi",
             "math-modular-inverse",
             "math-crt",
             "exam-bit-operation"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-quick-pow-highprecision",
@@ -13168,7 +13225,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "math-quick-pow-basic",
             "basic-high-precision"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "math-sequences",
@@ -13206,7 +13264,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-set-binary",
@@ -13246,21 +13305,22 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
-        "id": "math-sieve-eratosthenes",
+        "id": "math-sieve",
         "category": "数学",
         "subcategory": "数论基础",
         "subSubcategory": "素数",
-        "title": "埃拉托斯特尼筛法（埃氏筛）",
+        "title": "筛法：埃氏筛与线性筛（线性筛求 φ / d / σ）",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 埃拉托斯特尼筛法（埃氏筛）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n竞赛中经常需要判断大量数字是否为质数（如 $10^5$ 次查询，每个数 $\\le 5 \\times 10^6$）。逐个试除法每次 $O(\\sqrt{n})$，总共 $O(t \\sqrt{n})$ 可能超时。\r\n\r\n**思路转变**：与其对每个数分别判定，不如一次性筛出 $[1, n]$ 内所有质数，之后每次查询 $O(1)$。\r\n\r\n### 1.2 核心思想\r\n\r\n埃拉托斯特尼筛法（Eratosthenes Sieve）：\r\n\r\n1. 初始化：将 $[2, n]$ 内所有数标记为\"可能是质数\"（`true`）\r\n2. 从 $i = 2$ 开始扫描：若 $i$ 仍为 `true`，则 $i$ 是质数，将 $i$ 的所有倍数标记为 `false`（合数）\r\n3. 直到 $i^2 > n$ 时停止——因为比 $i$ 小的质数已经把 $i^2$ 以下的合数筛完了\r\n\r\n**为什么从 $i^2$ 开始标记倍数？** 因为 $i \\times 2, i \\times 3, \\ldots, i \\times (i-1)$ 这些合数已经被比 $i$ 小的质因子筛掉了。例如 $i = 5$ 时，$5 \\times 2 = 10$ 已被 2 筛掉，$5 \\times 3 = 15$ 已被 3 筛掉，$5 \\times 4 = 20$ 已被 2 筛掉，所以从 $5 \\times 5 = 25$ 开始才有意义。\r\n\r\n### 1.3 为什么外层循环到 $\\sqrt{n}$ 就停\r\n\r\n若 $i > \\sqrt{n}$ 且 $i$ 是质数，则 $i^2 > n$，内层循环根本不会执行。但 $i$ 本身不会被任何更小的质数筛掉（因为它是质数），所以它自然保持 `true`，无需再处理。\r\n\r\n更准确地说：$\\sqrt{n}$ 以内的质数就能筛掉 $[2, n]$ 内所有合数。因为任意合数 $m \\le n$ 必有一个质因子 $\\le \\sqrt{m} \\le \\sqrt{n}$，该质因子会在外层循环中把 $m$ 筛掉。\r\n\r\n### 1.4 复杂度分析\r\n\r\n**时间复杂度**：$O(n \\log \\log n)$\r\n\r\n这个复杂度来自于调和级数：\r\n\r\n$$\\sum_{\\text{p 为质数, p} \\le n} \\frac{n}{p} = n \\sum_{p \\le n} \\frac{1}{p} \\approx n \\ln \\ln n$$\r\n\r\n直觉上，每个质数 $p$ 贡献 $\\frac{n}{p}$ 次标记操作，而质数的倒数和增长极慢（$\\ln \\ln n$），因此总工作量接近线性。\r\n\r\n**空间复杂度**：$O(n)$（`vector<bool>` 数组）\r\n\r\n**$n = 5 \\times 10^6$ 时**：约 $5 \\times 10^6 \\times \\ln \\ln(5 \\times 10^6) \\approx 5 \\times 10^6 \\times 3.4 \\approx 1.7 \\times 10^7$ 次操作，瞬间完成。\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 状态定义\r\n\r\n用一个布尔数组 `prime_vis[i]` 表示数 $i$ 的状态：\r\n\r\n$$\r\n\\text{prime\\_vis}[i] =\r\n\\begin{cases}\r\n\\text{true}, & i \\text{ 尚未被筛掉（可能是质数）} \\\\\r\n\\text{false}, & i \\text{ 已被筛掉（是合数）}\r\n\\end{cases}\r\n$$\r\n\r\n初始化时全部为 `true`，表示\"尚未被筛掉\"。0 和 1 不是质数，但本代码未单独处理（调用方需自行判断 $x \\ge 2$）。\r\n\r\n### 2.2 筛法转移\r\n\r\n对每个 $i$ 从 $2$ 到 $\\sqrt{n}$：\r\n\r\n- 若 `prime_vis[i]` 为 `true`（$i$ 是质数），则从 $j = i^2$ 开始，每隔 $i$ 标记为 `false`\r\n- 若 `prime_vis[i]` 为 `false`（$i$ 是合数），跳过（其倍数已被更小的质因子筛过）\r\n\r\n### 2.3 vector\\<bool\\> 的位压缩\r\n\r\n`vector<bool>` 是 C++ 的特化版本，每个元素仅占 1 bit。$n = 5 \\times 10^6$ 时仅占约 625 KB，远优于 `vector<char>` 的 5 MB。\r\n\r\n| 实现 | $n = 5 \\times 10^6$ 内存 | 访问速度 |\r\n|-----|------------------------|---------|\r\n| `vector<bool>` | $\\approx 625$ KB | 稍慢（位运算） |\r\n| `vector<char>` | $\\approx 5$ MB | 快（直接访问） |\r\n| `bitset<N>` | $\\approx 625$ KB | 快（编译期固定） |\r\n\r\n`vector<bool>` 在内存与灵活性间取得了平衡：大小可运行时指定，且内存极省。\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n```\r\n\r\n标准头文件与命名空间。\r\n\r\n### 3.1 sieve_vis —— 埃氏筛核心函数\r\n\r\n```cpp\r\nvector<bool> sieve_vis(int n)\r\n{\r\n    vector<bool> prime_vis(n + 1, true);\r\n    for (int i = 2; i * i <= n; i++)\r\n    {\r\n        if (!prime_vis[i]) continue;\r\n        for (int j = i * i; j <= n; j += i)\r\n        {\r\n            prime_vis[j] = false;\r\n        }\r\n    }\r\n    return prime_vis;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `vector<bool> sieve_vis(int n)` | 返回布尔数组，`prime_vis[i]` 为 true 表示 $i$ 是质数（或 1） |\r\n| 2 | `vector<bool> prime_vis(n + 1, true);` | 初始化 $[0, n]$ 全为 true。注意 0 和 1 不是质数，调用方需自行判断 |\r\n| 3 | `for (int i = 2; i * i <= n; i++)` | 外层只需到 $\\sqrt{n}$，用 `i * i <= n` 避免浮点 `sqrt` |\r\n| 4 | `if (!prime_vis[i]) continue;` | $i$ 已被筛掉（合数），跳过——优化关键：只从质数开始筛 |\r\n| 5 | `for (int j = i * i; j <= n; j += i)` | 从 $i^2$ 开始标记倍数，步长 $i$ |\r\n| 6 | `prime_vis[j] = false;` | 标记为合数 |\r\n| 7 | `return prime_vis;` | 返回筛好的数组 |\r\n\r\n**手动模拟**（$n = 30$）：\r\n\r\n| 步骤 | 当前质数 $i$ | 标记为 false 的数 | prime_vis 中仍为 true |\r\n|------|-------------|------------------|----------------------|\r\n| 初始 | — | — | 全部 |\r\n| $i=2$ | 2 | 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 | 2,3,5,7,9,11,13,15,17,19,21,23,25,27,29 |\r\n| $i=3$ | 3 | 9, 12, 15, 18, 21, 24, 27, 30 | 2,3,5,7,11,13,17,19,23,25,29 |\r\n| $i=5$ | 5 | 25, 30 | 2,3,5,7,11,13,17,19,23,29 |\r\n| $i=6$ | — | （6 已被筛，跳过） | 不变 |\r\n| $i=7$ | 7 | （$7^2=49>30$，内层不执行） | 不变 |\r\n\r\n$[2, 30]$ 内的质数：2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ✓\r\n\r\n### 3.2 main —— 预处理 + 多组查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int t;\r\n    cin >> t;\r\n    vector<bool> vis = move(sieve_vis(5000000));\r\n    while (t--)\r\n    {\r\n        int x;\r\n        cin >> x;\r\n        if (vis[x]) cout << \"是质数\" << '\\n';\r\n        else cout << \"是合数\" << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `ios::sync_with_stdio(false); cin.tie(nullptr);` | 快速 IO |\r\n| 3-4 | `int t; cin >> t;` | 查询组数 |\r\n| 5 | `vector<bool> vis = move(sieve_vis(5000000));` | 一次性筛到 $5 \\times 10^6$，`move` 避免拷贝整个数组 |\r\n| 6-9 | `cin >> x; if (vis[x]) ...` | 每次查询 $O(1)$ |\r\n\r\n**关键设计：预处理 + 查询分离**。筛法在最前面一次性完成所有预处理，后续每次查询只需查表。这是\"以空间换时间\"的经典范例。\r\n\r\n> **注意**：代码预先筛到 $5 \\times 10^6$，如果查询的 $x$ 超过此范围会越界。实际使用时应根据题目数据范围调整 `sieve_vis` 的参数。\r\n\r\n### 3.3 运行示例\r\n\r\n输入：\r\n```\r\n5\r\n2\r\n4\r\n17\r\n100\r\n999983\r\n```\r\n\r\n输出：\r\n```\r\n是质数\r\n是合数\r\n是质数\r\n是合数\r\n是质数\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 预处理时间 | $O(n \\log \\log n)$ | 接近线性，$n = 5 \\times 10^6$ 时约 $1.7 \\times 10^7$ 次操作 |\r\n| 单次查询 | $O(1)$ | 数组下标访问 |\r\n| 空间 | $O(n)$ | `vector<bool>` 位压缩，$n = 5 \\times 10^6$ 时约 625 KB |\r\n\r\n**与试除法对比**：\r\n\r\n| 方法 | 预处理 | 单次查询 | $t = 10^5, n = 5 \\times 10^6$ 总耗时 |\r\n|------|--------|---------|--------------------------------------|\r\n| 试除法 | 无 | $O(\\sqrt{n})$ | $10^5 \\times 2236 \\approx 2.2 \\times 10^8$（偏慢） |\r\n| 埃氏筛 | $O(n \\log \\log n)$ | $O(1)$ | $1.7 \\times 10^7 + 10^5 \\approx 1.7 \\times 10^7$（瞬间） |\r\n\r\n当查询次数 $t$ 较大时，筛法远优于试除法。\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **多组质数判定** | 预处理后每次 $O(1)$ 查询 |\r\n| **求 $[1, n]$ 内所有质数** | 筛完后遍历 `prime_vis` 收集 true 的下标 |\r\n| **质因数分解预处理** | 配合线性筛记录最小质因子 |\r\n| **欧拉函数预处理** | 利用筛法框架计算 $\\varphi(i)$ |\r\n| **莫比乌斯函数预处理** | 利用筛法框架计算 $\\mu(i)$ |\r\n| **数论分块** | 需要快速判断大数区间内的质数个数 |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 0 和 1 未处理\r\n\r\n代码初始化全为 `true`，0 和 1 也不是质数但会显示\"是质数\"。若题目可能输入 0 或 1，需特判：\r\n\r\n```cpp\r\nif (x < 2) cout << \"不是质数\" << '\\n';\r\nelse if (vis[x]) cout << \"是质数\" << '\\n';\r\nelse cout << \"是合数\" << '\\n';\r\n```\r\n\r\n### 6.2 数组越界\r\n\r\n`sieve_vis(5000000)` 只筛到 $5 \\times 10^6$，若查询 $x > 5 \\times 10^6$ 会越界。需根据题目最大数据范围调整预处理上界。\r\n\r\n### 6.3 i * i 溢出\r\n\r\n当 $n$ 接近 `int` 上限（$\\approx 2.1 \\times 10^9$）时，`i * i` 可能溢出。应改为 `long long` 或用 `i <= n / i` 代替。\r\n\r\n### 6.4 内层循环起始点\r\n\r\n从 `j = i * i` 开始而非 `j = 2 * i`。这是关键优化：$i \\times 2$ 到 $i \\times (i-1)$ 已被更小的质因子筛过。若从 $2i$ 开始，复杂度退化为 $O(n \\ln n)$（仍可过，但非最优）。\r\n\r\n### 6.5 vector\\<bool\\> 的性能\r\n\r\n`vector<bool>` 的位压缩虽然省内存，但读写需要位运算，速度略慢于 `vector<char>` 或 `bitset`。对极端卡常的题目，可考虑 `bitset`（编译期固定大小）或 `vector<char>`。\r\n\r\n### 6.6 与线性筛（欧拉筛）的选择\r\n\r\n埃氏筛会重复标记某些合数（如 $12 = 2 \\times 6 = 3 \\times 4$），而线性筛每个合数只被标记一次。但埃氏筛常数小、实现简单，$n \\le 10^7$ 时通常更快或相当。\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 埃氏筛 vs 线性筛（欧拉筛）\r\n\r\n| 维度 | 埃氏筛 | 线性筛（欧拉筛） |\r\n|------|--------|-----------------|\r\n| 时间复杂度 | $O(n \\log \\log n)$ | $O(n)$ |\r\n| 实现难度 | 极简（3 行核心） | 中等（需维护质数表 + 最小质因子判断） |\r\n| 重复标记 | 有（合数被多个质因子筛） | 无（每个合数只被最小质因子筛一次） |\r\n| 附加功能 | 仅判定质数 | 可同时求 $\\varphi(i)$、$\\mu(i)$、最小质因子 |\r\n| 实际速度 | $n \\le 10^7$ 时通常更快 | $n > 10^7$ 时优势显现 |\r\n| 空间 | `vector<bool>` 位压缩 | `vector<int>` 质数表 + `vector<bool>` |\r\n\r\n### 7.2 区间筛法\r\n\r\n当需要求 $[L, R]$（$L$ 很大，$R - L$ 较小）内的质数时，先用埃氏筛筛出 $[1, \\sqrt{R}]$ 的质数，再用这些质数筛 $[L, R]$ 的区间。复杂度 $O(\\sqrt{R} \\log \\log \\sqrt{R} + (R - L) \\log \\log R)$。\r\n\r\n### 7.3 利用筛法求积性函数\r\n\r\n积性函数（如欧拉函数 $\\varphi$、莫比乌斯函数 $\\mu$）可通过筛法框架在 $O(n)$ 或 $O(n \\log \\log n)$ 内预处理。线性筛尤其适合——在标记合数时根据最小质因子递推函数值。\r\n\r\n### 7.4 一句话总结\r\n\r\n埃拉托斯特尼筛法用\"标记质数倍数\"的简单思路，在 $O(n \\log \\log n)$ 时间内预处理出 $[1, n]$ 内所有质数，查询 $O(1)$。三行核心代码、位压缩省内存、常数极小，是数论中最常用的预处理工具——当需要多次判定质数时，筛法远优于逐个试除。",
-                "codePath": "数学\\数论基础\\埃氏筛\\源.cpp",
-                "timeComplexity": "O(n log log n)",
+                "content": "> 本页合并了原「埃氏筛」「线性筛求欧拉函数」「线性筛求约数个数」「线性筛求约数和」四个条目，统一在筛法框架下讲解；正文以线性筛求 φ 为主线，埃氏筛与 d、σ 的完整实现放在文末附录。\n\n## 一、算法原理\n\n### 1.1 问题背景\n\n当需要查询 $[1, n]$ 内大量数的欧拉函数值（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\n\n**思路转变**：利用欧拉函数的积性，结合线性筛（欧拉筛）框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $\\varphi(i)$，之后每次查询 $O(1)$。\n\n### 1.2 线性筛回顾\n\n线性筛（欧拉筛）是埃氏筛的优化版本，**每个合数只被它的最小质因子筛掉一次**，因此时间复杂度严格 $O(n)$。\n\n核心机制：\n\n- 维护质数表 `prime`，按从小到大顺序存储已发现的质数\n- 对每个 $i$ 从 2 到 $n$，若 $i$ 未被标记，则 $i$ 是质数，加入 `prime`\n- 对每个质数 $p_j$，标记 $i \\times p_j$ 为合数；当 $i \\bmod p_j = 0$ 时 `break`——因为 $p_j$ 是 $i$ 的最小质因子，再往后的 $p_k > p_j$ 会导致 $i \\times p_k$ 的最小质因子不是 $p_k$，会被重复标记\n\n### 1.3 φ 的两种递推情况\n\n欧拉函数是积性函数：当 $\\gcd(a, b) = 1$ 时，$\\varphi(ab) = \\varphi(a)\\varphi(b)$。\n\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $\\varphi(m)$：\n\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\n\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\n\n$$\\varphi(i \\times p_j) = \\varphi(i) \\times \\varphi(p_j) = \\varphi(i) \\times (p_j - 1)$$\n\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\n\n此时 $p_j$ 已经是 $i$ 的质因子，所以 $i \\times p_j$ 与 $i$ 的**质因子集合完全相同**（只是 $p_j$ 的指数加了 1）。\n\n设 $i = p_j^k \\times t$（$\\gcd(t, p_j) = 1$），则 $\\varphi(i) = \\varphi(p_j^k) \\times \\varphi(t) = p_j^k \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t)$。\n\n而 $\\varphi(i \\times p_j) = \\varphi(p_j^{k+1} \\times t) = \\varphi(p_j^{k+1}) \\times \\varphi(t) = p_j^{k+1} \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t) = p_j \\times \\left(p_j^k \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t)\\right) = p_j \\times \\varphi(i)$。\n\n即：\n\n$$\\varphi(i \\times p_j) = p_j \\times \\varphi(i)$$\n\n> **直觉理解**：$i$ 和 $ip$ 的不同质因子集合完全一样，所以 $\\varphi(ip) = ip \\cdot \\prod \\frac{q-1}{q} = p \\cdot \\left(i \\cdot \\prod \\frac{q-1}{q}\\right) = p \\cdot \\varphi(i)$。\n\n### 1.4 边界与初始值\n\n- $\\varphi(1) = 1$（1 与自身互质）\n- 质数 $p$ 的 $\\varphi(p) = p - 1$（质数与 $[1, p-1]$ 全部互质）\n\n这两个值分别在初始化和发现质数时直接赋值，作为递推的起点。\n\n## 二、核心公式/状态定义与转移方程\n\n### 2.1 状态定义\n\n| 数组 | 含义 |\n|------|------|\n| `phi[i]` | 欧拉函数值 $\\varphi(i)$；$\\varphi(i) = 0$ 表示 $i$ 尚未被访问（即 $i$ 是质数） |\n| `prime` | 已发现的质数表，按升序存储 |\n\n> **关键技巧**：不使用单独的标记数组 `prime_vis`，而是直接利用 `phi` 数组判质数——$\\varphi(i) = 0$ 当且仅当 $i$ 尚未被任何更小的数筛到，即 $i$ 是质数。发现质数时立即赋值 $\\varphi(p) = p - 1$（$\\ge 1$），使后续访问时 `phi[i]` 非零。这种\"一数多用\"省去了整个 `prime_vis` 数组。\n\n### 2.2 转移方程\n\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$：\n\n$$\n\\varphi(i \\cdot p_j) =\n\\begin{cases}\n(p_j - 1) \\cdot \\varphi(i), & i \\bmod p_j \\neq 0 \\quad (\\text{互质，直接用积性}) \\\\\np_j \\cdot \\varphi(i), & i \\bmod p_j = 0 \\quad (\\text{不互质，质因子集合不变})\n\\end{cases}\n$$\n\n### 2.3 线性时间证明\n\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\n\n因此总操作次数恰好等于合数个数，加上质数个数，总共 $n$ 次级别，即 $O(n)$。\n\n### 2.4 附带功能\n\n线性筛一次运行可以同时得到：\n- **质数表** `prime`：所有 $\\le n$ 的质数\n- **质数判定**：$\\varphi(i) = i - 1$ 当且仅当 $i$ 为质数，$O(1)$ 查询\n- **欧拉函数** `phi[i]`：所有 $\\varphi(i)$ 的值\n- **最小质因子**（可扩展）：只需多开一个数组记录每个合数被哪个质数筛掉\n\n这种\"一次筛法、多个产出\"的特性是线性筛最强大的地方。\n\n## 三、逐行代码解析\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvector<int> prime, phi;\n```\n\n全局变量：`prime` 存质数表，`phi` 存欧拉函数值（同时兼作质数标记）。\n\n### 3.1 phi_sieve —— 线性筛求欧拉函数\n\n```cpp\nvoid phi_sieve(int n)\n{\n    phi.assign(n + 1, 0);\n    prime.clear();\n    phi[1] = 1;\n    for (int i = 2; i <= n; i++)\n    {\n        if (!phi[i])\n        {\n            phi[i] = i - 1;\n            prime.emplace_back(i);\n        }\n        for (int j = 0; prime[j] <= n / i; j++)\n        {\n            if (i % prime[j]) phi[i * prime[j]] = (prime[j] - 1) * phi[i];\n            else\n            {\n                phi[i * prime[j]] = prime[j] * phi[i];\n                break;\n            }\n        }\n    }\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `phi.assign(n + 1, 0);` | φ 数组初始化为 0，0 同时表示\"未访问\" |\n| 2 | `prime.clear();` | 清空质数表 |\n| 3 | `phi[1] = 1;` | 边界 $\\varphi(1) = 1$ |\n| 4 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\n| 5-8 | `if (!phi[i]) { phi[i] = i - 1; prime.emplace_back(i); }` | $\\varphi(i) = 0$ 即未被筛过 → $i$ 是质数，赋值 $\\varphi(i) = i-1$ 并加入质数表 |\n| 9 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，用 `n/i` 防止 `i*prime[j]` 越界 |\n| 10 | `if (i % prime[j]) phi[...] = (p-1) * phi[i];` | 情况一：$p_j$ 不整除 $i$ → 积性，$\\varphi(ip) = (p-1) \\cdot \\varphi(i)$ |\n| 11-14 | `else { phi[...] = p * phi[i]; break; }` | 情况二：$p_j$ 整除 $i$ → $\\varphi(ip) = p \\cdot \\varphi(i)$；然后 `break`（保证线性） |\n\n**与旧写法的对比**：旧代码额外维护 `vector<bool> prime_vis` 标记数组，在内层循环中先执行 `prime_vis[i * prime[j]] = false` 再分支。新代码直接用 `!phi[i]` 判断质数——因为 $\\varphi(i) = 0$ 当且仅当 $i$ 尚未被任何更小的数筛到（即 $i$ 是质数）。合数的 `phi` 值在内层循环中被直接赋值（非零），无需额外的标记数组。\n\n### 3.2 手动模拟（n = 12）\n\n| $i$ | 操作 | 新增质数 | φ 值更新 |\n|-----|------|---------|---------|\n| 2 | `phi[2]==0` → 质数 | 2 | $\\varphi(2)=1$ |\n| 2 | `j=0, prime[0]=2, 2<=6` | — | $\\varphi(4) = 2 \\times \\varphi(2) = 2$（2%2=0, break） |\n| 3 | `phi[3]==0` → 质数 | 3 | $\\varphi(3)=2$ |\n| 3 | `j=0, prime[0]=2, 2<=4` | — | $\\varphi(6) = (2-1) \\times \\varphi(3) = 2$（3%2≠0） |\n| 3 | `j=1, prime[1]=3, 3<=4` | — | $\\varphi(9) = 3 \\times \\varphi(3) = 6$（3%3=0, break） |\n| 4 | `phi[4]==2≠0` → 非质数 | — | — |\n| 4 | `j=0, prime[0]=2, 2<=3` | — | $\\varphi(8) = 2 \\times \\varphi(4) = 4$（4%2=0, break） |\n| 5 | `phi[5]==0` → 质数 | 5 | $\\varphi(5)=4$ |\n| 5 | `j=0, prime[0]=2, 2<=2` | — | $\\varphi(10) = (2-1) \\times \\varphi(5) = 4$（5%2≠0） |\n| 5 | `j=1, prime[1]=3, 3<=2` | — | （3 > 12/5=2，内层结束） |\n| 6 | `phi[6]==2≠0` → 非质数 | — | — |\n| 6 | `j=0, prime[0]=2, 2<=2` | — | $\\varphi(12) = 2 \\times \\varphi(6) = 4$（6%2=0, break） |\n\n**验证**：\n- $\\varphi(4) = 2$ ✓ {1, 3}\n- $\\varphi(6) = 2$ ✓ {1, 5}\n- $\\varphi(9) = 6$ ✓ {1, 2, 4, 5, 7, 8}\n- $\\varphi(8) = 4$ ✓ {1, 3, 5, 7}\n- $\\varphi(10) = 4$ ✓ {1, 3, 7, 9}\n- $\\varphi(12) = 4$ ✓ {1, 5, 7, 11}\n\n全部正确 ✓\n\n### 3.3 main —— 预处理 + 多组查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int n, q;\n    cin >> n >> q;\n    phi_sieve(n);\n    while (q--)\n    {\n        int n;\n        cin >> n;\n        if (phi[n] == n - 1) cout << n << \"为质数\\n\";\n        else cout << n << \"为合数\\n\";\n        cout << n << \"的欧拉函数的值为: \" << phi[n];\n    }\n    return 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\n| 3 | `phi_sieve(n);` | 一次预处理，求出所有 $\\varphi(1..n)$ |\n| 4-7 | `while (q--) { ... }` | 每次查询 $O(1)$，同时判定质数 + 输出 φ 值 |\n\n### 3.4 运行示例\n\n输入：\n```\n12 3\n4\n7\n12\n```\n\n输出：\n```\n4为合数\n4的欧拉函数的值为: 2\n7为质数\n7的欧拉函数的值为: 6\n12为合数\n12的欧拉函数的值为: 4\n```\n\n## 四、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\n| 单次查询 | $O(1)$ | 数组下标访问 |\n| 空间 | $O(n)$ | `phi` + `prime`（质数约 $n / \\ln n$ 个） |\n\n**与单次求值对比**：\n\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\n|------|--------|---------|------------------------|\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\n\n当查询量大时，线性筛批量预处理碾压单次求值。\n\n## 五、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| **大量 φ 值查询** | 预处理后每次 $O(1)$，适合百万级查询 |\n| **数论计数** | 很多计数问题需要枚举 φ 值或利用 φ 的求和公式 |\n| **同时需要质数表和 φ** | 一次筛法同时得到，效率最高 |\n| **莫比乌斯函数/其他积性函数** | 同样的线性筛框架，换递推公式即可 |\n| **最小质因子查询** | 略加修改可同时记录每个数的最小质因子 |\n\n## 六、常见陷阱与注意事项\n\n### 6.1 内层循环的终止条件\n\n`prime[j] <= n / i` 而非 `i * prime[j] <= n`。前者用除法避免了乘法溢出，同时保证 `i * prime[j]` 不会越界。若写 `i * prime[j] <= n`，当 $n$ 接近 `int` 上限时可能溢出。\n\n### 6.2 break 的位置\n\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$（退化为埃氏筛）。`break` 是保证线性时间的关键。\n\n### 6.3 phi[1] 的初始化\n\n$\\varphi(1) = 1$ 必须手动赋值，因为循环从 $i=2$ 开始，1 不会被处理。若遗漏，所有包含因子 1 的积性递推都会出错（不过本题中 1 不参与递推，影响较小，但仍是标准做法）。\n\n### 6.4 质数 φ 值的赋值位置\n\n$\\varphi(p) = p - 1$ 在发现质数时赋值，而不是在内层循环中。因为质数 $p$ 只会在外层 `if (prime_vis[i])` 分支中被识别，不会作为合数 $i \\times p_j$ 被标记。\n\n### 6.5 数据类型选择\n\n当 $n$ 较大时（如 $n \\ge 10^6$），$\\varphi(n)$ 可能接近 $n$，`int` 可能不够。建议用 `long long` 存储 `phi` 数组。质数表 `prime` 用 `int` 通常没问题（$10^7$ 以内质数约 66 万个，存下标完全够）。\n\n### 6.6 phi 数组兼作质数标记\n\n本代码不使用单独的 `prime_vis` 标记数组，而是直接用 `!phi[i]`（即 $\\varphi(i) = 0$）判断质数。这要求：\n\n- 初始化时 `phi` 全部赋 0，只有 $\\varphi(1) = 1$ 手动设置\n- 质数在发现时赋值 $\\varphi(p) = p - 1 \\ge 1$，使后续 `phi[p]` 非零\n- 合数在内层循环中被直接赋值（两种情况的结果都 $\\ge 1$），也不会保持为 0\n\n**注意**：$\\varphi(1) = 1$ 必须在循环前手动赋值，否则 `!phi[1]` 为真会误判 1 为质数。\n\n### 6.7 全局变量 vs 局部变量\n\n代码中 `prime` 和 `phi` 是全局变量。好处是 `phi_sieve` 只需一个参数 $n$；坏处是多组测试数据间可能冲突。竞赛中常用全局变量（方便调试），但应注意在每组测试前调用 `clear()`。\n\n## 七、对比与扩展\n\n### 7.1 埃氏筛 vs 线性筛求 φ\n\n| 维度 | 埃氏筛 + φ | 线性筛求 φ |\n|------|-----------|-----------|\n| 时间复杂度 | $O(n \\log \\log n)$ | $O(n)$ |\n| 实现难度 | 简单（埃氏筛框架 + 每质数更新 φ） | 中等（需理解两种递推情况 + break 机制） |\n| 附带产物 | 质数判定 | 质数表 + 质数判定 + 可扩展最小质因子 |\n| 实际速度 | $n \\le 10^7$ 时相近 | $n > 10^7$ 时更快 |\n| 空间 | 少（只有 phi） | 多一个质数表（约 $n / \\ln n$ 个元素） |\n\n### 7.2 埃氏筛求 φ 的写法\n\n埃氏筛也能求 φ，思路是初始化 `phi[i] = i`，然后对每个质数 $p$，遍历 $p$ 的倍数 $j$，执行 `phi[j] = phi[j] / p * (p - 1)`。每个质数只更新一次倍数，因此不同质因子各乘一次 $\\frac{p-1}{p}$，结果正确。\n\n```cpp\nvector<int> phi(n + 1);\nfor (int i = 1; i <= n; i++) phi[i] = i;\nfor (int i = 2; i <= n; i++)\n    if (phi[i] == i)  // i 是质数\n        for (int j = i; j <= n; j += i)\n            phi[j] = phi[j] / i * (i - 1);\n```\n\n### 7.3 用线性筛求其他积性函数\n\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\n\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ |\n|------|---------------------|------------------|\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ |\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ |\n| 约数个数 $d$ | $2 \\cdot d(i)$ | 需额外记录最小质因子的指数 |\n| 约数和 $\\sigma$ | $(1+p) \\cdot \\sigma(i)$ | 需额外记录等比数列信息 |\n| 最小质因子 | $p$ | $p$（直接赋值） |\n\n### 7.4 线性筛求最小质因子\n\n略加修改，把 `prime_vis` 替换为 `min_prime_factor` 数组，在标记合数时记录最小质因子：\n\n```cpp\nvector<int> mpf(n + 1, 0);  // 最小质因子\n...\nmpf[i * prime[j]] = prime[j];\n```\n\n有了最小质因子，可以快速对任意数做质因数分解（每次除以最小质因子）。\n\n### 7.5 一句话总结\n\n线性筛求欧拉函数是\"一次筛法、多个产出\"的典范：在 $O(n)$ 时间内同时得到质数表、质数判定和所有 φ 值。核心在于利用 φ 的积性，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 整除 $i$ 时 $\\varphi(ip) = p \\cdot \\varphi(i)$，不整除时 $\\varphi(ip) = (p-1) \\cdot \\varphi(i)$。配合 `break` 保证每个合数只被最小质因子筛一次，实现严格线性复杂度。代码直接用 `!phi[i]` 判质数，省去单独的标记数组。当查询量大时，线性筛远优于单次试除求值。\n\n## 附：埃氏筛（埃拉托斯特尼筛法）\n\n### 埃拉托斯特尼筛法（埃氏筛）\n\n### 一、算法原理\n\n#### 1.1 问题背景\n\n竞赛中经常需要判断大量数字是否为质数（如 $10^5$ 次查询，每个数 $\\le 5 \\times 10^6$）。逐个试除法每次 $O(\\sqrt{n})$，总共 $O(t \\sqrt{n})$ 可能超时。\n\n**思路转变**：与其对每个数分别判定，不如一次性筛出 $[1, n]$ 内所有质数，之后每次查询 $O(1)$。\n\n#### 1.2 核心思想\n\n埃拉托斯特尼筛法（Eratosthenes Sieve）：\n\n1. 初始化：将 $[2, n]$ 内所有数标记为\"可能是质数\"（`true`）\n2. 从 $i = 2$ 开始扫描：若 $i$ 仍为 `true`，则 $i$ 是质数，将 $i$ 的所有倍数标记为 `false`（合数）\n3. 直到 $i^2 > n$ 时停止——因为比 $i$ 小的质数已经把 $i^2$ 以下的合数筛完了\n\n**为什么从 $i^2$ 开始标记倍数？** 因为 $i \\times 2, i \\times 3, \\ldots, i \\times (i-1)$ 这些合数已经被比 $i$ 小的质因子筛掉了。例如 $i = 5$ 时，$5 \\times 2 = 10$ 已被 2 筛掉，$5 \\times 3 = 15$ 已被 3 筛掉，$5 \\times 4 = 20$ 已被 2 筛掉，所以从 $5 \\times 5 = 25$ 开始才有意义。\n\n#### 1.3 为什么外层循环到 $\\sqrt{n}$ 就停\n\n若 $i > \\sqrt{n}$ 且 $i$ 是质数，则 $i^2 > n$，内层循环根本不会执行。但 $i$ 本身不会被任何更小的质数筛掉（因为它是质数），所以它自然保持 `true`，无需再处理。\n\n更准确地说：$\\sqrt{n}$ 以内的质数就能筛掉 $[2, n]$ 内所有合数。因为任意合数 $m \\le n$ 必有一个质因子 $\\le \\sqrt{m} \\le \\sqrt{n}$，该质因子会在外层循环中把 $m$ 筛掉。\n\n#### 1.4 复杂度分析\n\n**时间复杂度**：$O(n \\log \\log n)$\n\n这个复杂度来自于调和级数：\n\n$$\\sum_{\\text{p 为质数, p} \\le n} \\frac{n}{p} = n \\sum_{p \\le n} \\frac{1}{p} \\approx n \\ln \\ln n$$\n\n直觉上，每个质数 $p$ 贡献 $\\frac{n}{p}$ 次标记操作，而质数的倒数和增长极慢（$\\ln \\ln n$），因此总工作量接近线性。\n\n**空间复杂度**：$O(n)$（`vector<bool>` 数组）\n\n**$n = 5 \\times 10^6$ 时**：约 $5 \\times 10^6 \\times \\ln \\ln(5 \\times 10^6) \\approx 5 \\times 10^6 \\times 3.4 \\approx 1.7 \\times 10^7$ 次操作，瞬间完成。\n\n### 二、核心公式/状态定义与转移方程\n\n#### 2.1 状态定义\n\n用一个布尔数组 `prime_vis[i]` 表示数 $i$ 的状态：\n\n$$\n\\text{prime\\_vis}[i] =\n\\begin{cases}\n\\text{true}, & i \\text{ 尚未被筛掉（可能是质数）} \\\\\n\\text{false}, & i \\text{ 已被筛掉（是合数）}\n\\end{cases}\n$$\n\n初始化时全部为 `true`，表示\"尚未被筛掉\"。0 和 1 不是质数，但本代码未单独处理（调用方需自行判断 $x \\ge 2$）。\n\n#### 2.2 筛法转移\n\n对每个 $i$ 从 $2$ 到 $\\sqrt{n}$：\n\n- 若 `prime_vis[i]` 为 `true`（$i$ 是质数），则从 $j = i^2$ 开始，每隔 $i$ 标记为 `false`\n- 若 `prime_vis[i]` 为 `false`（$i$ 是合数），跳过（其倍数已被更小的质因子筛过）\n\n#### 2.3 vector\\<bool\\> 的位压缩\n\n`vector<bool>` 是 C++ 的特化版本，每个元素仅占 1 bit。$n = 5 \\times 10^6$ 时仅占约 625 KB，远优于 `vector<char>` 的 5 MB。\n\n| 实现 | $n = 5 \\times 10^6$ 内存 | 访问速度 |\n|-----|------------------------|---------|\n| `vector<bool>` | $\\approx 625$ KB | 稍慢（位运算） |\n| `vector<char>` | $\\approx 5$ MB | 快（直接访问） |\n| `bitset<N>` | $\\approx 625$ KB | 快（编译期固定） |\n\n`vector<bool>` 在内存与灵活性间取得了平衡：大小可运行时指定，且内存极省。\n\n### 三、逐行代码解析\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n```\n\n标准头文件与命名空间。\n\n#### 3.1 sieve_vis —— 埃氏筛核心函数\n\n```cpp\nvector<bool> sieve_vis(int n)\n{\n    vector<bool> prime_vis(n + 1, true);\n    for (int i = 2; i * i <= n; i++)\n    {\n        if (!prime_vis[i]) continue;\n        for (int j = i * i; j <= n; j += i)\n        {\n            prime_vis[j] = false;\n        }\n    }\n    return prime_vis;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `vector<bool> sieve_vis(int n)` | 返回布尔数组，`prime_vis[i]` 为 true 表示 $i$ 是质数（或 1） |\n| 2 | `vector<bool> prime_vis(n + 1, true);` | 初始化 $[0, n]$ 全为 true。注意 0 和 1 不是质数，调用方需自行判断 |\n| 3 | `for (int i = 2; i * i <= n; i++)` | 外层只需到 $\\sqrt{n}$，用 `i * i <= n` 避免浮点 `sqrt` |\n| 4 | `if (!prime_vis[i]) continue;` | $i$ 已被筛掉（合数），跳过——优化关键：只从质数开始筛 |\n| 5 | `for (int j = i * i; j <= n; j += i)` | 从 $i^2$ 开始标记倍数，步长 $i$ |\n| 6 | `prime_vis[j] = false;` | 标记为合数 |\n| 7 | `return prime_vis;` | 返回筛好的数组 |\n\n**手动模拟**（$n = 30$）：\n\n| 步骤 | 当前质数 $i$ | 标记为 false 的数 | prime_vis 中仍为 true |\n|------|-------------|------------------|----------------------|\n| 初始 | — | — | 全部 |\n| $i=2$ | 2 | 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 | 2,3,5,7,9,11,13,15,17,19,21,23,25,27,29 |\n| $i=3$ | 3 | 9, 12, 15, 18, 21, 24, 27, 30 | 2,3,5,7,11,13,17,19,23,25,29 |\n| $i=5$ | 5 | 25, 30 | 2,3,5,7,11,13,17,19,23,29 |\n| $i=6$ | — | （6 已被筛，跳过） | 不变 |\n| $i=7$ | 7 | （$7^2=49>30$，内层不执行） | 不变 |\n\n$[2, 30]$ 内的质数：2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ✓\n\n#### 3.2 main —— 预处理 + 多组查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int t;\n    cin >> t;\n    vector<bool> vis = move(sieve_vis(5000000));\n    while (t--)\n    {\n        int x;\n        cin >> x;\n        if (vis[x]) cout << \"是质数\" << '\\n';\n        else cout << \"是合数\" << '\\n';\n    }\n    return 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1-2 | `ios::sync_with_stdio(false); cin.tie(nullptr);` | 快速 IO |\n| 3-4 | `int t; cin >> t;` | 查询组数 |\n| 5 | `vector<bool> vis = move(sieve_vis(5000000));` | 一次性筛到 $5 \\times 10^6$，`move` 避免拷贝整个数组 |\n| 6-9 | `cin >> x; if (vis[x]) ...` | 每次查询 $O(1)$ |\n\n**关键设计：预处理 + 查询分离**。筛法在最前面一次性完成所有预处理，后续每次查询只需查表。这是\"以空间换时间\"的经典范例。\n\n> **注意**：代码预先筛到 $5 \\times 10^6$，如果查询的 $x$ 超过此范围会越界。实际使用时应根据题目数据范围调整 `sieve_vis` 的参数。\n\n#### 3.3 运行示例\n\n输入：\n```\n5\n2\n4\n17\n100\n999983\n```\n\n输出：\n```\n是质数\n是合数\n是质数\n是合数\n是质数\n```\n\n### 四、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 预处理时间 | $O(n \\log \\log n)$ | 接近线性，$n = 5 \\times 10^6$ 时约 $1.7 \\times 10^7$ 次操作 |\n| 单次查询 | $O(1)$ | 数组下标访问 |\n| 空间 | $O(n)$ | `vector<bool>` 位压缩，$n = 5 \\times 10^6$ 时约 625 KB |\n\n**与试除法对比**：\n\n| 方法 | 预处理 | 单次查询 | $t = 10^5, n = 5 \\times 10^6$ 总耗时 |\n|------|--------|---------|--------------------------------------|\n| 试除法 | 无 | $O(\\sqrt{n})$ | $10^5 \\times 2236 \\approx 2.2 \\times 10^8$（偏慢） |\n| 埃氏筛 | $O(n \\log \\log n)$ | $O(1)$ | $1.7 \\times 10^7 + 10^5 \\approx 1.7 \\times 10^7$（瞬间） |\n\n当查询次数 $t$ 较大时，筛法远优于试除法。\n\n### 五、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| **多组质数判定** | 预处理后每次 $O(1)$ 查询 |\n| **求 $[1, n]$ 内所有质数** | 筛完后遍历 `prime_vis` 收集 true 的下标 |\n| **质因数分解预处理** | 配合线性筛记录最小质因子 |\n| **欧拉函数预处理** | 利用筛法框架计算 $\\varphi(i)$ |\n| **莫比乌斯函数预处理** | 利用筛法框架计算 $\\mu(i)$ |\n| **数论分块** | 需要快速判断大数区间内的质数个数 |\n\n### 六、常见陷阱与注意事项\n\n#### 6.1 0 和 1 未处理\n\n代码初始化全为 `true`，0 和 1 也不是质数但会显示\"是质数\"。若题目可能输入 0 或 1，需特判：\n\n```cpp\nif (x < 2) cout << \"不是质数\" << '\\n';\nelse if (vis[x]) cout << \"是质数\" << '\\n';\nelse cout << \"是合数\" << '\\n';\n```\n\n#### 6.2 数组越界\n\n`sieve_vis(5000000)` 只筛到 $5 \\times 10^6$，若查询 $x > 5 \\times 10^6$ 会越界。需根据题目最大数据范围调整预处理上界。\n\n#### 6.3 i * i 溢出\n\n当 $n$ 接近 `int` 上限（$\\approx 2.1 \\times 10^9$）时，`i * i` 可能溢出。应改为 `long long` 或用 `i <= n / i` 代替。\n\n#### 6.4 内层循环起始点\n\n从 `j = i * i` 开始而非 `j = 2 * i`。这是关键优化：$i \\times 2$ 到 $i \\times (i-1)$ 已被更小的质因子筛过。若从 $2i$ 开始，复杂度退化为 $O(n \\ln n)$（仍可过，但非最优）。\n\n#### 6.5 vector\\<bool\\> 的性能\n\n`vector<bool>` 的位压缩虽然省内存，但读写需要位运算，速度略慢于 `vector<char>` 或 `bitset`。对极端卡常的题目，可考虑 `bitset`（编译期固定大小）或 `vector<char>`。\n\n#### 6.6 与线性筛（欧拉筛）的选择\n\n埃氏筛会重复标记某些合数（如 $12 = 2 \\times 6 = 3 \\times 4$），而线性筛每个合数只被标记一次。但埃氏筛常数小、实现简单，$n \\le 10^7$ 时通常更快或相当。\n\n### 七、对比与扩展\n\n#### 7.1 埃氏筛 vs 线性筛（欧拉筛）\n\n| 维度 | 埃氏筛 | 线性筛（欧拉筛） |\n|------|--------|-----------------|\n| 时间复杂度 | $O(n \\log \\log n)$ | $O(n)$ |\n| 实现难度 | 极简（3 行核心） | 中等（需维护质数表 + 最小质因子判断） |\n| 重复标记 | 有（合数被多个质因子筛） | 无（每个合数只被最小质因子筛一次） |\n| 附加功能 | 仅判定质数 | 可同时求 $\\varphi(i)$、$\\mu(i)$、最小质因子 |\n| 实际速度 | $n \\le 10^7$ 时通常更快 | $n > 10^7$ 时优势显现 |\n| 空间 | `vector<bool>` 位压缩 | `vector<int>` 质数表 + `vector<bool>` |\n\n#### 7.2 区间筛法\n\n当需要求 $[L, R]$（$L$ 很大，$R - L$ 较小）内的质数时，先用埃氏筛筛出 $[1, \\sqrt{R}]$ 的质数，再用这些质数筛 $[L, R]$ 的区间。复杂度 $O(\\sqrt{R} \\log \\log \\sqrt{R} + (R - L) \\log \\log R)$。\n\n#### 7.3 利用筛法求积性函数\n\n积性函数（如欧拉函数 $\\varphi$、莫比乌斯函数 $\\mu$）可通过筛法框架在 $O(n)$ 或 $O(n \\log \\log n)$ 内预处理。线性筛尤其适合——在标记合数时根据最小质因子递推函数值。\n\n#### 7.4 一句话总结\n\n埃拉托斯特尼筛法用\"标记质数倍数\"的简单思路，在 $O(n \\log \\log n)$ 时间内预处理出 $[1, n]$ 内所有质数，查询 $O(1)$。三行核心代码、位压缩省内存、常数极小，是数论中最常用的预处理工具——当需要多次判定质数时，筛法远优于逐个试除。\n\n## 附：线性筛求约数个数 d(n)\n\n### 线性筛求约数个数（欧拉筛批量预处理）\n\n### 一、算法原理\n\n#### 1.1 问题背景\n\n约数个数函数 $d(n)$（也称 $\\sigma_0(n)$ 或 $\\tau(n)$）表示 $n$ 的正约数个数。当需要查询 $[1, n]$ 内大量数的约数个数（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\n\n**思路**：利用约数个数的积性，结合线性筛框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $d(i)$，之后每次查询 $O(1)$。\n\n#### 1.2 约数个数公式\n\n设 $n$ 的质因数分解为 $n = p_1^{\\alpha_1} \\cdot p_2^{\\alpha_2} \\cdots p_s^{\\alpha_s}$，则：\n\n$$d(n) = \\prod_{i=1}^{s} (\\alpha_i + 1)$$\n\n**直觉理解**：每个质因子 $p_i$ 可以取 $0, 1, 2, \\ldots, \\alpha_i$ 次方，共 $\\alpha_i + 1$ 种选择，各质因子独立组合，所以总数是各 $(\\alpha_i + 1)$ 的乘积。\n\n**示例**：\n\n| $n$ | 分解 | $d(n)$ | 约数 |\n|-----|------|--------|------|\n| 1 | 1 | 1 | {1} |\n| 2 | $2^1$ | 2 | {1, 2} |\n| 4 | $2^2$ | 3 | {1, 2, 4} |\n| 6 | $2^1 \\times 3^1$ | $2 \\times 2 = 4$ | {1, 2, 3, 6} |\n| 12 | $2^2 \\times 3^1$ | $3 \\times 2 = 6$ | {1, 2, 3, 4, 6, 12} |\n\n#### 1.3 积性与线性筛\n\n约数个数函数 $d(n)$ 是**积性函数**：当 $\\gcd(a, b) = 1$ 时，$d(ab) = d(a) \\cdot d(b)$。\n\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $d(m)$。关键在于额外维护一个辅助数组 $a[\\,]$，记录每个数的最小质因子的指数。\n\n#### 1.4 两种递推情况\n\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\n\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\n\n$$d(i \\times p_j) = d(i) \\times d(p_j) = d(i) \\times 2$$\n\n因为 $p_j$ 是 $i \\times p_j$ 的新质因子（指数为 1），所以 $a(i \\times p_j) = 1$。\n\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\n\n此时 $p_j$ 已经是 $i$ 的最小质因子。设 $i$ 中 $p_j$ 的指数为 $k$（即 $a(i) = k$），则 $i \\times p_j$ 中 $p_j$ 的指数变为 $k + 1$。\n\n设 $i = p_j^k \\times t$（$\\gcd(t, p_j) = 1$），则：\n\n$$d(i) = (k + 1) \\times d(t)$$\n\n$$d(i \\times p_j) = (k + 2) \\times d(t) = \\frac{(k+2)}{(k+1)} \\times d(i) = \\frac{a(i \\times p_j) + 1}{a(i \\times p_j)} \\times d(i)$$\n\n其中 $a(i \\times p_j) = k + 1 = a(i) + 1$，所以：\n\n$$d(i \\times p_j) = d(i) \\, / \\, a(i \\times p_j) \\times (a(i \\times p_j) + 1)$$\n\n> **为什么先除后乘？** $a(i \\times p_j) = k + 1$ 整除 $d(i) = (k+1) \\times d(t)$，所以 $d(i) / a(i \\times p_j) = d(t)$ 是整数。先除保证整除，再乘避免分数运算。\n\n#### 1.5 边界与初始值\n\n- $d(1) = 1$（1 只有一个约数——自身）\n- 质数 $p$ 的 $d(p) = 2$（约数为 1 和 $p$），$a(p) = 1$（最小质因子指数为 1）\n\n### 二、核心公式/状态定义与转移方程\n\n#### 2.1 状态定义\n\n| 数组 | 含义 |\n|------|------|\n| `vis[i]` | $i$ 是否已被筛过（是否为合数） |\n| `prime` | 已发现的质数表，按升序存储 |\n| `a[i]` | $i$ 的最小质因子的指数 |\n| `d[i]` | 约数个数 $d(i)$ |\n\n#### 2.2 转移方程\n\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$（$p_j \\le n / i$）：\n\n$$\na(i \\cdot p_j) =\n\\begin{cases}\n1, & i \\bmod p_j \\neq 0 \\\\\na(i) + 1, & i \\bmod p_j = 0\n\\end{cases}\n$$\n\n$$\nd(i \\cdot p_j) =\n\\begin{cases}\n2 \\cdot d(i), & i \\bmod p_j \\neq 0 \\quad (\\text{新质因子，积性}) \\\\\nd(i) \\, / \\, a(i \\cdot p_j) \\times (a(i \\cdot p_j) + 1), & i \\bmod p_j = 0 \\quad (\\text{指数}+1)\n\\end{cases}\n$$\n\n#### 2.3 线性时间证明\n\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\n\n因此总操作次数恰好等于合数个数加上质数个数，总共 $O(n)$。\n\n#### 2.4 辅助数组 a 的作用\n\n$a[\\,]$ 数组记录每个数的最小质因子指数，是情况二递推的关键。在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以：\n\n- 当 $p_j$ 不整除 $i$ 时，$p_j$ 是 $i \\times p_j$ 的新质因子，指数为 1\n- 当 $p_j$ 整除 $i$ 时，$p_j$ 是 $i$ 的最小质因子，$i \\times p_j$ 中 $p_j$ 的指数 = $i$ 中 $p_j$ 的指数 + 1\n\n没有 $a[\\,]$ 数组，就无法在情况二中正确递推——因为需要知道\"旧指数\"才能算\"新指数\"，进而更新 $d$ 值。\n\n### 三、逐行代码解析\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvector<int> prime;\nvector<int> a, d;\n```\n\n全局变量：`prime` 存质数表，`a` 存最小质因子指数，`d` 存约数个数。\n\n#### 3.1 d_sieve —— 线性筛求约数个数\n\n```cpp\nvoid d_sieve(int n)\n{\n    prime.clear();\n    prime.reserve(n / 15 + 16);\n    a.assign(n + 1, 0);\n    d.assign(n + 1, 0);\n    d[1] = 1;\n    vector<bool> vis(n + 1, false);\n    for (int i = 2; i <= n; i++)\n    {\n        if (!vis[i])\n        {\n            prime.emplace_back(i);\n            d[i] = 2;\n            a[i] = 1;\n        }\n        for (int j = 0; prime[j] <= n / i; j++)\n        {\n            int m = prime[j] * i;\n            vis[m] = true;\n            if (i % prime[j])\n            {\n                a[m] = 1;\n                d[m] = d[i] * 2;\n            }\n            else\n            {\n                a[m] = a[i] + 1;\n                d[m] = d[i] / a[m] * (a[m] + 1);\n                break;\n            }\n        }\n    }\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `prime.clear(); prime.reserve(n / 15 + 16);` | 清空质数表，预留空间（质数密度约 $n / \\ln n$） |\n| 2-3 | `a.assign(n + 1, 0); d.assign(n + 1, 0);` | 辅助数组和约数个数数组初始化为 0 |\n| 4 | `d[1] = 1;` | 边界 $d(1) = 1$ |\n| 5 | `vector<bool> vis(n + 1, false);` | 标记数组，初始全 false（未被筛） |\n| 6 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\n| 7-11 | `if (!vis[i]) { prime.push_back(i); d[i] = 2; a[i] = 1; }` | $i$ 未被筛 → 质数，$d(p) = 2$，$a(p) = 1$ |\n| 12 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，`n/i` 防止越界 |\n| 13-14 | `int m = prime[j] * i; vis[m] = true;` | 计算 $m = i \\times p_j$ 并标记为合数 |\n| 15-18 | `if (i % prime[j]) { a[m] = 1; d[m] = d[i] * 2; }` | 情况一：$p_j$ 不整除 $i$ → 新质因子，$d(m) = 2 \\cdot d(i)$，$a(m) = 1$ |\n| 19-22 | `else { a[m] = a[i]+1; d[m] = d[i]/a[m]*(a[m]+1); break; }` | 情况二：$p_j$ 整除 $i$ → 指数 +1，$d(m) = d(i)/a(m) \\cdot (a(m)+1)$；`break` 保证线性 |\n\n#### 3.2 手动模拟（n = 12）\n\n| $i$ | 操作 | 新增质数 | $a$ 值更新 | $d$ 值更新 |\n|-----|------|---------|-----------|-----------|\n| 2 | `vis[2]=false` → 质数 | 2 | $a(2)=1$ | $d(2)=2$ |\n| 2 | `j=0, p=2, 2≤6` | — | $a(4)=a(2)+1=2$ | $d(4)=d(2)/2 \\times 3 = 3$（2%2=0, break） |\n| 3 | `vis[3]=false` → 质数 | 3 | $a(3)=1$ | $d(3)=2$ |\n| 3 | `j=0, p=2, 2≤4` | — | $a(6)=1$ | $d(6)=d(3) \\times 2 = 4$（3%2≠0） |\n| 3 | `j=1, p=3, 3≤4` | — | $a(9)=a(3)+1=2$ | $d(9)=d(3)/2 \\times 3 = 3$（3%3=0, break） |\n| 4 | `vis[4]=true` → 非质数 | — | — | — |\n| 4 | `j=0, p=2, 2≤3` | — | $a(8)=a(4)+1=3$ | $d(8)=d(4)/3 \\times 4 = 4$（4%2=0, break） |\n| 5 | `vis[5]=false` → 质数 | 5 | $a(5)=1$ | $d(5)=2$ |\n| 5 | `j=0, p=2, 2≤2` | — | $a(10)=1$ | $d(10)=d(5) \\times 2 = 4$（5%2≠0） |\n| 5 | `j=1, p=3, 3≤2` | — | — | （3 > 12/5=2，内层结束） |\n| 6 | `vis[6]=true` → 非质数 | — | — | — |\n| 6 | `j=0, p=2, 2≤2` | — | $a(12)=a(6)+1=2$ | $d(12)=d(6)/2 \\times 3 = 6$（6%2=0, break） |\n\n**验证**：\n- $d(4) = 3$ ✓ {1, 2, 4}\n- $d(6) = 4$ ✓ {1, 2, 3, 6}\n- $d(8) = 4$ ✓ {1, 2, 4, 8}\n- $d(9) = 3$ ✓ {1, 3, 9}\n- $d(10) = 4$ ✓ {1, 2, 5, 10}\n- $d(12) = 6$ ✓ {1, 2, 3, 4, 6, 12}\n\n全部正确 ✓\n\n#### 3.3 main —— 预处理 + 多组查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int n, q;\n    cin >> n >> q;\n    d_sieve(n);\n    for (int i = 1; i <= q; i++)\n    {\n        int x;\n        cin >> x;\n        cout << d[x] << '\\n';\n    }\n    return 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\n| 3 | `d_sieve(n);` | 一次预处理，求出所有 $d(1..n)$ |\n| 4-7 | `for (int i = 1; i <= q; i++) { cin >> x; cout << d[x]; }` | 每次查询 $O(1)$ |\n\n#### 3.4 运行示例\n\n输入：\n```\n12 4\n4\n6\n9\n12\n```\n\n输出：\n```\n3\n4\n3\n6\n```\n\n### 四、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\n| 单次查询 | $O(1)$ | 数组下标访问 |\n| 空间 | $O(n)$ | `vis` + `a` + `d` + `prime`（质数约 $n / \\ln n$ 个） |\n\n**与单次试除法对比**：\n\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\n|------|--------|---------|------------------------|\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\n\n### 五、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| **大量约数个数查询** | 预处理后每次 $O(1)$，适合百万级查询 |\n| **约数相关计数** | 如 $\\sum_{i=1}^{n} d(i)$、约数和等问题的预处理步骤 |\n| **数论函数筛法练习** | $d(n)$ 需要额外维护 $a[\\,]$ 数组，是线性筛积性函数的经典进阶案例 |\n| **配合其他积性函数** | 线性筛可同时求 $d$、$\\varphi$、$\\mu$ 等，一次筛法多个产出 |\n\n### 六、常见陷阱与注意事项\n\n#### 6.1 a 数组的含义\n\n`a[i]` 存的是 $i$ 的**最小质因子**的指数，不是任意质因子的指数。在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以 $a[\\,]$ 记录的恰好是最小质因子指数。\n\n#### 6.2 先除后乘防溢出\n\n`d[m] = d[i] / a[m] * (a[m] + 1)` 必须先除后乘。因为 $a(m) = a(i) + 1$ 整除 $d(i) = (a(i)+1) \\times d(t)$，先除得到整数 $d(t)$，再乘 $(a(m)+1)$ 不溢出。若写成 `d[i] * (a[m]+1) / a[m]`，中间值 `d[i] * (a[m]+1)` 可能溢出。\n\n#### 6.3 vis 数组不能省去\n\n与线性筛求欧拉函数不同，本代码**不能**用 `!d[i]` 代替 `vis[i]` 判质数。因为 $d(1) = 1$ 非零，而质数的 $d(p) = 2$ 也非零，合数的 $d$ 值也非零——$d$ 数组中没有值为 0 的元素可用于标记\"未访问\"。因此必须额外维护 `vis` 数组。\n\n#### 6.4 d[1] 的初始化\n\n$d(1) = 1$ 必须手动赋值，因为循环从 $i=2$ 开始，1 不会被处理。若遗漏，`d[1]` 保持 0，查询时返回错误结果。\n\n#### 6.5 break 的位置\n\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$（退化为埃氏筛）。`break` 是保证线性时间的关键。\n\n#### 6.6 质数 d 值的赋值位置\n\n$d(p) = 2$ 和 $a(p) = 1$ 在发现质数时赋值（外层 `if (!vis[i])` 分支），而不是在内层循环中。因为质数只会在外层被识别，不会作为合数 $i \\times p_j$ 被标记。\n\n#### 6.7 数据类型选择\n\n当 $n$ 较大时（如 $n \\ge 10^6$），$d(n)$ 的最大值远小于 $n$（高度合成数的 $d$ 值也不超过几千），`int` 完全够用。但 $a[\\,]$ 数组值也很小，`int` 足够。\n\n### 七、对比与扩展\n\n#### 7.1 线性筛求 φ vs 求 d\n\n| 维度 | 求 $\\varphi$ | 求 $d$ |\n|------|-------------|--------|\n| 辅助数组 | 无（`phi` 兼作标记） | 需要额外 `a[]` 记录最小质因子指数 |\n| 质数标记 | `!phi[i]` 判断质数 | 必须额外维护 `vis[]` |\n| 情况一递推 | $(p-1) \\cdot \\varphi(i)$ | $2 \\cdot d(i)$ |\n| 情况二递推 | $p \\cdot \\varphi(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ |\n| 递推复杂度 | 直接乘法 | 需要先除后乘（涉及中间量 $d(t)$） |\n\n求 $d$ 比求 $\\varphi$ 更复杂的原因：$\\varphi$ 在情况二中只需乘 $p$（因为质因子集合不变，$\\varphi(ip) = p \\cdot \\varphi(i)$ 直接成立）；而 $d$ 在情况二中需要修改最小质因子指数对应的因子（从 $(k+1)$ 变为 $(k+2)$），必须知道 $k$ 的值，因此需要额外维护 $a[\\,]$ 数组。\n\n#### 7.2 埃氏筛求 d 的写法\n\n埃氏筛也能求 $d$，思路是初始化 `d[i] = 1`，对每个质数 $p$ 遍历其倍数，逐个乘入 $(\\alpha+1)$ 因子。但需要额外记录指数，实现不如线性筛优雅。\n\n#### 7.3 用线性筛求其他积性函数\n\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\n\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ | 额外信息 |\n|------|---------------------|------------------|---------|\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ | 无 |\n| 约数个数 $d$ | $2 \\cdot d(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ | 最小质因子指数 $a$ |\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ | 无 |\n| 约数和 $\\sigma$ | $\\sigma(i) \\cdot (1+p)$ | 需额外维护等比数列和 | 最小质因子幂和 |\n\n#### 7.4 约数求和函数 $\\sigma(n)$\n\n约数求和 $\\sigma(n) = \\sum_{d \\mid n} d$ 也是积性函数。线性筛求 $\\sigma$ 需要额外维护最小质因子的等比数列和 $S$（即 $1 + p + p^2 + \\cdots + p^k$），递推更复杂：\n\n- 情况一（$p$ 不整除 $i$）：$\\sigma(ip) = \\sigma(i) \\cdot (1+p)$，$S(ip) = 1+p$\n- 情况二（$p$ 整除 $i$）：$S(ip) = S(i) \\cdot p + 1$，$\\sigma(ip) = \\sigma(i) / S(i) \\cdot S(ip)$\n\n#### 7.5 一句话总结\n\n线性筛求约数个数是线性筛积性函数的经典进阶案例：在 $O(n)$ 时间内求出 $[1, n]$ 内所有 $d(i)$。核心在于额外维护最小质因子指数数组 $a[\\,]$，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 不整除 $i$ 时 $d(ip) = 2 \\cdot d(i)$，整除时 $d(ip) = d(i) / a(m) \\cdot (a(m)+1)$。与求 $\\varphi$ 不同，求 $d$ 无法用 `d` 数组本身判质数，必须额外维护 `vis` 标记数组。\n\n## 附：线性筛求约数和 σ(n)\n\n### 线性筛求约数和（欧拉筛批量预处理）\n\n### 一、算法原理\n\n#### 1.1 问题背景\n\n约数和函数 $\\sigma(n)$（即 $f(n)$）表示 $n$ 的所有正约数之和。当需要查询 $[1, n]$ 内大量数的约数和（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\n\n**思路**：利用约数和的积性，结合线性筛框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $\\sigma(i)$，之后每次查询 $O(1)$。\n\n#### 1.2 约数和公式\n\n设 $n$ 的质因数分解为 $n = p_1^{\\alpha_1} \\cdot p_2^{\\alpha_2} \\cdots p_s^{\\alpha_s}$，则：\n\n$$\\sigma(n) = \\prod_{i=1}^{s} \\left(1 + p_i + p_i^2 + \\cdots + p_i^{\\alpha_i}\\right)$$\n\n**直觉理解**：每个质因子 $p_i$ 的贡献是一个等比数列和 $1 + p_i + p_i^2 + \\cdots + p_i^{\\alpha_i}$。各质因子的约数独立组合（由积性），所以总和是各等比数列和的乘积。\n\n**示例**：\n\n| $n$ | 分解 | $\\sigma(n)$ | 约数 |\n|-----|------|------------|------|\n| 1 | 1 | 1 | {1} |\n| 2 | $2^1$ | $1+2 = 3$ | {1, 2} |\n| 4 | $2^2$ | $1+2+4 = 7$ | {1, 2, 4} |\n| 6 | $2^1 \\times 3^1$ | $(1+2)(1+3) = 12$ | {1, 2, 3, 6} |\n| 12 | $2^2 \\times 3^1$ | $(1+2+4)(1+3) = 28$ | {1, 2, 3, 4, 6, 12} |\n\n#### 1.3 积性与线性筛\n\n约数和函数 $\\sigma(n)$ 是**积性函数**：当 $\\gcd(a, b) = 1$ 时，$\\sigma(ab) = \\sigma(a) \\cdot \\sigma(b)$。\n\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $\\sigma(m)$。关键在于额外维护一个辅助数组 $g[\\,]$，记录每个数的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$。\n\n#### 1.4 两种递推情况\n\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\n\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\n\n$$\\sigma(i \\times p_j) = \\sigma(i) \\times \\sigma(p_j) = \\sigma(i) \\times (1 + p_j)$$\n\n因为 $p_j$ 是 $i \\times p_j$ 的新质因子（指数为 1），对应的等比数列和为 $1 + p_j$，所以 $g(i \\times p_j) = 1 + p_j$。\n\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\n\n此时 $p_j$ 已经是 $i$ 的最小质因子。设 $i$ 中 $p_j$ 的指数为 $k$，则 $i \\times p_j$ 中 $p_j$ 的指数变为 $k+1$。\n\n$i$ 的等比数列和为 $g(i) = 1 + p_j + p_j^2 + \\cdots + p_j^k$。\n\n$i \\times p_j$ 的等比数列和为 $g(i \\times p_j) = 1 + p_j + p_j^2 + \\cdots + p_j^{k+1} = p_j \\times g(i) + 1$。\n\n因为 $\\sigma(i) = g(i) \\times \\sigma(t)$（$t = i / p_j^k$，$p_j \\nmid t$），所以：\n\n$$\\sigma(i \\times p_j) = g(i \\times p_j) \\times \\sigma(t) = \\frac{g(i \\times p_j)}{g(i)} \\times \\sigma(i) = \\sigma(i) \\, / \\, g(i) \\times g(i \\times p_j)$$\n\n> **为什么先除后乘？** $g(i) = 1 + p_j + \\cdots + p_j^k$ 整除 $\\sigma(i) = g(i) \\times \\sigma(t)$，所以 $\\sigma(i) / g(i) = \\sigma(t)$ 是整数。先除保证整除，再乘避免分数运算。\n\n#### 1.5 边界与初始值\n\n- $\\sigma(1) = 1$（1 只有一个约数——自身），$g(1) = 1$\n- 质数 $p$ 的 $\\sigma(p) = 1 + p$，$g(p) = 1 + p$（最小质因子就是自身，指数为 1）\n\n### 二、核心公式/状态定义与转移方程\n\n#### 2.1 状态定义\n\n| 数组 | 含义 |\n|------|------|\n| `vis[i]` | $i$ 是否已被筛过（是否为合数） |\n| `prime` | 已发现的质数表，按升序存储 |\n| `g[i]` | $i$ 的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$ |\n| `f[i]` | 约数和 $\\sigma(i)$ |\n\n#### 2.2 转移方程\n\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$（$p_j \\le n / i$），设 $m = i \\times p_j$：\n\n$$\ng(m) =\n\\begin{cases}\n1 + p_j, & i \\bmod p_j \\neq 0 \\\\\np_j \\cdot g(i) + 1, & i \\bmod p_j = 0\n\\end{cases}\n$$\n\n$$\n\\sigma(m) =\n\\begin{cases}\n\\sigma(i) \\cdot (1 + p_j), & i \\bmod p_j \\neq 0 \\quad (\\text{新质因子，积性}) \\\\\n\\sigma(i) \\, / \\, g(i) \\cdot g(m), & i \\bmod p_j = 0 \\quad (\\text{指数}+1\\text{，替换等比和})\n\\end{cases}\n$$\n\n#### 2.3 线性时间证明\n\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\n\n因此总操作次数恰好等于合数个数加上质数个数，总共 $O(n)$。\n\n#### 2.4 辅助数组 g 的作用\n\n$g[\\,]$ 数组记录每个数的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$（$k$ 为该质因子在数中的指数），是情况二递推的关键。\n\n在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以：\n\n- 当 $p_j$ 不整除 $i$ 时，$p_j$ 是新质因子，指数为 1，$g(m) = 1 + p_j$\n- 当 $p_j$ 整除 $i$ 时，$p_j$ 是 $i$ 的最小质因子，$i \\times p_j$ 中 $p_j$ 的指数 +1，等比数列和从 $g(i)$ 扩展为 $p_j \\cdot g(i) + 1$\n\n没有 $g[\\,]$ 数组，就无法在情况二中正确递推——因为需要知道\"旧等比和\"才能算\"新等比和\"，进而更新 $\\sigma$ 值。\n\n#### 2.5 f 和 g 的关系\n\n对于任意 $n$，设其最小质因子为 $p$，指数为 $k$，则 $n = p^k \\times t$（$p \\nmid t$）：\n\n$$g(n) = 1 + p + p^2 + \\cdots + p^k$$\n\n$$\\sigma(n) = g(n) \\times \\sigma(t)$$\n\n当 $n$ 是质数时，$k = 1$，$t = 1$，$g(p) = 1 + p$，$\\sigma(p) = (1+p) \\times \\sigma(1) = 1 + p$，两者相等。\n\n当 $n = 1$ 时，$g(1) = \\sigma(1) = 1$，也是一致的。\n\n### 三、逐行代码解析\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvector<int> prime;\nvector<long long> g, f;\n```\n\n全局变量：`prime` 存质数表，`g` 存最小质因子等比数列和，`f` 存约数和。注意 `g` 和 `f` 用 `long long`，因为约数和可能很大。\n\n#### 3.1 f_sieve —— 线性筛求约数和\n\n```cpp\nvoid f_sieve(int n)\n{\n    prime.clear();\n    prime.reserve(n / 15 + 16);\n    g.assign(n + 1, 0);\n    f.assign(n + 1, 0);\n    f[1] = g[1] = 1;\n    vector<bool> vis(n + 1, false);\n    for (int i = 2; i <= n; i++)\n    {\n        if (!vis[i])\n        {\n            g[i] = f[i] = i + 1;\n            prime.emplace_back(i);\n        }\n        for (int j = 0; prime[j] <= n / i; j++)\n        {\n            long long m = prime[j] * i;\n            vis[m] = true;\n            if (i % prime[j])\n            {\n                g[m] = 1 + prime[j];\n                f[m] = f[i] * g[m];\n            }\n            else\n            {\n                g[m] = g[i] * prime[j] + 1;\n                f[m] = f[i] / g[i] * g[m];\n                break;\n            }\n        }\n    }\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `prime.clear(); prime.reserve(n / 15 + 16);` | 清空质数表，预留空间（质数密度约 $n / \\ln n$） |\n| 2-3 | `g.assign(n + 1, 0); f.assign(n + 1, 0);` | 辅助数组和约数和数组初始化为 0 |\n| 4 | `f[1] = g[1] = 1;` | 边界 $\\sigma(1) = g(1) = 1$ |\n| 5 | `vector<bool> vis(n + 1, false);` | 标记数组，初始全 false（未被筛） |\n| 6 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\n| 7-10 | `if (!vis[i]) { g[i] = f[i] = i + 1; prime.emplace_back(i); }` | $i$ 未被筛 → 质数，$g(p) = f(p) = 1 + p$，加入质数表 |\n| 11 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，`n/i` 防止越界 |\n| 12-13 | `long long m = prime[j] * i; vis[m] = true;` | 计算 $m = i \\times p_j$ 并标记为合数（用 `long long` 防溢出） |\n| 14-17 | `if (i % prime[j]) { g[m] = 1 + prime[j]; f[m] = f[i] * g[m]; }` | 情况一：$p_j$ 不整除 $i$ → 新质因子，$g(m) = 1+p$，$\\sigma(m) = \\sigma(i) \\cdot (1+p)$ |\n| 18-21 | `else { g[m] = g[i]*p+1; f[m] = f[i]/g[i]*g[m]; break; }` | 情况二：$p_j$ 整除 $i$ → 扩展等比和 $g(m) = p \\cdot g(i) + 1$，$\\sigma(m) = \\sigma(i)/g(i) \\cdot g(m)$；`break` 保证线性 |\n\n#### 3.2 手动模拟（n = 12）\n\n| $i$ | 操作 | 新增质数 | $g$ 值更新 | $f$ 值更新 |\n|-----|------|---------|-----------|-----------|\n| 2 | `vis[2]=false` → 质数 | 2 | $g(2)=3$ | $f(2)=3$ |\n| 2 | `j=0, p=2, 2≤6` | — | $g(4)=g(2) \\times 2+1=7$ | $f(4)=f(2)/g(2) \\times 7 = 7$（2%2=0, break） |\n| 3 | `vis[3]=false` → 质数 | 3 | $g(3)=4$ | $f(3)=4$ |\n| 3 | `j=0, p=2, 2≤4` | — | $g(6)=1+2=3$ | $f(6)=f(3) \\times 3 = 12$（3%2≠0） |\n| 3 | `j=1, p=3, 3≤4` | — | $g(9)=g(3) \\times 3+1=13$ | $f(9)=f(3)/g(3) \\times 13 = 13$（3%3=0, break） |\n| 4 | `vis[4]=true` → 非质数 | — | — | — |\n| 4 | `j=0, p=2, 2≤3` | — | $g(8)=g(4) \\times 2+1=15$ | $f(8)=f(4)/g(4) \\times 15 = 15$（4%2=0, break） |\n| 5 | `vis[5]=false` → 质数 | 5 | $g(5)=6$ | $f(5)=6$ |\n| 5 | `j=0, p=2, 2≤2` | — | $g(10)=1+2=3$ | $f(10)=f(5) \\times 3 = 18$（5%2≠0） |\n| 5 | `j=1, p=3, 3≤2` | — | — | （3 > 12/5=2，内层结束） |\n| 6 | `vis[6]=true` → 非质数 | — | — | — |\n| 6 | `j=0, p=2, 2≤2` | — | $g(12)=g(6) \\times 2+1=7$ | $f(12)=f(6)/g(6) \\times 7 = 28$（6%2=0, break） |\n\n**验证**：\n- $\\sigma(4) = 1+2+4 = 7$ ✓\n- $\\sigma(6) = 1+2+3+6 = 12$ ✓\n- $\\sigma(8) = 1+2+4+8 = 15$ ✓\n- $\\sigma(9) = 1+3+9 = 13$ ✓\n- $\\sigma(10) = 1+2+5+10 = 18$ ✓\n- $\\sigma(12) = 1+2+3+4+6+12 = 28$ ✓\n\n全部正确 ✓\n\n#### 3.3 main —— 预处理 + 多组查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int n, q;\n    cin >> n >> q;\n    f_sieve(n);\n    for (int i = 1; i <= q; i++)\n    {\n        int x;\n        cin >> x;\n        cout << f[x] << '\\n';\n    }\n    return 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\n| 3 | `f_sieve(n);` | 一次预处理，求出所有 $\\sigma(1..n)$ |\n| 4-7 | `for (int i = 1; i <= q; i++) { cin >> x; cout << f[x]; }` | 每次查询 $O(1)$ |\n\n#### 3.4 运行示例\n\n输入：\n```\n12 4\n4\n6\n9\n12\n```\n\n输出：\n```\n7\n12\n13\n28\n```\n\n### 四、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\n| 单次查询 | $O(1)$ | 数组下标访问 |\n| 空间 | $O(n)$ | `vis` + `g` + `f` + `prime`（质数约 $n / \\ln n$ 个） |\n\n**与单次试除法对比**：\n\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\n|------|--------|---------|------------------------|\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\n\n### 五、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| **大约数和查询** | 预处理后每次 $O(1)$，适合百万级查询 |\n| **约数相关计数** | 如 $\\sum_{i=1}^{n} \\sigma(i)$、亲和数判定等问题的预处理步骤 |\n| **积性函数筛法进阶** | $\\sigma$ 需要额外维护等比数列和 $g$，是线性筛积性函数中最复杂的经典案例 |\n| **配合其他积性函数** | 线性筛可同时求 $\\sigma$、$d$、$\\varphi$、$\\mu$ 等，一次筛法多个产出 |\n\n### 六、常见陷阱与注意事项\n\n#### 6.1 g 数组的含义\n\n`g[i]` 存的是 $i$ 的**最小质因子**对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$，不是任意质因子的等比和，也不是约数和本身。对于质数 $p$，$g(p) = 1 + p = \\sigma(p)$，两者恰好相等，这容易造成误解。但对于质数幂 $p^k$（$k \\ge 2$），$g(p^k) = 1 + p + \\cdots + p^k \\ne \\sigma(p^k) = 1 + p + \\cdots + p^k$...实际上两者相等，因为 $p^k$ 只有一个质因子。真正的区别体现在有多个质因子时。\n\n#### 6.2 先除后乘防溢出\n\n`f[m] = f[i] / g[i] * g[m]` 必须先除后乘。因为 $g(i) = 1 + p + \\cdots + p^k$ 整除 $\\sigma(i) = g(i) \\times \\sigma(t)$，所以 $\\sigma(i) / g(i) = \\sigma(t)$ 是整数。先除得到整数 $\\sigma(t)$，再乘 $g(m)$ 不溢出。若写成 `f[i] * g[m] / g[i]`，中间值 `f[i] * g[m]` 可能溢出 `long long`。\n\n#### 6.3 vis 数组不能省去\n\n与线性筛求欧拉函数不同，本代码**不能**用 `!f[i]` 代替 `vis[i]` 判质数。因为 $f(1) = 1$ 非零，质数的 $f(p) = 1 + p$ 也非零，合数的 $f$ 值也非零——$f$ 数组中没有值为 0 的元素可用于标记\"未访问\"。因此必须额外维护 `vis` 数组。\n\n#### 6.4 long long 的必要性\n\n约数和 $\\sigma(n)$ 可能远大于 $n$。例如 $\\sigma(2520) = \\sigma(2^3 \\times 3^2 \\times 5 \\times 7) = 15 \\times 13 \\times 6 \\times 8 = 9360$，是 $n$ 的 3.7 倍。当 $n = 10^6$ 时，$\\sigma$ 值可能超过 `int` 上限。因此 `g` 和 `f` 数组必须用 `long long`。\n\n#### 6.5 m 的类型\n\n`long long m = prime[j] * i;` 中 `m` 用 `long long` 而非 `int`。虽然 `prime[j] * i <= n` 不会溢出 `int`，但后续 `g[m]` 和 `f[m]` 的下标访问需要正确的下标值，使用 `long long` 更安全。\n\n#### 6.6 break 的位置\n\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$。`break` 是保证线性时间的关键。\n\n#### 6.7 质数 f 和 g 值的赋值位置\n\n$g(p) = f(p) = 1 + p$ 在发现质数时赋值（外层 `if (!vis[i])` 分支），而不是在内层循环中。因为质数只会在外层被识别，不会作为合数 $i \\times p_j$ 被标记。\n\n### 七、对比与扩展\n\n#### 7.1 三种线性筛积性函数对比\n\n| 维度 | 求 $\\varphi$ | 求 $d$ | 求 $\\sigma$ |\n|------|-------------|--------|------------|\n| 辅助数组 | 无 | $a[\\,]$（最小质因子指数） | $g[\\,]$（最小质因子等比和） |\n| 质数标记 | `!phi[i]` 兼作标记 | 必须额外 `vis[]` | 必须额外 `vis[]` |\n| 情况一递推 | $(p-1) \\cdot \\varphi(i)$ | $2 \\cdot d(i)$ | $(1+p) \\cdot \\sigma(i)$ |\n| 情况二递推 | $p \\cdot \\varphi(i)$ | $d(i)/a(m) \\cdot (a(m)+1)$ | $\\sigma(i)/g(i) \\cdot g(m)$ |\n| 辅助数组更新 | 无 | $a(m) = a(i)+1$ | $g(m) = g(i) \\cdot p + 1$ |\n| 数据类型 | `int` 足够 | `int` 足够 | 必须 `long long` |\n| 递推复杂度 | 直接乘法 | 先除后乘 | 先除后乘 |\n\n求 $\\sigma$ 是三种中最复杂的：需要维护等比数列和 $g$，且结果可能溢出 `int`。但核心思想一致——利用积性，对最小质因子\"新出现\"和\"重复出现\"分两种情况递推。\n\n#### 7.2 等比数列和 g 的递推公式\n\n$g$ 的递推 $g(m) = g(i) \\times p + 1$ 来自等比数列的扩展：\n\n$$g(i) = 1 + p + p^2 + \\cdots + p^k$$\n\n$$g(m) = 1 + p + p^2 + \\cdots + p^{k+1} = p \\times (1 + p + \\cdots + p^k) + 1 = p \\times g(i) + 1$$\n\n这个递推避免了直接计算 $p^{k+1}$，只需一次乘法和一次加法。\n\n#### 7.3 用线性筛求其他积性函数\n\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\n\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ | 额外信息 |\n|------|---------------------|------------------|---------|\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ | 无 |\n| 约数个数 $d$ | $2 \\cdot d(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ | 最小质因子指数 $a$ |\n| 约数和 $\\sigma$ | $(1+p) \\cdot \\sigma(i)$ | $\\sigma(i)/g(i) \\cdot g(m)$ | 最小质因子等比和 $g$ |\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ | 无 |\n\n#### 7.4 三种筛法的统一框架\n\n三个线性筛知识点（求 $\\varphi$、求 $d$、求 $\\sigma$）共享相同的外层循环和内层 `break` 机制，区别仅在于：\n\n1. **质数时的赋值**：$\\varphi(p) = p-1$，$d(p) = 2$，$\\sigma(p) = 1+p$\n2. **情况一的递推**：分别用 $(p-1)$、$2$、$(1+p)$ 乘\n3. **情况二的递推**：$\\varphi$ 直接乘 $p$；$d$ 需要辅助数组 $a$；$\\sigma$ 需要辅助数组 $g$\n4. **辅助数组的更新**：$a(m) = a(i)+1$（指数+1），$g(m) = g(i) \\cdot p + 1$（等比和扩展）\n\n理解了这套统一框架，就能举一反三地用线性筛求任意积性函数。\n\n#### 7.5 一句话总结\n\n线性筛求约数和是线性筛积性函数中最复杂的经典案例：在 $O(n)$ 时间内求出 $[1, n]$ 内所有 $\\sigma(i)$。核心在于额外维护最小质因子等比数列和数组 $g$，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 不整除 $i$ 时 $\\sigma(ip) = (1+p) \\cdot \\sigma(i)$，整除时 $g(ip) = p \\cdot g(i) + 1$，$\\sigma(ip) = \\sigma(i)/g(i) \\cdot g(ip)$。与求 $d$ 类似，求 $\\sigma$ 也无法用 $f$ 数组本身判质数，必须额外维护 `vis` 标记数组，且 $g$ 和 $f$ 必须用 `long long` 防溢出。",
+                "codePath": "数学\\数论基础\\线性筛求欧拉函数\\源.cpp",
+                "timeComplexity": "O(n log log n)（埃氏筛）/ O(n)（线性筛）",
                 "spaceComplexity": "O(n)",
                 "tags": [
                     "数学",
@@ -13268,7 +13328,9 @@ const KNOWLEDGE_DATA = [
                     "素数",
                     "筛法",
                     "埃氏筛",
-                    "预处理"
+                    "线性筛",
+                    "欧拉筛",
+                    "积性函数"
                 ],
                 "source": ""
             },
@@ -13289,8 +13351,8 @@ const KNOWLEDGE_DATA = [
                 "source": "Xesir"
             }
         ],
-        "content": "## 埃拉托斯特尼筛法（埃氏筛）\r\n\r\n## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n竞赛中经常需要判断大量数字是否为质数（如 $10^5$ 次查询，每个数 $\\le 5 \\times 10^6$）。逐个试除法每次 $O(\\sqrt{n})$，总共 $O(t \\sqrt{n})$ 可能超时。\r\n\r\n**思路转变**：与其对每个数分别判定，不如一次性筛出 $[1, n]$ 内所有质数，之后每次查询 $O(1)$。\r\n\r\n### 1.2 核心思想\r\n\r\n埃拉托斯特尼筛法（Eratosthenes Sieve）：\r\n\r\n1. 初始化：将 $[2, n]$ 内所有数标记为\"可能是质数\"（`true`）\r\n2. 从 $i = 2$ 开始扫描：若 $i$ 仍为 `true`，则 $i$ 是质数，将 $i$ 的所有倍数标记为 `false`（合数）\r\n3. 直到 $i^2 > n$ 时停止——因为比 $i$ 小的质数已经把 $i^2$ 以下的合数筛完了\r\n\r\n**为什么从 $i^2$ 开始标记倍数？** 因为 $i \\times 2, i \\times 3, \\ldots, i \\times (i-1)$ 这些合数已经被比 $i$ 小的质因子筛掉了。例如 $i = 5$ 时，$5 \\times 2 = 10$ 已被 2 筛掉，$5 \\times 3 = 15$ 已被 3 筛掉，$5 \\times 4 = 20$ 已被 2 筛掉，所以从 $5 \\times 5 = 25$ 开始才有意义。\r\n\r\n### 1.3 为什么外层循环到 $\\sqrt{n}$ 就停\r\n\r\n若 $i > \\sqrt{n}$ 且 $i$ 是质数，则 $i^2 > n$，内层循环根本不会执行。但 $i$ 本身不会被任何更小的质数筛掉（因为它是质数），所以它自然保持 `true`，无需再处理。\r\n\r\n更准确地说：$\\sqrt{n}$ 以内的质数就能筛掉 $[2, n]$ 内所有合数。因为任意合数 $m \\le n$ 必有一个质因子 $\\le \\sqrt{m} \\le \\sqrt{n}$，该质因子会在外层循环中把 $m$ 筛掉。\r\n\r\n### 1.4 复杂度分析\r\n\r\n**时间复杂度**：$O(n \\log \\log n)$\r\n\r\n这个复杂度来自于调和级数：\r\n\r\n$$\\sum_{\\text{p 为质数, p} \\le n} \\frac{n}{p} = n \\sum_{p \\le n} \\frac{1}{p} \\approx n \\ln \\ln n$$\r\n\r\n直觉上，每个质数 $p$ 贡献 $\\frac{n}{p}$ 次标记操作，而质数的倒数和增长极慢（$\\ln \\ln n$），因此总工作量接近线性。\r\n\r\n**空间复杂度**：$O(n)$（`vector<bool>` 数组）\r\n\r\n**$n = 5 \\times 10^6$ 时**：约 $5 \\times 10^6 \\times \\ln \\ln(5 \\times 10^6) \\approx 5 \\times 10^6 \\times 3.4 \\approx 1.7 \\times 10^7$ 次操作，瞬间完成。\r\n\r\n## 二、核心公式/状态定义与转移方程\r\n\r\n### 2.1 状态定义\r\n\r\n用一个布尔数组 `prime_vis[i]` 表示数 $i$ 的状态：\r\n\r\n$$\r\n\\text{prime\\_vis}[i] =\r\n\\begin{cases}\r\n\\text{true}, & i \\text{ 尚未被筛掉（可能是质数）} \\\\\r\n\\text{false}, & i \\text{ 已被筛掉（是合数）}\r\n\\end{cases}\r\n$$\r\n\r\n初始化时全部为 `true`，表示\"尚未被筛掉\"。0 和 1 不是质数，但本代码未单独处理（调用方需自行判断 $x \\ge 2$）。\r\n\r\n### 2.2 筛法转移\r\n\r\n对每个 $i$ 从 $2$ 到 $\\sqrt{n}$：\r\n\r\n- 若 `prime_vis[i]` 为 `true`（$i$ 是质数），则从 $j = i^2$ 开始，每隔 $i$ 标记为 `false`\r\n- 若 `prime_vis[i]` 为 `false`（$i$ 是合数），跳过（其倍数已被更小的质因子筛过）\r\n\r\n### 2.3 vector\\<bool\\> 的位压缩\r\n\r\n`vector<bool>` 是 C++ 的特化版本，每个元素仅占 1 bit。$n = 5 \\times 10^6$ 时仅占约 625 KB，远优于 `vector<char>` 的 5 MB。\r\n\r\n| 实现 | $n = 5 \\times 10^6$ 内存 | 访问速度 |\r\n|-----|------------------------|---------|\r\n| `vector<bool>` | $\\approx 625$ KB | 稍慢（位运算） |\r\n| `vector<char>` | $\\approx 5$ MB | 快（直接访问） |\r\n| `bitset<N>` | $\\approx 625$ KB | 快（编译期固定） |\r\n\r\n`vector<bool>` 在内存与灵活性间取得了平衡：大小可运行时指定，且内存极省。\r\n\r\n## 三、逐行代码解析\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n```\r\n\r\n标准头文件与命名空间。\r\n\r\n### 3.1 sieve_vis —— 埃氏筛核心函数\r\n\r\n```cpp\r\nvector<bool> sieve_vis(int n)\r\n{\r\n    vector<bool> prime_vis(n + 1, true);\r\n    for (int i = 2; i * i <= n; i++)\r\n    {\r\n        if (!prime_vis[i]) continue;\r\n        for (int j = i * i; j <= n; j += i)\r\n        {\r\n            prime_vis[j] = false;\r\n        }\r\n    }\r\n    return prime_vis;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `vector<bool> sieve_vis(int n)` | 返回布尔数组，`prime_vis[i]` 为 true 表示 $i$ 是质数（或 1） |\r\n| 2 | `vector<bool> prime_vis(n + 1, true);` | 初始化 $[0, n]$ 全为 true。注意 0 和 1 不是质数，调用方需自行判断 |\r\n| 3 | `for (int i = 2; i * i <= n; i++)` | 外层只需到 $\\sqrt{n}$，用 `i * i <= n` 避免浮点 `sqrt` |\r\n| 4 | `if (!prime_vis[i]) continue;` | $i$ 已被筛掉（合数），跳过——优化关键：只从质数开始筛 |\r\n| 5 | `for (int j = i * i; j <= n; j += i)` | 从 $i^2$ 开始标记倍数，步长 $i$ |\r\n| 6 | `prime_vis[j] = false;` | 标记为合数 |\r\n| 7 | `return prime_vis;` | 返回筛好的数组 |\r\n\r\n**手动模拟**（$n = 30$）：\r\n\r\n| 步骤 | 当前质数 $i$ | 标记为 false 的数 | prime_vis 中仍为 true |\r\n|------|-------------|------------------|----------------------|\r\n| 初始 | — | — | 全部 |\r\n| $i=2$ | 2 | 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 | 2,3,5,7,9,11,13,15,17,19,21,23,25,27,29 |\r\n| $i=3$ | 3 | 9, 12, 15, 18, 21, 24, 27, 30 | 2,3,5,7,11,13,17,19,23,25,29 |\r\n| $i=5$ | 5 | 25, 30 | 2,3,5,7,11,13,17,19,23,29 |\r\n| $i=6$ | — | （6 已被筛，跳过） | 不变 |\r\n| $i=7$ | 7 | （$7^2=49>30$，内层不执行） | 不变 |\r\n\r\n$[2, 30]$ 内的质数：2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ✓\r\n\r\n### 3.2 main —— 预处理 + 多组查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int t;\r\n    cin >> t;\r\n    vector<bool> vis = move(sieve_vis(5000000));\r\n    while (t--)\r\n    {\r\n        int x;\r\n        cin >> x;\r\n        if (vis[x]) cout << \"是质数\" << '\\n';\r\n        else cout << \"是合数\" << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1-2 | `ios::sync_with_stdio(false); cin.tie(nullptr);` | 快速 IO |\r\n| 3-4 | `int t; cin >> t;` | 查询组数 |\r\n| 5 | `vector<bool> vis = move(sieve_vis(5000000));` | 一次性筛到 $5 \\times 10^6$，`move` 避免拷贝整个数组 |\r\n| 6-9 | `cin >> x; if (vis[x]) ...` | 每次查询 $O(1)$ |\r\n\r\n**关键设计：预处理 + 查询分离**。筛法在最前面一次性完成所有预处理，后续每次查询只需查表。这是\"以空间换时间\"的经典范例。\r\n\r\n> **注意**：代码预先筛到 $5 \\times 10^6$，如果查询的 $x$ 超过此范围会越界。实际使用时应根据题目数据范围调整 `sieve_vis` 的参数。\r\n\r\n### 3.3 运行示例\r\n\r\n输入：\r\n```\r\n5\r\n2\r\n4\r\n17\r\n100\r\n999983\r\n```\r\n\r\n输出：\r\n```\r\n是质数\r\n是合数\r\n是质数\r\n是合数\r\n是质数\r\n```\r\n\r\n## 四、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 预处理时间 | $O(n \\log \\log n)$ | 接近线性，$n = 5 \\times 10^6$ 时约 $1.7 \\times 10^7$ 次操作 |\r\n| 单次查询 | $O(1)$ | 数组下标访问 |\r\n| 空间 | $O(n)$ | `vector<bool>` 位压缩，$n = 5 \\times 10^6$ 时约 625 KB |\r\n\r\n**与试除法对比**：\r\n\r\n| 方法 | 预处理 | 单次查询 | $t = 10^5, n = 5 \\times 10^6$ 总耗时 |\r\n|------|--------|---------|--------------------------------------|\r\n| 试除法 | 无 | $O(\\sqrt{n})$ | $10^5 \\times 2236 \\approx 2.2 \\times 10^8$（偏慢） |\r\n| 埃氏筛 | $O(n \\log \\log n)$ | $O(1)$ | $1.7 \\times 10^7 + 10^5 \\approx 1.7 \\times 10^7$（瞬间） |\r\n\r\n当查询次数 $t$ 较大时，筛法远优于试除法。\r\n\r\n## 五、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| **多组质数判定** | 预处理后每次 $O(1)$ 查询 |\r\n| **求 $[1, n]$ 内所有质数** | 筛完后遍历 `prime_vis` 收集 true 的下标 |\r\n| **质因数分解预处理** | 配合线性筛记录最小质因子 |\r\n| **欧拉函数预处理** | 利用筛法框架计算 $\\varphi(i)$ |\r\n| **莫比乌斯函数预处理** | 利用筛法框架计算 $\\mu(i)$ |\r\n| **数论分块** | 需要快速判断大数区间内的质数个数 |\r\n\r\n## 六、常见陷阱与注意事项\r\n\r\n### 6.1 0 和 1 未处理\r\n\r\n代码初始化全为 `true`，0 和 1 也不是质数但会显示\"是质数\"。若题目可能输入 0 或 1，需特判：\r\n\r\n```cpp\r\nif (x < 2) cout << \"不是质数\" << '\\n';\r\nelse if (vis[x]) cout << \"是质数\" << '\\n';\r\nelse cout << \"是合数\" << '\\n';\r\n```\r\n\r\n### 6.2 数组越界\r\n\r\n`sieve_vis(5000000)` 只筛到 $5 \\times 10^6$，若查询 $x > 5 \\times 10^6$ 会越界。需根据题目最大数据范围调整预处理上界。\r\n\r\n### 6.3 i * i 溢出\r\n\r\n当 $n$ 接近 `int` 上限（$\\approx 2.1 \\times 10^9$）时，`i * i` 可能溢出。应改为 `long long` 或用 `i <= n / i` 代替。\r\n\r\n### 6.4 内层循环起始点\r\n\r\n从 `j = i * i` 开始而非 `j = 2 * i`。这是关键优化：$i \\times 2$ 到 $i \\times (i-1)$ 已被更小的质因子筛过。若从 $2i$ 开始，复杂度退化为 $O(n \\ln n)$（仍可过，但非最优）。\r\n\r\n### 6.5 vector\\<bool\\> 的性能\r\n\r\n`vector<bool>` 的位压缩虽然省内存，但读写需要位运算，速度略慢于 `vector<char>` 或 `bitset`。对极端卡常的题目，可考虑 `bitset`（编译期固定大小）或 `vector<char>`。\r\n\r\n### 6.6 与线性筛（欧拉筛）的选择\r\n\r\n埃氏筛会重复标记某些合数（如 $12 = 2 \\times 6 = 3 \\times 4$），而线性筛每个合数只被标记一次。但埃氏筛常数小、实现简单，$n \\le 10^7$ 时通常更快或相当。\r\n\r\n## 七、对比与扩展\r\n\r\n### 7.1 埃氏筛 vs 线性筛（欧拉筛）\r\n\r\n| 维度 | 埃氏筛 | 线性筛（欧拉筛） |\r\n|------|--------|-----------------|\r\n| 时间复杂度 | $O(n \\log \\log n)$ | $O(n)$ |\r\n| 实现难度 | 极简（3 行核心） | 中等（需维护质数表 + 最小质因子判断） |\r\n| 重复标记 | 有（合数被多个质因子筛） | 无（每个合数只被最小质因子筛一次） |\r\n| 附加功能 | 仅判定质数 | 可同时求 $\\varphi(i)$、$\\mu(i)$、最小质因子 |\r\n| 实际速度 | $n \\le 10^7$ 时通常更快 | $n > 10^7$ 时优势显现 |\r\n| 空间 | `vector<bool>` 位压缩 | `vector<int>` 质数表 + `vector<bool>` |\r\n\r\n### 7.2 区间筛法\r\n\r\n当需要求 $[L, R]$（$L$ 很大，$R - L$ 较小）内的质数时，先用埃氏筛筛出 $[1, \\sqrt{R}]$ 的质数，再用这些质数筛 $[L, R]$ 的区间。复杂度 $O(\\sqrt{R} \\log \\log \\sqrt{R} + (R - L) \\log \\log R)$。\r\n\r\n### 7.3 利用筛法求积性函数\r\n\r\n积性函数（如欧拉函数 $\\varphi$、莫比乌斯函数 $\\mu$）可通过筛法框架在 $O(n)$ 或 $O(n \\log \\log n)$ 内预处理。线性筛尤其适合——在标记合数时根据最小质因子递推函数值。\r\n\r\n### 7.4 一句话总结\r\n\r\n埃拉托斯特尼筛法用\"标记质数倍数\"的简单思路，在 $O(n \\log \\log n)$ 时间内预处理出 $[1, n]$ 内所有质数，查询 $O(1)$。三行核心代码、位压缩省内存、常数极小，是数论中最常用的预处理工具——当需要多次判定质数时，筛法远优于逐个试除。",
-        "timeComplexity": "O(n log log n)",
+        "content": "> 本页合并了原「埃氏筛」「线性筛求欧拉函数」「线性筛求约数个数」「线性筛求约数和」四个条目，统一在筛法框架下讲解；正文以线性筛求 φ 为主线，埃氏筛与 d、σ 的完整实现放在文末附录。\n\n## 一、算法原理\n\n### 1.1 问题背景\n\n当需要查询 $[1, n]$ 内大量数的欧拉函数值（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\n\n**思路转变**：利用欧拉函数的积性，结合线性筛（欧拉筛）框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $\\varphi(i)$，之后每次查询 $O(1)$。\n\n### 1.2 线性筛回顾\n\n线性筛（欧拉筛）是埃氏筛的优化版本，**每个合数只被它的最小质因子筛掉一次**，因此时间复杂度严格 $O(n)$。\n\n核心机制：\n\n- 维护质数表 `prime`，按从小到大顺序存储已发现的质数\n- 对每个 $i$ 从 2 到 $n$，若 $i$ 未被标记，则 $i$ 是质数，加入 `prime`\n- 对每个质数 $p_j$，标记 $i \\times p_j$ 为合数；当 $i \\bmod p_j = 0$ 时 `break`——因为 $p_j$ 是 $i$ 的最小质因子，再往后的 $p_k > p_j$ 会导致 $i \\times p_k$ 的最小质因子不是 $p_k$，会被重复标记\n\n### 1.3 φ 的两种递推情况\n\n欧拉函数是积性函数：当 $\\gcd(a, b) = 1$ 时，$\\varphi(ab) = \\varphi(a)\\varphi(b)$。\n\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $\\varphi(m)$：\n\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\n\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\n\n$$\\varphi(i \\times p_j) = \\varphi(i) \\times \\varphi(p_j) = \\varphi(i) \\times (p_j - 1)$$\n\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\n\n此时 $p_j$ 已经是 $i$ 的质因子，所以 $i \\times p_j$ 与 $i$ 的**质因子集合完全相同**（只是 $p_j$ 的指数加了 1）。\n\n设 $i = p_j^k \\times t$（$\\gcd(t, p_j) = 1$），则 $\\varphi(i) = \\varphi(p_j^k) \\times \\varphi(t) = p_j^k \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t)$。\n\n而 $\\varphi(i \\times p_j) = \\varphi(p_j^{k+1} \\times t) = \\varphi(p_j^{k+1}) \\times \\varphi(t) = p_j^{k+1} \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t) = p_j \\times \\left(p_j^k \\cdot \\frac{p_j-1}{p_j} \\times \\varphi(t)\\right) = p_j \\times \\varphi(i)$。\n\n即：\n\n$$\\varphi(i \\times p_j) = p_j \\times \\varphi(i)$$\n\n> **直觉理解**：$i$ 和 $ip$ 的不同质因子集合完全一样，所以 $\\varphi(ip) = ip \\cdot \\prod \\frac{q-1}{q} = p \\cdot \\left(i \\cdot \\prod \\frac{q-1}{q}\\right) = p \\cdot \\varphi(i)$。\n\n### 1.4 边界与初始值\n\n- $\\varphi(1) = 1$（1 与自身互质）\n- 质数 $p$ 的 $\\varphi(p) = p - 1$（质数与 $[1, p-1]$ 全部互质）\n\n这两个值分别在初始化和发现质数时直接赋值，作为递推的起点。\n\n## 二、核心公式/状态定义与转移方程\n\n### 2.1 状态定义\n\n| 数组 | 含义 |\n|------|------|\n| `phi[i]` | 欧拉函数值 $\\varphi(i)$；$\\varphi(i) = 0$ 表示 $i$ 尚未被访问（即 $i$ 是质数） |\n| `prime` | 已发现的质数表，按升序存储 |\n\n> **关键技巧**：不使用单独的标记数组 `prime_vis`，而是直接利用 `phi` 数组判质数——$\\varphi(i) = 0$ 当且仅当 $i$ 尚未被任何更小的数筛到，即 $i$ 是质数。发现质数时立即赋值 $\\varphi(p) = p - 1$（$\\ge 1$），使后续访问时 `phi[i]` 非零。这种\"一数多用\"省去了整个 `prime_vis` 数组。\n\n### 2.2 转移方程\n\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$：\n\n$$\n\\varphi(i \\cdot p_j) =\n\\begin{cases}\n(p_j - 1) \\cdot \\varphi(i), & i \\bmod p_j \\neq 0 \\quad (\\text{互质，直接用积性}) \\\\\np_j \\cdot \\varphi(i), & i \\bmod p_j = 0 \\quad (\\text{不互质，质因子集合不变})\n\\end{cases}\n$$\n\n### 2.3 线性时间证明\n\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\n\n因此总操作次数恰好等于合数个数，加上质数个数，总共 $n$ 次级别，即 $O(n)$。\n\n### 2.4 附带功能\n\n线性筛一次运行可以同时得到：\n- **质数表** `prime`：所有 $\\le n$ 的质数\n- **质数判定**：$\\varphi(i) = i - 1$ 当且仅当 $i$ 为质数，$O(1)$ 查询\n- **欧拉函数** `phi[i]`：所有 $\\varphi(i)$ 的值\n- **最小质因子**（可扩展）：只需多开一个数组记录每个合数被哪个质数筛掉\n\n这种\"一次筛法、多个产出\"的特性是线性筛最强大的地方。\n\n## 三、逐行代码解析\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvector<int> prime, phi;\n```\n\n全局变量：`prime` 存质数表，`phi` 存欧拉函数值（同时兼作质数标记）。\n\n### 3.1 phi_sieve —— 线性筛求欧拉函数\n\n```cpp\nvoid phi_sieve(int n)\n{\n    phi.assign(n + 1, 0);\n    prime.clear();\n    phi[1] = 1;\n    for (int i = 2; i <= n; i++)\n    {\n        if (!phi[i])\n        {\n            phi[i] = i - 1;\n            prime.emplace_back(i);\n        }\n        for (int j = 0; prime[j] <= n / i; j++)\n        {\n            if (i % prime[j]) phi[i * prime[j]] = (prime[j] - 1) * phi[i];\n            else\n            {\n                phi[i * prime[j]] = prime[j] * phi[i];\n                break;\n            }\n        }\n    }\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `phi.assign(n + 1, 0);` | φ 数组初始化为 0，0 同时表示\"未访问\" |\n| 2 | `prime.clear();` | 清空质数表 |\n| 3 | `phi[1] = 1;` | 边界 $\\varphi(1) = 1$ |\n| 4 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\n| 5-8 | `if (!phi[i]) { phi[i] = i - 1; prime.emplace_back(i); }` | $\\varphi(i) = 0$ 即未被筛过 → $i$ 是质数，赋值 $\\varphi(i) = i-1$ 并加入质数表 |\n| 9 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，用 `n/i` 防止 `i*prime[j]` 越界 |\n| 10 | `if (i % prime[j]) phi[...] = (p-1) * phi[i];` | 情况一：$p_j$ 不整除 $i$ → 积性，$\\varphi(ip) = (p-1) \\cdot \\varphi(i)$ |\n| 11-14 | `else { phi[...] = p * phi[i]; break; }` | 情况二：$p_j$ 整除 $i$ → $\\varphi(ip) = p \\cdot \\varphi(i)$；然后 `break`（保证线性） |\n\n**与旧写法的对比**：旧代码额外维护 `vector<bool> prime_vis` 标记数组，在内层循环中先执行 `prime_vis[i * prime[j]] = false` 再分支。新代码直接用 `!phi[i]` 判断质数——因为 $\\varphi(i) = 0$ 当且仅当 $i$ 尚未被任何更小的数筛到（即 $i$ 是质数）。合数的 `phi` 值在内层循环中被直接赋值（非零），无需额外的标记数组。\n\n### 3.2 手动模拟（n = 12）\n\n| $i$ | 操作 | 新增质数 | φ 值更新 |\n|-----|------|---------|---------|\n| 2 | `phi[2]==0` → 质数 | 2 | $\\varphi(2)=1$ |\n| 2 | `j=0, prime[0]=2, 2<=6` | — | $\\varphi(4) = 2 \\times \\varphi(2) = 2$（2%2=0, break） |\n| 3 | `phi[3]==0` → 质数 | 3 | $\\varphi(3)=2$ |\n| 3 | `j=0, prime[0]=2, 2<=4` | — | $\\varphi(6) = (2-1) \\times \\varphi(3) = 2$（3%2≠0） |\n| 3 | `j=1, prime[1]=3, 3<=4` | — | $\\varphi(9) = 3 \\times \\varphi(3) = 6$（3%3=0, break） |\n| 4 | `phi[4]==2≠0` → 非质数 | — | — |\n| 4 | `j=0, prime[0]=2, 2<=3` | — | $\\varphi(8) = 2 \\times \\varphi(4) = 4$（4%2=0, break） |\n| 5 | `phi[5]==0` → 质数 | 5 | $\\varphi(5)=4$ |\n| 5 | `j=0, prime[0]=2, 2<=2` | — | $\\varphi(10) = (2-1) \\times \\varphi(5) = 4$（5%2≠0） |\n| 5 | `j=1, prime[1]=3, 3<=2` | — | （3 > 12/5=2，内层结束） |\n| 6 | `phi[6]==2≠0` → 非质数 | — | — |\n| 6 | `j=0, prime[0]=2, 2<=2` | — | $\\varphi(12) = 2 \\times \\varphi(6) = 4$（6%2=0, break） |\n\n**验证**：\n- $\\varphi(4) = 2$ ✓ {1, 3}\n- $\\varphi(6) = 2$ ✓ {1, 5}\n- $\\varphi(9) = 6$ ✓ {1, 2, 4, 5, 7, 8}\n- $\\varphi(8) = 4$ ✓ {1, 3, 5, 7}\n- $\\varphi(10) = 4$ ✓ {1, 3, 7, 9}\n- $\\varphi(12) = 4$ ✓ {1, 5, 7, 11}\n\n全部正确 ✓\n\n### 3.3 main —— 预处理 + 多组查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int n, q;\n    cin >> n >> q;\n    phi_sieve(n);\n    while (q--)\n    {\n        int n;\n        cin >> n;\n        if (phi[n] == n - 1) cout << n << \"为质数\\n\";\n        else cout << n << \"为合数\\n\";\n        cout << n << \"的欧拉函数的值为: \" << phi[n];\n    }\n    return 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\n| 3 | `phi_sieve(n);` | 一次预处理，求出所有 $\\varphi(1..n)$ |\n| 4-7 | `while (q--) { ... }` | 每次查询 $O(1)$，同时判定质数 + 输出 φ 值 |\n\n### 3.4 运行示例\n\n输入：\n```\n12 3\n4\n7\n12\n```\n\n输出：\n```\n4为合数\n4的欧拉函数的值为: 2\n7为质数\n7的欧拉函数的值为: 6\n12为合数\n12的欧拉函数的值为: 4\n```\n\n## 四、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\n| 单次查询 | $O(1)$ | 数组下标访问 |\n| 空间 | $O(n)$ | `phi` + `prime`（质数约 $n / \\ln n$ 个） |\n\n**与单次求值对比**：\n\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\n|------|--------|---------|------------------------|\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\n\n当查询量大时，线性筛批量预处理碾压单次求值。\n\n## 五、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| **大量 φ 值查询** | 预处理后每次 $O(1)$，适合百万级查询 |\n| **数论计数** | 很多计数问题需要枚举 φ 值或利用 φ 的求和公式 |\n| **同时需要质数表和 φ** | 一次筛法同时得到，效率最高 |\n| **莫比乌斯函数/其他积性函数** | 同样的线性筛框架，换递推公式即可 |\n| **最小质因子查询** | 略加修改可同时记录每个数的最小质因子 |\n\n## 六、常见陷阱与注意事项\n\n### 6.1 内层循环的终止条件\n\n`prime[j] <= n / i` 而非 `i * prime[j] <= n`。前者用除法避免了乘法溢出，同时保证 `i * prime[j]` 不会越界。若写 `i * prime[j] <= n`，当 $n$ 接近 `int` 上限时可能溢出。\n\n### 6.2 break 的位置\n\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$（退化为埃氏筛）。`break` 是保证线性时间的关键。\n\n### 6.3 phi[1] 的初始化\n\n$\\varphi(1) = 1$ 必须手动赋值，因为循环从 $i=2$ 开始，1 不会被处理。若遗漏，所有包含因子 1 的积性递推都会出错（不过本题中 1 不参与递推，影响较小，但仍是标准做法）。\n\n### 6.4 质数 φ 值的赋值位置\n\n$\\varphi(p) = p - 1$ 在发现质数时赋值，而不是在内层循环中。因为质数 $p$ 只会在外层 `if (prime_vis[i])` 分支中被识别，不会作为合数 $i \\times p_j$ 被标记。\n\n### 6.5 数据类型选择\n\n当 $n$ 较大时（如 $n \\ge 10^6$），$\\varphi(n)$ 可能接近 $n$，`int` 可能不够。建议用 `long long` 存储 `phi` 数组。质数表 `prime` 用 `int` 通常没问题（$10^7$ 以内质数约 66 万个，存下标完全够）。\n\n### 6.6 phi 数组兼作质数标记\n\n本代码不使用单独的 `prime_vis` 标记数组，而是直接用 `!phi[i]`（即 $\\varphi(i) = 0$）判断质数。这要求：\n\n- 初始化时 `phi` 全部赋 0，只有 $\\varphi(1) = 1$ 手动设置\n- 质数在发现时赋值 $\\varphi(p) = p - 1 \\ge 1$，使后续 `phi[p]` 非零\n- 合数在内层循环中被直接赋值（两种情况的结果都 $\\ge 1$），也不会保持为 0\n\n**注意**：$\\varphi(1) = 1$ 必须在循环前手动赋值，否则 `!phi[1]` 为真会误判 1 为质数。\n\n### 6.7 全局变量 vs 局部变量\n\n代码中 `prime` 和 `phi` 是全局变量。好处是 `phi_sieve` 只需一个参数 $n$；坏处是多组测试数据间可能冲突。竞赛中常用全局变量（方便调试），但应注意在每组测试前调用 `clear()`。\n\n## 七、对比与扩展\n\n### 7.1 埃氏筛 vs 线性筛求 φ\n\n| 维度 | 埃氏筛 + φ | 线性筛求 φ |\n|------|-----------|-----------|\n| 时间复杂度 | $O(n \\log \\log n)$ | $O(n)$ |\n| 实现难度 | 简单（埃氏筛框架 + 每质数更新 φ） | 中等（需理解两种递推情况 + break 机制） |\n| 附带产物 | 质数判定 | 质数表 + 质数判定 + 可扩展最小质因子 |\n| 实际速度 | $n \\le 10^7$ 时相近 | $n > 10^7$ 时更快 |\n| 空间 | 少（只有 phi） | 多一个质数表（约 $n / \\ln n$ 个元素） |\n\n### 7.2 埃氏筛求 φ 的写法\n\n埃氏筛也能求 φ，思路是初始化 `phi[i] = i`，然后对每个质数 $p$，遍历 $p$ 的倍数 $j$，执行 `phi[j] = phi[j] / p * (p - 1)`。每个质数只更新一次倍数，因此不同质因子各乘一次 $\\frac{p-1}{p}$，结果正确。\n\n```cpp\nvector<int> phi(n + 1);\nfor (int i = 1; i <= n; i++) phi[i] = i;\nfor (int i = 2; i <= n; i++)\n    if (phi[i] == i)  // i 是质数\n        for (int j = i; j <= n; j += i)\n            phi[j] = phi[j] / i * (i - 1);\n```\n\n### 7.3 用线性筛求其他积性函数\n\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\n\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ |\n|------|---------------------|------------------|\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ |\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ |\n| 约数个数 $d$ | $2 \\cdot d(i)$ | 需额外记录最小质因子的指数 |\n| 约数和 $\\sigma$ | $(1+p) \\cdot \\sigma(i)$ | 需额外记录等比数列信息 |\n| 最小质因子 | $p$ | $p$（直接赋值） |\n\n### 7.4 线性筛求最小质因子\n\n略加修改，把 `prime_vis` 替换为 `min_prime_factor` 数组，在标记合数时记录最小质因子：\n\n```cpp\nvector<int> mpf(n + 1, 0);  // 最小质因子\n...\nmpf[i * prime[j]] = prime[j];\n```\n\n有了最小质因子，可以快速对任意数做质因数分解（每次除以最小质因子）。\n\n### 7.5 一句话总结\n\n线性筛求欧拉函数是\"一次筛法、多个产出\"的典范：在 $O(n)$ 时间内同时得到质数表、质数判定和所有 φ 值。核心在于利用 φ 的积性，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 整除 $i$ 时 $\\varphi(ip) = p \\cdot \\varphi(i)$，不整除时 $\\varphi(ip) = (p-1) \\cdot \\varphi(i)$。配合 `break` 保证每个合数只被最小质因子筛一次，实现严格线性复杂度。代码直接用 `!phi[i]` 判质数，省去单独的标记数组。当查询量大时，线性筛远优于单次试除求值。\n\n## 附：埃氏筛（埃拉托斯特尼筛法）\n\n### 埃拉托斯特尼筛法（埃氏筛）\n\n### 一、算法原理\n\n#### 1.1 问题背景\n\n竞赛中经常需要判断大量数字是否为质数（如 $10^5$ 次查询，每个数 $\\le 5 \\times 10^6$）。逐个试除法每次 $O(\\sqrt{n})$，总共 $O(t \\sqrt{n})$ 可能超时。\n\n**思路转变**：与其对每个数分别判定，不如一次性筛出 $[1, n]$ 内所有质数，之后每次查询 $O(1)$。\n\n#### 1.2 核心思想\n\n埃拉托斯特尼筛法（Eratosthenes Sieve）：\n\n1. 初始化：将 $[2, n]$ 内所有数标记为\"可能是质数\"（`true`）\n2. 从 $i = 2$ 开始扫描：若 $i$ 仍为 `true`，则 $i$ 是质数，将 $i$ 的所有倍数标记为 `false`（合数）\n3. 直到 $i^2 > n$ 时停止——因为比 $i$ 小的质数已经把 $i^2$ 以下的合数筛完了\n\n**为什么从 $i^2$ 开始标记倍数？** 因为 $i \\times 2, i \\times 3, \\ldots, i \\times (i-1)$ 这些合数已经被比 $i$ 小的质因子筛掉了。例如 $i = 5$ 时，$5 \\times 2 = 10$ 已被 2 筛掉，$5 \\times 3 = 15$ 已被 3 筛掉，$5 \\times 4 = 20$ 已被 2 筛掉，所以从 $5 \\times 5 = 25$ 开始才有意义。\n\n#### 1.3 为什么外层循环到 $\\sqrt{n}$ 就停\n\n若 $i > \\sqrt{n}$ 且 $i$ 是质数，则 $i^2 > n$，内层循环根本不会执行。但 $i$ 本身不会被任何更小的质数筛掉（因为它是质数），所以它自然保持 `true`，无需再处理。\n\n更准确地说：$\\sqrt{n}$ 以内的质数就能筛掉 $[2, n]$ 内所有合数。因为任意合数 $m \\le n$ 必有一个质因子 $\\le \\sqrt{m} \\le \\sqrt{n}$，该质因子会在外层循环中把 $m$ 筛掉。\n\n#### 1.4 复杂度分析\n\n**时间复杂度**：$O(n \\log \\log n)$\n\n这个复杂度来自于调和级数：\n\n$$\\sum_{\\text{p 为质数, p} \\le n} \\frac{n}{p} = n \\sum_{p \\le n} \\frac{1}{p} \\approx n \\ln \\ln n$$\n\n直觉上，每个质数 $p$ 贡献 $\\frac{n}{p}$ 次标记操作，而质数的倒数和增长极慢（$\\ln \\ln n$），因此总工作量接近线性。\n\n**空间复杂度**：$O(n)$（`vector<bool>` 数组）\n\n**$n = 5 \\times 10^6$ 时**：约 $5 \\times 10^6 \\times \\ln \\ln(5 \\times 10^6) \\approx 5 \\times 10^6 \\times 3.4 \\approx 1.7 \\times 10^7$ 次操作，瞬间完成。\n\n### 二、核心公式/状态定义与转移方程\n\n#### 2.1 状态定义\n\n用一个布尔数组 `prime_vis[i]` 表示数 $i$ 的状态：\n\n$$\n\\text{prime\\_vis}[i] =\n\\begin{cases}\n\\text{true}, & i \\text{ 尚未被筛掉（可能是质数）} \\\\\n\\text{false}, & i \\text{ 已被筛掉（是合数）}\n\\end{cases}\n$$\n\n初始化时全部为 `true`，表示\"尚未被筛掉\"。0 和 1 不是质数，但本代码未单独处理（调用方需自行判断 $x \\ge 2$）。\n\n#### 2.2 筛法转移\n\n对每个 $i$ 从 $2$ 到 $\\sqrt{n}$：\n\n- 若 `prime_vis[i]` 为 `true`（$i$ 是质数），则从 $j = i^2$ 开始，每隔 $i$ 标记为 `false`\n- 若 `prime_vis[i]` 为 `false`（$i$ 是合数），跳过（其倍数已被更小的质因子筛过）\n\n#### 2.3 vector\\<bool\\> 的位压缩\n\n`vector<bool>` 是 C++ 的特化版本，每个元素仅占 1 bit。$n = 5 \\times 10^6$ 时仅占约 625 KB，远优于 `vector<char>` 的 5 MB。\n\n| 实现 | $n = 5 \\times 10^6$ 内存 | 访问速度 |\n|-----|------------------------|---------|\n| `vector<bool>` | $\\approx 625$ KB | 稍慢（位运算） |\n| `vector<char>` | $\\approx 5$ MB | 快（直接访问） |\n| `bitset<N>` | $\\approx 625$ KB | 快（编译期固定） |\n\n`vector<bool>` 在内存与灵活性间取得了平衡：大小可运行时指定，且内存极省。\n\n### 三、逐行代码解析\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n```\n\n标准头文件与命名空间。\n\n#### 3.1 sieve_vis —— 埃氏筛核心函数\n\n```cpp\nvector<bool> sieve_vis(int n)\n{\n    vector<bool> prime_vis(n + 1, true);\n    for (int i = 2; i * i <= n; i++)\n    {\n        if (!prime_vis[i]) continue;\n        for (int j = i * i; j <= n; j += i)\n        {\n            prime_vis[j] = false;\n        }\n    }\n    return prime_vis;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `vector<bool> sieve_vis(int n)` | 返回布尔数组，`prime_vis[i]` 为 true 表示 $i$ 是质数（或 1） |\n| 2 | `vector<bool> prime_vis(n + 1, true);` | 初始化 $[0, n]$ 全为 true。注意 0 和 1 不是质数，调用方需自行判断 |\n| 3 | `for (int i = 2; i * i <= n; i++)` | 外层只需到 $\\sqrt{n}$，用 `i * i <= n` 避免浮点 `sqrt` |\n| 4 | `if (!prime_vis[i]) continue;` | $i$ 已被筛掉（合数），跳过——优化关键：只从质数开始筛 |\n| 5 | `for (int j = i * i; j <= n; j += i)` | 从 $i^2$ 开始标记倍数，步长 $i$ |\n| 6 | `prime_vis[j] = false;` | 标记为合数 |\n| 7 | `return prime_vis;` | 返回筛好的数组 |\n\n**手动模拟**（$n = 30$）：\n\n| 步骤 | 当前质数 $i$ | 标记为 false 的数 | prime_vis 中仍为 true |\n|------|-------------|------------------|----------------------|\n| 初始 | — | — | 全部 |\n| $i=2$ | 2 | 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 | 2,3,5,7,9,11,13,15,17,19,21,23,25,27,29 |\n| $i=3$ | 3 | 9, 12, 15, 18, 21, 24, 27, 30 | 2,3,5,7,11,13,17,19,23,25,29 |\n| $i=5$ | 5 | 25, 30 | 2,3,5,7,11,13,17,19,23,29 |\n| $i=6$ | — | （6 已被筛，跳过） | 不变 |\n| $i=7$ | 7 | （$7^2=49>30$，内层不执行） | 不变 |\n\n$[2, 30]$ 内的质数：2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ✓\n\n#### 3.2 main —— 预处理 + 多组查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int t;\n    cin >> t;\n    vector<bool> vis = move(sieve_vis(5000000));\n    while (t--)\n    {\n        int x;\n        cin >> x;\n        if (vis[x]) cout << \"是质数\" << '\\n';\n        else cout << \"是合数\" << '\\n';\n    }\n    return 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1-2 | `ios::sync_with_stdio(false); cin.tie(nullptr);` | 快速 IO |\n| 3-4 | `int t; cin >> t;` | 查询组数 |\n| 5 | `vector<bool> vis = move(sieve_vis(5000000));` | 一次性筛到 $5 \\times 10^6$，`move` 避免拷贝整个数组 |\n| 6-9 | `cin >> x; if (vis[x]) ...` | 每次查询 $O(1)$ |\n\n**关键设计：预处理 + 查询分离**。筛法在最前面一次性完成所有预处理，后续每次查询只需查表。这是\"以空间换时间\"的经典范例。\n\n> **注意**：代码预先筛到 $5 \\times 10^6$，如果查询的 $x$ 超过此范围会越界。实际使用时应根据题目数据范围调整 `sieve_vis` 的参数。\n\n#### 3.3 运行示例\n\n输入：\n```\n5\n2\n4\n17\n100\n999983\n```\n\n输出：\n```\n是质数\n是合数\n是质数\n是合数\n是质数\n```\n\n### 四、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 预处理时间 | $O(n \\log \\log n)$ | 接近线性，$n = 5 \\times 10^6$ 时约 $1.7 \\times 10^7$ 次操作 |\n| 单次查询 | $O(1)$ | 数组下标访问 |\n| 空间 | $O(n)$ | `vector<bool>` 位压缩，$n = 5 \\times 10^6$ 时约 625 KB |\n\n**与试除法对比**：\n\n| 方法 | 预处理 | 单次查询 | $t = 10^5, n = 5 \\times 10^6$ 总耗时 |\n|------|--------|---------|--------------------------------------|\n| 试除法 | 无 | $O(\\sqrt{n})$ | $10^5 \\times 2236 \\approx 2.2 \\times 10^8$（偏慢） |\n| 埃氏筛 | $O(n \\log \\log n)$ | $O(1)$ | $1.7 \\times 10^7 + 10^5 \\approx 1.7 \\times 10^7$（瞬间） |\n\n当查询次数 $t$ 较大时，筛法远优于试除法。\n\n### 五、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| **多组质数判定** | 预处理后每次 $O(1)$ 查询 |\n| **求 $[1, n]$ 内所有质数** | 筛完后遍历 `prime_vis` 收集 true 的下标 |\n| **质因数分解预处理** | 配合线性筛记录最小质因子 |\n| **欧拉函数预处理** | 利用筛法框架计算 $\\varphi(i)$ |\n| **莫比乌斯函数预处理** | 利用筛法框架计算 $\\mu(i)$ |\n| **数论分块** | 需要快速判断大数区间内的质数个数 |\n\n### 六、常见陷阱与注意事项\n\n#### 6.1 0 和 1 未处理\n\n代码初始化全为 `true`，0 和 1 也不是质数但会显示\"是质数\"。若题目可能输入 0 或 1，需特判：\n\n```cpp\nif (x < 2) cout << \"不是质数\" << '\\n';\nelse if (vis[x]) cout << \"是质数\" << '\\n';\nelse cout << \"是合数\" << '\\n';\n```\n\n#### 6.2 数组越界\n\n`sieve_vis(5000000)` 只筛到 $5 \\times 10^6$，若查询 $x > 5 \\times 10^6$ 会越界。需根据题目最大数据范围调整预处理上界。\n\n#### 6.3 i * i 溢出\n\n当 $n$ 接近 `int` 上限（$\\approx 2.1 \\times 10^9$）时，`i * i` 可能溢出。应改为 `long long` 或用 `i <= n / i` 代替。\n\n#### 6.4 内层循环起始点\n\n从 `j = i * i` 开始而非 `j = 2 * i`。这是关键优化：$i \\times 2$ 到 $i \\times (i-1)$ 已被更小的质因子筛过。若从 $2i$ 开始，复杂度退化为 $O(n \\ln n)$（仍可过，但非最优）。\n\n#### 6.5 vector\\<bool\\> 的性能\n\n`vector<bool>` 的位压缩虽然省内存，但读写需要位运算，速度略慢于 `vector<char>` 或 `bitset`。对极端卡常的题目，可考虑 `bitset`（编译期固定大小）或 `vector<char>`。\n\n#### 6.6 与线性筛（欧拉筛）的选择\n\n埃氏筛会重复标记某些合数（如 $12 = 2 \\times 6 = 3 \\times 4$），而线性筛每个合数只被标记一次。但埃氏筛常数小、实现简单，$n \\le 10^7$ 时通常更快或相当。\n\n### 七、对比与扩展\n\n#### 7.1 埃氏筛 vs 线性筛（欧拉筛）\n\n| 维度 | 埃氏筛 | 线性筛（欧拉筛） |\n|------|--------|-----------------|\n| 时间复杂度 | $O(n \\log \\log n)$ | $O(n)$ |\n| 实现难度 | 极简（3 行核心） | 中等（需维护质数表 + 最小质因子判断） |\n| 重复标记 | 有（合数被多个质因子筛） | 无（每个合数只被最小质因子筛一次） |\n| 附加功能 | 仅判定质数 | 可同时求 $\\varphi(i)$、$\\mu(i)$、最小质因子 |\n| 实际速度 | $n \\le 10^7$ 时通常更快 | $n > 10^7$ 时优势显现 |\n| 空间 | `vector<bool>` 位压缩 | `vector<int>` 质数表 + `vector<bool>` |\n\n#### 7.2 区间筛法\n\n当需要求 $[L, R]$（$L$ 很大，$R - L$ 较小）内的质数时，先用埃氏筛筛出 $[1, \\sqrt{R}]$ 的质数，再用这些质数筛 $[L, R]$ 的区间。复杂度 $O(\\sqrt{R} \\log \\log \\sqrt{R} + (R - L) \\log \\log R)$。\n\n#### 7.3 利用筛法求积性函数\n\n积性函数（如欧拉函数 $\\varphi$、莫比乌斯函数 $\\mu$）可通过筛法框架在 $O(n)$ 或 $O(n \\log \\log n)$ 内预处理。线性筛尤其适合——在标记合数时根据最小质因子递推函数值。\n\n#### 7.4 一句话总结\n\n埃拉托斯特尼筛法用\"标记质数倍数\"的简单思路，在 $O(n \\log \\log n)$ 时间内预处理出 $[1, n]$ 内所有质数，查询 $O(1)$。三行核心代码、位压缩省内存、常数极小，是数论中最常用的预处理工具——当需要多次判定质数时，筛法远优于逐个试除。\n\n## 附：线性筛求约数个数 d(n)\n\n### 线性筛求约数个数（欧拉筛批量预处理）\n\n### 一、算法原理\n\n#### 1.1 问题背景\n\n约数个数函数 $d(n)$（也称 $\\sigma_0(n)$ 或 $\\tau(n)$）表示 $n$ 的正约数个数。当需要查询 $[1, n]$ 内大量数的约数个数（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\n\n**思路**：利用约数个数的积性，结合线性筛框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $d(i)$，之后每次查询 $O(1)$。\n\n#### 1.2 约数个数公式\n\n设 $n$ 的质因数分解为 $n = p_1^{\\alpha_1} \\cdot p_2^{\\alpha_2} \\cdots p_s^{\\alpha_s}$，则：\n\n$$d(n) = \\prod_{i=1}^{s} (\\alpha_i + 1)$$\n\n**直觉理解**：每个质因子 $p_i$ 可以取 $0, 1, 2, \\ldots, \\alpha_i$ 次方，共 $\\alpha_i + 1$ 种选择，各质因子独立组合，所以总数是各 $(\\alpha_i + 1)$ 的乘积。\n\n**示例**：\n\n| $n$ | 分解 | $d(n)$ | 约数 |\n|-----|------|--------|------|\n| 1 | 1 | 1 | {1} |\n| 2 | $2^1$ | 2 | {1, 2} |\n| 4 | $2^2$ | 3 | {1, 2, 4} |\n| 6 | $2^1 \\times 3^1$ | $2 \\times 2 = 4$ | {1, 2, 3, 6} |\n| 12 | $2^2 \\times 3^1$ | $3 \\times 2 = 6$ | {1, 2, 3, 4, 6, 12} |\n\n#### 1.3 积性与线性筛\n\n约数个数函数 $d(n)$ 是**积性函数**：当 $\\gcd(a, b) = 1$ 时，$d(ab) = d(a) \\cdot d(b)$。\n\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $d(m)$。关键在于额外维护一个辅助数组 $a[\\,]$，记录每个数的最小质因子的指数。\n\n#### 1.4 两种递推情况\n\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\n\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\n\n$$d(i \\times p_j) = d(i) \\times d(p_j) = d(i) \\times 2$$\n\n因为 $p_j$ 是 $i \\times p_j$ 的新质因子（指数为 1），所以 $a(i \\times p_j) = 1$。\n\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\n\n此时 $p_j$ 已经是 $i$ 的最小质因子。设 $i$ 中 $p_j$ 的指数为 $k$（即 $a(i) = k$），则 $i \\times p_j$ 中 $p_j$ 的指数变为 $k + 1$。\n\n设 $i = p_j^k \\times t$（$\\gcd(t, p_j) = 1$），则：\n\n$$d(i) = (k + 1) \\times d(t)$$\n\n$$d(i \\times p_j) = (k + 2) \\times d(t) = \\frac{(k+2)}{(k+1)} \\times d(i) = \\frac{a(i \\times p_j) + 1}{a(i \\times p_j)} \\times d(i)$$\n\n其中 $a(i \\times p_j) = k + 1 = a(i) + 1$，所以：\n\n$$d(i \\times p_j) = d(i) \\, / \\, a(i \\times p_j) \\times (a(i \\times p_j) + 1)$$\n\n> **为什么先除后乘？** $a(i \\times p_j) = k + 1$ 整除 $d(i) = (k+1) \\times d(t)$，所以 $d(i) / a(i \\times p_j) = d(t)$ 是整数。先除保证整除，再乘避免分数运算。\n\n#### 1.5 边界与初始值\n\n- $d(1) = 1$（1 只有一个约数——自身）\n- 质数 $p$ 的 $d(p) = 2$（约数为 1 和 $p$），$a(p) = 1$（最小质因子指数为 1）\n\n### 二、核心公式/状态定义与转移方程\n\n#### 2.1 状态定义\n\n| 数组 | 含义 |\n|------|------|\n| `vis[i]` | $i$ 是否已被筛过（是否为合数） |\n| `prime` | 已发现的质数表，按升序存储 |\n| `a[i]` | $i$ 的最小质因子的指数 |\n| `d[i]` | 约数个数 $d(i)$ |\n\n#### 2.2 转移方程\n\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$（$p_j \\le n / i$）：\n\n$$\na(i \\cdot p_j) =\n\\begin{cases}\n1, & i \\bmod p_j \\neq 0 \\\\\na(i) + 1, & i \\bmod p_j = 0\n\\end{cases}\n$$\n\n$$\nd(i \\cdot p_j) =\n\\begin{cases}\n2 \\cdot d(i), & i \\bmod p_j \\neq 0 \\quad (\\text{新质因子，积性}) \\\\\nd(i) \\, / \\, a(i \\cdot p_j) \\times (a(i \\cdot p_j) + 1), & i \\bmod p_j = 0 \\quad (\\text{指数}+1)\n\\end{cases}\n$$\n\n#### 2.3 线性时间证明\n\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\n\n因此总操作次数恰好等于合数个数加上质数个数，总共 $O(n)$。\n\n#### 2.4 辅助数组 a 的作用\n\n$a[\\,]$ 数组记录每个数的最小质因子指数，是情况二递推的关键。在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以：\n\n- 当 $p_j$ 不整除 $i$ 时，$p_j$ 是 $i \\times p_j$ 的新质因子，指数为 1\n- 当 $p_j$ 整除 $i$ 时，$p_j$ 是 $i$ 的最小质因子，$i \\times p_j$ 中 $p_j$ 的指数 = $i$ 中 $p_j$ 的指数 + 1\n\n没有 $a[\\,]$ 数组，就无法在情况二中正确递推——因为需要知道\"旧指数\"才能算\"新指数\"，进而更新 $d$ 值。\n\n### 三、逐行代码解析\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvector<int> prime;\nvector<int> a, d;\n```\n\n全局变量：`prime` 存质数表，`a` 存最小质因子指数，`d` 存约数个数。\n\n#### 3.1 d_sieve —— 线性筛求约数个数\n\n```cpp\nvoid d_sieve(int n)\n{\n    prime.clear();\n    prime.reserve(n / 15 + 16);\n    a.assign(n + 1, 0);\n    d.assign(n + 1, 0);\n    d[1] = 1;\n    vector<bool> vis(n + 1, false);\n    for (int i = 2; i <= n; i++)\n    {\n        if (!vis[i])\n        {\n            prime.emplace_back(i);\n            d[i] = 2;\n            a[i] = 1;\n        }\n        for (int j = 0; prime[j] <= n / i; j++)\n        {\n            int m = prime[j] * i;\n            vis[m] = true;\n            if (i % prime[j])\n            {\n                a[m] = 1;\n                d[m] = d[i] * 2;\n            }\n            else\n            {\n                a[m] = a[i] + 1;\n                d[m] = d[i] / a[m] * (a[m] + 1);\n                break;\n            }\n        }\n    }\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `prime.clear(); prime.reserve(n / 15 + 16);` | 清空质数表，预留空间（质数密度约 $n / \\ln n$） |\n| 2-3 | `a.assign(n + 1, 0); d.assign(n + 1, 0);` | 辅助数组和约数个数数组初始化为 0 |\n| 4 | `d[1] = 1;` | 边界 $d(1) = 1$ |\n| 5 | `vector<bool> vis(n + 1, false);` | 标记数组，初始全 false（未被筛） |\n| 6 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\n| 7-11 | `if (!vis[i]) { prime.push_back(i); d[i] = 2; a[i] = 1; }` | $i$ 未被筛 → 质数，$d(p) = 2$，$a(p) = 1$ |\n| 12 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，`n/i` 防止越界 |\n| 13-14 | `int m = prime[j] * i; vis[m] = true;` | 计算 $m = i \\times p_j$ 并标记为合数 |\n| 15-18 | `if (i % prime[j]) { a[m] = 1; d[m] = d[i] * 2; }` | 情况一：$p_j$ 不整除 $i$ → 新质因子，$d(m) = 2 \\cdot d(i)$，$a(m) = 1$ |\n| 19-22 | `else { a[m] = a[i]+1; d[m] = d[i]/a[m]*(a[m]+1); break; }` | 情况二：$p_j$ 整除 $i$ → 指数 +1，$d(m) = d(i)/a(m) \\cdot (a(m)+1)$；`break` 保证线性 |\n\n#### 3.2 手动模拟（n = 12）\n\n| $i$ | 操作 | 新增质数 | $a$ 值更新 | $d$ 值更新 |\n|-----|------|---------|-----------|-----------|\n| 2 | `vis[2]=false` → 质数 | 2 | $a(2)=1$ | $d(2)=2$ |\n| 2 | `j=0, p=2, 2≤6` | — | $a(4)=a(2)+1=2$ | $d(4)=d(2)/2 \\times 3 = 3$（2%2=0, break） |\n| 3 | `vis[3]=false` → 质数 | 3 | $a(3)=1$ | $d(3)=2$ |\n| 3 | `j=0, p=2, 2≤4` | — | $a(6)=1$ | $d(6)=d(3) \\times 2 = 4$（3%2≠0） |\n| 3 | `j=1, p=3, 3≤4` | — | $a(9)=a(3)+1=2$ | $d(9)=d(3)/2 \\times 3 = 3$（3%3=0, break） |\n| 4 | `vis[4]=true` → 非质数 | — | — | — |\n| 4 | `j=0, p=2, 2≤3` | — | $a(8)=a(4)+1=3$ | $d(8)=d(4)/3 \\times 4 = 4$（4%2=0, break） |\n| 5 | `vis[5]=false` → 质数 | 5 | $a(5)=1$ | $d(5)=2$ |\n| 5 | `j=0, p=2, 2≤2` | — | $a(10)=1$ | $d(10)=d(5) \\times 2 = 4$（5%2≠0） |\n| 5 | `j=1, p=3, 3≤2` | — | — | （3 > 12/5=2，内层结束） |\n| 6 | `vis[6]=true` → 非质数 | — | — | — |\n| 6 | `j=0, p=2, 2≤2` | — | $a(12)=a(6)+1=2$ | $d(12)=d(6)/2 \\times 3 = 6$（6%2=0, break） |\n\n**验证**：\n- $d(4) = 3$ ✓ {1, 2, 4}\n- $d(6) = 4$ ✓ {1, 2, 3, 6}\n- $d(8) = 4$ ✓ {1, 2, 4, 8}\n- $d(9) = 3$ ✓ {1, 3, 9}\n- $d(10) = 4$ ✓ {1, 2, 5, 10}\n- $d(12) = 6$ ✓ {1, 2, 3, 4, 6, 12}\n\n全部正确 ✓\n\n#### 3.3 main —— 预处理 + 多组查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int n, q;\n    cin >> n >> q;\n    d_sieve(n);\n    for (int i = 1; i <= q; i++)\n    {\n        int x;\n        cin >> x;\n        cout << d[x] << '\\n';\n    }\n    return 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\n| 3 | `d_sieve(n);` | 一次预处理，求出所有 $d(1..n)$ |\n| 4-7 | `for (int i = 1; i <= q; i++) { cin >> x; cout << d[x]; }` | 每次查询 $O(1)$ |\n\n#### 3.4 运行示例\n\n输入：\n```\n12 4\n4\n6\n9\n12\n```\n\n输出：\n```\n3\n4\n3\n6\n```\n\n### 四、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\n| 单次查询 | $O(1)$ | 数组下标访问 |\n| 空间 | $O(n)$ | `vis` + `a` + `d` + `prime`（质数约 $n / \\ln n$ 个） |\n\n**与单次试除法对比**：\n\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\n|------|--------|---------|------------------------|\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\n\n### 五、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| **大量约数个数查询** | 预处理后每次 $O(1)$，适合百万级查询 |\n| **约数相关计数** | 如 $\\sum_{i=1}^{n} d(i)$、约数和等问题的预处理步骤 |\n| **数论函数筛法练习** | $d(n)$ 需要额外维护 $a[\\,]$ 数组，是线性筛积性函数的经典进阶案例 |\n| **配合其他积性函数** | 线性筛可同时求 $d$、$\\varphi$、$\\mu$ 等，一次筛法多个产出 |\n\n### 六、常见陷阱与注意事项\n\n#### 6.1 a 数组的含义\n\n`a[i]` 存的是 $i$ 的**最小质因子**的指数，不是任意质因子的指数。在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以 $a[\\,]$ 记录的恰好是最小质因子指数。\n\n#### 6.2 先除后乘防溢出\n\n`d[m] = d[i] / a[m] * (a[m] + 1)` 必须先除后乘。因为 $a(m) = a(i) + 1$ 整除 $d(i) = (a(i)+1) \\times d(t)$，先除得到整数 $d(t)$，再乘 $(a(m)+1)$ 不溢出。若写成 `d[i] * (a[m]+1) / a[m]`，中间值 `d[i] * (a[m]+1)` 可能溢出。\n\n#### 6.3 vis 数组不能省去\n\n与线性筛求欧拉函数不同，本代码**不能**用 `!d[i]` 代替 `vis[i]` 判质数。因为 $d(1) = 1$ 非零，而质数的 $d(p) = 2$ 也非零，合数的 $d$ 值也非零——$d$ 数组中没有值为 0 的元素可用于标记\"未访问\"。因此必须额外维护 `vis` 数组。\n\n#### 6.4 d[1] 的初始化\n\n$d(1) = 1$ 必须手动赋值，因为循环从 $i=2$ 开始，1 不会被处理。若遗漏，`d[1]` 保持 0，查询时返回错误结果。\n\n#### 6.5 break 的位置\n\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$（退化为埃氏筛）。`break` 是保证线性时间的关键。\n\n#### 6.6 质数 d 值的赋值位置\n\n$d(p) = 2$ 和 $a(p) = 1$ 在发现质数时赋值（外层 `if (!vis[i])` 分支），而不是在内层循环中。因为质数只会在外层被识别，不会作为合数 $i \\times p_j$ 被标记。\n\n#### 6.7 数据类型选择\n\n当 $n$ 较大时（如 $n \\ge 10^6$），$d(n)$ 的最大值远小于 $n$（高度合成数的 $d$ 值也不超过几千），`int` 完全够用。但 $a[\\,]$ 数组值也很小，`int` 足够。\n\n### 七、对比与扩展\n\n#### 7.1 线性筛求 φ vs 求 d\n\n| 维度 | 求 $\\varphi$ | 求 $d$ |\n|------|-------------|--------|\n| 辅助数组 | 无（`phi` 兼作标记） | 需要额外 `a[]` 记录最小质因子指数 |\n| 质数标记 | `!phi[i]` 判断质数 | 必须额外维护 `vis[]` |\n| 情况一递推 | $(p-1) \\cdot \\varphi(i)$ | $2 \\cdot d(i)$ |\n| 情况二递推 | $p \\cdot \\varphi(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ |\n| 递推复杂度 | 直接乘法 | 需要先除后乘（涉及中间量 $d(t)$） |\n\n求 $d$ 比求 $\\varphi$ 更复杂的原因：$\\varphi$ 在情况二中只需乘 $p$（因为质因子集合不变，$\\varphi(ip) = p \\cdot \\varphi(i)$ 直接成立）；而 $d$ 在情况二中需要修改最小质因子指数对应的因子（从 $(k+1)$ 变为 $(k+2)$），必须知道 $k$ 的值，因此需要额外维护 $a[\\,]$ 数组。\n\n#### 7.2 埃氏筛求 d 的写法\n\n埃氏筛也能求 $d$，思路是初始化 `d[i] = 1`，对每个质数 $p$ 遍历其倍数，逐个乘入 $(\\alpha+1)$ 因子。但需要额外记录指数，实现不如线性筛优雅。\n\n#### 7.3 用线性筛求其他积性函数\n\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\n\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ | 额外信息 |\n|------|---------------------|------------------|---------|\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ | 无 |\n| 约数个数 $d$ | $2 \\cdot d(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ | 最小质因子指数 $a$ |\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ | 无 |\n| 约数和 $\\sigma$ | $\\sigma(i) \\cdot (1+p)$ | 需额外维护等比数列和 | 最小质因子幂和 |\n\n#### 7.4 约数求和函数 $\\sigma(n)$\n\n约数求和 $\\sigma(n) = \\sum_{d \\mid n} d$ 也是积性函数。线性筛求 $\\sigma$ 需要额外维护最小质因子的等比数列和 $S$（即 $1 + p + p^2 + \\cdots + p^k$），递推更复杂：\n\n- 情况一（$p$ 不整除 $i$）：$\\sigma(ip) = \\sigma(i) \\cdot (1+p)$，$S(ip) = 1+p$\n- 情况二（$p$ 整除 $i$）：$S(ip) = S(i) \\cdot p + 1$，$\\sigma(ip) = \\sigma(i) / S(i) \\cdot S(ip)$\n\n#### 7.5 一句话总结\n\n线性筛求约数个数是线性筛积性函数的经典进阶案例：在 $O(n)$ 时间内求出 $[1, n]$ 内所有 $d(i)$。核心在于额外维护最小质因子指数数组 $a[\\,]$，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 不整除 $i$ 时 $d(ip) = 2 \\cdot d(i)$，整除时 $d(ip) = d(i) / a(m) \\cdot (a(m)+1)$。与求 $\\varphi$ 不同，求 $d$ 无法用 `d` 数组本身判质数，必须额外维护 `vis` 标记数组。\n\n## 附：线性筛求约数和 σ(n)\n\n### 线性筛求约数和（欧拉筛批量预处理）\n\n### 一、算法原理\n\n#### 1.1 问题背景\n\n约数和函数 $\\sigma(n)$（即 $f(n)$）表示 $n$ 的所有正约数之和。当需要查询 $[1, n]$ 内大量数的约数和（如 $q = 10^6$ 次查询，每个数 $\\le 10^7$）时，单次 $O(\\sqrt{n})$ 的试除法会超时。\n\n**思路**：利用约数和的积性，结合线性筛框架，在 $O(n)$ 时间内一次性求出 $[1, n]$ 内所有 $\\sigma(i)$，之后每次查询 $O(1)$。\n\n#### 1.2 约数和公式\n\n设 $n$ 的质因数分解为 $n = p_1^{\\alpha_1} \\cdot p_2^{\\alpha_2} \\cdots p_s^{\\alpha_s}$，则：\n\n$$\\sigma(n) = \\prod_{i=1}^{s} \\left(1 + p_i + p_i^2 + \\cdots + p_i^{\\alpha_i}\\right)$$\n\n**直觉理解**：每个质因子 $p_i$ 的贡献是一个等比数列和 $1 + p_i + p_i^2 + \\cdots + p_i^{\\alpha_i}$。各质因子的约数独立组合（由积性），所以总和是各等比数列和的乘积。\n\n**示例**：\n\n| $n$ | 分解 | $\\sigma(n)$ | 约数 |\n|-----|------|------------|------|\n| 1 | 1 | 1 | {1} |\n| 2 | $2^1$ | $1+2 = 3$ | {1, 2} |\n| 4 | $2^2$ | $1+2+4 = 7$ | {1, 2, 4} |\n| 6 | $2^1 \\times 3^1$ | $(1+2)(1+3) = 12$ | {1, 2, 3, 6} |\n| 12 | $2^2 \\times 3^1$ | $(1+2+4)(1+3) = 28$ | {1, 2, 3, 4, 6, 12} |\n\n#### 1.3 积性与线性筛\n\n约数和函数 $\\sigma(n)$ 是**积性函数**：当 $\\gcd(a, b) = 1$ 时，$\\sigma(ab) = \\sigma(a) \\cdot \\sigma(b)$。\n\n在线性筛中，每个合数 $m = i \\times p_j$（$p_j$ 是 $m$ 的最小质因子）被标记时，分两种情况计算 $\\sigma(m)$。关键在于额外维护一个辅助数组 $g[\\,]$，记录每个数的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$。\n\n#### 1.4 两种递推情况\n\n**情况一：$i \\bmod p_j \\neq 0$（$p_j$ 不整除 $i$）**\n\n此时 $\\gcd(i, p_j) = 1$（因为 $p_j$ 是质数且不整除 $i$），由积性得：\n\n$$\\sigma(i \\times p_j) = \\sigma(i) \\times \\sigma(p_j) = \\sigma(i) \\times (1 + p_j)$$\n\n因为 $p_j$ 是 $i \\times p_j$ 的新质因子（指数为 1），对应的等比数列和为 $1 + p_j$，所以 $g(i \\times p_j) = 1 + p_j$。\n\n**情况二：$i \\bmod p_j = 0$（$p_j$ 整除 $i$）**\n\n此时 $p_j$ 已经是 $i$ 的最小质因子。设 $i$ 中 $p_j$ 的指数为 $k$，则 $i \\times p_j$ 中 $p_j$ 的指数变为 $k+1$。\n\n$i$ 的等比数列和为 $g(i) = 1 + p_j + p_j^2 + \\cdots + p_j^k$。\n\n$i \\times p_j$ 的等比数列和为 $g(i \\times p_j) = 1 + p_j + p_j^2 + \\cdots + p_j^{k+1} = p_j \\times g(i) + 1$。\n\n因为 $\\sigma(i) = g(i) \\times \\sigma(t)$（$t = i / p_j^k$，$p_j \\nmid t$），所以：\n\n$$\\sigma(i \\times p_j) = g(i \\times p_j) \\times \\sigma(t) = \\frac{g(i \\times p_j)}{g(i)} \\times \\sigma(i) = \\sigma(i) \\, / \\, g(i) \\times g(i \\times p_j)$$\n\n> **为什么先除后乘？** $g(i) = 1 + p_j + \\cdots + p_j^k$ 整除 $\\sigma(i) = g(i) \\times \\sigma(t)$，所以 $\\sigma(i) / g(i) = \\sigma(t)$ 是整数。先除保证整除，再乘避免分数运算。\n\n#### 1.5 边界与初始值\n\n- $\\sigma(1) = 1$（1 只有一个约数——自身），$g(1) = 1$\n- 质数 $p$ 的 $\\sigma(p) = 1 + p$，$g(p) = 1 + p$（最小质因子就是自身，指数为 1）\n\n### 二、核心公式/状态定义与转移方程\n\n#### 2.1 状态定义\n\n| 数组 | 含义 |\n|------|------|\n| `vis[i]` | $i$ 是否已被筛过（是否为合数） |\n| `prime` | 已发现的质数表，按升序存储 |\n| `g[i]` | $i$ 的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$ |\n| `f[i]` | 约数和 $\\sigma(i)$ |\n\n#### 2.2 转移方程\n\n对每个 $i$（从 2 到 $n$），对每个质数 $p_j$（$p_j \\le n / i$），设 $m = i \\times p_j$：\n\n$$\ng(m) =\n\\begin{cases}\n1 + p_j, & i \\bmod p_j \\neq 0 \\\\\np_j \\cdot g(i) + 1, & i \\bmod p_j = 0\n\\end{cases}\n$$\n\n$$\n\\sigma(m) =\n\\begin{cases}\n\\sigma(i) \\cdot (1 + p_j), & i \\bmod p_j \\neq 0 \\quad (\\text{新质因子，积性}) \\\\\n\\sigma(i) \\, / \\, g(i) \\cdot g(m), & i \\bmod p_j = 0 \\quad (\\text{指数}+1\\text{，替换等比和})\n\\end{cases}\n$$\n\n#### 2.3 线性时间证明\n\n每个合数仅被它的**最小质因子**筛掉一次：当内层循环遇到 $i \\bmod p_j = 0$ 时立即 `break`，保证 $i \\times p_k$（$k > j$）不会在此时被标记——因为它们的最小质因子是 $p_j$ 而不是 $p_k$，会在 $i' = i \\times p_k / p_j$ 时由 $p_j$ 筛掉。\n\n因此总操作次数恰好等于合数个数加上质数个数，总共 $O(n)$。\n\n#### 2.4 辅助数组 g 的作用\n\n$g[\\,]$ 数组记录每个数的最小质因子对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$（$k$ 为该质因子在数中的指数），是情况二递推的关键。\n\n在线性筛中，$p_j$ 总是 $i \\times p_j$ 的最小质因子（因为质数表按升序遍历），所以：\n\n- 当 $p_j$ 不整除 $i$ 时，$p_j$ 是新质因子，指数为 1，$g(m) = 1 + p_j$\n- 当 $p_j$ 整除 $i$ 时，$p_j$ 是 $i$ 的最小质因子，$i \\times p_j$ 中 $p_j$ 的指数 +1，等比数列和从 $g(i)$ 扩展为 $p_j \\cdot g(i) + 1$\n\n没有 $g[\\,]$ 数组，就无法在情况二中正确递推——因为需要知道\"旧等比和\"才能算\"新等比和\"，进而更新 $\\sigma$ 值。\n\n#### 2.5 f 和 g 的关系\n\n对于任意 $n$，设其最小质因子为 $p$，指数为 $k$，则 $n = p^k \\times t$（$p \\nmid t$）：\n\n$$g(n) = 1 + p + p^2 + \\cdots + p^k$$\n\n$$\\sigma(n) = g(n) \\times \\sigma(t)$$\n\n当 $n$ 是质数时，$k = 1$，$t = 1$，$g(p) = 1 + p$，$\\sigma(p) = (1+p) \\times \\sigma(1) = 1 + p$，两者相等。\n\n当 $n = 1$ 时，$g(1) = \\sigma(1) = 1$，也是一致的。\n\n### 三、逐行代码解析\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvector<int> prime;\nvector<long long> g, f;\n```\n\n全局变量：`prime` 存质数表，`g` 存最小质因子等比数列和，`f` 存约数和。注意 `g` 和 `f` 用 `long long`，因为约数和可能很大。\n\n#### 3.1 f_sieve —— 线性筛求约数和\n\n```cpp\nvoid f_sieve(int n)\n{\n    prime.clear();\n    prime.reserve(n / 15 + 16);\n    g.assign(n + 1, 0);\n    f.assign(n + 1, 0);\n    f[1] = g[1] = 1;\n    vector<bool> vis(n + 1, false);\n    for (int i = 2; i <= n; i++)\n    {\n        if (!vis[i])\n        {\n            g[i] = f[i] = i + 1;\n            prime.emplace_back(i);\n        }\n        for (int j = 0; prime[j] <= n / i; j++)\n        {\n            long long m = prime[j] * i;\n            vis[m] = true;\n            if (i % prime[j])\n            {\n                g[m] = 1 + prime[j];\n                f[m] = f[i] * g[m];\n            }\n            else\n            {\n                g[m] = g[i] * prime[j] + 1;\n                f[m] = f[i] / g[i] * g[m];\n                break;\n            }\n        }\n    }\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `prime.clear(); prime.reserve(n / 15 + 16);` | 清空质数表，预留空间（质数密度约 $n / \\ln n$） |\n| 2-3 | `g.assign(n + 1, 0); f.assign(n + 1, 0);` | 辅助数组和约数和数组初始化为 0 |\n| 4 | `f[1] = g[1] = 1;` | 边界 $\\sigma(1) = g(1) = 1$ |\n| 5 | `vector<bool> vis(n + 1, false);` | 标记数组，初始全 false（未被筛） |\n| 6 | `for (int i = 2; i <= n; i++)` | 外层遍历每个数 |\n| 7-10 | `if (!vis[i]) { g[i] = f[i] = i + 1; prime.emplace_back(i); }` | $i$ 未被筛 → 质数，$g(p) = f(p) = 1 + p$，加入质数表 |\n| 11 | `for (int j = 0; prime[j] <= n / i; j++)` | 内层遍历质数，`n/i` 防止越界 |\n| 12-13 | `long long m = prime[j] * i; vis[m] = true;` | 计算 $m = i \\times p_j$ 并标记为合数（用 `long long` 防溢出） |\n| 14-17 | `if (i % prime[j]) { g[m] = 1 + prime[j]; f[m] = f[i] * g[m]; }` | 情况一：$p_j$ 不整除 $i$ → 新质因子，$g(m) = 1+p$，$\\sigma(m) = \\sigma(i) \\cdot (1+p)$ |\n| 18-21 | `else { g[m] = g[i]*p+1; f[m] = f[i]/g[i]*g[m]; break; }` | 情况二：$p_j$ 整除 $i$ → 扩展等比和 $g(m) = p \\cdot g(i) + 1$，$\\sigma(m) = \\sigma(i)/g(i) \\cdot g(m)$；`break` 保证线性 |\n\n#### 3.2 手动模拟（n = 12）\n\n| $i$ | 操作 | 新增质数 | $g$ 值更新 | $f$ 值更新 |\n|-----|------|---------|-----------|-----------|\n| 2 | `vis[2]=false` → 质数 | 2 | $g(2)=3$ | $f(2)=3$ |\n| 2 | `j=0, p=2, 2≤6` | — | $g(4)=g(2) \\times 2+1=7$ | $f(4)=f(2)/g(2) \\times 7 = 7$（2%2=0, break） |\n| 3 | `vis[3]=false` → 质数 | 3 | $g(3)=4$ | $f(3)=4$ |\n| 3 | `j=0, p=2, 2≤4` | — | $g(6)=1+2=3$ | $f(6)=f(3) \\times 3 = 12$（3%2≠0） |\n| 3 | `j=1, p=3, 3≤4` | — | $g(9)=g(3) \\times 3+1=13$ | $f(9)=f(3)/g(3) \\times 13 = 13$（3%3=0, break） |\n| 4 | `vis[4]=true` → 非质数 | — | — | — |\n| 4 | `j=0, p=2, 2≤3` | — | $g(8)=g(4) \\times 2+1=15$ | $f(8)=f(4)/g(4) \\times 15 = 15$（4%2=0, break） |\n| 5 | `vis[5]=false` → 质数 | 5 | $g(5)=6$ | $f(5)=6$ |\n| 5 | `j=0, p=2, 2≤2` | — | $g(10)=1+2=3$ | $f(10)=f(5) \\times 3 = 18$（5%2≠0） |\n| 5 | `j=1, p=3, 3≤2` | — | — | （3 > 12/5=2，内层结束） |\n| 6 | `vis[6]=true` → 非质数 | — | — | — |\n| 6 | `j=0, p=2, 2≤2` | — | $g(12)=g(6) \\times 2+1=7$ | $f(12)=f(6)/g(6) \\times 7 = 28$（6%2=0, break） |\n\n**验证**：\n- $\\sigma(4) = 1+2+4 = 7$ ✓\n- $\\sigma(6) = 1+2+3+6 = 12$ ✓\n- $\\sigma(8) = 1+2+4+8 = 15$ ✓\n- $\\sigma(9) = 1+3+9 = 13$ ✓\n- $\\sigma(10) = 1+2+5+10 = 18$ ✓\n- $\\sigma(12) = 1+2+3+4+6+12 = 28$ ✓\n\n全部正确 ✓\n\n#### 3.3 main —— 预处理 + 多组查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int n, q;\n    cin >> n >> q;\n    f_sieve(n);\n    for (int i = 1; i <= q; i++)\n    {\n        int x;\n        cin >> x;\n        cout << f[x] << '\\n';\n    }\n    return 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1-2 | `int n, q; cin >> n >> q;` | 读入范围 $n$ 和查询次数 $q$ |\n| 3 | `f_sieve(n);` | 一次预处理，求出所有 $\\sigma(1..n)$ |\n| 4-7 | `for (int i = 1; i <= q; i++) { cin >> x; cout << f[x]; }` | 每次查询 $O(1)$ |\n\n#### 3.4 运行示例\n\n输入：\n```\n12 4\n4\n6\n9\n12\n```\n\n输出：\n```\n7\n12\n13\n28\n```\n\n### 四、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 预处理时间 | $O(n)$ | 每个合数被最小质因子恰好筛一次 |\n| 单次查询 | $O(1)$ | 数组下标访问 |\n| 空间 | $O(n)$ | `vis` + `g` + `f` + `prime`（质数约 $n / \\ln n$ 个） |\n\n**与单次试除法对比**：\n\n| 方法 | 预处理 | 单次查询 | $q=10^6, n=10^7$ 总耗时 |\n|------|--------|---------|------------------------|\n| 单次试除 | 无 | $O(\\sqrt{n})$ | $10^6 \\times 3162 \\approx 3.2 \\times 10^9$（超时） |\n| 线性筛 | $O(n)$ | $O(1)$ | $10^7 + 10^6 \\approx 1.1 \\times 10^7$（瞬间） |\n\n### 五、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| **大约数和查询** | 预处理后每次 $O(1)$，适合百万级查询 |\n| **约数相关计数** | 如 $\\sum_{i=1}^{n} \\sigma(i)$、亲和数判定等问题的预处理步骤 |\n| **积性函数筛法进阶** | $\\sigma$ 需要额外维护等比数列和 $g$，是线性筛积性函数中最复杂的经典案例 |\n| **配合其他积性函数** | 线性筛可同时求 $\\sigma$、$d$、$\\varphi$、$\\mu$ 等，一次筛法多个产出 |\n\n### 六、常见陷阱与注意事项\n\n#### 6.1 g 数组的含义\n\n`g[i]` 存的是 $i$ 的**最小质因子**对应的等比数列和 $1 + p + p^2 + \\cdots + p^k$，不是任意质因子的等比和，也不是约数和本身。对于质数 $p$，$g(p) = 1 + p = \\sigma(p)$，两者恰好相等，这容易造成误解。但对于质数幂 $p^k$（$k \\ge 2$），$g(p^k) = 1 + p + \\cdots + p^k \\ne \\sigma(p^k) = 1 + p + \\cdots + p^k$...实际上两者相等，因为 $p^k$ 只有一个质因子。真正的区别体现在有多个质因子时。\n\n#### 6.2 先除后乘防溢出\n\n`f[m] = f[i] / g[i] * g[m]` 必须先除后乘。因为 $g(i) = 1 + p + \\cdots + p^k$ 整除 $\\sigma(i) = g(i) \\times \\sigma(t)$，所以 $\\sigma(i) / g(i) = \\sigma(t)$ 是整数。先除得到整数 $\\sigma(t)$，再乘 $g(m)$ 不溢出。若写成 `f[i] * g[m] / g[i]`，中间值 `f[i] * g[m]` 可能溢出 `long long`。\n\n#### 6.3 vis 数组不能省去\n\n与线性筛求欧拉函数不同，本代码**不能**用 `!f[i]` 代替 `vis[i]` 判质数。因为 $f(1) = 1$ 非零，质数的 $f(p) = 1 + p$ 也非零，合数的 $f$ 值也非零——$f$ 数组中没有值为 0 的元素可用于标记\"未访问\"。因此必须额外维护 `vis` 数组。\n\n#### 6.4 long long 的必要性\n\n约数和 $\\sigma(n)$ 可能远大于 $n$。例如 $\\sigma(2520) = \\sigma(2^3 \\times 3^2 \\times 5 \\times 7) = 15 \\times 13 \\times 6 \\times 8 = 9360$，是 $n$ 的 3.7 倍。当 $n = 10^6$ 时，$\\sigma$ 值可能超过 `int` 上限。因此 `g` 和 `f` 数组必须用 `long long`。\n\n#### 6.5 m 的类型\n\n`long long m = prime[j] * i;` 中 `m` 用 `long long` 而非 `int`。虽然 `prime[j] * i <= n` 不会溢出 `int`，但后续 `g[m]` 和 `f[m]` 的下标访问需要正确的下标值，使用 `long long` 更安全。\n\n#### 6.6 break 的位置\n\n必须在 `i % prime[j] == 0` 时立即 `break`，否则合数会被多个质因子重复标记，复杂度退化为 $O(n \\log \\log n)$。`break` 是保证线性时间的关键。\n\n#### 6.7 质数 f 和 g 值的赋值位置\n\n$g(p) = f(p) = 1 + p$ 在发现质数时赋值（外层 `if (!vis[i])` 分支），而不是在内层循环中。因为质数只会在外层被识别，不会作为合数 $i \\times p_j$ 被标记。\n\n### 七、对比与扩展\n\n#### 7.1 三种线性筛积性函数对比\n\n| 维度 | 求 $\\varphi$ | 求 $d$ | 求 $\\sigma$ |\n|------|-------------|--------|------------|\n| 辅助数组 | 无 | $a[\\,]$（最小质因子指数） | $g[\\,]$（最小质因子等比和） |\n| 质数标记 | `!phi[i]` 兼作标记 | 必须额外 `vis[]` | 必须额外 `vis[]` |\n| 情况一递推 | $(p-1) \\cdot \\varphi(i)$ | $2 \\cdot d(i)$ | $(1+p) \\cdot \\sigma(i)$ |\n| 情况二递推 | $p \\cdot \\varphi(i)$ | $d(i)/a(m) \\cdot (a(m)+1)$ | $\\sigma(i)/g(i) \\cdot g(m)$ |\n| 辅助数组更新 | 无 | $a(m) = a(i)+1$ | $g(m) = g(i) \\cdot p + 1$ |\n| 数据类型 | `int` 足够 | `int` 足够 | 必须 `long long` |\n| 递推复杂度 | 直接乘法 | 先除后乘 | 先除后乘 |\n\n求 $\\sigma$ 是三种中最复杂的：需要维护等比数列和 $g$，且结果可能溢出 `int`。但核心思想一致——利用积性，对最小质因子\"新出现\"和\"重复出现\"分两种情况递推。\n\n#### 7.2 等比数列和 g 的递推公式\n\n$g$ 的递推 $g(m) = g(i) \\times p + 1$ 来自等比数列的扩展：\n\n$$g(i) = 1 + p + p^2 + \\cdots + p^k$$\n\n$$g(m) = 1 + p + p^2 + \\cdots + p^{k+1} = p \\times (1 + p + \\cdots + p^k) + 1 = p \\times g(i) + 1$$\n\n这个递推避免了直接计算 $p^{k+1}$，只需一次乘法和一次加法。\n\n#### 7.3 用线性筛求其他积性函数\n\n线性筛的框架是通用的，只要知道函数在\"最小质因子新出现\"和\"最小质因子重复出现\"两种情况下的递推关系，就能在线性时间内求出。常见的：\n\n| 函数 | $i \\bmod p \\neq 0$ | $i \\bmod p = 0$ | 额外信息 |\n|------|---------------------|------------------|---------|\n| 欧拉函数 $\\varphi$ | $(p-1) \\cdot \\varphi(i)$ | $p \\cdot \\varphi(i)$ | 无 |\n| 约数个数 $d$ | $2 \\cdot d(i)$ | $d(i) / a(m) \\cdot (a(m)+1)$ | 最小质因子指数 $a$ |\n| 约数和 $\\sigma$ | $(1+p) \\cdot \\sigma(i)$ | $\\sigma(i)/g(i) \\cdot g(m)$ | 最小质因子等比和 $g$ |\n| 莫比乌斯函数 $\\mu$ | $-\\mu(i)$ | $0$ | 无 |\n\n#### 7.4 三种筛法的统一框架\n\n三个线性筛知识点（求 $\\varphi$、求 $d$、求 $\\sigma$）共享相同的外层循环和内层 `break` 机制，区别仅在于：\n\n1. **质数时的赋值**：$\\varphi(p) = p-1$，$d(p) = 2$，$\\sigma(p) = 1+p$\n2. **情况一的递推**：分别用 $(p-1)$、$2$、$(1+p)$ 乘\n3. **情况二的递推**：$\\varphi$ 直接乘 $p$；$d$ 需要辅助数组 $a$；$\\sigma$ 需要辅助数组 $g$\n4. **辅助数组的更新**：$a(m) = a(i)+1$（指数+1），$g(m) = g(i) \\cdot p + 1$（等比和扩展）\n\n理解了这套统一框架，就能举一反三地用线性筛求任意积性函数。\n\n#### 7.5 一句话总结\n\n线性筛求约数和是线性筛积性函数中最复杂的经典案例：在 $O(n)$ 时间内求出 $[1, n]$ 内所有 $\\sigma(i)$。核心在于额外维护最小质因子等比数列和数组 $g$，对每个合数 $i \\cdot p_j$ 分两种情况递推——$p_j$ 不整除 $i$ 时 $\\sigma(ip) = (1+p) \\cdot \\sigma(i)$，整除时 $g(ip) = p \\cdot g(i) + 1$，$\\sigma(ip) = \\sigma(i)/g(i) \\cdot g(ip)$。与求 $d$ 类似，求 $\\sigma$ 也无法用 $f$ 数组本身判质数，必须额外维护 `vis` 标记数组，且 $g$ 和 $f$ 必须用 `long long` 防溢出。",
+        "timeComplexity": "O(n log log n)（埃氏筛）/ O(n)（线性筛）",
         "spaceComplexity": "O(n)",
         "tags": [
             "数学",
@@ -13298,21 +13360,23 @@ const KNOWLEDGE_DATA = [
             "素数",
             "筛法",
             "埃氏筛",
-            "预处理"
+            "线性筛",
+            "欧拉筛",
+            "积性函数"
         ],
-        "codePath": "数学\\数论基础\\埃氏筛\\源.cpp",
+        "codePath": "数学\\数论基础\\线性筛求欧拉函数\\源.cpp",
         "prerequisites": [
             "hub-math",
-            "hub-math-number-theory"
+            "hub-math-number-theory",
+            "math-euler-phi"
         ],
         "related": [
             "math-gcd-lcm",
             "math-quick-pow-basic",
             "math-euler-phi",
-            "math-linear-sieve-phi",
-            "math-linear-sieve-divisor-count",
-            "math-linear-sieve-divisor-sum"
-        ]
+            "math-modular-inverse"
+        ],
+        "parent": ""
     },
     {
         "id": "math-special-angle-method",
@@ -13350,7 +13414,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-math"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "math-stars-and-bars",
@@ -13414,7 +13479,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-combination-dfs",
             "math-lcm-pair-count"
-        ]
+        ],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-stirling",
@@ -13453,7 +13519,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-combinatorics"
         ],
-        "related": []
+        "related": [],
+        "parent": "math-combinatorics"
     },
     {
         "id": "math-triangle-area-existence",
@@ -13492,7 +13559,8 @@ const KNOWLEDGE_DATA = [
             "hub-math",
             "math-cartesian-plane"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "str-ac-automaton",
@@ -13552,7 +13620,8 @@ const KNOWLEDGE_DATA = [
             "ds-trie",
             "hub-str"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "str-hash",
@@ -13627,7 +13696,8 @@ const KNOWLEDGE_DATA = [
             "ds-trie",
             "str-kmp",
             "str-sunday"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "str-kmp",
@@ -13689,7 +13759,8 @@ const KNOWLEDGE_DATA = [
             "str-minimal-representation",
             "str-sunday",
             "ds-trie"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "str-manacher",
@@ -13759,7 +13830,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "hub-str"
         ],
-        "related": []
+        "related": [],
+        "parent": ""
     },
     {
         "id": "str-minimal-representation",
@@ -13803,7 +13875,8 @@ const KNOWLEDGE_DATA = [
             "str-hash",
             "basic-two-pointer-cycle",
             "str-kmp"
-        ]
+        ],
+        "parent": ""
     },
     {
         "id": "str-sunday",
@@ -13846,7 +13919,8 @@ const KNOWLEDGE_DATA = [
         "related": [
             "str-kmp",
             "str-hash"
-        ]
+        ],
+        "parent": ""
     }
 ];
 

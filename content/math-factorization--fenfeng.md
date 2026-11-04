@@ -1,5 +1,5 @@
 ---
-id: math-pollard-rho
+id: math-factorization
 title: 'Pollard-Rho 质因数分解'
 category: 数学
 subcategory: 数论基础

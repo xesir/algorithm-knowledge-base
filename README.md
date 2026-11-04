@@ -157,3 +157,13 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - 新增 10 个总览父页（DP 4、图论 4、基础算法 1、字符串 1）；已有总述（线段树/分块/背包/平衡树/可持久化、搜索/分治/贪心/排序/高精度、STL/调试/语法/随机化/IO/其他/初赛、数论/数学基础/矩阵）提升为父页；合并 10 组同题条目（数据结构 6 + DP 1 + 图论 2 + 数学 1）。
 - 规模：知识点 **285** 篇 · 题目 **198** 道 · **259** 个代码文件 · **7** 个大类；门禁 error 0 / warning 3。
 - 回档点：提交 `0a16a5b` + tag `backup-before-all-category-hierarchy` + `backup_AKB_20261101.zip`，详见 [`docs/会话纪要-2026-11-01.md`](docs/会话纪要-2026-11-01.md) 第 6 节。
+
+## 备注（2026-11-01 · 新增/修改内容的必填信息）
+
+现在新增一个知识点或题目，需要填的信息比早期更多。**操作前请先读 [`docs/会话纪要-2026-11-01.md`](docs/会话纪要-2026-11-01.md) 第 7 节**（新增/修改必读清单），要点如下：
+
+- **知识点先定层级**：属于哪个父栏目就在 `knowledge_graph.json` 写 `parent`，并把父 id 加进 `prerequisites`；同一子分类 ≥3 条且是多方面应用时先建/提升总览父页；只有 2 条同题同作者才合并；2 条但跨作者/主题不同必须先问。
+- **frontmatter 更完整**：`id`、`title`、`category`、`subcategory`、`tags`、`timeComplexity`、`spaceComplexity`、`level`、`codePath`（无代码用 `noCode`）、`verified`；作者版另填 `source` 并在 `AUTHOR_KEYS` 登记。
+- **正文**：算法类 7 章 / 数据结构类 8 章；逐行解析按模块拆，代码块拼接 = `.cpp`（W028）。
+- **题目**：`oj` / `problemId` / `difficulty` / `cfRating` / `category` / `tags` / 复杂度 / `codePath` / `source` 必填；`knowledgePoints` 只能引用现存 base id（合并后要用新 id）；样例必须实跑。
+- **交付前**：`node tools/lint.js`（error 0）→ `node build.js` → 浏览器验收 → 同步 `AGENTS.md` / `PROJECT_FRAMEWORK.md` / `docs/让AI了解本站-提示词.md` / 本 README 的数量。

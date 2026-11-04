@@ -153,7 +153,7 @@ function build() {
     let warnings = [];
 
     // 作者映射：文件名后缀 --key → 显示名（未来加新人在这里扩展）
-    const AUTHOR_KEYS = { fenfeng: 'Fohen', xesir: 'Xesir', lker: 'lker', 'stripe-python': 'stripe-python' };
+    const AUTHOR_KEYS = { fenfeng: 'Fohen', xesir: 'Xesir', lker: 'lker', 'stripe-python': 'stripe-python', renzhaoyang: 'renzhaoyang', dbywsc: 'dbywsc' };
 
     // 解析所有 .md 文件，按 base id 分组（同 id 多版本）
     const versionGroups = new Map(); // baseId -> versions[]

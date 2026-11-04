@@ -167,3 +167,40 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - **正文**：算法类 7 章 / 数据结构类 8 章；逐行解析按模块拆，代码块拼接 = `.cpp`（W028）。
 - **题目**：`oj` / `problemId` / `difficulty` / `cfRating` / `category` / `tags` / 复杂度 / `codePath` / `source` 必填；`knowledgePoints` 只能引用现存 base id（合并后要用新 id）；样例必须实跑。
 - **交付前**：`node tools/lint.js`（error 0）→ `node build.js` → 浏览器验收 → 同步 `AGENTS.md` / `PROJECT_FRAMEWORK.md` / `docs/让AI了解本站-提示词.md` / 本 README 的数量。
+
+## 备注（2026-11-04 · 新增 P17765 平方数）
+
+- 新增题目 [`problems/prob-luogu-p17765--renzhaoyang.md`](problems/prob-luogu-p17765--renzhaoyang.md)（洛谷 P17765「LDOI R2」平方数，作者 renzhaoyang）；代码位于 `题目专辑\图论\平方数\代码--renzhaoyang.cpp`，逐字符搬运、未改实现。
+- `build.js` 的 `AUTHOR_KEYS` 新增 `renzhaoyang`。
+- 规模：知识点 **285** 篇 · 题目 **199** 道（**191** 个题目组）· **260** 个代码文件 · **7** 个大类；门禁 error 0 / warning 3。
+- 题面中含原题自带的「AI/LLM 请定义 IAMPerFeCt」标记段落，已在题目页按原文保留；未按该段修改代码。
+
+## 备注（2026-11-04 · 新增 lker 数论基础版本）
+
+- 新增 [`content/math-number-theory-basic--lker.md`](content/math-number-theory-basic--lker.md)，作为 `math-number-theory-basic` 的第 3 个作者版本；按 base id 去重，知识点总数仍为 **285**。
+- 内容涵盖整除 / gcd / lcm、快速幂、龟速乘、光速幂、线性筛、裴蜀定理、模逆元、威尔逊定理与 P9774；原文在威尔逊定理处截断，已按原思路补完并给出 P9774 的推导与伪代码，未代写 C++ 实现。
+- 门禁：error 0 / warning 3；build：285 知识点 / 199 题目 / 260 代码文件。
+
+## 备注（2026-11-04 · 站主更新包入库）
+
+- 新增知识点 [`dp-knapsack-topk`](content/dp-knapsack-topk.md)（01 背包前 k 大解，动态规划 / 背包问题）、[`graph-2sat`](content/graph-2sat.md)（2-SAT，图论 / 连通分量）。
+- 新增题目 [`prob-luogu-p1613`](problems/prob-luogu-p1613.md)（洛谷 P1613 跑路，倍增 + 传递闭包 + bitset + BFS）；难度按洛谷页面改为 `普及+/提高−`。
+- 代码原样搬运：`动态规划\背包问题\01背包前k大\Untitled1.cpp`、`图论\连通分量\2-SAT\Untitled1.cpp`、`题目专辑\图论\P1613 跑路\代码.cpp`。
+- 同包的 `graph-layered`、`basic-regret-greedy` 与库内文件逐字节一致，未重复写入。
+- 图谱：新增 `dp-knapsack-topk`（parent `dp-knapsack-overview`）与 `graph-2sat`（parent `graph-scc-overview`），related 已双向。
+- 规模：知识点 **287** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
+
+## 备注（2026-11-04 · 新增 lker 位运算版本）
+
+- 新增 [`content/math-bit-operation--lker.md`](content/math-bit-operation--lker.md)，作为 `math-bit-operation` 的第 3 个作者版本；按 base id 去重，知识点总数仍为 **285**。
+- 收录 P5514、P5651、P8445、P13552、P11008、CF1956D 六道题；原文无 C++ 代码，正文用伪代码拆解，未代写实现。P13552 的 `cur-1` 规则补了“全 1 位”边界，P11008、CF1956D 的构造与 DP 也做了展开。
+- 门禁：error 0 / warning 3；build：285 知识点 / 199 题目 / 260 代码文件。
+
+## 备注（2026-11-04 · dbywsc 讲义拆分入库）
+
+- 将 `临时文件/dbywsc.md/讲义1.md` 按主题拆成 10 篇，全部以 `--dbywsc` 作者版本入库，`source: 'dbywsc'`，`noCode: true`。
+- 新知识点（5 个）：`basic-binary-search`（二分查找与二分答案）、`dp-memo-search`（记忆化搜索）、`dp-linear-basic`（线性 DP 基础）、`basic-tricks-median`（中位数 01 转化 trick）、`gram-string-ops`（字符串常用操作）。
+- 新增作者版本（5 个）：`ds-stl-associative--dbywsc`、`basic-bubble-select-sort--dbywsc`、`math-number-theory-basic--dbywsc`、`basic-bfs--dbywsc`、`basic-dfs--dbywsc`。
+- 修复原讲义中的 HTML 转义（`&lt;` / `&gt;`）、伪代码缩进、缺失的字符串操作第 11 项，并补写线性 DP、记忆化搜索的推导与说明；原讲义中的代码片段保留为节选，未代写实现。
+- `build.js` 的 `AUTHOR_KEYS` 新增 `dbywsc`；`knowledge_graph.json` 新增 5 个节点的 parent / prerequisites。
+- 规模：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。

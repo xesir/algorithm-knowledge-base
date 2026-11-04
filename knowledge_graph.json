@@ -606,7 +606,8 @@
             "related": [
                 "dp-01bag-standard",
                 "dp-count-01bag",
-                "dp-01bag-2d"
+                "dp-01bag-2d",
+                "dp-knapsack-topk"
             ],
             "parent": "dp-knapsack-overview"
         },
@@ -617,7 +618,20 @@
             ],
             "related": [
                 "dp-01bag-standard",
-                "dp-01bag-record"
+                "dp-01bag-record",
+                "dp-knapsack-topk"
+            ],
+            "parent": "dp-knapsack-overview"
+        },
+        "dp-knapsack-topk": {
+            "prerequisites": [
+                "hub-dp",
+                "dp-knapsack-overview",
+                "dp-01bag-standard"
+            ],
+            "related": [
+                "dp-01bag-record",
+                "dp-count-01bag"
             ],
             "parent": "dp-knapsack-overview"
         },
@@ -1311,7 +1325,19 @@
                 "graph-topo-sort",
                 "graph-e-dcc-condensation",
                 "graph-tarjan-cut-vertex",
-                "graph-scc-dag-dp"
+                "graph-scc-dag-dp",
+                "graph-2sat"
+            ],
+            "parent": "graph-scc-overview"
+        },
+        "graph-2sat": {
+            "prerequisites": [
+                "hub-graph",
+                "graph-scc-overview",
+                "graph-tarjan-scc"
+            ],
+            "related": [
+                "graph-scc-condensation"
             ],
             "parent": "graph-scc-overview"
         },
@@ -1578,6 +1604,14 @@
             "parent": "hub-basic-search"
         },
         "basic-bfs": {
+            "prerequisites": [
+                "hub-basic",
+                "hub-basic-search"
+            ],
+            "related": [],
+            "parent": "hub-basic-search"
+        },
+        "basic-binary-search": {
             "prerequisites": [
                 "hub-basic",
                 "hub-basic-search"
@@ -2461,6 +2495,13 @@
             ],
             "related": []
         },
+        "gram-string-ops": {
+            "prerequisites": [
+                "hub-gram"
+            ],
+            "related": [],
+            "parent": "hub-gram"
+        },
         "hub-utility": {
             "prerequisites": [],
             "related": []
@@ -3046,6 +3087,22 @@
             ],
             "related": []
         },
+        "dp-memo-search": {
+            "prerequisites": [
+                "hub-dp",
+                "basic-dfs"
+            ],
+            "related": [],
+            "parent": "hub-dp"
+        },
+        "dp-linear-basic": {
+            "prerequisites": [
+                "hub-dp",
+                "dp-linear-overview"
+            ],
+            "related": [],
+            "parent": "dp-linear-overview"
+        },
         "dp-tree-overview": {
             "prerequisites": [
                 "hub-dp"
@@ -3093,6 +3150,15 @@
                 "hub-basic"
             ],
             "related": []
+        },
+        "basic-tricks-median": {
+            "prerequisites": [
+                "hub-basic",
+                "basic-tricks-overview",
+                "basic-binary-search"
+            ],
+            "related": [],
+            "parent": "basic-tricks-overview"
         },
         "str-match-overview": {
             "prerequisites": [

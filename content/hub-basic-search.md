@@ -2,7 +2,7 @@
 id: hub-basic-search
 title: '搜索总述'
 category: '基础算法'
-subcategory: '总述'
+subcategory: '搜索'
 tags: ['搜索', 'DFS', 'BFS', '折半搜索']
 timeComplexity: '按子条目而定'
 spaceComplexity: '按子条目而定'

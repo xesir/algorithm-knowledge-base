@@ -2,7 +2,7 @@
 id: hub-basic-divide
 title: '分治总述'
 category: '基础算法'
-subcategory: '总述'
+subcategory: '分治'
 tags: ['分治', '二分', '根号分治', '总述']
 timeComplexity: '按子条目而定'
 spaceComplexity: '按子条目而定'

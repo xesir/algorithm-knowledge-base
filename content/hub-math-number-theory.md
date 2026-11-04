@@ -2,7 +2,7 @@
 id: hub-math-number-theory
 title: '数论总述'
 category: '数学'
-subcategory: '总述'
+subcategory: '数论基础'
 tags: ['数论', '总述', '学习路线']
 timeComplexity: '按子条目而定'
 spaceComplexity: '按子条目而定'

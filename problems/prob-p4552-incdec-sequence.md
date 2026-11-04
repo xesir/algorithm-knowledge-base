@@ -7,7 +7,7 @@ difficulty: '普及+/提高−'
 cfRating: 'NaN'
 category: '数据结构'
 tags: ["差分", "贪心", "计数", "差分数组"]
-knowledgePoints: ["ds-diff-1d", "ds-diff-2d", "ds-diff-tree"]
+knowledgePoints: ["ds-diff-1d", "ds-prefix-sum-2d", "ds-prefix-sum-tree"]
 timeComplexity: 'O(n)'
 spaceComplexity: 'O(n)'
 codePath: '题目专辑\数据结构\IncDec序列\源.cpp'

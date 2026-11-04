@@ -2,7 +2,7 @@
 id: hub-ds-segtree
 title: '线段树总述'
 category: '数据结构'
-subcategory: '总述'
+subcategory: '线段树'
 tags: ['线段树', '可持久化线段树', '总述', '学习路线']
 timeComplexity: '按子条目而定'
 spaceComplexity: '按子条目而定'

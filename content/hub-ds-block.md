@@ -2,7 +2,7 @@
 id: hub-ds-block
 title: '分块总述'
 category: '数据结构'
-subcategory: '总述'
+subcategory: '分块'
 tags: ['分块', '莫队', '总述', '学习路线']
 timeComplexity: '按子条目而定'
 spaceComplexity: '按子条目而定'

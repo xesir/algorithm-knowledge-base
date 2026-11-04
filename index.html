@@ -2019,18 +2019,34 @@
                     html += '</div>';
                     html += '<div class="subcategory-body">';
                     var ssubs = subs[sub];
-                    Object.keys(ssubs).sort().forEach(function(ssub) {
-                        if (ssub) {
-                            html += '<div class="subsubcategory">' + escHtml(ssub) + '</div>';
-                        }
-                        var grouped = splitKpHierarchy(ssubs[ssub]);
+                    var allItems = [];
+                    Object.keys(ssubs).forEach(function(k) { allItems = allItems.concat(ssubs[k]); });
+                    var hasParent = allItems.some(function(k) {
+                        return k.parent && allItems.some(function(x) { return x.id === k.parent; });
+                    });
+                    if (hasParent) {
+                        // 该子分类存在三级父子关系：整组按父子层级渲染（跨 subSubcategory 也生效）
+                        var grouped = splitKpHierarchy(allItems);
                         grouped.roots.forEach(function(kp) {
-                            html += kpItemHtml(kp, ssub ? ' kp-item-sub' : '');
+                            html += kpItemHtml(kp, '');
                             (grouped.children[kp.id] || []).forEach(function(child) {
                                 html += kpItemHtml(child, ' kp-item-child');
                             });
                         });
-                    });
+                    } else {
+                        Object.keys(ssubs).sort().forEach(function(ssub) {
+                            if (ssub) {
+                                html += '<div class="subsubcategory">' + escHtml(ssub) + '</div>';
+                            }
+                            var grouped = splitKpHierarchy(ssubs[ssub]);
+                            grouped.roots.forEach(function(kp) {
+                                html += kpItemHtml(kp, ssub ? ' kp-item-sub' : '');
+                                (grouped.children[kp.id] || []).forEach(function(child) {
+                                    html += kpItemHtml(child, ' kp-item-child');
+                                });
+                            });
+                        });
+                    }
                     html += '</div></div>';
                 });
 
@@ -2417,18 +2433,33 @@
                         '<span class="subcategory-link" onclick="event.stopPropagation(); showCategoryOverview(\'' + escAttr(cat) + '\')" title="点击查看分类详情">' + escHtml(sub) + '</span>' +
                         '<span class="catalog-subtitle-count">' + subCount + ' 个</span></div>';
                     html += '<ul class="catalog-kp-list">';
-                    Object.keys(ssubs).sort().forEach(function(ssub) {
-                        if (ssub) {
-                            html += '<li class="catalog-subsub-title">' + escHtml(ssub) + '</li>';
-                        }
-                        var grouped = splitKpHierarchy(ssubs[ssub]);
+                    var allItems = [];
+                    Object.keys(ssubs).forEach(function(k) { allItems = allItems.concat(ssubs[k]); });
+                    var hasParent = allItems.some(function(k) {
+                        return k.parent && allItems.some(function(x) { return x.id === k.parent; });
+                    });
+                    if (hasParent) {
+                        var grouped = splitKpHierarchy(allItems);
                         grouped.roots.forEach(function(kp) {
                             html += catalogKpItemHtml(kp, false);
                             (grouped.children[kp.id] || []).forEach(function(child) {
                                 html += catalogKpItemHtml(child, true);
                             });
                         });
-                    });
+                    } else {
+                        Object.keys(ssubs).sort().forEach(function(ssub) {
+                            if (ssub) {
+                                html += '<li class="catalog-subsub-title">' + escHtml(ssub) + '</li>';
+                            }
+                            var grouped = splitKpHierarchy(ssubs[ssub]);
+                            grouped.roots.forEach(function(kp) {
+                                html += catalogKpItemHtml(kp, false);
+                                (grouped.children[kp.id] || []).forEach(function(child) {
+                                    html += catalogKpItemHtml(child, true);
+                                });
+                            });
+                        });
+                    }
                     html += '</ul></div>';
                 });
                 html += '</div></div></div>';
@@ -2446,9 +2477,11 @@
         // 分类目录块：分类概览页与大类总述页共用（excludeHubs 时不重复列出总述条目）
         function buildCategoryDirectory(catName, excludeHubs) {
             var subs = {};
+            var hasChild = {};
+            KNOWLEDGE_DATA.forEach(function(k) { if (k.parent) hasChild[k.parent] = 1; });
             KNOWLEDGE_DATA.forEach(function(kp) {
                 if (kp.category !== catName) return;
-                if (excludeHubs && kp.hub) return;
+                if (excludeHubs && kp.hub && !hasChild[kp.id]) return;
                 if (!subs[kp.subcategory]) subs[kp.subcategory] = {};
                 var ssub = kp.subSubcategory || '';
                 if (!subs[kp.subcategory][ssub]) subs[kp.subcategory][ssub] = [];
@@ -2467,6 +2500,16 @@
                     html += '<p class="subcategory-block-desc">' + escHtml(subMeta.description) + '</p>';
                 }
                 html += '<div class="subcategory-kp-grid">';
+                var allItems = [];
+                Object.keys(ssubs).forEach(function(k) { allItems = allItems.concat(ssubs[k]); });
+                var hasParent = allItems.some(function(k) {
+                    return k.parent && allItems.some(function(x) { return x.id === k.parent; });
+                });
+                if (hasParent) {
+                    html += renderKpCardList(allItems);
+                    html += '</div></div>';
+                    return;
+                }
                 var flatKps = [];
                 var ssubGroups = [];
                 Object.keys(ssubs).sort().forEach(function(ssub) {

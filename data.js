@@ -44,7 +44,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-bfs-bidirectional"
         ],
-        "parent": ""
+        "parent": "hub-basic-search"
     },
     {
         "id": "basic-base-conversion",
@@ -144,7 +144,7 @@ const KNOWLEDGE_DATA = [
             "hub-basic-search"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-basic-search"
     },
     {
         "id": "basic-bfs-bidirectional",
@@ -193,7 +193,7 @@ const KNOWLEDGE_DATA = [
             "graph-dijkstra-heap",
             "basic-astar"
         ],
-        "parent": ""
+        "parent": "hub-basic-search"
     },
     {
         "id": "basic-big-integer-library",
@@ -235,7 +235,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-high-precision"
         ],
-        "parent": ""
+        "parent": "basic-high-precision"
     },
     {
         "id": "basic-bitset-general",
@@ -284,7 +284,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-bitset"
         ],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "basic-bitset",
@@ -329,7 +329,7 @@ const KNOWLEDGE_DATA = [
             "basic-bitset-general",
             "basic-sqrt-decomposition"
         ],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "basic-bubble-select-sort",
@@ -436,7 +436,7 @@ const KNOWLEDGE_DATA = [
             "math-stars-and-bars",
             "basic-bfs-bidirectional"
         ],
-        "parent": ""
+        "parent": "hub-basic-search"
     },
     {
         "id": "basic-dfs",
@@ -493,7 +493,7 @@ const KNOWLEDGE_DATA = [
             "hub-basic-search"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-basic-search"
     },
     {
         "id": "basic-digit-power-cycle-self",
@@ -585,7 +585,7 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-discretize",
             "ds-bit-point-range"
         ],
-        "parent": ""
+        "parent": "hub-utility-other"
     },
     {
         "id": "basic-divide-conquer-closest-pair",
@@ -633,7 +633,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-divide-conquer-merge-inversion"
         ],
-        "parent": ""
+        "parent": "hub-basic-divide"
     },
     {
         "id": "basic-divide-conquer-merge-inversion",
@@ -678,12 +678,12 @@ const KNOWLEDGE_DATA = [
             "ds-bit-point-range",
             "basic-interval-merge",
             "basic-divide-conquer-closest-pair",
-            "graph-bipartite-hungarian",
+            "graph-bipartite-dfs-coloring",
             "basic-quickselect-kth",
             "basic-radix-sort-k",
             "basic-shell-sort"
         ],
-        "parent": ""
+        "parent": "hub-basic-divide"
     },
     {
         "id": "basic-doubling",
@@ -839,7 +839,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-greedy-snow-shoveling"
         ],
-        "parent": ""
+        "parent": "basic-greedy"
     },
     {
         "id": "basic-greedy-snow-shoveling",
@@ -881,7 +881,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-greedy-block-building"
         ],
-        "parent": ""
+        "parent": "basic-greedy"
     },
     {
         "id": "basic-high-precision",
@@ -939,7 +939,7 @@ const KNOWLEDGE_DATA = [
             "hub-basic"
         ],
         "related": [
-            "math-quick-pow-highprecision",
+            "math-quick-pow-basic",
             "dp-digit-count",
             "basic-big-integer-library"
         ],
@@ -984,7 +984,7 @@ const KNOWLEDGE_DATA = [
             "basic-high-precision"
         ],
         "related": [],
-        "parent": ""
+        "parent": "basic-high-precision"
     },
     {
         "id": "basic-interactive-models",
@@ -1020,10 +1020,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-tricks-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "basic-tricks-overview"
     },
     {
         "id": "basic-interval-merge",
@@ -1063,13 +1064,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "基础算法\\贪心\\区间合并\\Untitled1.cpp",
         "prerequisites": [
-            "basic-interval-scheduling"
+            "basic-interval-scheduling",
+            "basic-greedy"
         ],
         "related": [
             "basic-interval-scheduling",
             "basic-divide-conquer-merge-inversion"
         ],
-        "parent": ""
+        "parent": "basic-greedy"
     },
     {
         "id": "basic-interval-scheduling",
@@ -1109,12 +1111,13 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "基础算法\\贪心\\区间调度\\Untitled1.cpp",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-greedy"
         ],
         "related": [
             "basic-interval-merge"
         ],
-        "parent": ""
+        "parent": "basic-greedy"
     },
     {
         "id": "basic-kittengen",
@@ -1154,7 +1157,7 @@ const KNOWLEDGE_DATA = [
             "basic-stress-random-basic"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-meet-in-middle-binary-search",
@@ -1204,7 +1207,7 @@ const KNOWLEDGE_DATA = [
             "basic-permutation-dfs",
             "basic-combination-dfs"
         ],
-        "parent": ""
+        "parent": "hub-basic-search"
     },
     {
         "id": "basic-meet-in-middle-two-pointer",
@@ -1252,7 +1255,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-meet-in-middle-binary-search"
         ],
-        "parent": ""
+        "parent": "hub-basic-search"
     },
     {
         "id": "basic-offline",
@@ -1308,7 +1311,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-other"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-other"
     },
     {
         "id": "basic-permutation-dfs",
@@ -1357,7 +1360,7 @@ const KNOWLEDGE_DATA = [
             "basic-bfs-bidirectional",
             "graph-bipartite-dfs-coloring"
         ],
-        "parent": ""
+        "parent": "hub-basic-search"
     },
     {
         "id": "basic-problem-solving-patterns",
@@ -1393,10 +1396,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-tricks-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "basic-tricks-overview"
     },
     {
         "id": "basic-quickselect-kth",
@@ -1449,7 +1453,7 @@ const KNOWLEDGE_DATA = [
             "basic-radix-sort-k",
             "basic-random-mt19937"
         ],
-        "parent": ""
+        "parent": "hub-basic-divide"
     },
     {
         "id": "basic-radix-sort-k",
@@ -1489,14 +1493,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "基础算法\\排序\\k进制基数排序\\源.cpp",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-bubble-select-sort"
         ],
         "related": [
             "basic-quickselect-kth",
             "basic-divide-conquer-merge-inversion",
             "basic-shell-sort"
         ],
-        "parent": ""
+        "parent": "basic-bubble-select-sort"
     },
     {
         "id": "basic-random-mt19937",
@@ -1540,7 +1545,7 @@ const KNOWLEDGE_DATA = [
             "basic-quickselect-kth",
             "basic-random-sa-point"
         ],
-        "parent": ""
+        "parent": "hub-utility-random"
     },
     {
         "id": "basic-random-sa-permutation",
@@ -1584,7 +1589,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-random-sa-point"
         ],
-        "parent": ""
+        "parent": "hub-utility-random"
     },
     {
         "id": "basic-random-sa-point",
@@ -1629,7 +1634,7 @@ const KNOWLEDGE_DATA = [
             "basic-random-mt19937",
             "basic-random-sa-permutation"
         ],
-        "parent": ""
+        "parent": "hub-utility-random"
     },
     {
         "id": "basic-regret-greedy",
@@ -1675,7 +1680,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-greedy"
         ],
-        "parent": ""
+        "parent": "basic-greedy"
     },
     {
         "id": "basic-shell-sort",
@@ -1713,13 +1718,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "基础算法\\排序\\希尔排序\\源.cpp",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-bubble-select-sort"
         ],
         "related": [
             "basic-radix-sort-k",
             "basic-divide-conquer-merge-inversion"
         ],
-        "parent": ""
+        "parent": "basic-bubble-select-sort"
     },
     {
         "id": "basic-space-test",
@@ -1760,7 +1766,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-timing"
         ],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-sqrt-decomposition",
@@ -1849,7 +1855,7 @@ const KNOWLEDGE_DATA = [
             "basic-timing"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-stress-checker",
@@ -1891,7 +1897,7 @@ const KNOWLEDGE_DATA = [
             "basic-stress-basic"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-stress-graph-gen",
@@ -1935,7 +1941,7 @@ const KNOWLEDGE_DATA = [
             "basic-stress-random-basic"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-stress-interactive",
@@ -1977,7 +1983,7 @@ const KNOWLEDGE_DATA = [
             "basic-stress-basic"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-stress-precision",
@@ -2019,7 +2025,7 @@ const KNOWLEDGE_DATA = [
             "basic-stress-basic"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-stress-random-basic",
@@ -2061,7 +2067,7 @@ const KNOWLEDGE_DATA = [
             "basic-random-mt19937"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-stress-tree-gen",
@@ -2105,7 +2111,7 @@ const KNOWLEDGE_DATA = [
             "basic-stress-random-basic"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-template-header",
@@ -2161,7 +2167,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-other"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-other"
     },
     {
         "id": "basic-ternary-search",
@@ -2203,7 +2209,7 @@ const KNOWLEDGE_DATA = [
             "hub-basic-divide"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-basic-divide"
     },
     {
         "id": "basic-timing",
@@ -2260,7 +2266,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-space-test"
         ],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "basic-tricks-dp",
@@ -2296,10 +2302,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-tricks-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "basic-tricks-overview"
     },
     {
         "id": "basic-tricks-ds",
@@ -2335,10 +2342,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-tricks-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "basic-tricks-overview"
     },
     {
         "id": "basic-tricks-graph",
@@ -2374,10 +2382,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-tricks-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "basic-tricks-overview"
     },
     {
         "id": "basic-tricks-math",
@@ -2410,6 +2419,48 @@ const KNOWLEDGE_DATA = [
             "位运算",
             "曼哈顿距离",
             "抽屉原理"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-basic",
+            "basic-tricks-overview"
+        ],
+        "related": [],
+        "parent": "basic-tricks-overview"
+    },
+    {
+        "id": "basic-tricks-overview",
+        "category": "基础算法",
+        "subcategory": "优化技巧",
+        "subSubcategory": "",
+        "title": "优化技巧总览（DP / 数据结构 / 图论 / 数学 / 序列 / 套路）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「优化技巧」的二级栏目索引：收纳跨题型的通用技巧与结论，按方向分成 DP、数据结构、图论、数学、序列、做题套路与交互模型七篇。\r\n\r\n**学习顺序**：先看「做题套路与结论汇总」建立框架，再按当前薄弱方向补对应合集。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按方向选子栏目**：\r\n\r\n| 方向 | 子条目 |\r\n|---|---|\r\n| 通用解题流程与结论 | 做题套路与结论汇总 |\r\n| DP / 计数技巧 | DP 与计数技巧合集（耳分解 / 补集转化 / 贡献拆解） |\r\n| 数据结构技巧 | 数据结构技巧合集（倍增并查集 / 单侧递归线段树 / BIT 倍增） |\r\n| 图论建模技巧 | 图论建模技巧合集（倍增 Floyd / 分层图 / 环相关） |\r\n| 数学与位运算技巧 | 数学与位运算技巧合集（GCD log / 曼哈顿互化 / 抽屉原理） |\r\n| 序列与实现技巧 | 序列与实现技巧合集（离线倒序 / 值域随机映射 / 分部分做法） |\r\n| 交互/通信题 | 交互与通信题经典模型（猜数 / 毒药 / Hamming） |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各合集页按「技巧条目」组织，每条给出适用条件与实现要点。\r\n\r\n## 复杂度分析\r\n\r\n按具体技巧而定；合集页会标注每条技巧的复杂度与优化幅度。\r\n\r\n## 适用场景\r\n\r\n- 正解想到但复杂度过高，需要降复杂度。\r\n- 题目形式不常规，需要建模/转化。\r\n- 交互题、通信题等特殊题型。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 技巧有适用前提，先验证条件再套用。\r\n- 合集是索引，不能替代对原题的分析。\r\n- 同一技巧在不同题型下实现细节不同。\r\n- 交互题注意刷新缓冲区与询问次数上限。\r\n- 结论类技巧要能说明正确性，不能只背结果。\r\n\r\n## 对比与扩展\r\n\r\n- 技巧合集 vs 单点知识：前者横向串联，后者纵向深入。\r\n- 遇到新技巧时优先补进对应合集，而不是新开散页。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "技巧合集",
+                    "优化",
+                    "套路",
+                    "总览",
+                    "学习路线"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「优化技巧」的二级栏目索引：收纳跨题型的通用技巧与结论，按方向分成 DP、数据结构、图论、数学、序列、做题套路与交互模型七篇。\r\n\r\n**学习顺序**：先看「做题套路与结论汇总」建立框架，再按当前薄弱方向补对应合集。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按方向选子栏目**：\r\n\r\n| 方向 | 子条目 |\r\n|---|---|\r\n| 通用解题流程与结论 | 做题套路与结论汇总 |\r\n| DP / 计数技巧 | DP 与计数技巧合集（耳分解 / 补集转化 / 贡献拆解） |\r\n| 数据结构技巧 | 数据结构技巧合集（倍增并查集 / 单侧递归线段树 / BIT 倍增） |\r\n| 图论建模技巧 | 图论建模技巧合集（倍增 Floyd / 分层图 / 环相关） |\r\n| 数学与位运算技巧 | 数学与位运算技巧合集（GCD log / 曼哈顿互化 / 抽屉原理） |\r\n| 序列与实现技巧 | 序列与实现技巧合集（离线倒序 / 值域随机映射 / 分部分做法） |\r\n| 交互/通信题 | 交互与通信题经典模型（猜数 / 毒药 / Hamming） |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各合集页按「技巧条目」组织，每条给出适用条件与实现要点。\r\n\r\n## 复杂度分析\r\n\r\n按具体技巧而定；合集页会标注每条技巧的复杂度与优化幅度。\r\n\r\n## 适用场景\r\n\r\n- 正解想到但复杂度过高，需要降复杂度。\r\n- 题目形式不常规，需要建模/转化。\r\n- 交互题、通信题等特殊题型。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 技巧有适用前提，先验证条件再套用。\r\n- 合集是索引，不能替代对原题的分析。\r\n- 同一技巧在不同题型下实现细节不同。\r\n- 交互题注意刷新缓冲区与询问次数上限。\r\n- 结论类技巧要能说明正确性，不能只背结果。\r\n\r\n## 对比与扩展\r\n\r\n- 技巧合集 vs 单点知识：前者横向串联，后者纵向深入。\r\n- 遇到新技巧时优先补进对应合集，而不是新开散页。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "技巧合集",
+            "优化",
+            "套路",
+            "总览",
+            "学习路线"
         ],
         "codePath": "",
         "prerequisites": [
@@ -2452,10 +2503,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-basic"
+            "hub-basic",
+            "basic-tricks-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "basic-tricks-overview"
     },
     {
         "id": "basic-two-pointer",
@@ -2596,13 +2648,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\背包问题模板\\2维01背包\\Untitled1.cpp",
         "prerequisites": [
-            "dp-01bag-standard"
+            "dp-01bag-standard",
+            "dp-knapsack-overview"
         ],
         "related": [
             "dp-01bag-standard",
             "dp-01bag-record"
         ],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-01bag-record",
@@ -2640,14 +2693,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\背包问题模板\\01背包\\带记录\\Untitled1.cpp",
         "prerequisites": [
-            "dp-01bag-standard"
+            "dp-01bag-standard",
+            "dp-knapsack-overview"
         ],
         "related": [
             "dp-01bag-standard",
             "dp-count-01bag",
             "dp-01bag-2d"
         ],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-01bag-standard",
@@ -2713,7 +2767,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\背包问题模板\\01背包\\标准\\Untitled1.cpp",
         "prerequisites": [
-            "hub-dp"
+            "hub-dp",
+            "dp-knapsack-overview"
         ],
         "related": [
             "dp-01bag-2d",
@@ -2724,7 +2779,7 @@ const KNOWLEDGE_DATA = [
             "dp-multi-bag-binary",
             "dp-tree-01bag"
         ],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-bitmask-hamilton",
@@ -2781,12 +2836,54 @@ const KNOWLEDGE_DATA = [
         "codePath": "动态规划\\状态压缩DP\\Hamilton路径最短路\\Untitled1.cpp",
         "prerequisites": [
             "exam-bit-operation",
-            "hub-dp"
+            "hub-dp",
+            "dp-bitmask-overview"
         ],
         "related": [
             "graph-floyd",
             "graph-dijkstra-heap"
         ],
+        "parent": "dp-bitmask-overview"
+    },
+    {
+        "id": "dp-bitmask-overview",
+        "category": "动态规划",
+        "subcategory": "状态压缩DP",
+        "subSubcategory": "",
+        "title": "状态压缩 DP 总览（Hamilton / 棋盘 / 子集枚举）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「状态压缩 DP」的二级栏目索引：把集合或棋盘一行压成二进制整数作为状态，用位运算完成转移。\r\n\r\n**学习顺序**：Hamilton 路径 → 棋盘状压（炮兵阵地/互不侵犯）→ 子集 DP（枚举子集）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按题型选子栏目**：\r\n\r\n| 题型 | 子条目 |\r\n|---|---|\r\n| 经过集合的最短路径 | 状态压缩DP（Hamilton路径最短路） |\r\n| 棋盘行状态 + 相邻限制 | 棋盘状压 DP（炮兵阵地 + 互不侵犯） |\r\n| 枚举子集做合并/分组 | 子集 DP（子集枚举 · 分组过桥 · 子集最值维护） |\r\n\r\n常见转移：$f[S][i]=\\min_{j\\in S,j\\ne i}\\{f[S\\setminus\\{i\\}][j]+w(j,i)\\}$；子集枚举用 `for (T = S; T; T = (T-1) & S)`。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出状态设计、位运算细节与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- Hamilton：$O(2^n n^2)$。\r\n- 棋盘状压：$O(n\\cdot 2^m\\cdot 2^m)$ 或按合法状态数优化。\r\n- 子集 DP：枚举所有子集为 $O(3^n)$，按题意可进一步优化。\r\n\r\n## 适用场景\r\n\r\n- $n\\le 20$ 左右的集合型问题。\r\n- 棋盘/网格上只与相邻行有关的状态。\r\n- 需要枚举子集做分组、覆盖、最值合并。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 先确认 $n$ 的范围，$2^n$ 不能过大。\r\n- 位运算优先级低，判断要加括号。\r\n- 棋盘题先预处理合法行状态，减少枚举量。\r\n- 子集枚举的循环边界 `T = (T-1) & S`，不要写成 `T-1`。\r\n- 记忆化与递推的初值要统一。\r\n\r\n## 对比与扩展\r\n\r\n- 状压 DP vs 普通 DP：状态是集合而非单个下标。\r\n- 子集 DP vs SOS DP：前者枚举子集，后者做高维前缀和。\r\n- 可扩展到轮廓线 DP、插头 DP。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "状压DP",
+                    "状态压缩",
+                    "Hamilton",
+                    "子集DP",
+                    "总览"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「状态压缩 DP」的二级栏目索引：把集合或棋盘一行压成二进制整数作为状态，用位运算完成转移。\r\n\r\n**学习顺序**：Hamilton 路径 → 棋盘状压（炮兵阵地/互不侵犯）→ 子集 DP（枚举子集）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按题型选子栏目**：\r\n\r\n| 题型 | 子条目 |\r\n|---|---|\r\n| 经过集合的最短路径 | 状态压缩DP（Hamilton路径最短路） |\r\n| 棋盘行状态 + 相邻限制 | 棋盘状压 DP（炮兵阵地 + 互不侵犯） |\r\n| 枚举子集做合并/分组 | 子集 DP（子集枚举 · 分组过桥 · 子集最值维护） |\r\n\r\n常见转移：$f[S][i]=\\min_{j\\in S,j\\ne i}\\{f[S\\setminus\\{i\\}][j]+w(j,i)\\}$；子集枚举用 `for (T = S; T; T = (T-1) & S)`。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出状态设计、位运算细节与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- Hamilton：$O(2^n n^2)$。\r\n- 棋盘状压：$O(n\\cdot 2^m\\cdot 2^m)$ 或按合法状态数优化。\r\n- 子集 DP：枚举所有子集为 $O(3^n)$，按题意可进一步优化。\r\n\r\n## 适用场景\r\n\r\n- $n\\le 20$ 左右的集合型问题。\r\n- 棋盘/网格上只与相邻行有关的状态。\r\n- 需要枚举子集做分组、覆盖、最值合并。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 先确认 $n$ 的范围，$2^n$ 不能过大。\r\n- 位运算优先级低，判断要加括号。\r\n- 棋盘题先预处理合法行状态，减少枚举量。\r\n- 子集枚举的循环边界 `T = (T-1) & S`，不要写成 `T-1`。\r\n- 记忆化与递推的初值要统一。\r\n\r\n## 对比与扩展\r\n\r\n- 状压 DP vs 普通 DP：状态是集合而非单个下标。\r\n- 子集 DP vs SOS DP：前者枚举子集，后者做高维前缀和。\r\n- 可扩展到轮廓线 DP、插头 DP。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "状压DP",
+            "状态压缩",
+            "Hamilton",
+            "子集DP",
+            "总览"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-dp"
+        ],
+        "related": [],
         "parent": ""
     },
     {
@@ -2823,10 +2920,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-dp"
+            "hub-dp",
+            "dp-interval-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-interval-overview"
     },
     {
         "id": "dp-complete-bag",
@@ -2890,13 +2988,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\背包问题模板\\完全背包\\Untitled1.cpp",
         "prerequisites": [
-            "dp-01bag-standard"
+            "dp-01bag-standard",
+            "dp-knapsack-overview"
         ],
         "related": [
             "dp-01bag-standard",
             "dp-group-bag"
         ],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-count-01bag",
@@ -2934,13 +3033,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\背包问题模板\\计数背包\\最大值计数\\计数01背包\\Untitled2.cpp",
         "prerequisites": [
-            "dp-01bag-standard"
+            "dp-01bag-standard",
+            "dp-knapsack-overview"
         ],
         "related": [
             "dp-01bag-standard",
             "dp-01bag-record"
         ],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-digit-count",
@@ -3183,10 +3283,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\方格取数\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "dp-linear-triangle"
+            "dp-linear-triangle",
+            "dp-linear-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-linear-overview"
     },
     {
         "id": "dp-grid-state",
@@ -3239,10 +3340,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\棋盘状压DP\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "dp-bitmask-hamilton"
+            "dp-bitmask-hamilton",
+            "dp-bitmask-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-bitmask-overview"
     },
     {
         "id": "dp-group-bag",
@@ -3292,13 +3394,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\背包问题模板\\分组背包\\Untitled1.cpp",
         "prerequisites": [
-            "dp-01bag-standard"
+            "dp-01bag-standard",
+            "dp-knapsack-overview"
         ],
         "related": [
             "dp-01bag-standard",
             "dp-complete-bag"
         ],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-integer-partition",
@@ -3337,6 +3440,48 @@ const KNOWLEDGE_DATA = [
         "codePath": "动态规划\\整数划分\\Untitled1--xesir.cpp",
         "prerequisites": [
             "dp-complete-bag",
+            "hub-dp",
+            "dp-linear-overview"
+        ],
+        "related": [],
+        "parent": "dp-linear-overview"
+    },
+    {
+        "id": "dp-interval-overview",
+        "category": "动态规划",
+        "subcategory": "区间DP",
+        "subSubcategory": "",
+        "title": "区间 DP 总览（石子合并 / 括号序列 / 涂色与合成）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「区间 DP」的二级栏目索引：状态定义为区间 $[l,r]$，按区间长度从小到大枚举，转移时枚举分界点 $k$ 合并左右子区间。\r\n\r\n**学习顺序**：环形石子合并 → 括号序列模型 → 涂色问题 → 合成问题。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按题型选子栏目**：\r\n\r\n| 题型 | 子条目 |\r\n|---|---|\r\n| 合并相邻两堆的代价 | 区间DP — 环形石子合并 |\r\n| 括号/回文类匹配 | 括号序列模型 |\r\n| 区间染色 | 区间DP — 涂色问题 |\r\n| 两段合成一段 | 区间DP — 合成问题 |\r\n\r\n通用转移：$f[l][r]=\\min_{l\\le k<r}\\{f[l][k]+f[k+1][r]+w(l,k,r)\\}$。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出转移方程、边界与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- 标准区间 DP：$O(n^3)$，空间 $O(n^2)$。\r\n- 环形石子合并：断环成链后长度翻倍，复杂度同 $O(n^3)$。\r\n- 部分题型可用四边形不等式优化到 $O(n^2)$，以子页说明为准。\r\n\r\n## 适用场景\r\n\r\n- 相邻合并、消去、染色、括号匹配。\r\n- 需要枚举分界点的序列最优划分。\r\n- 环形问题（复制一倍断环）。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 枚举顺序必须是「先长度、后左端点」，否则用到未计算状态。\r\n- 环形问题复制数组后答案区间长度为 $n$，不是 $2n$。\r\n- 初始化：单点区间要有合法初值。\r\n- 合成/涂色题的 $w$ 依赖分界点，不能漏项。\r\n- $O(n^3)$ 在 $n\\approx 500$ 时就可能超时，先看数据范围。\r\n\r\n## 对比与扩展\r\n\r\n- 区间 DP vs 线性 DP：前者按区间长度推进，后者按下标推进。\r\n- 与分治的区别：区间 DP 会枚举所有分界点并保存子区间答案。\r\n- 可扩展到环形 DP、树上区间合并。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "区间DP",
+                    "石子合并",
+                    "括号序列",
+                    "总览",
+                    "学习路线"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「区间 DP」的二级栏目索引：状态定义为区间 $[l,r]$，按区间长度从小到大枚举，转移时枚举分界点 $k$ 合并左右子区间。\r\n\r\n**学习顺序**：环形石子合并 → 括号序列模型 → 涂色问题 → 合成问题。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按题型选子栏目**：\r\n\r\n| 题型 | 子条目 |\r\n|---|---|\r\n| 合并相邻两堆的代价 | 区间DP — 环形石子合并 |\r\n| 括号/回文类匹配 | 括号序列模型 |\r\n| 区间染色 | 区间DP — 涂色问题 |\r\n| 两段合成一段 | 区间DP — 合成问题 |\r\n\r\n通用转移：$f[l][r]=\\min_{l\\le k<r}\\{f[l][k]+f[k+1][r]+w(l,k,r)\\}$。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出转移方程、边界与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- 标准区间 DP：$O(n^3)$，空间 $O(n^2)$。\r\n- 环形石子合并：断环成链后长度翻倍，复杂度同 $O(n^3)$。\r\n- 部分题型可用四边形不等式优化到 $O(n^2)$，以子页说明为准。\r\n\r\n## 适用场景\r\n\r\n- 相邻合并、消去、染色、括号匹配。\r\n- 需要枚举分界点的序列最优划分。\r\n- 环形问题（复制一倍断环）。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 枚举顺序必须是「先长度、后左端点」，否则用到未计算状态。\r\n- 环形问题复制数组后答案区间长度为 $n$，不是 $2n$。\r\n- 初始化：单点区间要有合法初值。\r\n- 合成/涂色题的 $w$ 依赖分界点，不能漏项。\r\n- $O(n^3)$ 在 $n\\approx 500$ 时就可能超时，先看数据范围。\r\n\r\n## 对比与扩展\r\n\r\n- 区间 DP vs 线性 DP：前者按区间长度推进，后者按下标推进。\r\n- 与分治的区别：区间 DP 会枚举所有分界点并保存子区间答案。\r\n- 可扩展到环形 DP、树上区间合并。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "区间DP",
+            "石子合并",
+            "括号序列",
+            "总览",
+            "学习路线"
+        ],
+        "codePath": "",
+        "prerequisites": [
             "hub-dp"
         ],
         "related": [],
@@ -3378,10 +3523,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\区间DP\\涂色问题\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "dp-interval-stone-merge"
+            "dp-interval-stone-merge",
+            "dp-interval-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-interval-overview"
     },
     {
         "id": "dp-interval-stone-merge",
@@ -3453,12 +3599,13 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\区间DP\\环形石子合并\\Untitled1.cpp",
         "prerequisites": [
-            "hub-dp"
+            "hub-dp",
+            "dp-interval-overview"
         ],
         "related": [
             "dp-digit-count"
         ],
-        "parent": ""
+        "parent": "dp-interval-overview"
     },
     {
         "id": "dp-interval-synthesis",
@@ -3496,10 +3643,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\区间DP\\合成问题\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "dp-interval-stone-merge"
+            "dp-interval-stone-merge",
+            "dp-interval-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-interval-overview"
     },
     {
         "id": "dp-knapsack-overview",
@@ -3593,13 +3741,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\线性DP\\字符串编辑距离\\Untitled1.cpp",
         "prerequisites": [
-            "dp-linear-lcs-length"
+            "dp-linear-lcs-length",
+            "dp-linear-overview"
         ],
         "related": [
             "dp-linear-lcs-length",
             "dp-linear-lcs-substring"
         ],
-        "parent": ""
+        "parent": "dp-linear-overview"
     },
     {
         "id": "dp-linear-lcs-length",
@@ -3668,7 +3817,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\线性DP\\最长公共子序列长度（普通）\\Untitled1.cpp",
         "prerequisites": [
-            "hub-dp"
+            "hub-dp",
+            "dp-linear-overview"
         ],
         "related": [
             "dp-linear-lcs-output",
@@ -3676,7 +3826,7 @@ const KNOWLEDGE_DATA = [
             "dp-linear-edit-distance",
             "dp-linear-lis-binary"
         ],
-        "parent": ""
+        "parent": "dp-linear-overview"
     },
     {
         "id": "dp-linear-lcs-output",
@@ -3716,13 +3866,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\线性DP\\最长公共子序列（带输出）\\Untitled1.cpp",
         "prerequisites": [
-            "dp-linear-lcs-length"
+            "dp-linear-lcs-length",
+            "dp-linear-overview"
         ],
         "related": [
             "dp-linear-lcs-length",
             "dp-linear-lcs-substring"
         ],
-        "parent": ""
+        "parent": "dp-linear-overview"
     },
     {
         "id": "dp-linear-lcs-substring",
@@ -3760,14 +3911,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\线性DP\\最长公共子串\\Untitled2.cpp",
         "prerequisites": [
-            "dp-linear-lcs-length"
+            "dp-linear-lcs-length",
+            "dp-linear-overview"
         ],
         "related": [
             "dp-linear-lcs-length",
             "dp-linear-lcs-output",
             "dp-linear-edit-distance"
         ],
-        "parent": ""
+        "parent": "dp-linear-overview"
     },
     {
         "id": "dp-linear-lis-binary",
@@ -3822,7 +3974,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\线性DP\\最长上升子序列（2分）\\Untitled1.cpp",
         "prerequisites": [
-            "hub-dp"
+            "hub-dp",
+            "dp-linear-overview"
         ],
         "related": [
             "dp-linear-lis-bit-count",
@@ -3831,7 +3984,7 @@ const KNOWLEDGE_DATA = [
             "basic-two-pointer-cycle",
             "dp-linear-triangle"
         ],
-        "parent": ""
+        "parent": "dp-linear-overview"
     },
     {
         "id": "dp-linear-lis-bit-count",
@@ -3876,13 +4029,14 @@ const KNOWLEDGE_DATA = [
         "codePath": "动态规划\\线性DP\\最长上升子序列（树状数组优化带计数）\\Untitled1.cpp",
         "prerequisites": [
             "dp-linear-lis-binary",
-            "ds-bit-point-range"
+            "ds-bit-point-range",
+            "dp-linear-overview"
         ],
         "related": [
             "dp-linear-lis-binary",
             "ds-bit-point-range"
         ],
-        "parent": ""
+        "parent": "dp-linear-overview"
     },
     {
         "id": "dp-linear-maxsub",
@@ -3920,12 +4074,54 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\线性DP\\长度不超过 m 的最大子串和\\Untitled1.cpp",
         "prerequisites": [
-            "hub-dp"
+            "hub-dp",
+            "dp-linear-overview"
         ],
         "related": [
             "dp-linear-triangle",
             "dp-linear-lis-binary"
         ],
+        "parent": "dp-linear-overview"
+    },
+    {
+        "id": "dp-linear-overview",
+        "category": "动态规划",
+        "subcategory": "线性DP",
+        "subSubcategory": "",
+        "title": "线性 DP 总览（LIS / LCS / 经典模型）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「线性 DP」的二级栏目索引：状态沿序列下标线性推进，按「以 i 结尾 / 前 i 个」定义状态，是区间、树形、状压等复杂 DP 的基础。\r\n\r\n**学习顺序**：数字三角形 → 最大子段和 → LIS → LCS → 编辑距离 → 方格取数 / 整数划分。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按模型选子栏目**：\r\n\r\n| 模型 | 子条目 |\r\n|---|---|\r\n| 路径/网格上的线性推进 | 数字三角形、方格取数 |\r\n| 子段问题 | 长度不超过 m 的最大子段和 |\r\n| 单序列子序列 | 最长上升子序列（二分）、（树状数组优化·带计数） |\r\n| 双序列匹配 | 最长公共子序列（长度 / 带输出）、最长公共子串 |\r\n| 字符串改造成本 | 字符串编辑距离 |\r\n| 计数型线性 DP | 整数划分 |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页都给出状态定义、转移与逐行解析，页面自动渲染对应 `.cpp`。\r\n\r\n## 复杂度分析\r\n\r\n- LIS 二分：$O(n\\log n)$；LIS 树状数组带计数：$O(n\\log n)$。\r\n- LCS：$O(nm)$ 时间，滚动数组可降空间。\r\n- 编辑距离：$O(nm)$。\r\n- 数字三角形 / 最大子段和：$O(n^2)$ 或 $O(n)$。\r\n- 整数划分：按具体模型为 $O(n^2)$ 或 $O(n\\sqrt n)$。\r\n\r\n## 适用场景\r\n\r\n- 序列上的最优子结构问题（选/不选、匹配、分段）。\r\n- 作为区间 DP、树形 DP 的子过程。\r\n- 需要输出方案时用记录前驱的写法。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- LIS 的「严格上升」与「非降」在二分边界上不同。\r\n- LCS 输出方案要额外记录转移来源，不能只回看数值。\r\n- 最大子段和的「长度不超过 m」需要单调队列优化。\r\n- 滚动数组要确认依赖方向，避免覆盖未使用状态。\r\n- 计数型 DP 注意取模与初始状态。\r\n\r\n## 对比与扩展\r\n\r\n- 线性 DP vs 区间 DP：前者按下标推进，后者按区间长度推进。\r\n- LIS 的 $O(n\\log n)$ 写法本质是维护「长度为 k 的最小结尾」。\r\n- 可扩展到带修 LIS、二维偏序等。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "线性DP",
+                    "LIS",
+                    "LCS",
+                    "总览",
+                    "学习路线"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「线性 DP」的二级栏目索引：状态沿序列下标线性推进，按「以 i 结尾 / 前 i 个」定义状态，是区间、树形、状压等复杂 DP 的基础。\r\n\r\n**学习顺序**：数字三角形 → 最大子段和 → LIS → LCS → 编辑距离 → 方格取数 / 整数划分。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按模型选子栏目**：\r\n\r\n| 模型 | 子条目 |\r\n|---|---|\r\n| 路径/网格上的线性推进 | 数字三角形、方格取数 |\r\n| 子段问题 | 长度不超过 m 的最大子段和 |\r\n| 单序列子序列 | 最长上升子序列（二分）、（树状数组优化·带计数） |\r\n| 双序列匹配 | 最长公共子序列（长度 / 带输出）、最长公共子串 |\r\n| 字符串改造成本 | 字符串编辑距离 |\r\n| 计数型线性 DP | 整数划分 |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页都给出状态定义、转移与逐行解析，页面自动渲染对应 `.cpp`。\r\n\r\n## 复杂度分析\r\n\r\n- LIS 二分：$O(n\\log n)$；LIS 树状数组带计数：$O(n\\log n)$。\r\n- LCS：$O(nm)$ 时间，滚动数组可降空间。\r\n- 编辑距离：$O(nm)$。\r\n- 数字三角形 / 最大子段和：$O(n^2)$ 或 $O(n)$。\r\n- 整数划分：按具体模型为 $O(n^2)$ 或 $O(n\\sqrt n)$。\r\n\r\n## 适用场景\r\n\r\n- 序列上的最优子结构问题（选/不选、匹配、分段）。\r\n- 作为区间 DP、树形 DP 的子过程。\r\n- 需要输出方案时用记录前驱的写法。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- LIS 的「严格上升」与「非降」在二分边界上不同。\r\n- LCS 输出方案要额外记录转移来源，不能只回看数值。\r\n- 最大子段和的「长度不超过 m」需要单调队列优化。\r\n- 滚动数组要确认依赖方向，避免覆盖未使用状态。\r\n- 计数型 DP 注意取模与初始状态。\r\n\r\n## 对比与扩展\r\n\r\n- 线性 DP vs 区间 DP：前者按下标推进，后者按区间长度推进。\r\n- LIS 的 $O(n\\log n)$ 写法本质是维护「长度为 k 的最小结尾」。\r\n- 可扩展到带修 LIS、二维偏序等。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "线性DP",
+            "LIS",
+            "LCS",
+            "总览",
+            "学习路线"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-dp"
+        ],
+        "related": [],
         "parent": ""
     },
     {
@@ -3991,13 +4187,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\线性DP\\数字三角形\\Untitled4.cpp",
         "prerequisites": [
-            "hub-dp"
+            "hub-dp",
+            "dp-linear-overview"
         ],
         "related": [
             "dp-linear-maxsub",
             "dp-linear-lis-binary"
         ],
-        "parent": ""
+        "parent": "dp-linear-overview"
     },
     {
         "id": "dp-mixed-bag",
@@ -4039,10 +4236,11 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "dp-01bag-standard",
             "dp-complete-bag",
-            "dp-multi-bag-binary"
+            "dp-multi-bag-binary",
+            "dp-knapsack-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-multi-bag-binary",
@@ -4095,13 +4293,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\背包问题模板\\多重背包\\多重背包2进制优化\\Untitled1.cpp",
         "prerequisites": [
-            "dp-01bag-standard"
+            "dp-01bag-standard",
+            "dp-knapsack-overview"
         ],
         "related": [
             "dp-multi-bag-monotone",
             "dp-01bag-standard"
         ],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-multi-bag-monotone",
@@ -4140,25 +4339,26 @@ const KNOWLEDGE_DATA = [
         "codePath": "动态规划\\背包问题模板\\多重背包\\多重背包单调队列优化\\Untitled1.cpp",
         "prerequisites": [
             "dp-multi-bag-binary",
-            "ds-monoqueue-1d"
+            "ds-monoqueue-1d",
+            "dp-knapsack-overview"
         ],
         "related": [
             "dp-multi-bag-binary",
             "ds-monoqueue-1d"
         ],
-        "parent": ""
+        "parent": "dp-knapsack-overview"
     },
     {
         "id": "dp-opt-monotone-queue",
         "category": "动态规划",
         "subcategory": "DP优化",
         "subSubcategory": "",
-        "title": "DP 优化 · 单调队列优化 DP",
+        "title": "DP 优化（单调队列 / SOS）",
         "hub": false,
         "versions": [
             {
                 "author": "Xesir",
-                "content": "## 算法原理\n\n顾名思义就是使用单调队列优化的 DP。这种 DP 的转移式一般长这样：\n\n$$\ndp[i]=a[i]+\\max_{j \\in [l,r]} (dp[j]+b[j])\n$$\n\n很显然直接模拟这个过程是 $O(n^2)$ 的石山。由于一般题目 $l,r$ 直接与 $i$ 有关，所以本质是**滑动窗口**问题，我们可以考虑用**单调队列**维护窗口内 $dp[j]+b[j]$ 的最值。\n\n## 核心公式 / 状态定义与转移方程\n\n设状态 $dp[i]$ 表示处理到第 $i$ 个位置时的最优值，转移形如：\n\n$$\ndp[i] = a[i] + \\max_{j \\in [l,r]} (dp[j] + b[j])\n$$\n\n其中窗口 $[l,r]$ 通常随 $i$ 滑动，即 $l,r$ 都是 $i$ 的函数。把要取最值的部分 $dp[j]+b[j]$ 丢进单调队列里维护，队首就是窗口内的最优决策 $j$。\n\n## 逐行代码解析\n\n下面把代码骨架按模块拆开讲，各块按顺序拼起来就是完整的一份骨架。\n\n### 队列定义\n\n```cpp\nint q[N], head = 1, tail = 0;\n```\n\n- `q[N]` 是单调队列本体，存的是**下标**而不是数值，取用时再回去查 `f[q[...]]`。\n- `head = 1, tail = 0` 是空队列的标准写法，配合 `head <= tail` 判空。\n\n### 入队并维护单调性\n\n```cpp\nfor (int i = 1; i <= n; i++) {\n    int add = i - L;\n    if (add >= 0 && f[add] > NEG) {\n    while (head <= tail && f[q[tail]] <= f[add]) tail--;\n        q[++tail] = add;\n    }\n```\n\n- 能作为 $i$ 决策的新位置是 `add = i - L`，只有它**合法**（下标非负且不是不可达的 `NEG`）时才考虑入队。\n- 入队前从队尾把 `f` 值**不大于** `f[add]` 的元素弹掉，保证队列里 `f` 值从队首到队尾**单调递减**，队首永远是最优决策。\n\n### 弹出过期元素\n\n```cpp\n    while (head <= tail && q[head] < i - R) head++;\n```\n\n- 窗口右端是 $i-R$，队首下标一旦 `< i - R` 就滑出了可用范围，从队首弹出。\n\n### 取值转移\n\n```cpp\n    if (head <= tail) f[i] = a[i] + f[q[head]];\n    else f[i] = NEG;\n}\n```\n\n- 队列非空时，队首就是窗口内的最优决策，直接 `f[i] = a[i] + f[q[head]]`。\n- 队列为空说明窗口内没有任何合法前驱，当前状态不可达，置为 `NEG`。\n\n## 复杂度分析\n\n每个下标最多入队一次、出队一次，单调队列的总操作是线性的：\n\n- 时间复杂度：$O(n)$，把原本 $O(n^2)$ 的「枚举窗口内所有决策」压成了均摊 $O(1)$ 的取队首。\n- 空间复杂度：$O(n)$，即 `f` 数组加上单调队列 `q`。\n\n## 适用场景\n\n- 转移式中出现「对一段滑动窗口取最值」的 DP，且 $l,r$ 随 $i$ 单调移动。\n- 典型如：限制跳跃长度的最值 DP、多重背包的单调队列优化、带窗口长度约束的线性 DP。\n\n## 常见陷阱与注意事项\n\n1. **队列存下标而不是数值**：入队、判过期、取值都依赖下标，存数值就没法判窗口过期。\n2. **判空再取队首**：取 `f[q[head]]` 前一定要 `head <= tail`，否则空队列会读到越界的垃圾值。\n3. **不可达状态别入队**：`f[add] > NEG` 这层判断不能少，否则 `NEG` 会污染最值。\n4. **维护的比较方向要和单调性一致**：取最大值时队尾弹 `<=`，取最小值时弹 `>=`，写反了队首就不是最优。\n5. **窗口边界 `L / R` 的含义**：确认 `i-L`、`i-R` 是可用决策区间的端点，别把 `l,r` 和 `L,R` 搞混。",
+                "content": "## 算法原理\n\n顾名思义就是使用单调队列优化的 DP。这种 DP 的转移式一般长这样：\n\n$$\ndp[i]=a[i]+\\max_{j \\in [l,r]} (dp[j]+b[j])\n$$\n\n很显然直接模拟这个过程是 $O(n^2)$ 的石山。由于一般题目 $l,r$ 直接与 $i$ 有关，所以本质是**滑动窗口**问题，我们可以考虑用**单调队列**维护窗口内 $dp[j]+b[j]$ 的最值。\n\n## 核心公式 / 状态定义与转移方程\n\n设状态 $dp[i]$ 表示处理到第 $i$ 个位置时的最优值，转移形如：\n\n$$\ndp[i] = a[i] + \\max_{j \\in [l,r]} (dp[j] + b[j])\n$$\n\n其中窗口 $[l,r]$ 通常随 $i$ 滑动，即 $l,r$ 都是 $i$ 的函数。把要取最值的部分 $dp[j]+b[j]$ 丢进单调队列里维护，队首就是窗口内的最优决策 $j$。\n\n## 逐行代码解析\n\n下面把代码骨架按模块拆开讲，各块按顺序拼起来就是完整的一份骨架。\n\n### 队列定义\n\n```cpp\nint q[N], head = 1, tail = 0;\n```\n\n- `q[N]` 是单调队列本体，存的是**下标**而不是数值，取用时再回去查 `f[q[...]]`。\n- `head = 1, tail = 0` 是空队列的标准写法，配合 `head <= tail` 判空。\n\n### 入队并维护单调性\n\n```cpp\nfor (int i = 1; i <= n; i++) {\n    int add = i - L;\n    if (add >= 0 && f[add] > NEG) {\n    while (head <= tail && f[q[tail]] <= f[add]) tail--;\n        q[++tail] = add;\n    }\n```\n\n- 能作为 $i$ 决策的新位置是 `add = i - L`，只有它**合法**（下标非负且不是不可达的 `NEG`）时才考虑入队。\n- 入队前从队尾把 `f` 值**不大于** `f[add]` 的元素弹掉，保证队列里 `f` 值从队首到队尾**单调递减**，队首永远是最优决策。\n\n### 弹出过期元素\n\n```cpp\n    while (head <= tail && q[head] < i - R) head++;\n```\n\n- 窗口右端是 $i-R$，队首下标一旦 `< i - R` 就滑出了可用范围，从队首弹出。\n\n### 取值转移\n\n```cpp\n    if (head <= tail) f[i] = a[i] + f[q[head]];\n    else f[i] = NEG;\n}\n```\n\n- 队列非空时，队首就是窗口内的最优决策，直接 `f[i] = a[i] + f[q[head]]`。\n- 队列为空说明窗口内没有任何合法前驱，当前状态不可达，置为 `NEG`。\n\n## 复杂度分析\n\n每个下标最多入队一次、出队一次，单调队列的总操作是线性的：\n\n- 时间复杂度：$O(n)$，把原本 $O(n^2)$ 的「枚举窗口内所有决策」压成了均摊 $O(1)$ 的取队首。\n- 空间复杂度：$O(n)$，即 `f` 数组加上单调队列 `q`。\n\n## 适用场景\n\n- 转移式中出现「对一段滑动窗口取最值」的 DP，且 $l,r$ 随 $i$ 单调移动。\n- 典型如：限制跳跃长度的最值 DP、多重背包的单调队列优化、带窗口长度约束的线性 DP。\n\n## 常见陷阱与注意事项\n\n1. **队列存下标而不是数值**：入队、判过期、取值都依赖下标，存数值就没法判窗口过期。\n2. **判空再取队首**：取 `f[q[head]]` 前一定要 `head <= tail`，否则空队列会读到越界的垃圾值。\n3. **不可达状态别入队**：`f[add] > NEG` 这层判断不能少，否则 `NEG` 会污染最值。\n4. **维护的比较方向要和单调性一致**：取最大值时队尾弹 `<=`，取最小值时弹 `>=`，写反了队首就不是最优。\n5. **窗口边界 `L / R` 的含义**：确认 `i-L`、`i-R` 是可用决策区间的端点，别把 `l,r` 和 `L,R` 搞混。\n\n## 附：SOS DP（子集和 / 高维前缀和）\n\nSOS DP（Sum Over Subsets DP）本质上是**高维前缀和在二进制位上的应用**。它的作用是在 $O(n \\cdot 2^n)$ 的时间内求出每个集合的所有子集（或超集）的贡献和。\n\n高维前缀和的核心思想是：**在每个维度上独立做一次一维前缀和**。当维度是二进制位（取值只有 0 和 1）时，高维前缀和就变成了 SOS DP。\n\n### 核心公式 / 状态定义与转移方程\n\n给定长度为 $2^n$ 的数组 $f[mask]$，定义：\n\n$$\nF[mask] = \\sum_{sub \\subseteq mask} f[sub]\n$$\n\n即对每个 mask，求它所有子集的和。把每一位看作一个维度，$F$ 就是 $n$ 维数组的前缀和。\n\n- **朴素做法**：枚举每个 mask，再枚举它的所有子集。\n- **迭代做法**：按位逐维累加。\n\n### 逐行代码解析\n\n#### 朴素子集枚举\n\n```cpp\nfor (int mask = 0; mask < (1 << n); mask++)\n    for (int sub = mask; ; sub = (sub - 1) & mask) {\n        F[mask] += f[sub];\n        if (sub == 0) break;\n    }\n```\n\n- 外层枚举 `mask`，内层用 `sub = (sub - 1) & mask` 枚举 `mask` 的所有子集（从 `mask` 本身一路往下减）。\n- 到 `sub == 0` 时手工 `break` 收尾。\n- 总复杂度 $O(3^n)$：每个元素有三种状态（不在 mask 中、在 mask 中不在 sub 中、在 sub 中）。\n\n#### 迭代做法\n\n```cpp\nfor (int i = 0; i < n; i++)          // 枚举每一位\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (mask & (1 << i))         // 如果这一位是 1\n            f[mask] += f[mask ^ (1 << i)];\n```\n\n- 外层枚举每一位 $i$（共 $n$ 个维度），内层扫所有 mask。\n- 只对第 $i$ 位为 1 的 mask 累加：它的子集里把第 $i$ 位取 0 的那个 `mask ^ (1 << i)` 已经先算好了，直接加进来。\n- 复杂度 $O(n \\cdot 2^n)$，远优于 $O(3^n)$。\n\n![](https://r2.xsimple-r2.com/gpt-image/497651/116e62d5-5d8c-41b2-81aa-c3e8c5a3bce8.png)\n\n#### 子集和模板（求所有子集的和）\n\n```cpp\nfor (int i = 0; i < n; i++)\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (mask & (1 << i))\n            f[mask] += f[mask ^ (1 << i)];\n```\n\n#### 超集和模板（求所有超集的和）\n\n```cpp\nfor (int i = 0; i < n; i++)\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (!(mask & (1 << i)))\n            f[mask] += f[mask | (1 << i)];\n```\n\n- 只需把判断条件反过来（`!(mask & (1 << i))`），累加方向也随之反转（从 `mask | (1 << i)` 加过来）。\n\n### 复杂度分析\n\n- 朴素子集枚举：$O(3^n)$。\n- 迭代 SOS DP：$O(n \\cdot 2^n)$。把「枚举每个 mask 的全部子集」拆成「按维度逐个累加」，一维只花 $O(2^n)$，共 $n$ 维。\n- 空间复杂度：$O(2^n)$，在原数组 `f` 上原地累加，不需要额外数组。\n\n### 适用场景\n\n- **子集计数**：统计每个 mask 有多少个子集满足某种性质。\n- **子集最值**：维护每个 mask 的所有子集中的最大值、次大值（如 Or Plus Max）。\n- **超集统计**：统计每个 mask 的所有超集的信息。\n- **状压 DP 预处理**：在状压 DP 中快速合并子集信息，避免枚举子集。\n- **子集卷积**：SOS DP 是子集卷积的前置步骤。\n\n### 常见陷阱与注意事项\n\n1. **子集 / 超集的判断条件别写反**：子集和是 `mask & (1 << i)`（该位为 1 才累加），超集和是 `!(mask & (1 << i))`（该位为 0 才累加）。\n2. **累加来源的下标要对应**：子集和从 `mask ^ (1 << i)`（清掉这一位）来，超集和从 `mask | (1 << i)`（补上这一位）来，别混。\n3. **`n` 是位数不是元素个数**：数组长度是 $2^n$，循环上界写 `1 << n`，别漏了括号。\n4. **原地累加**：`f[mask]` 直接在原数组上覆盖，保证依赖的 `f[mask ^ ...]` 是上一层（已处理完前面维度）的值，别把顺序改乱。",
                 "codePath": "动态规划\\DP优化\\单调队列优化\\Untitled1--xesir.cpp",
                 "timeComplexity": "O(n)",
                 "spaceComplexity": "O(n)",
@@ -4171,7 +4371,7 @@ const KNOWLEDGE_DATA = [
                 "source": "Xesir"
             }
         ],
-        "content": "## 算法原理\n\n顾名思义就是使用单调队列优化的 DP。这种 DP 的转移式一般长这样：\n\n$$\ndp[i]=a[i]+\\max_{j \\in [l,r]} (dp[j]+b[j])\n$$\n\n很显然直接模拟这个过程是 $O(n^2)$ 的石山。由于一般题目 $l,r$ 直接与 $i$ 有关，所以本质是**滑动窗口**问题，我们可以考虑用**单调队列**维护窗口内 $dp[j]+b[j]$ 的最值。\n\n## 核心公式 / 状态定义与转移方程\n\n设状态 $dp[i]$ 表示处理到第 $i$ 个位置时的最优值，转移形如：\n\n$$\ndp[i] = a[i] + \\max_{j \\in [l,r]} (dp[j] + b[j])\n$$\n\n其中窗口 $[l,r]$ 通常随 $i$ 滑动，即 $l,r$ 都是 $i$ 的函数。把要取最值的部分 $dp[j]+b[j]$ 丢进单调队列里维护，队首就是窗口内的最优决策 $j$。\n\n## 逐行代码解析\n\n下面把代码骨架按模块拆开讲，各块按顺序拼起来就是完整的一份骨架。\n\n### 队列定义\n\n```cpp\nint q[N], head = 1, tail = 0;\n```\n\n- `q[N]` 是单调队列本体，存的是**下标**而不是数值，取用时再回去查 `f[q[...]]`。\n- `head = 1, tail = 0` 是空队列的标准写法，配合 `head <= tail` 判空。\n\n### 入队并维护单调性\n\n```cpp\nfor (int i = 1; i <= n; i++) {\n    int add = i - L;\n    if (add >= 0 && f[add] > NEG) {\n    while (head <= tail && f[q[tail]] <= f[add]) tail--;\n        q[++tail] = add;\n    }\n```\n\n- 能作为 $i$ 决策的新位置是 `add = i - L`，只有它**合法**（下标非负且不是不可达的 `NEG`）时才考虑入队。\n- 入队前从队尾把 `f` 值**不大于** `f[add]` 的元素弹掉，保证队列里 `f` 值从队首到队尾**单调递减**，队首永远是最优决策。\n\n### 弹出过期元素\n\n```cpp\n    while (head <= tail && q[head] < i - R) head++;\n```\n\n- 窗口右端是 $i-R$，队首下标一旦 `< i - R` 就滑出了可用范围，从队首弹出。\n\n### 取值转移\n\n```cpp\n    if (head <= tail) f[i] = a[i] + f[q[head]];\n    else f[i] = NEG;\n}\n```\n\n- 队列非空时，队首就是窗口内的最优决策，直接 `f[i] = a[i] + f[q[head]]`。\n- 队列为空说明窗口内没有任何合法前驱，当前状态不可达，置为 `NEG`。\n\n## 复杂度分析\n\n每个下标最多入队一次、出队一次，单调队列的总操作是线性的：\n\n- 时间复杂度：$O(n)$，把原本 $O(n^2)$ 的「枚举窗口内所有决策」压成了均摊 $O(1)$ 的取队首。\n- 空间复杂度：$O(n)$，即 `f` 数组加上单调队列 `q`。\n\n## 适用场景\n\n- 转移式中出现「对一段滑动窗口取最值」的 DP，且 $l,r$ 随 $i$ 单调移动。\n- 典型如：限制跳跃长度的最值 DP、多重背包的单调队列优化、带窗口长度约束的线性 DP。\n\n## 常见陷阱与注意事项\n\n1. **队列存下标而不是数值**：入队、判过期、取值都依赖下标，存数值就没法判窗口过期。\n2. **判空再取队首**：取 `f[q[head]]` 前一定要 `head <= tail`，否则空队列会读到越界的垃圾值。\n3. **不可达状态别入队**：`f[add] > NEG` 这层判断不能少，否则 `NEG` 会污染最值。\n4. **维护的比较方向要和单调性一致**：取最大值时队尾弹 `<=`，取最小值时弹 `>=`，写反了队首就不是最优。\n5. **窗口边界 `L / R` 的含义**：确认 `i-L`、`i-R` 是可用决策区间的端点，别把 `l,r` 和 `L,R` 搞混。",
+        "content": "## 算法原理\n\n顾名思义就是使用单调队列优化的 DP。这种 DP 的转移式一般长这样：\n\n$$\ndp[i]=a[i]+\\max_{j \\in [l,r]} (dp[j]+b[j])\n$$\n\n很显然直接模拟这个过程是 $O(n^2)$ 的石山。由于一般题目 $l,r$ 直接与 $i$ 有关，所以本质是**滑动窗口**问题，我们可以考虑用**单调队列**维护窗口内 $dp[j]+b[j]$ 的最值。\n\n## 核心公式 / 状态定义与转移方程\n\n设状态 $dp[i]$ 表示处理到第 $i$ 个位置时的最优值，转移形如：\n\n$$\ndp[i] = a[i] + \\max_{j \\in [l,r]} (dp[j] + b[j])\n$$\n\n其中窗口 $[l,r]$ 通常随 $i$ 滑动，即 $l,r$ 都是 $i$ 的函数。把要取最值的部分 $dp[j]+b[j]$ 丢进单调队列里维护，队首就是窗口内的最优决策 $j$。\n\n## 逐行代码解析\n\n下面把代码骨架按模块拆开讲，各块按顺序拼起来就是完整的一份骨架。\n\n### 队列定义\n\n```cpp\nint q[N], head = 1, tail = 0;\n```\n\n- `q[N]` 是单调队列本体，存的是**下标**而不是数值，取用时再回去查 `f[q[...]]`。\n- `head = 1, tail = 0` 是空队列的标准写法，配合 `head <= tail` 判空。\n\n### 入队并维护单调性\n\n```cpp\nfor (int i = 1; i <= n; i++) {\n    int add = i - L;\n    if (add >= 0 && f[add] > NEG) {\n    while (head <= tail && f[q[tail]] <= f[add]) tail--;\n        q[++tail] = add;\n    }\n```\n\n- 能作为 $i$ 决策的新位置是 `add = i - L`，只有它**合法**（下标非负且不是不可达的 `NEG`）时才考虑入队。\n- 入队前从队尾把 `f` 值**不大于** `f[add]` 的元素弹掉，保证队列里 `f` 值从队首到队尾**单调递减**，队首永远是最优决策。\n\n### 弹出过期元素\n\n```cpp\n    while (head <= tail && q[head] < i - R) head++;\n```\n\n- 窗口右端是 $i-R$，队首下标一旦 `< i - R` 就滑出了可用范围，从队首弹出。\n\n### 取值转移\n\n```cpp\n    if (head <= tail) f[i] = a[i] + f[q[head]];\n    else f[i] = NEG;\n}\n```\n\n- 队列非空时，队首就是窗口内的最优决策，直接 `f[i] = a[i] + f[q[head]]`。\n- 队列为空说明窗口内没有任何合法前驱，当前状态不可达，置为 `NEG`。\n\n## 复杂度分析\n\n每个下标最多入队一次、出队一次，单调队列的总操作是线性的：\n\n- 时间复杂度：$O(n)$，把原本 $O(n^2)$ 的「枚举窗口内所有决策」压成了均摊 $O(1)$ 的取队首。\n- 空间复杂度：$O(n)$，即 `f` 数组加上单调队列 `q`。\n\n## 适用场景\n\n- 转移式中出现「对一段滑动窗口取最值」的 DP，且 $l,r$ 随 $i$ 单调移动。\n- 典型如：限制跳跃长度的最值 DP、多重背包的单调队列优化、带窗口长度约束的线性 DP。\n\n## 常见陷阱与注意事项\n\n1. **队列存下标而不是数值**：入队、判过期、取值都依赖下标，存数值就没法判窗口过期。\n2. **判空再取队首**：取 `f[q[head]]` 前一定要 `head <= tail`，否则空队列会读到越界的垃圾值。\n3. **不可达状态别入队**：`f[add] > NEG` 这层判断不能少，否则 `NEG` 会污染最值。\n4. **维护的比较方向要和单调性一致**：取最大值时队尾弹 `<=`，取最小值时弹 `>=`，写反了队首就不是最优。\n5. **窗口边界 `L / R` 的含义**：确认 `i-L`、`i-R` 是可用决策区间的端点，别把 `l,r` 和 `L,R` 搞混。\n\n## 附：SOS DP（子集和 / 高维前缀和）\n\nSOS DP（Sum Over Subsets DP）本质上是**高维前缀和在二进制位上的应用**。它的作用是在 $O(n \\cdot 2^n)$ 的时间内求出每个集合的所有子集（或超集）的贡献和。\n\n高维前缀和的核心思想是：**在每个维度上独立做一次一维前缀和**。当维度是二进制位（取值只有 0 和 1）时，高维前缀和就变成了 SOS DP。\n\n### 核心公式 / 状态定义与转移方程\n\n给定长度为 $2^n$ 的数组 $f[mask]$，定义：\n\n$$\nF[mask] = \\sum_{sub \\subseteq mask} f[sub]\n$$\n\n即对每个 mask，求它所有子集的和。把每一位看作一个维度，$F$ 就是 $n$ 维数组的前缀和。\n\n- **朴素做法**：枚举每个 mask，再枚举它的所有子集。\n- **迭代做法**：按位逐维累加。\n\n### 逐行代码解析\n\n#### 朴素子集枚举\n\n```cpp\nfor (int mask = 0; mask < (1 << n); mask++)\n    for (int sub = mask; ; sub = (sub - 1) & mask) {\n        F[mask] += f[sub];\n        if (sub == 0) break;\n    }\n```\n\n- 外层枚举 `mask`，内层用 `sub = (sub - 1) & mask` 枚举 `mask` 的所有子集（从 `mask` 本身一路往下减）。\n- 到 `sub == 0` 时手工 `break` 收尾。\n- 总复杂度 $O(3^n)$：每个元素有三种状态（不在 mask 中、在 mask 中不在 sub 中、在 sub 中）。\n\n#### 迭代做法\n\n```cpp\nfor (int i = 0; i < n; i++)          // 枚举每一位\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (mask & (1 << i))         // 如果这一位是 1\n            f[mask] += f[mask ^ (1 << i)];\n```\n\n- 外层枚举每一位 $i$（共 $n$ 个维度），内层扫所有 mask。\n- 只对第 $i$ 位为 1 的 mask 累加：它的子集里把第 $i$ 位取 0 的那个 `mask ^ (1 << i)` 已经先算好了，直接加进来。\n- 复杂度 $O(n \\cdot 2^n)$，远优于 $O(3^n)$。\n\n![](https://r2.xsimple-r2.com/gpt-image/497651/116e62d5-5d8c-41b2-81aa-c3e8c5a3bce8.png)\n\n#### 子集和模板（求所有子集的和）\n\n```cpp\nfor (int i = 0; i < n; i++)\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (mask & (1 << i))\n            f[mask] += f[mask ^ (1 << i)];\n```\n\n#### 超集和模板（求所有超集的和）\n\n```cpp\nfor (int i = 0; i < n; i++)\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (!(mask & (1 << i)))\n            f[mask] += f[mask | (1 << i)];\n```\n\n- 只需把判断条件反过来（`!(mask & (1 << i))`），累加方向也随之反转（从 `mask | (1 << i)` 加过来）。\n\n### 复杂度分析\n\n- 朴素子集枚举：$O(3^n)$。\n- 迭代 SOS DP：$O(n \\cdot 2^n)$。把「枚举每个 mask 的全部子集」拆成「按维度逐个累加」，一维只花 $O(2^n)$，共 $n$ 维。\n- 空间复杂度：$O(2^n)$，在原数组 `f` 上原地累加，不需要额外数组。\n\n### 适用场景\n\n- **子集计数**：统计每个 mask 有多少个子集满足某种性质。\n- **子集最值**：维护每个 mask 的所有子集中的最大值、次大值（如 Or Plus Max）。\n- **超集统计**：统计每个 mask 的所有超集的信息。\n- **状压 DP 预处理**：在状压 DP 中快速合并子集信息，避免枚举子集。\n- **子集卷积**：SOS DP 是子集卷积的前置步骤。\n\n### 常见陷阱与注意事项\n\n1. **子集 / 超集的判断条件别写反**：子集和是 `mask & (1 << i)`（该位为 1 才累加），超集和是 `!(mask & (1 << i))`（该位为 0 才累加）。\n2. **累加来源的下标要对应**：子集和从 `mask ^ (1 << i)`（清掉这一位）来，超集和从 `mask | (1 << i)`（补上这一位）来，别混。\n3. **`n` 是位数不是元素个数**：数组长度是 $2^n$，循环上界写 `1 << n`，别漏了括号。\n4. **原地累加**：`f[mask]` 直接在原数组上覆盖，保证依赖的 `f[mask ^ ...]` 是上一层（已处理完前面维度）的值，别把顺序改乱。",
         "timeComplexity": "O(n)",
         "spaceComplexity": "O(n)",
         "tags": [
@@ -4181,49 +4381,6 @@ const KNOWLEDGE_DATA = [
             "滑动窗口"
         ],
         "codePath": "动态规划\\DP优化\\单调队列优化\\Untitled1--xesir.cpp",
-        "prerequisites": [
-            "hub-dp"
-        ],
-        "related": [],
-        "parent": ""
-    },
-    {
-        "id": "dp-opt-sos",
-        "category": "动态规划",
-        "subcategory": "DP优化",
-        "subSubcategory": "",
-        "title": "SOS DP（子集和 / 高维前缀和）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "Xesir",
-                "content": "## 算法原理\n\nSOS DP（Sum Over Subsets DP）本质上是**高维前缀和在二进制位上的应用**。它的作用是在 $O(n \\cdot 2^n)$ 的时间内求出每个集合的所有子集（或超集）的贡献和。\n\n高维前缀和的核心思想是：**在每个维度上独立做一次一维前缀和**。当维度是二进制位（取值只有 0 和 1）时，高维前缀和就变成了 SOS DP。\n\n## 核心公式 / 状态定义与转移方程\n\n给定长度为 $2^n$ 的数组 $f[mask]$，定义：\n\n$$\nF[mask] = \\sum_{sub \\subseteq mask} f[sub]\n$$\n\n即对每个 mask，求它所有子集的和。把每一位看作一个维度，$F$ 就是 $n$ 维数组的前缀和。\n\n- **朴素做法**：枚举每个 mask，再枚举它的所有子集。\n- **迭代做法**：按位逐维累加。\n\n## 逐行代码解析\n\n### 朴素子集枚举\n\n```cpp\nfor (int mask = 0; mask < (1 << n); mask++)\n    for (int sub = mask; ; sub = (sub - 1) & mask) {\n        F[mask] += f[sub];\n        if (sub == 0) break;\n    }\n```\n\n- 外层枚举 `mask`，内层用 `sub = (sub - 1) & mask` 枚举 `mask` 的所有子集（从 `mask` 本身一路往下减）。\n- 到 `sub == 0` 时手工 `break` 收尾。\n- 总复杂度 $O(3^n)$：每个元素有三种状态（不在 mask 中、在 mask 中不在 sub 中、在 sub 中）。\n\n### 迭代做法\n\n```cpp\nfor (int i = 0; i < n; i++)          // 枚举每一位\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (mask & (1 << i))         // 如果这一位是 1\n            f[mask] += f[mask ^ (1 << i)];\n```\n\n- 外层枚举每一位 $i$（共 $n$ 个维度），内层扫所有 mask。\n- 只对第 $i$ 位为 1 的 mask 累加：它的子集里把第 $i$ 位取 0 的那个 `mask ^ (1 << i)` 已经先算好了，直接加进来。\n- 复杂度 $O(n \\cdot 2^n)$，远优于 $O(3^n)$。\n\n![](https://r2.xsimple-r2.com/gpt-image/497651/116e62d5-5d8c-41b2-81aa-c3e8c5a3bce8.png)\n\n### 子集和模板（求所有子集的和）\n\n```cpp\nfor (int i = 0; i < n; i++)\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (mask & (1 << i))\n            f[mask] += f[mask ^ (1 << i)];\n```\n\n### 超集和模板（求所有超集的和）\n\n```cpp\nfor (int i = 0; i < n; i++)\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (!(mask & (1 << i)))\n            f[mask] += f[mask | (1 << i)];\n```\n\n- 只需把判断条件反过来（`!(mask & (1 << i))`），累加方向也随之反转（从 `mask | (1 << i)` 加过来）。\n\n## 复杂度分析\n\n- 朴素子集枚举：$O(3^n)$。\n- 迭代 SOS DP：$O(n \\cdot 2^n)$。把「枚举每个 mask 的全部子集」拆成「按维度逐个累加」，一维只花 $O(2^n)$，共 $n$ 维。\n- 空间复杂度：$O(2^n)$，在原数组 `f` 上原地累加，不需要额外数组。\n\n## 适用场景\n\n- **子集计数**：统计每个 mask 有多少个子集满足某种性质。\n- **子集最值**：维护每个 mask 的所有子集中的最大值、次大值（如 Or Plus Max）。\n- **超集统计**：统计每个 mask 的所有超集的信息。\n- **状压 DP 预处理**：在状压 DP 中快速合并子集信息，避免枚举子集。\n- **子集卷积**：SOS DP 是子集卷积的前置步骤。\n\n## 常见陷阱与注意事项\n\n1. **子集 / 超集的判断条件别写反**：子集和是 `mask & (1 << i)`（该位为 1 才累加），超集和是 `!(mask & (1 << i))`（该位为 0 才累加）。\n2. **累加来源的下标要对应**：子集和从 `mask ^ (1 << i)`（清掉这一位）来，超集和从 `mask | (1 << i)`（补上这一位）来，别混。\n3. **`n` 是位数不是元素个数**：数组长度是 $2^n$，循环上界写 `1 << n`，别漏了括号。\n4. **原地累加**：`f[mask]` 直接在原数组上覆盖，保证依赖的 `f[mask ^ ...]` 是上一层（已处理完前面维度）的值，别把顺序改乱。",
-                "codePath": "动态规划\\DP优化\\SOS子集和\\Untitled1--xesir.cpp",
-                "timeComplexity": "朴素 O(3^n) / 迭代 O(n·2^n)",
-                "spaceComplexity": "O(2^n)",
-                "tags": [
-                    "动态规划",
-                    "DP优化",
-                    "SOS DP",
-                    "子集和",
-                    "高维前缀和",
-                    "状压"
-                ],
-                "source": "Xesir"
-            }
-        ],
-        "content": "## 算法原理\n\nSOS DP（Sum Over Subsets DP）本质上是**高维前缀和在二进制位上的应用**。它的作用是在 $O(n \\cdot 2^n)$ 的时间内求出每个集合的所有子集（或超集）的贡献和。\n\n高维前缀和的核心思想是：**在每个维度上独立做一次一维前缀和**。当维度是二进制位（取值只有 0 和 1）时，高维前缀和就变成了 SOS DP。\n\n## 核心公式 / 状态定义与转移方程\n\n给定长度为 $2^n$ 的数组 $f[mask]$，定义：\n\n$$\nF[mask] = \\sum_{sub \\subseteq mask} f[sub]\n$$\n\n即对每个 mask，求它所有子集的和。把每一位看作一个维度，$F$ 就是 $n$ 维数组的前缀和。\n\n- **朴素做法**：枚举每个 mask，再枚举它的所有子集。\n- **迭代做法**：按位逐维累加。\n\n## 逐行代码解析\n\n### 朴素子集枚举\n\n```cpp\nfor (int mask = 0; mask < (1 << n); mask++)\n    for (int sub = mask; ; sub = (sub - 1) & mask) {\n        F[mask] += f[sub];\n        if (sub == 0) break;\n    }\n```\n\n- 外层枚举 `mask`，内层用 `sub = (sub - 1) & mask` 枚举 `mask` 的所有子集（从 `mask` 本身一路往下减）。\n- 到 `sub == 0` 时手工 `break` 收尾。\n- 总复杂度 $O(3^n)$：每个元素有三种状态（不在 mask 中、在 mask 中不在 sub 中、在 sub 中）。\n\n### 迭代做法\n\n```cpp\nfor (int i = 0; i < n; i++)          // 枚举每一位\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (mask & (1 << i))         // 如果这一位是 1\n            f[mask] += f[mask ^ (1 << i)];\n```\n\n- 外层枚举每一位 $i$（共 $n$ 个维度），内层扫所有 mask。\n- 只对第 $i$ 位为 1 的 mask 累加：它的子集里把第 $i$ 位取 0 的那个 `mask ^ (1 << i)` 已经先算好了，直接加进来。\n- 复杂度 $O(n \\cdot 2^n)$，远优于 $O(3^n)$。\n\n![](https://r2.xsimple-r2.com/gpt-image/497651/116e62d5-5d8c-41b2-81aa-c3e8c5a3bce8.png)\n\n### 子集和模板（求所有子集的和）\n\n```cpp\nfor (int i = 0; i < n; i++)\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (mask & (1 << i))\n            f[mask] += f[mask ^ (1 << i)];\n```\n\n### 超集和模板（求所有超集的和）\n\n```cpp\nfor (int i = 0; i < n; i++)\n    for (int mask = 0; mask < (1 << n); mask++)\n        if (!(mask & (1 << i)))\n            f[mask] += f[mask | (1 << i)];\n```\n\n- 只需把判断条件反过来（`!(mask & (1 << i))`），累加方向也随之反转（从 `mask | (1 << i)` 加过来）。\n\n## 复杂度分析\n\n- 朴素子集枚举：$O(3^n)$。\n- 迭代 SOS DP：$O(n \\cdot 2^n)$。把「枚举每个 mask 的全部子集」拆成「按维度逐个累加」，一维只花 $O(2^n)$，共 $n$ 维。\n- 空间复杂度：$O(2^n)$，在原数组 `f` 上原地累加，不需要额外数组。\n\n## 适用场景\n\n- **子集计数**：统计每个 mask 有多少个子集满足某种性质。\n- **子集最值**：维护每个 mask 的所有子集中的最大值、次大值（如 Or Plus Max）。\n- **超集统计**：统计每个 mask 的所有超集的信息。\n- **状压 DP 预处理**：在状压 DP 中快速合并子集信息，避免枚举子集。\n- **子集卷积**：SOS DP 是子集卷积的前置步骤。\n\n## 常见陷阱与注意事项\n\n1. **子集 / 超集的判断条件别写反**：子集和是 `mask & (1 << i)`（该位为 1 才累加），超集和是 `!(mask & (1 << i))`（该位为 0 才累加）。\n2. **累加来源的下标要对应**：子集和从 `mask ^ (1 << i)`（清掉这一位）来，超集和从 `mask | (1 << i)`（补上这一位）来，别混。\n3. **`n` 是位数不是元素个数**：数组长度是 $2^n$，循环上界写 `1 << n`，别漏了括号。\n4. **原地累加**：`f[mask]` 直接在原数组上覆盖，保证依赖的 `f[mask ^ ...]` 是上一层（已处理完前面维度）的值，别把顺序改乱。",
-        "timeComplexity": "朴素 O(3^n) / 迭代 O(n·2^n)",
-        "spaceComplexity": "O(2^n)",
-        "tags": [
-            "动态规划",
-            "DP优化",
-            "SOS DP",
-            "子集和",
-            "高维前缀和",
-            "状压"
-        ],
-        "codePath": "动态规划\\DP优化\\SOS子集和\\Untitled1--xesir.cpp",
         "prerequisites": [
             "hub-dp"
         ],
@@ -4281,10 +4438,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\换根DP\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "dp-tree-dance"
+            "dp-tree-dance",
+            "dp-tree-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-tree-overview"
     },
     {
         "id": "dp-subset-dp",
@@ -4322,10 +4480,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\子集DP\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "dp-bitmask-hamilton"
+            "dp-bitmask-hamilton",
+            "dp-bitmask-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-bitmask-overview"
     },
     {
         "id": "dp-tree-01bag",
@@ -4365,13 +4524,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\树形DP\\树状01背包\\Untitled1.cpp",
         "prerequisites": [
-            "dp-tree-dance"
+            "dp-tree-dance",
+            "dp-tree-overview"
         ],
         "related": [
             "dp-tree-dance",
             "dp-01bag-standard"
         ],
-        "parent": ""
+        "parent": "dp-tree-overview"
     },
     {
         "id": "dp-tree-bag-optimize",
@@ -4424,12 +4584,13 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\树形背包优化\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "dp-tree-01bag"
+            "dp-tree-01bag",
+            "dp-tree-overview"
         ],
         "related": [
             "dp-tree-dance"
         ],
-        "parent": ""
+        "parent": "dp-tree-overview"
     },
     {
         "id": "dp-tree-color-edge",
@@ -4467,10 +4628,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\树上染色\\Untitled1.cpp",
         "prerequisites": [
-            "dp-tree-01bag"
+            "dp-tree-01bag",
+            "dp-tree-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "dp-tree-overview"
     },
     {
         "id": "dp-tree-dance",
@@ -4506,13 +4668,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-dp"
+            "hub-dp",
+            "dp-tree-overview"
         ],
         "related": [
             "dp-tree-01bag",
             "dp-tree-bag-optimize"
         ],
-        "parent": ""
+        "parent": "dp-tree-overview"
     },
     {
         "id": "dp-tree-min-dominating",
@@ -4565,7 +4728,49 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "动态规划\\最小支配集\\Untitled1--xesir.cpp",
         "prerequisites": [
-            "dp-tree-dance"
+            "dp-tree-dance",
+            "dp-tree-overview"
+        ],
+        "related": [],
+        "parent": "dp-tree-overview"
+    },
+    {
+        "id": "dp-tree-overview",
+        "category": "动态规划",
+        "subcategory": "树形DP",
+        "subSubcategory": "",
+        "title": "树形 DP 总览（独立集 / 背包 / 换根 / 支配集）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「树形 DP」的二级栏目索引：在树上按子树合并信息，状态通常带「选不选当前点」「当前点属于哪一类」，转移通过 DFS 后序合并儿子。\r\n\r\n**学习顺序**：最大权独立集 → 树状 01 背包 → 树形背包 O(nk) 优化 → 换根 DP → 最小支配集。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按题型选子栏目**：\r\n\r\n| 题型 | 子条目 |\r\n|---|---|\r\n| 选/不选相邻点 | 树形DP · 最大权独立集 |\r\n| 子树内做背包 | 树状01背包、树形背包 O(nk) 优化 |\r\n| 边贡献分解 | 树上染色（边贡献分解） |\r\n| 全树每个点作为根求值 | 换根 DP（STA-Station） |\r\n| 点覆盖/支配关系 | 树的最小支配集（三态 DP） |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出状态定义、转移顺序与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- 树形背包朴素合并 $O(nk^2)$，按子树大小限制上界可做到 $O(nk)$。\r\n- 换根 DP 两次 DFS，$O(n)$。\r\n- 独立集 / 支配集：$O(n)$。\r\n- 边贡献分解：$O(n)$。\r\n\r\n## 适用场景\r\n\r\n- 树上选择问题（独立集、覆盖集、支配集）。\r\n- 子树资源分配（树形背包）。\r\n- 需要以每个点为根统计（换根）。\r\n- 边/点贡献可拆分统计的计数题。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 树形背包的循环上界要按「已合并子树大小」限制，否则退化为 $O(nk^2)$。\r\n- 换根时先算子树答案，再用父亲信息回推，注意减去重复贡献。\r\n- 多状态 DP 要写清每种状态的合法转移。\r\n- 递归深度大时注意栈溢出，可改迭代或开栈。\r\n- 无边权/点权的初始化要统一。\r\n\r\n## 对比与扩展\r\n\r\n- 树形 DP vs 树上贪心：能用贪心证明时优先贪心。\r\n- 树形背包 vs 一般背包：多了子树依赖关系。\r\n- 可扩展到基环树 DP（先断环再合并）。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "树形DP",
+                    "换根DP",
+                    "树形背包",
+                    "总览",
+                    "学习路线"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「树形 DP」的二级栏目索引：在树上按子树合并信息，状态通常带「选不选当前点」「当前点属于哪一类」，转移通过 DFS 后序合并儿子。\r\n\r\n**学习顺序**：最大权独立集 → 树状 01 背包 → 树形背包 O(nk) 优化 → 换根 DP → 最小支配集。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按题型选子栏目**：\r\n\r\n| 题型 | 子条目 |\r\n|---|---|\r\n| 选/不选相邻点 | 树形DP · 最大权独立集 |\r\n| 子树内做背包 | 树状01背包、树形背包 O(nk) 优化 |\r\n| 边贡献分解 | 树上染色（边贡献分解） |\r\n| 全树每个点作为根求值 | 换根 DP（STA-Station） |\r\n| 点覆盖/支配关系 | 树的最小支配集（三态 DP） |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出状态定义、转移顺序与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- 树形背包朴素合并 $O(nk^2)$，按子树大小限制上界可做到 $O(nk)$。\r\n- 换根 DP 两次 DFS，$O(n)$。\r\n- 独立集 / 支配集：$O(n)$。\r\n- 边贡献分解：$O(n)$。\r\n\r\n## 适用场景\r\n\r\n- 树上选择问题（独立集、覆盖集、支配集）。\r\n- 子树资源分配（树形背包）。\r\n- 需要以每个点为根统计（换根）。\r\n- 边/点贡献可拆分统计的计数题。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 树形背包的循环上界要按「已合并子树大小」限制，否则退化为 $O(nk^2)$。\r\n- 换根时先算子树答案，再用父亲信息回推，注意减去重复贡献。\r\n- 多状态 DP 要写清每种状态的合法转移。\r\n- 递归深度大时注意栈溢出，可改迭代或开栈。\r\n- 无边权/点权的初始化要统一。\r\n\r\n## 对比与扩展\r\n\r\n- 树形 DP vs 树上贪心：能用贪心证明时优先贪心。\r\n- 树形背包 vs 一般背包：多了子树依赖关系。\r\n- 可扩展到基环树 DP（先断环再合并）。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "树形DP",
+            "换根DP",
+            "树形背包",
+            "总览",
+            "学习路线"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-dp"
         ],
         "related": [],
         "parent": ""
@@ -4609,7 +4814,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-balanced-tree-overview"
         ],
-        "parent": ""
+        "parent": "ds-balanced-tree-overview"
     },
     {
         "id": "ds-balanced-tree-overview",
@@ -4660,12 +4865,12 @@ const KNOWLEDGE_DATA = [
         "category": "数据结构",
         "subcategory": "树状数组",
         "subSubcategory": "",
-        "title": "树状数组（单点修改区间求和 P3374）",
+        "title": "树状数组（单点修改 / 区间修改）",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n树状数组（Binary Indexed Tree，BIT）的核心是 `lowbit` 运算，即 $\\text{lowbit}(i) = i\\;\\&\\;\\text{-}i$。在补码表示下，`-i` 等于将 `i` 的二进制各位取反再加一，这一操作会保留 `i` 末尾连续的 0，并把从低位往高位数第一个 1 留下。因此 $i\\;\\&\\;\\text{-}i$ 的结果恰好是 `i` 的二进制表示中最低位的 1 所代表的值。例如 `i = 12`（二进制 `1100`），`-i` 在补码下为 `...10100`，$12\\;\\&\\;\\text{-}12 = 4$（二进制 `100`），即最低位的 1 在第 2 位（权值 4）。这个值同时决定了 `tree[i]` 所维护的区间长度。\r\n\r\n每个 $\\text{tree}[i]$ 维护原数组中区间 $[i - \\text{lowbit}(i) + 1,\\; i]$ 的元素之和。也就是说，下标 `i` 的节点管辖的区间长度正好是 $\\text{lowbit}(i)$。这种划分使得整棵树具有优美的性质：下标二进制末尾 0 越多的节点管辖的区间越长，层级越高。例如 $\\text{tree}[8]$（$\\text{lowbit}=8$）管辖 $[1,8]$，而 $\\text{tree}[6]$（$\\text{lowbit}=2$）只管辖 $[5,6]$。整棵树并非显式地用指针连接，而是通过下标的二进制位运算隐式地确定父子关系。\r\n\r\n**修改操作（向上）**：当对位置 `i` 做单点加法时，需要更新所有管辖了位置 `i` 的节点。从 `i` 出发，每次执行 $i \\mathrel{+}= \\text{lowbit}(i)$，就跳到下一个能覆盖当前位置的更高级别节点——这相当于把 `i` 二进制末尾连续的 0 所在的那个 1 进位，从而到达一个管辖范围更大的祖先。例如从 `i=5`（`101`）出发：`5→6（110）→8（1000）→16...`，路径上的每个节点都覆盖了位置 5。**查询操作（向下）**：求前缀和 `sum[1..i]` 时，需要把 `[1..i]` 拆成若干段不重叠的 `tree` 节点。从 `i` 出发每次 $i \\mathrel{-}= \\text{lowbit}(i)$，相当于剥离 `i` 二进制最低位的 1，跳到前一段区间的右端点。例如 `i=7`（`111`）：`7→6→4→0`，依次累加 `tree[7]`（管 `[7,7]`）、`tree[6]`（管 `[5,6]`）、`tree[4]`（管 `[1,4]`），正好覆盖 `[1,7]`。区间和则用前缀和相减得到：$\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$。\r\n\r\n之所以说树状数组比线段树更高效，是因为：线段树每个节点需要维护左右儿子指针或数组下标关系，常数大、空间需 $4n$；而树状数组仅用一维数组、空间 $n+1$，每次操作只需一个 `while` 循环配合 `lowbit` 跳跃，实现极简、常数极小。代价是树状数组只能维护\"可减\"的信息（和、可逆加法等），且不支持区间修改的 lazy 标记，灵活性不如线段树。但对于\"单点修改 + 区间求和\"这一经典场景，树状数组几乎总是最优选择。\r\n\r\n## 数据结构图示\r\n\r\n以原数组 `a = [1, 3, 5, 7, 9, 11, 13, 15]`（下标 1~8）为例，每个 `tree[i]` 的管辖范围由 `lowbit(i)` 决定：\r\n\r\n```\r\n下标 i :   1    2    3    4    5    6    7    8\r\n原数组  :  [1]  [3]  [5]  [7]  [9]  [11] [13] [15]\r\n二进制  :  0001 0010 0011 0100 0101 0110 0111 1000\r\nlowbit  :   1    2    1    4    1    2    1    8\r\n\r\ntree[1] = a[1]                    = 1        覆盖 [1,1]   长度1\r\ntree[2] = a[1]+a[2]                = 4        覆盖 [1,2]   长度2\r\ntree[3] = a[3]                     = 5        覆盖 [3,3]   长度1\r\ntree[4] = a[1]+a[2]+a[3]+a[4]      = 16       覆盖 [1,4]   长度4\r\ntree[5] = a[5]                     = 9        覆盖 [5,5]   长度1\r\ntree[6] = a[5]+a[6]                = 20       覆盖 [5,6]   长度2\r\ntree[7] = a[7]                     = 13       覆盖 [7,7]   长度1\r\ntree[8] = a[1]+...+a[8]            = 64       覆盖 [1,8]   长度8\r\n\r\n树形结构（父子关系靠 lowbit 进位）：\r\n                    tree[8]\r\n                   /       \\\r\n             tree[4]        tree[6]?  (非严格二叉，实际靠位运算)\r\n            /      \\\r\n       tree[2]    tree[3]   tree[5]  tree[6]  tree[7]\r\n        |\r\n      tree[1]\r\n\r\n修改 a[3] += k 的向上路径:  3 -> 4 -> 8   (lowbit(3)=1->4, lowbit(4)=4->8)\r\n查询 sum[1..7] 的向下路径:  7 -> 6 -> 4 -> 0\r\n                            累加 tree[7]+tree[6]+tree[4] = 13+20+16 = 49\r\n```\r\n\r\n可以看到，下标二进制末尾的 0 越多，节点层级越高、管辖范围越大；`lowbit` 把一棵隐式树编码进了下标本身。\r\n\r\n## 核心操作详解\r\n\r\n### lowbit(i) — 取最低位 1\r\n```cpp\r\ninline int lowbit(int i) { return i & -i; }\r\n```\r\n利用补码 $\\text{-}i = \\sim i + 1$ 的性质：取反后最低位的 1 变 0、其后所有 0 变 1，再 +1 会向前进位到那个原来的 1 位置，于是 $i\\;\\&\\;\\text{-}i$ 只保留了那一位。这是整个数据结构的基石，决定了每个节点管辖的区间长度和跳跃步长。\r\n\r\n### init(n) — 建树\r\n```cpp\r\nvoid init(int n) {\r\n    treearr.resize(n + 1, 0);\r\n    for (int i = 1; i <= n; i++) {\r\n        int x; cin >> x;\r\n        int idx = i;\r\n        while (idx <= n) {\r\n            treearr[idx] += x;\r\n            idx += lowbit(idx);\r\n        }\r\n    }\r\n}\r\n```\r\n对每个读入的元素 `a[i] = x`，沿 `idx += lowbit(idx)` 向上更新所有覆盖位置 `i` 的祖先节点。注意 `treearr` 大小开 `n+1`，下标从 1 开始（`lowbit(0)=0` 会导致死循环，0 号位不用）。这种建树方式的总复杂度为 $O(n \\log n)$，也可用前缀和差分做到 $O(n)$，但本实现采用最直观的逐元素更新法。\r\n\r\n### add(i, k, n) — 单点修改\r\n```cpp\r\nvoid add(int i, int k, int n) {\r\n    while (i <= n) {\r\n        treearr[i] += k;\r\n        i += lowbit(i);\r\n    }\r\n}\r\n```\r\n给 `a[i]` 加上 `k`。从 `i` 出发，每次把 `k` 累加到当前节点，再 `i += lowbit(i)` 跳到下一个祖先。循环条件 `i <= n` 保证不越界。由于每步都把 `i` 末尾最低位的 1 进位，`i` 的二进制中 1 的个数严格递减式地变化，至多跳 $O(\\log n)$ 次就超出 `n`。\r\n\r\n### get(i) — 前缀和查询\r\n```cpp\r\nlong long get(int i) {\r\n    long long ans = 0;\r\n    while (i) {\r\n        ans += treearr[i];\r\n        i -= lowbit(i);\r\n    }\r\n    return ans;\r\n}\r\n```\r\n求 `sum[1..i]`。从 `i` 出发，每步累加 $\\text{tree}[i]$（它正好覆盖 $[i - \\text{lowbit}(i) + 1,\\; i]$），再 $i \\mathrel{-}= \\text{lowbit}(i)$ 剥掉最低位的 1 跳到前一段。循环到 `i == 0` 终止。返回类型用 `long long` 防止求和溢出。区间和 $\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$。\r\n\r\n## 逐行代码解析\r\n\r\n### 头文件与全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n/*洛谷P3374*/\r\nvector<long long> treearr;          // 一维数组充当树，用 long long 防溢出\r\n```\r\n\r\n- `treearr` 是唯一的核心数组，用 `vector<long long>` 且下标从 1 开始；`long long` 防止 n 个元素求和溢出 int。\r\n- 0 号位不用：`lowbit(0)=0`，若把 0 当起点，`add` 里的 `i += lowbit(i)` 会永远停在 0 形成死循环。\r\n- `#include<bits/stdc++.h>` 万能头 + `using namespace std` 是竞赛常用写法，省去逐个包含头文件。\r\n\r\n### lowbit(i) — 取最低位 1\r\n\r\n```cpp\r\ninline int lowbit(int i)\r\n{\r\n\treturn i & -i;                   // 补码技巧，取最低位的1\r\n}\r\n```\r\n\r\n- `i & -i` 利用补码（`-i = ~i + 1`）只保留 `i` 二进制最低位的那个 1 所代表的值，例如 `lowbit(12)=4`。\r\n- 这个值同时决定了 `treearr[i]` 管辖的区间长度，是建树、修改、查询三个操作共同的基石。\r\n- 声明为 `inline` 减少函数调用开销，位运算本身是 $O(1)$。\r\n\r\n### init(n) — 建树\r\n\r\n```cpp\r\nvoid init(int n)\r\n{\r\n\ttreearr.resize(n + 1,0);         // 大小 n+1，下标1..n，0号不用\r\n\tfor(int i = 1;i <= n;i++)\r\n\t{\r\n\t\tint x;\r\n\t\tcin >> x;                    // 读入 a[i]\r\n\t\tint idx = i;\r\n\t\twhile(idx <= n)               // 沿祖先链向上更新\r\n\t\t{\r\n\t\t\ttreearr[idx] += x;        // 所有覆盖位置 i 的节点都加上 x\r\n\t\t\tidx += lowbit(idx);       // lowbit 进位跳到下一个祖先\r\n\t\t}\r\n\t}\r\n}\r\n```\r\n\r\n- `resize(n+1,0)` 开到 n+1，因为要用到下标 n；循环 `i` 从 1 到 n（含 n），0 号位跳过。\r\n- 每读入一个 `a[i]=x`，从 `idx=i` 沿 `idx += lowbit(idx)` 向上走，把 x 累加到所有覆盖位置 i 的祖先节点上。\r\n- 不能只写 `treearr[i]=x`：那样只填了叶子，祖先节点会缺数据；必须一路向上累加。\r\n- 这种逐元素建树总复杂度 $O(n\\log n)$。\r\n\r\n### add(i, k, n) — 单点修改\r\n\r\n```cpp\r\nvoid add(int i, int k,int n)        // 单点修改：a[i] += k\r\n{\r\n\twhile(i <= n)                    // 不越界\r\n\t{\r\n\t\ttreearr[i] += k;             // 当前节点加 k\r\n\t\ti += lowbit(i);              // 跳到下一个覆盖 i 的祖先\r\n\t}\r\n}\r\n```\r\n\r\n- 给 `a[i]` 加上 k：从 i 出发，先把 k 累加到当前节点，再 `i += lowbit(i)` 跳到下一个覆盖 i 的祖先。\r\n- 循环条件 `i <= n` 保证下标不越界；`i += lowbit(i)` 每次都让最低位 1 进位、数值严格增大，迟早超过 n 而终止，至多 $O(\\log n)$ 步。\r\n\r\n### get(i) — 前缀和查询\r\n\r\n```cpp\r\nlong long get(int i)                // 前缀和查询 sum[1..i]\r\n{\r\n\tlong long ans = 0;\r\n\twhile(i)                         // i==0 时结束（lowbit(0)=0 无法继续）\r\n\t{\r\n\t\tans += treearr[i];           // 累加当前节点覆盖的区间\r\n\t\ti -= lowbit(i);              // 剥掉最低位的1，跳到前一段\r\n\t}\r\n\treturn ans;\r\n}\r\n```\r\n\r\n- 求 `sum[1..i]`：每步累加 `treearr[i]`（它正好覆盖区间 $[i-\\text{lowbit}(i)+1,\\; i]$），再 `i -= lowbit(i)` 剥掉最低位的 1，跳到前一段。\r\n- 循环条件 `while(i)`：`i` 的 popcount 每步严格递减，迟早归 0 终止；这也是下标必须从 1 开始的原因。\r\n- 返回类型用 `long long`，防止 n 个 int 求和溢出。\r\n\r\n### main — 读入与调度\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);     // 关同步，加速 cin\r\n\tcin.tie(nullptr);cout.tie(nullptr);\r\n\tint n,m;\r\n\tcin >> n >> m;                   // n 个数，m 次操作\r\n\tinit(n);                         // 建树\r\n\tfor(int i = 0;i < m;i++)\r\n\t{\r\n\t\tint op,x,y;\r\n\t\tcin >> op >> x >> y;\r\n\t\tif(op == 1) add(x,y,n);       // 操作1：a[x] += y\r\n\t\telse cout << get(y) - get(x - 1) << '\\n'; // 操作2：查询 [x,y] 的和\r\n\t}\r\n\treturn 0;\t\r\n}\r\n```\r\n\r\n- `ios::sync_with_stdio(false)` 关同步、`cin.tie(nullptr)` 解绑，加速大量输入输出。\r\n- 先读入 n、m，再 `init(n)` 建树；之后循环 m 次处理操作。\r\n- `op==1` 调用 `add(x,y,n)` 做单点修改；否则输出 `get(y)-get(x-1)`，即区间和 = 两个前缀和相减。\r\n- 当 `x=1` 时 `get(0)` 因 `while(0)` 不进循环而返回 0，查询 `[1,y]` 依然正确，无需特判。\r\n\r\n## 复杂度分析\r\n\r\n- **时间**：`lowbit` 是 $O(1)$。`add` 和 `get` 的 `while` 循环每步都会改变 `i` 二进制中至少一个 1 的状态，至多走 $\\lfloor \\log_2 n \\rfloor + 1$ 步，故单次操作 $O(\\log n)$。建树 $O(n \\log n)$，处理 m 次询问 $O(m \\log n)$。\r\n- **空间**：仅一维数组 `treearr`，大小 $n+1$，即 $O(n)$。相比之下线段树需要 $4n$ 空间，树状数组节省了一半以上。\r\n- **常数**：树状数组每次操作只做一次位运算、一次数组访问、一次加减，远小于线段树递归或迭代的开销，实测速度通常是线段树的 2~3 倍。\r\n\r\n## 适用场景\r\n\r\n- **单点修改 + 区间求和**：本模板的标准用途，如 P3374。需要在原数组某位置加一个值，并频繁询问某段区间之和。\r\n- **需要轻量常数**：当题目对常数敏感、n 与 m 都较大时，树状数组比线段树更优。\r\n- **代码短小**：竞赛中希望用最少代码实现前缀和类操作时。\r\n- **前缀和类可逆信息**：凡是信息满足\"区间答案可由两个前缀答案相减得到\"的都可套用，例如前缀异或、前缀计数等。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- **下标从 1 开始**：$\\text{lowbit}(0) = 0\\;\\&\\;0 = 0$，若 `i = 0` 则 $i \\mathrel{-}= \\text{lowbit}(i)$ 永远停在 0 形成\"逻辑终止\"，但 `add` 中 $i \\mathrel{+}= \\text{lowbit}(i)$ 会死循环。所以 0 号位不可用，输入数据下标必须从 1 起。\r\n- **数组大小开 n+1**：因为用到下标 `n`，至少 `n+1` 长；若开成 `n` 会越界。\r\n- **返回类型用 long long**：n 个 int 相加可能超过 int 范围（约 $2.1 \\times 10^9$），`get` 必须返回 `long long`，`treearr` 也建议用 `long long` 存累计值。\r\n- **init 中不要漏掉向上更新**：朴素地 `treearr[i] = x` 只填了叶子，祖先节点会缺数据；必须沿 `idx += lowbit(idx)` 一路累加。\r\n- **区间查询注意 l-1**：$\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$，当 `l=1` 时 `get(0)` 会立即返回 0（while 不进循环），这是安全的。\r\n\r\n## 对比与扩展\r\n\r\n- **与线段树对比**：树状数组代码更短、常数更小、空间更省（$n$ vs $4n$），但只能维护可减信息，不支持 lazy 标记、区间修改、复杂合并函数；线段树功能更全但更笨重。\r\n- **2D 树状数组**：将一维 BIT 套两层，支持矩阵单点修改 + 子矩阵求和，复杂度 $O(\\log^2 n)$，空间 $O(nm)$。\r\n- **求逆序对**：按值域建 BIT，从右往左扫，每次查询比当前值小的元素个数，累计即得逆序数，$O(n \\log n)$。\r\n- **BIT + 二分求第 k 小**：在 BIT 上二分，利用每个节点维护的区间长度做前缀和判断，可在 $O(\\log n)$ 内找到前缀和第一次达到 k 的位置，常用于动态求第 k 小。\r\n- **差分 BIT（见下一篇）**：把\"区间修改 + 单点查询\"通过差分数组转化为\"单点修改 + 前缀和查询\"，仍用同一套 BIT 框架，体现树状数组对偶的灵活性。\r\n- **值域过大需先离散化**：按值域建 BIT 求逆序对时，BIT 的下标范围就是值域本身；若 $a_i$ 高达 $10^9$，直接开 $O(\\max a_i)$ 大小的数组会爆空间、无法分配。做法是先把数组去重排序，再用每个值在有序序列中的名次 $1\\sim m$（$m$ 为不同值个数，$m\\le n$）替换原值，值域即压缩到 $[1,m]$，BIT 数组只需开 $m+1$。离散化排序是 $O(n\\log n)$，不改变整体复杂度；去重后相等元素取同名次，也符合\"严格大于才计逆序对\"的计数要求。\r\n\r\n```text\r\nb = a 去重后排序                                    // 有序唯一值序列，长度 m\r\n对每个 a[i]：rank[i] = lower_bound(b, a[i]) - b + 1 // 名次 ∈ [1, m]\r\n按 rank 建 BIT（数组大小 m+1）统计逆序对\r\n```",
+                "content": "## 算法原理\n\n树状数组（Binary Indexed Tree，BIT）的核心是 `lowbit` 运算，即 $\\text{lowbit}(i) = i\\;\\&\\;\\text{-}i$。在补码表示下，`-i` 等于将 `i` 的二进制各位取反再加一，这一操作会保留 `i` 末尾连续的 0，并把从低位往高位数第一个 1 留下。因此 $i\\;\\&\\;\\text{-}i$ 的结果恰好是 `i` 的二进制表示中最低位的 1 所代表的值。例如 `i = 12`（二进制 `1100`），`-i` 在补码下为 `...10100`，$12\\;\\&\\;\\text{-}12 = 4$（二进制 `100`），即最低位的 1 在第 2 位（权值 4）。这个值同时决定了 `tree[i]` 所维护的区间长度。\n\n每个 $\\text{tree}[i]$ 维护原数组中区间 $[i - \\text{lowbit}(i) + 1,\\; i]$ 的元素之和。也就是说，下标 `i` 的节点管辖的区间长度正好是 $\\text{lowbit}(i)$。这种划分使得整棵树具有优美的性质：下标二进制末尾 0 越多的节点管辖的区间越长，层级越高。例如 $\\text{tree}[8]$（$\\text{lowbit}=8$）管辖 $[1,8]$，而 $\\text{tree}[6]$（$\\text{lowbit}=2$）只管辖 $[5,6]$。整棵树并非显式地用指针连接，而是通过下标的二进制位运算隐式地确定父子关系。\n\n**修改操作（向上）**：当对位置 `i` 做单点加法时，需要更新所有管辖了位置 `i` 的节点。从 `i` 出发，每次执行 $i \\mathrel{+}= \\text{lowbit}(i)$，就跳到下一个能覆盖当前位置的更高级别节点——这相当于把 `i` 二进制末尾连续的 0 所在的那个 1 进位，从而到达一个管辖范围更大的祖先。例如从 `i=5`（`101`）出发：`5→6（110）→8（1000）→16...`，路径上的每个节点都覆盖了位置 5。**查询操作（向下）**：求前缀和 `sum[1..i]` 时，需要把 `[1..i]` 拆成若干段不重叠的 `tree` 节点。从 `i` 出发每次 $i \\mathrel{-}= \\text{lowbit}(i)$，相当于剥离 `i` 二进制最低位的 1，跳到前一段区间的右端点。例如 `i=7`（`111`）：`7→6→4→0`，依次累加 `tree[7]`（管 `[7,7]`）、`tree[6]`（管 `[5,6]`）、`tree[4]`（管 `[1,4]`），正好覆盖 `[1,7]`。区间和则用前缀和相减得到：$\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$。\n\n之所以说树状数组比线段树更高效，是因为：线段树每个节点需要维护左右儿子指针或数组下标关系，常数大、空间需 $4n$；而树状数组仅用一维数组、空间 $n+1$，每次操作只需一个 `while` 循环配合 `lowbit` 跳跃，实现极简、常数极小。代价是树状数组只能维护\"可减\"的信息（和、可逆加法等），且不支持区间修改的 lazy 标记，灵活性不如线段树。但对于\"单点修改 + 区间求和\"这一经典场景，树状数组几乎总是最优选择。\n\n## 数据结构图示\n\n以原数组 `a = [1, 3, 5, 7, 9, 11, 13, 15]`（下标 1~8）为例，每个 `tree[i]` 的管辖范围由 `lowbit(i)` 决定：\n\n```\n下标 i :   1    2    3    4    5    6    7    8\n原数组  :  [1]  [3]  [5]  [7]  [9]  [11] [13] [15]\n二进制  :  0001 0010 0011 0100 0101 0110 0111 1000\nlowbit  :   1    2    1    4    1    2    1    8\n\ntree[1] = a[1]                    = 1        覆盖 [1,1]   长度1\ntree[2] = a[1]+a[2]                = 4        覆盖 [1,2]   长度2\ntree[3] = a[3]                     = 5        覆盖 [3,3]   长度1\ntree[4] = a[1]+a[2]+a[3]+a[4]      = 16       覆盖 [1,4]   长度4\ntree[5] = a[5]                     = 9        覆盖 [5,5]   长度1\ntree[6] = a[5]+a[6]                = 20       覆盖 [5,6]   长度2\ntree[7] = a[7]                     = 13       覆盖 [7,7]   长度1\ntree[8] = a[1]+...+a[8]            = 64       覆盖 [1,8]   长度8\n\n树形结构（父子关系靠 lowbit 进位）：\n                    tree[8]\n                   /       \\\n             tree[4]        tree[6]?  (非严格二叉，实际靠位运算)\n            /      \\\n       tree[2]    tree[3]   tree[5]  tree[6]  tree[7]\n        |\n      tree[1]\n\n修改 a[3] += k 的向上路径:  3 -> 4 -> 8   (lowbit(3)=1->4, lowbit(4)=4->8)\n查询 sum[1..7] 的向下路径:  7 -> 6 -> 4 -> 0\n                            累加 tree[7]+tree[6]+tree[4] = 13+20+16 = 49\n```\n\n可以看到，下标二进制末尾的 0 越多，节点层级越高、管辖范围越大；`lowbit` 把一棵隐式树编码进了下标本身。\n\n## 核心操作详解\n\n### lowbit(i) — 取最低位 1\n```cpp\ninline int lowbit(int i) { return i & -i; }\n```\n利用补码 $\\text{-}i = \\sim i + 1$ 的性质：取反后最低位的 1 变 0、其后所有 0 变 1，再 +1 会向前进位到那个原来的 1 位置，于是 $i\\;\\&\\;\\text{-}i$ 只保留了那一位。这是整个数据结构的基石，决定了每个节点管辖的区间长度和跳跃步长。\n\n### init(n) — 建树\n```cpp\nvoid init(int n) {\n    treearr.resize(n + 1, 0);\n    for (int i = 1; i <= n; i++) {\n        int x; cin >> x;\n        int idx = i;\n        while (idx <= n) {\n            treearr[idx] += x;\n            idx += lowbit(idx);\n        }\n    }\n}\n```\n对每个读入的元素 `a[i] = x`，沿 `idx += lowbit(idx)` 向上更新所有覆盖位置 `i` 的祖先节点。注意 `treearr` 大小开 `n+1`，下标从 1 开始（`lowbit(0)=0` 会导致死循环，0 号位不用）。这种建树方式的总复杂度为 $O(n \\log n)$，也可用前缀和差分做到 $O(n)$，但本实现采用最直观的逐元素更新法。\n\n### add(i, k, n) — 单点修改\n```cpp\nvoid add(int i, int k, int n) {\n    while (i <= n) {\n        treearr[i] += k;\n        i += lowbit(i);\n    }\n}\n```\n给 `a[i]` 加上 `k`。从 `i` 出发，每次把 `k` 累加到当前节点，再 `i += lowbit(i)` 跳到下一个祖先。循环条件 `i <= n` 保证不越界。由于每步都把 `i` 末尾最低位的 1 进位，`i` 的二进制中 1 的个数严格递减式地变化，至多跳 $O(\\log n)$ 次就超出 `n`。\n\n### get(i) — 前缀和查询\n```cpp\nlong long get(int i) {\n    long long ans = 0;\n    while (i) {\n        ans += treearr[i];\n        i -= lowbit(i);\n    }\n    return ans;\n}\n```\n求 `sum[1..i]`。从 `i` 出发，每步累加 $\\text{tree}[i]$（它正好覆盖 $[i - \\text{lowbit}(i) + 1,\\; i]$），再 $i \\mathrel{-}= \\text{lowbit}(i)$ 剥掉最低位的 1 跳到前一段。循环到 `i == 0` 终止。返回类型用 `long long` 防止求和溢出。区间和 $\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$。\n\n## 逐行代码解析\n\n### 头文件与全局变量\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n/*洛谷P3374*/\nvector<long long> treearr;          // 一维数组充当树，用 long long 防溢出\n```\n\n- `treearr` 是唯一的核心数组，用 `vector<long long>` 且下标从 1 开始；`long long` 防止 n 个元素求和溢出 int。\n- 0 号位不用：`lowbit(0)=0`，若把 0 当起点，`add` 里的 `i += lowbit(i)` 会永远停在 0 形成死循环。\n- `#include<bits/stdc++.h>` 万能头 + `using namespace std` 是竞赛常用写法，省去逐个包含头文件。\n\n### lowbit(i) — 取最低位 1\n\n```cpp\ninline int lowbit(int i)\n{\n\treturn i & -i;                   // 补码技巧，取最低位的1\n}\n```\n\n- `i & -i` 利用补码（`-i = ~i + 1`）只保留 `i` 二进制最低位的那个 1 所代表的值，例如 `lowbit(12)=4`。\n- 这个值同时决定了 `treearr[i]` 管辖的区间长度，是建树、修改、查询三个操作共同的基石。\n- 声明为 `inline` 减少函数调用开销，位运算本身是 $O(1)$。\n\n### init(n) — 建树\n\n```cpp\nvoid init(int n)\n{\n\ttreearr.resize(n + 1,0);         // 大小 n+1，下标1..n，0号不用\n\tfor(int i = 1;i <= n;i++)\n\t{\n\t\tint x;\n\t\tcin >> x;                    // 读入 a[i]\n\t\tint idx = i;\n\t\twhile(idx <= n)               // 沿祖先链向上更新\n\t\t{\n\t\t\ttreearr[idx] += x;        // 所有覆盖位置 i 的节点都加上 x\n\t\t\tidx += lowbit(idx);       // lowbit 进位跳到下一个祖先\n\t\t}\n\t}\n}\n```\n\n- `resize(n+1,0)` 开到 n+1，因为要用到下标 n；循环 `i` 从 1 到 n（含 n），0 号位跳过。\n- 每读入一个 `a[i]=x`，从 `idx=i` 沿 `idx += lowbit(idx)` 向上走，把 x 累加到所有覆盖位置 i 的祖先节点上。\n- 不能只写 `treearr[i]=x`：那样只填了叶子，祖先节点会缺数据；必须一路向上累加。\n- 这种逐元素建树总复杂度 $O(n\\log n)$。\n\n### add(i, k, n) — 单点修改\n\n```cpp\nvoid add(int i, int k,int n)        // 单点修改：a[i] += k\n{\n\twhile(i <= n)                    // 不越界\n\t{\n\t\ttreearr[i] += k;             // 当前节点加 k\n\t\ti += lowbit(i);              // 跳到下一个覆盖 i 的祖先\n\t}\n}\n```\n\n- 给 `a[i]` 加上 k：从 i 出发，先把 k 累加到当前节点，再 `i += lowbit(i)` 跳到下一个覆盖 i 的祖先。\n- 循环条件 `i <= n` 保证下标不越界；`i += lowbit(i)` 每次都让最低位 1 进位、数值严格增大，迟早超过 n 而终止，至多 $O(\\log n)$ 步。\n\n### get(i) — 前缀和查询\n\n```cpp\nlong long get(int i)                // 前缀和查询 sum[1..i]\n{\n\tlong long ans = 0;\n\twhile(i)                         // i==0 时结束（lowbit(0)=0 无法继续）\n\t{\n\t\tans += treearr[i];           // 累加当前节点覆盖的区间\n\t\ti -= lowbit(i);              // 剥掉最低位的1，跳到前一段\n\t}\n\treturn ans;\n}\n```\n\n- 求 `sum[1..i]`：每步累加 `treearr[i]`（它正好覆盖区间 $[i-\\text{lowbit}(i)+1,\\; i]$），再 `i -= lowbit(i)` 剥掉最低位的 1，跳到前一段。\n- 循环条件 `while(i)`：`i` 的 popcount 每步严格递减，迟早归 0 终止；这也是下标必须从 1 开始的原因。\n- 返回类型用 `long long`，防止 n 个 int 求和溢出。\n\n### main — 读入与调度\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);     // 关同步，加速 cin\n\tcin.tie(nullptr);cout.tie(nullptr);\n\tint n,m;\n\tcin >> n >> m;                   // n 个数，m 次操作\n\tinit(n);                         // 建树\n\tfor(int i = 0;i < m;i++)\n\t{\n\t\tint op,x,y;\n\t\tcin >> op >> x >> y;\n\t\tif(op == 1) add(x,y,n);       // 操作1：a[x] += y\n\t\telse cout << get(y) - get(x - 1) << '\\n'; // 操作2：查询 [x,y] 的和\n\t}\n\treturn 0;\t\n}\n```\n\n- `ios::sync_with_stdio(false)` 关同步、`cin.tie(nullptr)` 解绑，加速大量输入输出。\n- 先读入 n、m，再 `init(n)` 建树；之后循环 m 次处理操作。\n- `op==1` 调用 `add(x,y,n)` 做单点修改；否则输出 `get(y)-get(x-1)`，即区间和 = 两个前缀和相减。\n- 当 `x=1` 时 `get(0)` 因 `while(0)` 不进循环而返回 0，查询 `[1,y]` 依然正确，无需特判。\n\n## 复杂度分析\n\n- **时间**：`lowbit` 是 $O(1)$。`add` 和 `get` 的 `while` 循环每步都会改变 `i` 二进制中至少一个 1 的状态，至多走 $\\lfloor \\log_2 n \\rfloor + 1$ 步，故单次操作 $O(\\log n)$。建树 $O(n \\log n)$，处理 m 次询问 $O(m \\log n)$。\n- **空间**：仅一维数组 `treearr`，大小 $n+1$，即 $O(n)$。相比之下线段树需要 $4n$ 空间，树状数组节省了一半以上。\n- **常数**：树状数组每次操作只做一次位运算、一次数组访问、一次加减，远小于线段树递归或迭代的开销，实测速度通常是线段树的 2~3 倍。\n\n## 适用场景\n\n- **单点修改 + 区间求和**：本模板的标准用途，如 P3374。需要在原数组某位置加一个值，并频繁询问某段区间之和。\n- **需要轻量常数**：当题目对常数敏感、n 与 m 都较大时，树状数组比线段树更优。\n- **代码短小**：竞赛中希望用最少代码实现前缀和类操作时。\n- **前缀和类可逆信息**：凡是信息满足\"区间答案可由两个前缀答案相减得到\"的都可套用，例如前缀异或、前缀计数等。\n\n## 常见陷阱与注意事项\n\n- **下标从 1 开始**：$\\text{lowbit}(0) = 0\\;\\&\\;0 = 0$，若 `i = 0` 则 $i \\mathrel{-}= \\text{lowbit}(i)$ 永远停在 0 形成\"逻辑终止\"，但 `add` 中 $i \\mathrel{+}= \\text{lowbit}(i)$ 会死循环。所以 0 号位不可用，输入数据下标必须从 1 起。\n- **数组大小开 n+1**：因为用到下标 `n`，至少 `n+1` 长；若开成 `n` 会越界。\n- **返回类型用 long long**：n 个 int 相加可能超过 int 范围（约 $2.1 \\times 10^9$），`get` 必须返回 `long long`，`treearr` 也建议用 `long long` 存累计值。\n- **init 中不要漏掉向上更新**：朴素地 `treearr[i] = x` 只填了叶子，祖先节点会缺数据；必须沿 `idx += lowbit(idx)` 一路累加。\n- **区间查询注意 l-1**：$\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$，当 `l=1` 时 `get(0)` 会立即返回 0（while 不进循环），这是安全的。\n\n## 对比与扩展\n\n- **与线段树对比**：树状数组代码更短、常数更小、空间更省（$n$ vs $4n$），但只能维护可减信息，不支持 lazy 标记、区间修改、复杂合并函数；线段树功能更全但更笨重。\n- **2D 树状数组**：将一维 BIT 套两层，支持矩阵单点修改 + 子矩阵求和，复杂度 $O(\\log^2 n)$，空间 $O(nm)$。\n- **求逆序对**：按值域建 BIT，从右往左扫，每次查询比当前值小的元素个数，累计即得逆序数，$O(n \\log n)$。\n- **BIT + 二分求第 k 小**：在 BIT 上二分，利用每个节点维护的区间长度做前缀和判断，可在 $O(\\log n)$ 内找到前缀和第一次达到 k 的位置，常用于动态求第 k 小。\n- **差分 BIT（见下一篇）**：把\"区间修改 + 单点查询\"通过差分数组转化为\"单点修改 + 前缀和查询\"，仍用同一套 BIT 框架，体现树状数组对偶的灵活性。\n- **值域过大需先离散化**：按值域建 BIT 求逆序对时，BIT 的下标范围就是值域本身；若 $a_i$ 高达 $10^9$，直接开 $O(\\max a_i)$ 大小的数组会爆空间、无法分配。做法是先把数组去重排序，再用每个值在有序序列中的名次 $1\\sim m$（$m$ 为不同值个数，$m\\le n$）替换原值，值域即压缩到 $[1,m]$，BIT 数组只需开 $m+1$。离散化排序是 $O(n\\log n)$，不改变整体复杂度；去重后相等元素取同名次，也符合\"严格大于才计逆序对\"的计数要求。\n\n```text\nb = a 去重后排序                                    // 有序唯一值序列，长度 m\n对每个 a[i]：rank[i] = lower_bound(b, a[i]) - b + 1 // 名次 ∈ [1, m]\n按 rank 建 BIT（数组大小 m+1）统计逆序对\n```\n\n## 附：树状数组（区间修改单点求和 P3368）\n\n本模板要解决的问题是\"区间修改 + 单点查询\"——对某段区间 `[l,r]` 整体加一个值 `k`，并询问某个位置的当前值。直接在原数组上做区间加法是 $O(n)$ 的，无法承受大量操作。核心技巧是引入**差分数组**做变换：令 $d[i] = a[i] - a[i-1]$（规定 $a[0]=0$），则原数组的前缀和恰好还原出每个元素：$a[x] = \\sum_{i=1}^{x} d[i]$。这是因为 $d[1]+d[2]+\\cdots+d[x] = (a[1]-a[0]) + (a[2]-a[1]) + \\cdots + (a[x]-a[x-1])$， telescoping 后只剩 $a[x] - a[0] = a[x]$。于是\"求单点 a[x]\"等价于\"求差分数组 d 的前缀和\"，而\"区间加 k\"等价于\"差分数组在 l 处 +k、在 r+1 处 -k\"：因为加 k 后 `d[l]` 增大 k，会使 `a[l], a[l+1], ...` 都增大 k；而 `d[r+1]` 减小 k 又把 `a[r+1], a[r+2], ...` 拉回原值，恰好让 `[l,r]` 加 k 而 `[r+1,...]` 不变。\n\n这样\"区间修改 + 单点查询\"被转化为\"单点修改 + 前缀和查询\"，正好是树状数组最擅长的两项操作：`add(l, k)` 与 `add(r+1, -k)` 是两次单点修改，`get(x)` 是一次前缀和查询。树状数组维护的就是这个差分数组 `d`，而不是原数组 `a`。每次区间加只需 $O(\\log n)$ 而非 $O(n)$，每次单点查询也只需 $O(\\log n)$ 而非 $O(1)$，但总体远胜于朴素做法。\n\n注意本模板与\"单点修改 + 区间求和\"版本在代码上几乎一致，只是 `init` 阶段写入的是差分值 $w = x - A$（A 是上一个元素的值），而不是原始值 x。这一改动让 BIT 内部存储的语义从\"原数组前缀和\"变为\"差分数组前缀和\"，从而支持区间修改。`get(x)` 直接返回 `a[x]` 而非 `sum[1..x]`，因为差分的前缀和本身就是单点值。\n\n之所以说树状数组在此场景下比线段树更高效：差分 BIT 同样只占用 $O(n)$ 空间、$O(\\log n)$ 单次操作、代码极短，不需要线段树的 lazy 标记。线段树虽然原生支持\"区间修改 + 区间查询\"，但要同时做\"区间修改 + 单点查询\"反而显得大材小用、常数偏大。差分 + BIT 的组合是这一问题的经典最优解。需要注意的代价是：差分变换只适用于\"加法\"这种可逆运算；若区间修改是赋值（set）而非加法，差分技巧就失效了。\n\n### 数据结构图示\n\n设原数组 `a = [1, 3, 5, 7, 9]`（下标 1~5），先求差分数组 `d`，再建树状数组：\n\n```\n下标 i :    1    2    3    4    5\n原数组 a:   1    3    5    7    9\n差分 d  :  d[1]=1 (a[1]-0)\n           d[2]=2 (a[2]-a[1])\n           d[3]=2 (a[3]-a[2])\n           d[4]=2 (a[4]-a[3])\n           d[5]=2 (a[5]-a[4])\n\n验证: a[3] = d[1]+d[2]+d[3] = 1+2+2 = 5  ✓\n\n树状数组（对 d 建树）：\ntree[1] = d[1]                  = 1   覆盖 [1,1]  lowbit=1\ntree[2] = d[1]+d[2]             = 3   覆盖 [1,2]  lowbit=2\ntree[3] = d[3]                  = 2   覆盖 [3,3]  lowbit=1\ntree[4] = d[1]+d[2]+d[3]+d[4]   = 7   覆盖 [1,4]  lowbit=4\ntree[5] = d[5]                  = 2   覆盖 [5,5]  lowbit=1\n\n查询 a[4] = get(4) = tree[4]+tree[0]... 实际路径: 4 -> 0\n        = tree[4] = 7  ✓\n\n操作 \"区间 [2,4] 加 3\":\n  - add(2, +3): 影响路径 2 -> 4\n      tree[2] +=3 (变6), tree[4] +=3 (变10)\n  - add(5, -3): 影响路径 5 -> 6(越界停)\n      tree[5] += -3 (变-1)\n新的差分数组: d[1]=1, d[2]=5, d[3]=2, d[4]=2, d[5]=-1\n新的原数组:  a[1]=1, a[2]=6, a[3]=8, a[4]=10, a[5]=9\n   ✓ 区间[2,4] 各加了3，a[5] 不变\n```\n\n### 核心操作详解\n\n#### lowbit(i) — 取最低位 1\n```cpp\ninline int lowbit(int i) { return i & -i; }\n```\n与单点修改版完全相同，利用补码 `~i + 1` 取 `i` 最低位的 1。它决定了 `tree[i]` 管辖的差分区间长度。\n\n#### init(n) — 建树（维护差分数组）\n```cpp\nvoid init(int n) {\n    treearr.resize(n + 1, 0);\n    long long A = 0;\n    for (int i = 1; i <= n; i++) {\n        int x, w;\n        cin >> x;\n        w = x - A;        // 差分值 d[i] = a[i] - a[i-1]\n        A = x;            // 记下当前值，供下一个元素做差分\n        int idx = i;\n        while (idx <= n) {\n            treearr[idx] += w;       // 把差分值加入 BIT\n            idx += lowbit(idx);\n        }\n    }\n}\n```\n关键区别：写入 BIT 的不是 `x`（原值），而是 $w = x - A$（差分值）。`A` 保存上一个读入的 `x`，初始为 0（对应 $a[0]=0$），所以第一个元素的差分 $d[1] = a[1] - 0 = a[1]$。这样 BIT 内部存的就是差分数组 d 的前缀和结构，使后续 `get(x)` 直接返回 `a[x]`。\n\n#### add(i, k, n) — 单点修改（差分数组上）\n```cpp\nvoid add(int i, int k, int n) {\n    while (i <= n) {\n        treearr[i] += k;\n        i += lowbit(i);\n    }\n}\n```\n与单点修改版完全一致。在差分数组的 `i` 位置加 `k`，影响所有覆盖 `i` 的祖先节点。\n\n#### add(l, r, k, n) — 区间修改（差分技巧）\n```cpp\nvoid add(int l, int r, int k, int n) {\n    add(l, k, n);         // d[l] += k  -> [l, ...] 都加 k\n    add(r + 1, -k, n);    // d[r+1] -= k -> [r+1, ...] 都减 k，抵消前面的影响\n}\n```\n区间 `[l,r]` 加 `k` 等价于差分数组在 `l` 处加 `k`、在 `r+1` 处减 `k`。两次单点修改即可完成区间修改，总复杂度 $O(\\log n)$。注意 `r+1` 若超过 n，`add` 内部 `while(i <= n)` 会自然终止，不会越界。\n\n#### get(i) — 单点查询（差分前缀和）\n```cpp\nlong long get(int i) {\n    long long ans = 0;\n    while (i) {\n        ans += treearr[i];\n        i -= lowbit(i);\n    }\n    return ans;\n}\n```\n求差分数组 `d[1..i]` 之和，即 `a[i]`。逻辑与单点修改版的 `get` 一致，但语义上不是\"区间和\"而是\"单点值\"。返回 `long long` 防止多次加减后溢出。\n\n### 逐行代码解析\n\n下面按函数/逻辑阶段把整份代码拆成 5 个模块。各模块的代码块按顺序拼接后，与 `Untitled1.cpp` 完全一致（仅多出行尾 `//` 注释）。\n\n#### 头文件与全局变量\n\n```cpp\n#include<bits/stdc++.h>\n/*洛谷P3368*/\nusing namespace std; \nvector<long long> treearr;          // 维护差分数组的树状数组\ninline int lowbit(int i)\n{\n\treturn i & -i;                  // 取最低位的 1，决定 treearr[i] 管辖的区间长度\n}\n```\n\n- `treearr` 是维护差分数组的树状数组，用 `vector<long long>` 存储，防止差分累加超出 `int` 范围。\n- `lowbit(i) = i & -i` 利用补码取 `i` 最低位的 1，它决定 `treearr[i]` 覆盖的差分区间长度，是树状数组的基石。\n- 数组只使用下标 `1..n`，`0` 号位不可用：`lowbit(0)=0` 会让 `add` 陷入死循环。\n\n#### init(n) — 建树（读入并写入差分值）\n\n```cpp\nvoid init(int n)\n{\n\ttreearr.resize(n + 1,0);       // 申请 n+1 个元素，只用下标 1..n\n\tlong long A = 0;               // A = a[i-1]，初始 a[0]=0\n\tfor(int i = 1;i <= n;i++)\n\t{\n\t\tint x,w;\n\t\tcin >> x;                  // 读入原值 a[i]\n\t\tw = x - A;                 // 差分 d[i] = a[i] - a[i-1]\n\t\tA = x;                     // 更新 A 为当前值，供下一轮做差\n\t\tint idx = i;\n\t\twhile(idx <= n)            // 沿 lowbit 把差分值 w 累加到祖先链\n\t\t{\n\t\t\ttreearr[idx] += w;\n\t\t\tidx += lowbit(idx);\n\t\t}\n\t}\n}\n```\n\n- `treearr.resize(n+1, 0)` 只开 `n+1`：当 `r=n` 时 `add(r+1, -k, n)` 会让 `i=n+1`，`while(i<=n)` 直接跳过，不会越界。\n- `A` 保存上一个读入的原值，初始 `0` 对应 `a[0]=0`；`w = x - A` 就是差分 `d[i]`，随即 `A = x` 供下一轮使用。\n- 内层 `while(idx <= n)` 把差分值 `w` 沿 `lowbit` 累加到所有覆盖 `i` 的节点，实现单点建树（$O(n\\log n)$）。\n- 关键点：写入 BIT 的是差分值 `w` 而非原值 `x`，否则 `get` 会退化成「原数组前缀和」，语义就错了。\n\n#### add — 单点修改与区间修改（两个重载）\n\n```cpp\nvoid add(int i,int k,int n)       // 差分数组单点修改：d[i] += k\n{\n\twhile(i <= n)\n\t{\n\t\ttreearr[i] += k;\n\t\ti += lowbit(i);\n\t}\n}\n\nvoid add(int l,int r,int k,int n) // 区间修改：[l,r] 加 k\n{\n\tadd(l,k,n);                    // d[l] += k，使 [l,n] 都加 k\n\tadd(r + 1,-k,n);               // d[r+1] -= k，把 [r+1,n] 拉回原值\n}\n```\n\n- 三参 `add(i,k,n)` 在差分数组的 `i` 位置 `+k`，沿 `lowbit` 向上更新所有覆盖 `i` 的祖先节点。\n- 四参 `add(l,r,k,n)` 用两次单点修改完成区间加：`d[l]+=k` 使 `[l,n]` 都加 `k`，`d[r+1]-=k` 再把 `[r+1,n]` 抵消回原值，两者缺一不可。\n- 两个 `add` 靠参数个数（3 个 vs 4 个）区分，调用时注意别传错参数个数导致匹配到错误的重载。\n\n#### get(i) — 单点查询（差分前缀和）\n\n```cpp\nlong long get(int i)              // 单点查询：返回 a[i]\n{\n\tlong long ans = 0;\n\twhile(i)                       // 沿 lowbit 递减累加\n\t{\n\t\tans += treearr[i];\n\t\ti -= lowbit(i);\n\t}\n\treturn ans;                    // 即 a[i]\n}\n```\n\n- `get(i)` 从 `i` 出发沿 `lowbit` 递减累加，求差分数组 `d[1..i]` 的前缀和，结果就是单点值 `a[i]`。\n- 循环条件是 `while(i)`（`i` 非 0 才继续），与 `add` 的 `while(i <= n)` 方向相反，容易写错，注意区分。\n- 返回 `long long`：差分可能为负、多次累加可能超 `int`，必须用 `long long` 承接。\n\n#### main — 主流程\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr);cout.tie(nullptr);\n\tint n,m;\n\tcin >> n >> m;\n\tinit(n);\n\tfor(int i = 0;i < m;i++)\n\t{\n\t\tint op;\n\t\tcin >> op;\n\t\tif(op == 1)                // 区间修改\n\t\t{\n\t\t\tint x,y,k;\n\t\t\tcin >> x >> y >> k;\n\t\t\tadd(x,y,k,n);\n\t\t}\n\t\telse                       // 单点查询\n\t\t{\n\t\t\tint x;\n\t\t\tcin >> x; \n\t\t\tcout << get(x) << '\\n';\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n- `ios::sync_with_stdio(false)` 与 `cin.tie(nullptr)` 关闭 C/C++ 同步与输入输出绑定，加速大量 IO。\n- 先 `init(n)` 读入原数组并建成差分 BIT，再循环 `m` 次按操作类型处理。\n- `op == 1` 时读 `x,y,k` 调用区间修改；否则读 `x` 并输出 `get(x)` 完成单点查询。\n- 输出用 `'\\n'` 而非 `endl`，避免每次输出都刷新缓冲区拖慢速度。\n\n**差分变换的正确性论证**：设原数组 a，差分 $d[i] = a[i] - a[i-1]$（$a[0]=0$）。做区间 `[l,r]` 加 k 后，新数组 a' 满足 $a'[i] = a[i] + k \\cdot [l \\leq i \\leq r]$。检查差分 $d'$：当 `i = l` 时 $d'[l] = a'[l] - a'[l-1] = (a[l]+k) - a[l-1] = d[l] + k$；当 `i = r+1` 时 $d'[r+1] = a'[r+1] - a'[r] = a[r+1] - (a[r]+k) = d[r+1] - k$；其余位置差分不变。所以\"区间加 k\"在差分数组上等价于\"$d[l] \\mathrel{+}= k,\\; d[r+1] \\mathrel{-}= k$\"，这正是代码所做的。\n\n### 复杂度分析\n\n- **时间**：`add(l,r,k,n)` 调用两次单点 `add`，每次 $O(\\log n)$，共 $O(\\log n)$；`get(i)` 是一次前缀和查询，$O(\\log n)$。建树 $O(n \\log n)$，m 次操作 $O(m \\log n)$。\n- **空间**：一维数组 `n+1`，$O(n)$。与单点修改版相同，远小于线段树的 $4n$。\n- **常数**：两次 `add` 比\"线段树区间修改 + lazy 下传\"开销小得多，实测速度快 2~3 倍。\n\n### 适用场景\n\n- **区间修改 + 单点查询**：本模板标准用途，如 P3368。对一段区间整体加值，并询问单个位置的当前值。\n- **差分/前缀和对偶**：与\"单点修改 + 区间求和\"形成完美互补——把修改与查询的角色互换即可套用同一框架。\n- **动态前缀信息的单点还原**：当维护的是差分序列（增量流），需要还原某点累积值时。\n\n### 常见陷阱与注意事项\n\n- **init 必须用差分值**：若误把原始 `x` 直接加入 BIT，则 `get` 返回的是\"原数组前缀和\"而非\"单点值\"，语义就错了。务必计算 $w = x - A$。\n- **下标从 1 开始**：与单点修改版相同，`lowbit(0)=0` 会导致 `add` 死循环，0 号位不可用。\n- **数组大小 n+1**：用到下标 `n`，且 `add(r+1, -k, n)` 当 `r=n` 时会访问 `r+1=n+1`，因此实际安全做法是开 `n+2` 大小，但本模板 `while(i <= n)` 会在 `i = n+1` 时直接跳过，所以 `n+1` 也安全。\n- **add 重载二义性**：两个 `add`（三参和四参）靠参数个数区分，调用时注意传参个数；若写错可能匹配到错误的重载。\n- **区间修改不影响 r+1 之后**：必须同时执行 `add(l, k)` 和 `add(r+1, -k)`，缺一不可；只做前者会让 `[r+1, n]` 也被错误地加上 k。\n- **返回类型 long long**：差分可能产生负值，且大量累加可能超 int，`get` 必须返回 `long long`。\n\n### 对比与扩展\n\n- **与单点修改版的对偶**：单点修改版维护原数组 a 的前缀和，`get(x)` 返回 `sum[1..x]`；差分版维护差分数组 d 的前缀和，`get(x)` 返回 `a[x]`。两者代码几乎相同，仅 `init` 写入的值不同。\n- **与线段树对比**：线段树原生支持\"区间修改 + 区间查询\"（带 lazy），功能更全；但若只需\"区间修改 + 单点查询\"，差分 BIT 更简洁、常数更小。若同时需要\"区间修改 + 区间求和\"，需用差分 BIT 的进阶形式——维护 `d[i]` 和 `i·d[i]` 两个 BIT，可在 $O(\\log n)$ 内完成区间加与区间和。\n- **区间修改 + 区间求和的差分扩展**：$\\text{sum}[1..x] = (x+1) \\cdot \\sum d[i] - \\sum i \\cdot d[i]$，用两个 BIT 分别维护 `d[i]` 与 `i·d[i]` 即可在 $O(\\log n)$ 内完成区间加与区间和查询，是差分 BIT 的经典扩展。\n- **2D 差分 BIT**：对二维矩阵的子矩阵加 + 单点查询，可用二维差分 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$，配合 2D BIT 实现 $O(\\log^2 n)$。\n- **不支持赋值操作**：差分技巧只对\"加法\"成立，若区间操作是\"把 [l,r] 赋值为 v\"，差分无法处理，需改用线段树或珂朵露树。",
                 "codePath": "数据结构\\树状数组\\单点修改，区间求和\\Untitled1.cpp",
                 "timeComplexity": "O(log n)",
                 "spaceComplexity": "O(n)",
@@ -4712,7 +4917,7 @@ const KNOWLEDGE_DATA = [
                 "source": "Xesir"
             }
         ],
-        "content": "## 算法原理\r\n\r\n树状数组（Binary Indexed Tree，BIT）的核心是 `lowbit` 运算，即 $\\text{lowbit}(i) = i\\;\\&\\;\\text{-}i$。在补码表示下，`-i` 等于将 `i` 的二进制各位取反再加一，这一操作会保留 `i` 末尾连续的 0，并把从低位往高位数第一个 1 留下。因此 $i\\;\\&\\;\\text{-}i$ 的结果恰好是 `i` 的二进制表示中最低位的 1 所代表的值。例如 `i = 12`（二进制 `1100`），`-i` 在补码下为 `...10100`，$12\\;\\&\\;\\text{-}12 = 4$（二进制 `100`），即最低位的 1 在第 2 位（权值 4）。这个值同时决定了 `tree[i]` 所维护的区间长度。\r\n\r\n每个 $\\text{tree}[i]$ 维护原数组中区间 $[i - \\text{lowbit}(i) + 1,\\; i]$ 的元素之和。也就是说，下标 `i` 的节点管辖的区间长度正好是 $\\text{lowbit}(i)$。这种划分使得整棵树具有优美的性质：下标二进制末尾 0 越多的节点管辖的区间越长，层级越高。例如 $\\text{tree}[8]$（$\\text{lowbit}=8$）管辖 $[1,8]$，而 $\\text{tree}[6]$（$\\text{lowbit}=2$）只管辖 $[5,6]$。整棵树并非显式地用指针连接，而是通过下标的二进制位运算隐式地确定父子关系。\r\n\r\n**修改操作（向上）**：当对位置 `i` 做单点加法时，需要更新所有管辖了位置 `i` 的节点。从 `i` 出发，每次执行 $i \\mathrel{+}= \\text{lowbit}(i)$，就跳到下一个能覆盖当前位置的更高级别节点——这相当于把 `i` 二进制末尾连续的 0 所在的那个 1 进位，从而到达一个管辖范围更大的祖先。例如从 `i=5`（`101`）出发：`5→6（110）→8（1000）→16...`，路径上的每个节点都覆盖了位置 5。**查询操作（向下）**：求前缀和 `sum[1..i]` 时，需要把 `[1..i]` 拆成若干段不重叠的 `tree` 节点。从 `i` 出发每次 $i \\mathrel{-}= \\text{lowbit}(i)$，相当于剥离 `i` 二进制最低位的 1，跳到前一段区间的右端点。例如 `i=7`（`111`）：`7→6→4→0`，依次累加 `tree[7]`（管 `[7,7]`）、`tree[6]`（管 `[5,6]`）、`tree[4]`（管 `[1,4]`），正好覆盖 `[1,7]`。区间和则用前缀和相减得到：$\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$。\r\n\r\n之所以说树状数组比线段树更高效，是因为：线段树每个节点需要维护左右儿子指针或数组下标关系，常数大、空间需 $4n$；而树状数组仅用一维数组、空间 $n+1$，每次操作只需一个 `while` 循环配合 `lowbit` 跳跃，实现极简、常数极小。代价是树状数组只能维护\"可减\"的信息（和、可逆加法等），且不支持区间修改的 lazy 标记，灵活性不如线段树。但对于\"单点修改 + 区间求和\"这一经典场景，树状数组几乎总是最优选择。\r\n\r\n## 数据结构图示\r\n\r\n以原数组 `a = [1, 3, 5, 7, 9, 11, 13, 15]`（下标 1~8）为例，每个 `tree[i]` 的管辖范围由 `lowbit(i)` 决定：\r\n\r\n```\r\n下标 i :   1    2    3    4    5    6    7    8\r\n原数组  :  [1]  [3]  [5]  [7]  [9]  [11] [13] [15]\r\n二进制  :  0001 0010 0011 0100 0101 0110 0111 1000\r\nlowbit  :   1    2    1    4    1    2    1    8\r\n\r\ntree[1] = a[1]                    = 1        覆盖 [1,1]   长度1\r\ntree[2] = a[1]+a[2]                = 4        覆盖 [1,2]   长度2\r\ntree[3] = a[3]                     = 5        覆盖 [3,3]   长度1\r\ntree[4] = a[1]+a[2]+a[3]+a[4]      = 16       覆盖 [1,4]   长度4\r\ntree[5] = a[5]                     = 9        覆盖 [5,5]   长度1\r\ntree[6] = a[5]+a[6]                = 20       覆盖 [5,6]   长度2\r\ntree[7] = a[7]                     = 13       覆盖 [7,7]   长度1\r\ntree[8] = a[1]+...+a[8]            = 64       覆盖 [1,8]   长度8\r\n\r\n树形结构（父子关系靠 lowbit 进位）：\r\n                    tree[8]\r\n                   /       \\\r\n             tree[4]        tree[6]?  (非严格二叉，实际靠位运算)\r\n            /      \\\r\n       tree[2]    tree[3]   tree[5]  tree[6]  tree[7]\r\n        |\r\n      tree[1]\r\n\r\n修改 a[3] += k 的向上路径:  3 -> 4 -> 8   (lowbit(3)=1->4, lowbit(4)=4->8)\r\n查询 sum[1..7] 的向下路径:  7 -> 6 -> 4 -> 0\r\n                            累加 tree[7]+tree[6]+tree[4] = 13+20+16 = 49\r\n```\r\n\r\n可以看到，下标二进制末尾的 0 越多，节点层级越高、管辖范围越大；`lowbit` 把一棵隐式树编码进了下标本身。\r\n\r\n## 核心操作详解\r\n\r\n### lowbit(i) — 取最低位 1\r\n```cpp\r\ninline int lowbit(int i) { return i & -i; }\r\n```\r\n利用补码 $\\text{-}i = \\sim i + 1$ 的性质：取反后最低位的 1 变 0、其后所有 0 变 1，再 +1 会向前进位到那个原来的 1 位置，于是 $i\\;\\&\\;\\text{-}i$ 只保留了那一位。这是整个数据结构的基石，决定了每个节点管辖的区间长度和跳跃步长。\r\n\r\n### init(n) — 建树\r\n```cpp\r\nvoid init(int n) {\r\n    treearr.resize(n + 1, 0);\r\n    for (int i = 1; i <= n; i++) {\r\n        int x; cin >> x;\r\n        int idx = i;\r\n        while (idx <= n) {\r\n            treearr[idx] += x;\r\n            idx += lowbit(idx);\r\n        }\r\n    }\r\n}\r\n```\r\n对每个读入的元素 `a[i] = x`，沿 `idx += lowbit(idx)` 向上更新所有覆盖位置 `i` 的祖先节点。注意 `treearr` 大小开 `n+1`，下标从 1 开始（`lowbit(0)=0` 会导致死循环，0 号位不用）。这种建树方式的总复杂度为 $O(n \\log n)$，也可用前缀和差分做到 $O(n)$，但本实现采用最直观的逐元素更新法。\r\n\r\n### add(i, k, n) — 单点修改\r\n```cpp\r\nvoid add(int i, int k, int n) {\r\n    while (i <= n) {\r\n        treearr[i] += k;\r\n        i += lowbit(i);\r\n    }\r\n}\r\n```\r\n给 `a[i]` 加上 `k`。从 `i` 出发，每次把 `k` 累加到当前节点，再 `i += lowbit(i)` 跳到下一个祖先。循环条件 `i <= n` 保证不越界。由于每步都把 `i` 末尾最低位的 1 进位，`i` 的二进制中 1 的个数严格递减式地变化，至多跳 $O(\\log n)$ 次就超出 `n`。\r\n\r\n### get(i) — 前缀和查询\r\n```cpp\r\nlong long get(int i) {\r\n    long long ans = 0;\r\n    while (i) {\r\n        ans += treearr[i];\r\n        i -= lowbit(i);\r\n    }\r\n    return ans;\r\n}\r\n```\r\n求 `sum[1..i]`。从 `i` 出发，每步累加 $\\text{tree}[i]$（它正好覆盖 $[i - \\text{lowbit}(i) + 1,\\; i]$），再 $i \\mathrel{-}= \\text{lowbit}(i)$ 剥掉最低位的 1 跳到前一段。循环到 `i == 0` 终止。返回类型用 `long long` 防止求和溢出。区间和 $\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$。\r\n\r\n## 逐行代码解析\r\n\r\n### 头文件与全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n/*洛谷P3374*/\r\nvector<long long> treearr;          // 一维数组充当树，用 long long 防溢出\r\n```\r\n\r\n- `treearr` 是唯一的核心数组，用 `vector<long long>` 且下标从 1 开始；`long long` 防止 n 个元素求和溢出 int。\r\n- 0 号位不用：`lowbit(0)=0`，若把 0 当起点，`add` 里的 `i += lowbit(i)` 会永远停在 0 形成死循环。\r\n- `#include<bits/stdc++.h>` 万能头 + `using namespace std` 是竞赛常用写法，省去逐个包含头文件。\r\n\r\n### lowbit(i) — 取最低位 1\r\n\r\n```cpp\r\ninline int lowbit(int i)\r\n{\r\n\treturn i & -i;                   // 补码技巧，取最低位的1\r\n}\r\n```\r\n\r\n- `i & -i` 利用补码（`-i = ~i + 1`）只保留 `i` 二进制最低位的那个 1 所代表的值，例如 `lowbit(12)=4`。\r\n- 这个值同时决定了 `treearr[i]` 管辖的区间长度，是建树、修改、查询三个操作共同的基石。\r\n- 声明为 `inline` 减少函数调用开销，位运算本身是 $O(1)$。\r\n\r\n### init(n) — 建树\r\n\r\n```cpp\r\nvoid init(int n)\r\n{\r\n\ttreearr.resize(n + 1,0);         // 大小 n+1，下标1..n，0号不用\r\n\tfor(int i = 1;i <= n;i++)\r\n\t{\r\n\t\tint x;\r\n\t\tcin >> x;                    // 读入 a[i]\r\n\t\tint idx = i;\r\n\t\twhile(idx <= n)               // 沿祖先链向上更新\r\n\t\t{\r\n\t\t\ttreearr[idx] += x;        // 所有覆盖位置 i 的节点都加上 x\r\n\t\t\tidx += lowbit(idx);       // lowbit 进位跳到下一个祖先\r\n\t\t}\r\n\t}\r\n}\r\n```\r\n\r\n- `resize(n+1,0)` 开到 n+1，因为要用到下标 n；循环 `i` 从 1 到 n（含 n），0 号位跳过。\r\n- 每读入一个 `a[i]=x`，从 `idx=i` 沿 `idx += lowbit(idx)` 向上走，把 x 累加到所有覆盖位置 i 的祖先节点上。\r\n- 不能只写 `treearr[i]=x`：那样只填了叶子，祖先节点会缺数据；必须一路向上累加。\r\n- 这种逐元素建树总复杂度 $O(n\\log n)$。\r\n\r\n### add(i, k, n) — 单点修改\r\n\r\n```cpp\r\nvoid add(int i, int k,int n)        // 单点修改：a[i] += k\r\n{\r\n\twhile(i <= n)                    // 不越界\r\n\t{\r\n\t\ttreearr[i] += k;             // 当前节点加 k\r\n\t\ti += lowbit(i);              // 跳到下一个覆盖 i 的祖先\r\n\t}\r\n}\r\n```\r\n\r\n- 给 `a[i]` 加上 k：从 i 出发，先把 k 累加到当前节点，再 `i += lowbit(i)` 跳到下一个覆盖 i 的祖先。\r\n- 循环条件 `i <= n` 保证下标不越界；`i += lowbit(i)` 每次都让最低位 1 进位、数值严格增大，迟早超过 n 而终止，至多 $O(\\log n)$ 步。\r\n\r\n### get(i) — 前缀和查询\r\n\r\n```cpp\r\nlong long get(int i)                // 前缀和查询 sum[1..i]\r\n{\r\n\tlong long ans = 0;\r\n\twhile(i)                         // i==0 时结束（lowbit(0)=0 无法继续）\r\n\t{\r\n\t\tans += treearr[i];           // 累加当前节点覆盖的区间\r\n\t\ti -= lowbit(i);              // 剥掉最低位的1，跳到前一段\r\n\t}\r\n\treturn ans;\r\n}\r\n```\r\n\r\n- 求 `sum[1..i]`：每步累加 `treearr[i]`（它正好覆盖区间 $[i-\\text{lowbit}(i)+1,\\; i]$），再 `i -= lowbit(i)` 剥掉最低位的 1，跳到前一段。\r\n- 循环条件 `while(i)`：`i` 的 popcount 每步严格递减，迟早归 0 终止；这也是下标必须从 1 开始的原因。\r\n- 返回类型用 `long long`，防止 n 个 int 求和溢出。\r\n\r\n### main — 读入与调度\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);     // 关同步，加速 cin\r\n\tcin.tie(nullptr);cout.tie(nullptr);\r\n\tint n,m;\r\n\tcin >> n >> m;                   // n 个数，m 次操作\r\n\tinit(n);                         // 建树\r\n\tfor(int i = 0;i < m;i++)\r\n\t{\r\n\t\tint op,x,y;\r\n\t\tcin >> op >> x >> y;\r\n\t\tif(op == 1) add(x,y,n);       // 操作1：a[x] += y\r\n\t\telse cout << get(y) - get(x - 1) << '\\n'; // 操作2：查询 [x,y] 的和\r\n\t}\r\n\treturn 0;\t\r\n}\r\n```\r\n\r\n- `ios::sync_with_stdio(false)` 关同步、`cin.tie(nullptr)` 解绑，加速大量输入输出。\r\n- 先读入 n、m，再 `init(n)` 建树；之后循环 m 次处理操作。\r\n- `op==1` 调用 `add(x,y,n)` 做单点修改；否则输出 `get(y)-get(x-1)`，即区间和 = 两个前缀和相减。\r\n- 当 `x=1` 时 `get(0)` 因 `while(0)` 不进循环而返回 0，查询 `[1,y]` 依然正确，无需特判。\r\n\r\n## 复杂度分析\r\n\r\n- **时间**：`lowbit` 是 $O(1)$。`add` 和 `get` 的 `while` 循环每步都会改变 `i` 二进制中至少一个 1 的状态，至多走 $\\lfloor \\log_2 n \\rfloor + 1$ 步，故单次操作 $O(\\log n)$。建树 $O(n \\log n)$，处理 m 次询问 $O(m \\log n)$。\r\n- **空间**：仅一维数组 `treearr`，大小 $n+1$，即 $O(n)$。相比之下线段树需要 $4n$ 空间，树状数组节省了一半以上。\r\n- **常数**：树状数组每次操作只做一次位运算、一次数组访问、一次加减，远小于线段树递归或迭代的开销，实测速度通常是线段树的 2~3 倍。\r\n\r\n## 适用场景\r\n\r\n- **单点修改 + 区间求和**：本模板的标准用途，如 P3374。需要在原数组某位置加一个值，并频繁询问某段区间之和。\r\n- **需要轻量常数**：当题目对常数敏感、n 与 m 都较大时，树状数组比线段树更优。\r\n- **代码短小**：竞赛中希望用最少代码实现前缀和类操作时。\r\n- **前缀和类可逆信息**：凡是信息满足\"区间答案可由两个前缀答案相减得到\"的都可套用，例如前缀异或、前缀计数等。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- **下标从 1 开始**：$\\text{lowbit}(0) = 0\\;\\&\\;0 = 0$，若 `i = 0` 则 $i \\mathrel{-}= \\text{lowbit}(i)$ 永远停在 0 形成\"逻辑终止\"，但 `add` 中 $i \\mathrel{+}= \\text{lowbit}(i)$ 会死循环。所以 0 号位不可用，输入数据下标必须从 1 起。\r\n- **数组大小开 n+1**：因为用到下标 `n`，至少 `n+1` 长；若开成 `n` 会越界。\r\n- **返回类型用 long long**：n 个 int 相加可能超过 int 范围（约 $2.1 \\times 10^9$），`get` 必须返回 `long long`，`treearr` 也建议用 `long long` 存累计值。\r\n- **init 中不要漏掉向上更新**：朴素地 `treearr[i] = x` 只填了叶子，祖先节点会缺数据；必须沿 `idx += lowbit(idx)` 一路累加。\r\n- **区间查询注意 l-1**：$\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$，当 `l=1` 时 `get(0)` 会立即返回 0（while 不进循环），这是安全的。\r\n\r\n## 对比与扩展\r\n\r\n- **与线段树对比**：树状数组代码更短、常数更小、空间更省（$n$ vs $4n$），但只能维护可减信息，不支持 lazy 标记、区间修改、复杂合并函数；线段树功能更全但更笨重。\r\n- **2D 树状数组**：将一维 BIT 套两层，支持矩阵单点修改 + 子矩阵求和，复杂度 $O(\\log^2 n)$，空间 $O(nm)$。\r\n- **求逆序对**：按值域建 BIT，从右往左扫，每次查询比当前值小的元素个数，累计即得逆序数，$O(n \\log n)$。\r\n- **BIT + 二分求第 k 小**：在 BIT 上二分，利用每个节点维护的区间长度做前缀和判断，可在 $O(\\log n)$ 内找到前缀和第一次达到 k 的位置，常用于动态求第 k 小。\r\n- **差分 BIT（见下一篇）**：把\"区间修改 + 单点查询\"通过差分数组转化为\"单点修改 + 前缀和查询\"，仍用同一套 BIT 框架，体现树状数组对偶的灵活性。\r\n- **值域过大需先离散化**：按值域建 BIT 求逆序对时，BIT 的下标范围就是值域本身；若 $a_i$ 高达 $10^9$，直接开 $O(\\max a_i)$ 大小的数组会爆空间、无法分配。做法是先把数组去重排序，再用每个值在有序序列中的名次 $1\\sim m$（$m$ 为不同值个数，$m\\le n$）替换原值，值域即压缩到 $[1,m]$，BIT 数组只需开 $m+1$。离散化排序是 $O(n\\log n)$，不改变整体复杂度；去重后相等元素取同名次，也符合\"严格大于才计逆序对\"的计数要求。\r\n\r\n```text\r\nb = a 去重后排序                                    // 有序唯一值序列，长度 m\r\n对每个 a[i]：rank[i] = lower_bound(b, a[i]) - b + 1 // 名次 ∈ [1, m]\r\n按 rank 建 BIT（数组大小 m+1）统计逆序对\r\n```",
+        "content": "## 算法原理\n\n树状数组（Binary Indexed Tree，BIT）的核心是 `lowbit` 运算，即 $\\text{lowbit}(i) = i\\;\\&\\;\\text{-}i$。在补码表示下，`-i` 等于将 `i` 的二进制各位取反再加一，这一操作会保留 `i` 末尾连续的 0，并把从低位往高位数第一个 1 留下。因此 $i\\;\\&\\;\\text{-}i$ 的结果恰好是 `i` 的二进制表示中最低位的 1 所代表的值。例如 `i = 12`（二进制 `1100`），`-i` 在补码下为 `...10100`，$12\\;\\&\\;\\text{-}12 = 4$（二进制 `100`），即最低位的 1 在第 2 位（权值 4）。这个值同时决定了 `tree[i]` 所维护的区间长度。\n\n每个 $\\text{tree}[i]$ 维护原数组中区间 $[i - \\text{lowbit}(i) + 1,\\; i]$ 的元素之和。也就是说，下标 `i` 的节点管辖的区间长度正好是 $\\text{lowbit}(i)$。这种划分使得整棵树具有优美的性质：下标二进制末尾 0 越多的节点管辖的区间越长，层级越高。例如 $\\text{tree}[8]$（$\\text{lowbit}=8$）管辖 $[1,8]$，而 $\\text{tree}[6]$（$\\text{lowbit}=2$）只管辖 $[5,6]$。整棵树并非显式地用指针连接，而是通过下标的二进制位运算隐式地确定父子关系。\n\n**修改操作（向上）**：当对位置 `i` 做单点加法时，需要更新所有管辖了位置 `i` 的节点。从 `i` 出发，每次执行 $i \\mathrel{+}= \\text{lowbit}(i)$，就跳到下一个能覆盖当前位置的更高级别节点——这相当于把 `i` 二进制末尾连续的 0 所在的那个 1 进位，从而到达一个管辖范围更大的祖先。例如从 `i=5`（`101`）出发：`5→6（110）→8（1000）→16...`，路径上的每个节点都覆盖了位置 5。**查询操作（向下）**：求前缀和 `sum[1..i]` 时，需要把 `[1..i]` 拆成若干段不重叠的 `tree` 节点。从 `i` 出发每次 $i \\mathrel{-}= \\text{lowbit}(i)$，相当于剥离 `i` 二进制最低位的 1，跳到前一段区间的右端点。例如 `i=7`（`111`）：`7→6→4→0`，依次累加 `tree[7]`（管 `[7,7]`）、`tree[6]`（管 `[5,6]`）、`tree[4]`（管 `[1,4]`），正好覆盖 `[1,7]`。区间和则用前缀和相减得到：$\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$。\n\n之所以说树状数组比线段树更高效，是因为：线段树每个节点需要维护左右儿子指针或数组下标关系，常数大、空间需 $4n$；而树状数组仅用一维数组、空间 $n+1$，每次操作只需一个 `while` 循环配合 `lowbit` 跳跃，实现极简、常数极小。代价是树状数组只能维护\"可减\"的信息（和、可逆加法等），且不支持区间修改的 lazy 标记，灵活性不如线段树。但对于\"单点修改 + 区间求和\"这一经典场景，树状数组几乎总是最优选择。\n\n## 数据结构图示\n\n以原数组 `a = [1, 3, 5, 7, 9, 11, 13, 15]`（下标 1~8）为例，每个 `tree[i]` 的管辖范围由 `lowbit(i)` 决定：\n\n```\n下标 i :   1    2    3    4    5    6    7    8\n原数组  :  [1]  [3]  [5]  [7]  [9]  [11] [13] [15]\n二进制  :  0001 0010 0011 0100 0101 0110 0111 1000\nlowbit  :   1    2    1    4    1    2    1    8\n\ntree[1] = a[1]                    = 1        覆盖 [1,1]   长度1\ntree[2] = a[1]+a[2]                = 4        覆盖 [1,2]   长度2\ntree[3] = a[3]                     = 5        覆盖 [3,3]   长度1\ntree[4] = a[1]+a[2]+a[3]+a[4]      = 16       覆盖 [1,4]   长度4\ntree[5] = a[5]                     = 9        覆盖 [5,5]   长度1\ntree[6] = a[5]+a[6]                = 20       覆盖 [5,6]   长度2\ntree[7] = a[7]                     = 13       覆盖 [7,7]   长度1\ntree[8] = a[1]+...+a[8]            = 64       覆盖 [1,8]   长度8\n\n树形结构（父子关系靠 lowbit 进位）：\n                    tree[8]\n                   /       \\\n             tree[4]        tree[6]?  (非严格二叉，实际靠位运算)\n            /      \\\n       tree[2]    tree[3]   tree[5]  tree[6]  tree[7]\n        |\n      tree[1]\n\n修改 a[3] += k 的向上路径:  3 -> 4 -> 8   (lowbit(3)=1->4, lowbit(4)=4->8)\n查询 sum[1..7] 的向下路径:  7 -> 6 -> 4 -> 0\n                            累加 tree[7]+tree[6]+tree[4] = 13+20+16 = 49\n```\n\n可以看到，下标二进制末尾的 0 越多，节点层级越高、管辖范围越大；`lowbit` 把一棵隐式树编码进了下标本身。\n\n## 核心操作详解\n\n### lowbit(i) — 取最低位 1\n```cpp\ninline int lowbit(int i) { return i & -i; }\n```\n利用补码 $\\text{-}i = \\sim i + 1$ 的性质：取反后最低位的 1 变 0、其后所有 0 变 1，再 +1 会向前进位到那个原来的 1 位置，于是 $i\\;\\&\\;\\text{-}i$ 只保留了那一位。这是整个数据结构的基石，决定了每个节点管辖的区间长度和跳跃步长。\n\n### init(n) — 建树\n```cpp\nvoid init(int n) {\n    treearr.resize(n + 1, 0);\n    for (int i = 1; i <= n; i++) {\n        int x; cin >> x;\n        int idx = i;\n        while (idx <= n) {\n            treearr[idx] += x;\n            idx += lowbit(idx);\n        }\n    }\n}\n```\n对每个读入的元素 `a[i] = x`，沿 `idx += lowbit(idx)` 向上更新所有覆盖位置 `i` 的祖先节点。注意 `treearr` 大小开 `n+1`，下标从 1 开始（`lowbit(0)=0` 会导致死循环，0 号位不用）。这种建树方式的总复杂度为 $O(n \\log n)$，也可用前缀和差分做到 $O(n)$，但本实现采用最直观的逐元素更新法。\n\n### add(i, k, n) — 单点修改\n```cpp\nvoid add(int i, int k, int n) {\n    while (i <= n) {\n        treearr[i] += k;\n        i += lowbit(i);\n    }\n}\n```\n给 `a[i]` 加上 `k`。从 `i` 出发，每次把 `k` 累加到当前节点，再 `i += lowbit(i)` 跳到下一个祖先。循环条件 `i <= n` 保证不越界。由于每步都把 `i` 末尾最低位的 1 进位，`i` 的二进制中 1 的个数严格递减式地变化，至多跳 $O(\\log n)$ 次就超出 `n`。\n\n### get(i) — 前缀和查询\n```cpp\nlong long get(int i) {\n    long long ans = 0;\n    while (i) {\n        ans += treearr[i];\n        i -= lowbit(i);\n    }\n    return ans;\n}\n```\n求 `sum[1..i]`。从 `i` 出发，每步累加 $\\text{tree}[i]$（它正好覆盖 $[i - \\text{lowbit}(i) + 1,\\; i]$），再 $i \\mathrel{-}= \\text{lowbit}(i)$ 剥掉最低位的 1 跳到前一段。循环到 `i == 0` 终止。返回类型用 `long long` 防止求和溢出。区间和 $\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$。\n\n## 逐行代码解析\n\n### 头文件与全局变量\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n/*洛谷P3374*/\nvector<long long> treearr;          // 一维数组充当树，用 long long 防溢出\n```\n\n- `treearr` 是唯一的核心数组，用 `vector<long long>` 且下标从 1 开始；`long long` 防止 n 个元素求和溢出 int。\n- 0 号位不用：`lowbit(0)=0`，若把 0 当起点，`add` 里的 `i += lowbit(i)` 会永远停在 0 形成死循环。\n- `#include<bits/stdc++.h>` 万能头 + `using namespace std` 是竞赛常用写法，省去逐个包含头文件。\n\n### lowbit(i) — 取最低位 1\n\n```cpp\ninline int lowbit(int i)\n{\n\treturn i & -i;                   // 补码技巧，取最低位的1\n}\n```\n\n- `i & -i` 利用补码（`-i = ~i + 1`）只保留 `i` 二进制最低位的那个 1 所代表的值，例如 `lowbit(12)=4`。\n- 这个值同时决定了 `treearr[i]` 管辖的区间长度，是建树、修改、查询三个操作共同的基石。\n- 声明为 `inline` 减少函数调用开销，位运算本身是 $O(1)$。\n\n### init(n) — 建树\n\n```cpp\nvoid init(int n)\n{\n\ttreearr.resize(n + 1,0);         // 大小 n+1，下标1..n，0号不用\n\tfor(int i = 1;i <= n;i++)\n\t{\n\t\tint x;\n\t\tcin >> x;                    // 读入 a[i]\n\t\tint idx = i;\n\t\twhile(idx <= n)               // 沿祖先链向上更新\n\t\t{\n\t\t\ttreearr[idx] += x;        // 所有覆盖位置 i 的节点都加上 x\n\t\t\tidx += lowbit(idx);       // lowbit 进位跳到下一个祖先\n\t\t}\n\t}\n}\n```\n\n- `resize(n+1,0)` 开到 n+1，因为要用到下标 n；循环 `i` 从 1 到 n（含 n），0 号位跳过。\n- 每读入一个 `a[i]=x`，从 `idx=i` 沿 `idx += lowbit(idx)` 向上走，把 x 累加到所有覆盖位置 i 的祖先节点上。\n- 不能只写 `treearr[i]=x`：那样只填了叶子，祖先节点会缺数据；必须一路向上累加。\n- 这种逐元素建树总复杂度 $O(n\\log n)$。\n\n### add(i, k, n) — 单点修改\n\n```cpp\nvoid add(int i, int k,int n)        // 单点修改：a[i] += k\n{\n\twhile(i <= n)                    // 不越界\n\t{\n\t\ttreearr[i] += k;             // 当前节点加 k\n\t\ti += lowbit(i);              // 跳到下一个覆盖 i 的祖先\n\t}\n}\n```\n\n- 给 `a[i]` 加上 k：从 i 出发，先把 k 累加到当前节点，再 `i += lowbit(i)` 跳到下一个覆盖 i 的祖先。\n- 循环条件 `i <= n` 保证下标不越界；`i += lowbit(i)` 每次都让最低位 1 进位、数值严格增大，迟早超过 n 而终止，至多 $O(\\log n)$ 步。\n\n### get(i) — 前缀和查询\n\n```cpp\nlong long get(int i)                // 前缀和查询 sum[1..i]\n{\n\tlong long ans = 0;\n\twhile(i)                         // i==0 时结束（lowbit(0)=0 无法继续）\n\t{\n\t\tans += treearr[i];           // 累加当前节点覆盖的区间\n\t\ti -= lowbit(i);              // 剥掉最低位的1，跳到前一段\n\t}\n\treturn ans;\n}\n```\n\n- 求 `sum[1..i]`：每步累加 `treearr[i]`（它正好覆盖区间 $[i-\\text{lowbit}(i)+1,\\; i]$），再 `i -= lowbit(i)` 剥掉最低位的 1，跳到前一段。\n- 循环条件 `while(i)`：`i` 的 popcount 每步严格递减，迟早归 0 终止；这也是下标必须从 1 开始的原因。\n- 返回类型用 `long long`，防止 n 个 int 求和溢出。\n\n### main — 读入与调度\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);     // 关同步，加速 cin\n\tcin.tie(nullptr);cout.tie(nullptr);\n\tint n,m;\n\tcin >> n >> m;                   // n 个数，m 次操作\n\tinit(n);                         // 建树\n\tfor(int i = 0;i < m;i++)\n\t{\n\t\tint op,x,y;\n\t\tcin >> op >> x >> y;\n\t\tif(op == 1) add(x,y,n);       // 操作1：a[x] += y\n\t\telse cout << get(y) - get(x - 1) << '\\n'; // 操作2：查询 [x,y] 的和\n\t}\n\treturn 0;\t\n}\n```\n\n- `ios::sync_with_stdio(false)` 关同步、`cin.tie(nullptr)` 解绑，加速大量输入输出。\n- 先读入 n、m，再 `init(n)` 建树；之后循环 m 次处理操作。\n- `op==1` 调用 `add(x,y,n)` 做单点修改；否则输出 `get(y)-get(x-1)`，即区间和 = 两个前缀和相减。\n- 当 `x=1` 时 `get(0)` 因 `while(0)` 不进循环而返回 0，查询 `[1,y]` 依然正确，无需特判。\n\n## 复杂度分析\n\n- **时间**：`lowbit` 是 $O(1)$。`add` 和 `get` 的 `while` 循环每步都会改变 `i` 二进制中至少一个 1 的状态，至多走 $\\lfloor \\log_2 n \\rfloor + 1$ 步，故单次操作 $O(\\log n)$。建树 $O(n \\log n)$，处理 m 次询问 $O(m \\log n)$。\n- **空间**：仅一维数组 `treearr`，大小 $n+1$，即 $O(n)$。相比之下线段树需要 $4n$ 空间，树状数组节省了一半以上。\n- **常数**：树状数组每次操作只做一次位运算、一次数组访问、一次加减，远小于线段树递归或迭代的开销，实测速度通常是线段树的 2~3 倍。\n\n## 适用场景\n\n- **单点修改 + 区间求和**：本模板的标准用途，如 P3374。需要在原数组某位置加一个值，并频繁询问某段区间之和。\n- **需要轻量常数**：当题目对常数敏感、n 与 m 都较大时，树状数组比线段树更优。\n- **代码短小**：竞赛中希望用最少代码实现前缀和类操作时。\n- **前缀和类可逆信息**：凡是信息满足\"区间答案可由两个前缀答案相减得到\"的都可套用，例如前缀异或、前缀计数等。\n\n## 常见陷阱与注意事项\n\n- **下标从 1 开始**：$\\text{lowbit}(0) = 0\\;\\&\\;0 = 0$，若 `i = 0` 则 $i \\mathrel{-}= \\text{lowbit}(i)$ 永远停在 0 形成\"逻辑终止\"，但 `add` 中 $i \\mathrel{+}= \\text{lowbit}(i)$ 会死循环。所以 0 号位不可用，输入数据下标必须从 1 起。\n- **数组大小开 n+1**：因为用到下标 `n`，至少 `n+1` 长；若开成 `n` 会越界。\n- **返回类型用 long long**：n 个 int 相加可能超过 int 范围（约 $2.1 \\times 10^9$），`get` 必须返回 `long long`，`treearr` 也建议用 `long long` 存累计值。\n- **init 中不要漏掉向上更新**：朴素地 `treearr[i] = x` 只填了叶子，祖先节点会缺数据；必须沿 `idx += lowbit(idx)` 一路累加。\n- **区间查询注意 l-1**：$\\text{sum}[l..r] = \\text{get}(r) - \\text{get}(l-1)$，当 `l=1` 时 `get(0)` 会立即返回 0（while 不进循环），这是安全的。\n\n## 对比与扩展\n\n- **与线段树对比**：树状数组代码更短、常数更小、空间更省（$n$ vs $4n$），但只能维护可减信息，不支持 lazy 标记、区间修改、复杂合并函数；线段树功能更全但更笨重。\n- **2D 树状数组**：将一维 BIT 套两层，支持矩阵单点修改 + 子矩阵求和，复杂度 $O(\\log^2 n)$，空间 $O(nm)$。\n- **求逆序对**：按值域建 BIT，从右往左扫，每次查询比当前值小的元素个数，累计即得逆序数，$O(n \\log n)$。\n- **BIT + 二分求第 k 小**：在 BIT 上二分，利用每个节点维护的区间长度做前缀和判断，可在 $O(\\log n)$ 内找到前缀和第一次达到 k 的位置，常用于动态求第 k 小。\n- **差分 BIT（见下一篇）**：把\"区间修改 + 单点查询\"通过差分数组转化为\"单点修改 + 前缀和查询\"，仍用同一套 BIT 框架，体现树状数组对偶的灵活性。\n- **值域过大需先离散化**：按值域建 BIT 求逆序对时，BIT 的下标范围就是值域本身；若 $a_i$ 高达 $10^9$，直接开 $O(\\max a_i)$ 大小的数组会爆空间、无法分配。做法是先把数组去重排序，再用每个值在有序序列中的名次 $1\\sim m$（$m$ 为不同值个数，$m\\le n$）替换原值，值域即压缩到 $[1,m]$，BIT 数组只需开 $m+1$。离散化排序是 $O(n\\log n)$，不改变整体复杂度；去重后相等元素取同名次，也符合\"严格大于才计逆序对\"的计数要求。\n\n```text\nb = a 去重后排序                                    // 有序唯一值序列，长度 m\n对每个 a[i]：rank[i] = lower_bound(b, a[i]) - b + 1 // 名次 ∈ [1, m]\n按 rank 建 BIT（数组大小 m+1）统计逆序对\n```\n\n## 附：树状数组（区间修改单点求和 P3368）\n\n本模板要解决的问题是\"区间修改 + 单点查询\"——对某段区间 `[l,r]` 整体加一个值 `k`，并询问某个位置的当前值。直接在原数组上做区间加法是 $O(n)$ 的，无法承受大量操作。核心技巧是引入**差分数组**做变换：令 $d[i] = a[i] - a[i-1]$（规定 $a[0]=0$），则原数组的前缀和恰好还原出每个元素：$a[x] = \\sum_{i=1}^{x} d[i]$。这是因为 $d[1]+d[2]+\\cdots+d[x] = (a[1]-a[0]) + (a[2]-a[1]) + \\cdots + (a[x]-a[x-1])$， telescoping 后只剩 $a[x] - a[0] = a[x]$。于是\"求单点 a[x]\"等价于\"求差分数组 d 的前缀和\"，而\"区间加 k\"等价于\"差分数组在 l 处 +k、在 r+1 处 -k\"：因为加 k 后 `d[l]` 增大 k，会使 `a[l], a[l+1], ...` 都增大 k；而 `d[r+1]` 减小 k 又把 `a[r+1], a[r+2], ...` 拉回原值，恰好让 `[l,r]` 加 k 而 `[r+1,...]` 不变。\n\n这样\"区间修改 + 单点查询\"被转化为\"单点修改 + 前缀和查询\"，正好是树状数组最擅长的两项操作：`add(l, k)` 与 `add(r+1, -k)` 是两次单点修改，`get(x)` 是一次前缀和查询。树状数组维护的就是这个差分数组 `d`，而不是原数组 `a`。每次区间加只需 $O(\\log n)$ 而非 $O(n)$，每次单点查询也只需 $O(\\log n)$ 而非 $O(1)$，但总体远胜于朴素做法。\n\n注意本模板与\"单点修改 + 区间求和\"版本在代码上几乎一致，只是 `init` 阶段写入的是差分值 $w = x - A$（A 是上一个元素的值），而不是原始值 x。这一改动让 BIT 内部存储的语义从\"原数组前缀和\"变为\"差分数组前缀和\"，从而支持区间修改。`get(x)` 直接返回 `a[x]` 而非 `sum[1..x]`，因为差分的前缀和本身就是单点值。\n\n之所以说树状数组在此场景下比线段树更高效：差分 BIT 同样只占用 $O(n)$ 空间、$O(\\log n)$ 单次操作、代码极短，不需要线段树的 lazy 标记。线段树虽然原生支持\"区间修改 + 区间查询\"，但要同时做\"区间修改 + 单点查询\"反而显得大材小用、常数偏大。差分 + BIT 的组合是这一问题的经典最优解。需要注意的代价是：差分变换只适用于\"加法\"这种可逆运算；若区间修改是赋值（set）而非加法，差分技巧就失效了。\n\n### 数据结构图示\n\n设原数组 `a = [1, 3, 5, 7, 9]`（下标 1~5），先求差分数组 `d`，再建树状数组：\n\n```\n下标 i :    1    2    3    4    5\n原数组 a:   1    3    5    7    9\n差分 d  :  d[1]=1 (a[1]-0)\n           d[2]=2 (a[2]-a[1])\n           d[3]=2 (a[3]-a[2])\n           d[4]=2 (a[4]-a[3])\n           d[5]=2 (a[5]-a[4])\n\n验证: a[3] = d[1]+d[2]+d[3] = 1+2+2 = 5  ✓\n\n树状数组（对 d 建树）：\ntree[1] = d[1]                  = 1   覆盖 [1,1]  lowbit=1\ntree[2] = d[1]+d[2]             = 3   覆盖 [1,2]  lowbit=2\ntree[3] = d[3]                  = 2   覆盖 [3,3]  lowbit=1\ntree[4] = d[1]+d[2]+d[3]+d[4]   = 7   覆盖 [1,4]  lowbit=4\ntree[5] = d[5]                  = 2   覆盖 [5,5]  lowbit=1\n\n查询 a[4] = get(4) = tree[4]+tree[0]... 实际路径: 4 -> 0\n        = tree[4] = 7  ✓\n\n操作 \"区间 [2,4] 加 3\":\n  - add(2, +3): 影响路径 2 -> 4\n      tree[2] +=3 (变6), tree[4] +=3 (变10)\n  - add(5, -3): 影响路径 5 -> 6(越界停)\n      tree[5] += -3 (变-1)\n新的差分数组: d[1]=1, d[2]=5, d[3]=2, d[4]=2, d[5]=-1\n新的原数组:  a[1]=1, a[2]=6, a[3]=8, a[4]=10, a[5]=9\n   ✓ 区间[2,4] 各加了3，a[5] 不变\n```\n\n### 核心操作详解\n\n#### lowbit(i) — 取最低位 1\n```cpp\ninline int lowbit(int i) { return i & -i; }\n```\n与单点修改版完全相同，利用补码 `~i + 1` 取 `i` 最低位的 1。它决定了 `tree[i]` 管辖的差分区间长度。\n\n#### init(n) — 建树（维护差分数组）\n```cpp\nvoid init(int n) {\n    treearr.resize(n + 1, 0);\n    long long A = 0;\n    for (int i = 1; i <= n; i++) {\n        int x, w;\n        cin >> x;\n        w = x - A;        // 差分值 d[i] = a[i] - a[i-1]\n        A = x;            // 记下当前值，供下一个元素做差分\n        int idx = i;\n        while (idx <= n) {\n            treearr[idx] += w;       // 把差分值加入 BIT\n            idx += lowbit(idx);\n        }\n    }\n}\n```\n关键区别：写入 BIT 的不是 `x`（原值），而是 $w = x - A$（差分值）。`A` 保存上一个读入的 `x`，初始为 0（对应 $a[0]=0$），所以第一个元素的差分 $d[1] = a[1] - 0 = a[1]$。这样 BIT 内部存的就是差分数组 d 的前缀和结构，使后续 `get(x)` 直接返回 `a[x]`。\n\n#### add(i, k, n) — 单点修改（差分数组上）\n```cpp\nvoid add(int i, int k, int n) {\n    while (i <= n) {\n        treearr[i] += k;\n        i += lowbit(i);\n    }\n}\n```\n与单点修改版完全一致。在差分数组的 `i` 位置加 `k`，影响所有覆盖 `i` 的祖先节点。\n\n#### add(l, r, k, n) — 区间修改（差分技巧）\n```cpp\nvoid add(int l, int r, int k, int n) {\n    add(l, k, n);         // d[l] += k  -> [l, ...] 都加 k\n    add(r + 1, -k, n);    // d[r+1] -= k -> [r+1, ...] 都减 k，抵消前面的影响\n}\n```\n区间 `[l,r]` 加 `k` 等价于差分数组在 `l` 处加 `k`、在 `r+1` 处减 `k`。两次单点修改即可完成区间修改，总复杂度 $O(\\log n)$。注意 `r+1` 若超过 n，`add` 内部 `while(i <= n)` 会自然终止，不会越界。\n\n#### get(i) — 单点查询（差分前缀和）\n```cpp\nlong long get(int i) {\n    long long ans = 0;\n    while (i) {\n        ans += treearr[i];\n        i -= lowbit(i);\n    }\n    return ans;\n}\n```\n求差分数组 `d[1..i]` 之和，即 `a[i]`。逻辑与单点修改版的 `get` 一致，但语义上不是\"区间和\"而是\"单点值\"。返回 `long long` 防止多次加减后溢出。\n\n### 逐行代码解析\n\n下面按函数/逻辑阶段把整份代码拆成 5 个模块。各模块的代码块按顺序拼接后，与 `Untitled1.cpp` 完全一致（仅多出行尾 `//` 注释）。\n\n#### 头文件与全局变量\n\n```cpp\n#include<bits/stdc++.h>\n/*洛谷P3368*/\nusing namespace std; \nvector<long long> treearr;          // 维护差分数组的树状数组\ninline int lowbit(int i)\n{\n\treturn i & -i;                  // 取最低位的 1，决定 treearr[i] 管辖的区间长度\n}\n```\n\n- `treearr` 是维护差分数组的树状数组，用 `vector<long long>` 存储，防止差分累加超出 `int` 范围。\n- `lowbit(i) = i & -i` 利用补码取 `i` 最低位的 1，它决定 `treearr[i]` 覆盖的差分区间长度，是树状数组的基石。\n- 数组只使用下标 `1..n`，`0` 号位不可用：`lowbit(0)=0` 会让 `add` 陷入死循环。\n\n#### init(n) — 建树（读入并写入差分值）\n\n```cpp\nvoid init(int n)\n{\n\ttreearr.resize(n + 1,0);       // 申请 n+1 个元素，只用下标 1..n\n\tlong long A = 0;               // A = a[i-1]，初始 a[0]=0\n\tfor(int i = 1;i <= n;i++)\n\t{\n\t\tint x,w;\n\t\tcin >> x;                  // 读入原值 a[i]\n\t\tw = x - A;                 // 差分 d[i] = a[i] - a[i-1]\n\t\tA = x;                     // 更新 A 为当前值，供下一轮做差\n\t\tint idx = i;\n\t\twhile(idx <= n)            // 沿 lowbit 把差分值 w 累加到祖先链\n\t\t{\n\t\t\ttreearr[idx] += w;\n\t\t\tidx += lowbit(idx);\n\t\t}\n\t}\n}\n```\n\n- `treearr.resize(n+1, 0)` 只开 `n+1`：当 `r=n` 时 `add(r+1, -k, n)` 会让 `i=n+1`，`while(i<=n)` 直接跳过，不会越界。\n- `A` 保存上一个读入的原值，初始 `0` 对应 `a[0]=0`；`w = x - A` 就是差分 `d[i]`，随即 `A = x` 供下一轮使用。\n- 内层 `while(idx <= n)` 把差分值 `w` 沿 `lowbit` 累加到所有覆盖 `i` 的节点，实现单点建树（$O(n\\log n)$）。\n- 关键点：写入 BIT 的是差分值 `w` 而非原值 `x`，否则 `get` 会退化成「原数组前缀和」，语义就错了。\n\n#### add — 单点修改与区间修改（两个重载）\n\n```cpp\nvoid add(int i,int k,int n)       // 差分数组单点修改：d[i] += k\n{\n\twhile(i <= n)\n\t{\n\t\ttreearr[i] += k;\n\t\ti += lowbit(i);\n\t}\n}\n\nvoid add(int l,int r,int k,int n) // 区间修改：[l,r] 加 k\n{\n\tadd(l,k,n);                    // d[l] += k，使 [l,n] 都加 k\n\tadd(r + 1,-k,n);               // d[r+1] -= k，把 [r+1,n] 拉回原值\n}\n```\n\n- 三参 `add(i,k,n)` 在差分数组的 `i` 位置 `+k`，沿 `lowbit` 向上更新所有覆盖 `i` 的祖先节点。\n- 四参 `add(l,r,k,n)` 用两次单点修改完成区间加：`d[l]+=k` 使 `[l,n]` 都加 `k`，`d[r+1]-=k` 再把 `[r+1,n]` 抵消回原值，两者缺一不可。\n- 两个 `add` 靠参数个数（3 个 vs 4 个）区分，调用时注意别传错参数个数导致匹配到错误的重载。\n\n#### get(i) — 单点查询（差分前缀和）\n\n```cpp\nlong long get(int i)              // 单点查询：返回 a[i]\n{\n\tlong long ans = 0;\n\twhile(i)                       // 沿 lowbit 递减累加\n\t{\n\t\tans += treearr[i];\n\t\ti -= lowbit(i);\n\t}\n\treturn ans;                    // 即 a[i]\n}\n```\n\n- `get(i)` 从 `i` 出发沿 `lowbit` 递减累加，求差分数组 `d[1..i]` 的前缀和，结果就是单点值 `a[i]`。\n- 循环条件是 `while(i)`（`i` 非 0 才继续），与 `add` 的 `while(i <= n)` 方向相反，容易写错，注意区分。\n- 返回 `long long`：差分可能为负、多次累加可能超 `int`，必须用 `long long` 承接。\n\n#### main — 主流程\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr);cout.tie(nullptr);\n\tint n,m;\n\tcin >> n >> m;\n\tinit(n);\n\tfor(int i = 0;i < m;i++)\n\t{\n\t\tint op;\n\t\tcin >> op;\n\t\tif(op == 1)                // 区间修改\n\t\t{\n\t\t\tint x,y,k;\n\t\t\tcin >> x >> y >> k;\n\t\t\tadd(x,y,k,n);\n\t\t}\n\t\telse                       // 单点查询\n\t\t{\n\t\t\tint x;\n\t\t\tcin >> x; \n\t\t\tcout << get(x) << '\\n';\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n- `ios::sync_with_stdio(false)` 与 `cin.tie(nullptr)` 关闭 C/C++ 同步与输入输出绑定，加速大量 IO。\n- 先 `init(n)` 读入原数组并建成差分 BIT，再循环 `m` 次按操作类型处理。\n- `op == 1` 时读 `x,y,k` 调用区间修改；否则读 `x` 并输出 `get(x)` 完成单点查询。\n- 输出用 `'\\n'` 而非 `endl`，避免每次输出都刷新缓冲区拖慢速度。\n\n**差分变换的正确性论证**：设原数组 a，差分 $d[i] = a[i] - a[i-1]$（$a[0]=0$）。做区间 `[l,r]` 加 k 后，新数组 a' 满足 $a'[i] = a[i] + k \\cdot [l \\leq i \\leq r]$。检查差分 $d'$：当 `i = l` 时 $d'[l] = a'[l] - a'[l-1] = (a[l]+k) - a[l-1] = d[l] + k$；当 `i = r+1` 时 $d'[r+1] = a'[r+1] - a'[r] = a[r+1] - (a[r]+k) = d[r+1] - k$；其余位置差分不变。所以\"区间加 k\"在差分数组上等价于\"$d[l] \\mathrel{+}= k,\\; d[r+1] \\mathrel{-}= k$\"，这正是代码所做的。\n\n### 复杂度分析\n\n- **时间**：`add(l,r,k,n)` 调用两次单点 `add`，每次 $O(\\log n)$，共 $O(\\log n)$；`get(i)` 是一次前缀和查询，$O(\\log n)$。建树 $O(n \\log n)$，m 次操作 $O(m \\log n)$。\n- **空间**：一维数组 `n+1`，$O(n)$。与单点修改版相同，远小于线段树的 $4n$。\n- **常数**：两次 `add` 比\"线段树区间修改 + lazy 下传\"开销小得多，实测速度快 2~3 倍。\n\n### 适用场景\n\n- **区间修改 + 单点查询**：本模板标准用途，如 P3368。对一段区间整体加值，并询问单个位置的当前值。\n- **差分/前缀和对偶**：与\"单点修改 + 区间求和\"形成完美互补——把修改与查询的角色互换即可套用同一框架。\n- **动态前缀信息的单点还原**：当维护的是差分序列（增量流），需要还原某点累积值时。\n\n### 常见陷阱与注意事项\n\n- **init 必须用差分值**：若误把原始 `x` 直接加入 BIT，则 `get` 返回的是\"原数组前缀和\"而非\"单点值\"，语义就错了。务必计算 $w = x - A$。\n- **下标从 1 开始**：与单点修改版相同，`lowbit(0)=0` 会导致 `add` 死循环，0 号位不可用。\n- **数组大小 n+1**：用到下标 `n`，且 `add(r+1, -k, n)` 当 `r=n` 时会访问 `r+1=n+1`，因此实际安全做法是开 `n+2` 大小，但本模板 `while(i <= n)` 会在 `i = n+1` 时直接跳过，所以 `n+1` 也安全。\n- **add 重载二义性**：两个 `add`（三参和四参）靠参数个数区分，调用时注意传参个数；若写错可能匹配到错误的重载。\n- **区间修改不影响 r+1 之后**：必须同时执行 `add(l, k)` 和 `add(r+1, -k)`，缺一不可；只做前者会让 `[r+1, n]` 也被错误地加上 k。\n- **返回类型 long long**：差分可能产生负值，且大量累加可能超 int，`get` 必须返回 `long long`。\n\n### 对比与扩展\n\n- **与单点修改版的对偶**：单点修改版维护原数组 a 的前缀和，`get(x)` 返回 `sum[1..x]`；差分版维护差分数组 d 的前缀和，`get(x)` 返回 `a[x]`。两者代码几乎相同，仅 `init` 写入的值不同。\n- **与线段树对比**：线段树原生支持\"区间修改 + 区间查询\"（带 lazy），功能更全；但若只需\"区间修改 + 单点查询\"，差分 BIT 更简洁、常数更小。若同时需要\"区间修改 + 区间求和\"，需用差分 BIT 的进阶形式——维护 `d[i]` 和 `i·d[i]` 两个 BIT，可在 $O(\\log n)$ 内完成区间加与区间和。\n- **区间修改 + 区间求和的差分扩展**：$\\text{sum}[1..x] = (x+1) \\cdot \\sum d[i] - \\sum i \\cdot d[i]$，用两个 BIT 分别维护 `d[i]` 与 `i·d[i]` 即可在 $O(\\log n)$ 内完成区间加与区间和查询，是差分 BIT 的经典扩展。\n- **2D 差分 BIT**：对二维矩阵的子矩阵加 + 单点查询，可用二维差分 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$，配合 2D BIT 实现 $O(\\log^2 n)$。\n- **不支持赋值操作**：差分技巧只对\"加法\"成立，若区间操作是\"把 [l,r] 赋值为 v\"，差分无法处理，需改用线段树或珂朵露树。",
         "timeComplexity": "O(log n)",
         "spaceComplexity": "O(n)",
         "tags": [
@@ -4729,59 +4934,12 @@ const KNOWLEDGE_DATA = [
             "hub-ds"
         ],
         "related": [
-            "ds-bit-range-point",
             "ds-segtree-basic",
             "ds-prefix-sum-1d",
             "dp-linear-lis-bit-count",
             "basic-divide-conquer-merge-inversion",
             "exam-bit-operation",
             "basic-discretization"
-        ],
-        "parent": ""
-    },
-    {
-        "id": "ds-bit-range-point",
-        "category": "数据结构",
-        "subcategory": "树状数组",
-        "subSubcategory": "",
-        "title": "树状数组（区间修改单点求和 P3368）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n本模板要解决的问题是\"区间修改 + 单点查询\"——对某段区间 `[l,r]` 整体加一个值 `k`，并询问某个位置的当前值。直接在原数组上做区间加法是 $O(n)$ 的，无法承受大量操作。核心技巧是引入**差分数组**做变换：令 $d[i] = a[i] - a[i-1]$（规定 $a[0]=0$），则原数组的前缀和恰好还原出每个元素：$a[x] = \\sum_{i=1}^{x} d[i]$。这是因为 $d[1]+d[2]+\\cdots+d[x] = (a[1]-a[0]) + (a[2]-a[1]) + \\cdots + (a[x]-a[x-1])$， telescoping 后只剩 $a[x] - a[0] = a[x]$。于是\"求单点 a[x]\"等价于\"求差分数组 d 的前缀和\"，而\"区间加 k\"等价于\"差分数组在 l 处 +k、在 r+1 处 -k\"：因为加 k 后 `d[l]` 增大 k，会使 `a[l], a[l+1], ...` 都增大 k；而 `d[r+1]` 减小 k 又把 `a[r+1], a[r+2], ...` 拉回原值，恰好让 `[l,r]` 加 k 而 `[r+1,...]` 不变。\r\n\r\n这样\"区间修改 + 单点查询\"被转化为\"单点修改 + 前缀和查询\"，正好是树状数组最擅长的两项操作：`add(l, k)` 与 `add(r+1, -k)` 是两次单点修改，`get(x)` 是一次前缀和查询。树状数组维护的就是这个差分数组 `d`，而不是原数组 `a`。每次区间加只需 $O(\\log n)$ 而非 $O(n)$，每次单点查询也只需 $O(\\log n)$ 而非 $O(1)$，但总体远胜于朴素做法。\r\n\r\n注意本模板与\"单点修改 + 区间求和\"版本在代码上几乎一致，只是 `init` 阶段写入的是差分值 $w = x - A$（A 是上一个元素的值），而不是原始值 x。这一改动让 BIT 内部存储的语义从\"原数组前缀和\"变为\"差分数组前缀和\"，从而支持区间修改。`get(x)` 直接返回 `a[x]` 而非 `sum[1..x]`，因为差分的前缀和本身就是单点值。\r\n\r\n之所以说树状数组在此场景下比线段树更高效：差分 BIT 同样只占用 $O(n)$ 空间、$O(\\log n)$ 单次操作、代码极短，不需要线段树的 lazy 标记。线段树虽然原生支持\"区间修改 + 区间查询\"，但要同时做\"区间修改 + 单点查询\"反而显得大材小用、常数偏大。差分 + BIT 的组合是这一问题的经典最优解。需要注意的代价是：差分变换只适用于\"加法\"这种可逆运算；若区间修改是赋值（set）而非加法，差分技巧就失效了。\r\n\r\n## 数据结构图示\r\n\r\n设原数组 `a = [1, 3, 5, 7, 9]`（下标 1~5），先求差分数组 `d`，再建树状数组：\r\n\r\n```\r\n下标 i :    1    2    3    4    5\r\n原数组 a:   1    3    5    7    9\r\n差分 d  :  d[1]=1 (a[1]-0)\r\n           d[2]=2 (a[2]-a[1])\r\n           d[3]=2 (a[3]-a[2])\r\n           d[4]=2 (a[4]-a[3])\r\n           d[5]=2 (a[5]-a[4])\r\n\r\n验证: a[3] = d[1]+d[2]+d[3] = 1+2+2 = 5  ✓\r\n\r\n树状数组（对 d 建树）：\r\ntree[1] = d[1]                  = 1   覆盖 [1,1]  lowbit=1\r\ntree[2] = d[1]+d[2]             = 3   覆盖 [1,2]  lowbit=2\r\ntree[3] = d[3]                  = 2   覆盖 [3,3]  lowbit=1\r\ntree[4] = d[1]+d[2]+d[3]+d[4]   = 7   覆盖 [1,4]  lowbit=4\r\ntree[5] = d[5]                  = 2   覆盖 [5,5]  lowbit=1\r\n\r\n查询 a[4] = get(4) = tree[4]+tree[0]... 实际路径: 4 -> 0\r\n        = tree[4] = 7  ✓\r\n\r\n操作 \"区间 [2,4] 加 3\":\r\n  - add(2, +3): 影响路径 2 -> 4\r\n      tree[2] +=3 (变6), tree[4] +=3 (变10)\r\n  - add(5, -3): 影响路径 5 -> 6(越界停)\r\n      tree[5] += -3 (变-1)\r\n新的差分数组: d[1]=1, d[2]=5, d[3]=2, d[4]=2, d[5]=-1\r\n新的原数组:  a[1]=1, a[2]=6, a[3]=8, a[4]=10, a[5]=9\r\n   ✓ 区间[2,4] 各加了3，a[5] 不变\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### lowbit(i) — 取最低位 1\r\n```cpp\r\ninline int lowbit(int i) { return i & -i; }\r\n```\r\n与单点修改版完全相同，利用补码 `~i + 1` 取 `i` 最低位的 1。它决定了 `tree[i]` 管辖的差分区间长度。\r\n\r\n### init(n) — 建树（维护差分数组）\r\n```cpp\r\nvoid init(int n) {\r\n    treearr.resize(n + 1, 0);\r\n    long long A = 0;\r\n    for (int i = 1; i <= n; i++) {\r\n        int x, w;\r\n        cin >> x;\r\n        w = x - A;        // 差分值 d[i] = a[i] - a[i-1]\r\n        A = x;            // 记下当前值，供下一个元素做差分\r\n        int idx = i;\r\n        while (idx <= n) {\r\n            treearr[idx] += w;       // 把差分值加入 BIT\r\n            idx += lowbit(idx);\r\n        }\r\n    }\r\n}\r\n```\r\n关键区别：写入 BIT 的不是 `x`（原值），而是 $w = x - A$（差分值）。`A` 保存上一个读入的 `x`，初始为 0（对应 $a[0]=0$），所以第一个元素的差分 $d[1] = a[1] - 0 = a[1]$。这样 BIT 内部存的就是差分数组 d 的前缀和结构，使后续 `get(x)` 直接返回 `a[x]`。\r\n\r\n### add(i, k, n) — 单点修改（差分数组上）\r\n```cpp\r\nvoid add(int i, int k, int n) {\r\n    while (i <= n) {\r\n        treearr[i] += k;\r\n        i += lowbit(i);\r\n    }\r\n}\r\n```\r\n与单点修改版完全一致。在差分数组的 `i` 位置加 `k`，影响所有覆盖 `i` 的祖先节点。\r\n\r\n### add(l, r, k, n) — 区间修改（差分技巧）\r\n```cpp\r\nvoid add(int l, int r, int k, int n) {\r\n    add(l, k, n);         // d[l] += k  -> [l, ...] 都加 k\r\n    add(r + 1, -k, n);    // d[r+1] -= k -> [r+1, ...] 都减 k，抵消前面的影响\r\n}\r\n```\r\n区间 `[l,r]` 加 `k` 等价于差分数组在 `l` 处加 `k`、在 `r+1` 处减 `k`。两次单点修改即可完成区间修改，总复杂度 $O(\\log n)$。注意 `r+1` 若超过 n，`add` 内部 `while(i <= n)` 会自然终止，不会越界。\r\n\r\n### get(i) — 单点查询（差分前缀和）\r\n```cpp\r\nlong long get(int i) {\r\n    long long ans = 0;\r\n    while (i) {\r\n        ans += treearr[i];\r\n        i -= lowbit(i);\r\n    }\r\n    return ans;\r\n}\r\n```\r\n求差分数组 `d[1..i]` 之和，即 `a[i]`。逻辑与单点修改版的 `get` 一致，但语义上不是\"区间和\"而是\"单点值\"。返回 `long long` 防止多次加减后溢出。\r\n\r\n## 逐行代码解析\r\n\r\n下面按函数/逻辑阶段把整份代码拆成 5 个模块。各模块的代码块按顺序拼接后，与 `Untitled1.cpp` 完全一致（仅多出行尾 `//` 注释）。\r\n\r\n### 头文件与全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\n/*洛谷P3368*/\r\nusing namespace std; \r\nvector<long long> treearr;          // 维护差分数组的树状数组\r\ninline int lowbit(int i)\r\n{\r\n\treturn i & -i;                  // 取最低位的 1，决定 treearr[i] 管辖的区间长度\r\n}\r\n```\r\n\r\n- `treearr` 是维护差分数组的树状数组，用 `vector<long long>` 存储，防止差分累加超出 `int` 范围。\r\n- `lowbit(i) = i & -i` 利用补码取 `i` 最低位的 1，它决定 `treearr[i]` 覆盖的差分区间长度，是树状数组的基石。\r\n- 数组只使用下标 `1..n`，`0` 号位不可用：`lowbit(0)=0` 会让 `add` 陷入死循环。\r\n\r\n### init(n) — 建树（读入并写入差分值）\r\n\r\n```cpp\r\nvoid init(int n)\r\n{\r\n\ttreearr.resize(n + 1,0);       // 申请 n+1 个元素，只用下标 1..n\r\n\tlong long A = 0;               // A = a[i-1]，初始 a[0]=0\r\n\tfor(int i = 1;i <= n;i++)\r\n\t{\r\n\t\tint x,w;\r\n\t\tcin >> x;                  // 读入原值 a[i]\r\n\t\tw = x - A;                 // 差分 d[i] = a[i] - a[i-1]\r\n\t\tA = x;                     // 更新 A 为当前值，供下一轮做差\r\n\t\tint idx = i;\r\n\t\twhile(idx <= n)            // 沿 lowbit 把差分值 w 累加到祖先链\r\n\t\t{\r\n\t\t\ttreearr[idx] += w;\r\n\t\t\tidx += lowbit(idx);\r\n\t\t}\r\n\t}\r\n}\r\n```\r\n\r\n- `treearr.resize(n+1, 0)` 只开 `n+1`：当 `r=n` 时 `add(r+1, -k, n)` 会让 `i=n+1`，`while(i<=n)` 直接跳过，不会越界。\r\n- `A` 保存上一个读入的原值，初始 `0` 对应 `a[0]=0`；`w = x - A` 就是差分 `d[i]`，随即 `A = x` 供下一轮使用。\r\n- 内层 `while(idx <= n)` 把差分值 `w` 沿 `lowbit` 累加到所有覆盖 `i` 的节点，实现单点建树（$O(n\\log n)$）。\r\n- 关键点：写入 BIT 的是差分值 `w` 而非原值 `x`，否则 `get` 会退化成「原数组前缀和」，语义就错了。\r\n\r\n### add — 单点修改与区间修改（两个重载）\r\n\r\n```cpp\r\nvoid add(int i,int k,int n)       // 差分数组单点修改：d[i] += k\r\n{\r\n\twhile(i <= n)\r\n\t{\r\n\t\ttreearr[i] += k;\r\n\t\ti += lowbit(i);\r\n\t}\r\n}\r\n\r\nvoid add(int l,int r,int k,int n) // 区间修改：[l,r] 加 k\r\n{\r\n\tadd(l,k,n);                    // d[l] += k，使 [l,n] 都加 k\r\n\tadd(r + 1,-k,n);               // d[r+1] -= k，把 [r+1,n] 拉回原值\r\n}\r\n```\r\n\r\n- 三参 `add(i,k,n)` 在差分数组的 `i` 位置 `+k`，沿 `lowbit` 向上更新所有覆盖 `i` 的祖先节点。\r\n- 四参 `add(l,r,k,n)` 用两次单点修改完成区间加：`d[l]+=k` 使 `[l,n]` 都加 `k`，`d[r+1]-=k` 再把 `[r+1,n]` 抵消回原值，两者缺一不可。\r\n- 两个 `add` 靠参数个数（3 个 vs 4 个）区分，调用时注意别传错参数个数导致匹配到错误的重载。\r\n\r\n### get(i) — 单点查询（差分前缀和）\r\n\r\n```cpp\r\nlong long get(int i)              // 单点查询：返回 a[i]\r\n{\r\n\tlong long ans = 0;\r\n\twhile(i)                       // 沿 lowbit 递减累加\r\n\t{\r\n\t\tans += treearr[i];\r\n\t\ti -= lowbit(i);\r\n\t}\r\n\treturn ans;                    // 即 a[i]\r\n}\r\n```\r\n\r\n- `get(i)` 从 `i` 出发沿 `lowbit` 递减累加，求差分数组 `d[1..i]` 的前缀和，结果就是单点值 `a[i]`。\r\n- 循环条件是 `while(i)`（`i` 非 0 才继续），与 `add` 的 `while(i <= n)` 方向相反，容易写错，注意区分。\r\n- 返回 `long long`：差分可能为负、多次累加可能超 `int`，必须用 `long long` 承接。\r\n\r\n### main — 主流程\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr);cout.tie(nullptr);\r\n\tint n,m;\r\n\tcin >> n >> m;\r\n\tinit(n);\r\n\tfor(int i = 0;i < m;i++)\r\n\t{\r\n\t\tint op;\r\n\t\tcin >> op;\r\n\t\tif(op == 1)                // 区间修改\r\n\t\t{\r\n\t\t\tint x,y,k;\r\n\t\t\tcin >> x >> y >> k;\r\n\t\t\tadd(x,y,k,n);\r\n\t\t}\r\n\t\telse                       // 单点查询\r\n\t\t{\r\n\t\t\tint x;\r\n\t\t\tcin >> x; \r\n\t\t\tcout << get(x) << '\\n';\r\n\t\t}\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- `ios::sync_with_stdio(false)` 与 `cin.tie(nullptr)` 关闭 C/C++ 同步与输入输出绑定，加速大量 IO。\r\n- 先 `init(n)` 读入原数组并建成差分 BIT，再循环 `m` 次按操作类型处理。\r\n- `op == 1` 时读 `x,y,k` 调用区间修改；否则读 `x` 并输出 `get(x)` 完成单点查询。\r\n- 输出用 `'\\n'` 而非 `endl`，避免每次输出都刷新缓冲区拖慢速度。\r\n\r\n**差分变换的正确性论证**：设原数组 a，差分 $d[i] = a[i] - a[i-1]$（$a[0]=0$）。做区间 `[l,r]` 加 k 后，新数组 a' 满足 $a'[i] = a[i] + k \\cdot [l \\leq i \\leq r]$。检查差分 $d'$：当 `i = l` 时 $d'[l] = a'[l] - a'[l-1] = (a[l]+k) - a[l-1] = d[l] + k$；当 `i = r+1` 时 $d'[r+1] = a'[r+1] - a'[r] = a[r+1] - (a[r]+k) = d[r+1] - k$；其余位置差分不变。所以\"区间加 k\"在差分数组上等价于\"$d[l] \\mathrel{+}= k,\\; d[r+1] \\mathrel{-}= k$\"，这正是代码所做的。\r\n\r\n## 复杂度分析\r\n\r\n- **时间**：`add(l,r,k,n)` 调用两次单点 `add`，每次 $O(\\log n)$，共 $O(\\log n)$；`get(i)` 是一次前缀和查询，$O(\\log n)$。建树 $O(n \\log n)$，m 次操作 $O(m \\log n)$。\r\n- **空间**：一维数组 `n+1`，$O(n)$。与单点修改版相同，远小于线段树的 $4n$。\r\n- **常数**：两次 `add` 比\"线段树区间修改 + lazy 下传\"开销小得多，实测速度快 2~3 倍。\r\n\r\n## 适用场景\r\n\r\n- **区间修改 + 单点查询**：本模板标准用途，如 P3368。对一段区间整体加值，并询问单个位置的当前值。\r\n- **差分/前缀和对偶**：与\"单点修改 + 区间求和\"形成完美互补——把修改与查询的角色互换即可套用同一框架。\r\n- **动态前缀信息的单点还原**：当维护的是差分序列（增量流），需要还原某点累积值时。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- **init 必须用差分值**：若误把原始 `x` 直接加入 BIT，则 `get` 返回的是\"原数组前缀和\"而非\"单点值\"，语义就错了。务必计算 $w = x - A$。\r\n- **下标从 1 开始**：与单点修改版相同，`lowbit(0)=0` 会导致 `add` 死循环，0 号位不可用。\r\n- **数组大小 n+1**：用到下标 `n`，且 `add(r+1, -k, n)` 当 `r=n` 时会访问 `r+1=n+1`，因此实际安全做法是开 `n+2` 大小，但本模板 `while(i <= n)` 会在 `i = n+1` 时直接跳过，所以 `n+1` 也安全。\r\n- **add 重载二义性**：两个 `add`（三参和四参）靠参数个数区分，调用时注意传参个数；若写错可能匹配到错误的重载。\r\n- **区间修改不影响 r+1 之后**：必须同时执行 `add(l, k)` 和 `add(r+1, -k)`，缺一不可；只做前者会让 `[r+1, n]` 也被错误地加上 k。\r\n- **返回类型 long long**：差分可能产生负值，且大量累加可能超 int，`get` 必须返回 `long long`。\r\n\r\n## 对比与扩展\r\n\r\n- **与单点修改版的对偶**：单点修改版维护原数组 a 的前缀和，`get(x)` 返回 `sum[1..x]`；差分版维护差分数组 d 的前缀和，`get(x)` 返回 `a[x]`。两者代码几乎相同，仅 `init` 写入的值不同。\r\n- **与线段树对比**：线段树原生支持\"区间修改 + 区间查询\"（带 lazy），功能更全；但若只需\"区间修改 + 单点查询\"，差分 BIT 更简洁、常数更小。若同时需要\"区间修改 + 区间求和\"，需用差分 BIT 的进阶形式——维护 `d[i]` 和 `i·d[i]` 两个 BIT，可在 $O(\\log n)$ 内完成区间加与区间和。\r\n- **区间修改 + 区间求和的差分扩展**：$\\text{sum}[1..x] = (x+1) \\cdot \\sum d[i] - \\sum i \\cdot d[i]$，用两个 BIT 分别维护 `d[i]` 与 `i·d[i]` 即可在 $O(\\log n)$ 内完成区间加与区间和查询，是差分 BIT 的经典扩展。\r\n- **2D 差分 BIT**：对二维矩阵的子矩阵加 + 单点查询，可用二维差分 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$，配合 2D BIT 实现 $O(\\log^2 n)$。\r\n- **不支持赋值操作**：差分技巧只对\"加法\"成立，若区间操作是\"把 [l,r] 赋值为 v\"，差分无法处理，需改用线段树或珂朵露树。",
-                "codePath": "数据结构\\树状数组\\区间修改，单点求和\\Untitled1.cpp",
-                "timeComplexity": "O(log n)",
-                "spaceComplexity": "O(n)",
-                "tags": [
-                    "数据结构",
-                    "树状数组",
-                    "区间修改",
-                    "单点求和",
-                    "差分",
-                    "P3368"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 算法原理\r\n\r\n本模板要解决的问题是\"区间修改 + 单点查询\"——对某段区间 `[l,r]` 整体加一个值 `k`，并询问某个位置的当前值。直接在原数组上做区间加法是 $O(n)$ 的，无法承受大量操作。核心技巧是引入**差分数组**做变换：令 $d[i] = a[i] - a[i-1]$（规定 $a[0]=0$），则原数组的前缀和恰好还原出每个元素：$a[x] = \\sum_{i=1}^{x} d[i]$。这是因为 $d[1]+d[2]+\\cdots+d[x] = (a[1]-a[0]) + (a[2]-a[1]) + \\cdots + (a[x]-a[x-1])$， telescoping 后只剩 $a[x] - a[0] = a[x]$。于是\"求单点 a[x]\"等价于\"求差分数组 d 的前缀和\"，而\"区间加 k\"等价于\"差分数组在 l 处 +k、在 r+1 处 -k\"：因为加 k 后 `d[l]` 增大 k，会使 `a[l], a[l+1], ...` 都增大 k；而 `d[r+1]` 减小 k 又把 `a[r+1], a[r+2], ...` 拉回原值，恰好让 `[l,r]` 加 k 而 `[r+1,...]` 不变。\r\n\r\n这样\"区间修改 + 单点查询\"被转化为\"单点修改 + 前缀和查询\"，正好是树状数组最擅长的两项操作：`add(l, k)` 与 `add(r+1, -k)` 是两次单点修改，`get(x)` 是一次前缀和查询。树状数组维护的就是这个差分数组 `d`，而不是原数组 `a`。每次区间加只需 $O(\\log n)$ 而非 $O(n)$，每次单点查询也只需 $O(\\log n)$ 而非 $O(1)$，但总体远胜于朴素做法。\r\n\r\n注意本模板与\"单点修改 + 区间求和\"版本在代码上几乎一致，只是 `init` 阶段写入的是差分值 $w = x - A$（A 是上一个元素的值），而不是原始值 x。这一改动让 BIT 内部存储的语义从\"原数组前缀和\"变为\"差分数组前缀和\"，从而支持区间修改。`get(x)` 直接返回 `a[x]` 而非 `sum[1..x]`，因为差分的前缀和本身就是单点值。\r\n\r\n之所以说树状数组在此场景下比线段树更高效：差分 BIT 同样只占用 $O(n)$ 空间、$O(\\log n)$ 单次操作、代码极短，不需要线段树的 lazy 标记。线段树虽然原生支持\"区间修改 + 区间查询\"，但要同时做\"区间修改 + 单点查询\"反而显得大材小用、常数偏大。差分 + BIT 的组合是这一问题的经典最优解。需要注意的代价是：差分变换只适用于\"加法\"这种可逆运算；若区间修改是赋值（set）而非加法，差分技巧就失效了。\r\n\r\n## 数据结构图示\r\n\r\n设原数组 `a = [1, 3, 5, 7, 9]`（下标 1~5），先求差分数组 `d`，再建树状数组：\r\n\r\n```\r\n下标 i :    1    2    3    4    5\r\n原数组 a:   1    3    5    7    9\r\n差分 d  :  d[1]=1 (a[1]-0)\r\n           d[2]=2 (a[2]-a[1])\r\n           d[3]=2 (a[3]-a[2])\r\n           d[4]=2 (a[4]-a[3])\r\n           d[5]=2 (a[5]-a[4])\r\n\r\n验证: a[3] = d[1]+d[2]+d[3] = 1+2+2 = 5  ✓\r\n\r\n树状数组（对 d 建树）：\r\ntree[1] = d[1]                  = 1   覆盖 [1,1]  lowbit=1\r\ntree[2] = d[1]+d[2]             = 3   覆盖 [1,2]  lowbit=2\r\ntree[3] = d[3]                  = 2   覆盖 [3,3]  lowbit=1\r\ntree[4] = d[1]+d[2]+d[3]+d[4]   = 7   覆盖 [1,4]  lowbit=4\r\ntree[5] = d[5]                  = 2   覆盖 [5,5]  lowbit=1\r\n\r\n查询 a[4] = get(4) = tree[4]+tree[0]... 实际路径: 4 -> 0\r\n        = tree[4] = 7  ✓\r\n\r\n操作 \"区间 [2,4] 加 3\":\r\n  - add(2, +3): 影响路径 2 -> 4\r\n      tree[2] +=3 (变6), tree[4] +=3 (变10)\r\n  - add(5, -3): 影响路径 5 -> 6(越界停)\r\n      tree[5] += -3 (变-1)\r\n新的差分数组: d[1]=1, d[2]=5, d[3]=2, d[4]=2, d[5]=-1\r\n新的原数组:  a[1]=1, a[2]=6, a[3]=8, a[4]=10, a[5]=9\r\n   ✓ 区间[2,4] 各加了3，a[5] 不变\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### lowbit(i) — 取最低位 1\r\n```cpp\r\ninline int lowbit(int i) { return i & -i; }\r\n```\r\n与单点修改版完全相同，利用补码 `~i + 1` 取 `i` 最低位的 1。它决定了 `tree[i]` 管辖的差分区间长度。\r\n\r\n### init(n) — 建树（维护差分数组）\r\n```cpp\r\nvoid init(int n) {\r\n    treearr.resize(n + 1, 0);\r\n    long long A = 0;\r\n    for (int i = 1; i <= n; i++) {\r\n        int x, w;\r\n        cin >> x;\r\n        w = x - A;        // 差分值 d[i] = a[i] - a[i-1]\r\n        A = x;            // 记下当前值，供下一个元素做差分\r\n        int idx = i;\r\n        while (idx <= n) {\r\n            treearr[idx] += w;       // 把差分值加入 BIT\r\n            idx += lowbit(idx);\r\n        }\r\n    }\r\n}\r\n```\r\n关键区别：写入 BIT 的不是 `x`（原值），而是 $w = x - A$（差分值）。`A` 保存上一个读入的 `x`，初始为 0（对应 $a[0]=0$），所以第一个元素的差分 $d[1] = a[1] - 0 = a[1]$。这样 BIT 内部存的就是差分数组 d 的前缀和结构，使后续 `get(x)` 直接返回 `a[x]`。\r\n\r\n### add(i, k, n) — 单点修改（差分数组上）\r\n```cpp\r\nvoid add(int i, int k, int n) {\r\n    while (i <= n) {\r\n        treearr[i] += k;\r\n        i += lowbit(i);\r\n    }\r\n}\r\n```\r\n与单点修改版完全一致。在差分数组的 `i` 位置加 `k`，影响所有覆盖 `i` 的祖先节点。\r\n\r\n### add(l, r, k, n) — 区间修改（差分技巧）\r\n```cpp\r\nvoid add(int l, int r, int k, int n) {\r\n    add(l, k, n);         // d[l] += k  -> [l, ...] 都加 k\r\n    add(r + 1, -k, n);    // d[r+1] -= k -> [r+1, ...] 都减 k，抵消前面的影响\r\n}\r\n```\r\n区间 `[l,r]` 加 `k` 等价于差分数组在 `l` 处加 `k`、在 `r+1` 处减 `k`。两次单点修改即可完成区间修改，总复杂度 $O(\\log n)$。注意 `r+1` 若超过 n，`add` 内部 `while(i <= n)` 会自然终止，不会越界。\r\n\r\n### get(i) — 单点查询（差分前缀和）\r\n```cpp\r\nlong long get(int i) {\r\n    long long ans = 0;\r\n    while (i) {\r\n        ans += treearr[i];\r\n        i -= lowbit(i);\r\n    }\r\n    return ans;\r\n}\r\n```\r\n求差分数组 `d[1..i]` 之和，即 `a[i]`。逻辑与单点修改版的 `get` 一致，但语义上不是\"区间和\"而是\"单点值\"。返回 `long long` 防止多次加减后溢出。\r\n\r\n## 逐行代码解析\r\n\r\n下面按函数/逻辑阶段把整份代码拆成 5 个模块。各模块的代码块按顺序拼接后，与 `Untitled1.cpp` 完全一致（仅多出行尾 `//` 注释）。\r\n\r\n### 头文件与全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\n/*洛谷P3368*/\r\nusing namespace std; \r\nvector<long long> treearr;          // 维护差分数组的树状数组\r\ninline int lowbit(int i)\r\n{\r\n\treturn i & -i;                  // 取最低位的 1，决定 treearr[i] 管辖的区间长度\r\n}\r\n```\r\n\r\n- `treearr` 是维护差分数组的树状数组，用 `vector<long long>` 存储，防止差分累加超出 `int` 范围。\r\n- `lowbit(i) = i & -i` 利用补码取 `i` 最低位的 1，它决定 `treearr[i]` 覆盖的差分区间长度，是树状数组的基石。\r\n- 数组只使用下标 `1..n`，`0` 号位不可用：`lowbit(0)=0` 会让 `add` 陷入死循环。\r\n\r\n### init(n) — 建树（读入并写入差分值）\r\n\r\n```cpp\r\nvoid init(int n)\r\n{\r\n\ttreearr.resize(n + 1,0);       // 申请 n+1 个元素，只用下标 1..n\r\n\tlong long A = 0;               // A = a[i-1]，初始 a[0]=0\r\n\tfor(int i = 1;i <= n;i++)\r\n\t{\r\n\t\tint x,w;\r\n\t\tcin >> x;                  // 读入原值 a[i]\r\n\t\tw = x - A;                 // 差分 d[i] = a[i] - a[i-1]\r\n\t\tA = x;                     // 更新 A 为当前值，供下一轮做差\r\n\t\tint idx = i;\r\n\t\twhile(idx <= n)            // 沿 lowbit 把差分值 w 累加到祖先链\r\n\t\t{\r\n\t\t\ttreearr[idx] += w;\r\n\t\t\tidx += lowbit(idx);\r\n\t\t}\r\n\t}\r\n}\r\n```\r\n\r\n- `treearr.resize(n+1, 0)` 只开 `n+1`：当 `r=n` 时 `add(r+1, -k, n)` 会让 `i=n+1`，`while(i<=n)` 直接跳过，不会越界。\r\n- `A` 保存上一个读入的原值，初始 `0` 对应 `a[0]=0`；`w = x - A` 就是差分 `d[i]`，随即 `A = x` 供下一轮使用。\r\n- 内层 `while(idx <= n)` 把差分值 `w` 沿 `lowbit` 累加到所有覆盖 `i` 的节点，实现单点建树（$O(n\\log n)$）。\r\n- 关键点：写入 BIT 的是差分值 `w` 而非原值 `x`，否则 `get` 会退化成「原数组前缀和」，语义就错了。\r\n\r\n### add — 单点修改与区间修改（两个重载）\r\n\r\n```cpp\r\nvoid add(int i,int k,int n)       // 差分数组单点修改：d[i] += k\r\n{\r\n\twhile(i <= n)\r\n\t{\r\n\t\ttreearr[i] += k;\r\n\t\ti += lowbit(i);\r\n\t}\r\n}\r\n\r\nvoid add(int l,int r,int k,int n) // 区间修改：[l,r] 加 k\r\n{\r\n\tadd(l,k,n);                    // d[l] += k，使 [l,n] 都加 k\r\n\tadd(r + 1,-k,n);               // d[r+1] -= k，把 [r+1,n] 拉回原值\r\n}\r\n```\r\n\r\n- 三参 `add(i,k,n)` 在差分数组的 `i` 位置 `+k`，沿 `lowbit` 向上更新所有覆盖 `i` 的祖先节点。\r\n- 四参 `add(l,r,k,n)` 用两次单点修改完成区间加：`d[l]+=k` 使 `[l,n]` 都加 `k`，`d[r+1]-=k` 再把 `[r+1,n]` 抵消回原值，两者缺一不可。\r\n- 两个 `add` 靠参数个数（3 个 vs 4 个）区分，调用时注意别传错参数个数导致匹配到错误的重载。\r\n\r\n### get(i) — 单点查询（差分前缀和）\r\n\r\n```cpp\r\nlong long get(int i)              // 单点查询：返回 a[i]\r\n{\r\n\tlong long ans = 0;\r\n\twhile(i)                       // 沿 lowbit 递减累加\r\n\t{\r\n\t\tans += treearr[i];\r\n\t\ti -= lowbit(i);\r\n\t}\r\n\treturn ans;                    // 即 a[i]\r\n}\r\n```\r\n\r\n- `get(i)` 从 `i` 出发沿 `lowbit` 递减累加，求差分数组 `d[1..i]` 的前缀和，结果就是单点值 `a[i]`。\r\n- 循环条件是 `while(i)`（`i` 非 0 才继续），与 `add` 的 `while(i <= n)` 方向相反，容易写错，注意区分。\r\n- 返回 `long long`：差分可能为负、多次累加可能超 `int`，必须用 `long long` 承接。\r\n\r\n### main — 主流程\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr);cout.tie(nullptr);\r\n\tint n,m;\r\n\tcin >> n >> m;\r\n\tinit(n);\r\n\tfor(int i = 0;i < m;i++)\r\n\t{\r\n\t\tint op;\r\n\t\tcin >> op;\r\n\t\tif(op == 1)                // 区间修改\r\n\t\t{\r\n\t\t\tint x,y,k;\r\n\t\t\tcin >> x >> y >> k;\r\n\t\t\tadd(x,y,k,n);\r\n\t\t}\r\n\t\telse                       // 单点查询\r\n\t\t{\r\n\t\t\tint x;\r\n\t\t\tcin >> x; \r\n\t\t\tcout << get(x) << '\\n';\r\n\t\t}\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- `ios::sync_with_stdio(false)` 与 `cin.tie(nullptr)` 关闭 C/C++ 同步与输入输出绑定，加速大量 IO。\r\n- 先 `init(n)` 读入原数组并建成差分 BIT，再循环 `m` 次按操作类型处理。\r\n- `op == 1` 时读 `x,y,k` 调用区间修改；否则读 `x` 并输出 `get(x)` 完成单点查询。\r\n- 输出用 `'\\n'` 而非 `endl`，避免每次输出都刷新缓冲区拖慢速度。\r\n\r\n**差分变换的正确性论证**：设原数组 a，差分 $d[i] = a[i] - a[i-1]$（$a[0]=0$）。做区间 `[l,r]` 加 k 后，新数组 a' 满足 $a'[i] = a[i] + k \\cdot [l \\leq i \\leq r]$。检查差分 $d'$：当 `i = l` 时 $d'[l] = a'[l] - a'[l-1] = (a[l]+k) - a[l-1] = d[l] + k$；当 `i = r+1` 时 $d'[r+1] = a'[r+1] - a'[r] = a[r+1] - (a[r]+k) = d[r+1] - k$；其余位置差分不变。所以\"区间加 k\"在差分数组上等价于\"$d[l] \\mathrel{+}= k,\\; d[r+1] \\mathrel{-}= k$\"，这正是代码所做的。\r\n\r\n## 复杂度分析\r\n\r\n- **时间**：`add(l,r,k,n)` 调用两次单点 `add`，每次 $O(\\log n)$，共 $O(\\log n)$；`get(i)` 是一次前缀和查询，$O(\\log n)$。建树 $O(n \\log n)$，m 次操作 $O(m \\log n)$。\r\n- **空间**：一维数组 `n+1`，$O(n)$。与单点修改版相同，远小于线段树的 $4n$。\r\n- **常数**：两次 `add` 比\"线段树区间修改 + lazy 下传\"开销小得多，实测速度快 2~3 倍。\r\n\r\n## 适用场景\r\n\r\n- **区间修改 + 单点查询**：本模板标准用途，如 P3368。对一段区间整体加值，并询问单个位置的当前值。\r\n- **差分/前缀和对偶**：与\"单点修改 + 区间求和\"形成完美互补——把修改与查询的角色互换即可套用同一框架。\r\n- **动态前缀信息的单点还原**：当维护的是差分序列（增量流），需要还原某点累积值时。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- **init 必须用差分值**：若误把原始 `x` 直接加入 BIT，则 `get` 返回的是\"原数组前缀和\"而非\"单点值\"，语义就错了。务必计算 $w = x - A$。\r\n- **下标从 1 开始**：与单点修改版相同，`lowbit(0)=0` 会导致 `add` 死循环，0 号位不可用。\r\n- **数组大小 n+1**：用到下标 `n`，且 `add(r+1, -k, n)` 当 `r=n` 时会访问 `r+1=n+1`，因此实际安全做法是开 `n+2` 大小，但本模板 `while(i <= n)` 会在 `i = n+1` 时直接跳过，所以 `n+1` 也安全。\r\n- **add 重载二义性**：两个 `add`（三参和四参）靠参数个数区分，调用时注意传参个数；若写错可能匹配到错误的重载。\r\n- **区间修改不影响 r+1 之后**：必须同时执行 `add(l, k)` 和 `add(r+1, -k)`，缺一不可；只做前者会让 `[r+1, n]` 也被错误地加上 k。\r\n- **返回类型 long long**：差分可能产生负值，且大量累加可能超 int，`get` 必须返回 `long long`。\r\n\r\n## 对比与扩展\r\n\r\n- **与单点修改版的对偶**：单点修改版维护原数组 a 的前缀和，`get(x)` 返回 `sum[1..x]`；差分版维护差分数组 d 的前缀和，`get(x)` 返回 `a[x]`。两者代码几乎相同，仅 `init` 写入的值不同。\r\n- **与线段树对比**：线段树原生支持\"区间修改 + 区间查询\"（带 lazy），功能更全；但若只需\"区间修改 + 单点查询\"，差分 BIT 更简洁、常数更小。若同时需要\"区间修改 + 区间求和\"，需用差分 BIT 的进阶形式——维护 `d[i]` 和 `i·d[i]` 两个 BIT，可在 $O(\\log n)$ 内完成区间加与区间和。\r\n- **区间修改 + 区间求和的差分扩展**：$\\text{sum}[1..x] = (x+1) \\cdot \\sum d[i] - \\sum i \\cdot d[i]$，用两个 BIT 分别维护 `d[i]` 与 `i·d[i]` 即可在 $O(\\log n)$ 内完成区间加与区间和查询，是差分 BIT 的经典扩展。\r\n- **2D 差分 BIT**：对二维矩阵的子矩阵加 + 单点查询，可用二维差分 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$，配合 2D BIT 实现 $O(\\log^2 n)$。\r\n- **不支持赋值操作**：差分技巧只对\"加法\"成立，若区间操作是\"把 [l,r] 赋值为 v\"，差分无法处理，需改用线段树或珂朵露树。",
-        "timeComplexity": "O(log n)",
-        "spaceComplexity": "O(n)",
-        "tags": [
-            "数据结构",
-            "树状数组",
-            "区间修改",
-            "单点求和",
-            "差分",
-            "P3368"
-        ],
-        "codePath": "数据结构\\树状数组\\区间修改，单点求和\\Untitled1.cpp",
-        "prerequisites": [
-            "ds-bit-point-range"
-        ],
-        "related": [
-            "ds-bit-point-range",
-            "ds-segtree-basic"
         ],
         "parent": ""
     },
@@ -4822,12 +4980,13 @@ const KNOWLEDGE_DATA = [
         "codePath": "数据结构\\前缀和与差分\\2阶差分\\Untitled1.cpp",
         "prerequisites": [
             "hub-ds",
-            "ds-diff-1d"
+            "ds-diff-1d",
+            "ds-prefix-diff-overview"
         ],
         "related": [
             "ds-bit-second-prefix"
         ],
-        "parent": ""
+        "parent": "ds-prefix-diff-overview"
     },
     {
         "id": "ds-bit-second-prefix",
@@ -4866,12 +5025,13 @@ const KNOWLEDGE_DATA = [
         "codePath": "数据结构\\前缀和与差分\\2阶前缀和\\Untitled1.cpp",
         "prerequisites": [
             "hub-ds",
-            "ds-prefix-sum-1d"
+            "ds-prefix-sum-1d",
+            "ds-prefix-diff-overview"
         ],
         "related": [
             "ds-bit-second-diff"
         ],
-        "parent": ""
+        "parent": "ds-prefix-diff-overview"
     },
     {
         "id": "ds-block-2d",
@@ -4909,7 +5069,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-block"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-block-decomposition",
@@ -4986,10 +5146,10 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-mo-team",
             "ds-segtree-basic",
-            "ds-monoqueue-2d",
+            "ds-monoqueue-1d",
             "basic-quickselect-kth"
         ],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-block-time",
@@ -5027,7 +5187,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-block"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-block-tree",
@@ -5065,7 +5225,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-block"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-block-value-domain",
@@ -5105,7 +5265,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-block"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-bst",
@@ -5149,7 +5309,7 @@ const KNOWLEDGE_DATA = [
             "ds-balanced-tree-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "ds-balanced-tree-overview"
     },
     {
         "id": "ds-cartesian-tree",
@@ -5248,118 +5408,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\前缀和与差分\\一维差分\\Untitled1.cpp",
         "prerequisites": [
-            "ds-prefix-sum-1d"
+            "ds-prefix-sum-1d",
+            "ds-prefix-diff-overview"
         ],
         "related": [
             "ds-prefix-sum-1d",
             "ds-prefix-sum-2d",
-            "ds-diff-2d",
-            "ds-prefix-sum-tree",
-            "ds-diff-tree"
+            "ds-prefix-sum-tree"
         ],
-        "parent": ""
-    },
-    {
-        "id": "ds-diff-2d",
-        "category": "数据结构",
-        "subcategory": "前缀和与差分",
-        "subSubcategory": "二维",
-        "title": "二维差分（子矩阵加·批量更新）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n二维差分是二维前缀和的逆运算。给定一个 $n \\times m$ 的矩阵 $a$，构造差分矩阵 $d$，使得 $d$ 的二维前缀和恰好还原出 $a$。差分矩阵的核心价值在于：**一次子矩阵加操作可以从 $O(nm)$ 降为 $O(1)$**。\r\n\r\n### 核心思想\r\n\r\n在一维差分中，区间 $[l, r]$ 加 $k$ 只需修改两个端点：$d[l] \\mathrel{+}= k$，$d[r+1] \\mathrel{-}= k$。二维差分将这一思想推广到子矩阵：子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$ 加 $k$ 只需修改四个角点。\r\n\r\n### 差分与前缀和的关系\r\n\r\n差分和前缀和互为逆运算：\r\n\r\n$$\\text{差分} = \\text{前缀和的逆} \\quad \\Longleftrightarrow \\quad \\text{前缀和} = \\text{差分的还原}$$\r\n\r\n即：对差分矩阵做二维前缀和，就得到原矩阵；对原矩阵做差分，就得到差分矩阵。\r\n\r\n## 核心公式\r\n\r\n### 差分矩阵构造\r\n\r\n给定原矩阵 $a$（下标从 $1$ 开始），差分矩阵 $d$ 定义为：\r\n\r\n$$d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$$\r\n\r\n**容斥解释**：\r\n- $a[i][j]$：当前格的值\r\n- $- a[i-1][j]$：减去上方矩形的和（因为差分本质是\"当前值 $-$ 前缀和\"）\r\n- $- a[i][j-1]$：减去左方矩形的和\r\n- $+ a[i-1][j-1]$：左上角重叠部分被减了两次，加回一次\r\n\r\n### 子矩阵修改（核心操作）\r\n\r\n对子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$（左上角到右下角）整体加 $k$：\r\n\r\n$$d[x_1][y_1] \\mathrel{+}= k$$\r\n$$d[x_1][y_2+1] \\mathrel{-}= k$$\r\n$$d[x_2+1][y_1] \\mathrel{-}= k$$\r\n$$d[x_2+1][y_2+1] \\mathrel{+}= k$$\r\n\r\n**容斥解释**：四个修改点的作用是让差分矩阵的前缀和\"恰好只在目标子矩阵内增加 $k$\"。\r\n\r\n### 前缀和还原\r\n\r\n所有修改完成后，对 $d$ 做二维前缀和还原原矩阵：\r\n\r\n$$a[i][j] = d[i][j] + a[i-1][j] + a[i][j-1] - a[i-1][j-1]$$\r\n\r\n注意此处的 $a[i-1][j]$、$a[i][j-1]$、$a[i-1][j-1]$ 已经是前缀和还原后的值（按行优先顺序遍历）。\r\n\r\n## 数据结构图示\r\n\r\n### 差分构造过程示意\r\n\r\n以 $3 \\times 3$ 矩阵 $a$ 为例（下标从 $1$ 开始，第 0 行/列为 0），仅 $a[2][2] = 5$，其余为 $0$：\r\n\r\n```\r\n原矩阵 a:                差分矩阵 d:\r\n   j=0  1  2  3             j=0  1  2  3\r\ni=0  0  0  0  0           i=0  0  0  0  0\r\ni=1  0  0  0  0           i=1  0  0  0  0\r\ni=2  0  0  5  0    →      i=2  0  0  5 -5\r\ni=3  0  0  0  0           i=3  0  0 -5  5\r\n```\r\n\r\n从后向前遍历（$i = 3 \\to 1$，$j = 3 \\to 1$），公式 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$：\r\n\r\n```\r\nd[3][3] = 0 - 0 - 0 + 5 =  5\r\nd[3][2] = 0 - 5 - 0 + 0 = -5\r\nd[2][3] = 0 - 0 - 5 + 0 = -5\r\nd[2][2] = 5 - 0 - 0 + 0 =  5\r\n（第 1 行和第 1 列的差分值均为 0，省略）\r\n```\r\n\r\n**验证**（对 $d$ 做前缀和还原）：\r\n\r\n```\r\na[2][2] = d[2][2] + a[1][2] + a[2][1] - a[1][1] = 5 + 0 + 0 - 0 = 5  ✓\r\na[2][3] = d[2][3] + a[1][3] + a[2][2] - a[1][2] = -5 + 0 + 5 - 0 = 0  ✓\r\na[3][3] = d[3][3] + a[2][3] + a[3][2] - a[2][2] = 5 + 0 + 0 - 5 = 0  ✓\r\n```\r\n\r\n### 子矩阵修改示意\r\n\r\n从全零 $3 \\times 3$ 矩阵开始，对子矩阵 $(1,1) \\sim (2,2)$ 加 $3$。四个角点修改：\r\n\r\n```\r\n修改前 d (全零):          修改后 d:\r\n   j=1  2  3                 j=1  2  3  4\r\ni=1  0  0  0               i=1  3  0 -3  0   ← d[1][1] += 3, d[1][3] -= 3\r\ni=2  0  0  0      →        i=2  0  0  0  0\r\ni=3  0  0  0               i=3 -3  0  3  0   ← d[3][1] -= 3, d[3][3] += 3\r\n```\r\n\r\n**还原后**（对 $d$ 做前缀和）：\r\n\r\n```\r\n   j=1  2  3\r\ni=1  3  3  0    ← (1,1)-(2,2) 区域全部 +3\r\ni=2  3  3  0\r\ni=3  0  0  0    ← 子矩阵外部不受影响\r\n```\r\n\r\n### 四角点容斥图解\r\n\r\n```\r\n    (x1,y1)          (x1,y2+1)\r\n      +k               -k\r\n      ┌──────────────────┐\r\n      │                  │\r\n      │   子矩阵区域      │\r\n      │   (全部 +k)      │\r\n      │                  │\r\n      └──────────────────┘\r\n    (x2+1,y1)       (x2+1,y2+1)\r\n      -k               +k\r\n\r\n四个角点修改使得：\r\n- 前缀和到子矩阵内部：净效果 +k（正确）\r\n- 前缀和到子矩阵外部：净效果 0（正确，因为修改互相抵消）\r\n```\r\n\r\n## 逐行代码解析\r\n\r\n### 头文件与全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint main()\r\n{\r\n\tint n, m, q;\r\n\tcin >> n >> m >> q;\r\n\tvector<vector<long long>> A(n + 2, vector<long long>(m + 2));\r\n```\r\n\r\n- 万能头 `bits/stdc++.h` 加 `using namespace std`，省去逐个 include 和 `std::` 前缀。\r\n- 读入行数 $n$、列数 $m$ 与操作次数 $q$，矩阵下标约定从 $(1,1)$ 开始。\r\n- 开 $(n+2) \\times (m+2)$ 的二维数组，多开一行一列给 $x_2+1$、$y_2+1$ 使用，避免越界。\r\n- 元素用 `long long`，防止多次累加后溢出。\r\n\r\n### 读入原矩阵\r\n\r\n```cpp\r\n\tfor (int i = 1; i <= n; i++)\r\n\t{\r\n\t\tfor (int j = 1; j <= m; j++)\r\n\t\t{\r\n\t\t\tcin >> A[i][j];\r\n\t\t}\r\n\t}\r\n```\r\n\r\n- 从 $(1,1)$ 读到 $(n,m)$，第 $0$ 行、第 $0$ 列保持为 $0$，为差分公式提供边界。\r\n- 循环上界是 $n$、$m$，正好覆盖整个矩阵，不遗漏也不越界。\r\n\r\n### 原地差分构造\r\n\r\n```cpp\r\n\tfor (int i = n; i >= 1; i--)\r\n\t{\r\n\t\tfor (int j = m; j >= 1; j--)\r\n\t\t{\r\n\t\t\tA[i][j] = A[i][j] - A[i - 1][j] - A[i][j - 1] + A[i - 1][j - 1];\r\n\t\t}\r\n\t}\r\n```\r\n\r\n- 原地把 $A$ 从原矩阵转为差分矩阵，公式 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$。\r\n- 必须从右下到左上遍历：若从前向后，$A[i-1][j]$、$A[i][j-1]$ 已被改成差分值，后续计算会全部错误。\r\n\r\n### 子矩阵修改\r\n\r\n```cpp\r\n\twhile (q--)\r\n\t{\r\n\t\tint x1, y1, x2, y2;\r\n\t\tlong long k;\r\n\t\t//(x1,y1)为左上角的点，(x2,y2)为右下角的点。\r\n\t\tcin >> x1 >> y1 >> x2 >> y2 >> k ;\r\n\t\tA[x1][y1] += k;\r\n\t\tA[x1][y2 + 1] -= k;\r\n\t\tA[x2 + 1][y1] -= k;\r\n\t\tA[x2 + 1][y2 + 1] += k;\r\n\t}\r\n```\r\n\r\n- $(x_1,y_1)$ 为左上角、$(x_2,y_2)$ 为右下角，只改四个角点，单次修改 $O(1)$。\r\n- $k$ 可正可负，负值等价于子矩阵整体减去 $|k|$。\r\n- $x_2+1$、$y_2+1$ 可能等于 $n+1$、$m+1$，依赖数组多开的一行一列才不会越界。\r\n\r\n### 前缀和还原与输出\r\n\r\n```cpp\r\n\tfor (int i = 1; i <= n; i++)\r\n\t{\r\n\t\tfor (int j = 1; j <= m; j++)\r\n\t\t{\r\n\t\t\tA[i][j] = A[i][j] + A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1];\r\n\t\t\tcout << A[i][j] << ' ';\r\n\t\t}\r\n\t\tcout << '\\n';\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- 从前向后遍历做二维前缀和，把差分矩阵还原成修改后的原矩阵并输出。\r\n- 方向与构造相反：此时 $A[i-1][j]$、$A[i][j-1]$ 已经是还原后的值，可直接引用。\r\n- 公式 $a[i][j] = d[i][j] + a[i-1][j] + a[i][j-1] - a[i-1][j-1]$。\r\n- 每行末尾 `cout << '\\n'` 换行，最后 `return 0` 正常结束。\r\n\r\n## 复杂度分析\r\n\r\n| 操作 | 时间 | 空间 |\r\n|---|---|---|\r\n| 构造差分矩阵 | $O(nm)$ | $O(nm)$ |\r\n| 单次子矩阵修改 | $O(1)$ | $O(1)$ |\r\n| 前缀和还原 | $O(nm)$ | $O(nm)$ |\r\n| 总计（$q$ 次修改） | $O(nm + q)$ | $O(nm)$ |\r\n\r\n对比暴力做法（每次修改遍历整个子矩阵 $O(nm)$），$q$ 次修改从 $O(q \\cdot nm)$ 降为 $O(nm + q)$，在 $q$ 较大时优势显著。\r\n\r\n## 适用场景\r\n\r\n**适用**：\r\n- 离线批量子矩阵加修改，最后一次性还原（如棋盘染色、矩阵叠加）\r\n- 修改次数多但只需要最终结果的场景\r\n- 与二维前缀和配合使用的区间统计问题\r\n\r\n**不适用**：\r\n- 需要实时查询（修改和查询交替进行）：应使用二维树状数组或二维线段树\r\n- 动态修改后立即查询某点/某子矩阵的值\r\n- 需要支持撤销操作的场景\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **差分构造的遍历方向**\r\n   - 构造差分：必须从后向前（$i$ 从 $n$ 到 $1$，$j$ 从 $m$ 到 $1$）\r\n   - 前缀和还原：必须从前向后（$i$ 从 $1$ 到 $n$，$j$ 从 $1$ 到 $m$）\r\n   - 方向搞反会导致引用到已修改的值，结果全部错误\r\n\r\n2. **数组越界**\r\n   - 子矩阵修改涉及 $d[x_2+1][y_2+1]$，需要多开一行一列\r\n   - 建议开 $(n+2) \\times (m+2)$，避免 $x_2 = n$ 或 $y_2 = m$ 时越界\r\n\r\n3. **数据溢出**\r\n   - 修改值 $k$ 和累加值都可能很大，应使用 `long long`\r\n   - 若矩阵元素 $\\le 10^9$ 且修改次数 $\\le 10^5$，累加值可达 $10^{14}$，`int` 必溢出\r\n\r\n4. **坐标约定**\r\n   - $(x_1, y_1)$ 是左上角，$(x_2, y_2)$ 是右下角，保证 $x_1 \\le x_2$ 且 $y_1 \\le y_2$\r\n   - 若输入不保证顺序，需先 `swap` 调整\r\n\r\n5. **原地修改的副作用**\r\n   - 本代码原地修改，原始矩阵丢失\r\n   - 若需保留原始矩阵，应开两个数组分别存储\r\n\r\n6. **与一维差分的对应关系**\r\n   - 一维差分：$d[l] \\mathrel{+}= k$，$d[r+1] \\mathrel{-}= k$（2 个点）\r\n   - 二维差分：4 个角点修改（容斥原理的二维推广）\r\n   - $k$ 维差分：$2^k$ 个角点修改\r\n\r\n## 对比与扩展\r\n\r\n| 对比维度 | 二维差分 | 二维前缀和 | 一维差分 |\r\n|---|---|---|---|\r\n| 核心操作 | 子矩阵加 $O(1)$ | 子矩阵查询 $O(1)$ | 区间加 $O(1)$ |\r\n| 构造方向 | 从后向前 | 从前向后 | 从后向前 |\r\n| 还原方向 | 从前向后 | — | 从前向后 |\r\n| 角点数 | 4（容斥） | 4（容斥） | 2 |\r\n| 复杂度 | $O(nm + q)$ | $O(nm)$ | $O(n + q)$ |\r\n| 支持动态查询 | 否 | 否 | 否 |\r\n\r\n**与二维前缀和的关系**：二者互为逆运算。差分用于\"修改\"，前缀和用于\"查询\"。很多问题需要两者配合：先用差分批量修改，再用前缀和还原查询。\r\n\r\n**更高维差分**：三维差分需要修改 $2^3 = 8$ 个角点，公式类似容斥原理。实际竞赛中三维差分极少使用，通常用差分嵌套代替。\r\n\r\n**动态版本**：若需要支持\"修改 $+$ 查询\"交替进行，应使用二维树状数组（二维 BIT），支持 $O(\\log n \\cdot \\log m)$ 的单点修改和子矩阵查询。",
-                "codePath": "数据结构\\前缀和与差分\\二维差分\\Untitled1.cpp",
-                "timeComplexity": "构造O(nm)，单次子矩阵修改O(1)，还原O(nm)",
-                "spaceComplexity": "O(nm)",
-                "tags": [
-                    "数据结构",
-                    "差分",
-                    "二维",
-                    "子矩阵",
-                    "区间修改",
-                    "容斥原理",
-                    "前缀和"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 算法原理\r\n\r\n二维差分是二维前缀和的逆运算。给定一个 $n \\times m$ 的矩阵 $a$，构造差分矩阵 $d$，使得 $d$ 的二维前缀和恰好还原出 $a$。差分矩阵的核心价值在于：**一次子矩阵加操作可以从 $O(nm)$ 降为 $O(1)$**。\r\n\r\n### 核心思想\r\n\r\n在一维差分中，区间 $[l, r]$ 加 $k$ 只需修改两个端点：$d[l] \\mathrel{+}= k$，$d[r+1] \\mathrel{-}= k$。二维差分将这一思想推广到子矩阵：子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$ 加 $k$ 只需修改四个角点。\r\n\r\n### 差分与前缀和的关系\r\n\r\n差分和前缀和互为逆运算：\r\n\r\n$$\\text{差分} = \\text{前缀和的逆} \\quad \\Longleftrightarrow \\quad \\text{前缀和} = \\text{差分的还原}$$\r\n\r\n即：对差分矩阵做二维前缀和，就得到原矩阵；对原矩阵做差分，就得到差分矩阵。\r\n\r\n## 核心公式\r\n\r\n### 差分矩阵构造\r\n\r\n给定原矩阵 $a$（下标从 $1$ 开始），差分矩阵 $d$ 定义为：\r\n\r\n$$d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$$\r\n\r\n**容斥解释**：\r\n- $a[i][j]$：当前格的值\r\n- $- a[i-1][j]$：减去上方矩形的和（因为差分本质是\"当前值 $-$ 前缀和\"）\r\n- $- a[i][j-1]$：减去左方矩形的和\r\n- $+ a[i-1][j-1]$：左上角重叠部分被减了两次，加回一次\r\n\r\n### 子矩阵修改（核心操作）\r\n\r\n对子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$（左上角到右下角）整体加 $k$：\r\n\r\n$$d[x_1][y_1] \\mathrel{+}= k$$\r\n$$d[x_1][y_2+1] \\mathrel{-}= k$$\r\n$$d[x_2+1][y_1] \\mathrel{-}= k$$\r\n$$d[x_2+1][y_2+1] \\mathrel{+}= k$$\r\n\r\n**容斥解释**：四个修改点的作用是让差分矩阵的前缀和\"恰好只在目标子矩阵内增加 $k$\"。\r\n\r\n### 前缀和还原\r\n\r\n所有修改完成后，对 $d$ 做二维前缀和还原原矩阵：\r\n\r\n$$a[i][j] = d[i][j] + a[i-1][j] + a[i][j-1] - a[i-1][j-1]$$\r\n\r\n注意此处的 $a[i-1][j]$、$a[i][j-1]$、$a[i-1][j-1]$ 已经是前缀和还原后的值（按行优先顺序遍历）。\r\n\r\n## 数据结构图示\r\n\r\n### 差分构造过程示意\r\n\r\n以 $3 \\times 3$ 矩阵 $a$ 为例（下标从 $1$ 开始，第 0 行/列为 0），仅 $a[2][2] = 5$，其余为 $0$：\r\n\r\n```\r\n原矩阵 a:                差分矩阵 d:\r\n   j=0  1  2  3             j=0  1  2  3\r\ni=0  0  0  0  0           i=0  0  0  0  0\r\ni=1  0  0  0  0           i=1  0  0  0  0\r\ni=2  0  0  5  0    →      i=2  0  0  5 -5\r\ni=3  0  0  0  0           i=3  0  0 -5  5\r\n```\r\n\r\n从后向前遍历（$i = 3 \\to 1$，$j = 3 \\to 1$），公式 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$：\r\n\r\n```\r\nd[3][3] = 0 - 0 - 0 + 5 =  5\r\nd[3][2] = 0 - 5 - 0 + 0 = -5\r\nd[2][3] = 0 - 0 - 5 + 0 = -5\r\nd[2][2] = 5 - 0 - 0 + 0 =  5\r\n（第 1 行和第 1 列的差分值均为 0，省略）\r\n```\r\n\r\n**验证**（对 $d$ 做前缀和还原）：\r\n\r\n```\r\na[2][2] = d[2][2] + a[1][2] + a[2][1] - a[1][1] = 5 + 0 + 0 - 0 = 5  ✓\r\na[2][3] = d[2][3] + a[1][3] + a[2][2] - a[1][2] = -5 + 0 + 5 - 0 = 0  ✓\r\na[3][3] = d[3][3] + a[2][3] + a[3][2] - a[2][2] = 5 + 0 + 0 - 5 = 0  ✓\r\n```\r\n\r\n### 子矩阵修改示意\r\n\r\n从全零 $3 \\times 3$ 矩阵开始，对子矩阵 $(1,1) \\sim (2,2)$ 加 $3$。四个角点修改：\r\n\r\n```\r\n修改前 d (全零):          修改后 d:\r\n   j=1  2  3                 j=1  2  3  4\r\ni=1  0  0  0               i=1  3  0 -3  0   ← d[1][1] += 3, d[1][3] -= 3\r\ni=2  0  0  0      →        i=2  0  0  0  0\r\ni=3  0  0  0               i=3 -3  0  3  0   ← d[3][1] -= 3, d[3][3] += 3\r\n```\r\n\r\n**还原后**（对 $d$ 做前缀和）：\r\n\r\n```\r\n   j=1  2  3\r\ni=1  3  3  0    ← (1,1)-(2,2) 区域全部 +3\r\ni=2  3  3  0\r\ni=3  0  0  0    ← 子矩阵外部不受影响\r\n```\r\n\r\n### 四角点容斥图解\r\n\r\n```\r\n    (x1,y1)          (x1,y2+1)\r\n      +k               -k\r\n      ┌──────────────────┐\r\n      │                  │\r\n      │   子矩阵区域      │\r\n      │   (全部 +k)      │\r\n      │                  │\r\n      └──────────────────┘\r\n    (x2+1,y1)       (x2+1,y2+1)\r\n      -k               +k\r\n\r\n四个角点修改使得：\r\n- 前缀和到子矩阵内部：净效果 +k（正确）\r\n- 前缀和到子矩阵外部：净效果 0（正确，因为修改互相抵消）\r\n```\r\n\r\n## 逐行代码解析\r\n\r\n### 头文件与全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint main()\r\n{\r\n\tint n, m, q;\r\n\tcin >> n >> m >> q;\r\n\tvector<vector<long long>> A(n + 2, vector<long long>(m + 2));\r\n```\r\n\r\n- 万能头 `bits/stdc++.h` 加 `using namespace std`，省去逐个 include 和 `std::` 前缀。\r\n- 读入行数 $n$、列数 $m$ 与操作次数 $q$，矩阵下标约定从 $(1,1)$ 开始。\r\n- 开 $(n+2) \\times (m+2)$ 的二维数组，多开一行一列给 $x_2+1$、$y_2+1$ 使用，避免越界。\r\n- 元素用 `long long`，防止多次累加后溢出。\r\n\r\n### 读入原矩阵\r\n\r\n```cpp\r\n\tfor (int i = 1; i <= n; i++)\r\n\t{\r\n\t\tfor (int j = 1; j <= m; j++)\r\n\t\t{\r\n\t\t\tcin >> A[i][j];\r\n\t\t}\r\n\t}\r\n```\r\n\r\n- 从 $(1,1)$ 读到 $(n,m)$，第 $0$ 行、第 $0$ 列保持为 $0$，为差分公式提供边界。\r\n- 循环上界是 $n$、$m$，正好覆盖整个矩阵，不遗漏也不越界。\r\n\r\n### 原地差分构造\r\n\r\n```cpp\r\n\tfor (int i = n; i >= 1; i--)\r\n\t{\r\n\t\tfor (int j = m; j >= 1; j--)\r\n\t\t{\r\n\t\t\tA[i][j] = A[i][j] - A[i - 1][j] - A[i][j - 1] + A[i - 1][j - 1];\r\n\t\t}\r\n\t}\r\n```\r\n\r\n- 原地把 $A$ 从原矩阵转为差分矩阵，公式 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$。\r\n- 必须从右下到左上遍历：若从前向后，$A[i-1][j]$、$A[i][j-1]$ 已被改成差分值，后续计算会全部错误。\r\n\r\n### 子矩阵修改\r\n\r\n```cpp\r\n\twhile (q--)\r\n\t{\r\n\t\tint x1, y1, x2, y2;\r\n\t\tlong long k;\r\n\t\t//(x1,y1)为左上角的点，(x2,y2)为右下角的点。\r\n\t\tcin >> x1 >> y1 >> x2 >> y2 >> k ;\r\n\t\tA[x1][y1] += k;\r\n\t\tA[x1][y2 + 1] -= k;\r\n\t\tA[x2 + 1][y1] -= k;\r\n\t\tA[x2 + 1][y2 + 1] += k;\r\n\t}\r\n```\r\n\r\n- $(x_1,y_1)$ 为左上角、$(x_2,y_2)$ 为右下角，只改四个角点，单次修改 $O(1)$。\r\n- $k$ 可正可负，负值等价于子矩阵整体减去 $|k|$。\r\n- $x_2+1$、$y_2+1$ 可能等于 $n+1$、$m+1$，依赖数组多开的一行一列才不会越界。\r\n\r\n### 前缀和还原与输出\r\n\r\n```cpp\r\n\tfor (int i = 1; i <= n; i++)\r\n\t{\r\n\t\tfor (int j = 1; j <= m; j++)\r\n\t\t{\r\n\t\t\tA[i][j] = A[i][j] + A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1];\r\n\t\t\tcout << A[i][j] << ' ';\r\n\t\t}\r\n\t\tcout << '\\n';\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- 从前向后遍历做二维前缀和，把差分矩阵还原成修改后的原矩阵并输出。\r\n- 方向与构造相反：此时 $A[i-1][j]$、$A[i][j-1]$ 已经是还原后的值，可直接引用。\r\n- 公式 $a[i][j] = d[i][j] + a[i-1][j] + a[i][j-1] - a[i-1][j-1]$。\r\n- 每行末尾 `cout << '\\n'` 换行，最后 `return 0` 正常结束。\r\n\r\n## 复杂度分析\r\n\r\n| 操作 | 时间 | 空间 |\r\n|---|---|---|\r\n| 构造差分矩阵 | $O(nm)$ | $O(nm)$ |\r\n| 单次子矩阵修改 | $O(1)$ | $O(1)$ |\r\n| 前缀和还原 | $O(nm)$ | $O(nm)$ |\r\n| 总计（$q$ 次修改） | $O(nm + q)$ | $O(nm)$ |\r\n\r\n对比暴力做法（每次修改遍历整个子矩阵 $O(nm)$），$q$ 次修改从 $O(q \\cdot nm)$ 降为 $O(nm + q)$，在 $q$ 较大时优势显著。\r\n\r\n## 适用场景\r\n\r\n**适用**：\r\n- 离线批量子矩阵加修改，最后一次性还原（如棋盘染色、矩阵叠加）\r\n- 修改次数多但只需要最终结果的场景\r\n- 与二维前缀和配合使用的区间统计问题\r\n\r\n**不适用**：\r\n- 需要实时查询（修改和查询交替进行）：应使用二维树状数组或二维线段树\r\n- 动态修改后立即查询某点/某子矩阵的值\r\n- 需要支持撤销操作的场景\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **差分构造的遍历方向**\r\n   - 构造差分：必须从后向前（$i$ 从 $n$ 到 $1$，$j$ 从 $m$ 到 $1$）\r\n   - 前缀和还原：必须从前向后（$i$ 从 $1$ 到 $n$，$j$ 从 $1$ 到 $m$）\r\n   - 方向搞反会导致引用到已修改的值，结果全部错误\r\n\r\n2. **数组越界**\r\n   - 子矩阵修改涉及 $d[x_2+1][y_2+1]$，需要多开一行一列\r\n   - 建议开 $(n+2) \\times (m+2)$，避免 $x_2 = n$ 或 $y_2 = m$ 时越界\r\n\r\n3. **数据溢出**\r\n   - 修改值 $k$ 和累加值都可能很大，应使用 `long long`\r\n   - 若矩阵元素 $\\le 10^9$ 且修改次数 $\\le 10^5$，累加值可达 $10^{14}$，`int` 必溢出\r\n\r\n4. **坐标约定**\r\n   - $(x_1, y_1)$ 是左上角，$(x_2, y_2)$ 是右下角，保证 $x_1 \\le x_2$ 且 $y_1 \\le y_2$\r\n   - 若输入不保证顺序，需先 `swap` 调整\r\n\r\n5. **原地修改的副作用**\r\n   - 本代码原地修改，原始矩阵丢失\r\n   - 若需保留原始矩阵，应开两个数组分别存储\r\n\r\n6. **与一维差分的对应关系**\r\n   - 一维差分：$d[l] \\mathrel{+}= k$，$d[r+1] \\mathrel{-}= k$（2 个点）\r\n   - 二维差分：4 个角点修改（容斥原理的二维推广）\r\n   - $k$ 维差分：$2^k$ 个角点修改\r\n\r\n## 对比与扩展\r\n\r\n| 对比维度 | 二维差分 | 二维前缀和 | 一维差分 |\r\n|---|---|---|---|\r\n| 核心操作 | 子矩阵加 $O(1)$ | 子矩阵查询 $O(1)$ | 区间加 $O(1)$ |\r\n| 构造方向 | 从后向前 | 从前向后 | 从后向前 |\r\n| 还原方向 | 从前向后 | — | 从前向后 |\r\n| 角点数 | 4（容斥） | 4（容斥） | 2 |\r\n| 复杂度 | $O(nm + q)$ | $O(nm)$ | $O(n + q)$ |\r\n| 支持动态查询 | 否 | 否 | 否 |\r\n\r\n**与二维前缀和的关系**：二者互为逆运算。差分用于\"修改\"，前缀和用于\"查询\"。很多问题需要两者配合：先用差分批量修改，再用前缀和还原查询。\r\n\r\n**更高维差分**：三维差分需要修改 $2^3 = 8$ 个角点，公式类似容斥原理。实际竞赛中三维差分极少使用，通常用差分嵌套代替。\r\n\r\n**动态版本**：若需要支持\"修改 $+$ 查询\"交替进行，应使用二维树状数组（二维 BIT），支持 $O(\\log n \\cdot \\log m)$ 的单点修改和子矩阵查询。",
-        "timeComplexity": "构造O(nm)，单次子矩阵修改O(1)，还原O(nm)",
-        "spaceComplexity": "O(nm)",
-        "tags": [
-            "数据结构",
-            "差分",
-            "二维",
-            "子矩阵",
-            "区间修改",
-            "容斥原理",
-            "前缀和"
-        ],
-        "codePath": "数据结构\\前缀和与差分\\二维差分\\Untitled1.cpp",
-        "prerequisites": [
-            "ds-prefix-sum-2d",
-            "ds-diff-1d"
-        ],
-        "related": [
-            "ds-prefix-sum-2d",
-            "ds-diff-1d",
-            "ds-diff-tree"
-        ],
-        "parent": ""
-    },
-    {
-        "id": "ds-diff-tree",
-        "category": "数据结构",
-        "subcategory": "前缀和与差分",
-        "subSubcategory": "树上",
-        "title": "树上点差分（路径点权修改）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n树上点差分是一维差分在树结构上的推广。给定一棵以 $S$ 为根的有根树，每个节点有初始权值 $A[i]$。需要支持**路径修改**：对路径 $a \\to b$ 上所有节点的权值加 $k$，最后统一查询每个节点的最终权值。\r\n\r\n### 核心思想\r\n\r\n一维差分通过\"加左减右\"实现区间修改，树上差分类似地利用 LCA 实现\"路径修改\"到\"单点修改\"的转化。关键公式：\r\n\r\n对于路径 $a \\to b$ 上所有节点加 $k$，设 $\\text{lca} = \\text{LCA}(a, b)$：\r\n\r\n$$\\text{diff}[a] \\mathrel{+}= k, \\qquad \\text{diff}[b] \\mathrel{+}= k, \\qquad \\text{diff}[\\text{lca}] \\mathrel{-}= k, \\qquad \\text{diff}[\\text{fa}[\\text{lca}]] \\mathrel{-}= k$$\r\n\r\n当 $\\text{lca} = S$（即 LCA 为根节点）时，$\\text{fa}[\\text{lca}]$ 不存在，只需三处修改：\r\n\r\n$$\\text{diff}[a] \\mathrel{+}= k, \\qquad \\text{diff}[b] \\mathrel{+}= k, \\qquad \\text{diff}[\\text{lca}] \\mathrel{-}= k$$\r\n\r\n### 为什么这样修改？\r\n\r\n树上差分的还原方式是**DFS 求子树和**：每个节点的差分值向父节点累加。理解公式的关键在于分析每个节点被累加的次数：\r\n\r\n- 节点 $a$ 和 $b$ 各自 $+k$：它们的祖先路径上的节点都会通过子树和获得 $+k$\r\n- 但路径 $a \\to b$ 经过 LCA，LCA 的子树同时包含 $a$ 和 $b$，因此 LCA 会被累加两次（$+2k$），需要减去一次（$-k$）\r\n- LCA 的父节点同样通过两条子路径累加了两次，也需要减去一次（$-k$）\r\n- 当 LCA 是根时，根没有父节点，只有根被多算了一次，减一次即可\r\n\r\n### 还原操作\r\n\r\n所有修改完成后，对差分数组做一次 DFS 子树和累加：\r\n\r\n$$\\text{diff}[u] \\mathrel{+}= \\sum_{v \\in \\text{children}(u)} \\text{diff}[v]$$\r\n\r\n最终每个节点的权值为 $\\text{diff}[i] + A[i]$（差分累加值 + 初始权值）。\r\n\r\n### 复杂度分析\r\n\r\n| 操作 | 时间 | 说明 |\r\n|---|---|---|\r\n| DFS 预处理 | $O(n)$ | 求深度、父节点 |\r\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\r\n| 单次路径修改 | $O(\\log n)$ | LCA 查询 + $O(1)$ 差分 |\r\n| DFS 还原子树和 | $O(n)$ | 每个节点访问一次 |\r\n| 总体（$M$ 次修改） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次修改 + 还原 |\r\n\r\n## 数据结构图示\r\n\r\n### 树结构示例\r\n\r\n```\r\n树结构 (根 S=1, 括号内为初始点权 A):\r\n            1(A=10)\r\n           /       \\\r\n        2(A=20)    3(A=30)\r\n       /      \\\r\n    4(A=40)  5(A=50)\r\n\r\n节点编号:  1    2    3    4    5\r\n初始权值A: 10   20   30   40   50\r\n```\r\n\r\n### 差分修改过程\r\n\r\n**操作 1：路径 4→5 上所有节点加 $k=100$**\r\n\r\n```\r\n路径 4→5: 4 → 2 → 5 (LCA(4,5) = 2, lca != S)\r\n\r\n差分操作:\r\n  diff[4] += 100      (端点 a)\r\n  diff[5] += 100      (端点 b)\r\n  diff[2] -= 100      (LCA 减一次)\r\n  diff[fa[2]=1] -= 100 (LCA 父节点减一次)\r\n\r\ndiff 数组初始全 0:\r\n  下标:   1     2     3     4     5\r\n  diff:  -100  -100    0   +100  +100\r\n\r\n图解 (虚线 = 路径 4→5):\r\n            1(-100)\r\n           /       \\\r\n        2(-100)    3(0)\r\n       /      \\\r\n    4(+100)  5(+100)\r\n```\r\n\r\n### DFS 子树和还原\r\n\r\n```\r\nDFS 从根开始，子节点先递归，回溯时累加:\r\n\r\ndfs_arr(4): 无子节点 → diff[4] = 100\r\ndfs_arr(5): 无子节点 → diff[5] = 100\r\ndfs_arr(2): diff[2] += diff[4] + diff[5]\r\n           → diff[2] = -100 + 100 + 100 = 100\r\ndfs_arr(3): 无子节点 → diff[3] = 0\r\ndfs_arr(1): diff[1] += diff[2] + diff[3]\r\n           → diff[1] = -100 + 100 + 0 = 0\r\n\r\n还原后 diff (即每个节点的修改量):\r\n  下标:    1    2    3    4    5\r\n  diff:    0   100   0  100  100\r\n\r\n最终权值 = A[i] + diff[i]:\r\n  节点:   1      2       3      4       5\r\n  最终权值: 10+0  20+100  30+0  40+100  50+100\r\n         = 10   120    30    140     150\r\n\r\n验证: 路径 4→2→5 的权值确实各加了 100 ✓\r\n      节点 1, 3 不在路径上，权值不变 ✓\r\n```\r\n\r\n### LCA 为根的情况\r\n\r\n**操作 2：路径 3→4 上所有节点加 $k=50$**\r\n\r\n```\r\n路径 3→4: 3 → 1 → 2 → 4 (LCA(3,4) = 1 = S)\r\n\r\n差分操作 (lca = S, 只减一次):\r\n  diff[3] += 50       (端点 a)\r\n  diff[4] += 50       (端点 b)\r\n  diff[1] -= 50       (LCA = 根，只减一次，不减 fa)\r\n\r\n图解 (虚线 = 路径 3→1→2→4):\r\n            1(-50)\r\n           /       \\\r\n        2(0)     3(+50)\r\n       /      \\\r\n    4(+50)    5(0)\r\n```\r\n\r\n### 倍增跳表结构\r\n\r\n```\r\nST[i][k] 表示从节点 i 向上跳 2^k 步到达的祖先\r\n\r\nST[4][0] = fa[4] = 2     (跳 1 步)\r\nST[4][1] = ST[ST[4][0]][0] = ST[2][0] = 1  (跳 2 步)\r\nST[4][2] = ST[ST[4][1]][1] = ST[1][1] = S  (跳 4 步，超出根回到 S)\r\n\r\n跳表:\r\n节点  ST[][0]  ST[][1]  ST[][2]\r\n 1      1        1        1    (根指向自身)\r\n 2      1        1        1\r\n 3      1        1        1\r\n 4      2        1        1\r\n 5      2        1        1\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### DFS 预处理（深度与父节点）\r\n\r\n```cpp\r\nint dfs(int rt, int rh)\r\n{\r\n    int ans = rh;\r\n    h[rt] = rh;\r\n    for (int i : edges[rt])\r\n    {\r\n        if (fa[i]) continue;\r\n        fa[i] = rt;\r\n        ans = max(dfs(i, rh + 1), ans);\r\n    }\r\n    return ans;\r\n}\r\n```\r\n\r\nDFS 遍历树，计算每个节点的深度 `h[rt]` 和父节点 `fa[rt]`。返回最大深度用于确定倍增跳表的大小。与树上前缀和不同，此处的 DFS 不计算前缀和，只建立树结构信息。\r\n\r\n### 倍增跳表初始化\r\n\r\n```cpp\r\nST[i][0] = fa[i];                    // 跳 1 步 = 父节点\r\nST[i][k] = ST[ST[i][k-1]][k-1];      // 跳 2^k 步 = 跳 2^(k-1) 后再跳 2^(k-1)\r\n```\r\n\r\n倍增预处理：$ST[i][k]$ 表示从节点 $i$ 向上跳 $2^k$ 步到达的节点。根节点 `fa[S] = S`，跳表指向自身作为哨兵。\r\n\r\n### LCA 查询\r\n\r\n```cpp\r\nint find_fa(int a, int b)\r\n{\r\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\r\n    int tmp = h[a] - h[b];\r\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\r\n    {\r\n        if (tmp & 1) a = ST[a][i];\r\n        tmp >>= 1;\r\n    }\r\n    if (a == b) return a;              // b 是 a 的祖先\r\n\r\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\r\n    {\r\n        if (ST[a][i] != ST[b][i])\r\n        {\r\n            a = ST[a][i];\r\n            b = ST[b][i];\r\n        }\r\n    }\r\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\r\n}\r\n```\r\n\r\n三步法：深度对齐（位运算逐位跳）→ 判断祖先关系 → 二分跳跃找 LCA。\r\n\r\n### 路径差分修改\r\n\r\n```cpp\r\nvoid find_arr(int a, int b, long long k)\r\n{\r\n    int t_fa = find_fa(a, b);\r\n    arr[a] += k;\r\n    arr[b] += k;\r\n    arr[t_fa] -= k;\r\n    if (t_fa != S) arr[fa[t_fa]] -= k;\r\n}\r\n```\r\n\r\n核心差分操作：端点 $a, b$ 各加 $k$，LCA 减 $k$，LCA 父节点减 $k$（当 LCA 不是根时）。当 LCA 是根时，`fa[S] = S`，如果也减去 `arr[fa[S]] = arr[S]` 会导致根被多减一次，因此必须特判。\r\n\r\n### DFS 子树和还原\r\n\r\n```cpp\r\nvoid dfs_arr(int rt, int f)\r\n{\r\n    for (int i : edges[rt])\r\n    {\r\n        if (i == f) continue;\r\n        dfs_arr(i, rt);\r\n        arr[rt] += arr[i];\r\n    }\r\n}\r\n```\r\n\r\n后序 DFS：先递归子节点，回溯时将子节点的差分值累加到当前节点。这等价于对每个节点求子树和，将差分操作的效果传播到正确的路径上。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint N, M, S, sz;\r\nvector<long long> A, arr;\r\nvector<vector<int>> edges, ST;\r\nvector<int> fa, h;\r\n```\r\n\r\n- `N` 节点数、`M` 修改次数、`S` 根节点、`sz` 倍增跳表最大层数。\r\n- `A` 存初始点权、`arr` 存差分值，二者都用 `long long`，因为多次路径累加可能超出 `int`。\r\n- `edges` 是邻接表（无向边需双向建图），`ST` 是倍增跳表，`fa` 记父节点，`h` 记深度。\r\n\r\n### 预处理（dfs 与 init）\r\n\r\n```cpp\r\nint dfs(int rt, int rh)\r\n{\r\n    int ans = rh;\r\n    h[rt] = rh;\r\n    for (int i : edges[rt])\r\n    {\r\n        if (fa[i]) continue;       // 已访问（fa[i] != 0）\r\n        fa[i] = rt;\r\n        ans = max(dfs(i, rh + 1), ans);\r\n    }\r\n    return ans;\r\n}\r\n\r\nvoid init()\r\n{\r\n    fa.resize(N + 1, 0);\r\n    h.resize(N + 1, 0);\r\n    arr.resize(N + 1, 0);\r\n    fa[S] = S;                     // 根的父节点指向自身（哨兵）\r\n    int q = dfs(S, 1);\r\n    sz = 1;\r\n    while (q > ((long long)1 << sz)) ++sz;   // 计算跳表层数\r\n    ST.resize(N + 1, vector<int>(sz + 1, S));\r\n    for (int i = 1; i <= N; i++) ST[i][0] = fa[i];\r\n    for (int k = 1; k <= sz; k++)\r\n    {\r\n        for (int i = 1; i <= N; i++)\r\n        {\r\n            ST[i][k] = ST[ST[i][k - 1]][k - 1];\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n- `dfs` 用 `fa[i] != 0` 判断是否访问过，边遍历边记录深度 `h` 与父节点 `fa`，返回值是整棵树的最大深度 `q`。\r\n- `fa[S] = S` 让根指向自身作哨兵，倍增跳表在\"跳过根\"时停在根，不会越界。\r\n- `while (q > ((long long)1 << sz)) ++sz` 保证 $2^{\\text{sz}} \\ge q$，跳表层数足以覆盖任意深度差。\r\n- 倍增递推 `ST[i][k] = ST[ST[i][k-1]][k-1]`：跳 $2^k$ 步 = 先跳 $2^{k-1}$ 步再跳 $2^{k-1}$ 步。\r\n\r\n### 路径修改（find_fa 与 find_arr）\r\n\r\n```cpp\r\nint find_fa(int a, int b)\r\n{\r\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\r\n    int tmp = h[a] - h[b];\r\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\r\n    {\r\n        if (tmp & 1) a = ST[a][i];\r\n        tmp >>= 1;\r\n    }\r\n    if (a == b) return a;              // b 是 a 的祖先\r\n\r\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\r\n    {\r\n        if (ST[a][i] != ST[b][i])\r\n        {\r\n            a = ST[a][i];\r\n            b = ST[b][i];\r\n        }\r\n    }\r\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\r\n}\r\n\r\nvoid find_arr(int a, int b, long long k)\r\n{\r\n    int t_fa = find_fa(a, b);\r\n    arr[a] += k;\r\n    arr[b] += k;\r\n    arr[t_fa] -= k;\r\n    if (t_fa != S) arr[fa[t_fa]] -= k;   // LCA 不是根时才减父节点\r\n}\r\n```\r\n\r\n- `find_fa` 三步求 LCA：先把较深的 `a` 按二进制位抬到与 `b` 同深，再同步向上跳到父节点不同处，最后 `fa[a]` 即 LCA。\r\n- 深度对齐用 `tmp & 1` 逐位判断该位要不要跳，比逐级上跳快，复杂度 $O(\\log n)$。\r\n- `find_arr` 按公式改四处：端点 `a, b` 各 `+k`，LCA `-k`，LCA 的父节点 `-k`。\r\n- `if (t_fa != S)` 是根特判：LCA 为根时 `fa[S] = S`，再减 `arr[fa[S]]` 会多减一次根，必须跳过。\r\n\r\n### 子树和还原（dfs_arr）\r\n\r\n```cpp\r\nvoid dfs_arr(int rt, int f)\r\n{\r\n    for (int i : edges[rt])\r\n    {\r\n        if (i == f) continue;       // 跳过父节点（避免回退）\r\n        dfs_arr(i, rt);\r\n        arr[rt] += arr[i];          // 子树和累加\r\n    }\r\n}\r\n```\r\n\r\n- 后序 DFS：先递归子节点，回溯时把子节点差分值累加到当前节点，等价于对每个节点求子树和。\r\n- 这里用 `i == f` 判断父节点而非预处理里的 `fa[i]`，因为传入父节点 `f` 更直观，也避免与 `fa` 数组混淆。\r\n- 还原后 `arr[i]` 是节点 `i` 的累计修改量，最终权值还要再加初始权值 `A[i]`。\r\n\r\n### 主函数 main\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    //N:点的数量,M:修改案例数量,S:根节点\r\n    cin >> N >> M >> S;\r\n    A.resize(N + 1);\r\n    edges.resize(N + 1);\r\n    for (int i = 1; i <= N; i++) cin >> A[i];\r\n    for (int i = 1; i < N; i++)\r\n    {\r\n        int a, b;\r\n        cin >> a >> b;\r\n        edges[a].emplace_back(b);\r\n        edges[b].emplace_back(a);\r\n    }\r\n    init();\r\n    while (M--)\r\n    {\r\n        int a, b;\r\n        long long k;\r\n        cin >> a >> b >> k;\r\n        find_arr(a, b, k);\r\n    }\r\n    dfs_arr(S, S);\r\n    for (int i = 1; i <= N; i++) cout << arr[i] + A[i] << ' ';\r\n    return 0;\r\n}\r\n```\r\n\r\n- 依次读入 `N, M, S`、初始权值 `A` 和 `N-1` 条无向边（双向 `emplace_back`），再 `init()` 预处理。\r\n- `while (M--)` 处理 $M$ 次修改：读入路径端点 `a, b` 与增量 `k`，调用 `find_arr` 打差分标记。\r\n- 修改全部结束后 `dfs_arr(S, S)` 一次性还原子树和（根以自身作父节点哨兵）。\r\n- 最后输出 `arr[i] + A[i]`：差分累计修改量加上初始权值，才是最终点权。\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度\r\n\r\n| 操作 | 复杂度 | 说明 |\r\n|---|---|---|\r\n| DFS 预处理 | $O(n)$ | 每个节点访问一次 |\r\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\r\n| 单次路径修改 | $O(\\log n)$ | LCA 查询 $O(\\log n)$ + 差分 $O(1)$ |\r\n| DFS 还原子树和 | $O(n)$ | 每个节点访问一次 |\r\n| 总体（$M$ 次修改） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次修改 + 还原 |\r\n\r\n### 空间复杂度\r\n\r\n| 数据 | 空间 | 说明 |\r\n|---|---|---|\r\n| 倍增跳表 `ST` | $O(n \\log n)$ | $n \\times (\\log n + 1)$ 的二维数组 |\r\n| 邻接表 `edges` | $O(n)$ | $n-1$ 条边 |\r\n| 其他数组 | $O(n)$ | `A`, `arr`, `fa`, `h` |\r\n| **总计** | $O(n \\log n)$ | 倍增跳表占主导 |\r\n\r\n## 适用场景\r\n\r\n1. **树上路径批量修改**：对树上多条路径的所有节点加值，最后统一查询。例如统计每条边/点被多少条路径覆盖\r\n2. **访问次数统计**：多次路径查询后统计每个节点被覆盖的次数（如运输路线经过的城市次数）\r\n3. **树上染色问题**：对路径上所有节点染色，最后统计颜色分布\r\n4. **结合树上前缀和**：树上差分修改 + 树上前缀和查询，实现\"先修改后查询\"的完整流程\r\n\r\n**不适用场景**：\r\n- 需要在线查询（边修改边查询）→ 应使用树链剖分 + 线段树/树状数组\r\n- 仅需单次路径修改 → 直接 DFS 遍历路径即可，$O(n)$\r\n- 需要路径修改 + 路径查询 → 树链剖分 + 线段树，$O(\\log^2 n)$ 每次操作\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **LCA 为根时的特判**\r\n   - `fa[S] = S`（指向自身）作为倍增跳表的终止哨兵\r\n   - 差分公式中必须特判 `lca == S`，否则 `arr[fa[S]] = arr[S]` 会导致根被多减一次 $k$\r\n   - 正确做法：LCA 为根时只减 `arr[lca]` 一次，不减 `arr[fa[lca]]`\r\n\r\n2. **差分数组类型用 `long long`**\r\n   - 多次路径修改累加可能超过 `int` 范围\r\n   - `arr` 数组和修改值 `k` 都必须声明为 `long long`\r\n\r\n3. **DFS 还原时区分访问方式**\r\n   - 预处理 DFS 用 `fa[i] != 0` 判断访问（因为 `fa` 数组在 init 中初始化）\r\n   - 还原 DFS 用 `i == f` 判断父节点（避免与 `fa` 数组混淆）\r\n   - 两种 DFS 的访问判断方式不同，不可混用\r\n\r\n4. **倍增跳表层数计算**\r\n   - `sz` 必须满足 $2^{\\text{sz}} \\ge \\text{maxDepth}$，否则跳跃不足\r\n   - 代码中 `while (q > (1LL << sz)) ++sz` 正确处理了这一点\r\n\r\n5. **最终输出需加初始权值**\r\n   - 差分数组只记录修改量，最终权值 = `arr[i] + A[i]`\r\n   - 容易忘记加初始权值 `A[i]`，导致输出错误\r\n\r\n6. **无向边需双向建图**\r\n   - `edges[a].push_back(b)` 和 `edges[b].push_back(a)` 都要写\r\n   - 还原 DFS 从根开始，必须确保树结构正确\r\n\r\n7. **链状树的递归深度与编号约定**\r\n   - 树退化成一条链时，递归 DFS 深度可达 $n$，$n$ 较大时可能栈溢出，应改迭代或用显式栈（或增大栈空间）\r\n   - 预处理用 `fa[i] != 0` 判断已访问，隐含\"节点编号从 1 起、0 不是合法节点\"的约定，输入需保证编号从 1 开始\r\n\r\n## 对比与扩展\r\n\r\n| 方法 | 修改 | 还原 | 查询 | 特点 |\r\n|---|---|---|---|---|\r\n| **树上点差分（本算法）** | $O(\\log n)$ | $O(n)$ | 不支持在线 | 离线批量修改，实现简洁 |\r\n| 树链剖分 + 线段树 | $O(\\log^2 n)$ | — | $O(\\log^2 n)$ | 在线修改 + 在线查询 |\r\n| 树上边差分 | $O(\\log n)$ | $O(n)$ | 不支持在线 | 差分对象为边权，还原方式不同 |\r\n\r\n### 树上点差分 vs 树上边差分\r\n\r\n| 对比项 | 点差分 | 边差分 |\r\n|---|---|---|\r\n| 修改对象 | 路径上所有**节点**权值 | 路径上所有**边**权值 |\r\n| 差分公式 | $+a, +b, -\\text{lca}, -\\text{fa}[\\text{lca}]$ | $+a, +b, -2 \\cdot \\text{lca}$ |\r\n| 还原方式 | DFS 子树和，`diff[u] += diff[children]` | DFS 子树和，`diff[u]` 代表 $u \\to \\text{fa}[u]$ 的边 |\r\n| LCA 处理 | LCA 点权需修改，需特判根 | LCA 不在路径边中，无需特判根 |\r\n\r\n### 扩展\r\n\r\n- **树上边差分**：将边权下放为子节点点权（每条边赋给深度较深的端点），路径修改公式变为 $+a, +b, -2 \\cdot \\text{lca}$，还原后 `diff[u]` 代表边 $u \\to \\text{fa}[u]$ 的修改量\r\n- **树链剖分**：支持在线路径修改 + 路径查询，时间 $O(\\log^2 n)$ 每次操作，适合需要实时查询的场景\r\n- **LCT（Link-Cut Tree）**：支持动态加边删边的路径修改与查询，适合动态树问题",
-                "codePath": "数据结构\\前缀和与差分\\树上点差分\\Untitled1.cpp",
-                "timeComplexity": "修改O(log n)，还原O(n)",
-                "spaceComplexity": "O(n log n)",
-                "tags": [
-                    "数据结构",
-                    "差分",
-                    "树上",
-                    "LCA",
-                    "倍增",
-                    "路径修改",
-                    "子树和"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 算法原理\r\n\r\n树上点差分是一维差分在树结构上的推广。给定一棵以 $S$ 为根的有根树，每个节点有初始权值 $A[i]$。需要支持**路径修改**：对路径 $a \\to b$ 上所有节点的权值加 $k$，最后统一查询每个节点的最终权值。\r\n\r\n### 核心思想\r\n\r\n一维差分通过\"加左减右\"实现区间修改，树上差分类似地利用 LCA 实现\"路径修改\"到\"单点修改\"的转化。关键公式：\r\n\r\n对于路径 $a \\to b$ 上所有节点加 $k$，设 $\\text{lca} = \\text{LCA}(a, b)$：\r\n\r\n$$\\text{diff}[a] \\mathrel{+}= k, \\qquad \\text{diff}[b] \\mathrel{+}= k, \\qquad \\text{diff}[\\text{lca}] \\mathrel{-}= k, \\qquad \\text{diff}[\\text{fa}[\\text{lca}]] \\mathrel{-}= k$$\r\n\r\n当 $\\text{lca} = S$（即 LCA 为根节点）时，$\\text{fa}[\\text{lca}]$ 不存在，只需三处修改：\r\n\r\n$$\\text{diff}[a] \\mathrel{+}= k, \\qquad \\text{diff}[b] \\mathrel{+}= k, \\qquad \\text{diff}[\\text{lca}] \\mathrel{-}= k$$\r\n\r\n### 为什么这样修改？\r\n\r\n树上差分的还原方式是**DFS 求子树和**：每个节点的差分值向父节点累加。理解公式的关键在于分析每个节点被累加的次数：\r\n\r\n- 节点 $a$ 和 $b$ 各自 $+k$：它们的祖先路径上的节点都会通过子树和获得 $+k$\r\n- 但路径 $a \\to b$ 经过 LCA，LCA 的子树同时包含 $a$ 和 $b$，因此 LCA 会被累加两次（$+2k$），需要减去一次（$-k$）\r\n- LCA 的父节点同样通过两条子路径累加了两次，也需要减去一次（$-k$）\r\n- 当 LCA 是根时，根没有父节点，只有根被多算了一次，减一次即可\r\n\r\n### 还原操作\r\n\r\n所有修改完成后，对差分数组做一次 DFS 子树和累加：\r\n\r\n$$\\text{diff}[u] \\mathrel{+}= \\sum_{v \\in \\text{children}(u)} \\text{diff}[v]$$\r\n\r\n最终每个节点的权值为 $\\text{diff}[i] + A[i]$（差分累加值 + 初始权值）。\r\n\r\n### 复杂度分析\r\n\r\n| 操作 | 时间 | 说明 |\r\n|---|---|---|\r\n| DFS 预处理 | $O(n)$ | 求深度、父节点 |\r\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\r\n| 单次路径修改 | $O(\\log n)$ | LCA 查询 + $O(1)$ 差分 |\r\n| DFS 还原子树和 | $O(n)$ | 每个节点访问一次 |\r\n| 总体（$M$ 次修改） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次修改 + 还原 |\r\n\r\n## 数据结构图示\r\n\r\n### 树结构示例\r\n\r\n```\r\n树结构 (根 S=1, 括号内为初始点权 A):\r\n            1(A=10)\r\n           /       \\\r\n        2(A=20)    3(A=30)\r\n       /      \\\r\n    4(A=40)  5(A=50)\r\n\r\n节点编号:  1    2    3    4    5\r\n初始权值A: 10   20   30   40   50\r\n```\r\n\r\n### 差分修改过程\r\n\r\n**操作 1：路径 4→5 上所有节点加 $k=100$**\r\n\r\n```\r\n路径 4→5: 4 → 2 → 5 (LCA(4,5) = 2, lca != S)\r\n\r\n差分操作:\r\n  diff[4] += 100      (端点 a)\r\n  diff[5] += 100      (端点 b)\r\n  diff[2] -= 100      (LCA 减一次)\r\n  diff[fa[2]=1] -= 100 (LCA 父节点减一次)\r\n\r\ndiff 数组初始全 0:\r\n  下标:   1     2     3     4     5\r\n  diff:  -100  -100    0   +100  +100\r\n\r\n图解 (虚线 = 路径 4→5):\r\n            1(-100)\r\n           /       \\\r\n        2(-100)    3(0)\r\n       /      \\\r\n    4(+100)  5(+100)\r\n```\r\n\r\n### DFS 子树和还原\r\n\r\n```\r\nDFS 从根开始，子节点先递归，回溯时累加:\r\n\r\ndfs_arr(4): 无子节点 → diff[4] = 100\r\ndfs_arr(5): 无子节点 → diff[5] = 100\r\ndfs_arr(2): diff[2] += diff[4] + diff[5]\r\n           → diff[2] = -100 + 100 + 100 = 100\r\ndfs_arr(3): 无子节点 → diff[3] = 0\r\ndfs_arr(1): diff[1] += diff[2] + diff[3]\r\n           → diff[1] = -100 + 100 + 0 = 0\r\n\r\n还原后 diff (即每个节点的修改量):\r\n  下标:    1    2    3    4    5\r\n  diff:    0   100   0  100  100\r\n\r\n最终权值 = A[i] + diff[i]:\r\n  节点:   1      2       3      4       5\r\n  最终权值: 10+0  20+100  30+0  40+100  50+100\r\n         = 10   120    30    140     150\r\n\r\n验证: 路径 4→2→5 的权值确实各加了 100 ✓\r\n      节点 1, 3 不在路径上，权值不变 ✓\r\n```\r\n\r\n### LCA 为根的情况\r\n\r\n**操作 2：路径 3→4 上所有节点加 $k=50$**\r\n\r\n```\r\n路径 3→4: 3 → 1 → 2 → 4 (LCA(3,4) = 1 = S)\r\n\r\n差分操作 (lca = S, 只减一次):\r\n  diff[3] += 50       (端点 a)\r\n  diff[4] += 50       (端点 b)\r\n  diff[1] -= 50       (LCA = 根，只减一次，不减 fa)\r\n\r\n图解 (虚线 = 路径 3→1→2→4):\r\n            1(-50)\r\n           /       \\\r\n        2(0)     3(+50)\r\n       /      \\\r\n    4(+50)    5(0)\r\n```\r\n\r\n### 倍增跳表结构\r\n\r\n```\r\nST[i][k] 表示从节点 i 向上跳 2^k 步到达的祖先\r\n\r\nST[4][0] = fa[4] = 2     (跳 1 步)\r\nST[4][1] = ST[ST[4][0]][0] = ST[2][0] = 1  (跳 2 步)\r\nST[4][2] = ST[ST[4][1]][1] = ST[1][1] = S  (跳 4 步，超出根回到 S)\r\n\r\n跳表:\r\n节点  ST[][0]  ST[][1]  ST[][2]\r\n 1      1        1        1    (根指向自身)\r\n 2      1        1        1\r\n 3      1        1        1\r\n 4      2        1        1\r\n 5      2        1        1\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### DFS 预处理（深度与父节点）\r\n\r\n```cpp\r\nint dfs(int rt, int rh)\r\n{\r\n    int ans = rh;\r\n    h[rt] = rh;\r\n    for (int i : edges[rt])\r\n    {\r\n        if (fa[i]) continue;\r\n        fa[i] = rt;\r\n        ans = max(dfs(i, rh + 1), ans);\r\n    }\r\n    return ans;\r\n}\r\n```\r\n\r\nDFS 遍历树，计算每个节点的深度 `h[rt]` 和父节点 `fa[rt]`。返回最大深度用于确定倍增跳表的大小。与树上前缀和不同，此处的 DFS 不计算前缀和，只建立树结构信息。\r\n\r\n### 倍增跳表初始化\r\n\r\n```cpp\r\nST[i][0] = fa[i];                    // 跳 1 步 = 父节点\r\nST[i][k] = ST[ST[i][k-1]][k-1];      // 跳 2^k 步 = 跳 2^(k-1) 后再跳 2^(k-1)\r\n```\r\n\r\n倍增预处理：$ST[i][k]$ 表示从节点 $i$ 向上跳 $2^k$ 步到达的节点。根节点 `fa[S] = S`，跳表指向自身作为哨兵。\r\n\r\n### LCA 查询\r\n\r\n```cpp\r\nint find_fa(int a, int b)\r\n{\r\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\r\n    int tmp = h[a] - h[b];\r\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\r\n    {\r\n        if (tmp & 1) a = ST[a][i];\r\n        tmp >>= 1;\r\n    }\r\n    if (a == b) return a;              // b 是 a 的祖先\r\n\r\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\r\n    {\r\n        if (ST[a][i] != ST[b][i])\r\n        {\r\n            a = ST[a][i];\r\n            b = ST[b][i];\r\n        }\r\n    }\r\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\r\n}\r\n```\r\n\r\n三步法：深度对齐（位运算逐位跳）→ 判断祖先关系 → 二分跳跃找 LCA。\r\n\r\n### 路径差分修改\r\n\r\n```cpp\r\nvoid find_arr(int a, int b, long long k)\r\n{\r\n    int t_fa = find_fa(a, b);\r\n    arr[a] += k;\r\n    arr[b] += k;\r\n    arr[t_fa] -= k;\r\n    if (t_fa != S) arr[fa[t_fa]] -= k;\r\n}\r\n```\r\n\r\n核心差分操作：端点 $a, b$ 各加 $k$，LCA 减 $k$，LCA 父节点减 $k$（当 LCA 不是根时）。当 LCA 是根时，`fa[S] = S`，如果也减去 `arr[fa[S]] = arr[S]` 会导致根被多减一次，因此必须特判。\r\n\r\n### DFS 子树和还原\r\n\r\n```cpp\r\nvoid dfs_arr(int rt, int f)\r\n{\r\n    for (int i : edges[rt])\r\n    {\r\n        if (i == f) continue;\r\n        dfs_arr(i, rt);\r\n        arr[rt] += arr[i];\r\n    }\r\n}\r\n```\r\n\r\n后序 DFS：先递归子节点，回溯时将子节点的差分值累加到当前节点。这等价于对每个节点求子树和，将差分操作的效果传播到正确的路径上。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint N, M, S, sz;\r\nvector<long long> A, arr;\r\nvector<vector<int>> edges, ST;\r\nvector<int> fa, h;\r\n```\r\n\r\n- `N` 节点数、`M` 修改次数、`S` 根节点、`sz` 倍增跳表最大层数。\r\n- `A` 存初始点权、`arr` 存差分值，二者都用 `long long`，因为多次路径累加可能超出 `int`。\r\n- `edges` 是邻接表（无向边需双向建图），`ST` 是倍增跳表，`fa` 记父节点，`h` 记深度。\r\n\r\n### 预处理（dfs 与 init）\r\n\r\n```cpp\r\nint dfs(int rt, int rh)\r\n{\r\n    int ans = rh;\r\n    h[rt] = rh;\r\n    for (int i : edges[rt])\r\n    {\r\n        if (fa[i]) continue;       // 已访问（fa[i] != 0）\r\n        fa[i] = rt;\r\n        ans = max(dfs(i, rh + 1), ans);\r\n    }\r\n    return ans;\r\n}\r\n\r\nvoid init()\r\n{\r\n    fa.resize(N + 1, 0);\r\n    h.resize(N + 1, 0);\r\n    arr.resize(N + 1, 0);\r\n    fa[S] = S;                     // 根的父节点指向自身（哨兵）\r\n    int q = dfs(S, 1);\r\n    sz = 1;\r\n    while (q > ((long long)1 << sz)) ++sz;   // 计算跳表层数\r\n    ST.resize(N + 1, vector<int>(sz + 1, S));\r\n    for (int i = 1; i <= N; i++) ST[i][0] = fa[i];\r\n    for (int k = 1; k <= sz; k++)\r\n    {\r\n        for (int i = 1; i <= N; i++)\r\n        {\r\n            ST[i][k] = ST[ST[i][k - 1]][k - 1];\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n- `dfs` 用 `fa[i] != 0` 判断是否访问过，边遍历边记录深度 `h` 与父节点 `fa`，返回值是整棵树的最大深度 `q`。\r\n- `fa[S] = S` 让根指向自身作哨兵，倍增跳表在\"跳过根\"时停在根，不会越界。\r\n- `while (q > ((long long)1 << sz)) ++sz` 保证 $2^{\\text{sz}} \\ge q$，跳表层数足以覆盖任意深度差。\r\n- 倍增递推 `ST[i][k] = ST[ST[i][k-1]][k-1]`：跳 $2^k$ 步 = 先跳 $2^{k-1}$ 步再跳 $2^{k-1}$ 步。\r\n\r\n### 路径修改（find_fa 与 find_arr）\r\n\r\n```cpp\r\nint find_fa(int a, int b)\r\n{\r\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\r\n    int tmp = h[a] - h[b];\r\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\r\n    {\r\n        if (tmp & 1) a = ST[a][i];\r\n        tmp >>= 1;\r\n    }\r\n    if (a == b) return a;              // b 是 a 的祖先\r\n\r\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\r\n    {\r\n        if (ST[a][i] != ST[b][i])\r\n        {\r\n            a = ST[a][i];\r\n            b = ST[b][i];\r\n        }\r\n    }\r\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\r\n}\r\n\r\nvoid find_arr(int a, int b, long long k)\r\n{\r\n    int t_fa = find_fa(a, b);\r\n    arr[a] += k;\r\n    arr[b] += k;\r\n    arr[t_fa] -= k;\r\n    if (t_fa != S) arr[fa[t_fa]] -= k;   // LCA 不是根时才减父节点\r\n}\r\n```\r\n\r\n- `find_fa` 三步求 LCA：先把较深的 `a` 按二进制位抬到与 `b` 同深，再同步向上跳到父节点不同处，最后 `fa[a]` 即 LCA。\r\n- 深度对齐用 `tmp & 1` 逐位判断该位要不要跳，比逐级上跳快，复杂度 $O(\\log n)$。\r\n- `find_arr` 按公式改四处：端点 `a, b` 各 `+k`，LCA `-k`，LCA 的父节点 `-k`。\r\n- `if (t_fa != S)` 是根特判：LCA 为根时 `fa[S] = S`，再减 `arr[fa[S]]` 会多减一次根，必须跳过。\r\n\r\n### 子树和还原（dfs_arr）\r\n\r\n```cpp\r\nvoid dfs_arr(int rt, int f)\r\n{\r\n    for (int i : edges[rt])\r\n    {\r\n        if (i == f) continue;       // 跳过父节点（避免回退）\r\n        dfs_arr(i, rt);\r\n        arr[rt] += arr[i];          // 子树和累加\r\n    }\r\n}\r\n```\r\n\r\n- 后序 DFS：先递归子节点，回溯时把子节点差分值累加到当前节点，等价于对每个节点求子树和。\r\n- 这里用 `i == f` 判断父节点而非预处理里的 `fa[i]`，因为传入父节点 `f` 更直观，也避免与 `fa` 数组混淆。\r\n- 还原后 `arr[i]` 是节点 `i` 的累计修改量，最终权值还要再加初始权值 `A[i]`。\r\n\r\n### 主函数 main\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    //N:点的数量,M:修改案例数量,S:根节点\r\n    cin >> N >> M >> S;\r\n    A.resize(N + 1);\r\n    edges.resize(N + 1);\r\n    for (int i = 1; i <= N; i++) cin >> A[i];\r\n    for (int i = 1; i < N; i++)\r\n    {\r\n        int a, b;\r\n        cin >> a >> b;\r\n        edges[a].emplace_back(b);\r\n        edges[b].emplace_back(a);\r\n    }\r\n    init();\r\n    while (M--)\r\n    {\r\n        int a, b;\r\n        long long k;\r\n        cin >> a >> b >> k;\r\n        find_arr(a, b, k);\r\n    }\r\n    dfs_arr(S, S);\r\n    for (int i = 1; i <= N; i++) cout << arr[i] + A[i] << ' ';\r\n    return 0;\r\n}\r\n```\r\n\r\n- 依次读入 `N, M, S`、初始权值 `A` 和 `N-1` 条无向边（双向 `emplace_back`），再 `init()` 预处理。\r\n- `while (M--)` 处理 $M$ 次修改：读入路径端点 `a, b` 与增量 `k`，调用 `find_arr` 打差分标记。\r\n- 修改全部结束后 `dfs_arr(S, S)` 一次性还原子树和（根以自身作父节点哨兵）。\r\n- 最后输出 `arr[i] + A[i]`：差分累计修改量加上初始权值，才是最终点权。\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度\r\n\r\n| 操作 | 复杂度 | 说明 |\r\n|---|---|---|\r\n| DFS 预处理 | $O(n)$ | 每个节点访问一次 |\r\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\r\n| 单次路径修改 | $O(\\log n)$ | LCA 查询 $O(\\log n)$ + 差分 $O(1)$ |\r\n| DFS 还原子树和 | $O(n)$ | 每个节点访问一次 |\r\n| 总体（$M$ 次修改） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次修改 + 还原 |\r\n\r\n### 空间复杂度\r\n\r\n| 数据 | 空间 | 说明 |\r\n|---|---|---|\r\n| 倍增跳表 `ST` | $O(n \\log n)$ | $n \\times (\\log n + 1)$ 的二维数组 |\r\n| 邻接表 `edges` | $O(n)$ | $n-1$ 条边 |\r\n| 其他数组 | $O(n)$ | `A`, `arr`, `fa`, `h` |\r\n| **总计** | $O(n \\log n)$ | 倍增跳表占主导 |\r\n\r\n## 适用场景\r\n\r\n1. **树上路径批量修改**：对树上多条路径的所有节点加值，最后统一查询。例如统计每条边/点被多少条路径覆盖\r\n2. **访问次数统计**：多次路径查询后统计每个节点被覆盖的次数（如运输路线经过的城市次数）\r\n3. **树上染色问题**：对路径上所有节点染色，最后统计颜色分布\r\n4. **结合树上前缀和**：树上差分修改 + 树上前缀和查询，实现\"先修改后查询\"的完整流程\r\n\r\n**不适用场景**：\r\n- 需要在线查询（边修改边查询）→ 应使用树链剖分 + 线段树/树状数组\r\n- 仅需单次路径修改 → 直接 DFS 遍历路径即可，$O(n)$\r\n- 需要路径修改 + 路径查询 → 树链剖分 + 线段树，$O(\\log^2 n)$ 每次操作\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **LCA 为根时的特判**\r\n   - `fa[S] = S`（指向自身）作为倍增跳表的终止哨兵\r\n   - 差分公式中必须特判 `lca == S`，否则 `arr[fa[S]] = arr[S]` 会导致根被多减一次 $k$\r\n   - 正确做法：LCA 为根时只减 `arr[lca]` 一次，不减 `arr[fa[lca]]`\r\n\r\n2. **差分数组类型用 `long long`**\r\n   - 多次路径修改累加可能超过 `int` 范围\r\n   - `arr` 数组和修改值 `k` 都必须声明为 `long long`\r\n\r\n3. **DFS 还原时区分访问方式**\r\n   - 预处理 DFS 用 `fa[i] != 0` 判断访问（因为 `fa` 数组在 init 中初始化）\r\n   - 还原 DFS 用 `i == f` 判断父节点（避免与 `fa` 数组混淆）\r\n   - 两种 DFS 的访问判断方式不同，不可混用\r\n\r\n4. **倍增跳表层数计算**\r\n   - `sz` 必须满足 $2^{\\text{sz}} \\ge \\text{maxDepth}$，否则跳跃不足\r\n   - 代码中 `while (q > (1LL << sz)) ++sz` 正确处理了这一点\r\n\r\n5. **最终输出需加初始权值**\r\n   - 差分数组只记录修改量，最终权值 = `arr[i] + A[i]`\r\n   - 容易忘记加初始权值 `A[i]`，导致输出错误\r\n\r\n6. **无向边需双向建图**\r\n   - `edges[a].push_back(b)` 和 `edges[b].push_back(a)` 都要写\r\n   - 还原 DFS 从根开始，必须确保树结构正确\r\n\r\n7. **链状树的递归深度与编号约定**\r\n   - 树退化成一条链时，递归 DFS 深度可达 $n$，$n$ 较大时可能栈溢出，应改迭代或用显式栈（或增大栈空间）\r\n   - 预处理用 `fa[i] != 0` 判断已访问，隐含\"节点编号从 1 起、0 不是合法节点\"的约定，输入需保证编号从 1 开始\r\n\r\n## 对比与扩展\r\n\r\n| 方法 | 修改 | 还原 | 查询 | 特点 |\r\n|---|---|---|---|---|\r\n| **树上点差分（本算法）** | $O(\\log n)$ | $O(n)$ | 不支持在线 | 离线批量修改，实现简洁 |\r\n| 树链剖分 + 线段树 | $O(\\log^2 n)$ | — | $O(\\log^2 n)$ | 在线修改 + 在线查询 |\r\n| 树上边差分 | $O(\\log n)$ | $O(n)$ | 不支持在线 | 差分对象为边权，还原方式不同 |\r\n\r\n### 树上点差分 vs 树上边差分\r\n\r\n| 对比项 | 点差分 | 边差分 |\r\n|---|---|---|\r\n| 修改对象 | 路径上所有**节点**权值 | 路径上所有**边**权值 |\r\n| 差分公式 | $+a, +b, -\\text{lca}, -\\text{fa}[\\text{lca}]$ | $+a, +b, -2 \\cdot \\text{lca}$ |\r\n| 还原方式 | DFS 子树和，`diff[u] += diff[children]` | DFS 子树和，`diff[u]` 代表 $u \\to \\text{fa}[u]$ 的边 |\r\n| LCA 处理 | LCA 点权需修改，需特判根 | LCA 不在路径边中，无需特判根 |\r\n\r\n### 扩展\r\n\r\n- **树上边差分**：将边权下放为子节点点权（每条边赋给深度较深的端点），路径修改公式变为 $+a, +b, -2 \\cdot \\text{lca}$，还原后 `diff[u]` 代表边 $u \\to \\text{fa}[u]$ 的修改量\r\n- **树链剖分**：支持在线路径修改 + 路径查询，时间 $O(\\log^2 n)$ 每次操作，适合需要实时查询的场景\r\n- **LCT（Link-Cut Tree）**：支持动态加边删边的路径修改与查询，适合动态树问题",
-        "timeComplexity": "修改O(log n)，还原O(n)",
-        "spaceComplexity": "O(n log n)",
-        "tags": [
-            "数据结构",
-            "差分",
-            "树上",
-            "LCA",
-            "倍增",
-            "路径修改",
-            "子树和"
-        ],
-        "codePath": "数据结构\\前缀和与差分\\树上点差分\\Untitled1.cpp",
-        "prerequisites": [
-            "ds-diff-1d",
-            "graph-lca-doubling"
-        ],
-        "related": [
-            "ds-prefix-sum-tree",
-            "ds-diff-1d",
-            "graph-lca-tarjan",
-            "graph-hld-segtree",
-            "ds-diff-2d"
-        ],
-        "parent": ""
+        "parent": "ds-prefix-diff-overview"
     },
     {
         "id": "ds-dsu-on-tree",
@@ -5396,10 +5453,11 @@ const KNOWLEDGE_DATA = [
         "codePath": "",
         "prerequisites": [
             "hub-ds",
-            "graph-tree-basic"
+            "graph-tree-basic",
+            "ds-other-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "ds-other-overview"
     },
     {
         "id": "ds-dual-heap",
@@ -5445,7 +5503,6 @@ const KNOWLEDGE_DATA = [
             "ds-splay",
             "ds-monoqueue-1d",
             "basic-quickselect-kth",
-            "ds-stack-prefix-max",
             "ds-monostack-histogram"
         ],
         "parent": ""
@@ -5491,7 +5548,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-index-tree-block-list"
         ],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-fhq-treap",
@@ -5550,7 +5607,7 @@ const KNOWLEDGE_DATA = [
             "ds-balanced-tree-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "ds-balanced-tree-overview"
     },
     {
         "id": "ds-hash-table",
@@ -5590,10 +5647,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-ds"
+            "hub-ds",
+            "ds-other-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "ds-other-overview"
     },
     {
         "id": "ds-heap",
@@ -5679,7 +5737,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-segtree"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-segtree"
     },
     {
         "id": "ds-index-tree-block-list",
@@ -5722,7 +5780,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "ds-fast-block-list"
         ],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-linked-list",
@@ -5760,10 +5818,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-ds"
+            "hub-ds",
+            "ds-other-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "ds-other-overview"
     },
     {
         "id": "ds-mo-team",
@@ -5882,19 +5941,19 @@ const KNOWLEDGE_DATA = [
             "hub-ds-block"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-monoqueue-1d",
         "category": "数据结构",
         "subcategory": "单调队列",
         "subSubcategory": "",
-        "title": "一维滑动窗口最值（单调队列基础模板）",
+        "title": "单调队列（一维 / 二维滑动窗口）",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n单调队列（Monotonic Queue）是一种特殊的双端队列，其内部元素始终保持单调递增或单调递减。它是解决**滑动窗口最值**问题的最优数据结构：给定长度为 $n$ 的数组 $A$ 和窗口大小 $k$，窗口从左到右滑动，求每个窗口位置的最大值和最小值。\r\n\r\n核心思想是维护一个单调双端队列，队列中存储元素的值和下标，且队列的值始终保持单调性：\r\n\r\n- **求最大值**：维护**单调递减**队列，队首始终是当前窗口的最大元素\r\n- **求最小值**：维护**单调递增**队列，队首始终是当前窗口的最小元素\r\n\r\n对每个新元素 $A[i]$ 的处理分为三步：\r\n1. **队首出窗**：检查队首下标是否已滑出窗口（`i - 队首下标 >= k`），若过期则弹出队首\r\n2. **维护单调性**：从队尾弹出所有不满足单调性的元素。对于最大值队列，弹出所有 $\\leq A[i]$ 的队尾；对于最小值队列，弹出所有 $\\geq A[i]$ 的队尾\r\n3. **入队**：将 `(A[i], i)` 从队尾入队\r\n\r\n当窗口填满（$i \\geq k$）后，队首即为当前窗口的最值。\r\n\r\n正确性的关键在于：当一个新元素入队时，所有比它更小（对最大值队列）或更大（对最小值队列）的队尾元素都**不可能成为未来任何窗口的最值**——因为新元素更\"优\"（更大或更小）且更晚过期（下标更大），所以可以安全弹出。这保证了队列长度远小于窗口大小，每个元素最多入队出队各一次，均摊 $O(1)$。\r\n\r\n本模板同时维护最大值和最小值两个队列，实际中可按需只使用一个。\r\n\r\n## 核心公式\r\n\r\n设数组为 $A[1..n]$，窗口大小为 $k$，单调队列为 $Q$（存储 `(值, 下标)` 对）。\r\n\r\n**队首出队条件**（下标超出窗口范围）：\r\n\r\n$$\r\n\\text{若 } i - Q.\\text{front}().\\text{second} \\geq k: \\quad Q.\\text{pop\\_front()}\r\n$$\r\n\r\n**队尾维护（最大值队列，单调递减）**：\r\n\r\n$$\r\n\\text{while } Q \\text{ 非空 且 } Q.\\text{back}().\\text{first} \\leq A[i]: \\quad Q.\\text{pop\\_back()}\r\n$$\r\n\r\n**队尾维护（最小值队列，单调递增）**：\r\n\r\n$$\r\n\\text{while } Q \\text{ 非空 且 } Q.\\text{back}().\\text{first} \\geq A[i]: \\quad Q.\\text{pop\\_back()}\r\n$$\r\n\r\n**入队**：\r\n\r\n$$\r\nQ.\\text{push\\_back}((A[i],\\; i))\r\n$$\r\n\r\n**窗口最值**（当 $i \\geq k$ 时有效）：\r\n\r\n$$\r\n\\text{窗口最大值} = Q_{\\max}.\\text{front}().\\text{first}, \\quad \\text{窗口最小值} = Q_{\\min}.\\text{front}().\\text{first}\r\n$$\r\n\r\n## 数据结构图示\r\n\r\n```\r\n输入示例：A = [1,3,-1,-3,5,3,6,7], k = 3\r\n下标：     1 2  3  4 5 6 7 8\r\n\r\n=== 逐步执行（以最大值队列为例，单调递减） ===\r\n\r\ni=1, A[1]=1:\r\n  队首出窗: 队列为空, 跳过\r\n  维护: 队列为空, 直接入\r\n  入队: [(1,1)]\r\n  i<3, 不记录\r\n\r\ni=2, A[2]=3:\r\n  队首出窗: 2-1=1 < 3, 不出\r\n  维护: 1 <= 3 → 弹出 → 队空\r\n  入队: [(3,2)]\r\n  i<3, 不记录\r\n\r\ni=3, A[3]=-1:\r\n  队首出窗: 3-2=1 < 3, 不出\r\n  维护: 3 > -1 → 不弹\r\n  入队: [(3,2), (-1,3)]\r\n  i>=3, 窗口最大值 = 队首值 = 3  ✓ (窗口[1,3]=[1,3,-1], max=3)\r\n\r\ni=4, A[4]=-3:\r\n  队首出窗: 4-2=2 < 3, 不出\r\n  维护: -1 > -3 → 不弹\r\n  入队: [(3,2), (-1,3), (-3,4)]\r\n  i>=3, 窗口最大值 = 3  ✓ (窗口[2,4]=[3,-1,-3], max=3)\r\n\r\ni=5, A[5]=5:\r\n  队首出窗: 5-2=3 >= 3 → 弹出队首(3,2)\r\n         队列变为 [(-1,3), (-3,4)]\r\n         5-3=2 < 3 → 停止出窗\r\n  维护: -3 <= 5 → 弹出 → [(-1,3)]\r\n       -1 <= 5 → 弹出 → []\r\n  入队: [(5,5)]\r\n  i>=3, 窗口最大值 = 5  ✓ (窗口[3,5]=[-1,-3,5], max=5)\r\n\r\ni=6, A[6]=3:\r\n  队首出窗: 6-5=1 < 3, 不出\r\n  维护: 5 > 3 → 不弹\r\n  入队: [(5,5), (3,6)]\r\n  i>=3, 窗口最大值 = 5  ✓ (窗口[4,6]=[-3,5,3], max=5)\r\n\r\ni=7, A[7]=6:\r\n  队首出窗: 7-5=2 < 3, 不出\r\n  维护: 3 <= 6 → 弹出 → [(5,5)]\r\n       5 <= 6 → 弹出 → []\r\n  入队: [(6,7)]\r\n  i>=3, 窗口最大值 = 6  ✓ (窗口[5,7]=[5,3,6], max=6)\r\n\r\ni=8, A[8]=7:\r\n  队首出窗: 8-7=1 < 3, 不出\r\n  维护: 6 <= 7 → 弹出 → []\r\n  入队: [(7,8)]\r\n  i>=3, 窗口最大值 = 7  ✓ (窗口[6,8]=[3,6,7], max=7)\r\n\r\n=== 最终结果 ===\r\n窗口最大值: [3, 3, 5, 5, 6, 7]   (共 n-k+1 = 6 个)\r\n窗口最小值: [-1, -3, -3, -3, 3, 3]\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### 初始化：双端队列\r\n\r\n- **数据结构**：`deque<pair<int,int>> que_max, que_min`，C++ STL 的双端队列，支持 $O(1)$ 头尾增删。\r\n- **存储内容**：每个元素是 `(值, 下标)` 对。值用于比较维护单调性，下标用于判断是否出窗。\r\n- **关键细节**：也可以只存下标，值从原数组读取（节省空间但多一次数组访问）。竞赛中常用存值的方式，减少代码出错点。\r\n\r\n### 三步处理流程（每个元素）\r\n\r\n1. **队首出窗**：`if(i - que.front().second >= k) que.pop_front()`\r\n   - 窗口是左闭右开还是闭区间？窗口为 $[i-k+1, i]$，共 $k$ 个元素。当队首下标 $\\leq i-k$ 时出窗，即 `i - 下标 >= k`。\r\n   - 为什么用 `>=` 而不是 `>`：`i - idx >= k` 表示队首下标距当前已达到窗口大小，确实已滑出。若用 `>` 会多保留一个过期元素。\r\n\r\n2. **维护单调性**：`while(!que.empty() && que.back().first <= A[i]) que.pop_back()`（最大值队列）\r\n   - 弹出所有不可能成为未来窗口最值的队尾元素。新元素比队尾更\"优\"且更晚过期，队尾永远不可能再成为最值。\r\n   - 注意是 `<=` 还是 `<`：含等号时，相等元素弹出旧的保留新的，更安全（新的出窗更晚）。不含等号时，相等元素共存，队列可能稍长但不影响正确性。\r\n\r\n3. **入队**：`que.emplace_back(A[i], i)`\r\n   - 将当前元素加入队尾。此时队列仍保持单调性。\r\n\r\n### 记录结果\r\n\r\n- **时机**：`if(i >= k)` 时，窗口已填满 $k$ 个元素，队首即为当前窗口最值。\r\n- **结果**：`que_max.front().first` 是最大值，`que_min.front().first` 是最小值。\r\n- **结果数量**：共 $n - k + 1$ 个窗口的结果。\r\n\r\n## 逐行代码解析\r\n\r\n下面把完整程序按「入口 → 读入 → 数据结构 → 主循环 → 输出」拆成 5 个模块；所有模块的代码块按顺序拼接起来就是完整程序（注释已标注各步含义）。\r\n\r\n### 模块 1：头文件与 main 入口\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint main()\r\n{\r\n```\r\n\r\n- `bits/stdc++.h` 是万能头，一次包含 `vector`、`deque`、`pair`、`iostream` 等所需头文件，竞赛常用。\r\n- `using namespace std;` 省略 `std::` 前缀，让 `vector`、`deque`、`cin`、`cout` 可以直接书写。\r\n\r\n### 模块 2：读入与数组初始化\r\n\r\n```cpp\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr);cout.tie(nullptr);\r\n    int n,k;\r\n    cin >> n >> k;                         // n: 数组长度, k: 窗口大小\r\n    vector<int> A(n + 1,0);                // 原数组（1-based）\r\n    for(int i = 1;i <= n;i++) cin >> A[i];\r\n```\r\n\r\n- 关闭同步流并解绑 `cin`/`cout`，避免读入大数组时超时。\r\n- `A` 开 `n + 1` 且下标从 `1` 开始（1-based），窗口范围是 `[i-k+1, i]`，出窗判断更直观。\r\n\r\n### 模块 3：结果数组与单调队列\r\n\r\n```cpp\r\n    vector<int> mymax;                     // 存每个窗口的最大值\r\n    vector<int> mymin;                     // 存每个窗口的最小值\r\n    deque<pair<int,int>> que_max;          // 最大值队列（单调递减）\r\n    deque<pair<int,int>> que_min;          // 最小值队列（单调递增）\r\n```\r\n\r\n- `deque<pair<int,int>>`：STL 双端队列，存 `(值, 下标)` 对；`front()`/`back()`/`pop_front()`/`pop_back()`/`emplace_back()` 全部 $O(1)$。\r\n- `que_max` 和 `que_min` 是两个独立队列，分别维护最大/最小，逻辑完全对称，只是比较方向相反（`<=` vs `>=`）。\r\n\r\n### 模块 4：主循环（出窗 + 维护单调 + 入队 + 记录）\r\n\r\n```cpp\r\n    for(int i = 1;i <= n;i++)\r\n    {\r\n        // === 第一步：队首出窗 ===\r\n        if(!que_max.empty())\r\n        {\r\n            int idx = que_max.front().second;\r\n            if(i - idx >= k) que_max.pop_front();\r\n        }\r\n        if(!que_min.empty())\r\n        {\r\n            int idx = que_min.front().second;\r\n            if(i - idx >= k) que_min.pop_front();\r\n        }\r\n\r\n        // === 第二步：维护单调性（弹出队尾） ===\r\n        while(!que_max.empty() && que_max.back().first <= A[i]) que_max.pop_back();\r\n        que_max.emplace_back(A[i] , i);    // 第三步：入队\r\n\r\n        while(!que_min.empty() && que_min.back().first >= A[i]) que_min.pop_back();\r\n        que_min.emplace_back(A[i] , i);    // 第三步：入队\r\n\r\n        // === 记录结果（窗口填满后） ===\r\n        if(i >= k)\r\n        {\r\n            mymax.emplace_back(que_max.front().first);\r\n            mymin.emplace_back(que_min.front().first);\r\n        }\r\n    }\r\n```\r\n\r\n- 队首出窗用 `if` 而非 `while`：每次 `i` 只增 `1`，最多一个元素过期出窗。\r\n- `i - idx >= k` 用 `>=` 而非 `>`：`>=` 才表示队首下标已滑出窗口，用 `>` 会多保留一个过期元素。\r\n- 维护单调性用 `while`：可能要连续弹出多个队尾；`que_max` 弹 `<=`（递减）、`que_min` 弹 `>=`（递增），方向弄反会导致队列无序。\r\n- 先弹队尾再入队，顺序不能颠倒；`i >= k` 时窗口才填满 `k` 个元素，此时 `front()` 必非空、可安全取值。\r\n\r\n### 模块 5：输出结果\r\n\r\n```cpp\r\n    for(int i : mymin) cout << i << \" \";   // 先输出所有窗口最小值\r\n    cout << endl;\r\n    for(int i : mymax) cout << i << \" \";   // 再输出所有窗口最大值\r\n    return 0;\r\n}\r\n```\r\n\r\n- 先输出所有窗口最小值、再输出所有窗口最大值，符合题目常见格式，可按需调换。\r\n- 结果数量为 `n - k + 1` 个窗口。\r\n\r\n## 复杂度分析\r\n\r\n- **时间复杂度**：$O(n)$。遍历 $n$ 个元素，每个元素最多入队一次、出队一次（不管是从队首弹出还是队尾弹出），均摊 $O(1)$。两个队列总操作次数不超过 $2n$。\r\n- **空间复杂度**：$O(k)$。队列大小最多为窗口大小 $k$（当数组严格单调时，队列长度等于当前窗口长度）。结果数组 `mymax` 和 `mymin` 各为 $O(n-k+1)$，总空间 $O(n)$。若只需实时输出不保存结果，空间为 $O(k)$。\r\n\r\n与其他方法对比：\r\n\r\n| 方法 | 时间 | 空间 | 特点 |\r\n|---|---|---|---|\r\n| 单调队列 | $O(n)$ | $O(k)$ | 最优，固定窗口大小 |\r\n| 优先队列（堆） | $O(n \\log n)$ | $O(n)$ | 支持动态窗口，但弹出懒删除 |\r\n| ST 表 | 预处理 $O(n \\log n)$，查询 $O(1)$ | $O(n \\log n)$ | 支持任意区间查询 |\r\n| 暴力法 | $O(nk)$ | $O(1)$ | 小数据可用 |\r\n\r\n## 适用场景\r\n\r\n固定大小的一维滑动窗口最值查询，是单调队列最基础也是最核心的应用。在此基础上可扩展到：\r\n- **DP 优化**：多重背包单调队列优化、长度不超过 $m$ 的最大子段和、各种\"在窗口内取最值\"的 DP 转移优化\r\n- **二维扩展**：两阶段单调队列求 `K×K` 子矩阵最值（见「二维滑动窗口最值」）\r\n- **子数组问题**：满足条件的最短/最长子数组（配合双指针 + 单调队列）\r\n- **数据流问题**：滑动窗口中位数、滑动窗口平均值等变体\r\n\r\n本模板是单调队列的标准入门写法，掌握后可快速推导各种变体。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **队首出窗条件用 `>=` 而非 `>`**：`i - idx >= k` 表示队首下标距当前已达到窗口大小，已滑出窗口。若用 `>` 会多保留一个过期元素，导致结果错误。\r\n2. **队尾弹出的方向**：`que_max` 弹出 $\\leq$ 当前值的（保持递减，队首最大）；`que_min` 弹出 $\\geq$ 当前值的（保持递增，队首最小）。方向弄反会导致队列无序，结果错误。\r\n3. **入队顺序**：先弹出队尾不满足单调性的元素，再入队当前元素。顺序不能颠倒（否则新元素可能被自己弹出，或者队列不单调）。\r\n4. **窗口填满的判断**：`i >= k` 表示窗口已有 $k$ 个元素，开始记录结果。注意数组下标从 $1$ 开始时窗口范围为 $[i-k+1, i]$；若从 $0$ 开始则为 $[i-k+1, i]$，判断条件为 `i >= k-1`。\r\n5. **`deque` 的使用**：双端队列支持 $O(1)$ 的头尾操作，用 `std::deque` 或手写数组模拟均可。手写数组模拟在竞赛中有时更快（无 STL 开销），但 `deque` 更简洁不易错。\r\n6. **同时维护最大最小的开销**：本模板同时维护两个队列，时间空间常数都是两倍。如果只需要一个方向，只需保留对应队列。\r\n7. **值 vs 下标存储**：队列存 `(值, 下标)` 还是只存下标？存值的好处是比较时不用再访问数组（代码更直观），存下标的好处是节省内存（尤其当值的类型很大时）。竞赛中存值更常见。\r\n8. **未校验 $1 \\le k \\le n$**：当 $k > n$ 或 $k \\le 0$ 时，上述逻辑会破坏（如 `i >= k` 永远不成立导致无结果，或出窗条件失效）。通常题目保证输入合法，可默认假设 $1 \\le k \\le n$；若需稳健处理，应在读入后加判断（如 `if(k <= 0 || k > n)` 特判或调整）。\r\n\r\n## 对比与扩展\r\n\r\n与优先队列（堆）维护窗口最值相比：单调队列每个元素只入队出队各一次，均摊 $O(1)$；而堆的弹出是懒删除（过期元素还在堆中），最坏 $O(n \\log n)$。单调队列在固定窗口最值问题上严格优于堆。\r\n\r\n与 ST 表相比：单调队列是**在线**的（边读边处理），且空间更优（$O(k)$ vs $O(n \\log n)$）。但 ST 表支持任意区间的 $O(1)$ 查询，适用范围更广。如果只需要滑动窗口最值，单调队列更合适；如果有多种查询需求，ST 表更灵活。\r\n\r\n**扩展方向**：\r\n- **二维滑动窗口最值**：先逐行做一维滑动窗口，再逐列做一维滑动窗口（见「二维滑动窗口最值（两阶段单调队列）」），总时间 $O(MN)$\r\n- **多重背包单调队列优化**：将 DP 状态转移方程变形为\"窗口内取最值\"的形式，用单调队列将 $O(nmk)$ 优化到 $O(nm)$\r\n- **最大子段和（长度受限）**：前缀和 + 单调队列维护窗口最小前缀和，$O(n)$ 求解长度不超过 $m$ 的最大子段和\r\n- **单调栈**：单调队列的\"近亲\"，维护单调性但只在一端操作，用于求每个元素的下一个更大/更小元素、直方图最大矩形等\r\n- **双端单调队列的其他应用**：满足条件的最短子数组、和至少为 K 的最短子数组（前缀和 + 单调队列）等",
+                "content": "## 算法原理\n\n单调队列（Monotonic Queue）是一种特殊的双端队列，其内部元素始终保持单调递增或单调递减。它是解决**滑动窗口最值**问题的最优数据结构：给定长度为 $n$ 的数组 $A$ 和窗口大小 $k$，窗口从左到右滑动，求每个窗口位置的最大值和最小值。\n\n核心思想是维护一个单调双端队列，队列中存储元素的值和下标，且队列的值始终保持单调性：\n\n- **求最大值**：维护**单调递减**队列，队首始终是当前窗口的最大元素\n- **求最小值**：维护**单调递增**队列，队首始终是当前窗口的最小元素\n\n对每个新元素 $A[i]$ 的处理分为三步：\n1. **队首出窗**：检查队首下标是否已滑出窗口（`i - 队首下标 >= k`），若过期则弹出队首\n2. **维护单调性**：从队尾弹出所有不满足单调性的元素。对于最大值队列，弹出所有 $\\leq A[i]$ 的队尾；对于最小值队列，弹出所有 $\\geq A[i]$ 的队尾\n3. **入队**：将 `(A[i], i)` 从队尾入队\n\n当窗口填满（$i \\geq k$）后，队首即为当前窗口的最值。\n\n正确性的关键在于：当一个新元素入队时，所有比它更小（对最大值队列）或更大（对最小值队列）的队尾元素都**不可能成为未来任何窗口的最值**——因为新元素更\"优\"（更大或更小）且更晚过期（下标更大），所以可以安全弹出。这保证了队列长度远小于窗口大小，每个元素最多入队出队各一次，均摊 $O(1)$。\n\n本模板同时维护最大值和最小值两个队列，实际中可按需只使用一个。\n\n## 核心公式\n\n设数组为 $A[1..n]$，窗口大小为 $k$，单调队列为 $Q$（存储 `(值, 下标)` 对）。\n\n**队首出队条件**（下标超出窗口范围）：\n\n$$\n\\text{若 } i - Q.\\text{front}().\\text{second} \\geq k: \\quad Q.\\text{pop\\_front()}\n$$\n\n**队尾维护（最大值队列，单调递减）**：\n\n$$\n\\text{while } Q \\text{ 非空 且 } Q.\\text{back}().\\text{first} \\leq A[i]: \\quad Q.\\text{pop\\_back()}\n$$\n\n**队尾维护（最小值队列，单调递增）**：\n\n$$\n\\text{while } Q \\text{ 非空 且 } Q.\\text{back}().\\text{first} \\geq A[i]: \\quad Q.\\text{pop\\_back()}\n$$\n\n**入队**：\n\n$$\nQ.\\text{push\\_back}((A[i],\\; i))\n$$\n\n**窗口最值**（当 $i \\geq k$ 时有效）：\n\n$$\n\\text{窗口最大值} = Q_{\\max}.\\text{front}().\\text{first}, \\quad \\text{窗口最小值} = Q_{\\min}.\\text{front}().\\text{first}\n$$\n\n## 数据结构图示\n\n```\n输入示例：A = [1,3,-1,-3,5,3,6,7], k = 3\n下标：     1 2  3  4 5 6 7 8\n\n=== 逐步执行（以最大值队列为例，单调递减） ===\n\ni=1, A[1]=1:\n  队首出窗: 队列为空, 跳过\n  维护: 队列为空, 直接入\n  入队: [(1,1)]\n  i<3, 不记录\n\ni=2, A[2]=3:\n  队首出窗: 2-1=1 < 3, 不出\n  维护: 1 <= 3 → 弹出 → 队空\n  入队: [(3,2)]\n  i<3, 不记录\n\ni=3, A[3]=-1:\n  队首出窗: 3-2=1 < 3, 不出\n  维护: 3 > -1 → 不弹\n  入队: [(3,2), (-1,3)]\n  i>=3, 窗口最大值 = 队首值 = 3  ✓ (窗口[1,3]=[1,3,-1], max=3)\n\ni=4, A[4]=-3:\n  队首出窗: 4-2=2 < 3, 不出\n  维护: -1 > -3 → 不弹\n  入队: [(3,2), (-1,3), (-3,4)]\n  i>=3, 窗口最大值 = 3  ✓ (窗口[2,4]=[3,-1,-3], max=3)\n\ni=5, A[5]=5:\n  队首出窗: 5-2=3 >= 3 → 弹出队首(3,2)\n         队列变为 [(-1,3), (-3,4)]\n         5-3=2 < 3 → 停止出窗\n  维护: -3 <= 5 → 弹出 → [(-1,3)]\n       -1 <= 5 → 弹出 → []\n  入队: [(5,5)]\n  i>=3, 窗口最大值 = 5  ✓ (窗口[3,5]=[-1,-3,5], max=5)\n\ni=6, A[6]=3:\n  队首出窗: 6-5=1 < 3, 不出\n  维护: 5 > 3 → 不弹\n  入队: [(5,5), (3,6)]\n  i>=3, 窗口最大值 = 5  ✓ (窗口[4,6]=[-3,5,3], max=5)\n\ni=7, A[7]=6:\n  队首出窗: 7-5=2 < 3, 不出\n  维护: 3 <= 6 → 弹出 → [(5,5)]\n       5 <= 6 → 弹出 → []\n  入队: [(6,7)]\n  i>=3, 窗口最大值 = 6  ✓ (窗口[5,7]=[5,3,6], max=6)\n\ni=8, A[8]=7:\n  队首出窗: 8-7=1 < 3, 不出\n  维护: 6 <= 7 → 弹出 → []\n  入队: [(7,8)]\n  i>=3, 窗口最大值 = 7  ✓ (窗口[6,8]=[3,6,7], max=7)\n\n=== 最终结果 ===\n窗口最大值: [3, 3, 5, 5, 6, 7]   (共 n-k+1 = 6 个)\n窗口最小值: [-1, -3, -3, -3, 3, 3]\n```\n\n## 核心操作详解\n\n### 初始化：双端队列\n\n- **数据结构**：`deque<pair<int,int>> que_max, que_min`，C++ STL 的双端队列，支持 $O(1)$ 头尾增删。\n- **存储内容**：每个元素是 `(值, 下标)` 对。值用于比较维护单调性，下标用于判断是否出窗。\n- **关键细节**：也可以只存下标，值从原数组读取（节省空间但多一次数组访问）。竞赛中常用存值的方式，减少代码出错点。\n\n### 三步处理流程（每个元素）\n\n1. **队首出窗**：`if(i - que.front().second >= k) que.pop_front()`\n   - 窗口是左闭右开还是闭区间？窗口为 $[i-k+1, i]$，共 $k$ 个元素。当队首下标 $\\leq i-k$ 时出窗，即 `i - 下标 >= k`。\n   - 为什么用 `>=` 而不是 `>`：`i - idx >= k` 表示队首下标距当前已达到窗口大小，确实已滑出。若用 `>` 会多保留一个过期元素。\n\n2. **维护单调性**：`while(!que.empty() && que.back().first <= A[i]) que.pop_back()`（最大值队列）\n   - 弹出所有不可能成为未来窗口最值的队尾元素。新元素比队尾更\"优\"且更晚过期，队尾永远不可能再成为最值。\n   - 注意是 `<=` 还是 `<`：含等号时，相等元素弹出旧的保留新的，更安全（新的出窗更晚）。不含等号时，相等元素共存，队列可能稍长但不影响正确性。\n\n3. **入队**：`que.emplace_back(A[i], i)`\n   - 将当前元素加入队尾。此时队列仍保持单调性。\n\n### 记录结果\n\n- **时机**：`if(i >= k)` 时，窗口已填满 $k$ 个元素，队首即为当前窗口最值。\n- **结果**：`que_max.front().first` 是最大值，`que_min.front().first` 是最小值。\n- **结果数量**：共 $n - k + 1$ 个窗口的结果。\n\n## 逐行代码解析\n\n下面把完整程序按「入口 → 读入 → 数据结构 → 主循环 → 输出」拆成 5 个模块；所有模块的代码块按顺序拼接起来就是完整程序（注释已标注各步含义）。\n\n### 模块 1：头文件与 main 入口\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n```\n\n- `bits/stdc++.h` 是万能头，一次包含 `vector`、`deque`、`pair`、`iostream` 等所需头文件，竞赛常用。\n- `using namespace std;` 省略 `std::` 前缀，让 `vector`、`deque`、`cin`、`cout` 可以直接书写。\n\n### 模块 2：读入与数组初始化\n\n```cpp\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);cout.tie(nullptr);\n    int n,k;\n    cin >> n >> k;                         // n: 数组长度, k: 窗口大小\n    vector<int> A(n + 1,0);                // 原数组（1-based）\n    for(int i = 1;i <= n;i++) cin >> A[i];\n```\n\n- 关闭同步流并解绑 `cin`/`cout`，避免读入大数组时超时。\n- `A` 开 `n + 1` 且下标从 `1` 开始（1-based），窗口范围是 `[i-k+1, i]`，出窗判断更直观。\n\n### 模块 3：结果数组与单调队列\n\n```cpp\n    vector<int> mymax;                     // 存每个窗口的最大值\n    vector<int> mymin;                     // 存每个窗口的最小值\n    deque<pair<int,int>> que_max;          // 最大值队列（单调递减）\n    deque<pair<int,int>> que_min;          // 最小值队列（单调递增）\n```\n\n- `deque<pair<int,int>>`：STL 双端队列，存 `(值, 下标)` 对；`front()`/`back()`/`pop_front()`/`pop_back()`/`emplace_back()` 全部 $O(1)$。\n- `que_max` 和 `que_min` 是两个独立队列，分别维护最大/最小，逻辑完全对称，只是比较方向相反（`<=` vs `>=`）。\n\n### 模块 4：主循环（出窗 + 维护单调 + 入队 + 记录）\n\n```cpp\n    for(int i = 1;i <= n;i++)\n    {\n        // === 第一步：队首出窗 ===\n        if(!que_max.empty())\n        {\n            int idx = que_max.front().second;\n            if(i - idx >= k) que_max.pop_front();\n        }\n        if(!que_min.empty())\n        {\n            int idx = que_min.front().second;\n            if(i - idx >= k) que_min.pop_front();\n        }\n\n        // === 第二步：维护单调性（弹出队尾） ===\n        while(!que_max.empty() && que_max.back().first <= A[i]) que_max.pop_back();\n        que_max.emplace_back(A[i] , i);    // 第三步：入队\n\n        while(!que_min.empty() && que_min.back().first >= A[i]) que_min.pop_back();\n        que_min.emplace_back(A[i] , i);    // 第三步：入队\n\n        // === 记录结果（窗口填满后） ===\n        if(i >= k)\n        {\n            mymax.emplace_back(que_max.front().first);\n            mymin.emplace_back(que_min.front().first);\n        }\n    }\n```\n\n- 队首出窗用 `if` 而非 `while`：每次 `i` 只增 `1`，最多一个元素过期出窗。\n- `i - idx >= k` 用 `>=` 而非 `>`：`>=` 才表示队首下标已滑出窗口，用 `>` 会多保留一个过期元素。\n- 维护单调性用 `while`：可能要连续弹出多个队尾；`que_max` 弹 `<=`（递减）、`que_min` 弹 `>=`（递增），方向弄反会导致队列无序。\n- 先弹队尾再入队，顺序不能颠倒；`i >= k` 时窗口才填满 `k` 个元素，此时 `front()` 必非空、可安全取值。\n\n### 模块 5：输出结果\n\n```cpp\n    for(int i : mymin) cout << i << \" \";   // 先输出所有窗口最小值\n    cout << endl;\n    for(int i : mymax) cout << i << \" \";   // 再输出所有窗口最大值\n    return 0;\n}\n```\n\n- 先输出所有窗口最小值、再输出所有窗口最大值，符合题目常见格式，可按需调换。\n- 结果数量为 `n - k + 1` 个窗口。\n\n## 复杂度分析\n\n- **时间复杂度**：$O(n)$。遍历 $n$ 个元素，每个元素最多入队一次、出队一次（不管是从队首弹出还是队尾弹出），均摊 $O(1)$。两个队列总操作次数不超过 $2n$。\n- **空间复杂度**：$O(k)$。队列大小最多为窗口大小 $k$（当数组严格单调时，队列长度等于当前窗口长度）。结果数组 `mymax` 和 `mymin` 各为 $O(n-k+1)$，总空间 $O(n)$。若只需实时输出不保存结果，空间为 $O(k)$。\n\n与其他方法对比：\n\n| 方法 | 时间 | 空间 | 特点 |\n|---|---|---|---|\n| 单调队列 | $O(n)$ | $O(k)$ | 最优，固定窗口大小 |\n| 优先队列（堆） | $O(n \\log n)$ | $O(n)$ | 支持动态窗口，但弹出懒删除 |\n| ST 表 | 预处理 $O(n \\log n)$，查询 $O(1)$ | $O(n \\log n)$ | 支持任意区间查询 |\n| 暴力法 | $O(nk)$ | $O(1)$ | 小数据可用 |\n\n## 适用场景\n\n固定大小的一维滑动窗口最值查询，是单调队列最基础也是最核心的应用。在此基础上可扩展到：\n- **DP 优化**：多重背包单调队列优化、长度不超过 $m$ 的最大子段和、各种\"在窗口内取最值\"的 DP 转移优化\n- **二维扩展**：两阶段单调队列求 `K×K` 子矩阵最值（见「二维滑动窗口最值」）\n- **子数组问题**：满足条件的最短/最长子数组（配合双指针 + 单调队列）\n- **数据流问题**：滑动窗口中位数、滑动窗口平均值等变体\n\n本模板是单调队列的标准入门写法，掌握后可快速推导各种变体。\n\n## 常见陷阱与注意事项\n\n1. **队首出窗条件用 `>=` 而非 `>`**：`i - idx >= k` 表示队首下标距当前已达到窗口大小，已滑出窗口。若用 `>` 会多保留一个过期元素，导致结果错误。\n2. **队尾弹出的方向**：`que_max` 弹出 $\\leq$ 当前值的（保持递减，队首最大）；`que_min` 弹出 $\\geq$ 当前值的（保持递增，队首最小）。方向弄反会导致队列无序，结果错误。\n3. **入队顺序**：先弹出队尾不满足单调性的元素，再入队当前元素。顺序不能颠倒（否则新元素可能被自己弹出，或者队列不单调）。\n4. **窗口填满的判断**：`i >= k` 表示窗口已有 $k$ 个元素，开始记录结果。注意数组下标从 $1$ 开始时窗口范围为 $[i-k+1, i]$；若从 $0$ 开始则为 $[i-k+1, i]$，判断条件为 `i >= k-1`。\n5. **`deque` 的使用**：双端队列支持 $O(1)$ 的头尾操作，用 `std::deque` 或手写数组模拟均可。手写数组模拟在竞赛中有时更快（无 STL 开销），但 `deque` 更简洁不易错。\n6. **同时维护最大最小的开销**：本模板同时维护两个队列，时间空间常数都是两倍。如果只需要一个方向，只需保留对应队列。\n7. **值 vs 下标存储**：队列存 `(值, 下标)` 还是只存下标？存值的好处是比较时不用再访问数组（代码更直观），存下标的好处是节省内存（尤其当值的类型很大时）。竞赛中存值更常见。\n8. **未校验 $1 \\le k \\le n$**：当 $k > n$ 或 $k \\le 0$ 时，上述逻辑会破坏（如 `i >= k` 永远不成立导致无结果，或出窗条件失效）。通常题目保证输入合法，可默认假设 $1 \\le k \\le n$；若需稳健处理，应在读入后加判断（如 `if(k <= 0 || k > n)` 特判或调整）。\n\n## 对比与扩展\n\n与优先队列（堆）维护窗口最值相比：单调队列每个元素只入队出队各一次，均摊 $O(1)$；而堆的弹出是懒删除（过期元素还在堆中），最坏 $O(n \\log n)$。单调队列在固定窗口最值问题上严格优于堆。\n\n与 ST 表相比：单调队列是**在线**的（边读边处理），且空间更优（$O(k)$ vs $O(n \\log n)$）。但 ST 表支持任意区间的 $O(1)$ 查询，适用范围更广。如果只需要滑动窗口最值，单调队列更合适；如果有多种查询需求，ST 表更灵活。\n\n**扩展方向**：\n- **二维滑动窗口最值**：先逐行做一维滑动窗口，再逐列做一维滑动窗口（见「二维滑动窗口最值（两阶段单调队列）」），总时间 $O(MN)$\n- **多重背包单调队列优化**：将 DP 状态转移方程变形为\"窗口内取最值\"的形式，用单调队列将 $O(nmk)$ 优化到 $O(nm)$\n- **最大子段和（长度受限）**：前缀和 + 单调队列维护窗口最小前缀和，$O(n)$ 求解长度不超过 $m$ 的最大子段和\n- **单调栈**：单调队列的\"近亲\"，维护单调性但只在一端操作，用于求每个元素的下一个更大/更小元素、直方图最大矩形等\n- **双端单调队列的其他应用**：满足条件的最短子数组、和至少为 K 的最短子数组（前缀和 + 单调队列）等\n\n## 附：二维滑动窗口最值（两阶段单调队列）\n\n> 本文是一维滑动窗口最值的扩展。若对单调队列的基本操作不熟悉，请先阅读「一维滑动窗口最值（单调队列基础模板）」。\n\n给定一个 $M \\times N$ 的矩阵和一个窗口大小 `big`，求每个 `big × big` 子矩阵内的最大值和最小值。这是经典的**二维滑动窗口最值**问题。\n\n最直接的做法是暴力枚举每个窗口的所有 `big × big` 个元素，复杂度为 $O(M \\cdot N \\cdot \\text{big}^2)$，当 big 较大时无法通过。更优的方法是**两阶段单调队列**：把二维问题拆解为两个一维问题。\n\n- **阶段一（行方向）**：对矩阵的每一行，用一维单调队列求出长度为 `big` 的滑动窗口最值，结果存入临时矩阵 `tmp`。此时 `tmp[i][j]` 表示第 $i$ 行中以 $j$ 结尾的、长度为 `big` 的窗口内的最值。\n- **阶段二（列方向）**：对 `tmp` 矩阵的每一列，再用一维单调队列求出长度为 `big` 的滑动窗口最值，结果覆盖回 `tmp`。此时 `tmp[i][j]` 表示以 $(i,j)$ 为右下角的 `big × big` 子矩阵的最值。\n\n为什么两阶段是对的？考虑任意一个 `big × big` 窗口：先对每一行求行内窗口最值（得到 big 个行最值），再对这些行最值求列窗口最值——得到的就是整个二维窗口的最值。最值操作具有\"可结合性\"：$\\max(\\max(a,b), \\max(c,d)) = \\max(a,b,c,d)$。行方向先压缩、列方向再压缩，等价于直接求二维窗口的最值。\n\n本代码用 `bool k` 参数统一了最大值和最小值的逻辑：`k=true` 求最小值（递增队列），`k=false` 求最大值（递减队列），通过 `cmp(a, b, k)` 函数动态切换比较方向，避免了写两套几乎相同的代码。\n\n### 核心公式\n\n设原矩阵为 $A[1..M][1..N]$，窗口大小为 $K = \\text{big}$。\n\n**阶段一：行方向一维滑动窗口**\n\n$$\n\\text{tmp}[i][j] = \\min_{t = j-K+1}^{j} A[i][t] \\quad (\\text{或 } \\max)\n$$\n\n其中 $j \\geq K$ 时才有意义，$j < K$ 时为前缀最值。\n\n**阶段二：列方向一维滑动窗口**\n\n$$\n\\text{ans}[i][j] = \\min_{t = i-K+1}^{i} \\text{tmp}[t][j] \\quad (\\text{或 } \\max)\n$$\n\n**合并后的二维窗口最值**：\n\n$$\n\\text{ans}[i][j] = \\min_{\\substack{x \\in [i-K+1,\\, i] \\\\ y \\in [j-K+1,\\, j]}} A[x][y] \\quad (\\text{或 } \\max)\n$$\n\n**单调队列的维护不变性**（以求最小值为例）：\n\n设队列为 $Q = [q_1, q_2, \\dots, q_m]$（按下标递增排列），对应值为 $v_1, v_2, \\dots, v_m$，则队列满足：\n\n$$\nv_1 \\leq v_2 \\leq \\dots \\leq v_m \\quad (\\text{单调递增})\n$$\n\n每次右端加入新元素 $a$ 时，弹出队尾所有 $\\geq a$ 的元素再入队：\n\n$$\n\\text{while } v_m \\geq a \\text{ 且 } Q \\text{ 非空}: \\quad \\text{pop\\_back}; \\quad \\text{push\\_back}(a)\n$$\n\n左端超出窗口范围时出队：\n\n$$\n\\text{if } j - q_1 \\geq K: \\quad \\text{pop\\_front}\n$$\n\n窗口最值为队首元素：\n\n$$\n\\text{window\\_min} = v_1\n$$\n\n### 数据结构图示\n\n```\n输入示例：M=4, N=5, big=2（求 2×2 窗口最小值）\n\n  原矩阵 A:\n      j=1  j=2  j=3  j=4  j=5\n  i=1   3    1    4    2    5\n  i=2   2    4    1    3    2\n  i=3   5    2    3    1    4\n  i=4   1    3    2    4    1\n\n  === 阶段一：每行做一维滑动窗口（窗口大小 2，求最小值） ===\n\n  第 1 行 [3,1,4,2,5]:\n    j=2: min(3,1)=1   que: [1(值1)]\n    j=3: min(1,4)=1   que: [1(值1), 3(值4)]\n    j=4: min(4,2)=2   que: [4(值2)]  (1 出窗，弹出 3 后入 4)\n    j=5: min(2,5)=2   que: [4(值2), 5(值5)]\n\n  tmp 矩阵（每行窗口最小值）:\n      j=1  j=2  j=3  j=4  j=5\n  i=1   3    1    1    2    2\n  i=2   2    2    1    1    2\n  i=3   5    2    2    1    1\n  i=4   1    1    2    2    1\n\n  === 阶段二：每列做一维滑动窗口（窗口大小 2，求最小值） ===\n\n  第 2 列 [1, 2, 2, 1]:\n    i=2: min(1,2)=1   que: [1(值1), 2(值2)]\n    i=3: min(2,2)=2   que: [2(值2), 3(值2)]  (1 出窗)\n    i=4: min(2,1)=1   que: [4(值1)]  (2,3 弹出后入 4)\n\n  最终 ans 矩阵（2×2 窗口最小值）:\n      j=1  j=2  j=3  j=4  j=5\n  i=1   3    1    1    2    2\n  i=2   2    1    1    1    2\n  i=3   2    2    1    1    1\n  i=4   1    1    2    1    1\n\n  验证：以 (3,3) 为右下角的 2×2 窗口 = A[2..3][2..3]\n        = [[4,1],[2,3]]，最小值 = 1 ✓\n        ans[3][3] = 1 ✓\n```\n\n### 核心操作详解\n\n#### cmp(a, b, k) — 统一比较函数\n\n- **作用**：根据 `k` 的值切换比较方向，统一最大值和最小值的单调队列逻辑。\n- **参数**：`a` 新元素值，`b` 队尾元素值，`k` 方向标志。\n- **返回值**：`k=true` 时返回 `a <= b`（求最小值，维护递增队列）；`k=false` 时返回 `a >= b`（求最大值，维护递减队列）。\n- **关键细节**：用函数指针或 lambda 也可以，但 `bool` 开关更轻量，且避免了模板/函数对象的代码膨胀。注意是 `<=` 和 `>=`（含等号），这意味着相等元素时旧的会被弹出，保留最新的——这在窗口滑动时更安全（下标更大的元素出窗更晚）。\n\n#### 阶段一：行方向单调队列\n\n- **数据结构**：`vector<pair<int,int>> que_x(N+2)`，存储 `(下标, 值)` 对，`x_l` 和 `x_r` 为左右指针（左闭右开）。\n- **算法步骤**：对每一行 $i$，从左到右遍历列 $j$：\n  1. 若队首元素下标 $j - \\text{下标} \\geq \\text{big}$（出窗），`++x_l` 弹出队首。\n  2. 若 `cmp(A[i][j], 队尾值, k)` 为真，弹出队尾（保持单调性），直到队列为空或不满足比较条件。\n  3. 将 `(j, A[i][j])` 入队。\n  4. `tmp[i][j] = 队首值`（当前窗口的最值）。\n- **关键细节**：每行独立处理，行与行之间不共享状态。`que_x` 在每行开始时自动通过 `x_l=x_r=0` 重置（注意：代码中 `x_l, x_r` 是在 `for(i)` 内声明的，每行都会重新初始化为 0，但 `que_x` 数组本身不会清空——不过因为单调队列是\"覆盖写入\"，旧数据不会被读取，所以没问题）。\n\n#### 阶段二：列方向单调队列\n\n- **数据结构**：`vector<pair<int,int>> que_y(M+2)`，与阶段一结构相同。\n- **算法步骤**：对每一列 $j$，从上到下遍历行 $i$：\n  1. 若队首元素下标 $i - \\text{下标} \\geq \\text{big}$（出窗），`++y_l` 弹出队首。\n  2. 若 `cmp(tmp[i][j], 队尾值, k)` 为真，弹出队尾（保持单调性）。\n  3. 将 `(i, tmp[i][j])` 入队。\n  4. `tmp[i][j] = 队首值`（覆盖写入，此时即为二维窗口最值）。\n- **关键细节**：阶段二直接在 `tmp` 上覆盖写入，节省了一个矩阵的空间。因为列方向的处理是按行递增的，读取 `tmp[i][j]` 时用的是阶段一的结果（还没被覆盖），写入后的值只在后续行的同列处理中被使用，不冲突。\n\n#### 主函数：分别求最小值和最大值\n\n- **调用方式**：`fn(M, N, true, big, n_min)` 求最小值矩阵；`fn(M, N, false, big, n_max)` 求最大值矩阵。\n- **关键细节**：两次调用 `fn` 是完全独立的，分别使用各自的 `tmp` 矩阵。`n_min` 和 `n_max` 在 `main` 中声明，通过引用传递给 `fn` 填充结果。\n\n### 逐行代码解析\n\n#### 全局变量与比较函数 cmp\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvector<vector<int>> A;                         // 原矩阵（全局，fn 中直接访问）\n\nbool cmp(int a,int b,bool k)\n{\n    return k ? a <= b : a >= b;                // k=true: 递增(求min); k=false: 递减(求max)\n}\n```\n\n- `A` 是全局矩阵：`fn` 直接访问全局 `A`，减少参数传递（竞赛常见写法；工程代码建议改为参数传递）。\n- `cmp` 是比较方向开关：`a` 是新元素、`b` 是队尾元素；`k=true`（求 min）时返回 `a <= b` 维护递增队列，`k=false`（求 max）时返回 `a >= b` 维护递减队列。\n- `<=`/`>=` 含等号：相等时旧元素被弹出、保留新元素（新元素下标更大、出窗更晚），滑动时更安全。\n\n#### fn · 阶段一（行方向单调队列）\n\n```cpp\nvoid fn(int M,int N,bool k,int big,vector<vector<int>>& tmp)\n{\n    tmp.resize(M + 1, vector<int>(N + 1));     // 初始化结果矩阵\n    vector<pair<int, int>> que_x(N + 2);       // 行方向单调队列（存(下标,值)）\n\n    // === 阶段一：每行做行方向滑动窗口 ===\n    for (int i = 1; i <= M; i++)\n    {\n        int x_l = 0, x_r = 0;                   // 队列左右指针（左闭右开）\n        for (int j = 1; j <= N; j++)\n        {\n            int a = A[i][j];\n            // 1. 队首出窗\n            if (x_l != x_r && j - que_x[x_l].first >= big) ++x_l;\n            // 2. 维护单调性：弹出队尾不满足条件的元素\n            while (x_l != x_r && cmp(a, que_x[x_r - 1].second, k)) --x_r;\n            // 3. 新元素入队\n            que_x[x_r++] = pair<int, int>(j, a);\n            // 4. 队首即为当前窗口最值\n            tmp[i][j] = que_x[x_l].second;\n        }\n    }\n```\n\n- `tmp.resize(M+1, vector<int>(N+1))`：结果矩阵在 `fn` 内部初始化，通过引用 `&tmp` 返回。\n- `que_x(N+2)`：手写双端队列，用数组 + 左右指针 `x_l`/`x_r` 模拟（左闭右开）；开 `N+2` 因为队列最多装一行全部 `N` 个元素。\n- `x_l`、`x_r` 在 `for(i)` 内声明，每行重置为 0（队列重置），`que_x` 数组复用于每一行（覆盖写入，旧数据不会被读取）。\n- 队首出窗条件 `j - que_x[x_l].first >= big`：下标差达到 `big` 时队首已滑出窗口；`x_l != x_r` 保证队列非空再访问队首/队尾。\n\n#### fn · 阶段二（列方向单调队列）\n\n```cpp\n    vector<pair<int, int>> que_y(M + 2);       // 列方向单调队列\n\n    // === 阶段二：每列做列方向滑动窗口 ===\n    for (int j = 1; j <= N; j++)\n    {\n        int y_l = 0, y_r = 0;                   // 队列左右指针\n        for (int i = 1; i <= M; i++)\n        {\n            int a = tmp[i][j];                   // 读取阶段一的结果\n            // 1. 队首出窗\n            if (y_l != y_r && i - que_y[y_l].first >= big) ++y_l;\n            // 2. 维护单调性\n            while (y_l != y_r && cmp(a, que_y[y_r - 1].second, k)) --y_r;\n            // 3. 新元素入队\n            que_y[y_r++] = pair<int, int>(i, a);\n            // 4. 覆盖写入 tmp（此时 tmp[i][j] 是二维窗口最值）\n            tmp[i][j] = que_y[y_l].second;\n        }\n    }\n}\n```\n\n- `que_y(M+2)` 与阶段一同构，存 `(下标, 值)`，开 `M+2` 因为队列最多装一列全部 `M` 个元素。\n- 阶段二直接在 `tmp` 上覆盖写入、省一个矩阵空间：列按行从上到下处理，读 `tmp[i][j]` 时它仍是阶段一的结果（尚未被覆盖），写完后才变成二维结果；同一列的上行已被覆盖但不影响下行读取。\n- `pair<int,int>` 存 `(下标, 值)`：下标用于判断是否出窗、值用于比较；也可只存下标再回矩阵读值（少拷贝、多一次访问），各有利弊。\n- 出窗 / 维护单调性逻辑与阶段一完全一致，只是方向换成列（`j` 固定、`i` 递增）。\n\n#### main · 读入与求最小值矩阵\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int M, N, big;\n    cin >> M >> N >> big;\n    A.resize(M + 1, vector<int>(N + 1));\n    for (int i = 1; i <= M; i++)\n    {\n        for (int j = 1; j <= N; j++)\n        {\n            cin >> A[i][j];\n        }\n    }\n    cout << '\\n';\n    vector<vector<int>> n_min, n_max;\n    fn(M, N, true, big, n_min);                 // 求最小值矩阵\n    for (int i = 1; i <= M; i++)\n    {\n        for (int j = 1; j <= N; j++)\n        {\n            cout << n_min[i][j] << ' ';\n        }\n        cout << '\\n';\n    }\n```\n\n- `ios::sync_with_stdio(false)` + `cin.tie(nullptr)` 加速 IO。\n- 矩阵下标从 1 开始（`1..M`、`1..N`），与常规 0-based 不同，输入输出需对应。\n- `n_min`、`n_max` 在 `main` 声明，通过引用传给 `fn` 填充；`fn(M, N, true, big, n_min)` 求最小值矩阵。\n- 输出格式：先输出最小值矩阵、空行、再输出最大值矩阵。\n\n#### main · 求最大值矩阵与输出\n\n```cpp\n    cout << '\\n';\n    fn(M, N, false, big, n_max);                // 求最大值矩阵\n    for (int i = 1; i <= M; i++)\n    {\n        for (int j = 1; j <= N; j++)\n        {\n            cout << n_max[i][j] << ' ';\n        }\n        cout << '\\n';\n    }\n    return 0;\n}\n```\n\n- `fn(M, N, false, big, n_max)` 求最大值矩阵；两次调用完全独立、各自使用各自的 `tmp`，只需要其一时可只调用一次。\n- `i=1` 行和 `j=1` 列的结果是前缀最值（窗口不足 `big`），有效二维窗口从 `(big, big)` 位置开始。\n\n### 复杂度分析\n\n- **时间复杂度**：阶段一逐行处理，每行每个元素入队一次、出队一次（均摊 $O(1)$），共 $O(M \\cdot N)$。阶段二逐列处理，同理 $O(M \\cdot N)$。总时间复杂度为 $O(M \\cdot N)$。与暴力法的 $O(M \\cdot N \\cdot \\text{big}^2)$ 相比，当 `big` 较大时优势巨大。\n- **空间复杂度**：原矩阵 $O(M \\cdot N)$，临时矩阵 `tmp` $O(M \\cdot N)$，行队列 $O(N)$，列队列 $O(M)$。总空间复杂度为 $O(M \\cdot N)$。若允许修改原矩阵，可以省去 `tmp`，空间降为 $O(M+N)$（仅队列）。\n\n与其他二维 RMQ 方法对比：\n\n| 方法 | 预处理时间 | 查询时间 | 空间 | 适用场景 |\n|---|---|---|---|---|\n| 二维 ST 表 | $O(MN \\log M \\log N)$ | $O(1)$ | $O(MN \\log M \\log N)$ | 静态矩阵、多次任意查询 |\n| 两阶段单调队列 | $O(MN)$ | 一次求出所有窗口 | $O(MN)$ | 固定窗口大小、全矩阵查询 |\n| 暴力法 | - | $O(\\text{big}^2)$ 每个窗口 | $O(MN)$ | 小窗口或数据量小 |\n\n### 适用场景\n\n固定大小的二维滑动窗口最值查询、图像卷积中的最大/最小池化（Max/Min Pooling）、矩阵中寻找满足条件的子矩形、二维直方图相关问题。特别适合\"求所有 `K×K` 窗口的最值\"这类输出规模为 $O(MN)$ 的问题——两阶段单调队列的总时间与输出规模同阶，是理论最优的。\n\n### 常见陷阱与注意事项\n\n1. **窗口不足 big 的位置**：`i < big` 或 `j < big` 的位置，`tmp[i][j]` 存储的是前缀最值（窗口大小不足 big），不是完整二维窗口的结果。使用时需注意从 `(big, big)` 开始才是有效的 `big × big` 窗口最值。\n2. **cmp 的等号方向**：代码用 `<=` 和 `>=`（含等号），相等时旧元素被弹出、保留新元素。这是安全的——新元素下标更大，出窗更晚，不会导致错误。但如果用 `<` 和 `>`（不含等号），相等元素会同时保留，不影响正确性但队列可能稍长。\n3. **阶段二覆盖写入的安全性**：`tmp[i][j]` 在阶段二中先读后写，因为列处理是按行从上到下的，读取时 `tmp[i][j]` 仍是阶段一的结果（尚未被覆盖）。如果改成其他顺序（如从下往上），则需要额外空间。\n4. **全局变量 A**：`A` 作为全局变量被 `fn` 访问，虽然方便但不利于多线程或多次调用。若需要同时处理多个矩阵，应改为参数传递。\n5. **手写队列的边界**：`x_l != x_r` 表示队列非空。`que_x[x_r-1]` 是队尾，`que_x[x_l]` 是队首。数组大小为 `N+2`，足够容纳一行所有元素（最多 $N$ 个）。\n6. **big = 1 的情况**：窗口大小为 1 时，最值就是元素本身，两阶段单调队列仍正确（每个元素入队出队各一次），但有额外常数开销。可以特判优化。\n7. **矩阵下标的起始**：代码从 1 开始（`1..M`, `1..N`），与 C++ 常规的 0-based 不同。使用时需注意输入输出的下标对应关系。\n\n### 对比与扩展\n\n与二维 ST 表相比：两阶段单调队列在固定窗口大小、全矩阵查询时更优（线性时间、更少空间），但不支持任意位置任意大小的查询。二维 ST 表预处理后支持 $O(1)$ 任意查询，但预处理和空间开销更大。选择取决于查询模式：查询次数多、窗口大小多变 → ST 表；固定窗口、全矩阵输出 → 两阶段单调队列。\n\n扩展方向包括：① **一维单调队列**（本算法的基础，单个数组的滑动窗口最值，见「一维滑动窗口最值（单调队列基础模板）」）；② **二维单调队列的滚动优化**：若只需最后一行的结果或空间紧张，可以用滚动数组进一步压缩空间；③ **多维扩展**：三维及以上的滑动窗口最值，可以用同样的\"逐维压缩\"思想，$d$ 维问题做 $d$ 次一维单调队列，总时间 $O(d \\cdot n^d)$；④ **带修改的动态维护**：若矩阵元素可修改，单调队列不再适用，需用线段树套线段树等高级数据结构；⑤ **单调栈求最大矩形**：与单调队列思想同源（维护单调性），用于求直方图最大矩形、二维最大全 1 子矩阵等问题。",
                 "codePath": "数据结构\\单调队列\\一维滑动窗口最值（基础模板）\\Untitled1.cpp",
                 "timeComplexity": "O(n)",
                 "spaceComplexity": "O(k)",
@@ -5924,7 +5983,7 @@ const KNOWLEDGE_DATA = [
                 "source": "Xesir"
             }
         ],
-        "content": "## 算法原理\r\n\r\n单调队列（Monotonic Queue）是一种特殊的双端队列，其内部元素始终保持单调递增或单调递减。它是解决**滑动窗口最值**问题的最优数据结构：给定长度为 $n$ 的数组 $A$ 和窗口大小 $k$，窗口从左到右滑动，求每个窗口位置的最大值和最小值。\r\n\r\n核心思想是维护一个单调双端队列，队列中存储元素的值和下标，且队列的值始终保持单调性：\r\n\r\n- **求最大值**：维护**单调递减**队列，队首始终是当前窗口的最大元素\r\n- **求最小值**：维护**单调递增**队列，队首始终是当前窗口的最小元素\r\n\r\n对每个新元素 $A[i]$ 的处理分为三步：\r\n1. **队首出窗**：检查队首下标是否已滑出窗口（`i - 队首下标 >= k`），若过期则弹出队首\r\n2. **维护单调性**：从队尾弹出所有不满足单调性的元素。对于最大值队列，弹出所有 $\\leq A[i]$ 的队尾；对于最小值队列，弹出所有 $\\geq A[i]$ 的队尾\r\n3. **入队**：将 `(A[i], i)` 从队尾入队\r\n\r\n当窗口填满（$i \\geq k$）后，队首即为当前窗口的最值。\r\n\r\n正确性的关键在于：当一个新元素入队时，所有比它更小（对最大值队列）或更大（对最小值队列）的队尾元素都**不可能成为未来任何窗口的最值**——因为新元素更\"优\"（更大或更小）且更晚过期（下标更大），所以可以安全弹出。这保证了队列长度远小于窗口大小，每个元素最多入队出队各一次，均摊 $O(1)$。\r\n\r\n本模板同时维护最大值和最小值两个队列，实际中可按需只使用一个。\r\n\r\n## 核心公式\r\n\r\n设数组为 $A[1..n]$，窗口大小为 $k$，单调队列为 $Q$（存储 `(值, 下标)` 对）。\r\n\r\n**队首出队条件**（下标超出窗口范围）：\r\n\r\n$$\r\n\\text{若 } i - Q.\\text{front}().\\text{second} \\geq k: \\quad Q.\\text{pop\\_front()}\r\n$$\r\n\r\n**队尾维护（最大值队列，单调递减）**：\r\n\r\n$$\r\n\\text{while } Q \\text{ 非空 且 } Q.\\text{back}().\\text{first} \\leq A[i]: \\quad Q.\\text{pop\\_back()}\r\n$$\r\n\r\n**队尾维护（最小值队列，单调递增）**：\r\n\r\n$$\r\n\\text{while } Q \\text{ 非空 且 } Q.\\text{back}().\\text{first} \\geq A[i]: \\quad Q.\\text{pop\\_back()}\r\n$$\r\n\r\n**入队**：\r\n\r\n$$\r\nQ.\\text{push\\_back}((A[i],\\; i))\r\n$$\r\n\r\n**窗口最值**（当 $i \\geq k$ 时有效）：\r\n\r\n$$\r\n\\text{窗口最大值} = Q_{\\max}.\\text{front}().\\text{first}, \\quad \\text{窗口最小值} = Q_{\\min}.\\text{front}().\\text{first}\r\n$$\r\n\r\n## 数据结构图示\r\n\r\n```\r\n输入示例：A = [1,3,-1,-3,5,3,6,7], k = 3\r\n下标：     1 2  3  4 5 6 7 8\r\n\r\n=== 逐步执行（以最大值队列为例，单调递减） ===\r\n\r\ni=1, A[1]=1:\r\n  队首出窗: 队列为空, 跳过\r\n  维护: 队列为空, 直接入\r\n  入队: [(1,1)]\r\n  i<3, 不记录\r\n\r\ni=2, A[2]=3:\r\n  队首出窗: 2-1=1 < 3, 不出\r\n  维护: 1 <= 3 → 弹出 → 队空\r\n  入队: [(3,2)]\r\n  i<3, 不记录\r\n\r\ni=3, A[3]=-1:\r\n  队首出窗: 3-2=1 < 3, 不出\r\n  维护: 3 > -1 → 不弹\r\n  入队: [(3,2), (-1,3)]\r\n  i>=3, 窗口最大值 = 队首值 = 3  ✓ (窗口[1,3]=[1,3,-1], max=3)\r\n\r\ni=4, A[4]=-3:\r\n  队首出窗: 4-2=2 < 3, 不出\r\n  维护: -1 > -3 → 不弹\r\n  入队: [(3,2), (-1,3), (-3,4)]\r\n  i>=3, 窗口最大值 = 3  ✓ (窗口[2,4]=[3,-1,-3], max=3)\r\n\r\ni=5, A[5]=5:\r\n  队首出窗: 5-2=3 >= 3 → 弹出队首(3,2)\r\n         队列变为 [(-1,3), (-3,4)]\r\n         5-3=2 < 3 → 停止出窗\r\n  维护: -3 <= 5 → 弹出 → [(-1,3)]\r\n       -1 <= 5 → 弹出 → []\r\n  入队: [(5,5)]\r\n  i>=3, 窗口最大值 = 5  ✓ (窗口[3,5]=[-1,-3,5], max=5)\r\n\r\ni=6, A[6]=3:\r\n  队首出窗: 6-5=1 < 3, 不出\r\n  维护: 5 > 3 → 不弹\r\n  入队: [(5,5), (3,6)]\r\n  i>=3, 窗口最大值 = 5  ✓ (窗口[4,6]=[-3,5,3], max=5)\r\n\r\ni=7, A[7]=6:\r\n  队首出窗: 7-5=2 < 3, 不出\r\n  维护: 3 <= 6 → 弹出 → [(5,5)]\r\n       5 <= 6 → 弹出 → []\r\n  入队: [(6,7)]\r\n  i>=3, 窗口最大值 = 6  ✓ (窗口[5,7]=[5,3,6], max=6)\r\n\r\ni=8, A[8]=7:\r\n  队首出窗: 8-7=1 < 3, 不出\r\n  维护: 6 <= 7 → 弹出 → []\r\n  入队: [(7,8)]\r\n  i>=3, 窗口最大值 = 7  ✓ (窗口[6,8]=[3,6,7], max=7)\r\n\r\n=== 最终结果 ===\r\n窗口最大值: [3, 3, 5, 5, 6, 7]   (共 n-k+1 = 6 个)\r\n窗口最小值: [-1, -3, -3, -3, 3, 3]\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### 初始化：双端队列\r\n\r\n- **数据结构**：`deque<pair<int,int>> que_max, que_min`，C++ STL 的双端队列，支持 $O(1)$ 头尾增删。\r\n- **存储内容**：每个元素是 `(值, 下标)` 对。值用于比较维护单调性，下标用于判断是否出窗。\r\n- **关键细节**：也可以只存下标，值从原数组读取（节省空间但多一次数组访问）。竞赛中常用存值的方式，减少代码出错点。\r\n\r\n### 三步处理流程（每个元素）\r\n\r\n1. **队首出窗**：`if(i - que.front().second >= k) que.pop_front()`\r\n   - 窗口是左闭右开还是闭区间？窗口为 $[i-k+1, i]$，共 $k$ 个元素。当队首下标 $\\leq i-k$ 时出窗，即 `i - 下标 >= k`。\r\n   - 为什么用 `>=` 而不是 `>`：`i - idx >= k` 表示队首下标距当前已达到窗口大小，确实已滑出。若用 `>` 会多保留一个过期元素。\r\n\r\n2. **维护单调性**：`while(!que.empty() && que.back().first <= A[i]) que.pop_back()`（最大值队列）\r\n   - 弹出所有不可能成为未来窗口最值的队尾元素。新元素比队尾更\"优\"且更晚过期，队尾永远不可能再成为最值。\r\n   - 注意是 `<=` 还是 `<`：含等号时，相等元素弹出旧的保留新的，更安全（新的出窗更晚）。不含等号时，相等元素共存，队列可能稍长但不影响正确性。\r\n\r\n3. **入队**：`que.emplace_back(A[i], i)`\r\n   - 将当前元素加入队尾。此时队列仍保持单调性。\r\n\r\n### 记录结果\r\n\r\n- **时机**：`if(i >= k)` 时，窗口已填满 $k$ 个元素，队首即为当前窗口最值。\r\n- **结果**：`que_max.front().first` 是最大值，`que_min.front().first` 是最小值。\r\n- **结果数量**：共 $n - k + 1$ 个窗口的结果。\r\n\r\n## 逐行代码解析\r\n\r\n下面把完整程序按「入口 → 读入 → 数据结构 → 主循环 → 输出」拆成 5 个模块；所有模块的代码块按顺序拼接起来就是完整程序（注释已标注各步含义）。\r\n\r\n### 模块 1：头文件与 main 入口\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint main()\r\n{\r\n```\r\n\r\n- `bits/stdc++.h` 是万能头，一次包含 `vector`、`deque`、`pair`、`iostream` 等所需头文件，竞赛常用。\r\n- `using namespace std;` 省略 `std::` 前缀，让 `vector`、`deque`、`cin`、`cout` 可以直接书写。\r\n\r\n### 模块 2：读入与数组初始化\r\n\r\n```cpp\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr);cout.tie(nullptr);\r\n    int n,k;\r\n    cin >> n >> k;                         // n: 数组长度, k: 窗口大小\r\n    vector<int> A(n + 1,0);                // 原数组（1-based）\r\n    for(int i = 1;i <= n;i++) cin >> A[i];\r\n```\r\n\r\n- 关闭同步流并解绑 `cin`/`cout`，避免读入大数组时超时。\r\n- `A` 开 `n + 1` 且下标从 `1` 开始（1-based），窗口范围是 `[i-k+1, i]`，出窗判断更直观。\r\n\r\n### 模块 3：结果数组与单调队列\r\n\r\n```cpp\r\n    vector<int> mymax;                     // 存每个窗口的最大值\r\n    vector<int> mymin;                     // 存每个窗口的最小值\r\n    deque<pair<int,int>> que_max;          // 最大值队列（单调递减）\r\n    deque<pair<int,int>> que_min;          // 最小值队列（单调递增）\r\n```\r\n\r\n- `deque<pair<int,int>>`：STL 双端队列，存 `(值, 下标)` 对；`front()`/`back()`/`pop_front()`/`pop_back()`/`emplace_back()` 全部 $O(1)$。\r\n- `que_max` 和 `que_min` 是两个独立队列，分别维护最大/最小，逻辑完全对称，只是比较方向相反（`<=` vs `>=`）。\r\n\r\n### 模块 4：主循环（出窗 + 维护单调 + 入队 + 记录）\r\n\r\n```cpp\r\n    for(int i = 1;i <= n;i++)\r\n    {\r\n        // === 第一步：队首出窗 ===\r\n        if(!que_max.empty())\r\n        {\r\n            int idx = que_max.front().second;\r\n            if(i - idx >= k) que_max.pop_front();\r\n        }\r\n        if(!que_min.empty())\r\n        {\r\n            int idx = que_min.front().second;\r\n            if(i - idx >= k) que_min.pop_front();\r\n        }\r\n\r\n        // === 第二步：维护单调性（弹出队尾） ===\r\n        while(!que_max.empty() && que_max.back().first <= A[i]) que_max.pop_back();\r\n        que_max.emplace_back(A[i] , i);    // 第三步：入队\r\n\r\n        while(!que_min.empty() && que_min.back().first >= A[i]) que_min.pop_back();\r\n        que_min.emplace_back(A[i] , i);    // 第三步：入队\r\n\r\n        // === 记录结果（窗口填满后） ===\r\n        if(i >= k)\r\n        {\r\n            mymax.emplace_back(que_max.front().first);\r\n            mymin.emplace_back(que_min.front().first);\r\n        }\r\n    }\r\n```\r\n\r\n- 队首出窗用 `if` 而非 `while`：每次 `i` 只增 `1`，最多一个元素过期出窗。\r\n- `i - idx >= k` 用 `>=` 而非 `>`：`>=` 才表示队首下标已滑出窗口，用 `>` 会多保留一个过期元素。\r\n- 维护单调性用 `while`：可能要连续弹出多个队尾；`que_max` 弹 `<=`（递减）、`que_min` 弹 `>=`（递增），方向弄反会导致队列无序。\r\n- 先弹队尾再入队，顺序不能颠倒；`i >= k` 时窗口才填满 `k` 个元素，此时 `front()` 必非空、可安全取值。\r\n\r\n### 模块 5：输出结果\r\n\r\n```cpp\r\n    for(int i : mymin) cout << i << \" \";   // 先输出所有窗口最小值\r\n    cout << endl;\r\n    for(int i : mymax) cout << i << \" \";   // 再输出所有窗口最大值\r\n    return 0;\r\n}\r\n```\r\n\r\n- 先输出所有窗口最小值、再输出所有窗口最大值，符合题目常见格式，可按需调换。\r\n- 结果数量为 `n - k + 1` 个窗口。\r\n\r\n## 复杂度分析\r\n\r\n- **时间复杂度**：$O(n)$。遍历 $n$ 个元素，每个元素最多入队一次、出队一次（不管是从队首弹出还是队尾弹出），均摊 $O(1)$。两个队列总操作次数不超过 $2n$。\r\n- **空间复杂度**：$O(k)$。队列大小最多为窗口大小 $k$（当数组严格单调时，队列长度等于当前窗口长度）。结果数组 `mymax` 和 `mymin` 各为 $O(n-k+1)$，总空间 $O(n)$。若只需实时输出不保存结果，空间为 $O(k)$。\r\n\r\n与其他方法对比：\r\n\r\n| 方法 | 时间 | 空间 | 特点 |\r\n|---|---|---|---|\r\n| 单调队列 | $O(n)$ | $O(k)$ | 最优，固定窗口大小 |\r\n| 优先队列（堆） | $O(n \\log n)$ | $O(n)$ | 支持动态窗口，但弹出懒删除 |\r\n| ST 表 | 预处理 $O(n \\log n)$，查询 $O(1)$ | $O(n \\log n)$ | 支持任意区间查询 |\r\n| 暴力法 | $O(nk)$ | $O(1)$ | 小数据可用 |\r\n\r\n## 适用场景\r\n\r\n固定大小的一维滑动窗口最值查询，是单调队列最基础也是最核心的应用。在此基础上可扩展到：\r\n- **DP 优化**：多重背包单调队列优化、长度不超过 $m$ 的最大子段和、各种\"在窗口内取最值\"的 DP 转移优化\r\n- **二维扩展**：两阶段单调队列求 `K×K` 子矩阵最值（见「二维滑动窗口最值」）\r\n- **子数组问题**：满足条件的最短/最长子数组（配合双指针 + 单调队列）\r\n- **数据流问题**：滑动窗口中位数、滑动窗口平均值等变体\r\n\r\n本模板是单调队列的标准入门写法，掌握后可快速推导各种变体。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **队首出窗条件用 `>=` 而非 `>`**：`i - idx >= k` 表示队首下标距当前已达到窗口大小，已滑出窗口。若用 `>` 会多保留一个过期元素，导致结果错误。\r\n2. **队尾弹出的方向**：`que_max` 弹出 $\\leq$ 当前值的（保持递减，队首最大）；`que_min` 弹出 $\\geq$ 当前值的（保持递增，队首最小）。方向弄反会导致队列无序，结果错误。\r\n3. **入队顺序**：先弹出队尾不满足单调性的元素，再入队当前元素。顺序不能颠倒（否则新元素可能被自己弹出，或者队列不单调）。\r\n4. **窗口填满的判断**：`i >= k` 表示窗口已有 $k$ 个元素，开始记录结果。注意数组下标从 $1$ 开始时窗口范围为 $[i-k+1, i]$；若从 $0$ 开始则为 $[i-k+1, i]$，判断条件为 `i >= k-1`。\r\n5. **`deque` 的使用**：双端队列支持 $O(1)$ 的头尾操作，用 `std::deque` 或手写数组模拟均可。手写数组模拟在竞赛中有时更快（无 STL 开销），但 `deque` 更简洁不易错。\r\n6. **同时维护最大最小的开销**：本模板同时维护两个队列，时间空间常数都是两倍。如果只需要一个方向，只需保留对应队列。\r\n7. **值 vs 下标存储**：队列存 `(值, 下标)` 还是只存下标？存值的好处是比较时不用再访问数组（代码更直观），存下标的好处是节省内存（尤其当值的类型很大时）。竞赛中存值更常见。\r\n8. **未校验 $1 \\le k \\le n$**：当 $k > n$ 或 $k \\le 0$ 时，上述逻辑会破坏（如 `i >= k` 永远不成立导致无结果，或出窗条件失效）。通常题目保证输入合法，可默认假设 $1 \\le k \\le n$；若需稳健处理，应在读入后加判断（如 `if(k <= 0 || k > n)` 特判或调整）。\r\n\r\n## 对比与扩展\r\n\r\n与优先队列（堆）维护窗口最值相比：单调队列每个元素只入队出队各一次，均摊 $O(1)$；而堆的弹出是懒删除（过期元素还在堆中），最坏 $O(n \\log n)$。单调队列在固定窗口最值问题上严格优于堆。\r\n\r\n与 ST 表相比：单调队列是**在线**的（边读边处理），且空间更优（$O(k)$ vs $O(n \\log n)$）。但 ST 表支持任意区间的 $O(1)$ 查询，适用范围更广。如果只需要滑动窗口最值，单调队列更合适；如果有多种查询需求，ST 表更灵活。\r\n\r\n**扩展方向**：\r\n- **二维滑动窗口最值**：先逐行做一维滑动窗口，再逐列做一维滑动窗口（见「二维滑动窗口最值（两阶段单调队列）」），总时间 $O(MN)$\r\n- **多重背包单调队列优化**：将 DP 状态转移方程变形为\"窗口内取最值\"的形式，用单调队列将 $O(nmk)$ 优化到 $O(nm)$\r\n- **最大子段和（长度受限）**：前缀和 + 单调队列维护窗口最小前缀和，$O(n)$ 求解长度不超过 $m$ 的最大子段和\r\n- **单调栈**：单调队列的\"近亲\"，维护单调性但只在一端操作，用于求每个元素的下一个更大/更小元素、直方图最大矩形等\r\n- **双端单调队列的其他应用**：满足条件的最短子数组、和至少为 K 的最短子数组（前缀和 + 单调队列）等",
+        "content": "## 算法原理\n\n单调队列（Monotonic Queue）是一种特殊的双端队列，其内部元素始终保持单调递增或单调递减。它是解决**滑动窗口最值**问题的最优数据结构：给定长度为 $n$ 的数组 $A$ 和窗口大小 $k$，窗口从左到右滑动，求每个窗口位置的最大值和最小值。\n\n核心思想是维护一个单调双端队列，队列中存储元素的值和下标，且队列的值始终保持单调性：\n\n- **求最大值**：维护**单调递减**队列，队首始终是当前窗口的最大元素\n- **求最小值**：维护**单调递增**队列，队首始终是当前窗口的最小元素\n\n对每个新元素 $A[i]$ 的处理分为三步：\n1. **队首出窗**：检查队首下标是否已滑出窗口（`i - 队首下标 >= k`），若过期则弹出队首\n2. **维护单调性**：从队尾弹出所有不满足单调性的元素。对于最大值队列，弹出所有 $\\leq A[i]$ 的队尾；对于最小值队列，弹出所有 $\\geq A[i]$ 的队尾\n3. **入队**：将 `(A[i], i)` 从队尾入队\n\n当窗口填满（$i \\geq k$）后，队首即为当前窗口的最值。\n\n正确性的关键在于：当一个新元素入队时，所有比它更小（对最大值队列）或更大（对最小值队列）的队尾元素都**不可能成为未来任何窗口的最值**——因为新元素更\"优\"（更大或更小）且更晚过期（下标更大），所以可以安全弹出。这保证了队列长度远小于窗口大小，每个元素最多入队出队各一次，均摊 $O(1)$。\n\n本模板同时维护最大值和最小值两个队列，实际中可按需只使用一个。\n\n## 核心公式\n\n设数组为 $A[1..n]$，窗口大小为 $k$，单调队列为 $Q$（存储 `(值, 下标)` 对）。\n\n**队首出队条件**（下标超出窗口范围）：\n\n$$\n\\text{若 } i - Q.\\text{front}().\\text{second} \\geq k: \\quad Q.\\text{pop\\_front()}\n$$\n\n**队尾维护（最大值队列，单调递减）**：\n\n$$\n\\text{while } Q \\text{ 非空 且 } Q.\\text{back}().\\text{first} \\leq A[i]: \\quad Q.\\text{pop\\_back()}\n$$\n\n**队尾维护（最小值队列，单调递增）**：\n\n$$\n\\text{while } Q \\text{ 非空 且 } Q.\\text{back}().\\text{first} \\geq A[i]: \\quad Q.\\text{pop\\_back()}\n$$\n\n**入队**：\n\n$$\nQ.\\text{push\\_back}((A[i],\\; i))\n$$\n\n**窗口最值**（当 $i \\geq k$ 时有效）：\n\n$$\n\\text{窗口最大值} = Q_{\\max}.\\text{front}().\\text{first}, \\quad \\text{窗口最小值} = Q_{\\min}.\\text{front}().\\text{first}\n$$\n\n## 数据结构图示\n\n```\n输入示例：A = [1,3,-1,-3,5,3,6,7], k = 3\n下标：     1 2  3  4 5 6 7 8\n\n=== 逐步执行（以最大值队列为例，单调递减） ===\n\ni=1, A[1]=1:\n  队首出窗: 队列为空, 跳过\n  维护: 队列为空, 直接入\n  入队: [(1,1)]\n  i<3, 不记录\n\ni=2, A[2]=3:\n  队首出窗: 2-1=1 < 3, 不出\n  维护: 1 <= 3 → 弹出 → 队空\n  入队: [(3,2)]\n  i<3, 不记录\n\ni=3, A[3]=-1:\n  队首出窗: 3-2=1 < 3, 不出\n  维护: 3 > -1 → 不弹\n  入队: [(3,2), (-1,3)]\n  i>=3, 窗口最大值 = 队首值 = 3  ✓ (窗口[1,3]=[1,3,-1], max=3)\n\ni=4, A[4]=-3:\n  队首出窗: 4-2=2 < 3, 不出\n  维护: -1 > -3 → 不弹\n  入队: [(3,2), (-1,3), (-3,4)]\n  i>=3, 窗口最大值 = 3  ✓ (窗口[2,4]=[3,-1,-3], max=3)\n\ni=5, A[5]=5:\n  队首出窗: 5-2=3 >= 3 → 弹出队首(3,2)\n         队列变为 [(-1,3), (-3,4)]\n         5-3=2 < 3 → 停止出窗\n  维护: -3 <= 5 → 弹出 → [(-1,3)]\n       -1 <= 5 → 弹出 → []\n  入队: [(5,5)]\n  i>=3, 窗口最大值 = 5  ✓ (窗口[3,5]=[-1,-3,5], max=5)\n\ni=6, A[6]=3:\n  队首出窗: 6-5=1 < 3, 不出\n  维护: 5 > 3 → 不弹\n  入队: [(5,5), (3,6)]\n  i>=3, 窗口最大值 = 5  ✓ (窗口[4,6]=[-3,5,3], max=5)\n\ni=7, A[7]=6:\n  队首出窗: 7-5=2 < 3, 不出\n  维护: 3 <= 6 → 弹出 → [(5,5)]\n       5 <= 6 → 弹出 → []\n  入队: [(6,7)]\n  i>=3, 窗口最大值 = 6  ✓ (窗口[5,7]=[5,3,6], max=6)\n\ni=8, A[8]=7:\n  队首出窗: 8-7=1 < 3, 不出\n  维护: 6 <= 7 → 弹出 → []\n  入队: [(7,8)]\n  i>=3, 窗口最大值 = 7  ✓ (窗口[6,8]=[3,6,7], max=7)\n\n=== 最终结果 ===\n窗口最大值: [3, 3, 5, 5, 6, 7]   (共 n-k+1 = 6 个)\n窗口最小值: [-1, -3, -3, -3, 3, 3]\n```\n\n## 核心操作详解\n\n### 初始化：双端队列\n\n- **数据结构**：`deque<pair<int,int>> que_max, que_min`，C++ STL 的双端队列，支持 $O(1)$ 头尾增删。\n- **存储内容**：每个元素是 `(值, 下标)` 对。值用于比较维护单调性，下标用于判断是否出窗。\n- **关键细节**：也可以只存下标，值从原数组读取（节省空间但多一次数组访问）。竞赛中常用存值的方式，减少代码出错点。\n\n### 三步处理流程（每个元素）\n\n1. **队首出窗**：`if(i - que.front().second >= k) que.pop_front()`\n   - 窗口是左闭右开还是闭区间？窗口为 $[i-k+1, i]$，共 $k$ 个元素。当队首下标 $\\leq i-k$ 时出窗，即 `i - 下标 >= k`。\n   - 为什么用 `>=` 而不是 `>`：`i - idx >= k` 表示队首下标距当前已达到窗口大小，确实已滑出。若用 `>` 会多保留一个过期元素。\n\n2. **维护单调性**：`while(!que.empty() && que.back().first <= A[i]) que.pop_back()`（最大值队列）\n   - 弹出所有不可能成为未来窗口最值的队尾元素。新元素比队尾更\"优\"且更晚过期，队尾永远不可能再成为最值。\n   - 注意是 `<=` 还是 `<`：含等号时，相等元素弹出旧的保留新的，更安全（新的出窗更晚）。不含等号时，相等元素共存，队列可能稍长但不影响正确性。\n\n3. **入队**：`que.emplace_back(A[i], i)`\n   - 将当前元素加入队尾。此时队列仍保持单调性。\n\n### 记录结果\n\n- **时机**：`if(i >= k)` 时，窗口已填满 $k$ 个元素，队首即为当前窗口最值。\n- **结果**：`que_max.front().first` 是最大值，`que_min.front().first` 是最小值。\n- **结果数量**：共 $n - k + 1$ 个窗口的结果。\n\n## 逐行代码解析\n\n下面把完整程序按「入口 → 读入 → 数据结构 → 主循环 → 输出」拆成 5 个模块；所有模块的代码块按顺序拼接起来就是完整程序（注释已标注各步含义）。\n\n### 模块 1：头文件与 main 入口\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n```\n\n- `bits/stdc++.h` 是万能头，一次包含 `vector`、`deque`、`pair`、`iostream` 等所需头文件，竞赛常用。\n- `using namespace std;` 省略 `std::` 前缀，让 `vector`、`deque`、`cin`、`cout` 可以直接书写。\n\n### 模块 2：读入与数组初始化\n\n```cpp\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);cout.tie(nullptr);\n    int n,k;\n    cin >> n >> k;                         // n: 数组长度, k: 窗口大小\n    vector<int> A(n + 1,0);                // 原数组（1-based）\n    for(int i = 1;i <= n;i++) cin >> A[i];\n```\n\n- 关闭同步流并解绑 `cin`/`cout`，避免读入大数组时超时。\n- `A` 开 `n + 1` 且下标从 `1` 开始（1-based），窗口范围是 `[i-k+1, i]`，出窗判断更直观。\n\n### 模块 3：结果数组与单调队列\n\n```cpp\n    vector<int> mymax;                     // 存每个窗口的最大值\n    vector<int> mymin;                     // 存每个窗口的最小值\n    deque<pair<int,int>> que_max;          // 最大值队列（单调递减）\n    deque<pair<int,int>> que_min;          // 最小值队列（单调递增）\n```\n\n- `deque<pair<int,int>>`：STL 双端队列，存 `(值, 下标)` 对；`front()`/`back()`/`pop_front()`/`pop_back()`/`emplace_back()` 全部 $O(1)$。\n- `que_max` 和 `que_min` 是两个独立队列，分别维护最大/最小，逻辑完全对称，只是比较方向相反（`<=` vs `>=`）。\n\n### 模块 4：主循环（出窗 + 维护单调 + 入队 + 记录）\n\n```cpp\n    for(int i = 1;i <= n;i++)\n    {\n        // === 第一步：队首出窗 ===\n        if(!que_max.empty())\n        {\n            int idx = que_max.front().second;\n            if(i - idx >= k) que_max.pop_front();\n        }\n        if(!que_min.empty())\n        {\n            int idx = que_min.front().second;\n            if(i - idx >= k) que_min.pop_front();\n        }\n\n        // === 第二步：维护单调性（弹出队尾） ===\n        while(!que_max.empty() && que_max.back().first <= A[i]) que_max.pop_back();\n        que_max.emplace_back(A[i] , i);    // 第三步：入队\n\n        while(!que_min.empty() && que_min.back().first >= A[i]) que_min.pop_back();\n        que_min.emplace_back(A[i] , i);    // 第三步：入队\n\n        // === 记录结果（窗口填满后） ===\n        if(i >= k)\n        {\n            mymax.emplace_back(que_max.front().first);\n            mymin.emplace_back(que_min.front().first);\n        }\n    }\n```\n\n- 队首出窗用 `if` 而非 `while`：每次 `i` 只增 `1`，最多一个元素过期出窗。\n- `i - idx >= k` 用 `>=` 而非 `>`：`>=` 才表示队首下标已滑出窗口，用 `>` 会多保留一个过期元素。\n- 维护单调性用 `while`：可能要连续弹出多个队尾；`que_max` 弹 `<=`（递减）、`que_min` 弹 `>=`（递增），方向弄反会导致队列无序。\n- 先弹队尾再入队，顺序不能颠倒；`i >= k` 时窗口才填满 `k` 个元素，此时 `front()` 必非空、可安全取值。\n\n### 模块 5：输出结果\n\n```cpp\n    for(int i : mymin) cout << i << \" \";   // 先输出所有窗口最小值\n    cout << endl;\n    for(int i : mymax) cout << i << \" \";   // 再输出所有窗口最大值\n    return 0;\n}\n```\n\n- 先输出所有窗口最小值、再输出所有窗口最大值，符合题目常见格式，可按需调换。\n- 结果数量为 `n - k + 1` 个窗口。\n\n## 复杂度分析\n\n- **时间复杂度**：$O(n)$。遍历 $n$ 个元素，每个元素最多入队一次、出队一次（不管是从队首弹出还是队尾弹出），均摊 $O(1)$。两个队列总操作次数不超过 $2n$。\n- **空间复杂度**：$O(k)$。队列大小最多为窗口大小 $k$（当数组严格单调时，队列长度等于当前窗口长度）。结果数组 `mymax` 和 `mymin` 各为 $O(n-k+1)$，总空间 $O(n)$。若只需实时输出不保存结果，空间为 $O(k)$。\n\n与其他方法对比：\n\n| 方法 | 时间 | 空间 | 特点 |\n|---|---|---|---|\n| 单调队列 | $O(n)$ | $O(k)$ | 最优，固定窗口大小 |\n| 优先队列（堆） | $O(n \\log n)$ | $O(n)$ | 支持动态窗口，但弹出懒删除 |\n| ST 表 | 预处理 $O(n \\log n)$，查询 $O(1)$ | $O(n \\log n)$ | 支持任意区间查询 |\n| 暴力法 | $O(nk)$ | $O(1)$ | 小数据可用 |\n\n## 适用场景\n\n固定大小的一维滑动窗口最值查询，是单调队列最基础也是最核心的应用。在此基础上可扩展到：\n- **DP 优化**：多重背包单调队列优化、长度不超过 $m$ 的最大子段和、各种\"在窗口内取最值\"的 DP 转移优化\n- **二维扩展**：两阶段单调队列求 `K×K` 子矩阵最值（见「二维滑动窗口最值」）\n- **子数组问题**：满足条件的最短/最长子数组（配合双指针 + 单调队列）\n- **数据流问题**：滑动窗口中位数、滑动窗口平均值等变体\n\n本模板是单调队列的标准入门写法，掌握后可快速推导各种变体。\n\n## 常见陷阱与注意事项\n\n1. **队首出窗条件用 `>=` 而非 `>`**：`i - idx >= k` 表示队首下标距当前已达到窗口大小，已滑出窗口。若用 `>` 会多保留一个过期元素，导致结果错误。\n2. **队尾弹出的方向**：`que_max` 弹出 $\\leq$ 当前值的（保持递减，队首最大）；`que_min` 弹出 $\\geq$ 当前值的（保持递增，队首最小）。方向弄反会导致队列无序，结果错误。\n3. **入队顺序**：先弹出队尾不满足单调性的元素，再入队当前元素。顺序不能颠倒（否则新元素可能被自己弹出，或者队列不单调）。\n4. **窗口填满的判断**：`i >= k` 表示窗口已有 $k$ 个元素，开始记录结果。注意数组下标从 $1$ 开始时窗口范围为 $[i-k+1, i]$；若从 $0$ 开始则为 $[i-k+1, i]$，判断条件为 `i >= k-1`。\n5. **`deque` 的使用**：双端队列支持 $O(1)$ 的头尾操作，用 `std::deque` 或手写数组模拟均可。手写数组模拟在竞赛中有时更快（无 STL 开销），但 `deque` 更简洁不易错。\n6. **同时维护最大最小的开销**：本模板同时维护两个队列，时间空间常数都是两倍。如果只需要一个方向，只需保留对应队列。\n7. **值 vs 下标存储**：队列存 `(值, 下标)` 还是只存下标？存值的好处是比较时不用再访问数组（代码更直观），存下标的好处是节省内存（尤其当值的类型很大时）。竞赛中存值更常见。\n8. **未校验 $1 \\le k \\le n$**：当 $k > n$ 或 $k \\le 0$ 时，上述逻辑会破坏（如 `i >= k` 永远不成立导致无结果，或出窗条件失效）。通常题目保证输入合法，可默认假设 $1 \\le k \\le n$；若需稳健处理，应在读入后加判断（如 `if(k <= 0 || k > n)` 特判或调整）。\n\n## 对比与扩展\n\n与优先队列（堆）维护窗口最值相比：单调队列每个元素只入队出队各一次，均摊 $O(1)$；而堆的弹出是懒删除（过期元素还在堆中），最坏 $O(n \\log n)$。单调队列在固定窗口最值问题上严格优于堆。\n\n与 ST 表相比：单调队列是**在线**的（边读边处理），且空间更优（$O(k)$ vs $O(n \\log n)$）。但 ST 表支持任意区间的 $O(1)$ 查询，适用范围更广。如果只需要滑动窗口最值，单调队列更合适；如果有多种查询需求，ST 表更灵活。\n\n**扩展方向**：\n- **二维滑动窗口最值**：先逐行做一维滑动窗口，再逐列做一维滑动窗口（见「二维滑动窗口最值（两阶段单调队列）」），总时间 $O(MN)$\n- **多重背包单调队列优化**：将 DP 状态转移方程变形为\"窗口内取最值\"的形式，用单调队列将 $O(nmk)$ 优化到 $O(nm)$\n- **最大子段和（长度受限）**：前缀和 + 单调队列维护窗口最小前缀和，$O(n)$ 求解长度不超过 $m$ 的最大子段和\n- **单调栈**：单调队列的\"近亲\"，维护单调性但只在一端操作，用于求每个元素的下一个更大/更小元素、直方图最大矩形等\n- **双端单调队列的其他应用**：满足条件的最短子数组、和至少为 K 的最短子数组（前缀和 + 单调队列）等\n\n## 附：二维滑动窗口最值（两阶段单调队列）\n\n> 本文是一维滑动窗口最值的扩展。若对单调队列的基本操作不熟悉，请先阅读「一维滑动窗口最值（单调队列基础模板）」。\n\n给定一个 $M \\times N$ 的矩阵和一个窗口大小 `big`，求每个 `big × big` 子矩阵内的最大值和最小值。这是经典的**二维滑动窗口最值**问题。\n\n最直接的做法是暴力枚举每个窗口的所有 `big × big` 个元素，复杂度为 $O(M \\cdot N \\cdot \\text{big}^2)$，当 big 较大时无法通过。更优的方法是**两阶段单调队列**：把二维问题拆解为两个一维问题。\n\n- **阶段一（行方向）**：对矩阵的每一行，用一维单调队列求出长度为 `big` 的滑动窗口最值，结果存入临时矩阵 `tmp`。此时 `tmp[i][j]` 表示第 $i$ 行中以 $j$ 结尾的、长度为 `big` 的窗口内的最值。\n- **阶段二（列方向）**：对 `tmp` 矩阵的每一列，再用一维单调队列求出长度为 `big` 的滑动窗口最值，结果覆盖回 `tmp`。此时 `tmp[i][j]` 表示以 $(i,j)$ 为右下角的 `big × big` 子矩阵的最值。\n\n为什么两阶段是对的？考虑任意一个 `big × big` 窗口：先对每一行求行内窗口最值（得到 big 个行最值），再对这些行最值求列窗口最值——得到的就是整个二维窗口的最值。最值操作具有\"可结合性\"：$\\max(\\max(a,b), \\max(c,d)) = \\max(a,b,c,d)$。行方向先压缩、列方向再压缩，等价于直接求二维窗口的最值。\n\n本代码用 `bool k` 参数统一了最大值和最小值的逻辑：`k=true` 求最小值（递增队列），`k=false` 求最大值（递减队列），通过 `cmp(a, b, k)` 函数动态切换比较方向，避免了写两套几乎相同的代码。\n\n### 核心公式\n\n设原矩阵为 $A[1..M][1..N]$，窗口大小为 $K = \\text{big}$。\n\n**阶段一：行方向一维滑动窗口**\n\n$$\n\\text{tmp}[i][j] = \\min_{t = j-K+1}^{j} A[i][t] \\quad (\\text{或 } \\max)\n$$\n\n其中 $j \\geq K$ 时才有意义，$j < K$ 时为前缀最值。\n\n**阶段二：列方向一维滑动窗口**\n\n$$\n\\text{ans}[i][j] = \\min_{t = i-K+1}^{i} \\text{tmp}[t][j] \\quad (\\text{或 } \\max)\n$$\n\n**合并后的二维窗口最值**：\n\n$$\n\\text{ans}[i][j] = \\min_{\\substack{x \\in [i-K+1,\\, i] \\\\ y \\in [j-K+1,\\, j]}} A[x][y] \\quad (\\text{或 } \\max)\n$$\n\n**单调队列的维护不变性**（以求最小值为例）：\n\n设队列为 $Q = [q_1, q_2, \\dots, q_m]$（按下标递增排列），对应值为 $v_1, v_2, \\dots, v_m$，则队列满足：\n\n$$\nv_1 \\leq v_2 \\leq \\dots \\leq v_m \\quad (\\text{单调递增})\n$$\n\n每次右端加入新元素 $a$ 时，弹出队尾所有 $\\geq a$ 的元素再入队：\n\n$$\n\\text{while } v_m \\geq a \\text{ 且 } Q \\text{ 非空}: \\quad \\text{pop\\_back}; \\quad \\text{push\\_back}(a)\n$$\n\n左端超出窗口范围时出队：\n\n$$\n\\text{if } j - q_1 \\geq K: \\quad \\text{pop\\_front}\n$$\n\n窗口最值为队首元素：\n\n$$\n\\text{window\\_min} = v_1\n$$\n\n### 数据结构图示\n\n```\n输入示例：M=4, N=5, big=2（求 2×2 窗口最小值）\n\n  原矩阵 A:\n      j=1  j=2  j=3  j=4  j=5\n  i=1   3    1    4    2    5\n  i=2   2    4    1    3    2\n  i=3   5    2    3    1    4\n  i=4   1    3    2    4    1\n\n  === 阶段一：每行做一维滑动窗口（窗口大小 2，求最小值） ===\n\n  第 1 行 [3,1,4,2,5]:\n    j=2: min(3,1)=1   que: [1(值1)]\n    j=3: min(1,4)=1   que: [1(值1), 3(值4)]\n    j=4: min(4,2)=2   que: [4(值2)]  (1 出窗，弹出 3 后入 4)\n    j=5: min(2,5)=2   que: [4(值2), 5(值5)]\n\n  tmp 矩阵（每行窗口最小值）:\n      j=1  j=2  j=3  j=4  j=5\n  i=1   3    1    1    2    2\n  i=2   2    2    1    1    2\n  i=3   5    2    2    1    1\n  i=4   1    1    2    2    1\n\n  === 阶段二：每列做一维滑动窗口（窗口大小 2，求最小值） ===\n\n  第 2 列 [1, 2, 2, 1]:\n    i=2: min(1,2)=1   que: [1(值1), 2(值2)]\n    i=3: min(2,2)=2   que: [2(值2), 3(值2)]  (1 出窗)\n    i=4: min(2,1)=1   que: [4(值1)]  (2,3 弹出后入 4)\n\n  最终 ans 矩阵（2×2 窗口最小值）:\n      j=1  j=2  j=3  j=4  j=5\n  i=1   3    1    1    2    2\n  i=2   2    1    1    1    2\n  i=3   2    2    1    1    1\n  i=4   1    1    2    1    1\n\n  验证：以 (3,3) 为右下角的 2×2 窗口 = A[2..3][2..3]\n        = [[4,1],[2,3]]，最小值 = 1 ✓\n        ans[3][3] = 1 ✓\n```\n\n### 核心操作详解\n\n#### cmp(a, b, k) — 统一比较函数\n\n- **作用**：根据 `k` 的值切换比较方向，统一最大值和最小值的单调队列逻辑。\n- **参数**：`a` 新元素值，`b` 队尾元素值，`k` 方向标志。\n- **返回值**：`k=true` 时返回 `a <= b`（求最小值，维护递增队列）；`k=false` 时返回 `a >= b`（求最大值，维护递减队列）。\n- **关键细节**：用函数指针或 lambda 也可以，但 `bool` 开关更轻量，且避免了模板/函数对象的代码膨胀。注意是 `<=` 和 `>=`（含等号），这意味着相等元素时旧的会被弹出，保留最新的——这在窗口滑动时更安全（下标更大的元素出窗更晚）。\n\n#### 阶段一：行方向单调队列\n\n- **数据结构**：`vector<pair<int,int>> que_x(N+2)`，存储 `(下标, 值)` 对，`x_l` 和 `x_r` 为左右指针（左闭右开）。\n- **算法步骤**：对每一行 $i$，从左到右遍历列 $j$：\n  1. 若队首元素下标 $j - \\text{下标} \\geq \\text{big}$（出窗），`++x_l` 弹出队首。\n  2. 若 `cmp(A[i][j], 队尾值, k)` 为真，弹出队尾（保持单调性），直到队列为空或不满足比较条件。\n  3. 将 `(j, A[i][j])` 入队。\n  4. `tmp[i][j] = 队首值`（当前窗口的最值）。\n- **关键细节**：每行独立处理，行与行之间不共享状态。`que_x` 在每行开始时自动通过 `x_l=x_r=0` 重置（注意：代码中 `x_l, x_r` 是在 `for(i)` 内声明的，每行都会重新初始化为 0，但 `que_x` 数组本身不会清空——不过因为单调队列是\"覆盖写入\"，旧数据不会被读取，所以没问题）。\n\n#### 阶段二：列方向单调队列\n\n- **数据结构**：`vector<pair<int,int>> que_y(M+2)`，与阶段一结构相同。\n- **算法步骤**：对每一列 $j$，从上到下遍历行 $i$：\n  1. 若队首元素下标 $i - \\text{下标} \\geq \\text{big}$（出窗），`++y_l` 弹出队首。\n  2. 若 `cmp(tmp[i][j], 队尾值, k)` 为真，弹出队尾（保持单调性）。\n  3. 将 `(i, tmp[i][j])` 入队。\n  4. `tmp[i][j] = 队首值`（覆盖写入，此时即为二维窗口最值）。\n- **关键细节**：阶段二直接在 `tmp` 上覆盖写入，节省了一个矩阵的空间。因为列方向的处理是按行递增的，读取 `tmp[i][j]` 时用的是阶段一的结果（还没被覆盖），写入后的值只在后续行的同列处理中被使用，不冲突。\n\n#### 主函数：分别求最小值和最大值\n\n- **调用方式**：`fn(M, N, true, big, n_min)` 求最小值矩阵；`fn(M, N, false, big, n_max)` 求最大值矩阵。\n- **关键细节**：两次调用 `fn` 是完全独立的，分别使用各自的 `tmp` 矩阵。`n_min` 和 `n_max` 在 `main` 中声明，通过引用传递给 `fn` 填充结果。\n\n### 逐行代码解析\n\n#### 全局变量与比较函数 cmp\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nvector<vector<int>> A;                         // 原矩阵（全局，fn 中直接访问）\n\nbool cmp(int a,int b,bool k)\n{\n    return k ? a <= b : a >= b;                // k=true: 递增(求min); k=false: 递减(求max)\n}\n```\n\n- `A` 是全局矩阵：`fn` 直接访问全局 `A`，减少参数传递（竞赛常见写法；工程代码建议改为参数传递）。\n- `cmp` 是比较方向开关：`a` 是新元素、`b` 是队尾元素；`k=true`（求 min）时返回 `a <= b` 维护递增队列，`k=false`（求 max）时返回 `a >= b` 维护递减队列。\n- `<=`/`>=` 含等号：相等时旧元素被弹出、保留新元素（新元素下标更大、出窗更晚），滑动时更安全。\n\n#### fn · 阶段一（行方向单调队列）\n\n```cpp\nvoid fn(int M,int N,bool k,int big,vector<vector<int>>& tmp)\n{\n    tmp.resize(M + 1, vector<int>(N + 1));     // 初始化结果矩阵\n    vector<pair<int, int>> que_x(N + 2);       // 行方向单调队列（存(下标,值)）\n\n    // === 阶段一：每行做行方向滑动窗口 ===\n    for (int i = 1; i <= M; i++)\n    {\n        int x_l = 0, x_r = 0;                   // 队列左右指针（左闭右开）\n        for (int j = 1; j <= N; j++)\n        {\n            int a = A[i][j];\n            // 1. 队首出窗\n            if (x_l != x_r && j - que_x[x_l].first >= big) ++x_l;\n            // 2. 维护单调性：弹出队尾不满足条件的元素\n            while (x_l != x_r && cmp(a, que_x[x_r - 1].second, k)) --x_r;\n            // 3. 新元素入队\n            que_x[x_r++] = pair<int, int>(j, a);\n            // 4. 队首即为当前窗口最值\n            tmp[i][j] = que_x[x_l].second;\n        }\n    }\n```\n\n- `tmp.resize(M+1, vector<int>(N+1))`：结果矩阵在 `fn` 内部初始化，通过引用 `&tmp` 返回。\n- `que_x(N+2)`：手写双端队列，用数组 + 左右指针 `x_l`/`x_r` 模拟（左闭右开）；开 `N+2` 因为队列最多装一行全部 `N` 个元素。\n- `x_l`、`x_r` 在 `for(i)` 内声明，每行重置为 0（队列重置），`que_x` 数组复用于每一行（覆盖写入，旧数据不会被读取）。\n- 队首出窗条件 `j - que_x[x_l].first >= big`：下标差达到 `big` 时队首已滑出窗口；`x_l != x_r` 保证队列非空再访问队首/队尾。\n\n#### fn · 阶段二（列方向单调队列）\n\n```cpp\n    vector<pair<int, int>> que_y(M + 2);       // 列方向单调队列\n\n    // === 阶段二：每列做列方向滑动窗口 ===\n    for (int j = 1; j <= N; j++)\n    {\n        int y_l = 0, y_r = 0;                   // 队列左右指针\n        for (int i = 1; i <= M; i++)\n        {\n            int a = tmp[i][j];                   // 读取阶段一的结果\n            // 1. 队首出窗\n            if (y_l != y_r && i - que_y[y_l].first >= big) ++y_l;\n            // 2. 维护单调性\n            while (y_l != y_r && cmp(a, que_y[y_r - 1].second, k)) --y_r;\n            // 3. 新元素入队\n            que_y[y_r++] = pair<int, int>(i, a);\n            // 4. 覆盖写入 tmp（此时 tmp[i][j] 是二维窗口最值）\n            tmp[i][j] = que_y[y_l].second;\n        }\n    }\n}\n```\n\n- `que_y(M+2)` 与阶段一同构，存 `(下标, 值)`，开 `M+2` 因为队列最多装一列全部 `M` 个元素。\n- 阶段二直接在 `tmp` 上覆盖写入、省一个矩阵空间：列按行从上到下处理，读 `tmp[i][j]` 时它仍是阶段一的结果（尚未被覆盖），写完后才变成二维结果；同一列的上行已被覆盖但不影响下行读取。\n- `pair<int,int>` 存 `(下标, 值)`：下标用于判断是否出窗、值用于比较；也可只存下标再回矩阵读值（少拷贝、多一次访问），各有利弊。\n- 出窗 / 维护单调性逻辑与阶段一完全一致，只是方向换成列（`j` 固定、`i` 递增）。\n\n#### main · 读入与求最小值矩阵\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int M, N, big;\n    cin >> M >> N >> big;\n    A.resize(M + 1, vector<int>(N + 1));\n    for (int i = 1; i <= M; i++)\n    {\n        for (int j = 1; j <= N; j++)\n        {\n            cin >> A[i][j];\n        }\n    }\n    cout << '\\n';\n    vector<vector<int>> n_min, n_max;\n    fn(M, N, true, big, n_min);                 // 求最小值矩阵\n    for (int i = 1; i <= M; i++)\n    {\n        for (int j = 1; j <= N; j++)\n        {\n            cout << n_min[i][j] << ' ';\n        }\n        cout << '\\n';\n    }\n```\n\n- `ios::sync_with_stdio(false)` + `cin.tie(nullptr)` 加速 IO。\n- 矩阵下标从 1 开始（`1..M`、`1..N`），与常规 0-based 不同，输入输出需对应。\n- `n_min`、`n_max` 在 `main` 声明，通过引用传给 `fn` 填充；`fn(M, N, true, big, n_min)` 求最小值矩阵。\n- 输出格式：先输出最小值矩阵、空行、再输出最大值矩阵。\n\n#### main · 求最大值矩阵与输出\n\n```cpp\n    cout << '\\n';\n    fn(M, N, false, big, n_max);                // 求最大值矩阵\n    for (int i = 1; i <= M; i++)\n    {\n        for (int j = 1; j <= N; j++)\n        {\n            cout << n_max[i][j] << ' ';\n        }\n        cout << '\\n';\n    }\n    return 0;\n}\n```\n\n- `fn(M, N, false, big, n_max)` 求最大值矩阵；两次调用完全独立、各自使用各自的 `tmp`，只需要其一时可只调用一次。\n- `i=1` 行和 `j=1` 列的结果是前缀最值（窗口不足 `big`），有效二维窗口从 `(big, big)` 位置开始。\n\n### 复杂度分析\n\n- **时间复杂度**：阶段一逐行处理，每行每个元素入队一次、出队一次（均摊 $O(1)$），共 $O(M \\cdot N)$。阶段二逐列处理，同理 $O(M \\cdot N)$。总时间复杂度为 $O(M \\cdot N)$。与暴力法的 $O(M \\cdot N \\cdot \\text{big}^2)$ 相比，当 `big` 较大时优势巨大。\n- **空间复杂度**：原矩阵 $O(M \\cdot N)$，临时矩阵 `tmp` $O(M \\cdot N)$，行队列 $O(N)$，列队列 $O(M)$。总空间复杂度为 $O(M \\cdot N)$。若允许修改原矩阵，可以省去 `tmp`，空间降为 $O(M+N)$（仅队列）。\n\n与其他二维 RMQ 方法对比：\n\n| 方法 | 预处理时间 | 查询时间 | 空间 | 适用场景 |\n|---|---|---|---|---|\n| 二维 ST 表 | $O(MN \\log M \\log N)$ | $O(1)$ | $O(MN \\log M \\log N)$ | 静态矩阵、多次任意查询 |\n| 两阶段单调队列 | $O(MN)$ | 一次求出所有窗口 | $O(MN)$ | 固定窗口大小、全矩阵查询 |\n| 暴力法 | - | $O(\\text{big}^2)$ 每个窗口 | $O(MN)$ | 小窗口或数据量小 |\n\n### 适用场景\n\n固定大小的二维滑动窗口最值查询、图像卷积中的最大/最小池化（Max/Min Pooling）、矩阵中寻找满足条件的子矩形、二维直方图相关问题。特别适合\"求所有 `K×K` 窗口的最值\"这类输出规模为 $O(MN)$ 的问题——两阶段单调队列的总时间与输出规模同阶，是理论最优的。\n\n### 常见陷阱与注意事项\n\n1. **窗口不足 big 的位置**：`i < big` 或 `j < big` 的位置，`tmp[i][j]` 存储的是前缀最值（窗口大小不足 big），不是完整二维窗口的结果。使用时需注意从 `(big, big)` 开始才是有效的 `big × big` 窗口最值。\n2. **cmp 的等号方向**：代码用 `<=` 和 `>=`（含等号），相等时旧元素被弹出、保留新元素。这是安全的——新元素下标更大，出窗更晚，不会导致错误。但如果用 `<` 和 `>`（不含等号），相等元素会同时保留，不影响正确性但队列可能稍长。\n3. **阶段二覆盖写入的安全性**：`tmp[i][j]` 在阶段二中先读后写，因为列处理是按行从上到下的，读取时 `tmp[i][j]` 仍是阶段一的结果（尚未被覆盖）。如果改成其他顺序（如从下往上），则需要额外空间。\n4. **全局变量 A**：`A` 作为全局变量被 `fn` 访问，虽然方便但不利于多线程或多次调用。若需要同时处理多个矩阵，应改为参数传递。\n5. **手写队列的边界**：`x_l != x_r` 表示队列非空。`que_x[x_r-1]` 是队尾，`que_x[x_l]` 是队首。数组大小为 `N+2`，足够容纳一行所有元素（最多 $N$ 个）。\n6. **big = 1 的情况**：窗口大小为 1 时，最值就是元素本身，两阶段单调队列仍正确（每个元素入队出队各一次），但有额外常数开销。可以特判优化。\n7. **矩阵下标的起始**：代码从 1 开始（`1..M`, `1..N`），与 C++ 常规的 0-based 不同。使用时需注意输入输出的下标对应关系。\n\n### 对比与扩展\n\n与二维 ST 表相比：两阶段单调队列在固定窗口大小、全矩阵查询时更优（线性时间、更少空间），但不支持任意位置任意大小的查询。二维 ST 表预处理后支持 $O(1)$ 任意查询，但预处理和空间开销更大。选择取决于查询模式：查询次数多、窗口大小多变 → ST 表；固定窗口、全矩阵输出 → 两阶段单调队列。\n\n扩展方向包括：① **一维单调队列**（本算法的基础，单个数组的滑动窗口最值，见「一维滑动窗口最值（单调队列基础模板）」）；② **二维单调队列的滚动优化**：若只需最后一行的结果或空间紧张，可以用滚动数组进一步压缩空间；③ **多维扩展**：三维及以上的滑动窗口最值，可以用同样的\"逐维压缩\"思想，$d$ 维问题做 $d$ 次一维单调队列，总时间 $O(d \\cdot n^d)$；④ **带修改的动态维护**：若矩阵元素可修改，单调队列不再适用，需用线段树套线段树等高级数据结构；⑤ **单调栈求最大矩形**：与单调队列思想同源（维护单调性），用于求直方图最大矩形、二维最大全 1 子矩阵等问题。",
         "timeComplexity": "O(n)",
         "spaceComplexity": "O(k)",
         "tags": [
@@ -5940,60 +5999,12 @@ const KNOWLEDGE_DATA = [
             "hub-ds"
         ],
         "related": [
-            "ds-monoqueue-2d",
             "basic-two-pointer-cycle",
             "dp-multi-bag-monotone",
             "ds-dual-heap",
-            "ds-stack-prefix-max",
+            "ds-monostack-histogram",
             "ds-mo-team",
-            "ds-monostack-histogram"
-        ],
-        "parent": ""
-    },
-    {
-        "id": "ds-monoqueue-2d",
-        "category": "数据结构",
-        "subcategory": "单调队列",
-        "subSubcategory": "",
-        "title": "二维滑动窗口最值（两阶段单调队列）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n> 本文是一维滑动窗口最值的扩展。若对单调队列的基本操作不熟悉，请先阅读「一维滑动窗口最值（单调队列基础模板）」。\r\n\r\n给定一个 $M \\times N$ 的矩阵和一个窗口大小 `big`，求每个 `big × big` 子矩阵内的最大值和最小值。这是经典的**二维滑动窗口最值**问题。\r\n\r\n最直接的做法是暴力枚举每个窗口的所有 `big × big` 个元素，复杂度为 $O(M \\cdot N \\cdot \\text{big}^2)$，当 big 较大时无法通过。更优的方法是**两阶段单调队列**：把二维问题拆解为两个一维问题。\r\n\r\n- **阶段一（行方向）**：对矩阵的每一行，用一维单调队列求出长度为 `big` 的滑动窗口最值，结果存入临时矩阵 `tmp`。此时 `tmp[i][j]` 表示第 $i$ 行中以 $j$ 结尾的、长度为 `big` 的窗口内的最值。\r\n- **阶段二（列方向）**：对 `tmp` 矩阵的每一列，再用一维单调队列求出长度为 `big` 的滑动窗口最值，结果覆盖回 `tmp`。此时 `tmp[i][j]` 表示以 $(i,j)$ 为右下角的 `big × big` 子矩阵的最值。\r\n\r\n为什么两阶段是对的？考虑任意一个 `big × big` 窗口：先对每一行求行内窗口最值（得到 big 个行最值），再对这些行最值求列窗口最值——得到的就是整个二维窗口的最值。最值操作具有\"可结合性\"：$\\max(\\max(a,b), \\max(c,d)) = \\max(a,b,c,d)$。行方向先压缩、列方向再压缩，等价于直接求二维窗口的最值。\r\n\r\n本代码用 `bool k` 参数统一了最大值和最小值的逻辑：`k=true` 求最小值（递增队列），`k=false` 求最大值（递减队列），通过 `cmp(a, b, k)` 函数动态切换比较方向，避免了写两套几乎相同的代码。\r\n\r\n## 核心公式\r\n\r\n设原矩阵为 $A[1..M][1..N]$，窗口大小为 $K = \\text{big}$。\r\n\r\n**阶段一：行方向一维滑动窗口**\r\n\r\n$$\r\n\\text{tmp}[i][j] = \\min_{t = j-K+1}^{j} A[i][t] \\quad (\\text{或 } \\max)\r\n$$\r\n\r\n其中 $j \\geq K$ 时才有意义，$j < K$ 时为前缀最值。\r\n\r\n**阶段二：列方向一维滑动窗口**\r\n\r\n$$\r\n\\text{ans}[i][j] = \\min_{t = i-K+1}^{i} \\text{tmp}[t][j] \\quad (\\text{或 } \\max)\r\n$$\r\n\r\n**合并后的二维窗口最值**：\r\n\r\n$$\r\n\\text{ans}[i][j] = \\min_{\\substack{x \\in [i-K+1,\\, i] \\\\ y \\in [j-K+1,\\, j]}} A[x][y] \\quad (\\text{或 } \\max)\r\n$$\r\n\r\n**单调队列的维护不变性**（以求最小值为例）：\r\n\r\n设队列为 $Q = [q_1, q_2, \\dots, q_m]$（按下标递增排列），对应值为 $v_1, v_2, \\dots, v_m$，则队列满足：\r\n\r\n$$\r\nv_1 \\leq v_2 \\leq \\dots \\leq v_m \\quad (\\text{单调递增})\r\n$$\r\n\r\n每次右端加入新元素 $a$ 时，弹出队尾所有 $\\geq a$ 的元素再入队：\r\n\r\n$$\r\n\\text{while } v_m \\geq a \\text{ 且 } Q \\text{ 非空}: \\quad \\text{pop\\_back}; \\quad \\text{push\\_back}(a)\r\n$$\r\n\r\n左端超出窗口范围时出队：\r\n\r\n$$\r\n\\text{if } j - q_1 \\geq K: \\quad \\text{pop\\_front}\r\n$$\r\n\r\n窗口最值为队首元素：\r\n\r\n$$\r\n\\text{window\\_min} = v_1\r\n$$\r\n\r\n## 数据结构图示\r\n\r\n```\r\n输入示例：M=4, N=5, big=2（求 2×2 窗口最小值）\r\n\r\n  原矩阵 A:\r\n      j=1  j=2  j=3  j=4  j=5\r\n  i=1   3    1    4    2    5\r\n  i=2   2    4    1    3    2\r\n  i=3   5    2    3    1    4\r\n  i=4   1    3    2    4    1\r\n\r\n  === 阶段一：每行做一维滑动窗口（窗口大小 2，求最小值） ===\r\n\r\n  第 1 行 [3,1,4,2,5]:\r\n    j=2: min(3,1)=1   que: [1(值1)]\r\n    j=3: min(1,4)=1   que: [1(值1), 3(值4)]\r\n    j=4: min(4,2)=2   que: [4(值2)]  (1 出窗，弹出 3 后入 4)\r\n    j=5: min(2,5)=2   que: [4(值2), 5(值5)]\r\n\r\n  tmp 矩阵（每行窗口最小值）:\r\n      j=1  j=2  j=3  j=4  j=5\r\n  i=1   3    1    1    2    2\r\n  i=2   2    2    1    1    2\r\n  i=3   5    2    2    1    1\r\n  i=4   1    1    2    2    1\r\n\r\n  === 阶段二：每列做一维滑动窗口（窗口大小 2，求最小值） ===\r\n\r\n  第 2 列 [1, 2, 2, 1]:\r\n    i=2: min(1,2)=1   que: [1(值1), 2(值2)]\r\n    i=3: min(2,2)=2   que: [2(值2), 3(值2)]  (1 出窗)\r\n    i=4: min(2,1)=1   que: [4(值1)]  (2,3 弹出后入 4)\r\n\r\n  最终 ans 矩阵（2×2 窗口最小值）:\r\n      j=1  j=2  j=3  j=4  j=5\r\n  i=1   3    1    1    2    2\r\n  i=2   2    1    1    1    2\r\n  i=3   2    2    1    1    1\r\n  i=4   1    1    2    1    1\r\n\r\n  验证：以 (3,3) 为右下角的 2×2 窗口 = A[2..3][2..3]\r\n        = [[4,1],[2,3]]，最小值 = 1 ✓\r\n        ans[3][3] = 1 ✓\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### cmp(a, b, k) — 统一比较函数\r\n\r\n- **作用**：根据 `k` 的值切换比较方向，统一最大值和最小值的单调队列逻辑。\r\n- **参数**：`a` 新元素值，`b` 队尾元素值，`k` 方向标志。\r\n- **返回值**：`k=true` 时返回 `a <= b`（求最小值，维护递增队列）；`k=false` 时返回 `a >= b`（求最大值，维护递减队列）。\r\n- **关键细节**：用函数指针或 lambda 也可以，但 `bool` 开关更轻量，且避免了模板/函数对象的代码膨胀。注意是 `<=` 和 `>=`（含等号），这意味着相等元素时旧的会被弹出，保留最新的——这在窗口滑动时更安全（下标更大的元素出窗更晚）。\r\n\r\n### 阶段一：行方向单调队列\r\n\r\n- **数据结构**：`vector<pair<int,int>> que_x(N+2)`，存储 `(下标, 值)` 对，`x_l` 和 `x_r` 为左右指针（左闭右开）。\r\n- **算法步骤**：对每一行 $i$，从左到右遍历列 $j$：\r\n  1. 若队首元素下标 $j - \\text{下标} \\geq \\text{big}$（出窗），`++x_l` 弹出队首。\r\n  2. 若 `cmp(A[i][j], 队尾值, k)` 为真，弹出队尾（保持单调性），直到队列为空或不满足比较条件。\r\n  3. 将 `(j, A[i][j])` 入队。\r\n  4. `tmp[i][j] = 队首值`（当前窗口的最值）。\r\n- **关键细节**：每行独立处理，行与行之间不共享状态。`que_x` 在每行开始时自动通过 `x_l=x_r=0` 重置（注意：代码中 `x_l, x_r` 是在 `for(i)` 内声明的，每行都会重新初始化为 0，但 `que_x` 数组本身不会清空——不过因为单调队列是\"覆盖写入\"，旧数据不会被读取，所以没问题）。\r\n\r\n### 阶段二：列方向单调队列\r\n\r\n- **数据结构**：`vector<pair<int,int>> que_y(M+2)`，与阶段一结构相同。\r\n- **算法步骤**：对每一列 $j$，从上到下遍历行 $i$：\r\n  1. 若队首元素下标 $i - \\text{下标} \\geq \\text{big}$（出窗），`++y_l` 弹出队首。\r\n  2. 若 `cmp(tmp[i][j], 队尾值, k)` 为真，弹出队尾（保持单调性）。\r\n  3. 将 `(i, tmp[i][j])` 入队。\r\n  4. `tmp[i][j] = 队首值`（覆盖写入，此时即为二维窗口最值）。\r\n- **关键细节**：阶段二直接在 `tmp` 上覆盖写入，节省了一个矩阵的空间。因为列方向的处理是按行递增的，读取 `tmp[i][j]` 时用的是阶段一的结果（还没被覆盖），写入后的值只在后续行的同列处理中被使用，不冲突。\r\n\r\n### 主函数：分别求最小值和最大值\r\n\r\n- **调用方式**：`fn(M, N, true, big, n_min)` 求最小值矩阵；`fn(M, N, false, big, n_max)` 求最大值矩阵。\r\n- **关键细节**：两次调用 `fn` 是完全独立的，分别使用各自的 `tmp` 矩阵。`n_min` 和 `n_max` 在 `main` 中声明，通过引用传递给 `fn` 填充结果。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量与比较函数 cmp\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nvector<vector<int>> A;                         // 原矩阵（全局，fn 中直接访问）\r\n\r\nbool cmp(int a,int b,bool k)\r\n{\r\n    return k ? a <= b : a >= b;                // k=true: 递增(求min); k=false: 递减(求max)\r\n}\r\n```\r\n\r\n- `A` 是全局矩阵：`fn` 直接访问全局 `A`，减少参数传递（竞赛常见写法；工程代码建议改为参数传递）。\r\n- `cmp` 是比较方向开关：`a` 是新元素、`b` 是队尾元素；`k=true`（求 min）时返回 `a <= b` 维护递增队列，`k=false`（求 max）时返回 `a >= b` 维护递减队列。\r\n- `<=`/`>=` 含等号：相等时旧元素被弹出、保留新元素（新元素下标更大、出窗更晚），滑动时更安全。\r\n\r\n### fn · 阶段一（行方向单调队列）\r\n\r\n```cpp\r\nvoid fn(int M,int N,bool k,int big,vector<vector<int>>& tmp)\r\n{\r\n    tmp.resize(M + 1, vector<int>(N + 1));     // 初始化结果矩阵\r\n    vector<pair<int, int>> que_x(N + 2);       // 行方向单调队列（存(下标,值)）\r\n\r\n    // === 阶段一：每行做行方向滑动窗口 ===\r\n    for (int i = 1; i <= M; i++)\r\n    {\r\n        int x_l = 0, x_r = 0;                   // 队列左右指针（左闭右开）\r\n        for (int j = 1; j <= N; j++)\r\n        {\r\n            int a = A[i][j];\r\n            // 1. 队首出窗\r\n            if (x_l != x_r && j - que_x[x_l].first >= big) ++x_l;\r\n            // 2. 维护单调性：弹出队尾不满足条件的元素\r\n            while (x_l != x_r && cmp(a, que_x[x_r - 1].second, k)) --x_r;\r\n            // 3. 新元素入队\r\n            que_x[x_r++] = pair<int, int>(j, a);\r\n            // 4. 队首即为当前窗口最值\r\n            tmp[i][j] = que_x[x_l].second;\r\n        }\r\n    }\r\n```\r\n\r\n- `tmp.resize(M+1, vector<int>(N+1))`：结果矩阵在 `fn` 内部初始化，通过引用 `&tmp` 返回。\r\n- `que_x(N+2)`：手写双端队列，用数组 + 左右指针 `x_l`/`x_r` 模拟（左闭右开）；开 `N+2` 因为队列最多装一行全部 `N` 个元素。\r\n- `x_l`、`x_r` 在 `for(i)` 内声明，每行重置为 0（队列重置），`que_x` 数组复用于每一行（覆盖写入，旧数据不会被读取）。\r\n- 队首出窗条件 `j - que_x[x_l].first >= big`：下标差达到 `big` 时队首已滑出窗口；`x_l != x_r` 保证队列非空再访问队首/队尾。\r\n\r\n### fn · 阶段二（列方向单调队列）\r\n\r\n```cpp\r\n    vector<pair<int, int>> que_y(M + 2);       // 列方向单调队列\r\n\r\n    // === 阶段二：每列做列方向滑动窗口 ===\r\n    for (int j = 1; j <= N; j++)\r\n    {\r\n        int y_l = 0, y_r = 0;                   // 队列左右指针\r\n        for (int i = 1; i <= M; i++)\r\n        {\r\n            int a = tmp[i][j];                   // 读取阶段一的结果\r\n            // 1. 队首出窗\r\n            if (y_l != y_r && i - que_y[y_l].first >= big) ++y_l;\r\n            // 2. 维护单调性\r\n            while (y_l != y_r && cmp(a, que_y[y_r - 1].second, k)) --y_r;\r\n            // 3. 新元素入队\r\n            que_y[y_r++] = pair<int, int>(i, a);\r\n            // 4. 覆盖写入 tmp（此时 tmp[i][j] 是二维窗口最值）\r\n            tmp[i][j] = que_y[y_l].second;\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n- `que_y(M+2)` 与阶段一同构，存 `(下标, 值)`，开 `M+2` 因为队列最多装一列全部 `M` 个元素。\r\n- 阶段二直接在 `tmp` 上覆盖写入、省一个矩阵空间：列按行从上到下处理，读 `tmp[i][j]` 时它仍是阶段一的结果（尚未被覆盖），写完后才变成二维结果；同一列的上行已被覆盖但不影响下行读取。\r\n- `pair<int,int>` 存 `(下标, 值)`：下标用于判断是否出窗、值用于比较；也可只存下标再回矩阵读值（少拷贝、多一次访问），各有利弊。\r\n- 出窗 / 维护单调性逻辑与阶段一完全一致，只是方向换成列（`j` 固定、`i` 递增）。\r\n\r\n### main · 读入与求最小值矩阵\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int M, N, big;\r\n    cin >> M >> N >> big;\r\n    A.resize(M + 1, vector<int>(N + 1));\r\n    for (int i = 1; i <= M; i++)\r\n    {\r\n        for (int j = 1; j <= N; j++)\r\n        {\r\n            cin >> A[i][j];\r\n        }\r\n    }\r\n    cout << '\\n';\r\n    vector<vector<int>> n_min, n_max;\r\n    fn(M, N, true, big, n_min);                 // 求最小值矩阵\r\n    for (int i = 1; i <= M; i++)\r\n    {\r\n        for (int j = 1; j <= N; j++)\r\n        {\r\n            cout << n_min[i][j] << ' ';\r\n        }\r\n        cout << '\\n';\r\n    }\r\n```\r\n\r\n- `ios::sync_with_stdio(false)` + `cin.tie(nullptr)` 加速 IO。\r\n- 矩阵下标从 1 开始（`1..M`、`1..N`），与常规 0-based 不同，输入输出需对应。\r\n- `n_min`、`n_max` 在 `main` 声明，通过引用传给 `fn` 填充；`fn(M, N, true, big, n_min)` 求最小值矩阵。\r\n- 输出格式：先输出最小值矩阵、空行、再输出最大值矩阵。\r\n\r\n### main · 求最大值矩阵与输出\r\n\r\n```cpp\r\n    cout << '\\n';\r\n    fn(M, N, false, big, n_max);                // 求最大值矩阵\r\n    for (int i = 1; i <= M; i++)\r\n    {\r\n        for (int j = 1; j <= N; j++)\r\n        {\r\n            cout << n_max[i][j] << ' ';\r\n        }\r\n        cout << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n- `fn(M, N, false, big, n_max)` 求最大值矩阵；两次调用完全独立、各自使用各自的 `tmp`，只需要其一时可只调用一次。\r\n- `i=1` 行和 `j=1` 列的结果是前缀最值（窗口不足 `big`），有效二维窗口从 `(big, big)` 位置开始。\r\n\r\n## 复杂度分析\r\n\r\n- **时间复杂度**：阶段一逐行处理，每行每个元素入队一次、出队一次（均摊 $O(1)$），共 $O(M \\cdot N)$。阶段二逐列处理，同理 $O(M \\cdot N)$。总时间复杂度为 $O(M \\cdot N)$。与暴力法的 $O(M \\cdot N \\cdot \\text{big}^2)$ 相比，当 `big` 较大时优势巨大。\r\n- **空间复杂度**：原矩阵 $O(M \\cdot N)$，临时矩阵 `tmp` $O(M \\cdot N)$，行队列 $O(N)$，列队列 $O(M)$。总空间复杂度为 $O(M \\cdot N)$。若允许修改原矩阵，可以省去 `tmp`，空间降为 $O(M+N)$（仅队列）。\r\n\r\n与其他二维 RMQ 方法对比：\r\n\r\n| 方法 | 预处理时间 | 查询时间 | 空间 | 适用场景 |\r\n|---|---|---|---|---|\r\n| 二维 ST 表 | $O(MN \\log M \\log N)$ | $O(1)$ | $O(MN \\log M \\log N)$ | 静态矩阵、多次任意查询 |\r\n| 两阶段单调队列 | $O(MN)$ | 一次求出所有窗口 | $O(MN)$ | 固定窗口大小、全矩阵查询 |\r\n| 暴力法 | - | $O(\\text{big}^2)$ 每个窗口 | $O(MN)$ | 小窗口或数据量小 |\r\n\r\n## 适用场景\r\n\r\n固定大小的二维滑动窗口最值查询、图像卷积中的最大/最小池化（Max/Min Pooling）、矩阵中寻找满足条件的子矩形、二维直方图相关问题。特别适合\"求所有 `K×K` 窗口的最值\"这类输出规模为 $O(MN)$ 的问题——两阶段单调队列的总时间与输出规模同阶，是理论最优的。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **窗口不足 big 的位置**：`i < big` 或 `j < big` 的位置，`tmp[i][j]` 存储的是前缀最值（窗口大小不足 big），不是完整二维窗口的结果。使用时需注意从 `(big, big)` 开始才是有效的 `big × big` 窗口最值。\r\n2. **cmp 的等号方向**：代码用 `<=` 和 `>=`（含等号），相等时旧元素被弹出、保留新元素。这是安全的——新元素下标更大，出窗更晚，不会导致错误。但如果用 `<` 和 `>`（不含等号），相等元素会同时保留，不影响正确性但队列可能稍长。\r\n3. **阶段二覆盖写入的安全性**：`tmp[i][j]` 在阶段二中先读后写，因为列处理是按行从上到下的，读取时 `tmp[i][j]` 仍是阶段一的结果（尚未被覆盖）。如果改成其他顺序（如从下往上），则需要额外空间。\r\n4. **全局变量 A**：`A` 作为全局变量被 `fn` 访问，虽然方便但不利于多线程或多次调用。若需要同时处理多个矩阵，应改为参数传递。\r\n5. **手写队列的边界**：`x_l != x_r` 表示队列非空。`que_x[x_r-1]` 是队尾，`que_x[x_l]` 是队首。数组大小为 `N+2`，足够容纳一行所有元素（最多 $N$ 个）。\r\n6. **big = 1 的情况**：窗口大小为 1 时，最值就是元素本身，两阶段单调队列仍正确（每个元素入队出队各一次），但有额外常数开销。可以特判优化。\r\n7. **矩阵下标的起始**：代码从 1 开始（`1..M`, `1..N`），与 C++ 常规的 0-based 不同。使用时需注意输入输出的下标对应关系。\r\n\r\n## 对比与扩展\r\n\r\n与二维 ST 表相比：两阶段单调队列在固定窗口大小、全矩阵查询时更优（线性时间、更少空间），但不支持任意位置任意大小的查询。二维 ST 表预处理后支持 $O(1)$ 任意查询，但预处理和空间开销更大。选择取决于查询模式：查询次数多、窗口大小多变 → ST 表；固定窗口、全矩阵输出 → 两阶段单调队列。\r\n\r\n扩展方向包括：① **一维单调队列**（本算法的基础，单个数组的滑动窗口最值，见「一维滑动窗口最值（单调队列基础模板）」）；② **二维单调队列的滚动优化**：若只需最后一行的结果或空间紧张，可以用滚动数组进一步压缩空间；③ **多维扩展**：三维及以上的滑动窗口最值，可以用同样的\"逐维压缩\"思想，$d$ 维问题做 $d$ 次一维单调队列，总时间 $O(d \\cdot n^d)$；④ **带修改的动态维护**：若矩阵元素可修改，单调队列不再适用，需用线段树套线段树等高级数据结构；⑤ **单调栈求最大矩形**：与单调队列思想同源（维护单调性），用于求直方图最大矩形、二维最大全 1 子矩阵等问题。",
-                "codePath": "数据结构\\单调队列\\二维滑动窗口最值（两阶段单调队列）\\Untitled1.cpp",
-                "timeComplexity": "O(M×N)",
-                "spaceComplexity": "O(M×N)",
-                "tags": [
-                    "数据结构",
-                    "单调队列",
-                    "滑动窗口",
-                    "二维最值",
-                    "区间最值",
-                    "单调双端队列"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 算法原理\r\n\r\n> 本文是一维滑动窗口最值的扩展。若对单调队列的基本操作不熟悉，请先阅读「一维滑动窗口最值（单调队列基础模板）」。\r\n\r\n给定一个 $M \\times N$ 的矩阵和一个窗口大小 `big`，求每个 `big × big` 子矩阵内的最大值和最小值。这是经典的**二维滑动窗口最值**问题。\r\n\r\n最直接的做法是暴力枚举每个窗口的所有 `big × big` 个元素，复杂度为 $O(M \\cdot N \\cdot \\text{big}^2)$，当 big 较大时无法通过。更优的方法是**两阶段单调队列**：把二维问题拆解为两个一维问题。\r\n\r\n- **阶段一（行方向）**：对矩阵的每一行，用一维单调队列求出长度为 `big` 的滑动窗口最值，结果存入临时矩阵 `tmp`。此时 `tmp[i][j]` 表示第 $i$ 行中以 $j$ 结尾的、长度为 `big` 的窗口内的最值。\r\n- **阶段二（列方向）**：对 `tmp` 矩阵的每一列，再用一维单调队列求出长度为 `big` 的滑动窗口最值，结果覆盖回 `tmp`。此时 `tmp[i][j]` 表示以 $(i,j)$ 为右下角的 `big × big` 子矩阵的最值。\r\n\r\n为什么两阶段是对的？考虑任意一个 `big × big` 窗口：先对每一行求行内窗口最值（得到 big 个行最值），再对这些行最值求列窗口最值——得到的就是整个二维窗口的最值。最值操作具有\"可结合性\"：$\\max(\\max(a,b), \\max(c,d)) = \\max(a,b,c,d)$。行方向先压缩、列方向再压缩，等价于直接求二维窗口的最值。\r\n\r\n本代码用 `bool k` 参数统一了最大值和最小值的逻辑：`k=true` 求最小值（递增队列），`k=false` 求最大值（递减队列），通过 `cmp(a, b, k)` 函数动态切换比较方向，避免了写两套几乎相同的代码。\r\n\r\n## 核心公式\r\n\r\n设原矩阵为 $A[1..M][1..N]$，窗口大小为 $K = \\text{big}$。\r\n\r\n**阶段一：行方向一维滑动窗口**\r\n\r\n$$\r\n\\text{tmp}[i][j] = \\min_{t = j-K+1}^{j} A[i][t] \\quad (\\text{或 } \\max)\r\n$$\r\n\r\n其中 $j \\geq K$ 时才有意义，$j < K$ 时为前缀最值。\r\n\r\n**阶段二：列方向一维滑动窗口**\r\n\r\n$$\r\n\\text{ans}[i][j] = \\min_{t = i-K+1}^{i} \\text{tmp}[t][j] \\quad (\\text{或 } \\max)\r\n$$\r\n\r\n**合并后的二维窗口最值**：\r\n\r\n$$\r\n\\text{ans}[i][j] = \\min_{\\substack{x \\in [i-K+1,\\, i] \\\\ y \\in [j-K+1,\\, j]}} A[x][y] \\quad (\\text{或 } \\max)\r\n$$\r\n\r\n**单调队列的维护不变性**（以求最小值为例）：\r\n\r\n设队列为 $Q = [q_1, q_2, \\dots, q_m]$（按下标递增排列），对应值为 $v_1, v_2, \\dots, v_m$，则队列满足：\r\n\r\n$$\r\nv_1 \\leq v_2 \\leq \\dots \\leq v_m \\quad (\\text{单调递增})\r\n$$\r\n\r\n每次右端加入新元素 $a$ 时，弹出队尾所有 $\\geq a$ 的元素再入队：\r\n\r\n$$\r\n\\text{while } v_m \\geq a \\text{ 且 } Q \\text{ 非空}: \\quad \\text{pop\\_back}; \\quad \\text{push\\_back}(a)\r\n$$\r\n\r\n左端超出窗口范围时出队：\r\n\r\n$$\r\n\\text{if } j - q_1 \\geq K: \\quad \\text{pop\\_front}\r\n$$\r\n\r\n窗口最值为队首元素：\r\n\r\n$$\r\n\\text{window\\_min} = v_1\r\n$$\r\n\r\n## 数据结构图示\r\n\r\n```\r\n输入示例：M=4, N=5, big=2（求 2×2 窗口最小值）\r\n\r\n  原矩阵 A:\r\n      j=1  j=2  j=3  j=4  j=5\r\n  i=1   3    1    4    2    5\r\n  i=2   2    4    1    3    2\r\n  i=3   5    2    3    1    4\r\n  i=4   1    3    2    4    1\r\n\r\n  === 阶段一：每行做一维滑动窗口（窗口大小 2，求最小值） ===\r\n\r\n  第 1 行 [3,1,4,2,5]:\r\n    j=2: min(3,1)=1   que: [1(值1)]\r\n    j=3: min(1,4)=1   que: [1(值1), 3(值4)]\r\n    j=4: min(4,2)=2   que: [4(值2)]  (1 出窗，弹出 3 后入 4)\r\n    j=5: min(2,5)=2   que: [4(值2), 5(值5)]\r\n\r\n  tmp 矩阵（每行窗口最小值）:\r\n      j=1  j=2  j=3  j=4  j=5\r\n  i=1   3    1    1    2    2\r\n  i=2   2    2    1    1    2\r\n  i=3   5    2    2    1    1\r\n  i=4   1    1    2    2    1\r\n\r\n  === 阶段二：每列做一维滑动窗口（窗口大小 2，求最小值） ===\r\n\r\n  第 2 列 [1, 2, 2, 1]:\r\n    i=2: min(1,2)=1   que: [1(值1), 2(值2)]\r\n    i=3: min(2,2)=2   que: [2(值2), 3(值2)]  (1 出窗)\r\n    i=4: min(2,1)=1   que: [4(值1)]  (2,3 弹出后入 4)\r\n\r\n  最终 ans 矩阵（2×2 窗口最小值）:\r\n      j=1  j=2  j=3  j=4  j=5\r\n  i=1   3    1    1    2    2\r\n  i=2   2    1    1    1    2\r\n  i=3   2    2    1    1    1\r\n  i=4   1    1    2    1    1\r\n\r\n  验证：以 (3,3) 为右下角的 2×2 窗口 = A[2..3][2..3]\r\n        = [[4,1],[2,3]]，最小值 = 1 ✓\r\n        ans[3][3] = 1 ✓\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### cmp(a, b, k) — 统一比较函数\r\n\r\n- **作用**：根据 `k` 的值切换比较方向，统一最大值和最小值的单调队列逻辑。\r\n- **参数**：`a` 新元素值，`b` 队尾元素值，`k` 方向标志。\r\n- **返回值**：`k=true` 时返回 `a <= b`（求最小值，维护递增队列）；`k=false` 时返回 `a >= b`（求最大值，维护递减队列）。\r\n- **关键细节**：用函数指针或 lambda 也可以，但 `bool` 开关更轻量，且避免了模板/函数对象的代码膨胀。注意是 `<=` 和 `>=`（含等号），这意味着相等元素时旧的会被弹出，保留最新的——这在窗口滑动时更安全（下标更大的元素出窗更晚）。\r\n\r\n### 阶段一：行方向单调队列\r\n\r\n- **数据结构**：`vector<pair<int,int>> que_x(N+2)`，存储 `(下标, 值)` 对，`x_l` 和 `x_r` 为左右指针（左闭右开）。\r\n- **算法步骤**：对每一行 $i$，从左到右遍历列 $j$：\r\n  1. 若队首元素下标 $j - \\text{下标} \\geq \\text{big}$（出窗），`++x_l` 弹出队首。\r\n  2. 若 `cmp(A[i][j], 队尾值, k)` 为真，弹出队尾（保持单调性），直到队列为空或不满足比较条件。\r\n  3. 将 `(j, A[i][j])` 入队。\r\n  4. `tmp[i][j] = 队首值`（当前窗口的最值）。\r\n- **关键细节**：每行独立处理，行与行之间不共享状态。`que_x` 在每行开始时自动通过 `x_l=x_r=0` 重置（注意：代码中 `x_l, x_r` 是在 `for(i)` 内声明的，每行都会重新初始化为 0，但 `que_x` 数组本身不会清空——不过因为单调队列是\"覆盖写入\"，旧数据不会被读取，所以没问题）。\r\n\r\n### 阶段二：列方向单调队列\r\n\r\n- **数据结构**：`vector<pair<int,int>> que_y(M+2)`，与阶段一结构相同。\r\n- **算法步骤**：对每一列 $j$，从上到下遍历行 $i$：\r\n  1. 若队首元素下标 $i - \\text{下标} \\geq \\text{big}$（出窗），`++y_l` 弹出队首。\r\n  2. 若 `cmp(tmp[i][j], 队尾值, k)` 为真，弹出队尾（保持单调性）。\r\n  3. 将 `(i, tmp[i][j])` 入队。\r\n  4. `tmp[i][j] = 队首值`（覆盖写入，此时即为二维窗口最值）。\r\n- **关键细节**：阶段二直接在 `tmp` 上覆盖写入，节省了一个矩阵的空间。因为列方向的处理是按行递增的，读取 `tmp[i][j]` 时用的是阶段一的结果（还没被覆盖），写入后的值只在后续行的同列处理中被使用，不冲突。\r\n\r\n### 主函数：分别求最小值和最大值\r\n\r\n- **调用方式**：`fn(M, N, true, big, n_min)` 求最小值矩阵；`fn(M, N, false, big, n_max)` 求最大值矩阵。\r\n- **关键细节**：两次调用 `fn` 是完全独立的，分别使用各自的 `tmp` 矩阵。`n_min` 和 `n_max` 在 `main` 中声明，通过引用传递给 `fn` 填充结果。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量与比较函数 cmp\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nvector<vector<int>> A;                         // 原矩阵（全局，fn 中直接访问）\r\n\r\nbool cmp(int a,int b,bool k)\r\n{\r\n    return k ? a <= b : a >= b;                // k=true: 递增(求min); k=false: 递减(求max)\r\n}\r\n```\r\n\r\n- `A` 是全局矩阵：`fn` 直接访问全局 `A`，减少参数传递（竞赛常见写法；工程代码建议改为参数传递）。\r\n- `cmp` 是比较方向开关：`a` 是新元素、`b` 是队尾元素；`k=true`（求 min）时返回 `a <= b` 维护递增队列，`k=false`（求 max）时返回 `a >= b` 维护递减队列。\r\n- `<=`/`>=` 含等号：相等时旧元素被弹出、保留新元素（新元素下标更大、出窗更晚），滑动时更安全。\r\n\r\n### fn · 阶段一（行方向单调队列）\r\n\r\n```cpp\r\nvoid fn(int M,int N,bool k,int big,vector<vector<int>>& tmp)\r\n{\r\n    tmp.resize(M + 1, vector<int>(N + 1));     // 初始化结果矩阵\r\n    vector<pair<int, int>> que_x(N + 2);       // 行方向单调队列（存(下标,值)）\r\n\r\n    // === 阶段一：每行做行方向滑动窗口 ===\r\n    for (int i = 1; i <= M; i++)\r\n    {\r\n        int x_l = 0, x_r = 0;                   // 队列左右指针（左闭右开）\r\n        for (int j = 1; j <= N; j++)\r\n        {\r\n            int a = A[i][j];\r\n            // 1. 队首出窗\r\n            if (x_l != x_r && j - que_x[x_l].first >= big) ++x_l;\r\n            // 2. 维护单调性：弹出队尾不满足条件的元素\r\n            while (x_l != x_r && cmp(a, que_x[x_r - 1].second, k)) --x_r;\r\n            // 3. 新元素入队\r\n            que_x[x_r++] = pair<int, int>(j, a);\r\n            // 4. 队首即为当前窗口最值\r\n            tmp[i][j] = que_x[x_l].second;\r\n        }\r\n    }\r\n```\r\n\r\n- `tmp.resize(M+1, vector<int>(N+1))`：结果矩阵在 `fn` 内部初始化，通过引用 `&tmp` 返回。\r\n- `que_x(N+2)`：手写双端队列，用数组 + 左右指针 `x_l`/`x_r` 模拟（左闭右开）；开 `N+2` 因为队列最多装一行全部 `N` 个元素。\r\n- `x_l`、`x_r` 在 `for(i)` 内声明，每行重置为 0（队列重置），`que_x` 数组复用于每一行（覆盖写入，旧数据不会被读取）。\r\n- 队首出窗条件 `j - que_x[x_l].first >= big`：下标差达到 `big` 时队首已滑出窗口；`x_l != x_r` 保证队列非空再访问队首/队尾。\r\n\r\n### fn · 阶段二（列方向单调队列）\r\n\r\n```cpp\r\n    vector<pair<int, int>> que_y(M + 2);       // 列方向单调队列\r\n\r\n    // === 阶段二：每列做列方向滑动窗口 ===\r\n    for (int j = 1; j <= N; j++)\r\n    {\r\n        int y_l = 0, y_r = 0;                   // 队列左右指针\r\n        for (int i = 1; i <= M; i++)\r\n        {\r\n            int a = tmp[i][j];                   // 读取阶段一的结果\r\n            // 1. 队首出窗\r\n            if (y_l != y_r && i - que_y[y_l].first >= big) ++y_l;\r\n            // 2. 维护单调性\r\n            while (y_l != y_r && cmp(a, que_y[y_r - 1].second, k)) --y_r;\r\n            // 3. 新元素入队\r\n            que_y[y_r++] = pair<int, int>(i, a);\r\n            // 4. 覆盖写入 tmp（此时 tmp[i][j] 是二维窗口最值）\r\n            tmp[i][j] = que_y[y_l].second;\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n- `que_y(M+2)` 与阶段一同构，存 `(下标, 值)`，开 `M+2` 因为队列最多装一列全部 `M` 个元素。\r\n- 阶段二直接在 `tmp` 上覆盖写入、省一个矩阵空间：列按行从上到下处理，读 `tmp[i][j]` 时它仍是阶段一的结果（尚未被覆盖），写完后才变成二维结果；同一列的上行已被覆盖但不影响下行读取。\r\n- `pair<int,int>` 存 `(下标, 值)`：下标用于判断是否出窗、值用于比较；也可只存下标再回矩阵读值（少拷贝、多一次访问），各有利弊。\r\n- 出窗 / 维护单调性逻辑与阶段一完全一致，只是方向换成列（`j` 固定、`i` 递增）。\r\n\r\n### main · 读入与求最小值矩阵\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int M, N, big;\r\n    cin >> M >> N >> big;\r\n    A.resize(M + 1, vector<int>(N + 1));\r\n    for (int i = 1; i <= M; i++)\r\n    {\r\n        for (int j = 1; j <= N; j++)\r\n        {\r\n            cin >> A[i][j];\r\n        }\r\n    }\r\n    cout << '\\n';\r\n    vector<vector<int>> n_min, n_max;\r\n    fn(M, N, true, big, n_min);                 // 求最小值矩阵\r\n    for (int i = 1; i <= M; i++)\r\n    {\r\n        for (int j = 1; j <= N; j++)\r\n        {\r\n            cout << n_min[i][j] << ' ';\r\n        }\r\n        cout << '\\n';\r\n    }\r\n```\r\n\r\n- `ios::sync_with_stdio(false)` + `cin.tie(nullptr)` 加速 IO。\r\n- 矩阵下标从 1 开始（`1..M`、`1..N`），与常规 0-based 不同，输入输出需对应。\r\n- `n_min`、`n_max` 在 `main` 声明，通过引用传给 `fn` 填充；`fn(M, N, true, big, n_min)` 求最小值矩阵。\r\n- 输出格式：先输出最小值矩阵、空行、再输出最大值矩阵。\r\n\r\n### main · 求最大值矩阵与输出\r\n\r\n```cpp\r\n    cout << '\\n';\r\n    fn(M, N, false, big, n_max);                // 求最大值矩阵\r\n    for (int i = 1; i <= M; i++)\r\n    {\r\n        for (int j = 1; j <= N; j++)\r\n        {\r\n            cout << n_max[i][j] << ' ';\r\n        }\r\n        cout << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n- `fn(M, N, false, big, n_max)` 求最大值矩阵；两次调用完全独立、各自使用各自的 `tmp`，只需要其一时可只调用一次。\r\n- `i=1` 行和 `j=1` 列的结果是前缀最值（窗口不足 `big`），有效二维窗口从 `(big, big)` 位置开始。\r\n\r\n## 复杂度分析\r\n\r\n- **时间复杂度**：阶段一逐行处理，每行每个元素入队一次、出队一次（均摊 $O(1)$），共 $O(M \\cdot N)$。阶段二逐列处理，同理 $O(M \\cdot N)$。总时间复杂度为 $O(M \\cdot N)$。与暴力法的 $O(M \\cdot N \\cdot \\text{big}^2)$ 相比，当 `big` 较大时优势巨大。\r\n- **空间复杂度**：原矩阵 $O(M \\cdot N)$，临时矩阵 `tmp` $O(M \\cdot N)$，行队列 $O(N)$，列队列 $O(M)$。总空间复杂度为 $O(M \\cdot N)$。若允许修改原矩阵，可以省去 `tmp`，空间降为 $O(M+N)$（仅队列）。\r\n\r\n与其他二维 RMQ 方法对比：\r\n\r\n| 方法 | 预处理时间 | 查询时间 | 空间 | 适用场景 |\r\n|---|---|---|---|---|\r\n| 二维 ST 表 | $O(MN \\log M \\log N)$ | $O(1)$ | $O(MN \\log M \\log N)$ | 静态矩阵、多次任意查询 |\r\n| 两阶段单调队列 | $O(MN)$ | 一次求出所有窗口 | $O(MN)$ | 固定窗口大小、全矩阵查询 |\r\n| 暴力法 | - | $O(\\text{big}^2)$ 每个窗口 | $O(MN)$ | 小窗口或数据量小 |\r\n\r\n## 适用场景\r\n\r\n固定大小的二维滑动窗口最值查询、图像卷积中的最大/最小池化（Max/Min Pooling）、矩阵中寻找满足条件的子矩形、二维直方图相关问题。特别适合\"求所有 `K×K` 窗口的最值\"这类输出规模为 $O(MN)$ 的问题——两阶段单调队列的总时间与输出规模同阶，是理论最优的。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **窗口不足 big 的位置**：`i < big` 或 `j < big` 的位置，`tmp[i][j]` 存储的是前缀最值（窗口大小不足 big），不是完整二维窗口的结果。使用时需注意从 `(big, big)` 开始才是有效的 `big × big` 窗口最值。\r\n2. **cmp 的等号方向**：代码用 `<=` 和 `>=`（含等号），相等时旧元素被弹出、保留新元素。这是安全的——新元素下标更大，出窗更晚，不会导致错误。但如果用 `<` 和 `>`（不含等号），相等元素会同时保留，不影响正确性但队列可能稍长。\r\n3. **阶段二覆盖写入的安全性**：`tmp[i][j]` 在阶段二中先读后写，因为列处理是按行从上到下的，读取时 `tmp[i][j]` 仍是阶段一的结果（尚未被覆盖）。如果改成其他顺序（如从下往上），则需要额外空间。\r\n4. **全局变量 A**：`A` 作为全局变量被 `fn` 访问，虽然方便但不利于多线程或多次调用。若需要同时处理多个矩阵，应改为参数传递。\r\n5. **手写队列的边界**：`x_l != x_r` 表示队列非空。`que_x[x_r-1]` 是队尾，`que_x[x_l]` 是队首。数组大小为 `N+2`，足够容纳一行所有元素（最多 $N$ 个）。\r\n6. **big = 1 的情况**：窗口大小为 1 时，最值就是元素本身，两阶段单调队列仍正确（每个元素入队出队各一次），但有额外常数开销。可以特判优化。\r\n7. **矩阵下标的起始**：代码从 1 开始（`1..M`, `1..N`），与 C++ 常规的 0-based 不同。使用时需注意输入输出的下标对应关系。\r\n\r\n## 对比与扩展\r\n\r\n与二维 ST 表相比：两阶段单调队列在固定窗口大小、全矩阵查询时更优（线性时间、更少空间），但不支持任意位置任意大小的查询。二维 ST 表预处理后支持 $O(1)$ 任意查询，但预处理和空间开销更大。选择取决于查询模式：查询次数多、窗口大小多变 → ST 表；固定窗口、全矩阵输出 → 两阶段单调队列。\r\n\r\n扩展方向包括：① **一维单调队列**（本算法的基础，单个数组的滑动窗口最值，见「一维滑动窗口最值（单调队列基础模板）」）；② **二维单调队列的滚动优化**：若只需最后一行的结果或空间紧张，可以用滚动数组进一步压缩空间；③ **多维扩展**：三维及以上的滑动窗口最值，可以用同样的\"逐维压缩\"思想，$d$ 维问题做 $d$ 次一维单调队列，总时间 $O(d \\cdot n^d)$；④ **带修改的动态维护**：若矩阵元素可修改，单调队列不再适用，需用线段树套线段树等高级数据结构；⑤ **单调栈求最大矩形**：与单调队列思想同源（维护单调性），用于求直方图最大矩形、二维最大全 1 子矩阵等问题。",
-        "timeComplexity": "O(M×N)",
-        "spaceComplexity": "O(M×N)",
-        "tags": [
-            "数据结构",
-            "单调队列",
-            "滑动窗口",
-            "二维最值",
-            "区间最值",
-            "单调双端队列"
-        ],
-        "codePath": "数据结构\\单调队列\\二维滑动窗口最值（两阶段单调队列）\\Untitled1.cpp",
-        "prerequisites": [
-            "ds-monoqueue-1d"
-        ],
-        "related": [
-            "ds-monoqueue-1d",
-            "ds-block-decomposition",
-            "ds-monostack-histogram"
+            "ds-block-decomposition"
         ],
         "parent": ""
     },
@@ -6002,12 +6013,12 @@ const KNOWLEDGE_DATA = [
         "category": "数据结构",
         "subcategory": "栈",
         "subSubcategory": "单调栈",
-        "title": "单调栈（直方图最大矩形）",
+        "title": "栈（单调栈 / 前缀最值栈）",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n单调栈是一种在栈的基础上维护**单调性**（递增或递减）的数据结构。核心思想是：当新元素破坏了栈的单调性时，弹出栈顶元素，直到栈重新满足单调性为止。每个元素最多入栈一次、出栈一次，因此总时间复杂度为 $O(n)$。\r\n\r\n**直方图最大矩形问题**：给定 $n$ 个非负整数 $h_1, h_2, \\ldots, h_n$，表示直方图中 $n$ 个宽度为 1 的柱子的高度，求能画出的最大矩形的面积。\r\n\r\n### 核心思想\r\n\r\n对于每个柱子 $h_i$，以它的高度作为矩形高度时，矩形能向左右扩展多远？关键在于找到 $h_i$ 两侧**第一个比 $h_i$ 矮**的柱子位置：\r\n\r\n- **左边界** $L_i$：$h_i$ 左侧第一个高度小于 $h_i$ 的位置\r\n- **右边界** $R_i$：$h_i$ 右侧第一个高度小于 $h_i$ 的位置\r\n- **以 $h_i$ 为高的最大矩形面积** $= h_i \\times (R_i - L_i - 1)$\r\n\r\n单调栈（递增栈）在一次遍历中同时完成左右边界的求解：\r\n\r\n1. 遍历每个柱子，维护一个**单调递增栈**（栈底到栈顶高度递增）\r\n2. 当遇到比栈顶矮的柱子时，栈顶柱子的**右边界**就确定了（当前位置）\r\n3. 弹出栈顶后，新的栈顶就是被弹柱子的**左边界**\r\n4. 弹出时计算矩形面积并更新答案\r\n\r\n### 两种实现风格\r\n\r\n| | 实现A（带值栈） | 实现B（纯索引栈） |\r\n|---|---|---|\r\n| 栈存储内容 | 值 + 索引（`sk_num` + `sk_idx`） | 仅索引（`sk_idx`），值从原数组查询 |\r\n| 宽度计算 | `i - sk_idx[top]`（存的就是左边界） | `i - sk_idx[newtop] - 1`（新栈顶是左边界） |\r\n| 哨兵策略 | `init()` 在栈底放 $-10^9$ 哨兵 | 在数组末尾追加 $-10^9$ 哨兵 |\r\n| 空栈处理 | 哨兵保证栈不为空 | 需要特判 `if (id)` 分支 |\r\n\r\n## 数据结构图示\r\n\r\n### 直方图示例\r\n\r\n以数组 $h = [2, 1, 5, 6, 2, 3]$ 为例，直方图如下：\r\n\r\n```\r\n索引:  1   2   3   4   5   6\r\n      ┌───┐               \r\n      │   │       ┌───┐   \r\n      │   │       │   │   \r\n      │   │   ┌───┤   │   \r\n      │   │   │   │   │   \r\n      │   │   │   │   │   ┌───┐\r\n      │   │   │   │   │   │   │\r\n      └───┘   └───┘   └───┘   └───┘\r\n高度:  2   1   5   6   2   3\r\n```\r\n\r\n最大矩形面积为 $10$（高度 $5$、宽度 $2$，即第 3、4 根柱子的范围）。\r\n\r\n### 实现A 的栈状态变化\r\n\r\n栈中存储 `(值, 索引)`，栈底有哨兵 $(-10^9, 0)$：\r\n\r\n```\r\n操作            栈状态（从底到顶）         弹出时计算\r\n─────────────────────────────────────────────────────\r\ninit()         [(-1e9,0)]\r\nadd(2, 1)      [(-1e9,0), (2,1)]         无弹出\r\nadd(1, 2)      [(-1e9,0), (1,1)]         弹 (2,1): 2*(2-1)=2,  new_idx=1\r\nadd(5, 3)      [...(1,1), (5,3)]         无弹出\r\nadd(6, 4)      [...(5,3), (6,4)]         无弹出\r\nadd(2, 5)      [...(1,1), (2,3)]         弹 (6,4): 6*(5-4)=6\r\n                                         弹 (5,3): 5*(5-3)=10  ← 最大\r\nadd(3, 6)      [...(2,3), (3,6)]         无弹出\r\nadd(-1e9, 7)   [(-1e9,0)]               弹 (3,6): 3*(7-6)=3\r\n                                         弹 (2,3): 2*(7-3)=8\r\n                                         弹 (1,1): 1*(7-1)=6\r\n```\r\n\r\n最终答案：$10$。\r\n\r\n### 实现B 的栈状态变化\r\n\r\n栈中仅存储索引，值从数组 $A$ 查询，数组末尾追加哨兵 $-10^9$：\r\n\r\n```\r\n操作            栈状态（索引）       弹出时计算\r\n─────────────────────────────────────────────────\r\nA = [_,2,1,5,6,2,3,-1e9]\r\ni=1  A[1]=2    [1]                无弹出\r\ni=2  A[2]=1    [2]                弹 idx=1: 栈空, w=2-1=1, 2*1=2\r\ni=3  A[3]=5    [2,3]              无弹出\r\ni=4  A[4]=6    [2,3,4]            无弹出\r\ni=5  A[5]=2    [2,5]              弹 idx=4: 栈非空, w=5-3-1=1, 6*1=6\r\n                                    弹 idx=3: 栈非空, w=5-2-1=2, 5*2=10  ← 最大\r\ni=6  A[6]=3    [2,5,6]            无弹出\r\ni=7  A[7]=-1e9 [7]               弹 idx=6: 栈非空, w=7-5-1=1, 3*1=3\r\n                                    弹 idx=5: 栈非空, w=7-2-1=4, 2*4=8\r\n                                    弹 idx=2: 栈空, w=7-1=6, 1*6=6\r\n```\r\n\r\n最终答案：$10$，与实现A 一致。\r\n\r\n## 核心操作详解\r\n\r\n### 初始化（实现A）\r\n\r\n在栈底放置一个极小值哨兵 $-10^9$，保证后续 `while` 循环时栈底不会被弹出，避免空栈特判。\r\n\r\n### 入栈 `add(x, i)`（实现A）\r\n\r\n1. 记录 `new_idx = i`（默认左边界为当前索引）\r\n2. **弹栈循环**：当 `x < sk_num[栈顶]` 时，弹出栈顶，计算面积 $h \\times (i - \\text{左边界})$，并继承被弹元素的左边界 `new_idx = sk_idx[栈顶]`\r\n3. 入栈 `(x, new_idx)`，其中 `new_idx` 可能小于 $i$（因为继承了被弹元素的位置，表示当前柱子可以向左延伸）\r\n\r\n### 入栈（实现B）\r\n\r\n1. **弹栈循环**：当 `A[i] < A[sk_idx[栈顶]]` 时，弹出栈顶索引 `top_idx`，取高度 `h = A[top_idx]`\r\n2. **宽度计算**：\r\n   - 若栈非空：$w = i - \\text{sk\\_idx[新栈顶]} - 1$（新栈顶是被弹元素左侧第一个更矮的柱子）\r\n   - 若栈空：$w = i - 1$（被弹元素可以延伸到最左边）\r\n3. 入栈当前索引 $i$\r\n\r\n### 终止哨兵\r\n\r\n两种实现都在末尾追加一个极小值（$-10^9$），强制弹出栈中所有剩余元素，完成最终计算。\r\n\r\n## 逐行代码解析\r\n\r\n### 实现A：带值栈（`sk_num` + `sk_idx`）\r\n\r\n```cpp\r\nconst int nmax = 1e6 + 10;\r\nint sk_num[nmax], sk_idx[nmax], id;\r\n// sk_num: 栈值数组（存储柱子高度）\r\n// sk_idx: 栈索引数组（存储柱子位置 + 继承的左边界）\r\n// id: 栈顶指针（指向下一个空位）\r\n```\r\n\r\n```cpp\r\nvoid init()\r\n{\r\n    id = 0;\r\n    sk_num[id] = -1e9;  // 哨兵：极小值，保证不被弹出\r\n    sk_idx[id] = 0;     // 哨兵位置：0（下标从1开始，0表示左边界起点）\r\n    ++id;               // id 现在指向位置 1\r\n}\r\n```\r\n\r\n```cpp\r\nlong long add(int x, int i)\r\n{\r\n    long long ans = 0;\r\n    int new_idx = i;    // 默认左边界 = 当前索引\r\n    // 弹栈循环：当前值比栈顶小时，弹出并计算面积\r\n    while(x < sk_num[id - 1])\r\n    {\r\n        // 面积 = 栈顶高度 * (当前索引 - 栈顶存储的左边界)\r\n        ans = max(ans, (long long)sk_num[id - 1] * (i - sk_idx[id - 1]));\r\n        new_idx = sk_idx[id - 1];  // 继承被弹元素的左边界\r\n        --id;                      // 弹栈\r\n    }\r\n    sk_num[id] = x;       // 入栈：当前高度\r\n    sk_idx[id] = new_idx; // 入栈：左边界（可能 < i，因为继承了被弹元素的位置）\r\n    ++id;\r\n    return ans;\r\n}\r\n```\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int t;\r\n    cin >> t;\r\n    while (t--)\r\n    {\r\n        int n;\r\n        long long ans = 0;\r\n        cin >> n;\r\n        init();\r\n        for (int i = 1; i <= n; i++)\r\n        {\r\n            int x;\r\n            cin >> x;\r\n            ans = max(add(x, i), ans);  // 每次入栈时更新最大面积\r\n        }\r\n        ans = max(add(-1e9, n + 1), ans);  // 哨兵：强制弹出所有剩余元素\r\n        cout << ans << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n### 实现B：纯索引栈（仅 `sk_idx`）\r\n\r\n```cpp\r\nint sk_idx[nmax], id;  // 仅存索引，值从 A[] 查询\r\n```\r\n\r\n```cpp\r\n// 主循环中直接处理\r\nfor (int i = 1; i <= n + 1; i++)  // n+1 是哨兵位置\r\n{\r\n    // 当 A[i] 比栈顶柱子矮时，弹出并计算面积\r\n    while (id && A[i] < A[sk_idx[id - 1]])\r\n    {\r\n        int top = A[sk_idx[id - 1]];  // 被弹柱子的高度\r\n        --id;                         // 弹栈\r\n        if (id)                       // 栈非空：左边界 = 新栈顶索引\r\n            ans = max((long long)(i - sk_idx[id - 1] - 1) * top, ans);\r\n        else                          // 栈空：左边界 = 0，宽度 = i-1\r\n            ans = max((long long)(i - 1) * top, ans);\r\n    }\r\n    sk_idx[id++] = i;  // 入栈当前索引\r\n}\r\n```\r\n\r\n**核心差异**：\r\n\r\n- 实现A 的 `new_idx` 机制：被弹元素的左边界被\"继承\"到新入栈的元素上，因此宽度计算为 $i - \\text{sk\\_idx[栈顶]}$（减号右边直接就是左边界）\r\n- 实现B 的\"新栈顶\"机制：弹出后，新栈顶就是被弹元素左侧第一个更矮的柱子，宽度为 $i - \\text{sk\\_idx[新栈顶]} - 1$（需要再减 1，因为新栈顶本身不计入宽度）\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度\r\n\r\n每个元素恰好入栈一次、出栈一次，`while` 循环的总执行次数不超过 $n$ 次（均摊分析），因此总时间复杂度为 $O(n)$。\r\n\r\n### 空间复杂度\r\n\r\n- 栈数组 `sk_num` + `sk_idx`（或仅 `sk_idx`）：$O(n)$\r\n- 实现B 额外使用 `vector<int> A`：$O(n)$\r\n- 总空间复杂度：$O(n)$\r\n\r\n## 适用场景\r\n\r\n- **直方图最大矩形**：经典应用，求直方图中最大矩形面积\r\n- **每日温度**：找右侧第一个更大的元素\r\n- **接雨水**：单调栈可在 $O(n)$ 内解决\r\n- **柱状图最大矩形扩展**：如最大子矩阵、最大全 1 子矩阵等\r\n- **下一个更大/更小元素**：在一维序列中找每个元素右侧第一个比它大/小的元素位置\r\n\r\n**不适用场景**：\r\n- 需要随机访问或区间查询的问题（栈只支持栈顶操作）\r\n- 需要动态修改后重新查询的场景（单调栈是离线结构，不支持高效修改）\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **哨兵值的选择**：必须选择比所有可能的柱子高度都小的值（如 $-10^9$），否则哨兵可能被意外弹出导致错误。若柱子高度可能为 0，哨兵不能用 0。\r\n\r\n2. **空栈特判（实现B）**：实现B 没有哨兵保护，弹出后必须检查 `if (id)` 分支处理空栈情况。忘记特判会导致宽度计算错误（访问 `sk_idx[-1]` 越界）。\r\n\r\n3. **数据类型溢出**：面积 $h \\times w$ 中，$h$ 和 $w$ 均可能达到 $10^6$，乘积达到 $10^{12}$，超过 `int` 范围。必须使用 `long long` 存储面积和答案。\r\n\r\n4. **`new_idx` 的继承逻辑（实现A）**：`new_idx` 初始为 $i$，但在弹栈过程中不断更新为被弹元素的 `sk_idx`。这个继承机制确保了当前柱子的左边界正确延伸到被弹柱子的位置。忘记更新 `new_idx` 会导致左边界错误。\r\n\r\n5. **宽度公式差异**：两种实现的宽度公式不同：\r\n   - 实现A：$w = i - \\text{sk\\_idx[栈顶]}$（栈顶存储的就是左边界）\r\n   - 实现B：$w = i - \\text{sk\\_idx[新栈顶]} - 1$（新栈顶是左边界，需减 1）\r\n\r\n6. **下标从 1 还是 0 开始**：实现A 的哨兵 `sk_idx = 0` 表示下标从 1 开始，位置 0 是左边界起点。如果改用 0-indexed，需要相应调整哨兵位置和宽度公式。\r\n\r\n## 对比与扩展\r\n\r\n### 两种实现对比\r\n\r\n| 维度 | 实现A（带值栈） | 实现B（纯索引栈） |\r\n|---|---|---|\r\n| 空间 | 2 个数组 | 1 个数组 + 原数组 |\r\n| 哨策略 | `init()` 在栈底放哨兵 | 数组末尾追加哨兵值 |\r\n| 空栈处理 | 哨兵保证永不出栈 | 需 `if (id)` 特判 |\r\n| 宽度公式 | $i - \\text{左边界}$（直接） | $i - \\text{新栈顶} - 1$（间接） |\r\n| `new_idx` | 需要，维护继承关系 | 不需要，查询原数组即可 |\r\n| 可读性 | 逻辑更显式 | 代码更简洁 |\r\n| 通用性 | 适合不需要保留原数组的场景 | 适合已有原数组的场景 |\r\n\r\n### 与其他数据结构对比\r\n\r\n| 数据结构 | 适用问题 | 时间复杂度 | 与单调栈的关系 |\r\n|---|---|---|---|\r\n| 单调栈 | 找两侧第一个更小/大元素 | $O(n)$ | — |\r\n| 单调队列 | 滑动窗口最值 | $O(n)$ | 均维护单调性，队列支持尾部弹出（滑动窗口） |\r\n| ST 表 | 静态区间最值 | $O(n \\log n)$ 预处理 + $O(1)$ 查询 | ST 表支持任意区间查询，但不支持在线性时间找\"第一个更小\" |\r\n| 对顶堆 | 动态第 $k$ 小 | $O(\\log n)$ 单次 | 对顶堆维护动态集合，单调栈是一次性离线处理 |\r\n| 前缀最值栈 | 栈内最大值查询 | $O(1)$ 单次 | 前缀最值栈是单调栈的特例（只维护前缀 max，不需要弹出时计算） |\r\n\r\n### 扩展\r\n\r\n- **二进制优化单调栈**：对于重复询问的场景，可以用倍增预处理单调栈的跳跃指针，实现 $O(1)$ 查询\"跳过多少个更矮的柱子\"\r\n- **二维扩展**：将直方图最大矩形扩展到矩阵中的最大全 1 子矩阵，对每一行枚举\"以该行为底的高度\"后转化为直方图问题\r\n- **单调栈 + 离线**：将询问按位置排序，用单调栈在线性时间内回答所有\"右侧第一个更大元素\"类询问",
+                "content": "## 算法原理\n\n单调栈是一种在栈的基础上维护**单调性**（递增或递减）的数据结构。核心思想是：当新元素破坏了栈的单调性时，弹出栈顶元素，直到栈重新满足单调性为止。每个元素最多入栈一次、出栈一次，因此总时间复杂度为 $O(n)$。\n\n**直方图最大矩形问题**：给定 $n$ 个非负整数 $h_1, h_2, \\ldots, h_n$，表示直方图中 $n$ 个宽度为 1 的柱子的高度，求能画出的最大矩形的面积。\n\n### 核心思想\n\n对于每个柱子 $h_i$，以它的高度作为矩形高度时，矩形能向左右扩展多远？关键在于找到 $h_i$ 两侧**第一个比 $h_i$ 矮**的柱子位置：\n\n- **左边界** $L_i$：$h_i$ 左侧第一个高度小于 $h_i$ 的位置\n- **右边界** $R_i$：$h_i$ 右侧第一个高度小于 $h_i$ 的位置\n- **以 $h_i$ 为高的最大矩形面积** $= h_i \\times (R_i - L_i - 1)$\n\n单调栈（递增栈）在一次遍历中同时完成左右边界的求解：\n\n1. 遍历每个柱子，维护一个**单调递增栈**（栈底到栈顶高度递增）\n2. 当遇到比栈顶矮的柱子时，栈顶柱子的**右边界**就确定了（当前位置）\n3. 弹出栈顶后，新的栈顶就是被弹柱子的**左边界**\n4. 弹出时计算矩形面积并更新答案\n\n### 两种实现风格\n\n| | 实现A（带值栈） | 实现B（纯索引栈） |\n|---|---|---|\n| 栈存储内容 | 值 + 索引（`sk_num` + `sk_idx`） | 仅索引（`sk_idx`），值从原数组查询 |\n| 宽度计算 | `i - sk_idx[top]`（存的就是左边界） | `i - sk_idx[newtop] - 1`（新栈顶是左边界） |\n| 哨兵策略 | `init()` 在栈底放 $-10^9$ 哨兵 | 在数组末尾追加 $-10^9$ 哨兵 |\n| 空栈处理 | 哨兵保证栈不为空 | 需要特判 `if (id)` 分支 |\n\n## 数据结构图示\n\n### 直方图示例\n\n以数组 $h = [2, 1, 5, 6, 2, 3]$ 为例，直方图如下：\n\n```\n索引:  1   2   3   4   5   6\n      ┌───┐               \n      │   │       ┌───┐   \n      │   │       │   │   \n      │   │   ┌───┤   │   \n      │   │   │   │   │   \n      │   │   │   │   │   ┌───┐\n      │   │   │   │   │   │   │\n      └───┘   └───┘   └───┘   └───┘\n高度:  2   1   5   6   2   3\n```\n\n最大矩形面积为 $10$（高度 $5$、宽度 $2$，即第 3、4 根柱子的范围）。\n\n### 实现A 的栈状态变化\n\n栈中存储 `(值, 索引)`，栈底有哨兵 $(-10^9, 0)$：\n\n```\n操作            栈状态（从底到顶）         弹出时计算\n─────────────────────────────────────────────────────\ninit()         [(-1e9,0)]\nadd(2, 1)      [(-1e9,0), (2,1)]         无弹出\nadd(1, 2)      [(-1e9,0), (1,1)]         弹 (2,1): 2*(2-1)=2,  new_idx=1\nadd(5, 3)      [...(1,1), (5,3)]         无弹出\nadd(6, 4)      [...(5,3), (6,4)]         无弹出\nadd(2, 5)      [...(1,1), (2,3)]         弹 (6,4): 6*(5-4)=6\n                                         弹 (5,3): 5*(5-3)=10  ← 最大\nadd(3, 6)      [...(2,3), (3,6)]         无弹出\nadd(-1e9, 7)   [(-1e9,0)]               弹 (3,6): 3*(7-6)=3\n                                         弹 (2,3): 2*(7-3)=8\n                                         弹 (1,1): 1*(7-1)=6\n```\n\n最终答案：$10$。\n\n### 实现B 的栈状态变化\n\n栈中仅存储索引，值从数组 $A$ 查询，数组末尾追加哨兵 $-10^9$：\n\n```\n操作            栈状态（索引）       弹出时计算\n─────────────────────────────────────────────────\nA = [_,2,1,5,6,2,3,-1e9]\ni=1  A[1]=2    [1]                无弹出\ni=2  A[2]=1    [2]                弹 idx=1: 栈空, w=2-1=1, 2*1=2\ni=3  A[3]=5    [2,3]              无弹出\ni=4  A[4]=6    [2,3,4]            无弹出\ni=5  A[5]=2    [2,5]              弹 idx=4: 栈非空, w=5-3-1=1, 6*1=6\n                                    弹 idx=3: 栈非空, w=5-2-1=2, 5*2=10  ← 最大\ni=6  A[6]=3    [2,5,6]            无弹出\ni=7  A[7]=-1e9 [7]               弹 idx=6: 栈非空, w=7-5-1=1, 3*1=3\n                                    弹 idx=5: 栈非空, w=7-2-1=4, 2*4=8\n                                    弹 idx=2: 栈空, w=7-1=6, 1*6=6\n```\n\n最终答案：$10$，与实现A 一致。\n\n## 核心操作详解\n\n### 初始化（实现A）\n\n在栈底放置一个极小值哨兵 $-10^9$，保证后续 `while` 循环时栈底不会被弹出，避免空栈特判。\n\n### 入栈 `add(x, i)`（实现A）\n\n1. 记录 `new_idx = i`（默认左边界为当前索引）\n2. **弹栈循环**：当 `x < sk_num[栈顶]` 时，弹出栈顶，计算面积 $h \\times (i - \\text{左边界})$，并继承被弹元素的左边界 `new_idx = sk_idx[栈顶]`\n3. 入栈 `(x, new_idx)`，其中 `new_idx` 可能小于 $i$（因为继承了被弹元素的位置，表示当前柱子可以向左延伸）\n\n### 入栈（实现B）\n\n1. **弹栈循环**：当 `A[i] < A[sk_idx[栈顶]]` 时，弹出栈顶索引 `top_idx`，取高度 `h = A[top_idx]`\n2. **宽度计算**：\n   - 若栈非空：$w = i - \\text{sk\\_idx[新栈顶]} - 1$（新栈顶是被弹元素左侧第一个更矮的柱子）\n   - 若栈空：$w = i - 1$（被弹元素可以延伸到最左边）\n3. 入栈当前索引 $i$\n\n### 终止哨兵\n\n两种实现都在末尾追加一个极小值（$-10^9$），强制弹出栈中所有剩余元素，完成最终计算。\n\n## 逐行代码解析\n\n### 实现A：带值栈（`sk_num` + `sk_idx`）\n\n```cpp\nconst int nmax = 1e6 + 10;\nint sk_num[nmax], sk_idx[nmax], id;\n// sk_num: 栈值数组（存储柱子高度）\n// sk_idx: 栈索引数组（存储柱子位置 + 继承的左边界）\n// id: 栈顶指针（指向下一个空位）\n```\n\n```cpp\nvoid init()\n{\n    id = 0;\n    sk_num[id] = -1e9;  // 哨兵：极小值，保证不被弹出\n    sk_idx[id] = 0;     // 哨兵位置：0（下标从1开始，0表示左边界起点）\n    ++id;               // id 现在指向位置 1\n}\n```\n\n```cpp\nlong long add(int x, int i)\n{\n    long long ans = 0;\n    int new_idx = i;    // 默认左边界 = 当前索引\n    // 弹栈循环：当前值比栈顶小时，弹出并计算面积\n    while(x < sk_num[id - 1])\n    {\n        // 面积 = 栈顶高度 * (当前索引 - 栈顶存储的左边界)\n        ans = max(ans, (long long)sk_num[id - 1] * (i - sk_idx[id - 1]));\n        new_idx = sk_idx[id - 1];  // 继承被弹元素的左边界\n        --id;                      // 弹栈\n    }\n    sk_num[id] = x;       // 入栈：当前高度\n    sk_idx[id] = new_idx; // 入栈：左边界（可能 < i，因为继承了被弹元素的位置）\n    ++id;\n    return ans;\n}\n```\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--)\n    {\n        int n;\n        long long ans = 0;\n        cin >> n;\n        init();\n        for (int i = 1; i <= n; i++)\n        {\n            int x;\n            cin >> x;\n            ans = max(add(x, i), ans);  // 每次入栈时更新最大面积\n        }\n        ans = max(add(-1e9, n + 1), ans);  // 哨兵：强制弹出所有剩余元素\n        cout << ans << '\\n';\n    }\n    return 0;\n}\n```\n\n### 实现B：纯索引栈（仅 `sk_idx`）\n\n```cpp\nint sk_idx[nmax], id;  // 仅存索引，值从 A[] 查询\n```\n\n```cpp\n// 主循环中直接处理\nfor (int i = 1; i <= n + 1; i++)  // n+1 是哨兵位置\n{\n    // 当 A[i] 比栈顶柱子矮时，弹出并计算面积\n    while (id && A[i] < A[sk_idx[id - 1]])\n    {\n        int top = A[sk_idx[id - 1]];  // 被弹柱子的高度\n        --id;                         // 弹栈\n        if (id)                       // 栈非空：左边界 = 新栈顶索引\n            ans = max((long long)(i - sk_idx[id - 1] - 1) * top, ans);\n        else                          // 栈空：左边界 = 0，宽度 = i-1\n            ans = max((long long)(i - 1) * top, ans);\n    }\n    sk_idx[id++] = i;  // 入栈当前索引\n}\n```\n\n**核心差异**：\n\n- 实现A 的 `new_idx` 机制：被弹元素的左边界被\"继承\"到新入栈的元素上，因此宽度计算为 $i - \\text{sk\\_idx[栈顶]}$（减号右边直接就是左边界）\n- 实现B 的\"新栈顶\"机制：弹出后，新栈顶就是被弹元素左侧第一个更矮的柱子，宽度为 $i - \\text{sk\\_idx[新栈顶]} - 1$（需要再减 1，因为新栈顶本身不计入宽度）\n\n## 复杂度分析\n\n### 时间复杂度\n\n每个元素恰好入栈一次、出栈一次，`while` 循环的总执行次数不超过 $n$ 次（均摊分析），因此总时间复杂度为 $O(n)$。\n\n### 空间复杂度\n\n- 栈数组 `sk_num` + `sk_idx`（或仅 `sk_idx`）：$O(n)$\n- 实现B 额外使用 `vector<int> A`：$O(n)$\n- 总空间复杂度：$O(n)$\n\n## 适用场景\n\n- **直方图最大矩形**：经典应用，求直方图中最大矩形面积\n- **每日温度**：找右侧第一个更大的元素\n- **接雨水**：单调栈可在 $O(n)$ 内解决\n- **柱状图最大矩形扩展**：如最大子矩阵、最大全 1 子矩阵等\n- **下一个更大/更小元素**：在一维序列中找每个元素右侧第一个比它大/小的元素位置\n\n**不适用场景**：\n- 需要随机访问或区间查询的问题（栈只支持栈顶操作）\n- 需要动态修改后重新查询的场景（单调栈是离线结构，不支持高效修改）\n\n## 常见陷阱与注意事项\n\n1. **哨兵值的选择**：必须选择比所有可能的柱子高度都小的值（如 $-10^9$），否则哨兵可能被意外弹出导致错误。若柱子高度可能为 0，哨兵不能用 0。\n\n2. **空栈特判（实现B）**：实现B 没有哨兵保护，弹出后必须检查 `if (id)` 分支处理空栈情况。忘记特判会导致宽度计算错误（访问 `sk_idx[-1]` 越界）。\n\n3. **数据类型溢出**：面积 $h \\times w$ 中，$h$ 和 $w$ 均可能达到 $10^6$，乘积达到 $10^{12}$，超过 `int` 范围。必须使用 `long long` 存储面积和答案。\n\n4. **`new_idx` 的继承逻辑（实现A）**：`new_idx` 初始为 $i$，但在弹栈过程中不断更新为被弹元素的 `sk_idx`。这个继承机制确保了当前柱子的左边界正确延伸到被弹柱子的位置。忘记更新 `new_idx` 会导致左边界错误。\n\n5. **宽度公式差异**：两种实现的宽度公式不同：\n   - 实现A：$w = i - \\text{sk\\_idx[栈顶]}$（栈顶存储的就是左边界）\n   - 实现B：$w = i - \\text{sk\\_idx[新栈顶]} - 1$（新栈顶是左边界，需减 1）\n\n6. **下标从 1 还是 0 开始**：实现A 的哨兵 `sk_idx = 0` 表示下标从 1 开始，位置 0 是左边界起点。如果改用 0-indexed，需要相应调整哨兵位置和宽度公式。\n\n## 对比与扩展\n\n### 两种实现对比\n\n| 维度 | 实现A（带值栈） | 实现B（纯索引栈） |\n|---|---|---|\n| 空间 | 2 个数组 | 1 个数组 + 原数组 |\n| 哨策略 | `init()` 在栈底放哨兵 | 数组末尾追加哨兵值 |\n| 空栈处理 | 哨兵保证永不出栈 | 需 `if (id)` 特判 |\n| 宽度公式 | $i - \\text{左边界}$（直接） | $i - \\text{新栈顶} - 1$（间接） |\n| `new_idx` | 需要，维护继承关系 | 不需要，查询原数组即可 |\n| 可读性 | 逻辑更显式 | 代码更简洁 |\n| 通用性 | 适合不需要保留原数组的场景 | 适合已有原数组的场景 |\n\n### 与其他数据结构对比\n\n| 数据结构 | 适用问题 | 时间复杂度 | 与单调栈的关系 |\n|---|---|---|---|\n| 单调栈 | 找两侧第一个更小/大元素 | $O(n)$ | — |\n| 单调队列 | 滑动窗口最值 | $O(n)$ | 均维护单调性，队列支持尾部弹出（滑动窗口） |\n| ST 表 | 静态区间最值 | $O(n \\log n)$ 预处理 + $O(1)$ 查询 | ST 表支持任意区间查询，但不支持在线性时间找\"第一个更小\" |\n| 对顶堆 | 动态第 $k$ 小 | $O(\\log n)$ 单次 | 对顶堆维护动态集合，单调栈是一次性离线处理 |\n| 前缀最值栈 | 栈内最大值查询 | $O(1)$ 单次 | 前缀最值栈是单调栈的特例（只维护前缀 max，不需要弹出时计算） |\n\n### 扩展\n\n- **二进制优化单调栈**：对于重复询问的场景，可以用倍增预处理单调栈的跳跃指针，实现 $O(1)$ 查询\"跳过多少个更矮的柱子\"\n- **二维扩展**：将直方图最大矩形扩展到矩阵中的最大全 1 子矩阵，对每一行枚举\"以该行为底的高度\"后转化为直方图问题\n- **单调栈 + 离线**：将询问按位置排序，用单调栈在线性时间内回答所有\"右侧第一个更大元素\"类询问\n\n## 附：前缀最值栈（栈内最大值查询）\n\n前缀最值栈是在普通栈的基础上，额外维护一个辅助数组 `sk_big`，其中 `sk_big[i]` 记录从栈底到第 $i$ 个位置的元素最大值。这样不仅入栈、出栈均为 $O(1)$，还能 $O(1)$ 查询栈内当前所有元素的最大值。\n\n#### 核心思想\n\n普通栈只能 $O(1)$ 访问栈顶元素，查询栈内最大值需要遍历整个栈（$O(n)$）。前缀最值栈的关键观察是：\n\n- **入栈时**：新元素 $x$ 入栈后，栈内最大值要么不变（$x \\le$ 之前的最大值），要么更新为 $x$（$x >$ 之前的最大值）。即 $\\text{sk\\_big}[id] = \\max(\\text{sk\\_big}[id-1], x)$\n- **出栈时**：弹出栈顶只需将指针前移一位，`sk_big` 自动回到上一个位置的最大值，无需任何额外操作\n\n这一思路本质上是\"前缀和\"思想在栈上的推广——不是求和，而是求前缀最大值。\n\n#### 核心不变量\n\n1. `sk_num[i]` 存储第 $i$ 个入栈的元素（$i$ 从 $0$ 开始）\n2. `sk_big[i]` 存储从栈底到位置 $i$ 的所有元素最大值\n3. `id` 指向栈顶的下一个空位，栈顶元素是 `sk_num[id - 1]`，栈内最大值是 `sk_big[id - 1]`\n\n### 数据结构图示\n\n#### 整体结构\n\n```\n  sk_num (元素栈)        sk_big (前缀最大值栈)\n  ───────────────         ───────────────────\n  索引  值                索引  值\n  ┌───┬───┐              ┌───┬───┐\n  │ 0 │ 3 │ ← 栈底        │ 0 │ 3 │ ← max(3) = 3\n  │ 1 │ 1 │              │ 1 │ 3 │ ← max(3,1) = 3\n  │ 2 │ 4 │ ← 栈顶        │ 2 │ 4 │ ← max(3,1,4) = 4\n  └───┴───┘              └───┴───┘\n         ↑                        ↑\n        id = 3                   id = 3\n\n  栈顶元素 = sk_num[id-1] = sk_num[2] = 4\n  栈内最大 = sk_big[id-1] = sk_big[2] = 4\n```\n\n#### 操作过程示意\n\n以依次入栈 $3, 1, 4$，再出栈一次为例：\n\n```\n入栈 3:\n  sk_num: [3]          sk_big: [3]          id = 1\n  sk_big[0] = 3（首个元素，直接赋值）\n\n入栈 1:\n  sk_num: [3, 1]       sk_big: [3, 3]       id = 2\n  sk_big[1] = max(sk_big[0], 1) = max(3, 1) = 3\n\n入栈 4:\n  sk_num: [3, 1, 4]    sk_big: [3, 3, 4]    id = 3\n  sk_big[2] = max(sk_big[1], 4) = max(3, 4) = 4\n\n查询: 栈顶 = sk_num[2] = 4, 最大值 = sk_big[2] = 4  ✓\n\n出栈 (--id):\n  sk_num: [3, 1, 4]    sk_big: [3, 3, 4]    id = 2\n  （数据仍在内存中，但 id 前移，逻辑上栈只有 [3, 1]）\n\n查询: 栈顶 = sk_num[1] = 1, 最大值 = sk_big[1] = 3  ✓\n  （最大值是 3，不是已\"删除\"的 4）\n```\n\n#### 出栈恢复特性\n\n```\n出栈前: sk_big: [3, 3, 4]  id = 3  最大值 = 4\n出栈后: sk_big: [3, 3, 4]  id = 2  最大值 = 3\n\nsk_big[1] = 3 自动成为新的最大值，无需重新计算。\n这是因为 sk_big[i] 本身就记录了\"从栈底到位置 i 的最大值\"，\n出栈只是缩小了有效范围，前缀最大值自动回退。\n```\n\n### 核心操作详解\n\n#### 1. 入栈 `push(x)`\n\n```cpp\nsk_num[id] = x;\nif (id > 0) sk_big[id] = max(sk_big[id - 1], x);\nelse sk_big[id] = x;\n++id;\n```\n\n- 将 $x$ 存入 `sk_num[id]`\n- 若栈非空（`id > 0`），`sk_big[id]` 取前一个位置的最大值与 $x$ 的较大者\n- 若栈为空（`id == 0`），`sk_big[0]` 直接等于 $x$（第一个元素）\n- 指针 `id` 后移一位\n\n#### 2. 出栈 `pop()`\n\n```cpp\n--id;\n```\n\n仅将指针 `id` 前移一位。`sk_num` 和 `sk_big` 中的数据仍在内存中，但逻辑上已不属于栈。下一次入栈会覆盖这些位置。出栈后，新的栈内最大值自动变为 `sk_big[id - 1]`，无需任何计算。\n\n#### 3. 查询栈顶\n\n```cpp\nsk_num[id - 1]\n```\n\n$O(1)$ 读取栈顶元素。\n\n#### 4. 查询栈内最大值\n\n```cpp\nsk_big[id - 1]\n```\n\n$O(1)$ 读取前缀最大值数组的栈顶位置。由于 `sk_big[i]` 记录了从栈底到位置 $i$ 的最大值，`sk_big[id - 1]` 就是当前栈内所有元素的最大值。\n\n### 逐行代码解析\n\n以下按模块拆分完整实现，各代码块按顺序拼接后与 `.cpp` 完全一致。\n\n#### 全局变量\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int nmax = 1e5;                 // 统一管理数组大小\nint sk_num[nmax], sk_big[nmax];       // 元素栈 / 前缀最大值栈\nint id = 0;                           // 栈指针，指向栈顶的下一个空位\n```\n\n- `sk_num`：元素栈，存储实际入栈的值；`sk_big`：前缀最大值栈，`sk_big[i]` = 从栈底到位置 $i$ 的元素最大值\n- `id`：栈指针，指向栈顶的下一个空位，初始为 0 表示空栈\n- `nmax = 1e5` 统一管理数组大小，最多支持 $10^5$ 次入栈；操作数更多时需调大或改用 `vector` 动态扩容\n\n#### main 与读入\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint t;\n\tcin >> t;\n\twhile (t--)\n\t{\n\t\tint op;\n\t\tcin >> op;\n```\n\n- `ios::sync_with_stdio(false)` 关闭与 C 标准 IO 的同步，`cin.tie(nullptr)` 解绑，加速读入\n- 读入操作次数 $t$，每次循环读入一个操作类型 `op`，按 `1` 入栈 / `2` 出栈 / `3` 查询进入不同分支\n\n#### 入栈操作（op == 1）\n\n```cpp\n\t\tif (op == 1)\n\t\t{\n\t\t\tint x;\n\t\t\tcin >> x;\n\t\t\tsk_num[id] = x;                                    // 存入元素栈\n\t\t\tif (id > 0) sk_big[id] = max(sk_big[id - 1], x);   // 非空：与上一个前缀最大值比较\n\t\t\telse sk_big[id] = x;                               // 空栈：直接赋值\n\t\t\t++id;                                              // 指针后移\n\t\t}\n```\n\n- 把 $x$ 存入 `sk_num[id]`；栈非空时 `sk_big[id] = max(sk_big[id-1], x)`，栈空时 `sk_big[id] = x`\n- 必须与 `sk_big[id-1]`（前一个位置的前缀最大值）比较，不能误写为 `sk_num[id-1]`（前一个元素）\n- 最后 `++id` 后移指针；此处未检查 `id < nmax`，入栈超过 $10^5$ 次会越界\n\n#### 出栈操作（op == 2）\n\n```cpp\n\t\telse if (op == 2) --id;\n```\n\n- 仅 `--id` 前移指针，逻辑上弹出栈顶；旧数据仍留内存，下次入栈会覆盖\n- 出栈后栈内最大值自动回退为 `sk_big[id-1]`，无需重新计算\n- 未检查 `id > 0`，空栈出栈会使 `id` 变负，后续查询会越界\n\n#### 查询操作（op == 3）与收尾\n\n```cpp\n\t\telse if (op == 3)\n\t\t{\n\t\t\tcout << \"当前栈顶元素为: \" << sk_num[id - 1] << '\\n';\n\t\t\tcout << \"栈内最大元素为: \" << sk_big[id - 1] << '\\n';\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n- 栈顶元素 = `sk_num[id-1]`，栈内最大值 = `sk_big[id-1]`，均为 $O(1)$ 直接索引\n- 未检查 `id > 0`，空栈查询会访问 `sk_num[-1]` 越界\n- 末尾的 `}` 依次收尾 while 循环与 main 函数，`return 0;` 正常结束\n\n### 复杂度分析\n\n| 操作 | 时间 | 空间 | 说明 |\n|---|---|---|---|\n| 入栈 | $O(1)$ | $O(1)$ | 一次赋值 $+$ 一次 `max` $+$ 指针自增 |\n| 出栈 | $O(1)$ | $O(0)$ | 仅指针自减 |\n| 查询栈顶 | $O(1)$ | $O(0)$ | 数组直接索引 |\n| 查询最大值 | $O(1)$ | $O(0)$ | 前缀最大值数组直接索引 |\n| 总空间 | — | $O(n)$ | 两个数组各 $n$ 个元素 |\n\n所有操作均为 $O(1)$，空间 $O(n)$。与朴素做法（每次查询遍历栈，$O(n)$）相比，用空间换时间，将最值查询从 $O(n)$ 降为 $O(1)$。\n\n### 适用场景\n\n**适用**：\n- 需要在栈操作的同时查询栈内最值（最大值或最小值）\n- 括号匹配、表达式求值等需要回溯的场景，同时需要跟踪最值\n- 滑动窗口类问题中栈结构的变体\n- 单调栈问题的辅助分析\n\n**不适用**：\n- 需要查询区间最值（非栈内最值）：应使用 ST 表或线段树\n- 需要查询第 $k$ 大/小：应使用对顶堆或平衡树\n- 元素需要随机访问或中间插入/删除：应使用平衡树或链表\n- 需要维护最小值而非最大值：将 `max` 改为 `min` 即可，原理相同\n\n### 常见陷阱与注意事项\n\n1. **空栈越界**\n   - 出栈时若栈已空（`id == 0`），`--id` 会使 `id` 变为 $-1$，后续访问 `sk_num[id-1]` 越界\n   - 查询时若栈空，`sk_num[id-1]` = `sk_num[-1]` 越界\n   - 应在出栈和查询前检查 `id > 0`\n\n2. **数组大小不足**\n   - `nmax = 1e5` 仅支持 $10^5$ 次入栈，若操作次数更多需调大\n   - 建议用 `const int nmax` 统一管理，或改用 `vector` 动态扩容\n\n3. **前缀最值的维护方向**\n   - `sk_big[i]` 是从栈底到位置 $i$ 的最大值，不是从位置 $i$ 到栈顶的最大值\n   - 入栈时必须与 `sk_big[id-1]`（前一个位置的最大值）比较，不能与 `sk_num[id-1]`（前一个元素的值）比较\n\n4. **出栈后数据残留**\n   - 出栈只是移动 `id` 指针，`sk_num` 和 `sk_big` 中的旧数据仍在内存\n   - 若入栈次数少于之前的最大 `id`，不会有问题（新数据会覆盖）\n   - 但若在入栈前查询了尚未覆盖的位置，会读到旧数据——因此查询始终用 `sk_big[id-1]`\n\n5. **`max` 与 `min` 的选择**\n   - 维护最大值用 `max`，维护最小值用 `min`\n   - 若需要同时维护最大值和最小值，开三个数组：`sk_num`、`sk_big`（前缀 max）、`sk_sml`（前缀 min）\n\n### 对比与扩展\n\n| 对比维度 | 前缀最值栈 | 朴素栈 | 单调栈 | 对顶堆 |\n|---|---|---|---|---|\n| 入栈 | $O(1)$ | $O(1)$ | $O(1)$ 均摊 | $O(\\log n)$ |\n| 出栈 | $O(1)$ | $O(1)$ | $O(1)$ 均摊 | $O(\\log n)$ |\n| 查询最值 | $O(1)$ | $O(n)$ | $O(1)$（栈顶） | $O(1)$ |\n| 维护内容 | 栈内全局最值 | 仅栈顶 | 单调性（局部最值） | 第 $k$ 小 |\n| 支持随机删除 | 否 | 否 | 否 | 否 |\n| 空间 | $O(n)$ | $O(n)$ | $O(n)$ | $O(n)$ |\n| 实现难度 | 低 | 最低 | 中 | 低 |\n\n**扩展**：\n- **双辅助数组**：同时维护 `sk_big`（前缀 max）和 `sk_sml`（前缀 min），即可 $O(1)$ 查询栈内最大值和最小值\n- **前缀和栈**：类似地，维护 `sk_sum[i]` = 从栈底到位置 $i$ 的元素之和，可 $O(1)$ 查询栈内元素总和\n- **多维辅助信息**：可以同时维护最值、求和、异或和等多种前缀信息，每次入栈只需 $O(1)$ 更新\n- **与单调栈的区别**：前缀最值栈维护的是\"栈内全局最值\"，单调栈维护的是\"从栈底到栈顶的单调性\"——两者目的不同，单调栈用于解决\"下一个更大/更小元素\"类问题\n- **与对顶堆的关系**：对顶堆用两个堆维护第 $k$ 小，前缀最值栈用一个辅助数组维护最值，都是\"用额外空间换取查询效率\"的思路",
                 "codePath": "数据结构\\单调栈\\直方图最大矩形\\Untitled1.cpp",
                 "timeComplexity": "O(n)",
                 "spaceComplexity": "O(n)",
@@ -6021,7 +6032,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n单调栈是一种在栈的基础上维护**单调性**（递增或递减）的数据结构。核心思想是：当新元素破坏了栈的单调性时，弹出栈顶元素，直到栈重新满足单调性为止。每个元素最多入栈一次、出栈一次，因此总时间复杂度为 $O(n)$。\r\n\r\n**直方图最大矩形问题**：给定 $n$ 个非负整数 $h_1, h_2, \\ldots, h_n$，表示直方图中 $n$ 个宽度为 1 的柱子的高度，求能画出的最大矩形的面积。\r\n\r\n### 核心思想\r\n\r\n对于每个柱子 $h_i$，以它的高度作为矩形高度时，矩形能向左右扩展多远？关键在于找到 $h_i$ 两侧**第一个比 $h_i$ 矮**的柱子位置：\r\n\r\n- **左边界** $L_i$：$h_i$ 左侧第一个高度小于 $h_i$ 的位置\r\n- **右边界** $R_i$：$h_i$ 右侧第一个高度小于 $h_i$ 的位置\r\n- **以 $h_i$ 为高的最大矩形面积** $= h_i \\times (R_i - L_i - 1)$\r\n\r\n单调栈（递增栈）在一次遍历中同时完成左右边界的求解：\r\n\r\n1. 遍历每个柱子，维护一个**单调递增栈**（栈底到栈顶高度递增）\r\n2. 当遇到比栈顶矮的柱子时，栈顶柱子的**右边界**就确定了（当前位置）\r\n3. 弹出栈顶后，新的栈顶就是被弹柱子的**左边界**\r\n4. 弹出时计算矩形面积并更新答案\r\n\r\n### 两种实现风格\r\n\r\n| | 实现A（带值栈） | 实现B（纯索引栈） |\r\n|---|---|---|\r\n| 栈存储内容 | 值 + 索引（`sk_num` + `sk_idx`） | 仅索引（`sk_idx`），值从原数组查询 |\r\n| 宽度计算 | `i - sk_idx[top]`（存的就是左边界） | `i - sk_idx[newtop] - 1`（新栈顶是左边界） |\r\n| 哨兵策略 | `init()` 在栈底放 $-10^9$ 哨兵 | 在数组末尾追加 $-10^9$ 哨兵 |\r\n| 空栈处理 | 哨兵保证栈不为空 | 需要特判 `if (id)` 分支 |\r\n\r\n## 数据结构图示\r\n\r\n### 直方图示例\r\n\r\n以数组 $h = [2, 1, 5, 6, 2, 3]$ 为例，直方图如下：\r\n\r\n```\r\n索引:  1   2   3   4   5   6\r\n      ┌───┐               \r\n      │   │       ┌───┐   \r\n      │   │       │   │   \r\n      │   │   ┌───┤   │   \r\n      │   │   │   │   │   \r\n      │   │   │   │   │   ┌───┐\r\n      │   │   │   │   │   │   │\r\n      └───┘   └───┘   └───┘   └───┘\r\n高度:  2   1   5   6   2   3\r\n```\r\n\r\n最大矩形面积为 $10$（高度 $5$、宽度 $2$，即第 3、4 根柱子的范围）。\r\n\r\n### 实现A 的栈状态变化\r\n\r\n栈中存储 `(值, 索引)`，栈底有哨兵 $(-10^9, 0)$：\r\n\r\n```\r\n操作            栈状态（从底到顶）         弹出时计算\r\n─────────────────────────────────────────────────────\r\ninit()         [(-1e9,0)]\r\nadd(2, 1)      [(-1e9,0), (2,1)]         无弹出\r\nadd(1, 2)      [(-1e9,0), (1,1)]         弹 (2,1): 2*(2-1)=2,  new_idx=1\r\nadd(5, 3)      [...(1,1), (5,3)]         无弹出\r\nadd(6, 4)      [...(5,3), (6,4)]         无弹出\r\nadd(2, 5)      [...(1,1), (2,3)]         弹 (6,4): 6*(5-4)=6\r\n                                         弹 (5,3): 5*(5-3)=10  ← 最大\r\nadd(3, 6)      [...(2,3), (3,6)]         无弹出\r\nadd(-1e9, 7)   [(-1e9,0)]               弹 (3,6): 3*(7-6)=3\r\n                                         弹 (2,3): 2*(7-3)=8\r\n                                         弹 (1,1): 1*(7-1)=6\r\n```\r\n\r\n最终答案：$10$。\r\n\r\n### 实现B 的栈状态变化\r\n\r\n栈中仅存储索引，值从数组 $A$ 查询，数组末尾追加哨兵 $-10^9$：\r\n\r\n```\r\n操作            栈状态（索引）       弹出时计算\r\n─────────────────────────────────────────────────\r\nA = [_,2,1,5,6,2,3,-1e9]\r\ni=1  A[1]=2    [1]                无弹出\r\ni=2  A[2]=1    [2]                弹 idx=1: 栈空, w=2-1=1, 2*1=2\r\ni=3  A[3]=5    [2,3]              无弹出\r\ni=4  A[4]=6    [2,3,4]            无弹出\r\ni=5  A[5]=2    [2,5]              弹 idx=4: 栈非空, w=5-3-1=1, 6*1=6\r\n                                    弹 idx=3: 栈非空, w=5-2-1=2, 5*2=10  ← 最大\r\ni=6  A[6]=3    [2,5,6]            无弹出\r\ni=7  A[7]=-1e9 [7]               弹 idx=6: 栈非空, w=7-5-1=1, 3*1=3\r\n                                    弹 idx=5: 栈非空, w=7-2-1=4, 2*4=8\r\n                                    弹 idx=2: 栈空, w=7-1=6, 1*6=6\r\n```\r\n\r\n最终答案：$10$，与实现A 一致。\r\n\r\n## 核心操作详解\r\n\r\n### 初始化（实现A）\r\n\r\n在栈底放置一个极小值哨兵 $-10^9$，保证后续 `while` 循环时栈底不会被弹出，避免空栈特判。\r\n\r\n### 入栈 `add(x, i)`（实现A）\r\n\r\n1. 记录 `new_idx = i`（默认左边界为当前索引）\r\n2. **弹栈循环**：当 `x < sk_num[栈顶]` 时，弹出栈顶，计算面积 $h \\times (i - \\text{左边界})$，并继承被弹元素的左边界 `new_idx = sk_idx[栈顶]`\r\n3. 入栈 `(x, new_idx)`，其中 `new_idx` 可能小于 $i$（因为继承了被弹元素的位置，表示当前柱子可以向左延伸）\r\n\r\n### 入栈（实现B）\r\n\r\n1. **弹栈循环**：当 `A[i] < A[sk_idx[栈顶]]` 时，弹出栈顶索引 `top_idx`，取高度 `h = A[top_idx]`\r\n2. **宽度计算**：\r\n   - 若栈非空：$w = i - \\text{sk\\_idx[新栈顶]} - 1$（新栈顶是被弹元素左侧第一个更矮的柱子）\r\n   - 若栈空：$w = i - 1$（被弹元素可以延伸到最左边）\r\n3. 入栈当前索引 $i$\r\n\r\n### 终止哨兵\r\n\r\n两种实现都在末尾追加一个极小值（$-10^9$），强制弹出栈中所有剩余元素，完成最终计算。\r\n\r\n## 逐行代码解析\r\n\r\n### 实现A：带值栈（`sk_num` + `sk_idx`）\r\n\r\n```cpp\r\nconst int nmax = 1e6 + 10;\r\nint sk_num[nmax], sk_idx[nmax], id;\r\n// sk_num: 栈值数组（存储柱子高度）\r\n// sk_idx: 栈索引数组（存储柱子位置 + 继承的左边界）\r\n// id: 栈顶指针（指向下一个空位）\r\n```\r\n\r\n```cpp\r\nvoid init()\r\n{\r\n    id = 0;\r\n    sk_num[id] = -1e9;  // 哨兵：极小值，保证不被弹出\r\n    sk_idx[id] = 0;     // 哨兵位置：0（下标从1开始，0表示左边界起点）\r\n    ++id;               // id 现在指向位置 1\r\n}\r\n```\r\n\r\n```cpp\r\nlong long add(int x, int i)\r\n{\r\n    long long ans = 0;\r\n    int new_idx = i;    // 默认左边界 = 当前索引\r\n    // 弹栈循环：当前值比栈顶小时，弹出并计算面积\r\n    while(x < sk_num[id - 1])\r\n    {\r\n        // 面积 = 栈顶高度 * (当前索引 - 栈顶存储的左边界)\r\n        ans = max(ans, (long long)sk_num[id - 1] * (i - sk_idx[id - 1]));\r\n        new_idx = sk_idx[id - 1];  // 继承被弹元素的左边界\r\n        --id;                      // 弹栈\r\n    }\r\n    sk_num[id] = x;       // 入栈：当前高度\r\n    sk_idx[id] = new_idx; // 入栈：左边界（可能 < i，因为继承了被弹元素的位置）\r\n    ++id;\r\n    return ans;\r\n}\r\n```\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    int t;\r\n    cin >> t;\r\n    while (t--)\r\n    {\r\n        int n;\r\n        long long ans = 0;\r\n        cin >> n;\r\n        init();\r\n        for (int i = 1; i <= n; i++)\r\n        {\r\n            int x;\r\n            cin >> x;\r\n            ans = max(add(x, i), ans);  // 每次入栈时更新最大面积\r\n        }\r\n        ans = max(add(-1e9, n + 1), ans);  // 哨兵：强制弹出所有剩余元素\r\n        cout << ans << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n### 实现B：纯索引栈（仅 `sk_idx`）\r\n\r\n```cpp\r\nint sk_idx[nmax], id;  // 仅存索引，值从 A[] 查询\r\n```\r\n\r\n```cpp\r\n// 主循环中直接处理\r\nfor (int i = 1; i <= n + 1; i++)  // n+1 是哨兵位置\r\n{\r\n    // 当 A[i] 比栈顶柱子矮时，弹出并计算面积\r\n    while (id && A[i] < A[sk_idx[id - 1]])\r\n    {\r\n        int top = A[sk_idx[id - 1]];  // 被弹柱子的高度\r\n        --id;                         // 弹栈\r\n        if (id)                       // 栈非空：左边界 = 新栈顶索引\r\n            ans = max((long long)(i - sk_idx[id - 1] - 1) * top, ans);\r\n        else                          // 栈空：左边界 = 0，宽度 = i-1\r\n            ans = max((long long)(i - 1) * top, ans);\r\n    }\r\n    sk_idx[id++] = i;  // 入栈当前索引\r\n}\r\n```\r\n\r\n**核心差异**：\r\n\r\n- 实现A 的 `new_idx` 机制：被弹元素的左边界被\"继承\"到新入栈的元素上，因此宽度计算为 $i - \\text{sk\\_idx[栈顶]}$（减号右边直接就是左边界）\r\n- 实现B 的\"新栈顶\"机制：弹出后，新栈顶就是被弹元素左侧第一个更矮的柱子，宽度为 $i - \\text{sk\\_idx[新栈顶]} - 1$（需要再减 1，因为新栈顶本身不计入宽度）\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度\r\n\r\n每个元素恰好入栈一次、出栈一次，`while` 循环的总执行次数不超过 $n$ 次（均摊分析），因此总时间复杂度为 $O(n)$。\r\n\r\n### 空间复杂度\r\n\r\n- 栈数组 `sk_num` + `sk_idx`（或仅 `sk_idx`）：$O(n)$\r\n- 实现B 额外使用 `vector<int> A`：$O(n)$\r\n- 总空间复杂度：$O(n)$\r\n\r\n## 适用场景\r\n\r\n- **直方图最大矩形**：经典应用，求直方图中最大矩形面积\r\n- **每日温度**：找右侧第一个更大的元素\r\n- **接雨水**：单调栈可在 $O(n)$ 内解决\r\n- **柱状图最大矩形扩展**：如最大子矩阵、最大全 1 子矩阵等\r\n- **下一个更大/更小元素**：在一维序列中找每个元素右侧第一个比它大/小的元素位置\r\n\r\n**不适用场景**：\r\n- 需要随机访问或区间查询的问题（栈只支持栈顶操作）\r\n- 需要动态修改后重新查询的场景（单调栈是离线结构，不支持高效修改）\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **哨兵值的选择**：必须选择比所有可能的柱子高度都小的值（如 $-10^9$），否则哨兵可能被意外弹出导致错误。若柱子高度可能为 0，哨兵不能用 0。\r\n\r\n2. **空栈特判（实现B）**：实现B 没有哨兵保护，弹出后必须检查 `if (id)` 分支处理空栈情况。忘记特判会导致宽度计算错误（访问 `sk_idx[-1]` 越界）。\r\n\r\n3. **数据类型溢出**：面积 $h \\times w$ 中，$h$ 和 $w$ 均可能达到 $10^6$，乘积达到 $10^{12}$，超过 `int` 范围。必须使用 `long long` 存储面积和答案。\r\n\r\n4. **`new_idx` 的继承逻辑（实现A）**：`new_idx` 初始为 $i$，但在弹栈过程中不断更新为被弹元素的 `sk_idx`。这个继承机制确保了当前柱子的左边界正确延伸到被弹柱子的位置。忘记更新 `new_idx` 会导致左边界错误。\r\n\r\n5. **宽度公式差异**：两种实现的宽度公式不同：\r\n   - 实现A：$w = i - \\text{sk\\_idx[栈顶]}$（栈顶存储的就是左边界）\r\n   - 实现B：$w = i - \\text{sk\\_idx[新栈顶]} - 1$（新栈顶是左边界，需减 1）\r\n\r\n6. **下标从 1 还是 0 开始**：实现A 的哨兵 `sk_idx = 0` 表示下标从 1 开始，位置 0 是左边界起点。如果改用 0-indexed，需要相应调整哨兵位置和宽度公式。\r\n\r\n## 对比与扩展\r\n\r\n### 两种实现对比\r\n\r\n| 维度 | 实现A（带值栈） | 实现B（纯索引栈） |\r\n|---|---|---|\r\n| 空间 | 2 个数组 | 1 个数组 + 原数组 |\r\n| 哨策略 | `init()` 在栈底放哨兵 | 数组末尾追加哨兵值 |\r\n| 空栈处理 | 哨兵保证永不出栈 | 需 `if (id)` 特判 |\r\n| 宽度公式 | $i - \\text{左边界}$（直接） | $i - \\text{新栈顶} - 1$（间接） |\r\n| `new_idx` | 需要，维护继承关系 | 不需要，查询原数组即可 |\r\n| 可读性 | 逻辑更显式 | 代码更简洁 |\r\n| 通用性 | 适合不需要保留原数组的场景 | 适合已有原数组的场景 |\r\n\r\n### 与其他数据结构对比\r\n\r\n| 数据结构 | 适用问题 | 时间复杂度 | 与单调栈的关系 |\r\n|---|---|---|---|\r\n| 单调栈 | 找两侧第一个更小/大元素 | $O(n)$ | — |\r\n| 单调队列 | 滑动窗口最值 | $O(n)$ | 均维护单调性，队列支持尾部弹出（滑动窗口） |\r\n| ST 表 | 静态区间最值 | $O(n \\log n)$ 预处理 + $O(1)$ 查询 | ST 表支持任意区间查询，但不支持在线性时间找\"第一个更小\" |\r\n| 对顶堆 | 动态第 $k$ 小 | $O(\\log n)$ 单次 | 对顶堆维护动态集合，单调栈是一次性离线处理 |\r\n| 前缀最值栈 | 栈内最大值查询 | $O(1)$ 单次 | 前缀最值栈是单调栈的特例（只维护前缀 max，不需要弹出时计算） |\r\n\r\n### 扩展\r\n\r\n- **二进制优化单调栈**：对于重复询问的场景，可以用倍增预处理单调栈的跳跃指针，实现 $O(1)$ 查询\"跳过多少个更矮的柱子\"\r\n- **二维扩展**：将直方图最大矩形扩展到矩阵中的最大全 1 子矩阵，对每一行枚举\"以该行为底的高度\"后转化为直方图问题\r\n- **单调栈 + 离线**：将询问按位置排序，用单调栈在线性时间内回答所有\"右侧第一个更大元素\"类询问",
+        "content": "## 算法原理\n\n单调栈是一种在栈的基础上维护**单调性**（递增或递减）的数据结构。核心思想是：当新元素破坏了栈的单调性时，弹出栈顶元素，直到栈重新满足单调性为止。每个元素最多入栈一次、出栈一次，因此总时间复杂度为 $O(n)$。\n\n**直方图最大矩形问题**：给定 $n$ 个非负整数 $h_1, h_2, \\ldots, h_n$，表示直方图中 $n$ 个宽度为 1 的柱子的高度，求能画出的最大矩形的面积。\n\n### 核心思想\n\n对于每个柱子 $h_i$，以它的高度作为矩形高度时，矩形能向左右扩展多远？关键在于找到 $h_i$ 两侧**第一个比 $h_i$ 矮**的柱子位置：\n\n- **左边界** $L_i$：$h_i$ 左侧第一个高度小于 $h_i$ 的位置\n- **右边界** $R_i$：$h_i$ 右侧第一个高度小于 $h_i$ 的位置\n- **以 $h_i$ 为高的最大矩形面积** $= h_i \\times (R_i - L_i - 1)$\n\n单调栈（递增栈）在一次遍历中同时完成左右边界的求解：\n\n1. 遍历每个柱子，维护一个**单调递增栈**（栈底到栈顶高度递增）\n2. 当遇到比栈顶矮的柱子时，栈顶柱子的**右边界**就确定了（当前位置）\n3. 弹出栈顶后，新的栈顶就是被弹柱子的**左边界**\n4. 弹出时计算矩形面积并更新答案\n\n### 两种实现风格\n\n| | 实现A（带值栈） | 实现B（纯索引栈） |\n|---|---|---|\n| 栈存储内容 | 值 + 索引（`sk_num` + `sk_idx`） | 仅索引（`sk_idx`），值从原数组查询 |\n| 宽度计算 | `i - sk_idx[top]`（存的就是左边界） | `i - sk_idx[newtop] - 1`（新栈顶是左边界） |\n| 哨兵策略 | `init()` 在栈底放 $-10^9$ 哨兵 | 在数组末尾追加 $-10^9$ 哨兵 |\n| 空栈处理 | 哨兵保证栈不为空 | 需要特判 `if (id)` 分支 |\n\n## 数据结构图示\n\n### 直方图示例\n\n以数组 $h = [2, 1, 5, 6, 2, 3]$ 为例，直方图如下：\n\n```\n索引:  1   2   3   4   5   6\n      ┌───┐               \n      │   │       ┌───┐   \n      │   │       │   │   \n      │   │   ┌───┤   │   \n      │   │   │   │   │   \n      │   │   │   │   │   ┌───┐\n      │   │   │   │   │   │   │\n      └───┘   └───┘   └───┘   └───┘\n高度:  2   1   5   6   2   3\n```\n\n最大矩形面积为 $10$（高度 $5$、宽度 $2$，即第 3、4 根柱子的范围）。\n\n### 实现A 的栈状态变化\n\n栈中存储 `(值, 索引)`，栈底有哨兵 $(-10^9, 0)$：\n\n```\n操作            栈状态（从底到顶）         弹出时计算\n─────────────────────────────────────────────────────\ninit()         [(-1e9,0)]\nadd(2, 1)      [(-1e9,0), (2,1)]         无弹出\nadd(1, 2)      [(-1e9,0), (1,1)]         弹 (2,1): 2*(2-1)=2,  new_idx=1\nadd(5, 3)      [...(1,1), (5,3)]         无弹出\nadd(6, 4)      [...(5,3), (6,4)]         无弹出\nadd(2, 5)      [...(1,1), (2,3)]         弹 (6,4): 6*(5-4)=6\n                                         弹 (5,3): 5*(5-3)=10  ← 最大\nadd(3, 6)      [...(2,3), (3,6)]         无弹出\nadd(-1e9, 7)   [(-1e9,0)]               弹 (3,6): 3*(7-6)=3\n                                         弹 (2,3): 2*(7-3)=8\n                                         弹 (1,1): 1*(7-1)=6\n```\n\n最终答案：$10$。\n\n### 实现B 的栈状态变化\n\n栈中仅存储索引，值从数组 $A$ 查询，数组末尾追加哨兵 $-10^9$：\n\n```\n操作            栈状态（索引）       弹出时计算\n─────────────────────────────────────────────────\nA = [_,2,1,5,6,2,3,-1e9]\ni=1  A[1]=2    [1]                无弹出\ni=2  A[2]=1    [2]                弹 idx=1: 栈空, w=2-1=1, 2*1=2\ni=3  A[3]=5    [2,3]              无弹出\ni=4  A[4]=6    [2,3,4]            无弹出\ni=5  A[5]=2    [2,5]              弹 idx=4: 栈非空, w=5-3-1=1, 6*1=6\n                                    弹 idx=3: 栈非空, w=5-2-1=2, 5*2=10  ← 最大\ni=6  A[6]=3    [2,5,6]            无弹出\ni=7  A[7]=-1e9 [7]               弹 idx=6: 栈非空, w=7-5-1=1, 3*1=3\n                                    弹 idx=5: 栈非空, w=7-2-1=4, 2*4=8\n                                    弹 idx=2: 栈空, w=7-1=6, 1*6=6\n```\n\n最终答案：$10$，与实现A 一致。\n\n## 核心操作详解\n\n### 初始化（实现A）\n\n在栈底放置一个极小值哨兵 $-10^9$，保证后续 `while` 循环时栈底不会被弹出，避免空栈特判。\n\n### 入栈 `add(x, i)`（实现A）\n\n1. 记录 `new_idx = i`（默认左边界为当前索引）\n2. **弹栈循环**：当 `x < sk_num[栈顶]` 时，弹出栈顶，计算面积 $h \\times (i - \\text{左边界})$，并继承被弹元素的左边界 `new_idx = sk_idx[栈顶]`\n3. 入栈 `(x, new_idx)`，其中 `new_idx` 可能小于 $i$（因为继承了被弹元素的位置，表示当前柱子可以向左延伸）\n\n### 入栈（实现B）\n\n1. **弹栈循环**：当 `A[i] < A[sk_idx[栈顶]]` 时，弹出栈顶索引 `top_idx`，取高度 `h = A[top_idx]`\n2. **宽度计算**：\n   - 若栈非空：$w = i - \\text{sk\\_idx[新栈顶]} - 1$（新栈顶是被弹元素左侧第一个更矮的柱子）\n   - 若栈空：$w = i - 1$（被弹元素可以延伸到最左边）\n3. 入栈当前索引 $i$\n\n### 终止哨兵\n\n两种实现都在末尾追加一个极小值（$-10^9$），强制弹出栈中所有剩余元素，完成最终计算。\n\n## 逐行代码解析\n\n### 实现A：带值栈（`sk_num` + `sk_idx`）\n\n```cpp\nconst int nmax = 1e6 + 10;\nint sk_num[nmax], sk_idx[nmax], id;\n// sk_num: 栈值数组（存储柱子高度）\n// sk_idx: 栈索引数组（存储柱子位置 + 继承的左边界）\n// id: 栈顶指针（指向下一个空位）\n```\n\n```cpp\nvoid init()\n{\n    id = 0;\n    sk_num[id] = -1e9;  // 哨兵：极小值，保证不被弹出\n    sk_idx[id] = 0;     // 哨兵位置：0（下标从1开始，0表示左边界起点）\n    ++id;               // id 现在指向位置 1\n}\n```\n\n```cpp\nlong long add(int x, int i)\n{\n    long long ans = 0;\n    int new_idx = i;    // 默认左边界 = 当前索引\n    // 弹栈循环：当前值比栈顶小时，弹出并计算面积\n    while(x < sk_num[id - 1])\n    {\n        // 面积 = 栈顶高度 * (当前索引 - 栈顶存储的左边界)\n        ans = max(ans, (long long)sk_num[id - 1] * (i - sk_idx[id - 1]));\n        new_idx = sk_idx[id - 1];  // 继承被弹元素的左边界\n        --id;                      // 弹栈\n    }\n    sk_num[id] = x;       // 入栈：当前高度\n    sk_idx[id] = new_idx; // 入栈：左边界（可能 < i，因为继承了被弹元素的位置）\n    ++id;\n    return ans;\n}\n```\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--)\n    {\n        int n;\n        long long ans = 0;\n        cin >> n;\n        init();\n        for (int i = 1; i <= n; i++)\n        {\n            int x;\n            cin >> x;\n            ans = max(add(x, i), ans);  // 每次入栈时更新最大面积\n        }\n        ans = max(add(-1e9, n + 1), ans);  // 哨兵：强制弹出所有剩余元素\n        cout << ans << '\\n';\n    }\n    return 0;\n}\n```\n\n### 实现B：纯索引栈（仅 `sk_idx`）\n\n```cpp\nint sk_idx[nmax], id;  // 仅存索引，值从 A[] 查询\n```\n\n```cpp\n// 主循环中直接处理\nfor (int i = 1; i <= n + 1; i++)  // n+1 是哨兵位置\n{\n    // 当 A[i] 比栈顶柱子矮时，弹出并计算面积\n    while (id && A[i] < A[sk_idx[id - 1]])\n    {\n        int top = A[sk_idx[id - 1]];  // 被弹柱子的高度\n        --id;                         // 弹栈\n        if (id)                       // 栈非空：左边界 = 新栈顶索引\n            ans = max((long long)(i - sk_idx[id - 1] - 1) * top, ans);\n        else                          // 栈空：左边界 = 0，宽度 = i-1\n            ans = max((long long)(i - 1) * top, ans);\n    }\n    sk_idx[id++] = i;  // 入栈当前索引\n}\n```\n\n**核心差异**：\n\n- 实现A 的 `new_idx` 机制：被弹元素的左边界被\"继承\"到新入栈的元素上，因此宽度计算为 $i - \\text{sk\\_idx[栈顶]}$（减号右边直接就是左边界）\n- 实现B 的\"新栈顶\"机制：弹出后，新栈顶就是被弹元素左侧第一个更矮的柱子，宽度为 $i - \\text{sk\\_idx[新栈顶]} - 1$（需要再减 1，因为新栈顶本身不计入宽度）\n\n## 复杂度分析\n\n### 时间复杂度\n\n每个元素恰好入栈一次、出栈一次，`while` 循环的总执行次数不超过 $n$ 次（均摊分析），因此总时间复杂度为 $O(n)$。\n\n### 空间复杂度\n\n- 栈数组 `sk_num` + `sk_idx`（或仅 `sk_idx`）：$O(n)$\n- 实现B 额外使用 `vector<int> A`：$O(n)$\n- 总空间复杂度：$O(n)$\n\n## 适用场景\n\n- **直方图最大矩形**：经典应用，求直方图中最大矩形面积\n- **每日温度**：找右侧第一个更大的元素\n- **接雨水**：单调栈可在 $O(n)$ 内解决\n- **柱状图最大矩形扩展**：如最大子矩阵、最大全 1 子矩阵等\n- **下一个更大/更小元素**：在一维序列中找每个元素右侧第一个比它大/小的元素位置\n\n**不适用场景**：\n- 需要随机访问或区间查询的问题（栈只支持栈顶操作）\n- 需要动态修改后重新查询的场景（单调栈是离线结构，不支持高效修改）\n\n## 常见陷阱与注意事项\n\n1. **哨兵值的选择**：必须选择比所有可能的柱子高度都小的值（如 $-10^9$），否则哨兵可能被意外弹出导致错误。若柱子高度可能为 0，哨兵不能用 0。\n\n2. **空栈特判（实现B）**：实现B 没有哨兵保护，弹出后必须检查 `if (id)` 分支处理空栈情况。忘记特判会导致宽度计算错误（访问 `sk_idx[-1]` 越界）。\n\n3. **数据类型溢出**：面积 $h \\times w$ 中，$h$ 和 $w$ 均可能达到 $10^6$，乘积达到 $10^{12}$，超过 `int` 范围。必须使用 `long long` 存储面积和答案。\n\n4. **`new_idx` 的继承逻辑（实现A）**：`new_idx` 初始为 $i$，但在弹栈过程中不断更新为被弹元素的 `sk_idx`。这个继承机制确保了当前柱子的左边界正确延伸到被弹柱子的位置。忘记更新 `new_idx` 会导致左边界错误。\n\n5. **宽度公式差异**：两种实现的宽度公式不同：\n   - 实现A：$w = i - \\text{sk\\_idx[栈顶]}$（栈顶存储的就是左边界）\n   - 实现B：$w = i - \\text{sk\\_idx[新栈顶]} - 1$（新栈顶是左边界，需减 1）\n\n6. **下标从 1 还是 0 开始**：实现A 的哨兵 `sk_idx = 0` 表示下标从 1 开始，位置 0 是左边界起点。如果改用 0-indexed，需要相应调整哨兵位置和宽度公式。\n\n## 对比与扩展\n\n### 两种实现对比\n\n| 维度 | 实现A（带值栈） | 实现B（纯索引栈） |\n|---|---|---|\n| 空间 | 2 个数组 | 1 个数组 + 原数组 |\n| 哨策略 | `init()` 在栈底放哨兵 | 数组末尾追加哨兵值 |\n| 空栈处理 | 哨兵保证永不出栈 | 需 `if (id)` 特判 |\n| 宽度公式 | $i - \\text{左边界}$（直接） | $i - \\text{新栈顶} - 1$（间接） |\n| `new_idx` | 需要，维护继承关系 | 不需要，查询原数组即可 |\n| 可读性 | 逻辑更显式 | 代码更简洁 |\n| 通用性 | 适合不需要保留原数组的场景 | 适合已有原数组的场景 |\n\n### 与其他数据结构对比\n\n| 数据结构 | 适用问题 | 时间复杂度 | 与单调栈的关系 |\n|---|---|---|---|\n| 单调栈 | 找两侧第一个更小/大元素 | $O(n)$ | — |\n| 单调队列 | 滑动窗口最值 | $O(n)$ | 均维护单调性，队列支持尾部弹出（滑动窗口） |\n| ST 表 | 静态区间最值 | $O(n \\log n)$ 预处理 + $O(1)$ 查询 | ST 表支持任意区间查询，但不支持在线性时间找\"第一个更小\" |\n| 对顶堆 | 动态第 $k$ 小 | $O(\\log n)$ 单次 | 对顶堆维护动态集合，单调栈是一次性离线处理 |\n| 前缀最值栈 | 栈内最大值查询 | $O(1)$ 单次 | 前缀最值栈是单调栈的特例（只维护前缀 max，不需要弹出时计算） |\n\n### 扩展\n\n- **二进制优化单调栈**：对于重复询问的场景，可以用倍增预处理单调栈的跳跃指针，实现 $O(1)$ 查询\"跳过多少个更矮的柱子\"\n- **二维扩展**：将直方图最大矩形扩展到矩阵中的最大全 1 子矩阵，对每一行枚举\"以该行为底的高度\"后转化为直方图问题\n- **单调栈 + 离线**：将询问按位置排序，用单调栈在线性时间内回答所有\"右侧第一个更大元素\"类询问\n\n## 附：前缀最值栈（栈内最大值查询）\n\n前缀最值栈是在普通栈的基础上，额外维护一个辅助数组 `sk_big`，其中 `sk_big[i]` 记录从栈底到第 $i$ 个位置的元素最大值。这样不仅入栈、出栈均为 $O(1)$，还能 $O(1)$ 查询栈内当前所有元素的最大值。\n\n#### 核心思想\n\n普通栈只能 $O(1)$ 访问栈顶元素，查询栈内最大值需要遍历整个栈（$O(n)$）。前缀最值栈的关键观察是：\n\n- **入栈时**：新元素 $x$ 入栈后，栈内最大值要么不变（$x \\le$ 之前的最大值），要么更新为 $x$（$x >$ 之前的最大值）。即 $\\text{sk\\_big}[id] = \\max(\\text{sk\\_big}[id-1], x)$\n- **出栈时**：弹出栈顶只需将指针前移一位，`sk_big` 自动回到上一个位置的最大值，无需任何额外操作\n\n这一思路本质上是\"前缀和\"思想在栈上的推广——不是求和，而是求前缀最大值。\n\n#### 核心不变量\n\n1. `sk_num[i]` 存储第 $i$ 个入栈的元素（$i$ 从 $0$ 开始）\n2. `sk_big[i]` 存储从栈底到位置 $i$ 的所有元素最大值\n3. `id` 指向栈顶的下一个空位，栈顶元素是 `sk_num[id - 1]`，栈内最大值是 `sk_big[id - 1]`\n\n### 数据结构图示\n\n#### 整体结构\n\n```\n  sk_num (元素栈)        sk_big (前缀最大值栈)\n  ───────────────         ───────────────────\n  索引  值                索引  值\n  ┌───┬───┐              ┌───┬───┐\n  │ 0 │ 3 │ ← 栈底        │ 0 │ 3 │ ← max(3) = 3\n  │ 1 │ 1 │              │ 1 │ 3 │ ← max(3,1) = 3\n  │ 2 │ 4 │ ← 栈顶        │ 2 │ 4 │ ← max(3,1,4) = 4\n  └───┴───┘              └───┴───┘\n         ↑                        ↑\n        id = 3                   id = 3\n\n  栈顶元素 = sk_num[id-1] = sk_num[2] = 4\n  栈内最大 = sk_big[id-1] = sk_big[2] = 4\n```\n\n#### 操作过程示意\n\n以依次入栈 $3, 1, 4$，再出栈一次为例：\n\n```\n入栈 3:\n  sk_num: [3]          sk_big: [3]          id = 1\n  sk_big[0] = 3（首个元素，直接赋值）\n\n入栈 1:\n  sk_num: [3, 1]       sk_big: [3, 3]       id = 2\n  sk_big[1] = max(sk_big[0], 1) = max(3, 1) = 3\n\n入栈 4:\n  sk_num: [3, 1, 4]    sk_big: [3, 3, 4]    id = 3\n  sk_big[2] = max(sk_big[1], 4) = max(3, 4) = 4\n\n查询: 栈顶 = sk_num[2] = 4, 最大值 = sk_big[2] = 4  ✓\n\n出栈 (--id):\n  sk_num: [3, 1, 4]    sk_big: [3, 3, 4]    id = 2\n  （数据仍在内存中，但 id 前移，逻辑上栈只有 [3, 1]）\n\n查询: 栈顶 = sk_num[1] = 1, 最大值 = sk_big[1] = 3  ✓\n  （最大值是 3，不是已\"删除\"的 4）\n```\n\n#### 出栈恢复特性\n\n```\n出栈前: sk_big: [3, 3, 4]  id = 3  最大值 = 4\n出栈后: sk_big: [3, 3, 4]  id = 2  最大值 = 3\n\nsk_big[1] = 3 自动成为新的最大值，无需重新计算。\n这是因为 sk_big[i] 本身就记录了\"从栈底到位置 i 的最大值\"，\n出栈只是缩小了有效范围，前缀最大值自动回退。\n```\n\n### 核心操作详解\n\n#### 1. 入栈 `push(x)`\n\n```cpp\nsk_num[id] = x;\nif (id > 0) sk_big[id] = max(sk_big[id - 1], x);\nelse sk_big[id] = x;\n++id;\n```\n\n- 将 $x$ 存入 `sk_num[id]`\n- 若栈非空（`id > 0`），`sk_big[id]` 取前一个位置的最大值与 $x$ 的较大者\n- 若栈为空（`id == 0`），`sk_big[0]` 直接等于 $x$（第一个元素）\n- 指针 `id` 后移一位\n\n#### 2. 出栈 `pop()`\n\n```cpp\n--id;\n```\n\n仅将指针 `id` 前移一位。`sk_num` 和 `sk_big` 中的数据仍在内存中，但逻辑上已不属于栈。下一次入栈会覆盖这些位置。出栈后，新的栈内最大值自动变为 `sk_big[id - 1]`，无需任何计算。\n\n#### 3. 查询栈顶\n\n```cpp\nsk_num[id - 1]\n```\n\n$O(1)$ 读取栈顶元素。\n\n#### 4. 查询栈内最大值\n\n```cpp\nsk_big[id - 1]\n```\n\n$O(1)$ 读取前缀最大值数组的栈顶位置。由于 `sk_big[i]` 记录了从栈底到位置 $i$ 的最大值，`sk_big[id - 1]` 就是当前栈内所有元素的最大值。\n\n### 逐行代码解析\n\n以下按模块拆分完整实现，各代码块按顺序拼接后与 `.cpp` 完全一致。\n\n#### 全局变量\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int nmax = 1e5;                 // 统一管理数组大小\nint sk_num[nmax], sk_big[nmax];       // 元素栈 / 前缀最大值栈\nint id = 0;                           // 栈指针，指向栈顶的下一个空位\n```\n\n- `sk_num`：元素栈，存储实际入栈的值；`sk_big`：前缀最大值栈，`sk_big[i]` = 从栈底到位置 $i$ 的元素最大值\n- `id`：栈指针，指向栈顶的下一个空位，初始为 0 表示空栈\n- `nmax = 1e5` 统一管理数组大小，最多支持 $10^5$ 次入栈；操作数更多时需调大或改用 `vector` 动态扩容\n\n#### main 与读入\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint t;\n\tcin >> t;\n\twhile (t--)\n\t{\n\t\tint op;\n\t\tcin >> op;\n```\n\n- `ios::sync_with_stdio(false)` 关闭与 C 标准 IO 的同步，`cin.tie(nullptr)` 解绑，加速读入\n- 读入操作次数 $t$，每次循环读入一个操作类型 `op`，按 `1` 入栈 / `2` 出栈 / `3` 查询进入不同分支\n\n#### 入栈操作（op == 1）\n\n```cpp\n\t\tif (op == 1)\n\t\t{\n\t\t\tint x;\n\t\t\tcin >> x;\n\t\t\tsk_num[id] = x;                                    // 存入元素栈\n\t\t\tif (id > 0) sk_big[id] = max(sk_big[id - 1], x);   // 非空：与上一个前缀最大值比较\n\t\t\telse sk_big[id] = x;                               // 空栈：直接赋值\n\t\t\t++id;                                              // 指针后移\n\t\t}\n```\n\n- 把 $x$ 存入 `sk_num[id]`；栈非空时 `sk_big[id] = max(sk_big[id-1], x)`，栈空时 `sk_big[id] = x`\n- 必须与 `sk_big[id-1]`（前一个位置的前缀最大值）比较，不能误写为 `sk_num[id-1]`（前一个元素）\n- 最后 `++id` 后移指针；此处未检查 `id < nmax`，入栈超过 $10^5$ 次会越界\n\n#### 出栈操作（op == 2）\n\n```cpp\n\t\telse if (op == 2) --id;\n```\n\n- 仅 `--id` 前移指针，逻辑上弹出栈顶；旧数据仍留内存，下次入栈会覆盖\n- 出栈后栈内最大值自动回退为 `sk_big[id-1]`，无需重新计算\n- 未检查 `id > 0`，空栈出栈会使 `id` 变负，后续查询会越界\n\n#### 查询操作（op == 3）与收尾\n\n```cpp\n\t\telse if (op == 3)\n\t\t{\n\t\t\tcout << \"当前栈顶元素为: \" << sk_num[id - 1] << '\\n';\n\t\t\tcout << \"栈内最大元素为: \" << sk_big[id - 1] << '\\n';\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n- 栈顶元素 = `sk_num[id-1]`，栈内最大值 = `sk_big[id-1]`，均为 $O(1)$ 直接索引\n- 未检查 `id > 0`，空栈查询会访问 `sk_num[-1]` 越界\n- 末尾的 `}` 依次收尾 while 循环与 main 函数，`return 0;` 正常结束\n\n### 复杂度分析\n\n| 操作 | 时间 | 空间 | 说明 |\n|---|---|---|---|\n| 入栈 | $O(1)$ | $O(1)$ | 一次赋值 $+$ 一次 `max` $+$ 指针自增 |\n| 出栈 | $O(1)$ | $O(0)$ | 仅指针自减 |\n| 查询栈顶 | $O(1)$ | $O(0)$ | 数组直接索引 |\n| 查询最大值 | $O(1)$ | $O(0)$ | 前缀最大值数组直接索引 |\n| 总空间 | — | $O(n)$ | 两个数组各 $n$ 个元素 |\n\n所有操作均为 $O(1)$，空间 $O(n)$。与朴素做法（每次查询遍历栈，$O(n)$）相比，用空间换时间，将最值查询从 $O(n)$ 降为 $O(1)$。\n\n### 适用场景\n\n**适用**：\n- 需要在栈操作的同时查询栈内最值（最大值或最小值）\n- 括号匹配、表达式求值等需要回溯的场景，同时需要跟踪最值\n- 滑动窗口类问题中栈结构的变体\n- 单调栈问题的辅助分析\n\n**不适用**：\n- 需要查询区间最值（非栈内最值）：应使用 ST 表或线段树\n- 需要查询第 $k$ 大/小：应使用对顶堆或平衡树\n- 元素需要随机访问或中间插入/删除：应使用平衡树或链表\n- 需要维护最小值而非最大值：将 `max` 改为 `min` 即可，原理相同\n\n### 常见陷阱与注意事项\n\n1. **空栈越界**\n   - 出栈时若栈已空（`id == 0`），`--id` 会使 `id` 变为 $-1$，后续访问 `sk_num[id-1]` 越界\n   - 查询时若栈空，`sk_num[id-1]` = `sk_num[-1]` 越界\n   - 应在出栈和查询前检查 `id > 0`\n\n2. **数组大小不足**\n   - `nmax = 1e5` 仅支持 $10^5$ 次入栈，若操作次数更多需调大\n   - 建议用 `const int nmax` 统一管理，或改用 `vector` 动态扩容\n\n3. **前缀最值的维护方向**\n   - `sk_big[i]` 是从栈底到位置 $i$ 的最大值，不是从位置 $i$ 到栈顶的最大值\n   - 入栈时必须与 `sk_big[id-1]`（前一个位置的最大值）比较，不能与 `sk_num[id-1]`（前一个元素的值）比较\n\n4. **出栈后数据残留**\n   - 出栈只是移动 `id` 指针，`sk_num` 和 `sk_big` 中的旧数据仍在内存\n   - 若入栈次数少于之前的最大 `id`，不会有问题（新数据会覆盖）\n   - 但若在入栈前查询了尚未覆盖的位置，会读到旧数据——因此查询始终用 `sk_big[id-1]`\n\n5. **`max` 与 `min` 的选择**\n   - 维护最大值用 `max`，维护最小值用 `min`\n   - 若需要同时维护最大值和最小值，开三个数组：`sk_num`、`sk_big`（前缀 max）、`sk_sml`（前缀 min）\n\n### 对比与扩展\n\n| 对比维度 | 前缀最值栈 | 朴素栈 | 单调栈 | 对顶堆 |\n|---|---|---|---|---|\n| 入栈 | $O(1)$ | $O(1)$ | $O(1)$ 均摊 | $O(\\log n)$ |\n| 出栈 | $O(1)$ | $O(1)$ | $O(1)$ 均摊 | $O(\\log n)$ |\n| 查询最值 | $O(1)$ | $O(n)$ | $O(1)$（栈顶） | $O(1)$ |\n| 维护内容 | 栈内全局最值 | 仅栈顶 | 单调性（局部最值） | 第 $k$ 小 |\n| 支持随机删除 | 否 | 否 | 否 | 否 |\n| 空间 | $O(n)$ | $O(n)$ | $O(n)$ | $O(n)$ |\n| 实现难度 | 低 | 最低 | 中 | 低 |\n\n**扩展**：\n- **双辅助数组**：同时维护 `sk_big`（前缀 max）和 `sk_sml`（前缀 min），即可 $O(1)$ 查询栈内最大值和最小值\n- **前缀和栈**：类似地，维护 `sk_sum[i]` = 从栈底到位置 $i$ 的元素之和，可 $O(1)$ 查询栈内元素总和\n- **多维辅助信息**：可以同时维护最值、求和、异或和等多种前缀信息，每次入栈只需 $O(1)$ 更新\n- **与单调栈的区别**：前缀最值栈维护的是\"栈内全局最值\"，单调栈维护的是\"从栈底到栈顶的单调性\"——两者目的不同，单调栈用于解决\"下一个更大/更小元素\"类问题\n- **与对顶堆的关系**：对顶堆用两个堆维护第 $k$ 小，前缀最值栈用一个辅助数组维护最值，都是\"用额外空间换取查询效率\"的思路",
         "timeComplexity": "O(n)",
         "spaceComplexity": "O(n)",
         "tags": [
@@ -6036,10 +6047,9 @@ const KNOWLEDGE_DATA = [
             "hub-ds"
         ],
         "related": [
-            "ds-stack-prefix-max",
             "ds-monoqueue-1d",
-            "ds-monoqueue-2d",
-            "ds-dual-heap"
+            "ds-dual-heap",
+            "ds-st-table-1"
         ],
         "parent": ""
     },
@@ -6097,10 +6107,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-ds"
+            "hub-ds",
+            "ds-other-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "ds-other-overview"
     },
     {
         "id": "ds-offline-2d-count",
@@ -6137,7 +6148,51 @@ const KNOWLEDGE_DATA = [
         "codePath": "",
         "prerequisites": [
             "hub-ds",
-            "ds-bit-point-range"
+            "ds-bit-point-range",
+            "ds-other-overview"
+        ],
+        "related": [],
+        "parent": "ds-other-overview"
+    },
+    {
+        "id": "ds-other-overview",
+        "category": "数据结构",
+        "subcategory": "其他数据结构",
+        "subSubcategory": "",
+        "title": "其他数据结构总览（dsu on tree / 哈希表 / 链表 / ODT / 离线二维数点）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「其他数据结构」的二级栏目索引，收纳不便归入线段树、树状数组、平衡树等大类的专题结构：dsu on tree、哈希表、链表、珂朵莉树（ODT）、离线二维数点。\r\n\r\n**学习顺序**：按题目需要选读，彼此之间没有强依赖；哈希表与链表是通用基础，dsu on tree 与离线二维数点偏技巧。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 用哪篇 |\r\n|---|---|\r\n| 子树信息合并、不带修的树上统计 | dsu on tree |\r\n| 需要均摊 $O(1)$ 的键值映射 | 哈希表（哈希函数与冲突处理） |\r\n| 需要 $O(1)$ 插入删除的序列维护 | 链表（数组模拟双链表） |\r\n| 区间推平 + 随机数据 | 珂朵莉树（ODT） |\r\n| 静态二维矩形计数、可离线 | 离线二维数点 |\r\n\r\n## 逐行代码解析\r\n\r\n本页是索引入口，不重复贴代码；各子页给出对应实现与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- dsu on tree：$O(n\\log n)$ 级别（按轻重儿子合并）。\r\n- 哈希表：期望 $O(1)$，最坏受冲突影响。\r\n- 链表：插入/删除 $O(1)$，查找 $O(n)$。\r\n- ODT：随机数据下均摊优秀，最坏可退化。\r\n- 离线二维数点：按一维排序 + 树状数组，$O((n+q)\\log n)$。\r\n\r\n## 适用场景\r\n\r\n- 子树统计且不需要修改（dsu on tree）。\r\n- 需要自定义键的映射（哈希表）。\r\n- 频繁插入删除的序列（链表）。\r\n- 区间赋值类操作（ODT）。\r\n- 静态矩形计数（离线二维数点）。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- dsu on tree 要区分「保留重儿子」与「清空轻儿子」的时机。\r\n- 哈希表要防卡哈希，必要时用双哈希或随机化。\r\n- 数组模拟链表要处理好头尾哨兵。\r\n- ODT 只适合随机数据，构造数据会退化。\r\n- 离线二维数点注意坐标离散化与查询拆分后的符号。\r\n\r\n## 对比与扩展\r\n\r\n- dsu on tree vs 线段树合并：前者适合只查询、后者适合可合并信息。\r\n- 哈希表 vs `std::map`：前者期望更快，后者有序。\r\n- ODT vs 分块：数据随机时 ODT 更短，构造数据用分块更稳。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "数据结构",
+                    "总览",
+                    "dsu on tree",
+                    "哈希表",
+                    "ODT",
+                    "离线二维数点"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「其他数据结构」的二级栏目索引，收纳不便归入线段树、树状数组、平衡树等大类的专题结构：dsu on tree、哈希表、链表、珂朵莉树（ODT）、离线二维数点。\r\n\r\n**学习顺序**：按题目需要选读，彼此之间没有强依赖；哈希表与链表是通用基础，dsu on tree 与离线二维数点偏技巧。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 用哪篇 |\r\n|---|---|\r\n| 子树信息合并、不带修的树上统计 | dsu on tree |\r\n| 需要均摊 $O(1)$ 的键值映射 | 哈希表（哈希函数与冲突处理） |\r\n| 需要 $O(1)$ 插入删除的序列维护 | 链表（数组模拟双链表） |\r\n| 区间推平 + 随机数据 | 珂朵莉树（ODT） |\r\n| 静态二维矩形计数、可离线 | 离线二维数点 |\r\n\r\n## 逐行代码解析\r\n\r\n本页是索引入口，不重复贴代码；各子页给出对应实现与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- dsu on tree：$O(n\\log n)$ 级别（按轻重儿子合并）。\r\n- 哈希表：期望 $O(1)$，最坏受冲突影响。\r\n- 链表：插入/删除 $O(1)$，查找 $O(n)$。\r\n- ODT：随机数据下均摊优秀，最坏可退化。\r\n- 离线二维数点：按一维排序 + 树状数组，$O((n+q)\\log n)$。\r\n\r\n## 适用场景\r\n\r\n- 子树统计且不需要修改（dsu on tree）。\r\n- 需要自定义键的映射（哈希表）。\r\n- 频繁插入删除的序列（链表）。\r\n- 区间赋值类操作（ODT）。\r\n- 静态矩形计数（离线二维数点）。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- dsu on tree 要区分「保留重儿子」与「清空轻儿子」的时机。\r\n- 哈希表要防卡哈希，必要时用双哈希或随机化。\r\n- 数组模拟链表要处理好头尾哨兵。\r\n- ODT 只适合随机数据，构造数据会退化。\r\n- 离线二维数点注意坐标离散化与查询拆分后的符号。\r\n\r\n## 对比与扩展\r\n\r\n- dsu on tree vs 线段树合并：前者适合只查询、后者适合可合并信息。\r\n- 哈希表 vs `std::map`：前者期望更快，后者有序。\r\n- ODT vs 分块：数据随机时 ODT 更短，构造数据用分块更稳。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "数据结构",
+            "总览",
+            "dsu on tree",
+            "哈希表",
+            "ODT",
+            "离线二维数点"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-ds"
         ],
         "related": [],
         "parent": ""
@@ -6196,7 +6251,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-stl"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "ds-persistent-overview",
@@ -6299,7 +6354,7 @@ const KNOWLEDGE_DATA = [
             "ds-persistent-segtree-template",
             "ds-segtree-basic"
         ],
-        "parent": ""
+        "parent": "ds-persistent-overview"
     },
     {
         "id": "ds-persistent-segtree-kth",
@@ -6345,7 +6400,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-segtree"
         ],
         "related": [],
-        "parent": ""
+        "parent": "ds-persistent-overview"
     },
     {
         "id": "ds-persistent-segtree-template",
@@ -6402,6 +6457,47 @@ const KNOWLEDGE_DATA = [
             "ds-persistent-segtree-3919",
             "ds-segtree-basic"
         ],
+        "parent": "ds-persistent-overview"
+    },
+    {
+        "id": "ds-prefix-diff-overview",
+        "category": "数据结构",
+        "subcategory": "前缀和与差分",
+        "subSubcategory": "",
+        "title": "前缀和与差分总览（一维 / 二维 / 树上）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「前缀和与差分」的二级栏目索引。前缀和负责把区间查询降到 $O(1)$，差分负责把区间修改降到 $O(1)$，两者互为逆运算；二阶前缀和/二阶差分再用树状数组把「改」与「查」都压到 $O(\\log n)$。\r\n\r\n**学习顺序**：一维前缀和 → 一维差分 → 二维前缀和与差分 → 树上前缀和与差分 → 二阶前缀和/二阶差分（需要先会树状数组）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 用哪篇 |\r\n|---|---|\r\n| 静态数组区间和 | 一维前缀和（区间和查询） |\r\n| 多次区间加、最后统一查询 | 一维差分（区间加·批量更新） |\r\n| 子矩阵和 | 二维前缀和与差分 |\r\n| 子矩阵加、最后统一查询 | 二维前缀和与差分（同一页下半部分） |\r\n| 树上路径点权和 | 树上前缀和与差分 |\r\n| 树上路径点权修改 | 树上前缀和与差分（同一页下半部分） |\r\n| 修改与查询交替、需要二阶量 | 二阶前缀和 / 二阶差分（树状数组维护） |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页都有完整实现与逐行解析，页面会自动渲染对应 `.cpp`。\r\n\r\n## 复杂度分析\r\n\r\n- 一维/二维前缀和：预处理 $O(n)$ 或 $O(nm)$，查询 $O(1)$。\r\n- 一维/二维差分：修改 $O(1)$，还原 $O(n)$ 或 $O(nm)$。\r\n- 树上版本：一次 DFS 预处理，路径操作转为 $O(1)$ 组合或 $O(\\log n)$ 查询。\r\n- 二阶前缀和/二阶差分：树状数组维护，单次修改与查询均 $O(\\log n)$。\r\n\r\n## 适用场景\r\n\r\n- 静态区间/子矩阵求和。\r\n- 多次区间修改后一次性求值（差分）。\r\n- 树上路径统计、路径修改。\r\n- 「区间加等差数列 + 单点查询」等需要二阶差分的场景。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 差分数组的右端点要写 `r+1`，越界时按数组上限处理。\r\n- 二维差分四个角的正负号容易写反。\r\n- 树上前缀和与树差分依赖 LCA，注意根节点与 `dep` 的处理。\r\n- 二阶前缀和/二阶差分需要两棵树状数组，修改时两棵要同步。\r\n- 负数取模与 `long long` 溢出要按题目范围判断。\r\n\r\n## 对比与扩展\r\n\r\n- 前缀和 vs 线段树：静态用前缀和，动态用线段树/树状数组。\r\n- 差分 vs 线段树懒标记：离线批量修改用差分更轻。\r\n- 可扩展到高维前缀和（SOS DP）与树上差分结合 LCA 的路径统计。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "前缀和",
+                    "差分",
+                    "总览",
+                    "学习路线",
+                    "二阶前缀和"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「前缀和与差分」的二级栏目索引。前缀和负责把区间查询降到 $O(1)$，差分负责把区间修改降到 $O(1)$，两者互为逆运算；二阶前缀和/二阶差分再用树状数组把「改」与「查」都压到 $O(\\log n)$。\r\n\r\n**学习顺序**：一维前缀和 → 一维差分 → 二维前缀和与差分 → 树上前缀和与差分 → 二阶前缀和/二阶差分（需要先会树状数组）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 用哪篇 |\r\n|---|---|\r\n| 静态数组区间和 | 一维前缀和（区间和查询） |\r\n| 多次区间加、最后统一查询 | 一维差分（区间加·批量更新） |\r\n| 子矩阵和 | 二维前缀和与差分 |\r\n| 子矩阵加、最后统一查询 | 二维前缀和与差分（同一页下半部分） |\r\n| 树上路径点权和 | 树上前缀和与差分 |\r\n| 树上路径点权修改 | 树上前缀和与差分（同一页下半部分） |\r\n| 修改与查询交替、需要二阶量 | 二阶前缀和 / 二阶差分（树状数组维护） |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页都有完整实现与逐行解析，页面会自动渲染对应 `.cpp`。\r\n\r\n## 复杂度分析\r\n\r\n- 一维/二维前缀和：预处理 $O(n)$ 或 $O(nm)$，查询 $O(1)$。\r\n- 一维/二维差分：修改 $O(1)$，还原 $O(n)$ 或 $O(nm)$。\r\n- 树上版本：一次 DFS 预处理，路径操作转为 $O(1)$ 组合或 $O(\\log n)$ 查询。\r\n- 二阶前缀和/二阶差分：树状数组维护，单次修改与查询均 $O(\\log n)$。\r\n\r\n## 适用场景\r\n\r\n- 静态区间/子矩阵求和。\r\n- 多次区间修改后一次性求值（差分）。\r\n- 树上路径统计、路径修改。\r\n- 「区间加等差数列 + 单点查询」等需要二阶差分的场景。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 差分数组的右端点要写 `r+1`，越界时按数组上限处理。\r\n- 二维差分四个角的正负号容易写反。\r\n- 树上前缀和与树差分依赖 LCA，注意根节点与 `dep` 的处理。\r\n- 二阶前缀和/二阶差分需要两棵树状数组，修改时两棵要同步。\r\n- 负数取模与 `long long` 溢出要按题目范围判断。\r\n\r\n## 对比与扩展\r\n\r\n- 前缀和 vs 线段树：静态用前缀和，动态用线段树/树状数组。\r\n- 差分 vs 线段树懒标记：离线批量修改用差分更轻。\r\n- 可扩展到高维前缀和（SOS DP）与树上差分结合 LCA 的路径统计。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "前缀和",
+            "差分",
+            "总览",
+            "学习路线",
+            "二阶前缀和"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-ds"
+        ],
+        "related": [],
         "parent": ""
     },
     {
@@ -6457,7 +6553,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\前缀和与差分\\一维前缀和\\Untitled1.cpp",
         "prerequisites": [
-            "hub-ds"
+            "hub-ds",
+            "ds-prefix-diff-overview"
         ],
         "related": [
             "ds-diff-1d",
@@ -6465,19 +6562,19 @@ const KNOWLEDGE_DATA = [
             "ds-bit-point-range",
             "str-hash"
         ],
-        "parent": ""
+        "parent": "ds-prefix-diff-overview"
     },
     {
         "id": "ds-prefix-sum-2d",
         "category": "数据结构",
         "subcategory": "前缀和与差分",
         "subSubcategory": "二维",
-        "title": "二维前缀和（子矩阵和查询）",
+        "title": "二维前缀和与差分",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n二维前缀和是一维前缀和的扩展：给定一个 $n \\times m$ 的矩阵 $a$，预处理出前缀和矩阵 $S$，使得 $S[i][j]$ 表示以 $(1,1)$ 为左上角、$(i,j)$ 为右下角的子矩阵中所有元素之和。预处理后，可以在 $O(1)$ 时间内回答任意子矩阵的和。\r\n\r\n### 核心公式\r\n\r\n前缀和矩阵定义：\r\n\r\n$$S[i][j] = \\sum_{x=1}^{i} \\sum_{y=1}^{j} a[x][y]$$\r\n\r\n### 递推构造（容斥原理）\r\n\r\n$$S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]$$\r\n\r\n**容斥解释**：\r\n- $a[i][j]$：当前格的值\r\n- $+ S[i-1][j]$：加上上方矩形的和\r\n- $+ S[i][j-1]$：加上左方矩形的和\r\n- $- S[i-1][j-1]$：左上角重叠部分被加了两次，减去一次\r\n\r\n### 子矩阵和查询\r\n\r\n求以 $(x_1, y_1)$ 为左上角、$(x_2, y_2)$ 为右下角的子矩阵和：\r\n\r\n$$\\text{sum}(x_1, y_1, x_2, y_2) = S[x_2][y_2] - S[x_1-1][y_2] - S[x_2][y_1-1] + S[x_1-1][y_1-1]$$\r\n\r\n**容斥解释**：\r\n- $S[x_2][y_2]$：从 $(1,1)$ 到 $(x_2,y_2)$ 的大矩形\r\n- $- S[x_1-1][y_2]$：减去上半部分（$x_1-1$ 行及以上）\r\n- $- S[x_2][y_1-1]$：减去左半部分（$y_1-1$ 列及以左）\r\n- $+ S[x_1-1][y_1-1]$：左上角被减了两次，加回来一次\r\n\r\n## 数据结构图示\r\n\r\n### 构造过程示意（容斥原理）\r\n\r\n以 $3 \\times 3$ 矩阵为例，演示 $S[2][2]$ 的计算：\r\n\r\n```\r\n原始矩阵 a:             前缀和矩阵 S:\r\n   j=0  1  2  3            j=0  1  2  3\r\ni=0  0  0  0  0          i=0  0  0  0  0\r\ni=1  0  1  2  3          i=1  0  ?  ?  ?\r\ni=2  0  4  5  6          i=2  0  ?  ?  ?\r\ni=3  0  7  8  9          i=3  0  ?  ?  ?\r\n```\r\n\r\n逐步计算，按行优先顺序：\r\n\r\n```\r\n计算 S[1][1]:\r\n  S[1][1] = a[1][1] + S[0][1] + S[1][0] - S[0][0]\r\n          = 1 + 0 + 0 - 0 = 1\r\n\r\n  S[1][1] 就是左上角 1×1 区域的和 = 1 ✓\r\n  ┌─────┐\r\n  │ 1   │\r\n  └─────┘\r\n\r\n计算 S[1][2]:\r\n  S[1][2] = a[1][2] + S[0][2] + S[1][1] - S[0][1]\r\n          = 2 + 0 + 1 - 0 = 3\r\n\r\n  S[1][2] 是第 1 行前 2 列的和 = 1+2 = 3 ✓\r\n  ┌──────────┐\r\n  │ 1   2    │\r\n  └──────────┘\r\n   a[1][2]=2  +  S[1][1]=1  =  3\r\n\r\n计算 S[2][1]:\r\n  S[2][1] = a[2][1] + S[1][1] + S[2][0] - S[1][0]\r\n          = 4 + 1 + 0 - 0 = 5\r\n\r\n  S[2][1] 是第 1 列前 2 行的和 = 1+4 = 5 ✓\r\n  ┌─────┐\r\n  │ 1   │\r\n  │ 4   │\r\n  └─────┘\r\n\r\n计算 S[2][2]:\r\n  S[2][2] = a[2][2] + S[1][2] + S[2][1] - S[1][1]\r\n          = 5 + 3 + 5 - 1 = 12\r\n\r\n  验证: 1+2+4+5 = 12 ✓\r\n```\r\n\r\n**容斥图解 S[2][2]**：\r\n\r\n```\r\n        上矩形 S[1][2] = 3\r\n        ┌─────────────┐\r\n        │ 1     2     │\r\n  左矩形 ├─────┬───────┤\r\nS[2][1]=5│ 1   │  5    │  ← a[2][2] = 5\r\n        │ 4   │       │\r\n        └─────┴───────┘\r\n          重叠 S[1][1]=1\r\n          （被加了两次）\r\n\r\nS[2][2] = a[2][2] + S[1][2] + S[2][1] - S[1][1]\r\n        =    5    +    3    +    5    -    1   = 12\r\n```\r\n\r\n上方矩形 + 左方矩形 = 包含了左上重叠区域两次，所以要减去一次。\r\n\r\n### 子矩阵和查询示意\r\n\r\n查询以 $(2, 2)$ 为左上角、$(3, 3)$ 为右下角的子矩阵和：\r\n\r\n```\r\nS 矩阵:\r\n     j=0   1    2    3\r\ni=0  0    0    0    0\r\ni=1  0    1    3    6\r\ni=2  0    5   12   21\r\ni=3  0   12   27   45\r\n\r\n查询 (x1=2, y1=2) → (x2=3, y2=3):\r\n\r\n  S[x2][y2] = S[3][3] = 45\r\n    ┌─────────────────┐\r\n    │ 1    2     3    │\r\n    │ 4    5     6    │\r\n    │ 7    8     9    │\r\n    └─────────────────┘\r\n\r\n  - S[x1-1][y2] = S[1][3] = 6\r\n    ┌─────────────────┐\r\n    │ 1    2     3    │  ← 减去这一行\r\n    │ ─ ─ ─ ─ ─ ─ ─ │\r\n    │ 4    5     6    │\r\n    │ 7    8     9    │\r\n    └─────────────────┘\r\n\r\n  - S[x2][y1-1] = S[3][1] = 12\r\n    ┌──┬──────────────┐\r\n    │1 │  2     3     │\r\n    │4 │  5     6     │  ← 减去这一列\r\n    │7 │  8     9     │\r\n    └──┴──────────────┘\r\n\r\n  + S[x1-1][y1-1] = S[1][1] = 1\r\n    ┌──┬──────────────┐\r\n    │1 │  2     3     │\r\n    ├──┼──────────────┤  ← 加回这个角（被减了两次）\r\n    │4 │  5     6     │\r\n    │7 │  8     9     │\r\n    └──┴──────────────┘\r\n\r\n结果: 45 - 6 - 12 + 1 = 28\r\n验证: 5+6+8+9 = 28 ✓\r\n```\r\n\r\n公式记忆口诀：**大四角减上矩形、减左矩形、加回左上角**。\r\n\r\n### 最终前缀和矩阵完整示例\r\n\r\n```\r\n原矩阵 a(3×3):          前缀和 S(3×3):\r\n   1  2  3                 1   3   6\r\n   4  5  6        →        5  12  21\r\n   7  8  9                12  27  45\r\n\r\n每个 S[i][j] 是左上 i×j 矩形的总和。\r\nS[3][3] = 1+2+3+4+5+6+7+8+9 = 45 ✓\r\n```\r\n\r\n## 逐行代码解析\r\n\r\n### 头文件与初始化\r\n\r\n```cpp\r\n#include<bits/stdc++.h>                        // 万能头，一次性包含所有标准库\r\nusing namespace std;                           // 使用 std 命名空间\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);               // 关闭 C 与 C++ 流同步，加速 cin\r\n    cin.tie(nullptr);cout.tie(nullptr);        // 解绑 cin/cout，避免读入前刷新输出\r\n    int N,M,T;                                 // N 行、M 列、T 次查询\r\n    cin >> N >> M >> T;                        // 读入规模与查询次数\r\n    vector<vector<long long>> A(N + 1,vector<long long>(M + 1)); // 开 (N+1)×(M+1) 数组，第 0 行/列默认 0\r\n```\r\n\r\n- **开 `(N+1) × (M+1)` 的二维数组**：第 0 行和第 0 列均为 0（`vector` 默认初始化），这样当 $x_1=1$ 或 $y_1=1$ 时，$S[x_1-1][\\cdot]$ 或 $S[\\cdot][y_1-1]$ 自动为 0，无需特判。\r\n- **用 `long long` 而非 `int`**：$n = m = 10^3$、每个元素 $10^9$ 时总和可达 $10^{15}$，`int` 会溢出。\r\n- **`ios::sync_with_stdio(false)` + `cin.tie(nullptr)`**：关同步、解绑输入输出，是 C++ 读入加速的标配。\r\n\r\n### 读入矩阵\r\n\r\n```cpp\r\n    for(int i = 1;i <= N;i++)                  // 行下标 1~N\r\n    {\r\n        for(int j = 1;j <= M;j++)              // 列下标 1~M\r\n        {\r\n            cin >> A[i][j];                    // 读入原始矩阵值\r\n        }\r\n    }\r\n```\r\n\r\n- **下标从 1 开始**：与一维前缀和同理，第 0 行第 0 列留作哨兵边界。\r\n- **此时 `A[i][j]` 仍是原始值**：还没做前缀和，下一步才原地递推。\r\n\r\n### 构造前缀和（原地递推）\r\n\r\n```cpp\r\n    for(int i = 1;i <= N;i++)\r\n    {\r\n        for(int j = 1;j <= M;j++)\r\n        {\r\n            A[i][j] = A[i][j] + A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1]; // 容斥：上 + 左 - 左上\r\n        }\r\n    }\r\n```\r\n\r\n- **递推式** $S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]$：当前格 + 上方 + 左方 − 左上（重叠部分被加了两次，减去一次）。\r\n- **按行优先遍历，计算顺序正确**：算 $(i,j)$ 时 $A[i-1][j]$（上一行同列）、$A[i][j-1]$（同行前一列）、$A[i-1][j-1]$（左上方）都已经是前缀和值；按行优先或列优先遍历均正确。\r\n- **原地修改**：原始矩阵被覆盖，若需保留原始值应另开一个二维数组。\r\n\r\n### 查询子矩阵和\r\n\r\n```cpp\r\n    for(int i = 1;i <= T;i++)\r\n    {\r\n        int x1,y1,x2,y2;\r\n        //保证(x1,y1)是左上角，(x2,y2)是右下角 \r\n        cin >> x1 >> y1 >> x2 >> y2;\r\n        cout << A[x2][y2] - A[x1 - 1][y2] - A[x2][y1 - 1] + A[x1 - 1][y1 - 1] << '\\n'; // 容斥查询 O(1)\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n- **查询公式** $\\text{sum} = S[x_2][y_2] - S[x_1-1][y_2] - S[x_2][y_1-1] + S[x_1-1][y_1-1]$：大矩形 − 上矩形 − 左矩形 + 左上角（被减了两次，加回来一次）。\r\n- **单次查询 $O(1)$**：只做 4 次加减与一次下标运算，$T$ 次查询总代价 $O(nm + T)$。\r\n- **坐标约定**：$(x_1,y_1)$ 是左上角、$(x_2,y_2)$ 是右下角，要求 $x_1 \\le x_2,\\ y_1 \\le y_2$；若输入不保证顺序需先 `swap` 调整。\r\n\r\n## 复杂度分析\r\n\r\n| 操作 | 时间 |\r\n|---|---|\r\n| 构造前缀和矩阵 | $O(nm)$ |\r\n| 单次子矩阵和查询 | $O(1)$ |\r\n| 空间 | $O(nm)$ |\r\n\r\n预处理 $O(nm)$，之后每次子矩阵和查询只需容斥的 4 次加减，$q$ 次查询总代价 $O(nm + q)$。\r\n\r\n## 适用场景\r\n\r\n- **多次子矩阵求和、矩阵不变**：预处理 $O(nm)$ 后单次查询 $O(1)$，是二维静态查询的标配\r\n- **配合差分使用**：二维差分 + 二维前缀和还原，可把 $q$ 次子矩阵加的总代价降到 $O(nm + q)$\r\n- **不适用**：矩阵需要频繁单点修改时，应改用二维树状数组或线段树套线段树\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **下标从 1 开始**\r\n   - 与一维前缀和同理，二维前缀和也从 $(1,1)$ 开始，第 0 行和第 0 列为 0。\r\n   - 好处：边界查询（如 $x_1=1$ 或 $y_1=1$）无需特判。\r\n\r\n2. **容斥公式别记错**\r\n   - 构造：$+$ 上方 $+$ 左方 $-$ 左上\r\n   - 查询：$-$ 上矩形 $-$ 左矩形 $+$ 左上矩形\r\n   - 记忆技巧：两次加了重叠区域就减，两次减了重叠区域就加。\r\n\r\n3. **数据类型**\r\n   - 二维前缀和数值更大：$n = 10^3, m = 10^3$，每个元素 $10^9$，总和可达 $10^{15}$，必须用 `long long`。\r\n\r\n4. **原地修改**\r\n   - 本代码原地修改矩阵，原始值丢失。若需保留原始矩阵，应开两个二维数组。\r\n\r\n5. **不支持动态修改**\r\n   - 修改一个元素需要更新其后所有前缀和，$O(nm)$ 时间。\r\n   - 动态修改 + 子矩阵查询应使用二维树状数组或二维线段树。\r\n\r\n6. **坐标约定**\r\n   - $(x_1, y_1)$ 是左上角，$(x_2, y_2)$ 是右下角，保证 $x_1 \\le x_2, y_1 \\le y_2$。\r\n   - 若输入不保证顺序，需先 `swap` 调整。\r\n\r\n7. **空矩阵越界**\r\n   - 当矩阵本身为空（$n=0$ 或 $m=0$）或查询区间为空（$x_1 > x_2$ 或 $y_1 > y_2$）时，公式会访问越界下标或得到无意义结果，读入后应先特判（约定输入合法）。\r\n\r\n## 扩展应用\r\n\r\n### 二维差分\r\n\r\n二维前缀和的逆操作是二维差分。子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$ 加 $w$：\r\n\r\n$$d[x_1][y_1] \\mathrel{+}= w, \\quad d[x_1][y_2+1] \\mathrel{-}= w, \\quad d[x_2+1][y_1] \\mathrel{-}= w, \\quad d[x_2+1][y_2+1] \\mathrel{+}= w$$\r\n\r\n还原时先做行前缀和，再做列前缀和（或先列后行）。\r\n\r\n### 更高维前缀和\r\n\r\n前缀和可扩展到三维甚至更高维，容斥项数量为 $2^k$（$k$ 为维度）。三维前缀和构造有 8 项（加 3 个面、减 3 条棱、加 1 个角）。\r\n\r\n### 前缀和优化 DP\r\n\r\n二维前缀和常用于二维 DP 中快速求子矩阵和，将转移从 $O(nm)$ 优化为 $O(1)$。",
+                "content": "## 算法原理\n\n二维前缀和是一维前缀和的扩展：给定一个 $n \\times m$ 的矩阵 $a$，预处理出前缀和矩阵 $S$，使得 $S[i][j]$ 表示以 $(1,1)$ 为左上角、$(i,j)$ 为右下角的子矩阵中所有元素之和。预处理后，可以在 $O(1)$ 时间内回答任意子矩阵的和。\n\n### 核心公式\n\n前缀和矩阵定义：\n\n$$S[i][j] = \\sum_{x=1}^{i} \\sum_{y=1}^{j} a[x][y]$$\n\n### 递推构造（容斥原理）\n\n$$S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]$$\n\n**容斥解释**：\n- $a[i][j]$：当前格的值\n- $+ S[i-1][j]$：加上上方矩形的和\n- $+ S[i][j-1]$：加上左方矩形的和\n- $- S[i-1][j-1]$：左上角重叠部分被加了两次，减去一次\n\n### 子矩阵和查询\n\n求以 $(x_1, y_1)$ 为左上角、$(x_2, y_2)$ 为右下角的子矩阵和：\n\n$$\\text{sum}(x_1, y_1, x_2, y_2) = S[x_2][y_2] - S[x_1-1][y_2] - S[x_2][y_1-1] + S[x_1-1][y_1-1]$$\n\n**容斥解释**：\n- $S[x_2][y_2]$：从 $(1,1)$ 到 $(x_2,y_2)$ 的大矩形\n- $- S[x_1-1][y_2]$：减去上半部分（$x_1-1$ 行及以上）\n- $- S[x_2][y_1-1]$：减去左半部分（$y_1-1$ 列及以左）\n- $+ S[x_1-1][y_1-1]$：左上角被减了两次，加回来一次\n\n## 数据结构图示\n\n### 构造过程示意（容斥原理）\n\n以 $3 \\times 3$ 矩阵为例，演示 $S[2][2]$ 的计算：\n\n```\n原始矩阵 a:             前缀和矩阵 S:\n   j=0  1  2  3            j=0  1  2  3\ni=0  0  0  0  0          i=0  0  0  0  0\ni=1  0  1  2  3          i=1  0  ?  ?  ?\ni=2  0  4  5  6          i=2  0  ?  ?  ?\ni=3  0  7  8  9          i=3  0  ?  ?  ?\n```\n\n逐步计算，按行优先顺序：\n\n```\n计算 S[1][1]:\n  S[1][1] = a[1][1] + S[0][1] + S[1][0] - S[0][0]\n          = 1 + 0 + 0 - 0 = 1\n\n  S[1][1] 就是左上角 1×1 区域的和 = 1 ✓\n  ┌─────┐\n  │ 1   │\n  └─────┘\n\n计算 S[1][2]:\n  S[1][2] = a[1][2] + S[0][2] + S[1][1] - S[0][1]\n          = 2 + 0 + 1 - 0 = 3\n\n  S[1][2] 是第 1 行前 2 列的和 = 1+2 = 3 ✓\n  ┌──────────┐\n  │ 1   2    │\n  └──────────┘\n   a[1][2]=2  +  S[1][1]=1  =  3\n\n计算 S[2][1]:\n  S[2][1] = a[2][1] + S[1][1] + S[2][0] - S[1][0]\n          = 4 + 1 + 0 - 0 = 5\n\n  S[2][1] 是第 1 列前 2 行的和 = 1+4 = 5 ✓\n  ┌─────┐\n  │ 1   │\n  │ 4   │\n  └─────┘\n\n计算 S[2][2]:\n  S[2][2] = a[2][2] + S[1][2] + S[2][1] - S[1][1]\n          = 5 + 3 + 5 - 1 = 12\n\n  验证: 1+2+4+5 = 12 ✓\n```\n\n**容斥图解 S[2][2]**：\n\n```\n        上矩形 S[1][2] = 3\n        ┌─────────────┐\n        │ 1     2     │\n  左矩形 ├─────┬───────┤\nS[2][1]=5│ 1   │  5    │  ← a[2][2] = 5\n        │ 4   │       │\n        └─────┴───────┘\n          重叠 S[1][1]=1\n          （被加了两次）\n\nS[2][2] = a[2][2] + S[1][2] + S[2][1] - S[1][1]\n        =    5    +    3    +    5    -    1   = 12\n```\n\n上方矩形 + 左方矩形 = 包含了左上重叠区域两次，所以要减去一次。\n\n### 子矩阵和查询示意\n\n查询以 $(2, 2)$ 为左上角、$(3, 3)$ 为右下角的子矩阵和：\n\n```\nS 矩阵:\n     j=0   1    2    3\ni=0  0    0    0    0\ni=1  0    1    3    6\ni=2  0    5   12   21\ni=3  0   12   27   45\n\n查询 (x1=2, y1=2) → (x2=3, y2=3):\n\n  S[x2][y2] = S[3][3] = 45\n    ┌─────────────────┐\n    │ 1    2     3    │\n    │ 4    5     6    │\n    │ 7    8     9    │\n    └─────────────────┘\n\n  - S[x1-1][y2] = S[1][3] = 6\n    ┌─────────────────┐\n    │ 1    2     3    │  ← 减去这一行\n    │ ─ ─ ─ ─ ─ ─ ─ │\n    │ 4    5     6    │\n    │ 7    8     9    │\n    └─────────────────┘\n\n  - S[x2][y1-1] = S[3][1] = 12\n    ┌──┬──────────────┐\n    │1 │  2     3     │\n    │4 │  5     6     │  ← 减去这一列\n    │7 │  8     9     │\n    └──┴──────────────┘\n\n  + S[x1-1][y1-1] = S[1][1] = 1\n    ┌──┬──────────────┐\n    │1 │  2     3     │\n    ├──┼──────────────┤  ← 加回这个角（被减了两次）\n    │4 │  5     6     │\n    │7 │  8     9     │\n    └──┴──────────────┘\n\n结果: 45 - 6 - 12 + 1 = 28\n验证: 5+6+8+9 = 28 ✓\n```\n\n公式记忆口诀：**大四角减上矩形、减左矩形、加回左上角**。\n\n### 最终前缀和矩阵完整示例\n\n```\n原矩阵 a(3×3):          前缀和 S(3×3):\n   1  2  3                 1   3   6\n   4  5  6        →        5  12  21\n   7  8  9                12  27  45\n\n每个 S[i][j] 是左上 i×j 矩形的总和。\nS[3][3] = 1+2+3+4+5+6+7+8+9 = 45 ✓\n```\n\n## 逐行代码解析\n\n### 头文件与初始化\n\n```cpp\n#include<bits/stdc++.h>                        // 万能头，一次性包含所有标准库\nusing namespace std;                           // 使用 std 命名空间\nint main()\n{\n    ios::sync_with_stdio(false);               // 关闭 C 与 C++ 流同步，加速 cin\n    cin.tie(nullptr);cout.tie(nullptr);        // 解绑 cin/cout，避免读入前刷新输出\n    int N,M,T;                                 // N 行、M 列、T 次查询\n    cin >> N >> M >> T;                        // 读入规模与查询次数\n    vector<vector<long long>> A(N + 1,vector<long long>(M + 1)); // 开 (N+1)×(M+1) 数组，第 0 行/列默认 0\n```\n\n- **开 `(N+1) × (M+1)` 的二维数组**：第 0 行和第 0 列均为 0（`vector` 默认初始化），这样当 $x_1=1$ 或 $y_1=1$ 时，$S[x_1-1][\\cdot]$ 或 $S[\\cdot][y_1-1]$ 自动为 0，无需特判。\n- **用 `long long` 而非 `int`**：$n = m = 10^3$、每个元素 $10^9$ 时总和可达 $10^{15}$，`int` 会溢出。\n- **`ios::sync_with_stdio(false)` + `cin.tie(nullptr)`**：关同步、解绑输入输出，是 C++ 读入加速的标配。\n\n### 读入矩阵\n\n```cpp\n    for(int i = 1;i <= N;i++)                  // 行下标 1~N\n    {\n        for(int j = 1;j <= M;j++)              // 列下标 1~M\n        {\n            cin >> A[i][j];                    // 读入原始矩阵值\n        }\n    }\n```\n\n- **下标从 1 开始**：与一维前缀和同理，第 0 行第 0 列留作哨兵边界。\n- **此时 `A[i][j]` 仍是原始值**：还没做前缀和，下一步才原地递推。\n\n### 构造前缀和（原地递推）\n\n```cpp\n    for(int i = 1;i <= N;i++)\n    {\n        for(int j = 1;j <= M;j++)\n        {\n            A[i][j] = A[i][j] + A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1]; // 容斥：上 + 左 - 左上\n        }\n    }\n```\n\n- **递推式** $S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]$：当前格 + 上方 + 左方 − 左上（重叠部分被加了两次，减去一次）。\n- **按行优先遍历，计算顺序正确**：算 $(i,j)$ 时 $A[i-1][j]$（上一行同列）、$A[i][j-1]$（同行前一列）、$A[i-1][j-1]$（左上方）都已经是前缀和值；按行优先或列优先遍历均正确。\n- **原地修改**：原始矩阵被覆盖，若需保留原始值应另开一个二维数组。\n\n### 查询子矩阵和\n\n```cpp\n    for(int i = 1;i <= T;i++)\n    {\n        int x1,y1,x2,y2;\n        //保证(x1,y1)是左上角，(x2,y2)是右下角 \n        cin >> x1 >> y1 >> x2 >> y2;\n        cout << A[x2][y2] - A[x1 - 1][y2] - A[x2][y1 - 1] + A[x1 - 1][y1 - 1] << '\\n'; // 容斥查询 O(1)\n    }\n    return 0;\n}\n```\n\n- **查询公式** $\\text{sum} = S[x_2][y_2] - S[x_1-1][y_2] - S[x_2][y_1-1] + S[x_1-1][y_1-1]$：大矩形 − 上矩形 − 左矩形 + 左上角（被减了两次，加回来一次）。\n- **单次查询 $O(1)$**：只做 4 次加减与一次下标运算，$T$ 次查询总代价 $O(nm + T)$。\n- **坐标约定**：$(x_1,y_1)$ 是左上角、$(x_2,y_2)$ 是右下角，要求 $x_1 \\le x_2,\\ y_1 \\le y_2$；若输入不保证顺序需先 `swap` 调整。\n\n## 复杂度分析\n\n| 操作 | 时间 |\n|---|---|\n| 构造前缀和矩阵 | $O(nm)$ |\n| 单次子矩阵和查询 | $O(1)$ |\n| 空间 | $O(nm)$ |\n\n预处理 $O(nm)$，之后每次子矩阵和查询只需容斥的 4 次加减，$q$ 次查询总代价 $O(nm + q)$。\n\n## 适用场景\n\n- **多次子矩阵求和、矩阵不变**：预处理 $O(nm)$ 后单次查询 $O(1)$，是二维静态查询的标配\n- **配合差分使用**：二维差分 + 二维前缀和还原，可把 $q$ 次子矩阵加的总代价降到 $O(nm + q)$\n- **不适用**：矩阵需要频繁单点修改时，应改用二维树状数组或线段树套线段树\n\n## 常见陷阱与注意事项\n\n1. **下标从 1 开始**\n   - 与一维前缀和同理，二维前缀和也从 $(1,1)$ 开始，第 0 行和第 0 列为 0。\n   - 好处：边界查询（如 $x_1=1$ 或 $y_1=1$）无需特判。\n\n2. **容斥公式别记错**\n   - 构造：$+$ 上方 $+$ 左方 $-$ 左上\n   - 查询：$-$ 上矩形 $-$ 左矩形 $+$ 左上矩形\n   - 记忆技巧：两次加了重叠区域就减，两次减了重叠区域就加。\n\n3. **数据类型**\n   - 二维前缀和数值更大：$n = 10^3, m = 10^3$，每个元素 $10^9$，总和可达 $10^{15}$，必须用 `long long`。\n\n4. **原地修改**\n   - 本代码原地修改矩阵，原始值丢失。若需保留原始矩阵，应开两个二维数组。\n\n5. **不支持动态修改**\n   - 修改一个元素需要更新其后所有前缀和，$O(nm)$ 时间。\n   - 动态修改 + 子矩阵查询应使用二维树状数组或二维线段树。\n\n6. **坐标约定**\n   - $(x_1, y_1)$ 是左上角，$(x_2, y_2)$ 是右下角，保证 $x_1 \\le x_2, y_1 \\le y_2$。\n   - 若输入不保证顺序，需先 `swap` 调整。\n\n7. **空矩阵越界**\n   - 当矩阵本身为空（$n=0$ 或 $m=0$）或查询区间为空（$x_1 > x_2$ 或 $y_1 > y_2$）时，公式会访问越界下标或得到无意义结果，读入后应先特判（约定输入合法）。\n\n## 扩展应用\n\n### 二维差分\n\n二维前缀和的逆操作是二维差分。子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$ 加 $w$：\n\n$$d[x_1][y_1] \\mathrel{+}= w, \\quad d[x_1][y_2+1] \\mathrel{-}= w, \\quad d[x_2+1][y_1] \\mathrel{-}= w, \\quad d[x_2+1][y_2+1] \\mathrel{+}= w$$\n\n还原时先做行前缀和，再做列前缀和（或先列后行）。\n\n### 更高维前缀和\n\n前缀和可扩展到三维甚至更高维，容斥项数量为 $2^k$（$k$ 为维度）。三维前缀和构造有 8 项（加 3 个面、减 3 条棱、加 1 个角）。\n\n### 前缀和优化 DP\n\n二维前缀和常用于二维 DP 中快速求子矩阵和，将转移从 $O(nm)$ 优化为 $O(1)$。\n\n## 附：二维差分（子矩阵加·批量更新）\n\n二维差分是二维前缀和的逆运算。给定一个 $n \\times m$ 的矩阵 $a$，构造差分矩阵 $d$，使得 $d$ 的二维前缀和恰好还原出 $a$。差分矩阵的核心价值在于：**一次子矩阵加操作可以从 $O(nm)$ 降为 $O(1)$**。\n\n#### 核心思想\n\n在一维差分中，区间 $[l, r]$ 加 $k$ 只需修改两个端点：$d[l] \\mathrel{+}= k$，$d[r+1] \\mathrel{-}= k$。二维差分将这一思想推广到子矩阵：子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$ 加 $k$ 只需修改四个角点。\n\n#### 差分与前缀和的关系\n\n差分和前缀和互为逆运算：\n\n$$\\text{差分} = \\text{前缀和的逆} \\quad \\Longleftrightarrow \\quad \\text{前缀和} = \\text{差分的还原}$$\n\n即：对差分矩阵做二维前缀和，就得到原矩阵；对原矩阵做差分，就得到差分矩阵。\n\n### 核心公式\n\n#### 差分矩阵构造\n\n给定原矩阵 $a$（下标从 $1$ 开始），差分矩阵 $d$ 定义为：\n\n$$d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$$\n\n**容斥解释**：\n- $a[i][j]$：当前格的值\n- $- a[i-1][j]$：减去上方矩形的和（因为差分本质是\"当前值 $-$ 前缀和\"）\n- $- a[i][j-1]$：减去左方矩形的和\n- $+ a[i-1][j-1]$：左上角重叠部分被减了两次，加回一次\n\n#### 子矩阵修改（核心操作）\n\n对子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$（左上角到右下角）整体加 $k$：\n\n$$d[x_1][y_1] \\mathrel{+}= k$$\n$$d[x_1][y_2+1] \\mathrel{-}= k$$\n$$d[x_2+1][y_1] \\mathrel{-}= k$$\n$$d[x_2+1][y_2+1] \\mathrel{+}= k$$\n\n**容斥解释**：四个修改点的作用是让差分矩阵的前缀和\"恰好只在目标子矩阵内增加 $k$\"。\n\n#### 前缀和还原\n\n所有修改完成后，对 $d$ 做二维前缀和还原原矩阵：\n\n$$a[i][j] = d[i][j] + a[i-1][j] + a[i][j-1] - a[i-1][j-1]$$\n\n注意此处的 $a[i-1][j]$、$a[i][j-1]$、$a[i-1][j-1]$ 已经是前缀和还原后的值（按行优先顺序遍历）。\n\n### 数据结构图示\n\n#### 差分构造过程示意\n\n以 $3 \\times 3$ 矩阵 $a$ 为例（下标从 $1$ 开始，第 0 行/列为 0），仅 $a[2][2] = 5$，其余为 $0$：\n\n```\n原矩阵 a:                差分矩阵 d:\n   j=0  1  2  3             j=0  1  2  3\ni=0  0  0  0  0           i=0  0  0  0  0\ni=1  0  0  0  0           i=1  0  0  0  0\ni=2  0  0  5  0    →      i=2  0  0  5 -5\ni=3  0  0  0  0           i=3  0  0 -5  5\n```\n\n从后向前遍历（$i = 3 \\to 1$，$j = 3 \\to 1$），公式 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$：\n\n```\nd[3][3] = 0 - 0 - 0 + 5 =  5\nd[3][2] = 0 - 5 - 0 + 0 = -5\nd[2][3] = 0 - 0 - 5 + 0 = -5\nd[2][2] = 5 - 0 - 0 + 0 =  5\n（第 1 行和第 1 列的差分值均为 0，省略）\n```\n\n**验证**（对 $d$ 做前缀和还原）：\n\n```\na[2][2] = d[2][2] + a[1][2] + a[2][1] - a[1][1] = 5 + 0 + 0 - 0 = 5  ✓\na[2][3] = d[2][3] + a[1][3] + a[2][2] - a[1][2] = -5 + 0 + 5 - 0 = 0  ✓\na[3][3] = d[3][3] + a[2][3] + a[3][2] - a[2][2] = 5 + 0 + 0 - 5 = 0  ✓\n```\n\n#### 子矩阵修改示意\n\n从全零 $3 \\times 3$ 矩阵开始，对子矩阵 $(1,1) \\sim (2,2)$ 加 $3$。四个角点修改：\n\n```\n修改前 d (全零):          修改后 d:\n   j=1  2  3                 j=1  2  3  4\ni=1  0  0  0               i=1  3  0 -3  0   ← d[1][1] += 3, d[1][3] -= 3\ni=2  0  0  0      →        i=2  0  0  0  0\ni=3  0  0  0               i=3 -3  0  3  0   ← d[3][1] -= 3, d[3][3] += 3\n```\n\n**还原后**（对 $d$ 做前缀和）：\n\n```\n   j=1  2  3\ni=1  3  3  0    ← (1,1)-(2,2) 区域全部 +3\ni=2  3  3  0\ni=3  0  0  0    ← 子矩阵外部不受影响\n```\n\n#### 四角点容斥图解\n\n```\n    (x1,y1)          (x1,y2+1)\n      +k               -k\n      ┌──────────────────┐\n      │                  │\n      │   子矩阵区域      │\n      │   (全部 +k)      │\n      │                  │\n      └──────────────────┘\n    (x2+1,y1)       (x2+1,y2+1)\n      -k               +k\n\n四个角点修改使得：\n- 前缀和到子矩阵内部：净效果 +k（正确）\n- 前缀和到子矩阵外部：净效果 0（正确，因为修改互相抵消）\n```\n\n### 逐行代码解析\n\n#### 头文件与全局变量\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n, m, q;\n\tcin >> n >> m >> q;\n\tvector<vector<long long>> A(n + 2, vector<long long>(m + 2));\n```\n\n- 万能头 `bits/stdc++.h` 加 `using namespace std`，省去逐个 include 和 `std::` 前缀。\n- 读入行数 $n$、列数 $m$ 与操作次数 $q$，矩阵下标约定从 $(1,1)$ 开始。\n- 开 $(n+2) \\times (m+2)$ 的二维数组，多开一行一列给 $x_2+1$、$y_2+1$ 使用，避免越界。\n- 元素用 `long long`，防止多次累加后溢出。\n\n#### 读入原矩阵\n\n```cpp\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tfor (int j = 1; j <= m; j++)\n\t\t{\n\t\t\tcin >> A[i][j];\n\t\t}\n\t}\n```\n\n- 从 $(1,1)$ 读到 $(n,m)$，第 $0$ 行、第 $0$ 列保持为 $0$，为差分公式提供边界。\n- 循环上界是 $n$、$m$，正好覆盖整个矩阵，不遗漏也不越界。\n\n#### 原地差分构造\n\n```cpp\n\tfor (int i = n; i >= 1; i--)\n\t{\n\t\tfor (int j = m; j >= 1; j--)\n\t\t{\n\t\t\tA[i][j] = A[i][j] - A[i - 1][j] - A[i][j - 1] + A[i - 1][j - 1];\n\t\t}\n\t}\n```\n\n- 原地把 $A$ 从原矩阵转为差分矩阵，公式 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$。\n- 必须从右下到左上遍历：若从前向后，$A[i-1][j]$、$A[i][j-1]$ 已被改成差分值，后续计算会全部错误。\n\n#### 子矩阵修改\n\n```cpp\n\twhile (q--)\n\t{\n\t\tint x1, y1, x2, y2;\n\t\tlong long k;\n\t\t//(x1,y1)为左上角的点，(x2,y2)为右下角的点。\n\t\tcin >> x1 >> y1 >> x2 >> y2 >> k ;\n\t\tA[x1][y1] += k;\n\t\tA[x1][y2 + 1] -= k;\n\t\tA[x2 + 1][y1] -= k;\n\t\tA[x2 + 1][y2 + 1] += k;\n\t}\n```\n\n- $(x_1,y_1)$ 为左上角、$(x_2,y_2)$ 为右下角，只改四个角点，单次修改 $O(1)$。\n- $k$ 可正可负，负值等价于子矩阵整体减去 $|k|$。\n- $x_2+1$、$y_2+1$ 可能等于 $n+1$、$m+1$，依赖数组多开的一行一列才不会越界。\n\n#### 前缀和还原与输出\n\n```cpp\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tfor (int j = 1; j <= m; j++)\n\t\t{\n\t\t\tA[i][j] = A[i][j] + A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1];\n\t\t\tcout << A[i][j] << ' ';\n\t\t}\n\t\tcout << '\\n';\n\t}\n\treturn 0;\n}\n```\n\n- 从前向后遍历做二维前缀和，把差分矩阵还原成修改后的原矩阵并输出。\n- 方向与构造相反：此时 $A[i-1][j]$、$A[i][j-1]$ 已经是还原后的值，可直接引用。\n- 公式 $a[i][j] = d[i][j] + a[i-1][j] + a[i][j-1] - a[i-1][j-1]$。\n- 每行末尾 `cout << '\\n'` 换行，最后 `return 0` 正常结束。\n\n### 复杂度分析\n\n| 操作 | 时间 | 空间 |\n|---|---|---|\n| 构造差分矩阵 | $O(nm)$ | $O(nm)$ |\n| 单次子矩阵修改 | $O(1)$ | $O(1)$ |\n| 前缀和还原 | $O(nm)$ | $O(nm)$ |\n| 总计（$q$ 次修改） | $O(nm + q)$ | $O(nm)$ |\n\n对比暴力做法（每次修改遍历整个子矩阵 $O(nm)$），$q$ 次修改从 $O(q \\cdot nm)$ 降为 $O(nm + q)$，在 $q$ 较大时优势显著。\n\n### 适用场景\n\n**适用**：\n- 离线批量子矩阵加修改，最后一次性还原（如棋盘染色、矩阵叠加）\n- 修改次数多但只需要最终结果的场景\n- 与二维前缀和配合使用的区间统计问题\n\n**不适用**：\n- 需要实时查询（修改和查询交替进行）：应使用二维树状数组或二维线段树\n- 动态修改后立即查询某点/某子矩阵的值\n- 需要支持撤销操作的场景\n\n### 常见陷阱与注意事项\n\n1. **差分构造的遍历方向**\n   - 构造差分：必须从后向前（$i$ 从 $n$ 到 $1$，$j$ 从 $m$ 到 $1$）\n   - 前缀和还原：必须从前向后（$i$ 从 $1$ 到 $n$，$j$ 从 $1$ 到 $m$）\n   - 方向搞反会导致引用到已修改的值，结果全部错误\n\n2. **数组越界**\n   - 子矩阵修改涉及 $d[x_2+1][y_2+1]$，需要多开一行一列\n   - 建议开 $(n+2) \\times (m+2)$，避免 $x_2 = n$ 或 $y_2 = m$ 时越界\n\n3. **数据溢出**\n   - 修改值 $k$ 和累加值都可能很大，应使用 `long long`\n   - 若矩阵元素 $\\le 10^9$ 且修改次数 $\\le 10^5$，累加值可达 $10^{14}$，`int` 必溢出\n\n4. **坐标约定**\n   - $(x_1, y_1)$ 是左上角，$(x_2, y_2)$ 是右下角，保证 $x_1 \\le x_2$ 且 $y_1 \\le y_2$\n   - 若输入不保证顺序，需先 `swap` 调整\n\n5. **原地修改的副作用**\n   - 本代码原地修改，原始矩阵丢失\n   - 若需保留原始矩阵，应开两个数组分别存储\n\n6. **与一维差分的对应关系**\n   - 一维差分：$d[l] \\mathrel{+}= k$，$d[r+1] \\mathrel{-}= k$（2 个点）\n   - 二维差分：4 个角点修改（容斥原理的二维推广）\n   - $k$ 维差分：$2^k$ 个角点修改\n\n### 对比与扩展\n\n| 对比维度 | 二维差分 | 二维前缀和 | 一维差分 |\n|---|---|---|---|\n| 核心操作 | 子矩阵加 $O(1)$ | 子矩阵查询 $O(1)$ | 区间加 $O(1)$ |\n| 构造方向 | 从后向前 | 从前向后 | 从后向前 |\n| 还原方向 | 从前向后 | — | 从前向后 |\n| 角点数 | 4（容斥） | 4（容斥） | 2 |\n| 复杂度 | $O(nm + q)$ | $O(nm)$ | $O(n + q)$ |\n| 支持动态查询 | 否 | 否 | 否 |\n\n**与二维前缀和的关系**：二者互为逆运算。差分用于\"修改\"，前缀和用于\"查询\"。很多问题需要两者配合：先用差分批量修改，再用前缀和还原查询。\n\n**更高维差分**：三维差分需要修改 $2^3 = 8$ 个角点，公式类似容斥原理。实际竞赛中三维差分极少使用，通常用差分嵌套代替。\n\n**动态版本**：若需要支持\"修改 $+$ 查询\"交替进行，应使用二维树状数组（二维 BIT），支持 $O(\\log n \\cdot \\log m)$ 的单点修改和子矩阵查询。",
                 "codePath": "数据结构\\前缀和与差分\\二维前缀和\\Untitled1.cpp",
                 "timeComplexity": "预处理O(nm)，查询O(1)",
                 "spaceComplexity": "O(nm)",
@@ -6493,7 +6590,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n二维前缀和是一维前缀和的扩展：给定一个 $n \\times m$ 的矩阵 $a$，预处理出前缀和矩阵 $S$，使得 $S[i][j]$ 表示以 $(1,1)$ 为左上角、$(i,j)$ 为右下角的子矩阵中所有元素之和。预处理后，可以在 $O(1)$ 时间内回答任意子矩阵的和。\r\n\r\n### 核心公式\r\n\r\n前缀和矩阵定义：\r\n\r\n$$S[i][j] = \\sum_{x=1}^{i} \\sum_{y=1}^{j} a[x][y]$$\r\n\r\n### 递推构造（容斥原理）\r\n\r\n$$S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]$$\r\n\r\n**容斥解释**：\r\n- $a[i][j]$：当前格的值\r\n- $+ S[i-1][j]$：加上上方矩形的和\r\n- $+ S[i][j-1]$：加上左方矩形的和\r\n- $- S[i-1][j-1]$：左上角重叠部分被加了两次，减去一次\r\n\r\n### 子矩阵和查询\r\n\r\n求以 $(x_1, y_1)$ 为左上角、$(x_2, y_2)$ 为右下角的子矩阵和：\r\n\r\n$$\\text{sum}(x_1, y_1, x_2, y_2) = S[x_2][y_2] - S[x_1-1][y_2] - S[x_2][y_1-1] + S[x_1-1][y_1-1]$$\r\n\r\n**容斥解释**：\r\n- $S[x_2][y_2]$：从 $(1,1)$ 到 $(x_2,y_2)$ 的大矩形\r\n- $- S[x_1-1][y_2]$：减去上半部分（$x_1-1$ 行及以上）\r\n- $- S[x_2][y_1-1]$：减去左半部分（$y_1-1$ 列及以左）\r\n- $+ S[x_1-1][y_1-1]$：左上角被减了两次，加回来一次\r\n\r\n## 数据结构图示\r\n\r\n### 构造过程示意（容斥原理）\r\n\r\n以 $3 \\times 3$ 矩阵为例，演示 $S[2][2]$ 的计算：\r\n\r\n```\r\n原始矩阵 a:             前缀和矩阵 S:\r\n   j=0  1  2  3            j=0  1  2  3\r\ni=0  0  0  0  0          i=0  0  0  0  0\r\ni=1  0  1  2  3          i=1  0  ?  ?  ?\r\ni=2  0  4  5  6          i=2  0  ?  ?  ?\r\ni=3  0  7  8  9          i=3  0  ?  ?  ?\r\n```\r\n\r\n逐步计算，按行优先顺序：\r\n\r\n```\r\n计算 S[1][1]:\r\n  S[1][1] = a[1][1] + S[0][1] + S[1][0] - S[0][0]\r\n          = 1 + 0 + 0 - 0 = 1\r\n\r\n  S[1][1] 就是左上角 1×1 区域的和 = 1 ✓\r\n  ┌─────┐\r\n  │ 1   │\r\n  └─────┘\r\n\r\n计算 S[1][2]:\r\n  S[1][2] = a[1][2] + S[0][2] + S[1][1] - S[0][1]\r\n          = 2 + 0 + 1 - 0 = 3\r\n\r\n  S[1][2] 是第 1 行前 2 列的和 = 1+2 = 3 ✓\r\n  ┌──────────┐\r\n  │ 1   2    │\r\n  └──────────┘\r\n   a[1][2]=2  +  S[1][1]=1  =  3\r\n\r\n计算 S[2][1]:\r\n  S[2][1] = a[2][1] + S[1][1] + S[2][0] - S[1][0]\r\n          = 4 + 1 + 0 - 0 = 5\r\n\r\n  S[2][1] 是第 1 列前 2 行的和 = 1+4 = 5 ✓\r\n  ┌─────┐\r\n  │ 1   │\r\n  │ 4   │\r\n  └─────┘\r\n\r\n计算 S[2][2]:\r\n  S[2][2] = a[2][2] + S[1][2] + S[2][1] - S[1][1]\r\n          = 5 + 3 + 5 - 1 = 12\r\n\r\n  验证: 1+2+4+5 = 12 ✓\r\n```\r\n\r\n**容斥图解 S[2][2]**：\r\n\r\n```\r\n        上矩形 S[1][2] = 3\r\n        ┌─────────────┐\r\n        │ 1     2     │\r\n  左矩形 ├─────┬───────┤\r\nS[2][1]=5│ 1   │  5    │  ← a[2][2] = 5\r\n        │ 4   │       │\r\n        └─────┴───────┘\r\n          重叠 S[1][1]=1\r\n          （被加了两次）\r\n\r\nS[2][2] = a[2][2] + S[1][2] + S[2][1] - S[1][1]\r\n        =    5    +    3    +    5    -    1   = 12\r\n```\r\n\r\n上方矩形 + 左方矩形 = 包含了左上重叠区域两次，所以要减去一次。\r\n\r\n### 子矩阵和查询示意\r\n\r\n查询以 $(2, 2)$ 为左上角、$(3, 3)$ 为右下角的子矩阵和：\r\n\r\n```\r\nS 矩阵:\r\n     j=0   1    2    3\r\ni=0  0    0    0    0\r\ni=1  0    1    3    6\r\ni=2  0    5   12   21\r\ni=3  0   12   27   45\r\n\r\n查询 (x1=2, y1=2) → (x2=3, y2=3):\r\n\r\n  S[x2][y2] = S[3][3] = 45\r\n    ┌─────────────────┐\r\n    │ 1    2     3    │\r\n    │ 4    5     6    │\r\n    │ 7    8     9    │\r\n    └─────────────────┘\r\n\r\n  - S[x1-1][y2] = S[1][3] = 6\r\n    ┌─────────────────┐\r\n    │ 1    2     3    │  ← 减去这一行\r\n    │ ─ ─ ─ ─ ─ ─ ─ │\r\n    │ 4    5     6    │\r\n    │ 7    8     9    │\r\n    └─────────────────┘\r\n\r\n  - S[x2][y1-1] = S[3][1] = 12\r\n    ┌──┬──────────────┐\r\n    │1 │  2     3     │\r\n    │4 │  5     6     │  ← 减去这一列\r\n    │7 │  8     9     │\r\n    └──┴──────────────┘\r\n\r\n  + S[x1-1][y1-1] = S[1][1] = 1\r\n    ┌──┬──────────────┐\r\n    │1 │  2     3     │\r\n    ├──┼──────────────┤  ← 加回这个角（被减了两次）\r\n    │4 │  5     6     │\r\n    │7 │  8     9     │\r\n    └──┴──────────────┘\r\n\r\n结果: 45 - 6 - 12 + 1 = 28\r\n验证: 5+6+8+9 = 28 ✓\r\n```\r\n\r\n公式记忆口诀：**大四角减上矩形、减左矩形、加回左上角**。\r\n\r\n### 最终前缀和矩阵完整示例\r\n\r\n```\r\n原矩阵 a(3×3):          前缀和 S(3×3):\r\n   1  2  3                 1   3   6\r\n   4  5  6        →        5  12  21\r\n   7  8  9                12  27  45\r\n\r\n每个 S[i][j] 是左上 i×j 矩形的总和。\r\nS[3][3] = 1+2+3+4+5+6+7+8+9 = 45 ✓\r\n```\r\n\r\n## 逐行代码解析\r\n\r\n### 头文件与初始化\r\n\r\n```cpp\r\n#include<bits/stdc++.h>                        // 万能头，一次性包含所有标准库\r\nusing namespace std;                           // 使用 std 命名空间\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);               // 关闭 C 与 C++ 流同步，加速 cin\r\n    cin.tie(nullptr);cout.tie(nullptr);        // 解绑 cin/cout，避免读入前刷新输出\r\n    int N,M,T;                                 // N 行、M 列、T 次查询\r\n    cin >> N >> M >> T;                        // 读入规模与查询次数\r\n    vector<vector<long long>> A(N + 1,vector<long long>(M + 1)); // 开 (N+1)×(M+1) 数组，第 0 行/列默认 0\r\n```\r\n\r\n- **开 `(N+1) × (M+1)` 的二维数组**：第 0 行和第 0 列均为 0（`vector` 默认初始化），这样当 $x_1=1$ 或 $y_1=1$ 时，$S[x_1-1][\\cdot]$ 或 $S[\\cdot][y_1-1]$ 自动为 0，无需特判。\r\n- **用 `long long` 而非 `int`**：$n = m = 10^3$、每个元素 $10^9$ 时总和可达 $10^{15}$，`int` 会溢出。\r\n- **`ios::sync_with_stdio(false)` + `cin.tie(nullptr)`**：关同步、解绑输入输出，是 C++ 读入加速的标配。\r\n\r\n### 读入矩阵\r\n\r\n```cpp\r\n    for(int i = 1;i <= N;i++)                  // 行下标 1~N\r\n    {\r\n        for(int j = 1;j <= M;j++)              // 列下标 1~M\r\n        {\r\n            cin >> A[i][j];                    // 读入原始矩阵值\r\n        }\r\n    }\r\n```\r\n\r\n- **下标从 1 开始**：与一维前缀和同理，第 0 行第 0 列留作哨兵边界。\r\n- **此时 `A[i][j]` 仍是原始值**：还没做前缀和，下一步才原地递推。\r\n\r\n### 构造前缀和（原地递推）\r\n\r\n```cpp\r\n    for(int i = 1;i <= N;i++)\r\n    {\r\n        for(int j = 1;j <= M;j++)\r\n        {\r\n            A[i][j] = A[i][j] + A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1]; // 容斥：上 + 左 - 左上\r\n        }\r\n    }\r\n```\r\n\r\n- **递推式** $S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]$：当前格 + 上方 + 左方 − 左上（重叠部分被加了两次，减去一次）。\r\n- **按行优先遍历，计算顺序正确**：算 $(i,j)$ 时 $A[i-1][j]$（上一行同列）、$A[i][j-1]$（同行前一列）、$A[i-1][j-1]$（左上方）都已经是前缀和值；按行优先或列优先遍历均正确。\r\n- **原地修改**：原始矩阵被覆盖，若需保留原始值应另开一个二维数组。\r\n\r\n### 查询子矩阵和\r\n\r\n```cpp\r\n    for(int i = 1;i <= T;i++)\r\n    {\r\n        int x1,y1,x2,y2;\r\n        //保证(x1,y1)是左上角，(x2,y2)是右下角 \r\n        cin >> x1 >> y1 >> x2 >> y2;\r\n        cout << A[x2][y2] - A[x1 - 1][y2] - A[x2][y1 - 1] + A[x1 - 1][y1 - 1] << '\\n'; // 容斥查询 O(1)\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n- **查询公式** $\\text{sum} = S[x_2][y_2] - S[x_1-1][y_2] - S[x_2][y_1-1] + S[x_1-1][y_1-1]$：大矩形 − 上矩形 − 左矩形 + 左上角（被减了两次，加回来一次）。\r\n- **单次查询 $O(1)$**：只做 4 次加减与一次下标运算，$T$ 次查询总代价 $O(nm + T)$。\r\n- **坐标约定**：$(x_1,y_1)$ 是左上角、$(x_2,y_2)$ 是右下角，要求 $x_1 \\le x_2,\\ y_1 \\le y_2$；若输入不保证顺序需先 `swap` 调整。\r\n\r\n## 复杂度分析\r\n\r\n| 操作 | 时间 |\r\n|---|---|\r\n| 构造前缀和矩阵 | $O(nm)$ |\r\n| 单次子矩阵和查询 | $O(1)$ |\r\n| 空间 | $O(nm)$ |\r\n\r\n预处理 $O(nm)$，之后每次子矩阵和查询只需容斥的 4 次加减，$q$ 次查询总代价 $O(nm + q)$。\r\n\r\n## 适用场景\r\n\r\n- **多次子矩阵求和、矩阵不变**：预处理 $O(nm)$ 后单次查询 $O(1)$，是二维静态查询的标配\r\n- **配合差分使用**：二维差分 + 二维前缀和还原，可把 $q$ 次子矩阵加的总代价降到 $O(nm + q)$\r\n- **不适用**：矩阵需要频繁单点修改时，应改用二维树状数组或线段树套线段树\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **下标从 1 开始**\r\n   - 与一维前缀和同理，二维前缀和也从 $(1,1)$ 开始，第 0 行和第 0 列为 0。\r\n   - 好处：边界查询（如 $x_1=1$ 或 $y_1=1$）无需特判。\r\n\r\n2. **容斥公式别记错**\r\n   - 构造：$+$ 上方 $+$ 左方 $-$ 左上\r\n   - 查询：$-$ 上矩形 $-$ 左矩形 $+$ 左上矩形\r\n   - 记忆技巧：两次加了重叠区域就减，两次减了重叠区域就加。\r\n\r\n3. **数据类型**\r\n   - 二维前缀和数值更大：$n = 10^3, m = 10^3$，每个元素 $10^9$，总和可达 $10^{15}$，必须用 `long long`。\r\n\r\n4. **原地修改**\r\n   - 本代码原地修改矩阵，原始值丢失。若需保留原始矩阵，应开两个二维数组。\r\n\r\n5. **不支持动态修改**\r\n   - 修改一个元素需要更新其后所有前缀和，$O(nm)$ 时间。\r\n   - 动态修改 + 子矩阵查询应使用二维树状数组或二维线段树。\r\n\r\n6. **坐标约定**\r\n   - $(x_1, y_1)$ 是左上角，$(x_2, y_2)$ 是右下角，保证 $x_1 \\le x_2, y_1 \\le y_2$。\r\n   - 若输入不保证顺序，需先 `swap` 调整。\r\n\r\n7. **空矩阵越界**\r\n   - 当矩阵本身为空（$n=0$ 或 $m=0$）或查询区间为空（$x_1 > x_2$ 或 $y_1 > y_2$）时，公式会访问越界下标或得到无意义结果，读入后应先特判（约定输入合法）。\r\n\r\n## 扩展应用\r\n\r\n### 二维差分\r\n\r\n二维前缀和的逆操作是二维差分。子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$ 加 $w$：\r\n\r\n$$d[x_1][y_1] \\mathrel{+}= w, \\quad d[x_1][y_2+1] \\mathrel{-}= w, \\quad d[x_2+1][y_1] \\mathrel{-}= w, \\quad d[x_2+1][y_2+1] \\mathrel{+}= w$$\r\n\r\n还原时先做行前缀和，再做列前缀和（或先列后行）。\r\n\r\n### 更高维前缀和\r\n\r\n前缀和可扩展到三维甚至更高维，容斥项数量为 $2^k$（$k$ 为维度）。三维前缀和构造有 8 项（加 3 个面、减 3 条棱、加 1 个角）。\r\n\r\n### 前缀和优化 DP\r\n\r\n二维前缀和常用于二维 DP 中快速求子矩阵和，将转移从 $O(nm)$ 优化为 $O(1)$。",
+        "content": "## 算法原理\n\n二维前缀和是一维前缀和的扩展：给定一个 $n \\times m$ 的矩阵 $a$，预处理出前缀和矩阵 $S$，使得 $S[i][j]$ 表示以 $(1,1)$ 为左上角、$(i,j)$ 为右下角的子矩阵中所有元素之和。预处理后，可以在 $O(1)$ 时间内回答任意子矩阵的和。\n\n### 核心公式\n\n前缀和矩阵定义：\n\n$$S[i][j] = \\sum_{x=1}^{i} \\sum_{y=1}^{j} a[x][y]$$\n\n### 递推构造（容斥原理）\n\n$$S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]$$\n\n**容斥解释**：\n- $a[i][j]$：当前格的值\n- $+ S[i-1][j]$：加上上方矩形的和\n- $+ S[i][j-1]$：加上左方矩形的和\n- $- S[i-1][j-1]$：左上角重叠部分被加了两次，减去一次\n\n### 子矩阵和查询\n\n求以 $(x_1, y_1)$ 为左上角、$(x_2, y_2)$ 为右下角的子矩阵和：\n\n$$\\text{sum}(x_1, y_1, x_2, y_2) = S[x_2][y_2] - S[x_1-1][y_2] - S[x_2][y_1-1] + S[x_1-1][y_1-1]$$\n\n**容斥解释**：\n- $S[x_2][y_2]$：从 $(1,1)$ 到 $(x_2,y_2)$ 的大矩形\n- $- S[x_1-1][y_2]$：减去上半部分（$x_1-1$ 行及以上）\n- $- S[x_2][y_1-1]$：减去左半部分（$y_1-1$ 列及以左）\n- $+ S[x_1-1][y_1-1]$：左上角被减了两次，加回来一次\n\n## 数据结构图示\n\n### 构造过程示意（容斥原理）\n\n以 $3 \\times 3$ 矩阵为例，演示 $S[2][2]$ 的计算：\n\n```\n原始矩阵 a:             前缀和矩阵 S:\n   j=0  1  2  3            j=0  1  2  3\ni=0  0  0  0  0          i=0  0  0  0  0\ni=1  0  1  2  3          i=1  0  ?  ?  ?\ni=2  0  4  5  6          i=2  0  ?  ?  ?\ni=3  0  7  8  9          i=3  0  ?  ?  ?\n```\n\n逐步计算，按行优先顺序：\n\n```\n计算 S[1][1]:\n  S[1][1] = a[1][1] + S[0][1] + S[1][0] - S[0][0]\n          = 1 + 0 + 0 - 0 = 1\n\n  S[1][1] 就是左上角 1×1 区域的和 = 1 ✓\n  ┌─────┐\n  │ 1   │\n  └─────┘\n\n计算 S[1][2]:\n  S[1][2] = a[1][2] + S[0][2] + S[1][1] - S[0][1]\n          = 2 + 0 + 1 - 0 = 3\n\n  S[1][2] 是第 1 行前 2 列的和 = 1+2 = 3 ✓\n  ┌──────────┐\n  │ 1   2    │\n  └──────────┘\n   a[1][2]=2  +  S[1][1]=1  =  3\n\n计算 S[2][1]:\n  S[2][1] = a[2][1] + S[1][1] + S[2][0] - S[1][0]\n          = 4 + 1 + 0 - 0 = 5\n\n  S[2][1] 是第 1 列前 2 行的和 = 1+4 = 5 ✓\n  ┌─────┐\n  │ 1   │\n  │ 4   │\n  └─────┘\n\n计算 S[2][2]:\n  S[2][2] = a[2][2] + S[1][2] + S[2][1] - S[1][1]\n          = 5 + 3 + 5 - 1 = 12\n\n  验证: 1+2+4+5 = 12 ✓\n```\n\n**容斥图解 S[2][2]**：\n\n```\n        上矩形 S[1][2] = 3\n        ┌─────────────┐\n        │ 1     2     │\n  左矩形 ├─────┬───────┤\nS[2][1]=5│ 1   │  5    │  ← a[2][2] = 5\n        │ 4   │       │\n        └─────┴───────┘\n          重叠 S[1][1]=1\n          （被加了两次）\n\nS[2][2] = a[2][2] + S[1][2] + S[2][1] - S[1][1]\n        =    5    +    3    +    5    -    1   = 12\n```\n\n上方矩形 + 左方矩形 = 包含了左上重叠区域两次，所以要减去一次。\n\n### 子矩阵和查询示意\n\n查询以 $(2, 2)$ 为左上角、$(3, 3)$ 为右下角的子矩阵和：\n\n```\nS 矩阵:\n     j=0   1    2    3\ni=0  0    0    0    0\ni=1  0    1    3    6\ni=2  0    5   12   21\ni=3  0   12   27   45\n\n查询 (x1=2, y1=2) → (x2=3, y2=3):\n\n  S[x2][y2] = S[3][3] = 45\n    ┌─────────────────┐\n    │ 1    2     3    │\n    │ 4    5     6    │\n    │ 7    8     9    │\n    └─────────────────┘\n\n  - S[x1-1][y2] = S[1][3] = 6\n    ┌─────────────────┐\n    │ 1    2     3    │  ← 减去这一行\n    │ ─ ─ ─ ─ ─ ─ ─ │\n    │ 4    5     6    │\n    │ 7    8     9    │\n    └─────────────────┘\n\n  - S[x2][y1-1] = S[3][1] = 12\n    ┌──┬──────────────┐\n    │1 │  2     3     │\n    │4 │  5     6     │  ← 减去这一列\n    │7 │  8     9     │\n    └──┴──────────────┘\n\n  + S[x1-1][y1-1] = S[1][1] = 1\n    ┌──┬──────────────┐\n    │1 │  2     3     │\n    ├──┼──────────────┤  ← 加回这个角（被减了两次）\n    │4 │  5     6     │\n    │7 │  8     9     │\n    └──┴──────────────┘\n\n结果: 45 - 6 - 12 + 1 = 28\n验证: 5+6+8+9 = 28 ✓\n```\n\n公式记忆口诀：**大四角减上矩形、减左矩形、加回左上角**。\n\n### 最终前缀和矩阵完整示例\n\n```\n原矩阵 a(3×3):          前缀和 S(3×3):\n   1  2  3                 1   3   6\n   4  5  6        →        5  12  21\n   7  8  9                12  27  45\n\n每个 S[i][j] 是左上 i×j 矩形的总和。\nS[3][3] = 1+2+3+4+5+6+7+8+9 = 45 ✓\n```\n\n## 逐行代码解析\n\n### 头文件与初始化\n\n```cpp\n#include<bits/stdc++.h>                        // 万能头，一次性包含所有标准库\nusing namespace std;                           // 使用 std 命名空间\nint main()\n{\n    ios::sync_with_stdio(false);               // 关闭 C 与 C++ 流同步，加速 cin\n    cin.tie(nullptr);cout.tie(nullptr);        // 解绑 cin/cout，避免读入前刷新输出\n    int N,M,T;                                 // N 行、M 列、T 次查询\n    cin >> N >> M >> T;                        // 读入规模与查询次数\n    vector<vector<long long>> A(N + 1,vector<long long>(M + 1)); // 开 (N+1)×(M+1) 数组，第 0 行/列默认 0\n```\n\n- **开 `(N+1) × (M+1)` 的二维数组**：第 0 行和第 0 列均为 0（`vector` 默认初始化），这样当 $x_1=1$ 或 $y_1=1$ 时，$S[x_1-1][\\cdot]$ 或 $S[\\cdot][y_1-1]$ 自动为 0，无需特判。\n- **用 `long long` 而非 `int`**：$n = m = 10^3$、每个元素 $10^9$ 时总和可达 $10^{15}$，`int` 会溢出。\n- **`ios::sync_with_stdio(false)` + `cin.tie(nullptr)`**：关同步、解绑输入输出，是 C++ 读入加速的标配。\n\n### 读入矩阵\n\n```cpp\n    for(int i = 1;i <= N;i++)                  // 行下标 1~N\n    {\n        for(int j = 1;j <= M;j++)              // 列下标 1~M\n        {\n            cin >> A[i][j];                    // 读入原始矩阵值\n        }\n    }\n```\n\n- **下标从 1 开始**：与一维前缀和同理，第 0 行第 0 列留作哨兵边界。\n- **此时 `A[i][j]` 仍是原始值**：还没做前缀和，下一步才原地递推。\n\n### 构造前缀和（原地递推）\n\n```cpp\n    for(int i = 1;i <= N;i++)\n    {\n        for(int j = 1;j <= M;j++)\n        {\n            A[i][j] = A[i][j] + A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1]; // 容斥：上 + 左 - 左上\n        }\n    }\n```\n\n- **递推式** $S[i][j] = a[i][j] + S[i-1][j] + S[i][j-1] - S[i-1][j-1]$：当前格 + 上方 + 左方 − 左上（重叠部分被加了两次，减去一次）。\n- **按行优先遍历，计算顺序正确**：算 $(i,j)$ 时 $A[i-1][j]$（上一行同列）、$A[i][j-1]$（同行前一列）、$A[i-1][j-1]$（左上方）都已经是前缀和值；按行优先或列优先遍历均正确。\n- **原地修改**：原始矩阵被覆盖，若需保留原始值应另开一个二维数组。\n\n### 查询子矩阵和\n\n```cpp\n    for(int i = 1;i <= T;i++)\n    {\n        int x1,y1,x2,y2;\n        //保证(x1,y1)是左上角，(x2,y2)是右下角 \n        cin >> x1 >> y1 >> x2 >> y2;\n        cout << A[x2][y2] - A[x1 - 1][y2] - A[x2][y1 - 1] + A[x1 - 1][y1 - 1] << '\\n'; // 容斥查询 O(1)\n    }\n    return 0;\n}\n```\n\n- **查询公式** $\\text{sum} = S[x_2][y_2] - S[x_1-1][y_2] - S[x_2][y_1-1] + S[x_1-1][y_1-1]$：大矩形 − 上矩形 − 左矩形 + 左上角（被减了两次，加回来一次）。\n- **单次查询 $O(1)$**：只做 4 次加减与一次下标运算，$T$ 次查询总代价 $O(nm + T)$。\n- **坐标约定**：$(x_1,y_1)$ 是左上角、$(x_2,y_2)$ 是右下角，要求 $x_1 \\le x_2,\\ y_1 \\le y_2$；若输入不保证顺序需先 `swap` 调整。\n\n## 复杂度分析\n\n| 操作 | 时间 |\n|---|---|\n| 构造前缀和矩阵 | $O(nm)$ |\n| 单次子矩阵和查询 | $O(1)$ |\n| 空间 | $O(nm)$ |\n\n预处理 $O(nm)$，之后每次子矩阵和查询只需容斥的 4 次加减，$q$ 次查询总代价 $O(nm + q)$。\n\n## 适用场景\n\n- **多次子矩阵求和、矩阵不变**：预处理 $O(nm)$ 后单次查询 $O(1)$，是二维静态查询的标配\n- **配合差分使用**：二维差分 + 二维前缀和还原，可把 $q$ 次子矩阵加的总代价降到 $O(nm + q)$\n- **不适用**：矩阵需要频繁单点修改时，应改用二维树状数组或线段树套线段树\n\n## 常见陷阱与注意事项\n\n1. **下标从 1 开始**\n   - 与一维前缀和同理，二维前缀和也从 $(1,1)$ 开始，第 0 行和第 0 列为 0。\n   - 好处：边界查询（如 $x_1=1$ 或 $y_1=1$）无需特判。\n\n2. **容斥公式别记错**\n   - 构造：$+$ 上方 $+$ 左方 $-$ 左上\n   - 查询：$-$ 上矩形 $-$ 左矩形 $+$ 左上矩形\n   - 记忆技巧：两次加了重叠区域就减，两次减了重叠区域就加。\n\n3. **数据类型**\n   - 二维前缀和数值更大：$n = 10^3, m = 10^3$，每个元素 $10^9$，总和可达 $10^{15}$，必须用 `long long`。\n\n4. **原地修改**\n   - 本代码原地修改矩阵，原始值丢失。若需保留原始矩阵，应开两个二维数组。\n\n5. **不支持动态修改**\n   - 修改一个元素需要更新其后所有前缀和，$O(nm)$ 时间。\n   - 动态修改 + 子矩阵查询应使用二维树状数组或二维线段树。\n\n6. **坐标约定**\n   - $(x_1, y_1)$ 是左上角，$(x_2, y_2)$ 是右下角，保证 $x_1 \\le x_2, y_1 \\le y_2$。\n   - 若输入不保证顺序，需先 `swap` 调整。\n\n7. **空矩阵越界**\n   - 当矩阵本身为空（$n=0$ 或 $m=0$）或查询区间为空（$x_1 > x_2$ 或 $y_1 > y_2$）时，公式会访问越界下标或得到无意义结果，读入后应先特判（约定输入合法）。\n\n## 扩展应用\n\n### 二维差分\n\n二维前缀和的逆操作是二维差分。子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$ 加 $w$：\n\n$$d[x_1][y_1] \\mathrel{+}= w, \\quad d[x_1][y_2+1] \\mathrel{-}= w, \\quad d[x_2+1][y_1] \\mathrel{-}= w, \\quad d[x_2+1][y_2+1] \\mathrel{+}= w$$\n\n还原时先做行前缀和，再做列前缀和（或先列后行）。\n\n### 更高维前缀和\n\n前缀和可扩展到三维甚至更高维，容斥项数量为 $2^k$（$k$ 为维度）。三维前缀和构造有 8 项（加 3 个面、减 3 条棱、加 1 个角）。\n\n### 前缀和优化 DP\n\n二维前缀和常用于二维 DP 中快速求子矩阵和，将转移从 $O(nm)$ 优化为 $O(1)$。\n\n## 附：二维差分（子矩阵加·批量更新）\n\n二维差分是二维前缀和的逆运算。给定一个 $n \\times m$ 的矩阵 $a$，构造差分矩阵 $d$，使得 $d$ 的二维前缀和恰好还原出 $a$。差分矩阵的核心价值在于：**一次子矩阵加操作可以从 $O(nm)$ 降为 $O(1)$**。\n\n#### 核心思想\n\n在一维差分中，区间 $[l, r]$ 加 $k$ 只需修改两个端点：$d[l] \\mathrel{+}= k$，$d[r+1] \\mathrel{-}= k$。二维差分将这一思想推广到子矩阵：子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$ 加 $k$ 只需修改四个角点。\n\n#### 差分与前缀和的关系\n\n差分和前缀和互为逆运算：\n\n$$\\text{差分} = \\text{前缀和的逆} \\quad \\Longleftrightarrow \\quad \\text{前缀和} = \\text{差分的还原}$$\n\n即：对差分矩阵做二维前缀和，就得到原矩阵；对原矩阵做差分，就得到差分矩阵。\n\n### 核心公式\n\n#### 差分矩阵构造\n\n给定原矩阵 $a$（下标从 $1$ 开始），差分矩阵 $d$ 定义为：\n\n$$d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$$\n\n**容斥解释**：\n- $a[i][j]$：当前格的值\n- $- a[i-1][j]$：减去上方矩形的和（因为差分本质是\"当前值 $-$ 前缀和\"）\n- $- a[i][j-1]$：减去左方矩形的和\n- $+ a[i-1][j-1]$：左上角重叠部分被减了两次，加回一次\n\n#### 子矩阵修改（核心操作）\n\n对子矩阵 $(x_1, y_1) \\sim (x_2, y_2)$（左上角到右下角）整体加 $k$：\n\n$$d[x_1][y_1] \\mathrel{+}= k$$\n$$d[x_1][y_2+1] \\mathrel{-}= k$$\n$$d[x_2+1][y_1] \\mathrel{-}= k$$\n$$d[x_2+1][y_2+1] \\mathrel{+}= k$$\n\n**容斥解释**：四个修改点的作用是让差分矩阵的前缀和\"恰好只在目标子矩阵内增加 $k$\"。\n\n#### 前缀和还原\n\n所有修改完成后，对 $d$ 做二维前缀和还原原矩阵：\n\n$$a[i][j] = d[i][j] + a[i-1][j] + a[i][j-1] - a[i-1][j-1]$$\n\n注意此处的 $a[i-1][j]$、$a[i][j-1]$、$a[i-1][j-1]$ 已经是前缀和还原后的值（按行优先顺序遍历）。\n\n### 数据结构图示\n\n#### 差分构造过程示意\n\n以 $3 \\times 3$ 矩阵 $a$ 为例（下标从 $1$ 开始，第 0 行/列为 0），仅 $a[2][2] = 5$，其余为 $0$：\n\n```\n原矩阵 a:                差分矩阵 d:\n   j=0  1  2  3             j=0  1  2  3\ni=0  0  0  0  0           i=0  0  0  0  0\ni=1  0  0  0  0           i=1  0  0  0  0\ni=2  0  0  5  0    →      i=2  0  0  5 -5\ni=3  0  0  0  0           i=3  0  0 -5  5\n```\n\n从后向前遍历（$i = 3 \\to 1$，$j = 3 \\to 1$），公式 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$：\n\n```\nd[3][3] = 0 - 0 - 0 + 5 =  5\nd[3][2] = 0 - 5 - 0 + 0 = -5\nd[2][3] = 0 - 0 - 5 + 0 = -5\nd[2][2] = 5 - 0 - 0 + 0 =  5\n（第 1 行和第 1 列的差分值均为 0，省略）\n```\n\n**验证**（对 $d$ 做前缀和还原）：\n\n```\na[2][2] = d[2][2] + a[1][2] + a[2][1] - a[1][1] = 5 + 0 + 0 - 0 = 5  ✓\na[2][3] = d[2][3] + a[1][3] + a[2][2] - a[1][2] = -5 + 0 + 5 - 0 = 0  ✓\na[3][3] = d[3][3] + a[2][3] + a[3][2] - a[2][2] = 5 + 0 + 0 - 5 = 0  ✓\n```\n\n#### 子矩阵修改示意\n\n从全零 $3 \\times 3$ 矩阵开始，对子矩阵 $(1,1) \\sim (2,2)$ 加 $3$。四个角点修改：\n\n```\n修改前 d (全零):          修改后 d:\n   j=1  2  3                 j=1  2  3  4\ni=1  0  0  0               i=1  3  0 -3  0   ← d[1][1] += 3, d[1][3] -= 3\ni=2  0  0  0      →        i=2  0  0  0  0\ni=3  0  0  0               i=3 -3  0  3  0   ← d[3][1] -= 3, d[3][3] += 3\n```\n\n**还原后**（对 $d$ 做前缀和）：\n\n```\n   j=1  2  3\ni=1  3  3  0    ← (1,1)-(2,2) 区域全部 +3\ni=2  3  3  0\ni=3  0  0  0    ← 子矩阵外部不受影响\n```\n\n#### 四角点容斥图解\n\n```\n    (x1,y1)          (x1,y2+1)\n      +k               -k\n      ┌──────────────────┐\n      │                  │\n      │   子矩阵区域      │\n      │   (全部 +k)      │\n      │                  │\n      └──────────────────┘\n    (x2+1,y1)       (x2+1,y2+1)\n      -k               +k\n\n四个角点修改使得：\n- 前缀和到子矩阵内部：净效果 +k（正确）\n- 前缀和到子矩阵外部：净效果 0（正确，因为修改互相抵消）\n```\n\n### 逐行代码解析\n\n#### 头文件与全局变量\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint main()\n{\n\tint n, m, q;\n\tcin >> n >> m >> q;\n\tvector<vector<long long>> A(n + 2, vector<long long>(m + 2));\n```\n\n- 万能头 `bits/stdc++.h` 加 `using namespace std`，省去逐个 include 和 `std::` 前缀。\n- 读入行数 $n$、列数 $m$ 与操作次数 $q$，矩阵下标约定从 $(1,1)$ 开始。\n- 开 $(n+2) \\times (m+2)$ 的二维数组，多开一行一列给 $x_2+1$、$y_2+1$ 使用，避免越界。\n- 元素用 `long long`，防止多次累加后溢出。\n\n#### 读入原矩阵\n\n```cpp\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tfor (int j = 1; j <= m; j++)\n\t\t{\n\t\t\tcin >> A[i][j];\n\t\t}\n\t}\n```\n\n- 从 $(1,1)$ 读到 $(n,m)$，第 $0$ 行、第 $0$ 列保持为 $0$，为差分公式提供边界。\n- 循环上界是 $n$、$m$，正好覆盖整个矩阵，不遗漏也不越界。\n\n#### 原地差分构造\n\n```cpp\n\tfor (int i = n; i >= 1; i--)\n\t{\n\t\tfor (int j = m; j >= 1; j--)\n\t\t{\n\t\t\tA[i][j] = A[i][j] - A[i - 1][j] - A[i][j - 1] + A[i - 1][j - 1];\n\t\t}\n\t}\n```\n\n- 原地把 $A$ 从原矩阵转为差分矩阵，公式 $d[i][j] = a[i][j] - a[i-1][j] - a[i][j-1] + a[i-1][j-1]$。\n- 必须从右下到左上遍历：若从前向后，$A[i-1][j]$、$A[i][j-1]$ 已被改成差分值，后续计算会全部错误。\n\n#### 子矩阵修改\n\n```cpp\n\twhile (q--)\n\t{\n\t\tint x1, y1, x2, y2;\n\t\tlong long k;\n\t\t//(x1,y1)为左上角的点，(x2,y2)为右下角的点。\n\t\tcin >> x1 >> y1 >> x2 >> y2 >> k ;\n\t\tA[x1][y1] += k;\n\t\tA[x1][y2 + 1] -= k;\n\t\tA[x2 + 1][y1] -= k;\n\t\tA[x2 + 1][y2 + 1] += k;\n\t}\n```\n\n- $(x_1,y_1)$ 为左上角、$(x_2,y_2)$ 为右下角，只改四个角点，单次修改 $O(1)$。\n- $k$ 可正可负，负值等价于子矩阵整体减去 $|k|$。\n- $x_2+1$、$y_2+1$ 可能等于 $n+1$、$m+1$，依赖数组多开的一行一列才不会越界。\n\n#### 前缀和还原与输出\n\n```cpp\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tfor (int j = 1; j <= m; j++)\n\t\t{\n\t\t\tA[i][j] = A[i][j] + A[i - 1][j] + A[i][j - 1] - A[i - 1][j - 1];\n\t\t\tcout << A[i][j] << ' ';\n\t\t}\n\t\tcout << '\\n';\n\t}\n\treturn 0;\n}\n```\n\n- 从前向后遍历做二维前缀和，把差分矩阵还原成修改后的原矩阵并输出。\n- 方向与构造相反：此时 $A[i-1][j]$、$A[i][j-1]$ 已经是还原后的值，可直接引用。\n- 公式 $a[i][j] = d[i][j] + a[i-1][j] + a[i][j-1] - a[i-1][j-1]$。\n- 每行末尾 `cout << '\\n'` 换行，最后 `return 0` 正常结束。\n\n### 复杂度分析\n\n| 操作 | 时间 | 空间 |\n|---|---|---|\n| 构造差分矩阵 | $O(nm)$ | $O(nm)$ |\n| 单次子矩阵修改 | $O(1)$ | $O(1)$ |\n| 前缀和还原 | $O(nm)$ | $O(nm)$ |\n| 总计（$q$ 次修改） | $O(nm + q)$ | $O(nm)$ |\n\n对比暴力做法（每次修改遍历整个子矩阵 $O(nm)$），$q$ 次修改从 $O(q \\cdot nm)$ 降为 $O(nm + q)$，在 $q$ 较大时优势显著。\n\n### 适用场景\n\n**适用**：\n- 离线批量子矩阵加修改，最后一次性还原（如棋盘染色、矩阵叠加）\n- 修改次数多但只需要最终结果的场景\n- 与二维前缀和配合使用的区间统计问题\n\n**不适用**：\n- 需要实时查询（修改和查询交替进行）：应使用二维树状数组或二维线段树\n- 动态修改后立即查询某点/某子矩阵的值\n- 需要支持撤销操作的场景\n\n### 常见陷阱与注意事项\n\n1. **差分构造的遍历方向**\n   - 构造差分：必须从后向前（$i$ 从 $n$ 到 $1$，$j$ 从 $m$ 到 $1$）\n   - 前缀和还原：必须从前向后（$i$ 从 $1$ 到 $n$，$j$ 从 $1$ 到 $m$）\n   - 方向搞反会导致引用到已修改的值，结果全部错误\n\n2. **数组越界**\n   - 子矩阵修改涉及 $d[x_2+1][y_2+1]$，需要多开一行一列\n   - 建议开 $(n+2) \\times (m+2)$，避免 $x_2 = n$ 或 $y_2 = m$ 时越界\n\n3. **数据溢出**\n   - 修改值 $k$ 和累加值都可能很大，应使用 `long long`\n   - 若矩阵元素 $\\le 10^9$ 且修改次数 $\\le 10^5$，累加值可达 $10^{14}$，`int` 必溢出\n\n4. **坐标约定**\n   - $(x_1, y_1)$ 是左上角，$(x_2, y_2)$ 是右下角，保证 $x_1 \\le x_2$ 且 $y_1 \\le y_2$\n   - 若输入不保证顺序，需先 `swap` 调整\n\n5. **原地修改的副作用**\n   - 本代码原地修改，原始矩阵丢失\n   - 若需保留原始矩阵，应开两个数组分别存储\n\n6. **与一维差分的对应关系**\n   - 一维差分：$d[l] \\mathrel{+}= k$，$d[r+1] \\mathrel{-}= k$（2 个点）\n   - 二维差分：4 个角点修改（容斥原理的二维推广）\n   - $k$ 维差分：$2^k$ 个角点修改\n\n### 对比与扩展\n\n| 对比维度 | 二维差分 | 二维前缀和 | 一维差分 |\n|---|---|---|---|\n| 核心操作 | 子矩阵加 $O(1)$ | 子矩阵查询 $O(1)$ | 区间加 $O(1)$ |\n| 构造方向 | 从后向前 | 从前向后 | 从后向前 |\n| 还原方向 | 从前向后 | — | 从前向后 |\n| 角点数 | 4（容斥） | 4（容斥） | 2 |\n| 复杂度 | $O(nm + q)$ | $O(nm)$ | $O(n + q)$ |\n| 支持动态查询 | 否 | 否 | 否 |\n\n**与二维前缀和的关系**：二者互为逆运算。差分用于\"修改\"，前缀和用于\"查询\"。很多问题需要两者配合：先用差分批量修改，再用前缀和还原查询。\n\n**更高维差分**：三维差分需要修改 $2^3 = 8$ 个角点，公式类似容斥原理。实际竞赛中三维差分极少使用，通常用差分嵌套代替。\n\n**动态版本**：若需要支持\"修改 $+$ 查询\"交替进行，应使用二维树状数组（二维 BIT），支持 $O(\\log n \\cdot \\log m)$ 的单点修改和子矩阵查询。",
         "timeComplexity": "预处理O(nm)，查询O(1)",
         "spaceComplexity": "O(nm)",
         "tags": [
@@ -6507,27 +6604,28 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\前缀和与差分\\二维前缀和\\Untitled1.cpp",
         "prerequisites": [
-            "ds-prefix-sum-1d"
+            "ds-prefix-sum-1d",
+            "ds-diff-1d",
+            "ds-prefix-diff-overview"
         ],
         "related": [
             "ds-prefix-sum-1d",
             "ds-diff-1d",
-            "ds-diff-2d",
             "ds-prefix-sum-tree"
         ],
-        "parent": ""
+        "parent": "ds-prefix-diff-overview"
     },
     {
         "id": "ds-prefix-sum-tree",
         "category": "数据结构",
         "subcategory": "前缀和与差分",
         "subSubcategory": "树上",
-        "title": "树上前缀和（路径点权和查询）",
+        "title": "树上前缀和与差分",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n树上前缀和是一维前缀和在树结构上的推广。给定一棵以 $S$ 为根的有根树，每个节点有权值 $A[i]$，定义树上前缀和：\r\n\r\n$$\\text{sum}[u] = \\sum_{v \\in \\text{path}(S \\to u)} A[v]$$\r\n\r\n即从根 $S$ 到节点 $u$ 的路径上所有节点权值之和。预处理后，可以在 $O(\\log n)$ 时间内回答任意两点路径上的权值之和。\r\n\r\n路径和查询的关键在于 LCA（最近公共祖先）。对于查询 $(a, b)$，设 $\\text{lca} = \\text{LCA}(a, b)$，则：\r\n\r\n- **一般情况**（$\\text{lca} \\ne S$）：路径 $a \\to b$ 的权值和为 $\\text{sum}[a] + \\text{sum}[b] - \\text{sum}[\\text{lca}] - \\text{sum}[\\text{fa}[\\text{lca}]]$，因为两条根到节点的路径在 LCA 及其父节点处重叠。\r\n- **LCA 为根**（$\\text{lca} = S$）：路径 $a \\to b$ 的权值和为 $\\text{sum}[a] + \\text{sum}[b] - \\text{sum}[\\text{lca}]$，因为根没有父节点，只需减去一次根的权值。\r\n\r\n本代码同时实现了倍增 LCA（Binary Lifting），通过预处理 $O(n \\log n)$ 的跳表实现 $O(\\log n)$ 的 LCA 查询。\r\n\r\n## 数据结构图示\r\n\r\n### 树上前缀和的构造\r\n\r\n```\r\n        树结构 (根 S=1, 括号内为点权):\r\n                    1(A=10)\r\n                   /       \\\r\n                2(A=20)    3(A=30)\r\n               /      \\\r\n            4(A=40)  5(A=50)\r\n\r\n        DFS 从根开始，sum[i] = sum[fa] + A[i]:\r\n\r\n                    1(sum=10)\r\n                   /       \\\r\n                2(sum=30)  3(sum=40)\r\n               /      \\\r\n            4(sum=70)  5(sum=80)\r\n\r\n        前缀和数组:\r\n        下标:   1    2    3    4    5\r\n        sum:   10   30   40   70   80\r\n```\r\n\r\n### 路径和查询示意\r\n\r\n```\r\n查询 find_sum(4, 5):\r\n  LCA(4, 5) = 2, lca != S(=1)\r\n\r\n  sum[4] = 70  (1→2→4: 10+20+40)\r\n  sum[5] = 80  (1→2→5: 10+20+50)\r\n  sum[lca=2] = 30\r\n  sum[fa[lca]=1] = 10\r\n\r\n  路径 4→5 的权值和 = 70 + 80 - 30 - 10 = 110\r\n  验证: 40+20+50 = 110 ✓\r\n\r\n  图解:\r\n  1(10) ─ 2(20) ─ 4(40)\r\n           └──── 5(50)\r\n\r\n  sum[4] 包含: 10+20+40     ──┐\r\n  sum[5] 包含: 10+20+50     ──┤\r\n  减去 sum[2]: 10+20        ──┤  被加了两次\r\n  减去 sum[1]: 10           ──┘  也被加了两次\r\n  剩余: 40 + 50 + 20 = 110 ✓\r\n```\r\n\r\n```\r\n查询 find_sum(3, 4):\r\n  LCA(3, 4) = 1 = S\r\n\r\n  sum[3] = 40  (1→3: 10+30)\r\n  sum[4] = 70  (1→2→4: 10+20+40)\r\n  sum[lca=1] = 10\r\n\r\n  路径 3→4 的权值和 = 40 + 70 - 10 = 100\r\n  验证: 30+10+20+40 = 100 ✓\r\n\r\n  图解:\r\n  3(30) ─ 1(10) ─ 2(20) ─ 4(40)\r\n\r\n  sum[3] 包含: 10+30          ──┐\r\n  sum[4] 包含: 10+20+40       ──┤\r\n  减去 sum[1]: 10             ──┘  被加了两次\r\n  剩余: 30 + 20 + 40 + 10 = 100 ✓\r\n```\r\n\r\n### 倍增跳表结构\r\n\r\n```\r\nST[i][k] 表示从节点 i 向上跳 2^k 步到达的祖先\r\n\r\nST[4][0] = fa[4] = 2     (跳 1 步)\r\nST[4][1] = ST[ST[4][0]][0] = ST[2][0] = 1  (跳 2 步)\r\nST[4][2] = ST[ST[4][1]][1] = ST[1][1] = S  (跳 4 步，超出根回到 S)\r\n\r\n跳表:\r\n节点  ST[][0]  ST[][1]  ST[][2]\r\n 1      1        1        1    (根指向自身)\r\n 2      1        1        1\r\n 3      1        1        1\r\n 4      2        1        1\r\n 5      2        1        1\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### DFS 预处理前缀和\r\n\r\n```cpp\r\nint dfs(int rt, int rh)\r\n{\r\n    int ans = rh;\r\n    h[rt] = rh;\r\n    for (int i : edges[rt])\r\n    {\r\n        if (fa[i]) continue;\r\n        fa[i] = rt;\r\n        sum[i] = sum[rt] + A[i];\r\n        ans = max(dfs(i, rh + 1), ans);\r\n    }\r\n    return ans;\r\n}\r\n```\r\n\r\nDFS 遍历树，计算每个节点的深度 `h[rt]`、父节点 `fa[rt]` 和前缀和 `sum[rt]`。返回最大深度用于确定倍增跳表的大小。\r\n\r\n### 倍增跳表初始化\r\n\r\n```cpp\r\nST[i][0] = fa[i];                    // 跳 1 步 = 父节点\r\nST[i][k] = ST[ST[i][k-1]][k-1];      // 跳 2^k 步 = 跳 2^(k-1) 后再跳 2^(k-1)\r\n```\r\n\r\n倍增预处理：$ST[i][k]$ 表示从节点 $i$ 向上跳 $2^k$ 步到达的节点。\r\n\r\n### LCA 查询\r\n\r\n```cpp\r\nint find_fa(int a, int b)\r\n{\r\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\r\n    int tmp = h[a] - h[b];\r\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\r\n    {\r\n        if (tmp & 1) a = ST[a][i];\r\n        tmp >>= 1;\r\n    }\r\n    if (a == b) return a;              // b 是 a 的祖先\r\n\r\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\r\n    {\r\n        if (ST[a][i] != ST[b][i])\r\n        {\r\n            a = ST[a][i];\r\n            b = ST[b][i];\r\n        }\r\n    }\r\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\r\n}\r\n```\r\n\r\n三步法：深度对齐 → 判断祖先关系 → 二分跳跃找 LCA。\r\n\r\n### 路径和查询\r\n\r\n```cpp\r\nlong long find_sum(int a, int b)\r\n{\r\n    int g_fa = find_fa(a, b);\r\n    if (g_fa != S)\r\n        return sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]];\r\n    return sum[a] + sum[b] - sum[g_fa];\r\n}\r\n```\r\n\r\n当 LCA 不是根时，需要额外减去 `sum[fa[lca]]`，因为 `sum[a]` 和 `sum[b]` 都包含了从根到 LCA 的路径（含 LCA 及其所有祖先），减去 `sum[lca]` 消除 LCA 以下的重叠，再减去 `sum[fa[lca]]` 消除 LCA 以上根路径的重复。当 LCA 是根时，根的父节点指向自身（`fa[S] = S`），如果也减去 `sum[fa[S]] = sum[S]` 会多减一次根权值，因此需特判。\r\n\r\n## 逐行代码解析\r\n\r\n以下按代码逻辑阶段拆成 6 个模块：全局变量 → `dfs` 预处理 → `init` 跳表 → `find_fa`(LCA) → `find_sum`(路径和) → `main`(读入与查询)。各模块代码块按顺序拼接即完整 `.cpp`。\r\n\r\n### 全局变量与头文件\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint N, M, S, sz;                 // N:节点数 M:查询数 S:根节点 sz:跳表最大层数\r\nvector<long long> A, sum;        // A:点权 sum:树上前缀和（long long 防溢出）\r\nvector<vector<int>> edges, ST;   // edges:邻接表 ST:倍增跳表\r\nvector<int> fa, h;               // fa:父节点 h:深度\r\n```\r\n\r\n- `N`：节点数，`M`：查询数，`S`：根节点，`sz`：倍增跳表最大层数。\r\n- `A` 存点权、`sum` 存树上前缀和，两者都用 `long long`，路径点权和可能超过 `int` 上限。\r\n- `ST[i][k]` 表示从节点 `i` 向上跳 $2^k$ 步到达的祖先；`fa`、`h` 分别存父节点与深度。\r\n\r\n### dfs：预处理前缀和、深度与父节点\r\n\r\n```cpp\r\nint dfs(int rt, int rh)\r\n{\r\n    int ans = rh;\r\n    h[rt] = rh;                        // 记录当前节点深度\r\n    for (int i : edges[rt])\r\n    {\r\n        if (fa[i]) continue;           // 已访问（fa[i] != 0），跳过父节点回边\r\n        fa[i] = rt;                    // 记录父节点\r\n        sum[i] = sum[rt] + A[i];       // 前缀和 = 父节点前缀和 + 当前点权\r\n        ans = max(dfs(i, rh + 1), ans); // 递归子树，取最大深度\r\n    }\r\n    return ans;\r\n}\r\n```\r\n\r\n- 无向树用 `fa[i] != 0` 判断是否已访问，避免沿父边回走（隐含节点从 1 开始编号）。\r\n- 递归时先记父节点再算 `sum[i] = sum[rt] + A[i]`，保证前缀和自上而下累加。\r\n- 返回值 `ans` 是整棵树的最大深度，供 `init()` 计算跳表层数 `sz`。\r\n\r\n### init：初始化数组与倍增跳表\r\n\r\n```cpp\r\nvoid init()\r\n{\r\n    fa.resize(N + 1, 0);\r\n    h.resize(N + 1, 0);\r\n    sum.resize(N + 1, 0);\r\n    fa[S] = S, sum[S] = A[S];                  // 根父节点指向自身，根前缀和 = 自身点权\r\n    int q = dfs(S, 1);                         // 从根 DFS，返回最大深度\r\n    sz = 1;\r\n    while (q > ((long long)1 << sz)) ++sz;     // 求最小 sz 使 2^sz >= q\r\n    ST.resize(N + 1, vector<int>(sz + 1, S));  // 跳表先全部初始化为 S（越界回根）\r\n    for (int i = 1; i <= N; i++) ST[i][0] = fa[i]; // 跳 1 步 = 父节点\r\n    for (int k = 1; k <= sz; k++)\r\n    {\r\n        for (int i = 1; i <= N; i++)\r\n        {\r\n            ST[i][k] = ST[ST[i][k - 1]][k - 1]; // 跳 2^k = 跳两次 2^(k-1)\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n- `fa[S] = S` 是跳表的终止哨兵：根再往上跳仍停在根，避免越界。\r\n- 先填 `ST[i][0] = fa[i]`，再用 `ST[i][k] = ST[ST[i][k-1]][k-1]` 递推整张跳表。\r\n- `while (q > (1LL << sz)) ++sz` 保证 $2^{\\text{sz}} \\ge \\text{maxDepth}$，深度对齐时跳跃步数才够用。\r\n\r\n### find_fa：倍增求 LCA\r\n\r\n```cpp\r\nint find_fa(int a, int b)\r\n{\r\n    if (h[a] < h[b]) swap(a, b);   // 保证 a 更深\r\n    int tmp = h[a] - h[b];         // 深度差\r\n    for (int i = 0; i <= sz; i++)  // 按二进制拆深度差，把 a 抬到与 b 同层\r\n    {\r\n        if (tmp & 1) a = ST[a][i];\r\n        tmp >>= 1;\r\n    }\r\n    if (a == b) return a;          // b 是 a 的祖先（或 a == b）\r\n\r\n    for (int i = sz; i >= 0; i--)  // 从高到低同时上跳，避免越过 LCA\r\n    {\r\n        if (ST[a][i] != ST[b][i])\r\n        {\r\n            a = ST[a][i];\r\n            b = ST[b][i];\r\n        }\r\n    }\r\n    return fa[a];                  // 最终 a、b 的父节点就是 LCA\r\n}\r\n```\r\n\r\n- 深度对齐循环 `i <= sz`：用 `tmp & 1` 判断第 $i$ 位是否为 1，每轮 `tmp >>= 1`，逐位跳跃。\r\n- 第二个循环从 `sz` 递减：仅当 `ST[a][i] != ST[b][i]` 才一起跳，保证不会越过 LCA。\r\n- 循环结束后 `a`、`b` 停在 LCA 的两个子节点处，返回 `fa[a]` 即 LCA。\r\n\r\n### find_sum：路径点权和查询\r\n\r\n```cpp\r\nlong long find_sum(int a, int b)\r\n{\r\n    int g_fa = find_fa(a, b);       // LCA\r\n    if (g_fa != S) return sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]];\r\n    return sum[a] + sum[b] - sum[g_fa]; // LCA 为根：只减一次 sum[lca]\r\n}\r\n```\r\n\r\n- LCA 非根：`sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]]`，去掉两条根路径在 LCA 及其祖先处的重复累加。\r\n- LCA 为根：只减 `sum[g_fa]`；因 `fa[S] = S`，若再减 `sum[fa[S]]` 会多减一次根权值。\r\n- 返回类型与 `sum` 一致为 `long long`，避免中间结果溢出。\r\n\r\n### main：读入、预处理与回答查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    //N:点的数量,M:测试案例数量,S:根节点\r\n    cin >> N >> M >> S;\r\n    A.resize(N + 1);\r\n    edges.resize(N + 1);\r\n    for (int i = 1; i <= N; i++) cin >> A[i]; // 读入点权\r\n    for (int i = 1; i < N; i++)               // 树有 N-1 条边\r\n    {\r\n        int a, b;\r\n        cin >> a >> b;\r\n        edges[a].emplace_back(b);             // 无向边，双向建图\r\n        edges[b].emplace_back(a);\r\n    }\r\n    init();                                    // 预处理前缀和 + 跳表\r\n\r\n    while (M--)                                // 回答 M 次查询\r\n    {\r\n        int a, b;\r\n        cin >> a >> b;\r\n        cout << find_sum(a, b) << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n- 读入点权后读 $N-1$ 条无向边，双向加入邻接表。\r\n- `init()` 完成 DFS 与跳表预处理，随后循环回答 $M$ 次路径和查询。\r\n- 关闭 C/C++ 输入输出同步并解除 `cin`/`cout` 绑定，加速大数据读写。\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度\r\n\r\n| 操作 | 复杂度 | 说明 |\r\n|---|---|---|\r\n| DFS 预处理 | $O(n)$ | 每个节点访问一次 |\r\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\r\n| 单次 LCA 查询 | $O(\\log n)$ | 深度对齐 + 二分跳跃 |\r\n| 单次路径和查询 | $O(\\log n)$ | LCA 查询 + $O(1)$ 计算 |\r\n| 总体（$M$ 次查询） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次查询 |\r\n\r\n### 空间复杂度\r\n\r\n| 数据 | 空间 | 说明 |\r\n|---|---|---|\r\n| 倍增跳表 `ST` | $O(n \\log n)$ | $n \\times (\\log n + 1)$ 的二维数组 |\r\n| 邻接表 `edges` | $O(n)$ | $n-1$ 条边 |\r\n| 其他数组 | $O(n)$ | `A`, `sum`, `fa`, `h` |\r\n| **总计** | $O(n \\log n)$ | 倍增跳表占主导 |\r\n\r\n## 适用场景\r\n\r\n1. **树上路径权值和查询**：静态树，多次查询两点间路径上所有节点权值之和\r\n2. **树上距离查询**：若边权代替点权，可查询两点间路径的边权之和\r\n3. **子树和查询**：通过 DFS 序 + 前缀和可扩展到子树权值和\r\n4. **结合差分做树上路径修改**：树上差分 + LCA 可实现路径加 + 单点查询\r\n\r\n**不适用场景**：\r\n- 需要动态修改点权 → 应使用树链剖分 + 线段树/树状数组\r\n- 仅需查询子树和 → DFS 序 + 一维前缀和更简单，$O(1)$ 查询\r\n- 树结构频繁变化（加边/删边）→ LCT（Link-Cut Tree）\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **根节点的父节点处理**\r\n   - `fa[S] = S`（指向自身）作为倍增跳表的终止哨兵\r\n   - 路径和公式中必须特判 `lca == S`，否则 `sum[fa[S]] = sum[S]` 会多减一次根权值\r\n\r\n2. **前缀和类型用 `long long`**\r\n   - 树上路径可能很长，权值累加可能超过 `int` 范围\r\n   - `sum` 数组必须声明为 `long long`\r\n\r\n3. **无向边需双向建图**\r\n   - `edges[a].push_back(b)` 和 `edges[b].push_back(a)` 都要写\r\n   - DFS 用 `fa[i] != 0` 判断已访问，避免重复遍历\r\n\r\n4. **倍增跳表层数计算**\r\n   - `sz` 必须满足 $2^{\\text{sz}} \\ge \\text{maxDepth}$，否则跳跃不足\r\n   - 代码中 `while (q > (1LL << sz)) ++sz` 正确处理了这一点\r\n\r\n5. **深度对齐时的位运算**\r\n   - `for (int i = 0; i <= sz; i++)` 中用 `tmp & 1` 判断是否需要跳 $2^i$ 步\r\n   - 每次检查后 `tmp >>= 1`，注意循环范围必须覆盖 `sz`\r\n\r\n6. **LCA 查询的边界情况**\r\n   - $a = b$ 时直接返回 $a$（深度对齐后 `a == b`）\r\n   - $a$ 是 $b$ 的祖先时，深度对齐后 `a == b` 也正确返回\r\n\r\n7. **链状树递归 DFS 易栈溢出**\r\n   - 退化成一条链的树（深度 $n$）递归 DFS 可能爆栈，需改用迭代 DFS 或增大栈空间\r\n\r\n## 对比与扩展\r\n\r\n| 方法 | 预处理 | 查询 | 空间 | 特点 |\r\n|---|---|---|---|---|\r\n| **倍增 LCA（本算法）** | $O(n \\log n)$ | $O(\\log n)$ | $O(n \\log n)$ | 在线查询，实现简洁 |\r\n| Tarjan LCA | $O(n + M \\cdot \\alpha)$ | 离线 | $O(n)$ | 离线查询，理论更快 |\r\n| 重链剖分 LCA | $O(n)$ | $O(\\log n)$ | $O(n)$ | 可结合线段树做路径修改 |\r\n| 欧拉序 + ST 表 | $O(n \\log n)$ | $O(1)$ | $O(n \\log n)$ | $O(1)$ 查询，常数较大 |\r\n\r\n### 扩展\r\n\r\n- **树上前缀和 + 树上差分**：路径加操作 $(a, b, w)$ 可转化为 `diff[a] += w, diff[b] += w, diff[lca] -= w, diff[fa[lca]] -= w`，最后 DFS 求子树和还原\r\n- **边权版本**：将边权下放为子节点点权，路径和公式相同；注意 LCA 处的点权不属于路径\r\n- **树链剖分**：支持动态修改点权的路径和查询，时间 $O(\\log^2 n)$ 每次操作",
+                "content": "## 算法原理\n\n树上前缀和是一维前缀和在树结构上的推广。给定一棵以 $S$ 为根的有根树，每个节点有权值 $A[i]$，定义树上前缀和：\n\n$$\\text{sum}[u] = \\sum_{v \\in \\text{path}(S \\to u)} A[v]$$\n\n即从根 $S$ 到节点 $u$ 的路径上所有节点权值之和。预处理后，可以在 $O(\\log n)$ 时间内回答任意两点路径上的权值之和。\n\n路径和查询的关键在于 LCA（最近公共祖先）。对于查询 $(a, b)$，设 $\\text{lca} = \\text{LCA}(a, b)$，则：\n\n- **一般情况**（$\\text{lca} \\ne S$）：路径 $a \\to b$ 的权值和为 $\\text{sum}[a] + \\text{sum}[b] - \\text{sum}[\\text{lca}] - \\text{sum}[\\text{fa}[\\text{lca}]]$，因为两条根到节点的路径在 LCA 及其父节点处重叠。\n- **LCA 为根**（$\\text{lca} = S$）：路径 $a \\to b$ 的权值和为 $\\text{sum}[a] + \\text{sum}[b] - \\text{sum}[\\text{lca}]$，因为根没有父节点，只需减去一次根的权值。\n\n本代码同时实现了倍增 LCA（Binary Lifting），通过预处理 $O(n \\log n)$ 的跳表实现 $O(\\log n)$ 的 LCA 查询。\n\n## 数据结构图示\n\n### 树上前缀和的构造\n\n```\n        树结构 (根 S=1, 括号内为点权):\n                    1(A=10)\n                   /       \\\n                2(A=20)    3(A=30)\n               /      \\\n            4(A=40)  5(A=50)\n\n        DFS 从根开始，sum[i] = sum[fa] + A[i]:\n\n                    1(sum=10)\n                   /       \\\n                2(sum=30)  3(sum=40)\n               /      \\\n            4(sum=70)  5(sum=80)\n\n        前缀和数组:\n        下标:   1    2    3    4    5\n        sum:   10   30   40   70   80\n```\n\n### 路径和查询示意\n\n```\n查询 find_sum(4, 5):\n  LCA(4, 5) = 2, lca != S(=1)\n\n  sum[4] = 70  (1→2→4: 10+20+40)\n  sum[5] = 80  (1→2→5: 10+20+50)\n  sum[lca=2] = 30\n  sum[fa[lca]=1] = 10\n\n  路径 4→5 的权值和 = 70 + 80 - 30 - 10 = 110\n  验证: 40+20+50 = 110 ✓\n\n  图解:\n  1(10) ─ 2(20) ─ 4(40)\n           └──── 5(50)\n\n  sum[4] 包含: 10+20+40     ──┐\n  sum[5] 包含: 10+20+50     ──┤\n  减去 sum[2]: 10+20        ──┤  被加了两次\n  减去 sum[1]: 10           ──┘  也被加了两次\n  剩余: 40 + 50 + 20 = 110 ✓\n```\n\n```\n查询 find_sum(3, 4):\n  LCA(3, 4) = 1 = S\n\n  sum[3] = 40  (1→3: 10+30)\n  sum[4] = 70  (1→2→4: 10+20+40)\n  sum[lca=1] = 10\n\n  路径 3→4 的权值和 = 40 + 70 - 10 = 100\n  验证: 30+10+20+40 = 100 ✓\n\n  图解:\n  3(30) ─ 1(10) ─ 2(20) ─ 4(40)\n\n  sum[3] 包含: 10+30          ──┐\n  sum[4] 包含: 10+20+40       ──┤\n  减去 sum[1]: 10             ──┘  被加了两次\n  剩余: 30 + 20 + 40 + 10 = 100 ✓\n```\n\n### 倍增跳表结构\n\n```\nST[i][k] 表示从节点 i 向上跳 2^k 步到达的祖先\n\nST[4][0] = fa[4] = 2     (跳 1 步)\nST[4][1] = ST[ST[4][0]][0] = ST[2][0] = 1  (跳 2 步)\nST[4][2] = ST[ST[4][1]][1] = ST[1][1] = S  (跳 4 步，超出根回到 S)\n\n跳表:\n节点  ST[][0]  ST[][1]  ST[][2]\n 1      1        1        1    (根指向自身)\n 2      1        1        1\n 3      1        1        1\n 4      2        1        1\n 5      2        1        1\n```\n\n## 核心操作详解\n\n### DFS 预处理前缀和\n\n```cpp\nint dfs(int rt, int rh)\n{\n    int ans = rh;\n    h[rt] = rh;\n    for (int i : edges[rt])\n    {\n        if (fa[i]) continue;\n        fa[i] = rt;\n        sum[i] = sum[rt] + A[i];\n        ans = max(dfs(i, rh + 1), ans);\n    }\n    return ans;\n}\n```\n\nDFS 遍历树，计算每个节点的深度 `h[rt]`、父节点 `fa[rt]` 和前缀和 `sum[rt]`。返回最大深度用于确定倍增跳表的大小。\n\n### 倍增跳表初始化\n\n```cpp\nST[i][0] = fa[i];                    // 跳 1 步 = 父节点\nST[i][k] = ST[ST[i][k-1]][k-1];      // 跳 2^k 步 = 跳 2^(k-1) 后再跳 2^(k-1)\n```\n\n倍增预处理：$ST[i][k]$ 表示从节点 $i$ 向上跳 $2^k$ 步到达的节点。\n\n### LCA 查询\n\n```cpp\nint find_fa(int a, int b)\n{\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\n    int tmp = h[a] - h[b];\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\n    {\n        if (tmp & 1) a = ST[a][i];\n        tmp >>= 1;\n    }\n    if (a == b) return a;              // b 是 a 的祖先\n\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\n    {\n        if (ST[a][i] != ST[b][i])\n        {\n            a = ST[a][i];\n            b = ST[b][i];\n        }\n    }\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\n}\n```\n\n三步法：深度对齐 → 判断祖先关系 → 二分跳跃找 LCA。\n\n### 路径和查询\n\n```cpp\nlong long find_sum(int a, int b)\n{\n    int g_fa = find_fa(a, b);\n    if (g_fa != S)\n        return sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]];\n    return sum[a] + sum[b] - sum[g_fa];\n}\n```\n\n当 LCA 不是根时，需要额外减去 `sum[fa[lca]]`，因为 `sum[a]` 和 `sum[b]` 都包含了从根到 LCA 的路径（含 LCA 及其所有祖先），减去 `sum[lca]` 消除 LCA 以下的重叠，再减去 `sum[fa[lca]]` 消除 LCA 以上根路径的重复。当 LCA 是根时，根的父节点指向自身（`fa[S] = S`），如果也减去 `sum[fa[S]] = sum[S]` 会多减一次根权值，因此需特判。\n\n## 逐行代码解析\n\n以下按代码逻辑阶段拆成 6 个模块：全局变量 → `dfs` 预处理 → `init` 跳表 → `find_fa`(LCA) → `find_sum`(路径和) → `main`(读入与查询)。各模块代码块按顺序拼接即完整 `.cpp`。\n\n### 全局变量与头文件\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint N, M, S, sz;                 // N:节点数 M:查询数 S:根节点 sz:跳表最大层数\nvector<long long> A, sum;        // A:点权 sum:树上前缀和（long long 防溢出）\nvector<vector<int>> edges, ST;   // edges:邻接表 ST:倍增跳表\nvector<int> fa, h;               // fa:父节点 h:深度\n```\n\n- `N`：节点数，`M`：查询数，`S`：根节点，`sz`：倍增跳表最大层数。\n- `A` 存点权、`sum` 存树上前缀和，两者都用 `long long`，路径点权和可能超过 `int` 上限。\n- `ST[i][k]` 表示从节点 `i` 向上跳 $2^k$ 步到达的祖先；`fa`、`h` 分别存父节点与深度。\n\n### dfs：预处理前缀和、深度与父节点\n\n```cpp\nint dfs(int rt, int rh)\n{\n    int ans = rh;\n    h[rt] = rh;                        // 记录当前节点深度\n    for (int i : edges[rt])\n    {\n        if (fa[i]) continue;           // 已访问（fa[i] != 0），跳过父节点回边\n        fa[i] = rt;                    // 记录父节点\n        sum[i] = sum[rt] + A[i];       // 前缀和 = 父节点前缀和 + 当前点权\n        ans = max(dfs(i, rh + 1), ans); // 递归子树，取最大深度\n    }\n    return ans;\n}\n```\n\n- 无向树用 `fa[i] != 0` 判断是否已访问，避免沿父边回走（隐含节点从 1 开始编号）。\n- 递归时先记父节点再算 `sum[i] = sum[rt] + A[i]`，保证前缀和自上而下累加。\n- 返回值 `ans` 是整棵树的最大深度，供 `init()` 计算跳表层数 `sz`。\n\n### init：初始化数组与倍增跳表\n\n```cpp\nvoid init()\n{\n    fa.resize(N + 1, 0);\n    h.resize(N + 1, 0);\n    sum.resize(N + 1, 0);\n    fa[S] = S, sum[S] = A[S];                  // 根父节点指向自身，根前缀和 = 自身点权\n    int q = dfs(S, 1);                         // 从根 DFS，返回最大深度\n    sz = 1;\n    while (q > ((long long)1 << sz)) ++sz;     // 求最小 sz 使 2^sz >= q\n    ST.resize(N + 1, vector<int>(sz + 1, S));  // 跳表先全部初始化为 S（越界回根）\n    for (int i = 1; i <= N; i++) ST[i][0] = fa[i]; // 跳 1 步 = 父节点\n    for (int k = 1; k <= sz; k++)\n    {\n        for (int i = 1; i <= N; i++)\n        {\n            ST[i][k] = ST[ST[i][k - 1]][k - 1]; // 跳 2^k = 跳两次 2^(k-1)\n        }\n    }\n}\n```\n\n- `fa[S] = S` 是跳表的终止哨兵：根再往上跳仍停在根，避免越界。\n- 先填 `ST[i][0] = fa[i]`，再用 `ST[i][k] = ST[ST[i][k-1]][k-1]` 递推整张跳表。\n- `while (q > (1LL << sz)) ++sz` 保证 $2^{\\text{sz}} \\ge \\text{maxDepth}$，深度对齐时跳跃步数才够用。\n\n### find_fa：倍增求 LCA\n\n```cpp\nint find_fa(int a, int b)\n{\n    if (h[a] < h[b]) swap(a, b);   // 保证 a 更深\n    int tmp = h[a] - h[b];         // 深度差\n    for (int i = 0; i <= sz; i++)  // 按二进制拆深度差，把 a 抬到与 b 同层\n    {\n        if (tmp & 1) a = ST[a][i];\n        tmp >>= 1;\n    }\n    if (a == b) return a;          // b 是 a 的祖先（或 a == b）\n\n    for (int i = sz; i >= 0; i--)  // 从高到低同时上跳，避免越过 LCA\n    {\n        if (ST[a][i] != ST[b][i])\n        {\n            a = ST[a][i];\n            b = ST[b][i];\n        }\n    }\n    return fa[a];                  // 最终 a、b 的父节点就是 LCA\n}\n```\n\n- 深度对齐循环 `i <= sz`：用 `tmp & 1` 判断第 $i$ 位是否为 1，每轮 `tmp >>= 1`，逐位跳跃。\n- 第二个循环从 `sz` 递减：仅当 `ST[a][i] != ST[b][i]` 才一起跳，保证不会越过 LCA。\n- 循环结束后 `a`、`b` 停在 LCA 的两个子节点处，返回 `fa[a]` 即 LCA。\n\n### find_sum：路径点权和查询\n\n```cpp\nlong long find_sum(int a, int b)\n{\n    int g_fa = find_fa(a, b);       // LCA\n    if (g_fa != S) return sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]];\n    return sum[a] + sum[b] - sum[g_fa]; // LCA 为根：只减一次 sum[lca]\n}\n```\n\n- LCA 非根：`sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]]`，去掉两条根路径在 LCA 及其祖先处的重复累加。\n- LCA 为根：只减 `sum[g_fa]`；因 `fa[S] = S`，若再减 `sum[fa[S]]` 会多减一次根权值。\n- 返回类型与 `sum` 一致为 `long long`，避免中间结果溢出。\n\n### main：读入、预处理与回答查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    //N:点的数量,M:测试案例数量,S:根节点\n    cin >> N >> M >> S;\n    A.resize(N + 1);\n    edges.resize(N + 1);\n    for (int i = 1; i <= N; i++) cin >> A[i]; // 读入点权\n    for (int i = 1; i < N; i++)               // 树有 N-1 条边\n    {\n        int a, b;\n        cin >> a >> b;\n        edges[a].emplace_back(b);             // 无向边，双向建图\n        edges[b].emplace_back(a);\n    }\n    init();                                    // 预处理前缀和 + 跳表\n\n    while (M--)                                // 回答 M 次查询\n    {\n        int a, b;\n        cin >> a >> b;\n        cout << find_sum(a, b) << '\\n';\n    }\n    return 0;\n}\n```\n\n- 读入点权后读 $N-1$ 条无向边，双向加入邻接表。\n- `init()` 完成 DFS 与跳表预处理，随后循环回答 $M$ 次路径和查询。\n- 关闭 C/C++ 输入输出同步并解除 `cin`/`cout` 绑定，加速大数据读写。\n\n## 复杂度分析\n\n### 时间复杂度\n\n| 操作 | 复杂度 | 说明 |\n|---|---|---|\n| DFS 预处理 | $O(n)$ | 每个节点访问一次 |\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\n| 单次 LCA 查询 | $O(\\log n)$ | 深度对齐 + 二分跳跃 |\n| 单次路径和查询 | $O(\\log n)$ | LCA 查询 + $O(1)$ 计算 |\n| 总体（$M$ 次查询） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次查询 |\n\n### 空间复杂度\n\n| 数据 | 空间 | 说明 |\n|---|---|---|\n| 倍增跳表 `ST` | $O(n \\log n)$ | $n \\times (\\log n + 1)$ 的二维数组 |\n| 邻接表 `edges` | $O(n)$ | $n-1$ 条边 |\n| 其他数组 | $O(n)$ | `A`, `sum`, `fa`, `h` |\n| **总计** | $O(n \\log n)$ | 倍增跳表占主导 |\n\n## 适用场景\n\n1. **树上路径权值和查询**：静态树，多次查询两点间路径上所有节点权值之和\n2. **树上距离查询**：若边权代替点权，可查询两点间路径的边权之和\n3. **子树和查询**：通过 DFS 序 + 前缀和可扩展到子树权值和\n4. **结合差分做树上路径修改**：树上差分 + LCA 可实现路径加 + 单点查询\n\n**不适用场景**：\n- 需要动态修改点权 → 应使用树链剖分 + 线段树/树状数组\n- 仅需查询子树和 → DFS 序 + 一维前缀和更简单，$O(1)$ 查询\n- 树结构频繁变化（加边/删边）→ LCT（Link-Cut Tree）\n\n## 常见陷阱与注意事项\n\n1. **根节点的父节点处理**\n   - `fa[S] = S`（指向自身）作为倍增跳表的终止哨兵\n   - 路径和公式中必须特判 `lca == S`，否则 `sum[fa[S]] = sum[S]` 会多减一次根权值\n\n2. **前缀和类型用 `long long`**\n   - 树上路径可能很长，权值累加可能超过 `int` 范围\n   - `sum` 数组必须声明为 `long long`\n\n3. **无向边需双向建图**\n   - `edges[a].push_back(b)` 和 `edges[b].push_back(a)` 都要写\n   - DFS 用 `fa[i] != 0` 判断已访问，避免重复遍历\n\n4. **倍增跳表层数计算**\n   - `sz` 必须满足 $2^{\\text{sz}} \\ge \\text{maxDepth}$，否则跳跃不足\n   - 代码中 `while (q > (1LL << sz)) ++sz` 正确处理了这一点\n\n5. **深度对齐时的位运算**\n   - `for (int i = 0; i <= sz; i++)` 中用 `tmp & 1` 判断是否需要跳 $2^i$ 步\n   - 每次检查后 `tmp >>= 1`，注意循环范围必须覆盖 `sz`\n\n6. **LCA 查询的边界情况**\n   - $a = b$ 时直接返回 $a$（深度对齐后 `a == b`）\n   - $a$ 是 $b$ 的祖先时，深度对齐后 `a == b` 也正确返回\n\n7. **链状树递归 DFS 易栈溢出**\n   - 退化成一条链的树（深度 $n$）递归 DFS 可能爆栈，需改用迭代 DFS 或增大栈空间\n\n## 对比与扩展\n\n| 方法 | 预处理 | 查询 | 空间 | 特点 |\n|---|---|---|---|---|\n| **倍增 LCA（本算法）** | $O(n \\log n)$ | $O(\\log n)$ | $O(n \\log n)$ | 在线查询，实现简洁 |\n| Tarjan LCA | $O(n + M \\cdot \\alpha)$ | 离线 | $O(n)$ | 离线查询，理论更快 |\n| 重链剖分 LCA | $O(n)$ | $O(\\log n)$ | $O(n)$ | 可结合线段树做路径修改 |\n| 欧拉序 + ST 表 | $O(n \\log n)$ | $O(1)$ | $O(n \\log n)$ | $O(1)$ 查询，常数较大 |\n\n### 扩展\n\n- **树上前缀和 + 树上差分**：路径加操作 $(a, b, w)$ 可转化为 `diff[a] += w, diff[b] += w, diff[lca] -= w, diff[fa[lca]] -= w`，最后 DFS 求子树和还原\n- **边权版本**：将边权下放为子节点点权，路径和公式相同；注意 LCA 处的点权不属于路径\n- **树链剖分**：支持动态修改点权的路径和查询，时间 $O(\\log^2 n)$ 每次操作\n\n## 附：树上点差分（路径点权修改）\n\n树上点差分是一维差分在树结构上的推广。给定一棵以 $S$ 为根的有根树，每个节点有初始权值 $A[i]$。需要支持**路径修改**：对路径 $a \\to b$ 上所有节点的权值加 $k$，最后统一查询每个节点的最终权值。\n\n#### 核心思想\n\n一维差分通过\"加左减右\"实现区间修改，树上差分类似地利用 LCA 实现\"路径修改\"到\"单点修改\"的转化。关键公式：\n\n对于路径 $a \\to b$ 上所有节点加 $k$，设 $\\text{lca} = \\text{LCA}(a, b)$：\n\n$$\\text{diff}[a] \\mathrel{+}= k, \\qquad \\text{diff}[b] \\mathrel{+}= k, \\qquad \\text{diff}[\\text{lca}] \\mathrel{-}= k, \\qquad \\text{diff}[\\text{fa}[\\text{lca}]] \\mathrel{-}= k$$\n\n当 $\\text{lca} = S$（即 LCA 为根节点）时，$\\text{fa}[\\text{lca}]$ 不存在，只需三处修改：\n\n$$\\text{diff}[a] \\mathrel{+}= k, \\qquad \\text{diff}[b] \\mathrel{+}= k, \\qquad \\text{diff}[\\text{lca}] \\mathrel{-}= k$$\n\n#### 为什么这样修改？\n\n树上差分的还原方式是**DFS 求子树和**：每个节点的差分值向父节点累加。理解公式的关键在于分析每个节点被累加的次数：\n\n- 节点 $a$ 和 $b$ 各自 $+k$：它们的祖先路径上的节点都会通过子树和获得 $+k$\n- 但路径 $a \\to b$ 经过 LCA，LCA 的子树同时包含 $a$ 和 $b$，因此 LCA 会被累加两次（$+2k$），需要减去一次（$-k$）\n- LCA 的父节点同样通过两条子路径累加了两次，也需要减去一次（$-k$）\n- 当 LCA 是根时，根没有父节点，只有根被多算了一次，减一次即可\n\n#### 还原操作\n\n所有修改完成后，对差分数组做一次 DFS 子树和累加：\n\n$$\\text{diff}[u] \\mathrel{+}= \\sum_{v \\in \\text{children}(u)} \\text{diff}[v]$$\n\n最终每个节点的权值为 $\\text{diff}[i] + A[i]$（差分累加值 + 初始权值）。\n\n#### 复杂度分析\n\n| 操作 | 时间 | 说明 |\n|---|---|---|\n| DFS 预处理 | $O(n)$ | 求深度、父节点 |\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\n| 单次路径修改 | $O(\\log n)$ | LCA 查询 + $O(1)$ 差分 |\n| DFS 还原子树和 | $O(n)$ | 每个节点访问一次 |\n| 总体（$M$ 次修改） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次修改 + 还原 |\n\n### 数据结构图示\n\n#### 树结构示例\n\n```\n树结构 (根 S=1, 括号内为初始点权 A):\n            1(A=10)\n           /       \\\n        2(A=20)    3(A=30)\n       /      \\\n    4(A=40)  5(A=50)\n\n节点编号:  1    2    3    4    5\n初始权值A: 10   20   30   40   50\n```\n\n#### 差分修改过程\n\n**操作 1：路径 4→5 上所有节点加 $k=100$**\n\n```\n路径 4→5: 4 → 2 → 5 (LCA(4,5) = 2, lca != S)\n\n差分操作:\n  diff[4] += 100      (端点 a)\n  diff[5] += 100      (端点 b)\n  diff[2] -= 100      (LCA 减一次)\n  diff[fa[2]=1] -= 100 (LCA 父节点减一次)\n\ndiff 数组初始全 0:\n  下标:   1     2     3     4     5\n  diff:  -100  -100    0   +100  +100\n\n图解 (虚线 = 路径 4→5):\n            1(-100)\n           /       \\\n        2(-100)    3(0)\n       /      \\\n    4(+100)  5(+100)\n```\n\n#### DFS 子树和还原\n\n```\nDFS 从根开始，子节点先递归，回溯时累加:\n\ndfs_arr(4): 无子节点 → diff[4] = 100\ndfs_arr(5): 无子节点 → diff[5] = 100\ndfs_arr(2): diff[2] += diff[4] + diff[5]\n           → diff[2] = -100 + 100 + 100 = 100\ndfs_arr(3): 无子节点 → diff[3] = 0\ndfs_arr(1): diff[1] += diff[2] + diff[3]\n           → diff[1] = -100 + 100 + 0 = 0\n\n还原后 diff (即每个节点的修改量):\n  下标:    1    2    3    4    5\n  diff:    0   100   0  100  100\n\n最终权值 = A[i] + diff[i]:\n  节点:   1      2       3      4       5\n  最终权值: 10+0  20+100  30+0  40+100  50+100\n         = 10   120    30    140     150\n\n验证: 路径 4→2→5 的权值确实各加了 100 ✓\n      节点 1, 3 不在路径上，权值不变 ✓\n```\n\n#### LCA 为根的情况\n\n**操作 2：路径 3→4 上所有节点加 $k=50$**\n\n```\n路径 3→4: 3 → 1 → 2 → 4 (LCA(3,4) = 1 = S)\n\n差分操作 (lca = S, 只减一次):\n  diff[3] += 50       (端点 a)\n  diff[4] += 50       (端点 b)\n  diff[1] -= 50       (LCA = 根，只减一次，不减 fa)\n\n图解 (虚线 = 路径 3→1→2→4):\n            1(-50)\n           /       \\\n        2(0)     3(+50)\n       /      \\\n    4(+50)    5(0)\n```\n\n#### 倍增跳表结构\n\n```\nST[i][k] 表示从节点 i 向上跳 2^k 步到达的祖先\n\nST[4][0] = fa[4] = 2     (跳 1 步)\nST[4][1] = ST[ST[4][0]][0] = ST[2][0] = 1  (跳 2 步)\nST[4][2] = ST[ST[4][1]][1] = ST[1][1] = S  (跳 4 步，超出根回到 S)\n\n跳表:\n节点  ST[][0]  ST[][1]  ST[][2]\n 1      1        1        1    (根指向自身)\n 2      1        1        1\n 3      1        1        1\n 4      2        1        1\n 5      2        1        1\n```\n\n### 核心操作详解\n\n#### DFS 预处理（深度与父节点）\n\n```cpp\nint dfs(int rt, int rh)\n{\n    int ans = rh;\n    h[rt] = rh;\n    for (int i : edges[rt])\n    {\n        if (fa[i]) continue;\n        fa[i] = rt;\n        ans = max(dfs(i, rh + 1), ans);\n    }\n    return ans;\n}\n```\n\nDFS 遍历树，计算每个节点的深度 `h[rt]` 和父节点 `fa[rt]`。返回最大深度用于确定倍增跳表的大小。与树上前缀和不同，此处的 DFS 不计算前缀和，只建立树结构信息。\n\n#### 倍增跳表初始化\n\n```cpp\nST[i][0] = fa[i];                    // 跳 1 步 = 父节点\nST[i][k] = ST[ST[i][k-1]][k-1];      // 跳 2^k 步 = 跳 2^(k-1) 后再跳 2^(k-1)\n```\n\n倍增预处理：$ST[i][k]$ 表示从节点 $i$ 向上跳 $2^k$ 步到达的节点。根节点 `fa[S] = S`，跳表指向自身作为哨兵。\n\n#### LCA 查询\n\n```cpp\nint find_fa(int a, int b)\n{\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\n    int tmp = h[a] - h[b];\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\n    {\n        if (tmp & 1) a = ST[a][i];\n        tmp >>= 1;\n    }\n    if (a == b) return a;              // b 是 a 的祖先\n\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\n    {\n        if (ST[a][i] != ST[b][i])\n        {\n            a = ST[a][i];\n            b = ST[b][i];\n        }\n    }\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\n}\n```\n\n三步法：深度对齐（位运算逐位跳）→ 判断祖先关系 → 二分跳跃找 LCA。\n\n#### 路径差分修改\n\n```cpp\nvoid find_arr(int a, int b, long long k)\n{\n    int t_fa = find_fa(a, b);\n    arr[a] += k;\n    arr[b] += k;\n    arr[t_fa] -= k;\n    if (t_fa != S) arr[fa[t_fa]] -= k;\n}\n```\n\n核心差分操作：端点 $a, b$ 各加 $k$，LCA 减 $k$，LCA 父节点减 $k$（当 LCA 不是根时）。当 LCA 是根时，`fa[S] = S`，如果也减去 `arr[fa[S]] = arr[S]` 会导致根被多减一次，因此必须特判。\n\n#### DFS 子树和还原\n\n```cpp\nvoid dfs_arr(int rt, int f)\n{\n    for (int i : edges[rt])\n    {\n        if (i == f) continue;\n        dfs_arr(i, rt);\n        arr[rt] += arr[i];\n    }\n}\n```\n\n后序 DFS：先递归子节点，回溯时将子节点的差分值累加到当前节点。这等价于对每个节点求子树和，将差分操作的效果传播到正确的路径上。\n\n### 逐行代码解析\n\n#### 全局变量\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint N, M, S, sz;\nvector<long long> A, arr;\nvector<vector<int>> edges, ST;\nvector<int> fa, h;\n```\n\n- `N` 节点数、`M` 修改次数、`S` 根节点、`sz` 倍增跳表最大层数。\n- `A` 存初始点权、`arr` 存差分值，二者都用 `long long`，因为多次路径累加可能超出 `int`。\n- `edges` 是邻接表（无向边需双向建图），`ST` 是倍增跳表，`fa` 记父节点，`h` 记深度。\n\n#### 预处理（dfs 与 init）\n\n```cpp\nint dfs(int rt, int rh)\n{\n    int ans = rh;\n    h[rt] = rh;\n    for (int i : edges[rt])\n    {\n        if (fa[i]) continue;       // 已访问（fa[i] != 0）\n        fa[i] = rt;\n        ans = max(dfs(i, rh + 1), ans);\n    }\n    return ans;\n}\n\nvoid init()\n{\n    fa.resize(N + 1, 0);\n    h.resize(N + 1, 0);\n    arr.resize(N + 1, 0);\n    fa[S] = S;                     // 根的父节点指向自身（哨兵）\n    int q = dfs(S, 1);\n    sz = 1;\n    while (q > ((long long)1 << sz)) ++sz;   // 计算跳表层数\n    ST.resize(N + 1, vector<int>(sz + 1, S));\n    for (int i = 1; i <= N; i++) ST[i][0] = fa[i];\n    for (int k = 1; k <= sz; k++)\n    {\n        for (int i = 1; i <= N; i++)\n        {\n            ST[i][k] = ST[ST[i][k - 1]][k - 1];\n        }\n    }\n}\n```\n\n- `dfs` 用 `fa[i] != 0` 判断是否访问过，边遍历边记录深度 `h` 与父节点 `fa`，返回值是整棵树的最大深度 `q`。\n- `fa[S] = S` 让根指向自身作哨兵，倍增跳表在\"跳过根\"时停在根，不会越界。\n- `while (q > ((long long)1 << sz)) ++sz` 保证 $2^{\\text{sz}} \\ge q$，跳表层数足以覆盖任意深度差。\n- 倍增递推 `ST[i][k] = ST[ST[i][k-1]][k-1]`：跳 $2^k$ 步 = 先跳 $2^{k-1}$ 步再跳 $2^{k-1}$ 步。\n\n#### 路径修改（find_fa 与 find_arr）\n\n```cpp\nint find_fa(int a, int b)\n{\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\n    int tmp = h[a] - h[b];\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\n    {\n        if (tmp & 1) a = ST[a][i];\n        tmp >>= 1;\n    }\n    if (a == b) return a;              // b 是 a 的祖先\n\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\n    {\n        if (ST[a][i] != ST[b][i])\n        {\n            a = ST[a][i];\n            b = ST[b][i];\n        }\n    }\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\n}\n\nvoid find_arr(int a, int b, long long k)\n{\n    int t_fa = find_fa(a, b);\n    arr[a] += k;\n    arr[b] += k;\n    arr[t_fa] -= k;\n    if (t_fa != S) arr[fa[t_fa]] -= k;   // LCA 不是根时才减父节点\n}\n```\n\n- `find_fa` 三步求 LCA：先把较深的 `a` 按二进制位抬到与 `b` 同深，再同步向上跳到父节点不同处，最后 `fa[a]` 即 LCA。\n- 深度对齐用 `tmp & 1` 逐位判断该位要不要跳，比逐级上跳快，复杂度 $O(\\log n)$。\n- `find_arr` 按公式改四处：端点 `a, b` 各 `+k`，LCA `-k`，LCA 的父节点 `-k`。\n- `if (t_fa != S)` 是根特判：LCA 为根时 `fa[S] = S`，再减 `arr[fa[S]]` 会多减一次根，必须跳过。\n\n#### 子树和还原（dfs_arr）\n\n```cpp\nvoid dfs_arr(int rt, int f)\n{\n    for (int i : edges[rt])\n    {\n        if (i == f) continue;       // 跳过父节点（避免回退）\n        dfs_arr(i, rt);\n        arr[rt] += arr[i];          // 子树和累加\n    }\n}\n```\n\n- 后序 DFS：先递归子节点，回溯时把子节点差分值累加到当前节点，等价于对每个节点求子树和。\n- 这里用 `i == f` 判断父节点而非预处理里的 `fa[i]`，因为传入父节点 `f` 更直观，也避免与 `fa` 数组混淆。\n- 还原后 `arr[i]` 是节点 `i` 的累计修改量，最终权值还要再加初始权值 `A[i]`。\n\n#### 主函数 main\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    //N:点的数量,M:修改案例数量,S:根节点\n    cin >> N >> M >> S;\n    A.resize(N + 1);\n    edges.resize(N + 1);\n    for (int i = 1; i <= N; i++) cin >> A[i];\n    for (int i = 1; i < N; i++)\n    {\n        int a, b;\n        cin >> a >> b;\n        edges[a].emplace_back(b);\n        edges[b].emplace_back(a);\n    }\n    init();\n    while (M--)\n    {\n        int a, b;\n        long long k;\n        cin >> a >> b >> k;\n        find_arr(a, b, k);\n    }\n    dfs_arr(S, S);\n    for (int i = 1; i <= N; i++) cout << arr[i] + A[i] << ' ';\n    return 0;\n}\n```\n\n- 依次读入 `N, M, S`、初始权值 `A` 和 `N-1` 条无向边（双向 `emplace_back`），再 `init()` 预处理。\n- `while (M--)` 处理 $M$ 次修改：读入路径端点 `a, b` 与增量 `k`，调用 `find_arr` 打差分标记。\n- 修改全部结束后 `dfs_arr(S, S)` 一次性还原子树和（根以自身作父节点哨兵）。\n- 最后输出 `arr[i] + A[i]`：差分累计修改量加上初始权值，才是最终点权。\n\n### 复杂度分析\n\n#### 时间复杂度\n\n| 操作 | 复杂度 | 说明 |\n|---|---|---|\n| DFS 预处理 | $O(n)$ | 每个节点访问一次 |\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\n| 单次路径修改 | $O(\\log n)$ | LCA 查询 $O(\\log n)$ + 差分 $O(1)$ |\n| DFS 还原子树和 | $O(n)$ | 每个节点访问一次 |\n| 总体（$M$ 次修改） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次修改 + 还原 |\n\n#### 空间复杂度\n\n| 数据 | 空间 | 说明 |\n|---|---|---|\n| 倍增跳表 `ST` | $O(n \\log n)$ | $n \\times (\\log n + 1)$ 的二维数组 |\n| 邻接表 `edges` | $O(n)$ | $n-1$ 条边 |\n| 其他数组 | $O(n)$ | `A`, `arr`, `fa`, `h` |\n| **总计** | $O(n \\log n)$ | 倍增跳表占主导 |\n\n### 适用场景\n\n1. **树上路径批量修改**：对树上多条路径的所有节点加值，最后统一查询。例如统计每条边/点被多少条路径覆盖\n2. **访问次数统计**：多次路径查询后统计每个节点被覆盖的次数（如运输路线经过的城市次数）\n3. **树上染色问题**：对路径上所有节点染色，最后统计颜色分布\n4. **结合树上前缀和**：树上差分修改 + 树上前缀和查询，实现\"先修改后查询\"的完整流程\n\n**不适用场景**：\n- 需要在线查询（边修改边查询）→ 应使用树链剖分 + 线段树/树状数组\n- 仅需单次路径修改 → 直接 DFS 遍历路径即可，$O(n)$\n- 需要路径修改 + 路径查询 → 树链剖分 + 线段树，$O(\\log^2 n)$ 每次操作\n\n### 常见陷阱与注意事项\n\n1. **LCA 为根时的特判**\n   - `fa[S] = S`（指向自身）作为倍增跳表的终止哨兵\n   - 差分公式中必须特判 `lca == S`，否则 `arr[fa[S]] = arr[S]` 会导致根被多减一次 $k$\n   - 正确做法：LCA 为根时只减 `arr[lca]` 一次，不减 `arr[fa[lca]]`\n\n2. **差分数组类型用 `long long`**\n   - 多次路径修改累加可能超过 `int` 范围\n   - `arr` 数组和修改值 `k` 都必须声明为 `long long`\n\n3. **DFS 还原时区分访问方式**\n   - 预处理 DFS 用 `fa[i] != 0` 判断访问（因为 `fa` 数组在 init 中初始化）\n   - 还原 DFS 用 `i == f` 判断父节点（避免与 `fa` 数组混淆）\n   - 两种 DFS 的访问判断方式不同，不可混用\n\n4. **倍增跳表层数计算**\n   - `sz` 必须满足 $2^{\\text{sz}} \\ge \\text{maxDepth}$，否则跳跃不足\n   - 代码中 `while (q > (1LL << sz)) ++sz` 正确处理了这一点\n\n5. **最终输出需加初始权值**\n   - 差分数组只记录修改量，最终权值 = `arr[i] + A[i]`\n   - 容易忘记加初始权值 `A[i]`，导致输出错误\n\n6. **无向边需双向建图**\n   - `edges[a].push_back(b)` 和 `edges[b].push_back(a)` 都要写\n   - 还原 DFS 从根开始，必须确保树结构正确\n\n7. **链状树的递归深度与编号约定**\n   - 树退化成一条链时，递归 DFS 深度可达 $n$，$n$ 较大时可能栈溢出，应改迭代或用显式栈（或增大栈空间）\n   - 预处理用 `fa[i] != 0` 判断已访问，隐含\"节点编号从 1 起、0 不是合法节点\"的约定，输入需保证编号从 1 开始\n\n### 对比与扩展\n\n| 方法 | 修改 | 还原 | 查询 | 特点 |\n|---|---|---|---|---|\n| **树上点差分（本算法）** | $O(\\log n)$ | $O(n)$ | 不支持在线 | 离线批量修改，实现简洁 |\n| 树链剖分 + 线段树 | $O(\\log^2 n)$ | — | $O(\\log^2 n)$ | 在线修改 + 在线查询 |\n| 树上边差分 | $O(\\log n)$ | $O(n)$ | 不支持在线 | 差分对象为边权，还原方式不同 |\n\n#### 树上点差分 vs 树上边差分\n\n| 对比项 | 点差分 | 边差分 |\n|---|---|---|\n| 修改对象 | 路径上所有**节点**权值 | 路径上所有**边**权值 |\n| 差分公式 | $+a, +b, -\\text{lca}, -\\text{fa}[\\text{lca}]$ | $+a, +b, -2 \\cdot \\text{lca}$ |\n| 还原方式 | DFS 子树和，`diff[u] += diff[children]` | DFS 子树和，`diff[u]` 代表 $u \\to \\text{fa}[u]$ 的边 |\n| LCA 处理 | LCA 点权需修改，需特判根 | LCA 不在路径边中，无需特判根 |\n\n#### 扩展\n\n- **树上边差分**：将边权下放为子节点点权（每条边赋给深度较深的端点），路径修改公式变为 $+a, +b, -2 \\cdot \\text{lca}$，还原后 `diff[u]` 代表边 $u \\to \\text{fa}[u]$ 的修改量\n- **树链剖分**：支持在线路径修改 + 路径查询，时间 $O(\\log^2 n)$ 每次操作，适合需要实时查询的场景\n- **LCT（Link-Cut Tree）**：支持动态加边删边的路径修改与查询，适合动态树问题",
                 "codePath": "数据结构\\前缀和与差分\\树上前缀和\\Untitled1.cpp",
                 "timeComplexity": "预处理O(n log n)，查询O(log n)",
                 "spaceComplexity": "O(n log n)",
@@ -6542,7 +6640,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n树上前缀和是一维前缀和在树结构上的推广。给定一棵以 $S$ 为根的有根树，每个节点有权值 $A[i]$，定义树上前缀和：\r\n\r\n$$\\text{sum}[u] = \\sum_{v \\in \\text{path}(S \\to u)} A[v]$$\r\n\r\n即从根 $S$ 到节点 $u$ 的路径上所有节点权值之和。预处理后，可以在 $O(\\log n)$ 时间内回答任意两点路径上的权值之和。\r\n\r\n路径和查询的关键在于 LCA（最近公共祖先）。对于查询 $(a, b)$，设 $\\text{lca} = \\text{LCA}(a, b)$，则：\r\n\r\n- **一般情况**（$\\text{lca} \\ne S$）：路径 $a \\to b$ 的权值和为 $\\text{sum}[a] + \\text{sum}[b] - \\text{sum}[\\text{lca}] - \\text{sum}[\\text{fa}[\\text{lca}]]$，因为两条根到节点的路径在 LCA 及其父节点处重叠。\r\n- **LCA 为根**（$\\text{lca} = S$）：路径 $a \\to b$ 的权值和为 $\\text{sum}[a] + \\text{sum}[b] - \\text{sum}[\\text{lca}]$，因为根没有父节点，只需减去一次根的权值。\r\n\r\n本代码同时实现了倍增 LCA（Binary Lifting），通过预处理 $O(n \\log n)$ 的跳表实现 $O(\\log n)$ 的 LCA 查询。\r\n\r\n## 数据结构图示\r\n\r\n### 树上前缀和的构造\r\n\r\n```\r\n        树结构 (根 S=1, 括号内为点权):\r\n                    1(A=10)\r\n                   /       \\\r\n                2(A=20)    3(A=30)\r\n               /      \\\r\n            4(A=40)  5(A=50)\r\n\r\n        DFS 从根开始，sum[i] = sum[fa] + A[i]:\r\n\r\n                    1(sum=10)\r\n                   /       \\\r\n                2(sum=30)  3(sum=40)\r\n               /      \\\r\n            4(sum=70)  5(sum=80)\r\n\r\n        前缀和数组:\r\n        下标:   1    2    3    4    5\r\n        sum:   10   30   40   70   80\r\n```\r\n\r\n### 路径和查询示意\r\n\r\n```\r\n查询 find_sum(4, 5):\r\n  LCA(4, 5) = 2, lca != S(=1)\r\n\r\n  sum[4] = 70  (1→2→4: 10+20+40)\r\n  sum[5] = 80  (1→2→5: 10+20+50)\r\n  sum[lca=2] = 30\r\n  sum[fa[lca]=1] = 10\r\n\r\n  路径 4→5 的权值和 = 70 + 80 - 30 - 10 = 110\r\n  验证: 40+20+50 = 110 ✓\r\n\r\n  图解:\r\n  1(10) ─ 2(20) ─ 4(40)\r\n           └──── 5(50)\r\n\r\n  sum[4] 包含: 10+20+40     ──┐\r\n  sum[5] 包含: 10+20+50     ──┤\r\n  减去 sum[2]: 10+20        ──┤  被加了两次\r\n  减去 sum[1]: 10           ──┘  也被加了两次\r\n  剩余: 40 + 50 + 20 = 110 ✓\r\n```\r\n\r\n```\r\n查询 find_sum(3, 4):\r\n  LCA(3, 4) = 1 = S\r\n\r\n  sum[3] = 40  (1→3: 10+30)\r\n  sum[4] = 70  (1→2→4: 10+20+40)\r\n  sum[lca=1] = 10\r\n\r\n  路径 3→4 的权值和 = 40 + 70 - 10 = 100\r\n  验证: 30+10+20+40 = 100 ✓\r\n\r\n  图解:\r\n  3(30) ─ 1(10) ─ 2(20) ─ 4(40)\r\n\r\n  sum[3] 包含: 10+30          ──┐\r\n  sum[4] 包含: 10+20+40       ──┤\r\n  减去 sum[1]: 10             ──┘  被加了两次\r\n  剩余: 30 + 20 + 40 + 10 = 100 ✓\r\n```\r\n\r\n### 倍增跳表结构\r\n\r\n```\r\nST[i][k] 表示从节点 i 向上跳 2^k 步到达的祖先\r\n\r\nST[4][0] = fa[4] = 2     (跳 1 步)\r\nST[4][1] = ST[ST[4][0]][0] = ST[2][0] = 1  (跳 2 步)\r\nST[4][2] = ST[ST[4][1]][1] = ST[1][1] = S  (跳 4 步，超出根回到 S)\r\n\r\n跳表:\r\n节点  ST[][0]  ST[][1]  ST[][2]\r\n 1      1        1        1    (根指向自身)\r\n 2      1        1        1\r\n 3      1        1        1\r\n 4      2        1        1\r\n 5      2        1        1\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### DFS 预处理前缀和\r\n\r\n```cpp\r\nint dfs(int rt, int rh)\r\n{\r\n    int ans = rh;\r\n    h[rt] = rh;\r\n    for (int i : edges[rt])\r\n    {\r\n        if (fa[i]) continue;\r\n        fa[i] = rt;\r\n        sum[i] = sum[rt] + A[i];\r\n        ans = max(dfs(i, rh + 1), ans);\r\n    }\r\n    return ans;\r\n}\r\n```\r\n\r\nDFS 遍历树，计算每个节点的深度 `h[rt]`、父节点 `fa[rt]` 和前缀和 `sum[rt]`。返回最大深度用于确定倍增跳表的大小。\r\n\r\n### 倍增跳表初始化\r\n\r\n```cpp\r\nST[i][0] = fa[i];                    // 跳 1 步 = 父节点\r\nST[i][k] = ST[ST[i][k-1]][k-1];      // 跳 2^k 步 = 跳 2^(k-1) 后再跳 2^(k-1)\r\n```\r\n\r\n倍增预处理：$ST[i][k]$ 表示从节点 $i$ 向上跳 $2^k$ 步到达的节点。\r\n\r\n### LCA 查询\r\n\r\n```cpp\r\nint find_fa(int a, int b)\r\n{\r\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\r\n    int tmp = h[a] - h[b];\r\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\r\n    {\r\n        if (tmp & 1) a = ST[a][i];\r\n        tmp >>= 1;\r\n    }\r\n    if (a == b) return a;              // b 是 a 的祖先\r\n\r\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\r\n    {\r\n        if (ST[a][i] != ST[b][i])\r\n        {\r\n            a = ST[a][i];\r\n            b = ST[b][i];\r\n        }\r\n    }\r\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\r\n}\r\n```\r\n\r\n三步法：深度对齐 → 判断祖先关系 → 二分跳跃找 LCA。\r\n\r\n### 路径和查询\r\n\r\n```cpp\r\nlong long find_sum(int a, int b)\r\n{\r\n    int g_fa = find_fa(a, b);\r\n    if (g_fa != S)\r\n        return sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]];\r\n    return sum[a] + sum[b] - sum[g_fa];\r\n}\r\n```\r\n\r\n当 LCA 不是根时，需要额外减去 `sum[fa[lca]]`，因为 `sum[a]` 和 `sum[b]` 都包含了从根到 LCA 的路径（含 LCA 及其所有祖先），减去 `sum[lca]` 消除 LCA 以下的重叠，再减去 `sum[fa[lca]]` 消除 LCA 以上根路径的重复。当 LCA 是根时，根的父节点指向自身（`fa[S] = S`），如果也减去 `sum[fa[S]] = sum[S]` 会多减一次根权值，因此需特判。\r\n\r\n## 逐行代码解析\r\n\r\n以下按代码逻辑阶段拆成 6 个模块：全局变量 → `dfs` 预处理 → `init` 跳表 → `find_fa`(LCA) → `find_sum`(路径和) → `main`(读入与查询)。各模块代码块按顺序拼接即完整 `.cpp`。\r\n\r\n### 全局变量与头文件\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nint N, M, S, sz;                 // N:节点数 M:查询数 S:根节点 sz:跳表最大层数\r\nvector<long long> A, sum;        // A:点权 sum:树上前缀和（long long 防溢出）\r\nvector<vector<int>> edges, ST;   // edges:邻接表 ST:倍增跳表\r\nvector<int> fa, h;               // fa:父节点 h:深度\r\n```\r\n\r\n- `N`：节点数，`M`：查询数，`S`：根节点，`sz`：倍增跳表最大层数。\r\n- `A` 存点权、`sum` 存树上前缀和，两者都用 `long long`，路径点权和可能超过 `int` 上限。\r\n- `ST[i][k]` 表示从节点 `i` 向上跳 $2^k$ 步到达的祖先；`fa`、`h` 分别存父节点与深度。\r\n\r\n### dfs：预处理前缀和、深度与父节点\r\n\r\n```cpp\r\nint dfs(int rt, int rh)\r\n{\r\n    int ans = rh;\r\n    h[rt] = rh;                        // 记录当前节点深度\r\n    for (int i : edges[rt])\r\n    {\r\n        if (fa[i]) continue;           // 已访问（fa[i] != 0），跳过父节点回边\r\n        fa[i] = rt;                    // 记录父节点\r\n        sum[i] = sum[rt] + A[i];       // 前缀和 = 父节点前缀和 + 当前点权\r\n        ans = max(dfs(i, rh + 1), ans); // 递归子树，取最大深度\r\n    }\r\n    return ans;\r\n}\r\n```\r\n\r\n- 无向树用 `fa[i] != 0` 判断是否已访问，避免沿父边回走（隐含节点从 1 开始编号）。\r\n- 递归时先记父节点再算 `sum[i] = sum[rt] + A[i]`，保证前缀和自上而下累加。\r\n- 返回值 `ans` 是整棵树的最大深度，供 `init()` 计算跳表层数 `sz`。\r\n\r\n### init：初始化数组与倍增跳表\r\n\r\n```cpp\r\nvoid init()\r\n{\r\n    fa.resize(N + 1, 0);\r\n    h.resize(N + 1, 0);\r\n    sum.resize(N + 1, 0);\r\n    fa[S] = S, sum[S] = A[S];                  // 根父节点指向自身，根前缀和 = 自身点权\r\n    int q = dfs(S, 1);                         // 从根 DFS，返回最大深度\r\n    sz = 1;\r\n    while (q > ((long long)1 << sz)) ++sz;     // 求最小 sz 使 2^sz >= q\r\n    ST.resize(N + 1, vector<int>(sz + 1, S));  // 跳表先全部初始化为 S（越界回根）\r\n    for (int i = 1; i <= N; i++) ST[i][0] = fa[i]; // 跳 1 步 = 父节点\r\n    for (int k = 1; k <= sz; k++)\r\n    {\r\n        for (int i = 1; i <= N; i++)\r\n        {\r\n            ST[i][k] = ST[ST[i][k - 1]][k - 1]; // 跳 2^k = 跳两次 2^(k-1)\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n- `fa[S] = S` 是跳表的终止哨兵：根再往上跳仍停在根，避免越界。\r\n- 先填 `ST[i][0] = fa[i]`，再用 `ST[i][k] = ST[ST[i][k-1]][k-1]` 递推整张跳表。\r\n- `while (q > (1LL << sz)) ++sz` 保证 $2^{\\text{sz}} \\ge \\text{maxDepth}$，深度对齐时跳跃步数才够用。\r\n\r\n### find_fa：倍增求 LCA\r\n\r\n```cpp\r\nint find_fa(int a, int b)\r\n{\r\n    if (h[a] < h[b]) swap(a, b);   // 保证 a 更深\r\n    int tmp = h[a] - h[b];         // 深度差\r\n    for (int i = 0; i <= sz; i++)  // 按二进制拆深度差，把 a 抬到与 b 同层\r\n    {\r\n        if (tmp & 1) a = ST[a][i];\r\n        tmp >>= 1;\r\n    }\r\n    if (a == b) return a;          // b 是 a 的祖先（或 a == b）\r\n\r\n    for (int i = sz; i >= 0; i--)  // 从高到低同时上跳，避免越过 LCA\r\n    {\r\n        if (ST[a][i] != ST[b][i])\r\n        {\r\n            a = ST[a][i];\r\n            b = ST[b][i];\r\n        }\r\n    }\r\n    return fa[a];                  // 最终 a、b 的父节点就是 LCA\r\n}\r\n```\r\n\r\n- 深度对齐循环 `i <= sz`：用 `tmp & 1` 判断第 $i$ 位是否为 1，每轮 `tmp >>= 1`，逐位跳跃。\r\n- 第二个循环从 `sz` 递减：仅当 `ST[a][i] != ST[b][i]` 才一起跳，保证不会越过 LCA。\r\n- 循环结束后 `a`、`b` 停在 LCA 的两个子节点处，返回 `fa[a]` 即 LCA。\r\n\r\n### find_sum：路径点权和查询\r\n\r\n```cpp\r\nlong long find_sum(int a, int b)\r\n{\r\n    int g_fa = find_fa(a, b);       // LCA\r\n    if (g_fa != S) return sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]];\r\n    return sum[a] + sum[b] - sum[g_fa]; // LCA 为根：只减一次 sum[lca]\r\n}\r\n```\r\n\r\n- LCA 非根：`sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]]`，去掉两条根路径在 LCA 及其祖先处的重复累加。\r\n- LCA 为根：只减 `sum[g_fa]`；因 `fa[S] = S`，若再减 `sum[fa[S]]` 会多减一次根权值。\r\n- 返回类型与 `sum` 一致为 `long long`，避免中间结果溢出。\r\n\r\n### main：读入、预处理与回答查询\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    //N:点的数量,M:测试案例数量,S:根节点\r\n    cin >> N >> M >> S;\r\n    A.resize(N + 1);\r\n    edges.resize(N + 1);\r\n    for (int i = 1; i <= N; i++) cin >> A[i]; // 读入点权\r\n    for (int i = 1; i < N; i++)               // 树有 N-1 条边\r\n    {\r\n        int a, b;\r\n        cin >> a >> b;\r\n        edges[a].emplace_back(b);             // 无向边，双向建图\r\n        edges[b].emplace_back(a);\r\n    }\r\n    init();                                    // 预处理前缀和 + 跳表\r\n\r\n    while (M--)                                // 回答 M 次查询\r\n    {\r\n        int a, b;\r\n        cin >> a >> b;\r\n        cout << find_sum(a, b) << '\\n';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n- 读入点权后读 $N-1$ 条无向边，双向加入邻接表。\r\n- `init()` 完成 DFS 与跳表预处理，随后循环回答 $M$ 次路径和查询。\r\n- 关闭 C/C++ 输入输出同步并解除 `cin`/`cout` 绑定，加速大数据读写。\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度\r\n\r\n| 操作 | 复杂度 | 说明 |\r\n|---|---|---|\r\n| DFS 预处理 | $O(n)$ | 每个节点访问一次 |\r\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\r\n| 单次 LCA 查询 | $O(\\log n)$ | 深度对齐 + 二分跳跃 |\r\n| 单次路径和查询 | $O(\\log n)$ | LCA 查询 + $O(1)$ 计算 |\r\n| 总体（$M$ 次查询） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次查询 |\r\n\r\n### 空间复杂度\r\n\r\n| 数据 | 空间 | 说明 |\r\n|---|---|---|\r\n| 倍增跳表 `ST` | $O(n \\log n)$ | $n \\times (\\log n + 1)$ 的二维数组 |\r\n| 邻接表 `edges` | $O(n)$ | $n-1$ 条边 |\r\n| 其他数组 | $O(n)$ | `A`, `sum`, `fa`, `h` |\r\n| **总计** | $O(n \\log n)$ | 倍增跳表占主导 |\r\n\r\n## 适用场景\r\n\r\n1. **树上路径权值和查询**：静态树，多次查询两点间路径上所有节点权值之和\r\n2. **树上距离查询**：若边权代替点权，可查询两点间路径的边权之和\r\n3. **子树和查询**：通过 DFS 序 + 前缀和可扩展到子树权值和\r\n4. **结合差分做树上路径修改**：树上差分 + LCA 可实现路径加 + 单点查询\r\n\r\n**不适用场景**：\r\n- 需要动态修改点权 → 应使用树链剖分 + 线段树/树状数组\r\n- 仅需查询子树和 → DFS 序 + 一维前缀和更简单，$O(1)$ 查询\r\n- 树结构频繁变化（加边/删边）→ LCT（Link-Cut Tree）\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **根节点的父节点处理**\r\n   - `fa[S] = S`（指向自身）作为倍增跳表的终止哨兵\r\n   - 路径和公式中必须特判 `lca == S`，否则 `sum[fa[S]] = sum[S]` 会多减一次根权值\r\n\r\n2. **前缀和类型用 `long long`**\r\n   - 树上路径可能很长，权值累加可能超过 `int` 范围\r\n   - `sum` 数组必须声明为 `long long`\r\n\r\n3. **无向边需双向建图**\r\n   - `edges[a].push_back(b)` 和 `edges[b].push_back(a)` 都要写\r\n   - DFS 用 `fa[i] != 0` 判断已访问，避免重复遍历\r\n\r\n4. **倍增跳表层数计算**\r\n   - `sz` 必须满足 $2^{\\text{sz}} \\ge \\text{maxDepth}$，否则跳跃不足\r\n   - 代码中 `while (q > (1LL << sz)) ++sz` 正确处理了这一点\r\n\r\n5. **深度对齐时的位运算**\r\n   - `for (int i = 0; i <= sz; i++)` 中用 `tmp & 1` 判断是否需要跳 $2^i$ 步\r\n   - 每次检查后 `tmp >>= 1`，注意循环范围必须覆盖 `sz`\r\n\r\n6. **LCA 查询的边界情况**\r\n   - $a = b$ 时直接返回 $a$（深度对齐后 `a == b`）\r\n   - $a$ 是 $b$ 的祖先时，深度对齐后 `a == b` 也正确返回\r\n\r\n7. **链状树递归 DFS 易栈溢出**\r\n   - 退化成一条链的树（深度 $n$）递归 DFS 可能爆栈，需改用迭代 DFS 或增大栈空间\r\n\r\n## 对比与扩展\r\n\r\n| 方法 | 预处理 | 查询 | 空间 | 特点 |\r\n|---|---|---|---|---|\r\n| **倍增 LCA（本算法）** | $O(n \\log n)$ | $O(\\log n)$ | $O(n \\log n)$ | 在线查询，实现简洁 |\r\n| Tarjan LCA | $O(n + M \\cdot \\alpha)$ | 离线 | $O(n)$ | 离线查询，理论更快 |\r\n| 重链剖分 LCA | $O(n)$ | $O(\\log n)$ | $O(n)$ | 可结合线段树做路径修改 |\r\n| 欧拉序 + ST 表 | $O(n \\log n)$ | $O(1)$ | $O(n \\log n)$ | $O(1)$ 查询，常数较大 |\r\n\r\n### 扩展\r\n\r\n- **树上前缀和 + 树上差分**：路径加操作 $(a, b, w)$ 可转化为 `diff[a] += w, diff[b] += w, diff[lca] -= w, diff[fa[lca]] -= w`，最后 DFS 求子树和还原\r\n- **边权版本**：将边权下放为子节点点权，路径和公式相同；注意 LCA 处的点权不属于路径\r\n- **树链剖分**：支持动态修改点权的路径和查询，时间 $O(\\log^2 n)$ 每次操作",
+        "content": "## 算法原理\n\n树上前缀和是一维前缀和在树结构上的推广。给定一棵以 $S$ 为根的有根树，每个节点有权值 $A[i]$，定义树上前缀和：\n\n$$\\text{sum}[u] = \\sum_{v \\in \\text{path}(S \\to u)} A[v]$$\n\n即从根 $S$ 到节点 $u$ 的路径上所有节点权值之和。预处理后，可以在 $O(\\log n)$ 时间内回答任意两点路径上的权值之和。\n\n路径和查询的关键在于 LCA（最近公共祖先）。对于查询 $(a, b)$，设 $\\text{lca} = \\text{LCA}(a, b)$，则：\n\n- **一般情况**（$\\text{lca} \\ne S$）：路径 $a \\to b$ 的权值和为 $\\text{sum}[a] + \\text{sum}[b] - \\text{sum}[\\text{lca}] - \\text{sum}[\\text{fa}[\\text{lca}]]$，因为两条根到节点的路径在 LCA 及其父节点处重叠。\n- **LCA 为根**（$\\text{lca} = S$）：路径 $a \\to b$ 的权值和为 $\\text{sum}[a] + \\text{sum}[b] - \\text{sum}[\\text{lca}]$，因为根没有父节点，只需减去一次根的权值。\n\n本代码同时实现了倍增 LCA（Binary Lifting），通过预处理 $O(n \\log n)$ 的跳表实现 $O(\\log n)$ 的 LCA 查询。\n\n## 数据结构图示\n\n### 树上前缀和的构造\n\n```\n        树结构 (根 S=1, 括号内为点权):\n                    1(A=10)\n                   /       \\\n                2(A=20)    3(A=30)\n               /      \\\n            4(A=40)  5(A=50)\n\n        DFS 从根开始，sum[i] = sum[fa] + A[i]:\n\n                    1(sum=10)\n                   /       \\\n                2(sum=30)  3(sum=40)\n               /      \\\n            4(sum=70)  5(sum=80)\n\n        前缀和数组:\n        下标:   1    2    3    4    5\n        sum:   10   30   40   70   80\n```\n\n### 路径和查询示意\n\n```\n查询 find_sum(4, 5):\n  LCA(4, 5) = 2, lca != S(=1)\n\n  sum[4] = 70  (1→2→4: 10+20+40)\n  sum[5] = 80  (1→2→5: 10+20+50)\n  sum[lca=2] = 30\n  sum[fa[lca]=1] = 10\n\n  路径 4→5 的权值和 = 70 + 80 - 30 - 10 = 110\n  验证: 40+20+50 = 110 ✓\n\n  图解:\n  1(10) ─ 2(20) ─ 4(40)\n           └──── 5(50)\n\n  sum[4] 包含: 10+20+40     ──┐\n  sum[5] 包含: 10+20+50     ──┤\n  减去 sum[2]: 10+20        ──┤  被加了两次\n  减去 sum[1]: 10           ──┘  也被加了两次\n  剩余: 40 + 50 + 20 = 110 ✓\n```\n\n```\n查询 find_sum(3, 4):\n  LCA(3, 4) = 1 = S\n\n  sum[3] = 40  (1→3: 10+30)\n  sum[4] = 70  (1→2→4: 10+20+40)\n  sum[lca=1] = 10\n\n  路径 3→4 的权值和 = 40 + 70 - 10 = 100\n  验证: 30+10+20+40 = 100 ✓\n\n  图解:\n  3(30) ─ 1(10) ─ 2(20) ─ 4(40)\n\n  sum[3] 包含: 10+30          ──┐\n  sum[4] 包含: 10+20+40       ──┤\n  减去 sum[1]: 10             ──┘  被加了两次\n  剩余: 30 + 20 + 40 + 10 = 100 ✓\n```\n\n### 倍增跳表结构\n\n```\nST[i][k] 表示从节点 i 向上跳 2^k 步到达的祖先\n\nST[4][0] = fa[4] = 2     (跳 1 步)\nST[4][1] = ST[ST[4][0]][0] = ST[2][0] = 1  (跳 2 步)\nST[4][2] = ST[ST[4][1]][1] = ST[1][1] = S  (跳 4 步，超出根回到 S)\n\n跳表:\n节点  ST[][0]  ST[][1]  ST[][2]\n 1      1        1        1    (根指向自身)\n 2      1        1        1\n 3      1        1        1\n 4      2        1        1\n 5      2        1        1\n```\n\n## 核心操作详解\n\n### DFS 预处理前缀和\n\n```cpp\nint dfs(int rt, int rh)\n{\n    int ans = rh;\n    h[rt] = rh;\n    for (int i : edges[rt])\n    {\n        if (fa[i]) continue;\n        fa[i] = rt;\n        sum[i] = sum[rt] + A[i];\n        ans = max(dfs(i, rh + 1), ans);\n    }\n    return ans;\n}\n```\n\nDFS 遍历树，计算每个节点的深度 `h[rt]`、父节点 `fa[rt]` 和前缀和 `sum[rt]`。返回最大深度用于确定倍增跳表的大小。\n\n### 倍增跳表初始化\n\n```cpp\nST[i][0] = fa[i];                    // 跳 1 步 = 父节点\nST[i][k] = ST[ST[i][k-1]][k-1];      // 跳 2^k 步 = 跳 2^(k-1) 后再跳 2^(k-1)\n```\n\n倍增预处理：$ST[i][k]$ 表示从节点 $i$ 向上跳 $2^k$ 步到达的节点。\n\n### LCA 查询\n\n```cpp\nint find_fa(int a, int b)\n{\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\n    int tmp = h[a] - h[b];\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\n    {\n        if (tmp & 1) a = ST[a][i];\n        tmp >>= 1;\n    }\n    if (a == b) return a;              // b 是 a 的祖先\n\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\n    {\n        if (ST[a][i] != ST[b][i])\n        {\n            a = ST[a][i];\n            b = ST[b][i];\n        }\n    }\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\n}\n```\n\n三步法：深度对齐 → 判断祖先关系 → 二分跳跃找 LCA。\n\n### 路径和查询\n\n```cpp\nlong long find_sum(int a, int b)\n{\n    int g_fa = find_fa(a, b);\n    if (g_fa != S)\n        return sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]];\n    return sum[a] + sum[b] - sum[g_fa];\n}\n```\n\n当 LCA 不是根时，需要额外减去 `sum[fa[lca]]`，因为 `sum[a]` 和 `sum[b]` 都包含了从根到 LCA 的路径（含 LCA 及其所有祖先），减去 `sum[lca]` 消除 LCA 以下的重叠，再减去 `sum[fa[lca]]` 消除 LCA 以上根路径的重复。当 LCA 是根时，根的父节点指向自身（`fa[S] = S`），如果也减去 `sum[fa[S]] = sum[S]` 会多减一次根权值，因此需特判。\n\n## 逐行代码解析\n\n以下按代码逻辑阶段拆成 6 个模块：全局变量 → `dfs` 预处理 → `init` 跳表 → `find_fa`(LCA) → `find_sum`(路径和) → `main`(读入与查询)。各模块代码块按顺序拼接即完整 `.cpp`。\n\n### 全局变量与头文件\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint N, M, S, sz;                 // N:节点数 M:查询数 S:根节点 sz:跳表最大层数\nvector<long long> A, sum;        // A:点权 sum:树上前缀和（long long 防溢出）\nvector<vector<int>> edges, ST;   // edges:邻接表 ST:倍增跳表\nvector<int> fa, h;               // fa:父节点 h:深度\n```\n\n- `N`：节点数，`M`：查询数，`S`：根节点，`sz`：倍增跳表最大层数。\n- `A` 存点权、`sum` 存树上前缀和，两者都用 `long long`，路径点权和可能超过 `int` 上限。\n- `ST[i][k]` 表示从节点 `i` 向上跳 $2^k$ 步到达的祖先；`fa`、`h` 分别存父节点与深度。\n\n### dfs：预处理前缀和、深度与父节点\n\n```cpp\nint dfs(int rt, int rh)\n{\n    int ans = rh;\n    h[rt] = rh;                        // 记录当前节点深度\n    for (int i : edges[rt])\n    {\n        if (fa[i]) continue;           // 已访问（fa[i] != 0），跳过父节点回边\n        fa[i] = rt;                    // 记录父节点\n        sum[i] = sum[rt] + A[i];       // 前缀和 = 父节点前缀和 + 当前点权\n        ans = max(dfs(i, rh + 1), ans); // 递归子树，取最大深度\n    }\n    return ans;\n}\n```\n\n- 无向树用 `fa[i] != 0` 判断是否已访问，避免沿父边回走（隐含节点从 1 开始编号）。\n- 递归时先记父节点再算 `sum[i] = sum[rt] + A[i]`，保证前缀和自上而下累加。\n- 返回值 `ans` 是整棵树的最大深度，供 `init()` 计算跳表层数 `sz`。\n\n### init：初始化数组与倍增跳表\n\n```cpp\nvoid init()\n{\n    fa.resize(N + 1, 0);\n    h.resize(N + 1, 0);\n    sum.resize(N + 1, 0);\n    fa[S] = S, sum[S] = A[S];                  // 根父节点指向自身，根前缀和 = 自身点权\n    int q = dfs(S, 1);                         // 从根 DFS，返回最大深度\n    sz = 1;\n    while (q > ((long long)1 << sz)) ++sz;     // 求最小 sz 使 2^sz >= q\n    ST.resize(N + 1, vector<int>(sz + 1, S));  // 跳表先全部初始化为 S（越界回根）\n    for (int i = 1; i <= N; i++) ST[i][0] = fa[i]; // 跳 1 步 = 父节点\n    for (int k = 1; k <= sz; k++)\n    {\n        for (int i = 1; i <= N; i++)\n        {\n            ST[i][k] = ST[ST[i][k - 1]][k - 1]; // 跳 2^k = 跳两次 2^(k-1)\n        }\n    }\n}\n```\n\n- `fa[S] = S` 是跳表的终止哨兵：根再往上跳仍停在根，避免越界。\n- 先填 `ST[i][0] = fa[i]`，再用 `ST[i][k] = ST[ST[i][k-1]][k-1]` 递推整张跳表。\n- `while (q > (1LL << sz)) ++sz` 保证 $2^{\\text{sz}} \\ge \\text{maxDepth}$，深度对齐时跳跃步数才够用。\n\n### find_fa：倍增求 LCA\n\n```cpp\nint find_fa(int a, int b)\n{\n    if (h[a] < h[b]) swap(a, b);   // 保证 a 更深\n    int tmp = h[a] - h[b];         // 深度差\n    for (int i = 0; i <= sz; i++)  // 按二进制拆深度差，把 a 抬到与 b 同层\n    {\n        if (tmp & 1) a = ST[a][i];\n        tmp >>= 1;\n    }\n    if (a == b) return a;          // b 是 a 的祖先（或 a == b）\n\n    for (int i = sz; i >= 0; i--)  // 从高到低同时上跳，避免越过 LCA\n    {\n        if (ST[a][i] != ST[b][i])\n        {\n            a = ST[a][i];\n            b = ST[b][i];\n        }\n    }\n    return fa[a];                  // 最终 a、b 的父节点就是 LCA\n}\n```\n\n- 深度对齐循环 `i <= sz`：用 `tmp & 1` 判断第 $i$ 位是否为 1，每轮 `tmp >>= 1`，逐位跳跃。\n- 第二个循环从 `sz` 递减：仅当 `ST[a][i] != ST[b][i]` 才一起跳，保证不会越过 LCA。\n- 循环结束后 `a`、`b` 停在 LCA 的两个子节点处，返回 `fa[a]` 即 LCA。\n\n### find_sum：路径点权和查询\n\n```cpp\nlong long find_sum(int a, int b)\n{\n    int g_fa = find_fa(a, b);       // LCA\n    if (g_fa != S) return sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]];\n    return sum[a] + sum[b] - sum[g_fa]; // LCA 为根：只减一次 sum[lca]\n}\n```\n\n- LCA 非根：`sum[a] + sum[b] - sum[g_fa] - sum[fa[g_fa]]`，去掉两条根路径在 LCA 及其祖先处的重复累加。\n- LCA 为根：只减 `sum[g_fa]`；因 `fa[S] = S`，若再减 `sum[fa[S]]` 会多减一次根权值。\n- 返回类型与 `sum` 一致为 `long long`，避免中间结果溢出。\n\n### main：读入、预处理与回答查询\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    //N:点的数量,M:测试案例数量,S:根节点\n    cin >> N >> M >> S;\n    A.resize(N + 1);\n    edges.resize(N + 1);\n    for (int i = 1; i <= N; i++) cin >> A[i]; // 读入点权\n    for (int i = 1; i < N; i++)               // 树有 N-1 条边\n    {\n        int a, b;\n        cin >> a >> b;\n        edges[a].emplace_back(b);             // 无向边，双向建图\n        edges[b].emplace_back(a);\n    }\n    init();                                    // 预处理前缀和 + 跳表\n\n    while (M--)                                // 回答 M 次查询\n    {\n        int a, b;\n        cin >> a >> b;\n        cout << find_sum(a, b) << '\\n';\n    }\n    return 0;\n}\n```\n\n- 读入点权后读 $N-1$ 条无向边，双向加入邻接表。\n- `init()` 完成 DFS 与跳表预处理，随后循环回答 $M$ 次路径和查询。\n- 关闭 C/C++ 输入输出同步并解除 `cin`/`cout` 绑定，加速大数据读写。\n\n## 复杂度分析\n\n### 时间复杂度\n\n| 操作 | 复杂度 | 说明 |\n|---|---|---|\n| DFS 预处理 | $O(n)$ | 每个节点访问一次 |\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\n| 单次 LCA 查询 | $O(\\log n)$ | 深度对齐 + 二分跳跃 |\n| 单次路径和查询 | $O(\\log n)$ | LCA 查询 + $O(1)$ 计算 |\n| 总体（$M$ 次查询） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次查询 |\n\n### 空间复杂度\n\n| 数据 | 空间 | 说明 |\n|---|---|---|\n| 倍增跳表 `ST` | $O(n \\log n)$ | $n \\times (\\log n + 1)$ 的二维数组 |\n| 邻接表 `edges` | $O(n)$ | $n-1$ 条边 |\n| 其他数组 | $O(n)$ | `A`, `sum`, `fa`, `h` |\n| **总计** | $O(n \\log n)$ | 倍增跳表占主导 |\n\n## 适用场景\n\n1. **树上路径权值和查询**：静态树，多次查询两点间路径上所有节点权值之和\n2. **树上距离查询**：若边权代替点权，可查询两点间路径的边权之和\n3. **子树和查询**：通过 DFS 序 + 前缀和可扩展到子树权值和\n4. **结合差分做树上路径修改**：树上差分 + LCA 可实现路径加 + 单点查询\n\n**不适用场景**：\n- 需要动态修改点权 → 应使用树链剖分 + 线段树/树状数组\n- 仅需查询子树和 → DFS 序 + 一维前缀和更简单，$O(1)$ 查询\n- 树结构频繁变化（加边/删边）→ LCT（Link-Cut Tree）\n\n## 常见陷阱与注意事项\n\n1. **根节点的父节点处理**\n   - `fa[S] = S`（指向自身）作为倍增跳表的终止哨兵\n   - 路径和公式中必须特判 `lca == S`，否则 `sum[fa[S]] = sum[S]` 会多减一次根权值\n\n2. **前缀和类型用 `long long`**\n   - 树上路径可能很长，权值累加可能超过 `int` 范围\n   - `sum` 数组必须声明为 `long long`\n\n3. **无向边需双向建图**\n   - `edges[a].push_back(b)` 和 `edges[b].push_back(a)` 都要写\n   - DFS 用 `fa[i] != 0` 判断已访问，避免重复遍历\n\n4. **倍增跳表层数计算**\n   - `sz` 必须满足 $2^{\\text{sz}} \\ge \\text{maxDepth}$，否则跳跃不足\n   - 代码中 `while (q > (1LL << sz)) ++sz` 正确处理了这一点\n\n5. **深度对齐时的位运算**\n   - `for (int i = 0; i <= sz; i++)` 中用 `tmp & 1` 判断是否需要跳 $2^i$ 步\n   - 每次检查后 `tmp >>= 1`，注意循环范围必须覆盖 `sz`\n\n6. **LCA 查询的边界情况**\n   - $a = b$ 时直接返回 $a$（深度对齐后 `a == b`）\n   - $a$ 是 $b$ 的祖先时，深度对齐后 `a == b` 也正确返回\n\n7. **链状树递归 DFS 易栈溢出**\n   - 退化成一条链的树（深度 $n$）递归 DFS 可能爆栈，需改用迭代 DFS 或增大栈空间\n\n## 对比与扩展\n\n| 方法 | 预处理 | 查询 | 空间 | 特点 |\n|---|---|---|---|---|\n| **倍增 LCA（本算法）** | $O(n \\log n)$ | $O(\\log n)$ | $O(n \\log n)$ | 在线查询，实现简洁 |\n| Tarjan LCA | $O(n + M \\cdot \\alpha)$ | 离线 | $O(n)$ | 离线查询，理论更快 |\n| 重链剖分 LCA | $O(n)$ | $O(\\log n)$ | $O(n)$ | 可结合线段树做路径修改 |\n| 欧拉序 + ST 表 | $O(n \\log n)$ | $O(1)$ | $O(n \\log n)$ | $O(1)$ 查询，常数较大 |\n\n### 扩展\n\n- **树上前缀和 + 树上差分**：路径加操作 $(a, b, w)$ 可转化为 `diff[a] += w, diff[b] += w, diff[lca] -= w, diff[fa[lca]] -= w`，最后 DFS 求子树和还原\n- **边权版本**：将边权下放为子节点点权，路径和公式相同；注意 LCA 处的点权不属于路径\n- **树链剖分**：支持动态修改点权的路径和查询，时间 $O(\\log^2 n)$ 每次操作\n\n## 附：树上点差分（路径点权修改）\n\n树上点差分是一维差分在树结构上的推广。给定一棵以 $S$ 为根的有根树，每个节点有初始权值 $A[i]$。需要支持**路径修改**：对路径 $a \\to b$ 上所有节点的权值加 $k$，最后统一查询每个节点的最终权值。\n\n#### 核心思想\n\n一维差分通过\"加左减右\"实现区间修改，树上差分类似地利用 LCA 实现\"路径修改\"到\"单点修改\"的转化。关键公式：\n\n对于路径 $a \\to b$ 上所有节点加 $k$，设 $\\text{lca} = \\text{LCA}(a, b)$：\n\n$$\\text{diff}[a] \\mathrel{+}= k, \\qquad \\text{diff}[b] \\mathrel{+}= k, \\qquad \\text{diff}[\\text{lca}] \\mathrel{-}= k, \\qquad \\text{diff}[\\text{fa}[\\text{lca}]] \\mathrel{-}= k$$\n\n当 $\\text{lca} = S$（即 LCA 为根节点）时，$\\text{fa}[\\text{lca}]$ 不存在，只需三处修改：\n\n$$\\text{diff}[a] \\mathrel{+}= k, \\qquad \\text{diff}[b] \\mathrel{+}= k, \\qquad \\text{diff}[\\text{lca}] \\mathrel{-}= k$$\n\n#### 为什么这样修改？\n\n树上差分的还原方式是**DFS 求子树和**：每个节点的差分值向父节点累加。理解公式的关键在于分析每个节点被累加的次数：\n\n- 节点 $a$ 和 $b$ 各自 $+k$：它们的祖先路径上的节点都会通过子树和获得 $+k$\n- 但路径 $a \\to b$ 经过 LCA，LCA 的子树同时包含 $a$ 和 $b$，因此 LCA 会被累加两次（$+2k$），需要减去一次（$-k$）\n- LCA 的父节点同样通过两条子路径累加了两次，也需要减去一次（$-k$）\n- 当 LCA 是根时，根没有父节点，只有根被多算了一次，减一次即可\n\n#### 还原操作\n\n所有修改完成后，对差分数组做一次 DFS 子树和累加：\n\n$$\\text{diff}[u] \\mathrel{+}= \\sum_{v \\in \\text{children}(u)} \\text{diff}[v]$$\n\n最终每个节点的权值为 $\\text{diff}[i] + A[i]$（差分累加值 + 初始权值）。\n\n#### 复杂度分析\n\n| 操作 | 时间 | 说明 |\n|---|---|---|\n| DFS 预处理 | $O(n)$ | 求深度、父节点 |\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\n| 单次路径修改 | $O(\\log n)$ | LCA 查询 + $O(1)$ 差分 |\n| DFS 还原子树和 | $O(n)$ | 每个节点访问一次 |\n| 总体（$M$ 次修改） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次修改 + 还原 |\n\n### 数据结构图示\n\n#### 树结构示例\n\n```\n树结构 (根 S=1, 括号内为初始点权 A):\n            1(A=10)\n           /       \\\n        2(A=20)    3(A=30)\n       /      \\\n    4(A=40)  5(A=50)\n\n节点编号:  1    2    3    4    5\n初始权值A: 10   20   30   40   50\n```\n\n#### 差分修改过程\n\n**操作 1：路径 4→5 上所有节点加 $k=100$**\n\n```\n路径 4→5: 4 → 2 → 5 (LCA(4,5) = 2, lca != S)\n\n差分操作:\n  diff[4] += 100      (端点 a)\n  diff[5] += 100      (端点 b)\n  diff[2] -= 100      (LCA 减一次)\n  diff[fa[2]=1] -= 100 (LCA 父节点减一次)\n\ndiff 数组初始全 0:\n  下标:   1     2     3     4     5\n  diff:  -100  -100    0   +100  +100\n\n图解 (虚线 = 路径 4→5):\n            1(-100)\n           /       \\\n        2(-100)    3(0)\n       /      \\\n    4(+100)  5(+100)\n```\n\n#### DFS 子树和还原\n\n```\nDFS 从根开始，子节点先递归，回溯时累加:\n\ndfs_arr(4): 无子节点 → diff[4] = 100\ndfs_arr(5): 无子节点 → diff[5] = 100\ndfs_arr(2): diff[2] += diff[4] + diff[5]\n           → diff[2] = -100 + 100 + 100 = 100\ndfs_arr(3): 无子节点 → diff[3] = 0\ndfs_arr(1): diff[1] += diff[2] + diff[3]\n           → diff[1] = -100 + 100 + 0 = 0\n\n还原后 diff (即每个节点的修改量):\n  下标:    1    2    3    4    5\n  diff:    0   100   0  100  100\n\n最终权值 = A[i] + diff[i]:\n  节点:   1      2       3      4       5\n  最终权值: 10+0  20+100  30+0  40+100  50+100\n         = 10   120    30    140     150\n\n验证: 路径 4→2→5 的权值确实各加了 100 ✓\n      节点 1, 3 不在路径上，权值不变 ✓\n```\n\n#### LCA 为根的情况\n\n**操作 2：路径 3→4 上所有节点加 $k=50$**\n\n```\n路径 3→4: 3 → 1 → 2 → 4 (LCA(3,4) = 1 = S)\n\n差分操作 (lca = S, 只减一次):\n  diff[3] += 50       (端点 a)\n  diff[4] += 50       (端点 b)\n  diff[1] -= 50       (LCA = 根，只减一次，不减 fa)\n\n图解 (虚线 = 路径 3→1→2→4):\n            1(-50)\n           /       \\\n        2(0)     3(+50)\n       /      \\\n    4(+50)    5(0)\n```\n\n#### 倍增跳表结构\n\n```\nST[i][k] 表示从节点 i 向上跳 2^k 步到达的祖先\n\nST[4][0] = fa[4] = 2     (跳 1 步)\nST[4][1] = ST[ST[4][0]][0] = ST[2][0] = 1  (跳 2 步)\nST[4][2] = ST[ST[4][1]][1] = ST[1][1] = S  (跳 4 步，超出根回到 S)\n\n跳表:\n节点  ST[][0]  ST[][1]  ST[][2]\n 1      1        1        1    (根指向自身)\n 2      1        1        1\n 3      1        1        1\n 4      2        1        1\n 5      2        1        1\n```\n\n### 核心操作详解\n\n#### DFS 预处理（深度与父节点）\n\n```cpp\nint dfs(int rt, int rh)\n{\n    int ans = rh;\n    h[rt] = rh;\n    for (int i : edges[rt])\n    {\n        if (fa[i]) continue;\n        fa[i] = rt;\n        ans = max(dfs(i, rh + 1), ans);\n    }\n    return ans;\n}\n```\n\nDFS 遍历树，计算每个节点的深度 `h[rt]` 和父节点 `fa[rt]`。返回最大深度用于确定倍增跳表的大小。与树上前缀和不同，此处的 DFS 不计算前缀和，只建立树结构信息。\n\n#### 倍增跳表初始化\n\n```cpp\nST[i][0] = fa[i];                    // 跳 1 步 = 父节点\nST[i][k] = ST[ST[i][k-1]][k-1];      // 跳 2^k 步 = 跳 2^(k-1) 后再跳 2^(k-1)\n```\n\n倍增预处理：$ST[i][k]$ 表示从节点 $i$ 向上跳 $2^k$ 步到达的节点。根节点 `fa[S] = S`，跳表指向自身作为哨兵。\n\n#### LCA 查询\n\n```cpp\nint find_fa(int a, int b)\n{\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\n    int tmp = h[a] - h[b];\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\n    {\n        if (tmp & 1) a = ST[a][i];\n        tmp >>= 1;\n    }\n    if (a == b) return a;              // b 是 a 的祖先\n\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\n    {\n        if (ST[a][i] != ST[b][i])\n        {\n            a = ST[a][i];\n            b = ST[b][i];\n        }\n    }\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\n}\n```\n\n三步法：深度对齐（位运算逐位跳）→ 判断祖先关系 → 二分跳跃找 LCA。\n\n#### 路径差分修改\n\n```cpp\nvoid find_arr(int a, int b, long long k)\n{\n    int t_fa = find_fa(a, b);\n    arr[a] += k;\n    arr[b] += k;\n    arr[t_fa] -= k;\n    if (t_fa != S) arr[fa[t_fa]] -= k;\n}\n```\n\n核心差分操作：端点 $a, b$ 各加 $k$，LCA 减 $k$，LCA 父节点减 $k$（当 LCA 不是根时）。当 LCA 是根时，`fa[S] = S`，如果也减去 `arr[fa[S]] = arr[S]` 会导致根被多减一次，因此必须特判。\n\n#### DFS 子树和还原\n\n```cpp\nvoid dfs_arr(int rt, int f)\n{\n    for (int i : edges[rt])\n    {\n        if (i == f) continue;\n        dfs_arr(i, rt);\n        arr[rt] += arr[i];\n    }\n}\n```\n\n后序 DFS：先递归子节点，回溯时将子节点的差分值累加到当前节点。这等价于对每个节点求子树和，将差分操作的效果传播到正确的路径上。\n\n### 逐行代码解析\n\n#### 全局变量\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nint N, M, S, sz;\nvector<long long> A, arr;\nvector<vector<int>> edges, ST;\nvector<int> fa, h;\n```\n\n- `N` 节点数、`M` 修改次数、`S` 根节点、`sz` 倍增跳表最大层数。\n- `A` 存初始点权、`arr` 存差分值，二者都用 `long long`，因为多次路径累加可能超出 `int`。\n- `edges` 是邻接表（无向边需双向建图），`ST` 是倍增跳表，`fa` 记父节点，`h` 记深度。\n\n#### 预处理（dfs 与 init）\n\n```cpp\nint dfs(int rt, int rh)\n{\n    int ans = rh;\n    h[rt] = rh;\n    for (int i : edges[rt])\n    {\n        if (fa[i]) continue;       // 已访问（fa[i] != 0）\n        fa[i] = rt;\n        ans = max(dfs(i, rh + 1), ans);\n    }\n    return ans;\n}\n\nvoid init()\n{\n    fa.resize(N + 1, 0);\n    h.resize(N + 1, 0);\n    arr.resize(N + 1, 0);\n    fa[S] = S;                     // 根的父节点指向自身（哨兵）\n    int q = dfs(S, 1);\n    sz = 1;\n    while (q > ((long long)1 << sz)) ++sz;   // 计算跳表层数\n    ST.resize(N + 1, vector<int>(sz + 1, S));\n    for (int i = 1; i <= N; i++) ST[i][0] = fa[i];\n    for (int k = 1; k <= sz; k++)\n    {\n        for (int i = 1; i <= N; i++)\n        {\n            ST[i][k] = ST[ST[i][k - 1]][k - 1];\n        }\n    }\n}\n```\n\n- `dfs` 用 `fa[i] != 0` 判断是否访问过，边遍历边记录深度 `h` 与父节点 `fa`，返回值是整棵树的最大深度 `q`。\n- `fa[S] = S` 让根指向自身作哨兵，倍增跳表在\"跳过根\"时停在根，不会越界。\n- `while (q > ((long long)1 << sz)) ++sz` 保证 $2^{\\text{sz}} \\ge q$，跳表层数足以覆盖任意深度差。\n- 倍增递推 `ST[i][k] = ST[ST[i][k-1]][k-1]`：跳 $2^k$ 步 = 先跳 $2^{k-1}$ 步再跳 $2^{k-1}$ 步。\n\n#### 路径修改（find_fa 与 find_arr）\n\n```cpp\nint find_fa(int a, int b)\n{\n    if (h[a] < h[b]) swap(a, b);       // 保证 a 更深\n    int tmp = h[a] - h[b];\n    for (int i = 0; i <= sz; i++)      // 将 a 跳到与 b 同一深度\n    {\n        if (tmp & 1) a = ST[a][i];\n        tmp >>= 1;\n    }\n    if (a == b) return a;              // b 是 a 的祖先\n\n    for (int i = sz; i >= 0; i--)      // 两人同时向上跳\n    {\n        if (ST[a][i] != ST[b][i])\n        {\n            a = ST[a][i];\n            b = ST[b][i];\n        }\n    }\n    return fa[a];                      // 最终 a, b 的父节点就是 LCA\n}\n\nvoid find_arr(int a, int b, long long k)\n{\n    int t_fa = find_fa(a, b);\n    arr[a] += k;\n    arr[b] += k;\n    arr[t_fa] -= k;\n    if (t_fa != S) arr[fa[t_fa]] -= k;   // LCA 不是根时才减父节点\n}\n```\n\n- `find_fa` 三步求 LCA：先把较深的 `a` 按二进制位抬到与 `b` 同深，再同步向上跳到父节点不同处，最后 `fa[a]` 即 LCA。\n- 深度对齐用 `tmp & 1` 逐位判断该位要不要跳，比逐级上跳快，复杂度 $O(\\log n)$。\n- `find_arr` 按公式改四处：端点 `a, b` 各 `+k`，LCA `-k`，LCA 的父节点 `-k`。\n- `if (t_fa != S)` 是根特判：LCA 为根时 `fa[S] = S`，再减 `arr[fa[S]]` 会多减一次根，必须跳过。\n\n#### 子树和还原（dfs_arr）\n\n```cpp\nvoid dfs_arr(int rt, int f)\n{\n    for (int i : edges[rt])\n    {\n        if (i == f) continue;       // 跳过父节点（避免回退）\n        dfs_arr(i, rt);\n        arr[rt] += arr[i];          // 子树和累加\n    }\n}\n```\n\n- 后序 DFS：先递归子节点，回溯时把子节点差分值累加到当前节点，等价于对每个节点求子树和。\n- 这里用 `i == f` 判断父节点而非预处理里的 `fa[i]`，因为传入父节点 `f` 更直观，也避免与 `fa` 数组混淆。\n- 还原后 `arr[i]` 是节点 `i` 的累计修改量，最终权值还要再加初始权值 `A[i]`。\n\n#### 主函数 main\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    //N:点的数量,M:修改案例数量,S:根节点\n    cin >> N >> M >> S;\n    A.resize(N + 1);\n    edges.resize(N + 1);\n    for (int i = 1; i <= N; i++) cin >> A[i];\n    for (int i = 1; i < N; i++)\n    {\n        int a, b;\n        cin >> a >> b;\n        edges[a].emplace_back(b);\n        edges[b].emplace_back(a);\n    }\n    init();\n    while (M--)\n    {\n        int a, b;\n        long long k;\n        cin >> a >> b >> k;\n        find_arr(a, b, k);\n    }\n    dfs_arr(S, S);\n    for (int i = 1; i <= N; i++) cout << arr[i] + A[i] << ' ';\n    return 0;\n}\n```\n\n- 依次读入 `N, M, S`、初始权值 `A` 和 `N-1` 条无向边（双向 `emplace_back`），再 `init()` 预处理。\n- `while (M--)` 处理 $M$ 次修改：读入路径端点 `a, b` 与增量 `k`，调用 `find_arr` 打差分标记。\n- 修改全部结束后 `dfs_arr(S, S)` 一次性还原子树和（根以自身作父节点哨兵）。\n- 最后输出 `arr[i] + A[i]`：差分累计修改量加上初始权值，才是最终点权。\n\n### 复杂度分析\n\n#### 时间复杂度\n\n| 操作 | 复杂度 | 说明 |\n|---|---|---|\n| DFS 预处理 | $O(n)$ | 每个节点访问一次 |\n| 倍增跳表初始化 | $O(n \\log n)$ | $n$ 个节点，$\\log n$ 层 |\n| 单次路径修改 | $O(\\log n)$ | LCA 查询 $O(\\log n)$ + 差分 $O(1)$ |\n| DFS 还原子树和 | $O(n)$ | 每个节点访问一次 |\n| 总体（$M$ 次修改） | $O(n \\log n + M \\log n)$ | 预处理 + $M$ 次修改 + 还原 |\n\n#### 空间复杂度\n\n| 数据 | 空间 | 说明 |\n|---|---|---|\n| 倍增跳表 `ST` | $O(n \\log n)$ | $n \\times (\\log n + 1)$ 的二维数组 |\n| 邻接表 `edges` | $O(n)$ | $n-1$ 条边 |\n| 其他数组 | $O(n)$ | `A`, `arr`, `fa`, `h` |\n| **总计** | $O(n \\log n)$ | 倍增跳表占主导 |\n\n### 适用场景\n\n1. **树上路径批量修改**：对树上多条路径的所有节点加值，最后统一查询。例如统计每条边/点被多少条路径覆盖\n2. **访问次数统计**：多次路径查询后统计每个节点被覆盖的次数（如运输路线经过的城市次数）\n3. **树上染色问题**：对路径上所有节点染色，最后统计颜色分布\n4. **结合树上前缀和**：树上差分修改 + 树上前缀和查询，实现\"先修改后查询\"的完整流程\n\n**不适用场景**：\n- 需要在线查询（边修改边查询）→ 应使用树链剖分 + 线段树/树状数组\n- 仅需单次路径修改 → 直接 DFS 遍历路径即可，$O(n)$\n- 需要路径修改 + 路径查询 → 树链剖分 + 线段树，$O(\\log^2 n)$ 每次操作\n\n### 常见陷阱与注意事项\n\n1. **LCA 为根时的特判**\n   - `fa[S] = S`（指向自身）作为倍增跳表的终止哨兵\n   - 差分公式中必须特判 `lca == S`，否则 `arr[fa[S]] = arr[S]` 会导致根被多减一次 $k$\n   - 正确做法：LCA 为根时只减 `arr[lca]` 一次，不减 `arr[fa[lca]]`\n\n2. **差分数组类型用 `long long`**\n   - 多次路径修改累加可能超过 `int` 范围\n   - `arr` 数组和修改值 `k` 都必须声明为 `long long`\n\n3. **DFS 还原时区分访问方式**\n   - 预处理 DFS 用 `fa[i] != 0` 判断访问（因为 `fa` 数组在 init 中初始化）\n   - 还原 DFS 用 `i == f` 判断父节点（避免与 `fa` 数组混淆）\n   - 两种 DFS 的访问判断方式不同，不可混用\n\n4. **倍增跳表层数计算**\n   - `sz` 必须满足 $2^{\\text{sz}} \\ge \\text{maxDepth}$，否则跳跃不足\n   - 代码中 `while (q > (1LL << sz)) ++sz` 正确处理了这一点\n\n5. **最终输出需加初始权值**\n   - 差分数组只记录修改量，最终权值 = `arr[i] + A[i]`\n   - 容易忘记加初始权值 `A[i]`，导致输出错误\n\n6. **无向边需双向建图**\n   - `edges[a].push_back(b)` 和 `edges[b].push_back(a)` 都要写\n   - 还原 DFS 从根开始，必须确保树结构正确\n\n7. **链状树的递归深度与编号约定**\n   - 树退化成一条链时，递归 DFS 深度可达 $n$，$n$ 较大时可能栈溢出，应改迭代或用显式栈（或增大栈空间）\n   - 预处理用 `fa[i] != 0` 判断已访问，隐含\"节点编号从 1 起、0 不是合法节点\"的约定，输入需保证编号从 1 开始\n\n### 对比与扩展\n\n| 方法 | 修改 | 还原 | 查询 | 特点 |\n|---|---|---|---|---|\n| **树上点差分（本算法）** | $O(\\log n)$ | $O(n)$ | 不支持在线 | 离线批量修改，实现简洁 |\n| 树链剖分 + 线段树 | $O(\\log^2 n)$ | — | $O(\\log^2 n)$ | 在线修改 + 在线查询 |\n| 树上边差分 | $O(\\log n)$ | $O(n)$ | 不支持在线 | 差分对象为边权，还原方式不同 |\n\n#### 树上点差分 vs 树上边差分\n\n| 对比项 | 点差分 | 边差分 |\n|---|---|---|\n| 修改对象 | 路径上所有**节点**权值 | 路径上所有**边**权值 |\n| 差分公式 | $+a, +b, -\\text{lca}, -\\text{fa}[\\text{lca}]$ | $+a, +b, -2 \\cdot \\text{lca}$ |\n| 还原方式 | DFS 子树和，`diff[u] += diff[children]` | DFS 子树和，`diff[u]` 代表 $u \\to \\text{fa}[u]$ 的边 |\n| LCA 处理 | LCA 点权需修改，需特判根 | LCA 不在路径边中，无需特判根 |\n\n#### 扩展\n\n- **树上边差分**：将边权下放为子节点点权（每条边赋给深度较深的端点），路径修改公式变为 $+a, +b, -2 \\cdot \\text{lca}$，还原后 `diff[u]` 代表边 $u \\to \\text{fa}[u]$ 的修改量\n- **树链剖分**：支持在线路径修改 + 路径查询，时间 $O(\\log^2 n)$ 每次操作，适合需要实时查询的场景\n- **LCT（Link-Cut Tree）**：支持动态加边删边的路径修改与查询，适合动态树问题",
         "timeComplexity": "预处理O(n log n)，查询O(log n)",
         "spaceComplexity": "O(n log n)",
         "tags": [
@@ -6556,16 +6654,17 @@ const KNOWLEDGE_DATA = [
         "codePath": "数据结构\\前缀和与差分\\树上前缀和\\Untitled1.cpp",
         "prerequisites": [
             "ds-prefix-sum-1d",
-            "graph-lca-doubling"
+            "graph-lca-doubling",
+            "ds-diff-1d",
+            "ds-prefix-diff-overview"
         ],
         "related": [
             "ds-prefix-sum-2d",
             "ds-diff-1d",
             "graph-lca-tarjan",
-            "graph-hld-segtree",
-            "ds-diff-tree"
+            "graph-hld-segtree"
         ],
-        "parent": ""
+        "parent": "ds-prefix-diff-overview"
     },
     {
         "id": "ds-rmq-linear",
@@ -6602,7 +6701,49 @@ const KNOWLEDGE_DATA = [
         "codePath": "",
         "prerequisites": [
             "hub-ds",
-            "ds-st-table-1"
+            "ds-st-table-1",
+            "ds-rmq-overview"
+        ],
+        "related": [],
+        "parent": "ds-rmq-overview"
+    },
+    {
+        "id": "ds-rmq-overview",
+        "category": "数据结构",
+        "subcategory": "ST表",
+        "subSubcategory": "",
+        "title": "RMQ 总览（ST 表 / 线性 RMQ）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「RMQ（区间最值查询）」的二级栏目索引：静态区间最值的标准做法是 ST 表（倍增预处理），线性 RMQ 则用四毛子/笛卡尔树等技巧把预处理或查询进一步优化。\r\n\r\n**学习顺序**：先看 ST 表标准版（手动预处理对数表），再看内建函数求对数的写法，最后看线性 RMQ。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 用哪篇 |\r\n|---|---|\r\n| 静态区间最值，标准写法 | ST表（标准版1 - 手动预处理对数表） |\r\n| 想少写预处理、用内建函数 | ST表（标准版2 - 内建函数求对数） |\r\n| 需要线性预处理或更优查询 | 线性 RMQ |\r\n\r\nST 表核心转移：$st[i][j]=\\min/\\max(st[i][j-1],\\ st[i+2^{j-1}][j-1])$，查询用两个长度为 $2^{\\lfloor\\log_2 len\\rfloor}$ 的重叠区间合并。\r\n\r\n## 逐行代码解析\r\n\r\n本页是索引入口，不重复贴代码；三篇子页各自给出完整实现与逐行解析，页面自动渲染对应 `.cpp`。\r\n\r\n## 复杂度分析\r\n\r\n- ST 表：预处理 $O(n\\log n)$，单次查询 $O(1)$，空间 $O(n\\log n)$。\r\n- 线性 RMQ：预处理可做到 $O(n)$ 或 $O(n\\log n)$ 的不同变体，查询 $O(1)$；具体以各子页声明为准。\r\n\r\n## 适用场景\r\n\r\n- 静态数组的区间最大/最小值、区间 gcd 等可重复贡献（幂等）运算。\r\n- 需要大量查询且不修改数组的场景。\r\n- 作为 LCA、笛卡尔树等算法的预处理组件。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- ST 表只适用于「可重复贡献」的运算；区间和不能直接用两个重叠区间合并。\r\n- `log` 表的边界与 `n=1` 要单独检查。\r\n- 空间为 $n\\log n$，$n$ 较大时注意内存。\r\n- 查询时右端点偏移量 `r - 2^k + 1` 容易算错。\r\n- 线性 RMQ 的常数与实现细节较多，先确认题目是否真的需要。\r\n\r\n## 对比与扩展\r\n\r\n- ST 表 vs 线段树：静态查询 ST 表更快，带修改则用线段树。\r\n- ST 表 vs 分块/稀疏表变体：按查询次数与空间限制取舍。\r\n- 可扩展到二维 ST 表、区间 gcd/lcm 等幂等运算。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "RMQ",
+                    "ST表",
+                    "总览",
+                    "学习路线",
+                    "稀疏表"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「RMQ（区间最值查询）」的二级栏目索引：静态区间最值的标准做法是 ST 表（倍增预处理），线性 RMQ 则用四毛子/笛卡尔树等技巧把预处理或查询进一步优化。\r\n\r\n**学习顺序**：先看 ST 表标准版（手动预处理对数表），再看内建函数求对数的写法，最后看线性 RMQ。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 用哪篇 |\r\n|---|---|\r\n| 静态区间最值，标准写法 | ST表（标准版1 - 手动预处理对数表） |\r\n| 想少写预处理、用内建函数 | ST表（标准版2 - 内建函数求对数） |\r\n| 需要线性预处理或更优查询 | 线性 RMQ |\r\n\r\nST 表核心转移：$st[i][j]=\\min/\\max(st[i][j-1],\\ st[i+2^{j-1}][j-1])$，查询用两个长度为 $2^{\\lfloor\\log_2 len\\rfloor}$ 的重叠区间合并。\r\n\r\n## 逐行代码解析\r\n\r\n本页是索引入口，不重复贴代码；三篇子页各自给出完整实现与逐行解析，页面自动渲染对应 `.cpp`。\r\n\r\n## 复杂度分析\r\n\r\n- ST 表：预处理 $O(n\\log n)$，单次查询 $O(1)$，空间 $O(n\\log n)$。\r\n- 线性 RMQ：预处理可做到 $O(n)$ 或 $O(n\\log n)$ 的不同变体，查询 $O(1)$；具体以各子页声明为准。\r\n\r\n## 适用场景\r\n\r\n- 静态数组的区间最大/最小值、区间 gcd 等可重复贡献（幂等）运算。\r\n- 需要大量查询且不修改数组的场景。\r\n- 作为 LCA、笛卡尔树等算法的预处理组件。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- ST 表只适用于「可重复贡献」的运算；区间和不能直接用两个重叠区间合并。\r\n- `log` 表的边界与 `n=1` 要单独检查。\r\n- 空间为 $n\\log n$，$n$ 较大时注意内存。\r\n- 查询时右端点偏移量 `r - 2^k + 1` 容易算错。\r\n- 线性 RMQ 的常数与实现细节较多，先确认题目是否真的需要。\r\n\r\n## 对比与扩展\r\n\r\n- ST 表 vs 线段树：静态查询 ST 表更快，带修改则用线段树。\r\n- ST 表 vs 分块/稀疏表变体：按查询次数与空间限制取舍。\r\n- 可扩展到二维 ST 表、区间 gcd/lcm 等幂等运算。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "RMQ",
+            "ST表",
+            "总览",
+            "学习路线",
+            "稀疏表"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-ds"
         ],
         "related": [],
         "parent": ""
@@ -6664,7 +6805,7 @@ const KNOWLEDGE_DATA = [
             "ds-balanced-tree-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "ds-balanced-tree-overview"
     },
     {
         "id": "ds-segtree-basic",
@@ -6726,17 +6867,15 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-discretize",
             "ds-segtree-mul",
             "ds-bit-point-range",
-            "ds-bit-range-point",
             "ds-persistent-segtree-template",
             "ds-persistent-segtree-3919",
             "ds-splay",
             "ds-trie",
-            "ds-trie-01-max-xor",
             "ds-st-table-1",
             "ds-st-table-2",
             "ds-block-decomposition"
         ],
-        "parent": ""
+        "parent": "hub-ds-segtree"
     },
     {
         "id": "ds-segtree-combined",
@@ -6780,7 +6919,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-segtree"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-segtree"
     },
     {
         "id": "ds-segtree-discretize",
@@ -6840,7 +6979,7 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-mul",
             "basic-discretization"
         ],
-        "parent": ""
+        "parent": "hub-ds-segtree"
     },
     {
         "id": "ds-segtree-dynamic",
@@ -6899,7 +7038,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-segtree"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-segtree"
     },
     {
         "id": "ds-segtree-mul",
@@ -6962,7 +7101,7 @@ const KNOWLEDGE_DATA = [
             "ds-segtree-basic",
             "ds-segtree-discretize"
         ],
-        "parent": ""
+        "parent": "hub-ds-segtree"
     },
     {
         "id": "ds-segtree-weight",
@@ -7021,7 +7160,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-segtree"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-segtree"
     },
     {
         "id": "ds-splay",
@@ -7068,7 +7207,7 @@ const KNOWLEDGE_DATA = [
             "ds-dual-heap",
             "basic-quickselect-kth"
         ],
-        "parent": ""
+        "parent": "ds-balanced-tree-overview"
     },
     {
         "id": "ds-sqrt-tree",
@@ -7106,7 +7245,7 @@ const KNOWLEDGE_DATA = [
             "hub-ds-block"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-ds-block"
     },
     {
         "id": "ds-st-table-1",
@@ -7159,14 +7298,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\ST表\\标准\\1\\Untitled1.cpp",
         "prerequisites": [
-            "hub-ds"
+            "hub-ds",
+            "ds-rmq-overview"
         ],
         "related": [
             "ds-st-table-2",
             "ds-segtree-basic",
-            "ds-stack-prefix-max"
+            "ds-monostack-histogram"
         ],
-        "parent": ""
+        "parent": "ds-rmq-overview"
     },
     {
         "id": "ds-st-table-2",
@@ -7206,59 +7346,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\ST表\\标准\\2\\Untitled1.cpp",
         "prerequisites": [
-            "ds-st-table-1"
+            "ds-st-table-1",
+            "ds-rmq-overview"
         ],
         "related": [
             "ds-st-table-1",
             "ds-segtree-basic"
         ],
-        "parent": ""
-    },
-    {
-        "id": "ds-stack-prefix-max",
-        "category": "数据结构",
-        "subcategory": "栈",
-        "subSubcategory": "前缀最值",
-        "title": "前缀最值栈（栈内最大值查询）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n前缀最值栈是在普通栈的基础上，额外维护一个辅助数组 `sk_big`，其中 `sk_big[i]` 记录从栈底到第 $i$ 个位置的元素最大值。这样不仅入栈、出栈均为 $O(1)$，还能 $O(1)$ 查询栈内当前所有元素的最大值。\r\n\r\n### 核心思想\r\n\r\n普通栈只能 $O(1)$ 访问栈顶元素，查询栈内最大值需要遍历整个栈（$O(n)$）。前缀最值栈的关键观察是：\r\n\r\n- **入栈时**：新元素 $x$ 入栈后，栈内最大值要么不变（$x \\le$ 之前的最大值），要么更新为 $x$（$x >$ 之前的最大值）。即 $\\text{sk\\_big}[id] = \\max(\\text{sk\\_big}[id-1], x)$\r\n- **出栈时**：弹出栈顶只需将指针前移一位，`sk_big` 自动回到上一个位置的最大值，无需任何额外操作\r\n\r\n这一思路本质上是\"前缀和\"思想在栈上的推广——不是求和，而是求前缀最大值。\r\n\r\n### 核心不变量\r\n\r\n1. `sk_num[i]` 存储第 $i$ 个入栈的元素（$i$ 从 $0$ 开始）\r\n2. `sk_big[i]` 存储从栈底到位置 $i$ 的所有元素最大值\r\n3. `id` 指向栈顶的下一个空位，栈顶元素是 `sk_num[id - 1]`，栈内最大值是 `sk_big[id - 1]`\r\n\r\n## 数据结构图示\r\n\r\n### 整体结构\r\n\r\n```\r\n  sk_num (元素栈)        sk_big (前缀最大值栈)\r\n  ───────────────         ───────────────────\r\n  索引  值                索引  值\r\n  ┌───┬───┐              ┌───┬───┐\r\n  │ 0 │ 3 │ ← 栈底        │ 0 │ 3 │ ← max(3) = 3\r\n  │ 1 │ 1 │              │ 1 │ 3 │ ← max(3,1) = 3\r\n  │ 2 │ 4 │ ← 栈顶        │ 2 │ 4 │ ← max(3,1,4) = 4\r\n  └───┴───┘              └───┴───┘\r\n         ↑                        ↑\r\n        id = 3                   id = 3\r\n\r\n  栈顶元素 = sk_num[id-1] = sk_num[2] = 4\r\n  栈内最大 = sk_big[id-1] = sk_big[2] = 4\r\n```\r\n\r\n### 操作过程示意\r\n\r\n以依次入栈 $3, 1, 4$，再出栈一次为例：\r\n\r\n```\r\n入栈 3:\r\n  sk_num: [3]          sk_big: [3]          id = 1\r\n  sk_big[0] = 3（首个元素，直接赋值）\r\n\r\n入栈 1:\r\n  sk_num: [3, 1]       sk_big: [3, 3]       id = 2\r\n  sk_big[1] = max(sk_big[0], 1) = max(3, 1) = 3\r\n\r\n入栈 4:\r\n  sk_num: [3, 1, 4]    sk_big: [3, 3, 4]    id = 3\r\n  sk_big[2] = max(sk_big[1], 4) = max(3, 4) = 4\r\n\r\n查询: 栈顶 = sk_num[2] = 4, 最大值 = sk_big[2] = 4  ✓\r\n\r\n出栈 (--id):\r\n  sk_num: [3, 1, 4]    sk_big: [3, 3, 4]    id = 2\r\n  （数据仍在内存中，但 id 前移，逻辑上栈只有 [3, 1]）\r\n\r\n查询: 栈顶 = sk_num[1] = 1, 最大值 = sk_big[1] = 3  ✓\r\n  （最大值是 3，不是已\"删除\"的 4）\r\n```\r\n\r\n### 出栈恢复特性\r\n\r\n```\r\n出栈前: sk_big: [3, 3, 4]  id = 3  最大值 = 4\r\n出栈后: sk_big: [3, 3, 4]  id = 2  最大值 = 3\r\n\r\nsk_big[1] = 3 自动成为新的最大值，无需重新计算。\r\n这是因为 sk_big[i] 本身就记录了\"从栈底到位置 i 的最大值\"，\r\n出栈只是缩小了有效范围，前缀最大值自动回退。\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### 1. 入栈 `push(x)`\r\n\r\n```cpp\r\nsk_num[id] = x;\r\nif (id > 0) sk_big[id] = max(sk_big[id - 1], x);\r\nelse sk_big[id] = x;\r\n++id;\r\n```\r\n\r\n- 将 $x$ 存入 `sk_num[id]`\r\n- 若栈非空（`id > 0`），`sk_big[id]` 取前一个位置的最大值与 $x$ 的较大者\r\n- 若栈为空（`id == 0`），`sk_big[0]` 直接等于 $x$（第一个元素）\r\n- 指针 `id` 后移一位\r\n\r\n### 2. 出栈 `pop()`\r\n\r\n```cpp\r\n--id;\r\n```\r\n\r\n仅将指针 `id` 前移一位。`sk_num` 和 `sk_big` 中的数据仍在内存中，但逻辑上已不属于栈。下一次入栈会覆盖这些位置。出栈后，新的栈内最大值自动变为 `sk_big[id - 1]`，无需任何计算。\r\n\r\n### 3. 查询栈顶\r\n\r\n```cpp\r\nsk_num[id - 1]\r\n```\r\n\r\n$O(1)$ 读取栈顶元素。\r\n\r\n### 4. 查询栈内最大值\r\n\r\n```cpp\r\nsk_big[id - 1]\r\n```\r\n\r\n$O(1)$ 读取前缀最大值数组的栈顶位置。由于 `sk_big[i]` 记录了从栈底到位置 $i$ 的最大值，`sk_big[id - 1]` 就是当前栈内所有元素的最大值。\r\n\r\n## 逐行代码解析\r\n\r\n以下按模块拆分完整实现，各代码块按顺序拼接后与 `.cpp` 完全一致。\r\n\r\n### 全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nconst int nmax = 1e5;                 // 统一管理数组大小\r\nint sk_num[nmax], sk_big[nmax];       // 元素栈 / 前缀最大值栈\r\nint id = 0;                           // 栈指针，指向栈顶的下一个空位\r\n```\r\n\r\n- `sk_num`：元素栈，存储实际入栈的值；`sk_big`：前缀最大值栈，`sk_big[i]` = 从栈底到位置 $i$ 的元素最大值\r\n- `id`：栈指针，指向栈顶的下一个空位，初始为 0 表示空栈\r\n- `nmax = 1e5` 统一管理数组大小，最多支持 $10^5$ 次入栈；操作数更多时需调大或改用 `vector` 动态扩容\r\n\r\n### main 与读入\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint t;\r\n\tcin >> t;\r\n\twhile (t--)\r\n\t{\r\n\t\tint op;\r\n\t\tcin >> op;\r\n```\r\n\r\n- `ios::sync_with_stdio(false)` 关闭与 C 标准 IO 的同步，`cin.tie(nullptr)` 解绑，加速读入\r\n- 读入操作次数 $t$，每次循环读入一个操作类型 `op`，按 `1` 入栈 / `2` 出栈 / `3` 查询进入不同分支\r\n\r\n### 入栈操作（op == 1）\r\n\r\n```cpp\r\n\t\tif (op == 1)\r\n\t\t{\r\n\t\t\tint x;\r\n\t\t\tcin >> x;\r\n\t\t\tsk_num[id] = x;                                    // 存入元素栈\r\n\t\t\tif (id > 0) sk_big[id] = max(sk_big[id - 1], x);   // 非空：与上一个前缀最大值比较\r\n\t\t\telse sk_big[id] = x;                               // 空栈：直接赋值\r\n\t\t\t++id;                                              // 指针后移\r\n\t\t}\r\n```\r\n\r\n- 把 $x$ 存入 `sk_num[id]`；栈非空时 `sk_big[id] = max(sk_big[id-1], x)`，栈空时 `sk_big[id] = x`\r\n- 必须与 `sk_big[id-1]`（前一个位置的前缀最大值）比较，不能误写为 `sk_num[id-1]`（前一个元素）\r\n- 最后 `++id` 后移指针；此处未检查 `id < nmax`，入栈超过 $10^5$ 次会越界\r\n\r\n### 出栈操作（op == 2）\r\n\r\n```cpp\r\n\t\telse if (op == 2) --id;\r\n```\r\n\r\n- 仅 `--id` 前移指针，逻辑上弹出栈顶；旧数据仍留内存，下次入栈会覆盖\r\n- 出栈后栈内最大值自动回退为 `sk_big[id-1]`，无需重新计算\r\n- 未检查 `id > 0`，空栈出栈会使 `id` 变负，后续查询会越界\r\n\r\n### 查询操作（op == 3）与收尾\r\n\r\n```cpp\r\n\t\telse if (op == 3)\r\n\t\t{\r\n\t\t\tcout << \"当前栈顶元素为: \" << sk_num[id - 1] << '\\n';\r\n\t\t\tcout << \"栈内最大元素为: \" << sk_big[id - 1] << '\\n';\r\n\t\t}\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- 栈顶元素 = `sk_num[id-1]`，栈内最大值 = `sk_big[id-1]`，均为 $O(1)$ 直接索引\r\n- 未检查 `id > 0`，空栈查询会访问 `sk_num[-1]` 越界\r\n- 末尾的 `}` 依次收尾 while 循环与 main 函数，`return 0;` 正常结束\r\n\r\n## 复杂度分析\r\n\r\n| 操作 | 时间 | 空间 | 说明 |\r\n|---|---|---|---|\r\n| 入栈 | $O(1)$ | $O(1)$ | 一次赋值 $+$ 一次 `max` $+$ 指针自增 |\r\n| 出栈 | $O(1)$ | $O(0)$ | 仅指针自减 |\r\n| 查询栈顶 | $O(1)$ | $O(0)$ | 数组直接索引 |\r\n| 查询最大值 | $O(1)$ | $O(0)$ | 前缀最大值数组直接索引 |\r\n| 总空间 | — | $O(n)$ | 两个数组各 $n$ 个元素 |\r\n\r\n所有操作均为 $O(1)$，空间 $O(n)$。与朴素做法（每次查询遍历栈，$O(n)$）相比，用空间换时间，将最值查询从 $O(n)$ 降为 $O(1)$。\r\n\r\n## 适用场景\r\n\r\n**适用**：\r\n- 需要在栈操作的同时查询栈内最值（最大值或最小值）\r\n- 括号匹配、表达式求值等需要回溯的场景，同时需要跟踪最值\r\n- 滑动窗口类问题中栈结构的变体\r\n- 单调栈问题的辅助分析\r\n\r\n**不适用**：\r\n- 需要查询区间最值（非栈内最值）：应使用 ST 表或线段树\r\n- 需要查询第 $k$ 大/小：应使用对顶堆或平衡树\r\n- 元素需要随机访问或中间插入/删除：应使用平衡树或链表\r\n- 需要维护最小值而非最大值：将 `max` 改为 `min` 即可，原理相同\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **空栈越界**\r\n   - 出栈时若栈已空（`id == 0`），`--id` 会使 `id` 变为 $-1$，后续访问 `sk_num[id-1]` 越界\r\n   - 查询时若栈空，`sk_num[id-1]` = `sk_num[-1]` 越界\r\n   - 应在出栈和查询前检查 `id > 0`\r\n\r\n2. **数组大小不足**\r\n   - `nmax = 1e5` 仅支持 $10^5$ 次入栈，若操作次数更多需调大\r\n   - 建议用 `const int nmax` 统一管理，或改用 `vector` 动态扩容\r\n\r\n3. **前缀最值的维护方向**\r\n   - `sk_big[i]` 是从栈底到位置 $i$ 的最大值，不是从位置 $i$ 到栈顶的最大值\r\n   - 入栈时必须与 `sk_big[id-1]`（前一个位置的最大值）比较，不能与 `sk_num[id-1]`（前一个元素的值）比较\r\n\r\n4. **出栈后数据残留**\r\n   - 出栈只是移动 `id` 指针，`sk_num` 和 `sk_big` 中的旧数据仍在内存\r\n   - 若入栈次数少于之前的最大 `id`，不会有问题（新数据会覆盖）\r\n   - 但若在入栈前查询了尚未覆盖的位置，会读到旧数据——因此查询始终用 `sk_big[id-1]`\r\n\r\n5. **`max` 与 `min` 的选择**\r\n   - 维护最大值用 `max`，维护最小值用 `min`\r\n   - 若需要同时维护最大值和最小值，开三个数组：`sk_num`、`sk_big`（前缀 max）、`sk_sml`（前缀 min）\r\n\r\n## 对比与扩展\r\n\r\n| 对比维度 | 前缀最值栈 | 朴素栈 | 单调栈 | 对顶堆 |\r\n|---|---|---|---|---|\r\n| 入栈 | $O(1)$ | $O(1)$ | $O(1)$ 均摊 | $O(\\log n)$ |\r\n| 出栈 | $O(1)$ | $O(1)$ | $O(1)$ 均摊 | $O(\\log n)$ |\r\n| 查询最值 | $O(1)$ | $O(n)$ | $O(1)$（栈顶） | $O(1)$ |\r\n| 维护内容 | 栈内全局最值 | 仅栈顶 | 单调性（局部最值） | 第 $k$ 小 |\r\n| 支持随机删除 | 否 | 否 | 否 | 否 |\r\n| 空间 | $O(n)$ | $O(n)$ | $O(n)$ | $O(n)$ |\r\n| 实现难度 | 低 | 最低 | 中 | 低 |\r\n\r\n**扩展**：\r\n- **双辅助数组**：同时维护 `sk_big`（前缀 max）和 `sk_sml`（前缀 min），即可 $O(1)$ 查询栈内最大值和最小值\r\n- **前缀和栈**：类似地，维护 `sk_sum[i]` = 从栈底到位置 $i$ 的元素之和，可 $O(1)$ 查询栈内元素总和\r\n- **多维辅助信息**：可以同时维护最值、求和、异或和等多种前缀信息，每次入栈只需 $O(1)$ 更新\r\n- **与单调栈的区别**：前缀最值栈维护的是\"栈内全局最值\"，单调栈维护的是\"从栈底到栈顶的单调性\"——两者目的不同，单调栈用于解决\"下一个更大/更小元素\"类问题\r\n- **与对顶堆的关系**：对顶堆用两个堆维护第 $k$ 小，前缀最值栈用一个辅助数组维护最值，都是\"用额外空间换取查询效率\"的思路",
-                "codePath": "数据结构\\栈\\前缀最值栈\\Untitled1.cpp",
-                "timeComplexity": "入栈O(1)，出栈O(1)，查询最值O(1)",
-                "spaceComplexity": "O(n)",
-                "tags": [
-                    "数据结构",
-                    "栈",
-                    "前缀最值",
-                    "辅助数组",
-                    "最大值查询"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 算法原理\r\n\r\n前缀最值栈是在普通栈的基础上，额外维护一个辅助数组 `sk_big`，其中 `sk_big[i]` 记录从栈底到第 $i$ 个位置的元素最大值。这样不仅入栈、出栈均为 $O(1)$，还能 $O(1)$ 查询栈内当前所有元素的最大值。\r\n\r\n### 核心思想\r\n\r\n普通栈只能 $O(1)$ 访问栈顶元素，查询栈内最大值需要遍历整个栈（$O(n)$）。前缀最值栈的关键观察是：\r\n\r\n- **入栈时**：新元素 $x$ 入栈后，栈内最大值要么不变（$x \\le$ 之前的最大值），要么更新为 $x$（$x >$ 之前的最大值）。即 $\\text{sk\\_big}[id] = \\max(\\text{sk\\_big}[id-1], x)$\r\n- **出栈时**：弹出栈顶只需将指针前移一位，`sk_big` 自动回到上一个位置的最大值，无需任何额外操作\r\n\r\n这一思路本质上是\"前缀和\"思想在栈上的推广——不是求和，而是求前缀最大值。\r\n\r\n### 核心不变量\r\n\r\n1. `sk_num[i]` 存储第 $i$ 个入栈的元素（$i$ 从 $0$ 开始）\r\n2. `sk_big[i]` 存储从栈底到位置 $i$ 的所有元素最大值\r\n3. `id` 指向栈顶的下一个空位，栈顶元素是 `sk_num[id - 1]`，栈内最大值是 `sk_big[id - 1]`\r\n\r\n## 数据结构图示\r\n\r\n### 整体结构\r\n\r\n```\r\n  sk_num (元素栈)        sk_big (前缀最大值栈)\r\n  ───────────────         ───────────────────\r\n  索引  值                索引  值\r\n  ┌───┬───┐              ┌───┬───┐\r\n  │ 0 │ 3 │ ← 栈底        │ 0 │ 3 │ ← max(3) = 3\r\n  │ 1 │ 1 │              │ 1 │ 3 │ ← max(3,1) = 3\r\n  │ 2 │ 4 │ ← 栈顶        │ 2 │ 4 │ ← max(3,1,4) = 4\r\n  └───┴───┘              └───┴───┘\r\n         ↑                        ↑\r\n        id = 3                   id = 3\r\n\r\n  栈顶元素 = sk_num[id-1] = sk_num[2] = 4\r\n  栈内最大 = sk_big[id-1] = sk_big[2] = 4\r\n```\r\n\r\n### 操作过程示意\r\n\r\n以依次入栈 $3, 1, 4$，再出栈一次为例：\r\n\r\n```\r\n入栈 3:\r\n  sk_num: [3]          sk_big: [3]          id = 1\r\n  sk_big[0] = 3（首个元素，直接赋值）\r\n\r\n入栈 1:\r\n  sk_num: [3, 1]       sk_big: [3, 3]       id = 2\r\n  sk_big[1] = max(sk_big[0], 1) = max(3, 1) = 3\r\n\r\n入栈 4:\r\n  sk_num: [3, 1, 4]    sk_big: [3, 3, 4]    id = 3\r\n  sk_big[2] = max(sk_big[1], 4) = max(3, 4) = 4\r\n\r\n查询: 栈顶 = sk_num[2] = 4, 最大值 = sk_big[2] = 4  ✓\r\n\r\n出栈 (--id):\r\n  sk_num: [3, 1, 4]    sk_big: [3, 3, 4]    id = 2\r\n  （数据仍在内存中，但 id 前移，逻辑上栈只有 [3, 1]）\r\n\r\n查询: 栈顶 = sk_num[1] = 1, 最大值 = sk_big[1] = 3  ✓\r\n  （最大值是 3，不是已\"删除\"的 4）\r\n```\r\n\r\n### 出栈恢复特性\r\n\r\n```\r\n出栈前: sk_big: [3, 3, 4]  id = 3  最大值 = 4\r\n出栈后: sk_big: [3, 3, 4]  id = 2  最大值 = 3\r\n\r\nsk_big[1] = 3 自动成为新的最大值，无需重新计算。\r\n这是因为 sk_big[i] 本身就记录了\"从栈底到位置 i 的最大值\"，\r\n出栈只是缩小了有效范围，前缀最大值自动回退。\r\n```\r\n\r\n## 核心操作详解\r\n\r\n### 1. 入栈 `push(x)`\r\n\r\n```cpp\r\nsk_num[id] = x;\r\nif (id > 0) sk_big[id] = max(sk_big[id - 1], x);\r\nelse sk_big[id] = x;\r\n++id;\r\n```\r\n\r\n- 将 $x$ 存入 `sk_num[id]`\r\n- 若栈非空（`id > 0`），`sk_big[id]` 取前一个位置的最大值与 $x$ 的较大者\r\n- 若栈为空（`id == 0`），`sk_big[0]` 直接等于 $x$（第一个元素）\r\n- 指针 `id` 后移一位\r\n\r\n### 2. 出栈 `pop()`\r\n\r\n```cpp\r\n--id;\r\n```\r\n\r\n仅将指针 `id` 前移一位。`sk_num` 和 `sk_big` 中的数据仍在内存中，但逻辑上已不属于栈。下一次入栈会覆盖这些位置。出栈后，新的栈内最大值自动变为 `sk_big[id - 1]`，无需任何计算。\r\n\r\n### 3. 查询栈顶\r\n\r\n```cpp\r\nsk_num[id - 1]\r\n```\r\n\r\n$O(1)$ 读取栈顶元素。\r\n\r\n### 4. 查询栈内最大值\r\n\r\n```cpp\r\nsk_big[id - 1]\r\n```\r\n\r\n$O(1)$ 读取前缀最大值数组的栈顶位置。由于 `sk_big[i]` 记录了从栈底到位置 $i$ 的最大值，`sk_big[id - 1]` 就是当前栈内所有元素的最大值。\r\n\r\n## 逐行代码解析\r\n\r\n以下按模块拆分完整实现，各代码块按顺序拼接后与 `.cpp` 完全一致。\r\n\r\n### 全局变量\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nconst int nmax = 1e5;                 // 统一管理数组大小\r\nint sk_num[nmax], sk_big[nmax];       // 元素栈 / 前缀最大值栈\r\nint id = 0;                           // 栈指针，指向栈顶的下一个空位\r\n```\r\n\r\n- `sk_num`：元素栈，存储实际入栈的值；`sk_big`：前缀最大值栈，`sk_big[i]` = 从栈底到位置 $i$ 的元素最大值\r\n- `id`：栈指针，指向栈顶的下一个空位，初始为 0 表示空栈\r\n- `nmax = 1e5` 统一管理数组大小，最多支持 $10^5$ 次入栈；操作数更多时需调大或改用 `vector` 动态扩容\r\n\r\n### main 与读入\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint t;\r\n\tcin >> t;\r\n\twhile (t--)\r\n\t{\r\n\t\tint op;\r\n\t\tcin >> op;\r\n```\r\n\r\n- `ios::sync_with_stdio(false)` 关闭与 C 标准 IO 的同步，`cin.tie(nullptr)` 解绑，加速读入\r\n- 读入操作次数 $t$，每次循环读入一个操作类型 `op`，按 `1` 入栈 / `2` 出栈 / `3` 查询进入不同分支\r\n\r\n### 入栈操作（op == 1）\r\n\r\n```cpp\r\n\t\tif (op == 1)\r\n\t\t{\r\n\t\t\tint x;\r\n\t\t\tcin >> x;\r\n\t\t\tsk_num[id] = x;                                    // 存入元素栈\r\n\t\t\tif (id > 0) sk_big[id] = max(sk_big[id - 1], x);   // 非空：与上一个前缀最大值比较\r\n\t\t\telse sk_big[id] = x;                               // 空栈：直接赋值\r\n\t\t\t++id;                                              // 指针后移\r\n\t\t}\r\n```\r\n\r\n- 把 $x$ 存入 `sk_num[id]`；栈非空时 `sk_big[id] = max(sk_big[id-1], x)`，栈空时 `sk_big[id] = x`\r\n- 必须与 `sk_big[id-1]`（前一个位置的前缀最大值）比较，不能误写为 `sk_num[id-1]`（前一个元素）\r\n- 最后 `++id` 后移指针；此处未检查 `id < nmax`，入栈超过 $10^5$ 次会越界\r\n\r\n### 出栈操作（op == 2）\r\n\r\n```cpp\r\n\t\telse if (op == 2) --id;\r\n```\r\n\r\n- 仅 `--id` 前移指针，逻辑上弹出栈顶；旧数据仍留内存，下次入栈会覆盖\r\n- 出栈后栈内最大值自动回退为 `sk_big[id-1]`，无需重新计算\r\n- 未检查 `id > 0`，空栈出栈会使 `id` 变负，后续查询会越界\r\n\r\n### 查询操作（op == 3）与收尾\r\n\r\n```cpp\r\n\t\telse if (op == 3)\r\n\t\t{\r\n\t\t\tcout << \"当前栈顶元素为: \" << sk_num[id - 1] << '\\n';\r\n\t\t\tcout << \"栈内最大元素为: \" << sk_big[id - 1] << '\\n';\r\n\t\t}\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- 栈顶元素 = `sk_num[id-1]`，栈内最大值 = `sk_big[id-1]`，均为 $O(1)$ 直接索引\r\n- 未检查 `id > 0`，空栈查询会访问 `sk_num[-1]` 越界\r\n- 末尾的 `}` 依次收尾 while 循环与 main 函数，`return 0;` 正常结束\r\n\r\n## 复杂度分析\r\n\r\n| 操作 | 时间 | 空间 | 说明 |\r\n|---|---|---|---|\r\n| 入栈 | $O(1)$ | $O(1)$ | 一次赋值 $+$ 一次 `max` $+$ 指针自增 |\r\n| 出栈 | $O(1)$ | $O(0)$ | 仅指针自减 |\r\n| 查询栈顶 | $O(1)$ | $O(0)$ | 数组直接索引 |\r\n| 查询最大值 | $O(1)$ | $O(0)$ | 前缀最大值数组直接索引 |\r\n| 总空间 | — | $O(n)$ | 两个数组各 $n$ 个元素 |\r\n\r\n所有操作均为 $O(1)$，空间 $O(n)$。与朴素做法（每次查询遍历栈，$O(n)$）相比，用空间换时间，将最值查询从 $O(n)$ 降为 $O(1)$。\r\n\r\n## 适用场景\r\n\r\n**适用**：\r\n- 需要在栈操作的同时查询栈内最值（最大值或最小值）\r\n- 括号匹配、表达式求值等需要回溯的场景，同时需要跟踪最值\r\n- 滑动窗口类问题中栈结构的变体\r\n- 单调栈问题的辅助分析\r\n\r\n**不适用**：\r\n- 需要查询区间最值（非栈内最值）：应使用 ST 表或线段树\r\n- 需要查询第 $k$ 大/小：应使用对顶堆或平衡树\r\n- 元素需要随机访问或中间插入/删除：应使用平衡树或链表\r\n- 需要维护最小值而非最大值：将 `max` 改为 `min` 即可，原理相同\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **空栈越界**\r\n   - 出栈时若栈已空（`id == 0`），`--id` 会使 `id` 变为 $-1$，后续访问 `sk_num[id-1]` 越界\r\n   - 查询时若栈空，`sk_num[id-1]` = `sk_num[-1]` 越界\r\n   - 应在出栈和查询前检查 `id > 0`\r\n\r\n2. **数组大小不足**\r\n   - `nmax = 1e5` 仅支持 $10^5$ 次入栈，若操作次数更多需调大\r\n   - 建议用 `const int nmax` 统一管理，或改用 `vector` 动态扩容\r\n\r\n3. **前缀最值的维护方向**\r\n   - `sk_big[i]` 是从栈底到位置 $i$ 的最大值，不是从位置 $i$ 到栈顶的最大值\r\n   - 入栈时必须与 `sk_big[id-1]`（前一个位置的最大值）比较，不能与 `sk_num[id-1]`（前一个元素的值）比较\r\n\r\n4. **出栈后数据残留**\r\n   - 出栈只是移动 `id` 指针，`sk_num` 和 `sk_big` 中的旧数据仍在内存\r\n   - 若入栈次数少于之前的最大 `id`，不会有问题（新数据会覆盖）\r\n   - 但若在入栈前查询了尚未覆盖的位置，会读到旧数据——因此查询始终用 `sk_big[id-1]`\r\n\r\n5. **`max` 与 `min` 的选择**\r\n   - 维护最大值用 `max`，维护最小值用 `min`\r\n   - 若需要同时维护最大值和最小值，开三个数组：`sk_num`、`sk_big`（前缀 max）、`sk_sml`（前缀 min）\r\n\r\n## 对比与扩展\r\n\r\n| 对比维度 | 前缀最值栈 | 朴素栈 | 单调栈 | 对顶堆 |\r\n|---|---|---|---|---|\r\n| 入栈 | $O(1)$ | $O(1)$ | $O(1)$ 均摊 | $O(\\log n)$ |\r\n| 出栈 | $O(1)$ | $O(1)$ | $O(1)$ 均摊 | $O(\\log n)$ |\r\n| 查询最值 | $O(1)$ | $O(n)$ | $O(1)$（栈顶） | $O(1)$ |\r\n| 维护内容 | 栈内全局最值 | 仅栈顶 | 单调性（局部最值） | 第 $k$ 小 |\r\n| 支持随机删除 | 否 | 否 | 否 | 否 |\r\n| 空间 | $O(n)$ | $O(n)$ | $O(n)$ | $O(n)$ |\r\n| 实现难度 | 低 | 最低 | 中 | 低 |\r\n\r\n**扩展**：\r\n- **双辅助数组**：同时维护 `sk_big`（前缀 max）和 `sk_sml`（前缀 min），即可 $O(1)$ 查询栈内最大值和最小值\r\n- **前缀和栈**：类似地，维护 `sk_sum[i]` = 从栈底到位置 $i$ 的元素之和，可 $O(1)$ 查询栈内元素总和\r\n- **多维辅助信息**：可以同时维护最值、求和、异或和等多种前缀信息，每次入栈只需 $O(1)$ 更新\r\n- **与单调栈的区别**：前缀最值栈维护的是\"栈内全局最值\"，单调栈维护的是\"从栈底到栈顶的单调性\"——两者目的不同，单调栈用于解决\"下一个更大/更小元素\"类问题\r\n- **与对顶堆的关系**：对顶堆用两个堆维护第 $k$ 小，前缀最值栈用一个辅助数组维护最值，都是\"用额外空间换取查询效率\"的思路",
-        "timeComplexity": "入栈O(1)，出栈O(1)，查询最值O(1)",
-        "spaceComplexity": "O(n)",
-        "tags": [
-            "数据结构",
-            "栈",
-            "前缀最值",
-            "辅助数组",
-            "最大值查询"
-        ],
-        "codePath": "数据结构\\栈\\前缀最值栈\\Untitled1.cpp",
-        "prerequisites": [
-            "hub-ds"
-        ],
-        "related": [
-            "ds-dual-heap",
-            "ds-monoqueue-1d",
-            "ds-st-table-1",
-            "ds-monostack-histogram"
-        ],
-        "parent": ""
+        "parent": "ds-rmq-overview"
     },
     {
         "id": "ds-stl-associative",
@@ -7314,7 +7409,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-stl"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "ds-stl-list",
@@ -7355,7 +7450,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-stl"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "ds-stl-queue",
@@ -7411,7 +7506,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-stl"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "ds-stl-stack",
@@ -7465,7 +7560,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-stl"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "ds-stl-tips",
@@ -7506,7 +7601,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-stl"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "ds-stl-vector",
@@ -7562,19 +7657,19 @@ const KNOWLEDGE_DATA = [
             "hub-utility-stl"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-stl"
     },
     {
         "id": "ds-trie",
         "category": "数据结构",
         "subcategory": "字典树",
         "subSubcategory": "",
-        "title": "字典树（Trie）— 前缀检索的标配结构",
+        "title": "字典树（Trie 与 01-Trie 最大异或）",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 一、算法原理\r\n\r\n### 1.1 核心思想\r\n\r\n如果有 $n$ 个字符串需要频繁做\"查询某个前缀出现了多少次\"的操作，朴素做法是每次线性扫描所有字符串——$O(n \\times |S|)$。字典树把这 $n$ 个字符串的**公共前缀合并到同一条路径上**，使得插入和查询都只需遍历一次目标串的字符序列。\r\n\r\n### 1.2 定义\r\n\r\n字典树是一棵多叉树（通常字符集为 26 个字母或更大）：\r\n\r\n- **根节点**（本实现编号为 1）代表\"空前缀\"\r\n- 每条边上标一个字符\r\n- 从根到某节点的路径上的字符序列 = 该节点代表的字符串前缀\r\n- 每个节点维护一个 `cnt`：**有多少个插入的字符串以此节点为前缀终点**（即经过此节点的字符串数）\r\n\r\n### 1.3 关键性质\r\n\r\n1. **公共前缀共享路径**：`\"apple\"` 和 `\"app\"` 共享 `a → p → p` 三层节点\r\n2. `cnt` 的语义是\"经过此节点的字符串总数\"，所以查询前缀 `\"app\"` 返回的就是 `app` 终点的 `cnt`\r\n3. 插入一个字符串 $s$ 时，路径上每个节点的 `cnt` 都 +1\r\n\r\n## 二、数据结构图示\r\n\r\n### 2.1 插入 \"ab\", \"abc\", \"ab\", \"ac\" 后的 Trie\r\n\r\n```\r\n           [1] root\r\n          /   \\\r\n        a/     \\a\r\n        /       \\\r\n      [2]       [3]\r\n      cnt=3     cnt=1\r\n      / \\         |\r\n    b/   \\c      \\c\r\n    /     \\       \\\r\n  [4]     [6]     [7]\r\n  cnt=3   cnt=0   cnt=1\r\n  / \\\r\nc/   \\(end)\r\n/\r\n[5]\r\ncnt=1\r\n```\r\n\r\n- `root [1]`：空串，不存 `cnt`（或视为 0）\r\n- `a [2]`：3 个字符串以 `a` 开头 → `cnt=3`（\"ab\", \"abc\", \"ab\"）\r\n- `ab [4]`：3 个字符串以 `ab` 开头 → `cnt=3`\r\n- `abc [5]`：1 个字符串以 `abc` 开头 → `cnt=1`\r\n- `ac [7]`：1 个字符串以 `ac` 开头 → `cnt=1`\r\n\r\n### 2.2 查询过程示例\r\n\r\n查询 `\"ab\"`：`root → a(2) → b(4)`，返回 `tree_arr[4].cnt = 3`。\r\n查询 `\"ad\"`：`root → a(2)`，从节点 2 找不到 `d` 的边 → 返回 0。\r\n\r\n## 三、核心操作详解\r\n\r\n### 3.1 insert(str) — 插入字符串\r\n\r\n```\r\ncur = 1 (root)\r\nfor each ch in str:\r\n    nxt = tree_arr[cur].find(ch)   // 在 cur 的子边中找 ch\r\n    if nxt == -1:                  // 没找到 → 新建节点\r\n        nxt = ++idx\r\n        tree_arr[cur].add(ch, nxt)\r\n    tree_arr[nxt].cnt++            // 经过此节点的字符串数 +1\r\n    cur = nxt\r\n```\r\n\r\n每插入一个字符，要么沿着已有边走，要么新建一条边。`cnt` 在\"经过\"时递增，保证查前缀时终点 `cnt` = 以该前缀开头的字符串总数。\r\n\r\n### 3.2 find(str) — 查询前缀出现次数\r\n\r\n```\r\ncur = 1 (root)\r\nfor each ch in str:\r\n    cur = tree_arr[cur].find(ch)\r\n    if cur == -1: return 0         // 路径断了 → 前缀不存在\r\nreturn tree_arr[cur].cnt           // 返回终点节点的 cnt\r\n```\r\n\r\n逐字符下行，任一步找不到边就返回 0；全部走完返回终点 `cnt`。\r\n\r\n### 3.3 clear() — 清空 Trie\r\n\r\n```\r\nfor i = idx downto 0:\r\n    tree_arr[i].son.clear()\r\n    tree_arr[i].cnt = 0\r\nidx = 1                            // 重置为只有 root\r\n```\r\n\r\n从最高编号节点往下清，只清用过的节点（idx 以内），不遍历整个数组。重置 `idx = 1` 使 root 复活。\r\n\r\n### 3.4 动态扩容机制\r\n\r\n```cpp\r\nif (idx >= tree_arr.size() - 1)\r\n    tree_arr.insert(tree_arr.end(), new_cap, node{});\r\n```\r\n\r\n当节点编号逼近数组容量上限时，一次性追加 `new_cap = 128` 个空节点。批量扩容比逐个 `push_back` 更高效（减少重分配次数）。\r\n\r\n## 四、逐行代码解析\r\n\r\n### 4.1 node 结构\r\n\r\n```cpp\r\nstruct node\r\n{\r\n\tint cnt;\r\n\tunordered_map<char, int> son;\r\n\tnode() :cnt(0) {}\r\n\tint find(char ch)\r\n\t{\r\n\t\tauto it = son.find(ch);\r\n\t\treturn it == son.end() ? -1 : it->second;\r\n\t}\r\n\tvoid add(char ch, int rt) { son.emplace(ch, rt); }\r\n};\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int cnt;` | 经过此节点的字符串数 |\r\n| 3 | `unordered_map<char, int> son;` | 子边映射：字符 → 子节点编号。用 `unordered_map` 而非 `int[26]`，字符集不限于小写字母，支持任意字符 |\r\n| 4 | `node() :cnt(0) {}` | 构造函数初始化 `cnt` 为 0，`son` 默认空 |\r\n| 5-9 | `find(ch)` | 在子边中查找字符 `ch`，找到返回子节点编号，找不到返回 -1 |\r\n| 10 | `add(ch, rt)` | 添加一条边 `ch → rt` |\r\n\r\n### 4.2 strtree 结构\r\n\r\n```cpp\r\nstruct strtree\r\n{\r\n\tint idx;\r\n\tvector<node> tree_arr;\r\n\tstrtree(int big) :idx(1) { tree_arr.resize(big); }\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int idx;` | 当前最大已分配节点编号。root 是 1，`idx` 从 1 开始 |\r\n| 3 | `vector<node> tree_arr;` | 节点数组，下标即节点编号 |\r\n| 4 | `strtree(int big) :idx(1) { tree_arr.resize(big); }` | 预分配 `big` 个节点空间，`idx` 从 1 开始（0 不用） |\r\n\r\n### 4.3 insert 函数\r\n\r\n```cpp\r\nvoid insert(const string& str)\r\n{\r\n\tint cur = 1;\r\n\tfor (char ch : str)\r\n\t{\r\n\t\tint nxt = tree_arr[cur].find(ch);\r\n\t\tif (nxt == -1)\r\n\t\t{\r\n\t\t\tif (idx >= tree_arr.size() - 1) tree_arr.insert(tree_arr.end(), new_cap, node{});\r\n\t\t\tnxt = ++idx;\r\n\t\t\ttree_arr[cur].add(ch, nxt);\r\n\t\t}\r\n\t\t++tree_arr[nxt].cnt;\r\n\t\tcur = nxt;\r\n\t}\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int cur = 1;` | 从 root 开始 |\r\n| 4 | `int nxt = tree_arr[cur].find(ch);` | 在当前节点的子边中找 `ch` |\r\n| 5-10 | `if (nxt == -1)` | 找不到 → 扩容检查 + 新建节点 + 添加边 |\r\n| 6 | `if (idx >= tree_arr.size() - 1)` | 容量检查：`idx` 离数组末尾只剩 1 的余量时触发扩容 |\r\n| 7 | `tree_arr.insert(tree_arr.end(), new_cap, node{});` | 批量追加 128 个空节点 |\r\n| 8 | `nxt = ++idx;` | 分配新节点编号（先自增再赋值） |\r\n| 9 | `tree_arr[cur].add(ch, nxt);` | 在当前节点添加边 |\r\n| 12 | `++tree_arr[nxt].cnt;` | 新节点或已有节点的 `cnt` 都 +1 |\r\n| 13 | `cur = nxt;` | 下行到子节点 |\r\n\r\n### 4.4 find 函数\r\n\r\n```cpp\r\nint find(const string& str)\r\n{\r\n\tint cur = 1;\r\n\tfor (char ch : str)\r\n\t{\r\n\t\tcur = tree_arr[cur].find(ch);\r\n\t\tif (cur == -1) return 0;\r\n\t}\r\n\treturn tree_arr[cur].cnt;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int cur = 1;` | 从 root 开始 |\r\n| 4 | `cur = tree_arr[cur].find(ch);` | 沿字符边下行 |\r\n| 5 | `if (cur == -1) return 0;` | 任一字符找不到边 → 前缀不存在，返回 0 |\r\n| 7 | `return tree_arr[cur].cnt;` | 走完全程 → 返回终点 `cnt` |\r\n\r\n### 4.5 clear 函数\r\n\r\n```cpp\r\nvoid clear()\r\n{\r\n\tfor (int i = idx; i >= 0; i--)\r\n\t{\r\n\t\ttree_arr[i].son.clear();\r\n\t\ttree_arr[i].cnt = 0;\r\n\t}\r\n\tidx = 1;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 3 | `for (int i = idx; ...)` | 从最高编号往下清，只遍历用过的节点 |\r\n| 5 | `tree_arr[i].son.clear();` | 清空子边映射 |\r\n| 6 | `tree_arr[i].cnt = 0;` | 重置计数 |\r\n| 8 | `idx = 1;` | 重置为只有 root 可用 |\r\n\r\n### 4.6 main 函数\r\n\r\n```cpp\r\nstrtree tree(sz);\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint t;\r\n\tcin >> t;\r\n\twhile (t--)\r\n\t{\r\n\t\tint n, q;\r\n\t\tcin >> n >> q;\r\n\t\ttree.clear();\r\n\t\tfor (int i = 1; i <= n; i++)\r\n\t\t{\r\n\t\t\tstring str;\r\n\t\t\tcin >> str;\r\n\t\t\ttree.insert(str);\r\n\t\t}\r\n\t\tfor (int i = 1; i <= q; i++)\r\n\t\t{\r\n\t\t\tstring str;\r\n\t\t\tcin >> str;\r\n\t\t\tcout << tree.find(str) << '\\n';\r\n\t\t}\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `strtree tree(sz);` | 全局 Trie 对象，预分配 $10^5 + 10$ 个节点 |\r\n| 8 | `tree.clear();` | 每组测试前清空 |\r\n| 10-14 | 插入 $n$ 个字符串 | |\r\n| 16-20 | 查询 $q$ 个前缀 | 输出每个前缀的出现次数 |\r\n\r\n## 五、复杂度分析\r\n\r\n| 操作 | 时间复杂度 | 说明 |\r\n|------|------------|------|\r\n| `insert(s)` | $O(\\|s\\|)$ | 每字符一次 `unordered_map` 查找/插入，均摊 $O(1)$ |\r\n| `find(s)` | $O(\\|s\\|)$ | 每字符一次 `unordered_map` 查找 |\r\n| `clear()` | $O(\\text{节点总数})$ | 只清用过的节点 |\r\n\r\n**空间复杂度**：$O(N \\times \\bar{|s|})$，其中 $N$ 为字符串总数，$\\bar{|s|}$ 为平均长度。每个节点有一个 `unordered_map`，常数因子比数组版大。\r\n\r\n**与数组版 Trie 的对比**：\r\n\r\n| 维度 | 数组版 `int son[maxN][26]` | 本版 `unordered_map` |\r\n|------|--------------------------|---------------------|\r\n| 单次操作 | $O(\\|s\\|)$（直接下标） | $O(\\|s\\|)$（哈希查找） |\r\n| 空间 | $O(\\text{maxN} \\times 26 \\times 4)$ 字节 | $O(\\text{实际节点数})$ |\r\n| 字符集 | 固定 26 | 任意字符 |\r\n| 常数 | 小 | 较大（哈希开销） |\r\n| 适用场景 | 字符集小且固定 | 字符集大或不确定 |\r\n\r\n## 六、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| 前缀计数 | 统计以某前缀开头的字符串个数（本代码的直接功能） |\r\n| 字符串检索 | 判断某字符串是否在集合中（终点 `cnt > 0`） |\r\n| 自动补全 | 找到前缀节点后遍历子树，列出所有候选词 |\r\n| 词频统计 | 重复插入同一字符串，`cnt` 自然累加 |\r\n| 最长公共前缀 | 两字符串在 Trie 上的公共路径长度 |\r\n| AC 自动机 | Trie + BFS 构造 fail 指针，多模式串匹配 |\r\n\r\n## 七、常见陷阱与注意事项\r\n\r\n### 1. `unordered_map` 的常数因子\r\n\r\n`unordered_map` 虽然均摊 $O(1)$，但常数比数组大 3-5 倍。如果字符集确定且小（如 26 个小写字母），改用 `int son[26]` 数组版更快。\r\n\r\n### 2. `cnt` 的语义：是\"经过\"不是\"终点\"\r\n\r\n本实现中 `cnt` 记录的是**经过此节点的字符串数**，不是\"在此节点结束的字符串数\"。如果要统计\"以某字符串为完整单词的次数\"，需要额外维护一个 `end_cnt` 字段，在插入结束时 +1。\r\n\r\n### 3. clear 只清用过的节点\r\n\r\n`clear()` 从 `idx` 往下清，不遍历整个 `tree_arr`。如果忘记重置 `idx = 1`，旧节点的残留边会污染下一组数据。\r\n\r\n### 4. 扩容条件用 `>=` 不是 `>`\r\n\r\n`if (idx >= tree_arr.size() - 1)` 确保在 `idx` 到达最后一个可用位置之前就扩容。如果用 `>`，当 `idx == size - 1` 时再 `++idx` 会变成 `size`，越界。\r\n\r\n### 5. `emplace` 不会覆盖已有键\r\n\r\n`son.emplace(ch, rt)` 在键已存在时不会更新值。由于 `find` 先于 `add` 调用，已存在的边不会走到 `add` 分支，所以没有问题。但如果重构代码时改变了调用顺序，需注意这个语义。\r\n\r\n### 6. 全局对象 vs 局部对象\r\n\r\n本代码的 `tree` 是全局对象，构造函数在 `main` 之前执行，预分配 $10^5 + 10$ 个 `node`。如果放局部变量且 $n$ 很大，栈空间可能不够——全局或堆分配更安全。\r\n\r\n### 7. `unordered_map` 的迭代器稳定性\r\n\r\n`unordered_map` 在 rehash 时迭代器失效。本代码不跨调用持有迭代器，没有问题。但如果后续扩展需要遍历子节点做 DFS，应先收集到 `vector` 再递归。\r\n\r\n## 八、对比与扩展\r\n\r\n### 8.1 三种 Trie 实现对比\r\n\r\n| 维度 | 数组版 `int[26]` | `unordered_map` 版（本代码） | `map` 版 |\r\n|------|-----------------|---------------------------|---------|\r\n| 单次操作 | $O(\\|s\\|)$ | $O(\\|s\\|)$ | $O(\\lvert s\\rvert \\log \\lvert\\Sigma\\rvert)$ |\r\n| 空间 | $O(\\text{maxN} \\times 26)$ | $O(\\text{实际节点})$ | $O(\\text{实际节点})$ |\r\n| 字符集 | 固定 26 | 任意 | 任意（有序） |\r\n| 常数 | 最小 | 中等 | 较大 |\r\n| 适用 | 竞赛首选 | 字符集不确定 | 需要有序遍历 |\r\n\r\n### 8.2 扩展方向\r\n\r\n| 扩展 | 说明 |\r\n|------|------|\r\n| AC 自动机 | Trie + BFS 构造 fail 指针，支持多模式串同时匹配 |\r\n| 可持久化 Trie | 每次插入保存历史版本，支持按版本查询前缀 |\r\n| 01-Trie | 字符集为 $\\{0, 1\\}$，用于异或最值等问题 |\r\n| Trie + 贪心 | 01-Trie 上按位贪心求最大异或和 |\r\n| 后缀自动机 (SAM) | 更强的字符串处理结构，支持子串计数等 |",
+                "content": "## 一、算法原理\n\n### 1.1 核心思想\n\n如果有 $n$ 个字符串需要频繁做\"查询某个前缀出现了多少次\"的操作，朴素做法是每次线性扫描所有字符串——$O(n \\times |S|)$。字典树把这 $n$ 个字符串的**公共前缀合并到同一条路径上**，使得插入和查询都只需遍历一次目标串的字符序列。\n\n### 1.2 定义\n\n字典树是一棵多叉树（通常字符集为 26 个字母或更大）：\n\n- **根节点**（本实现编号为 1）代表\"空前缀\"\n- 每条边上标一个字符\n- 从根到某节点的路径上的字符序列 = 该节点代表的字符串前缀\n- 每个节点维护一个 `cnt`：**有多少个插入的字符串以此节点为前缀终点**（即经过此节点的字符串数）\n\n### 1.3 关键性质\n\n1. **公共前缀共享路径**：`\"apple\"` 和 `\"app\"` 共享 `a → p → p` 三层节点\n2. `cnt` 的语义是\"经过此节点的字符串总数\"，所以查询前缀 `\"app\"` 返回的就是 `app` 终点的 `cnt`\n3. 插入一个字符串 $s$ 时，路径上每个节点的 `cnt` 都 +1\n\n## 二、数据结构图示\n\n### 2.1 插入 \"ab\", \"abc\", \"ab\", \"ac\" 后的 Trie\n\n```\n           [1] root\n          /   \\\n        a/     \\a\n        /       \\\n      [2]       [3]\n      cnt=3     cnt=1\n      / \\         |\n    b/   \\c      \\c\n    /     \\       \\\n  [4]     [6]     [7]\n  cnt=3   cnt=0   cnt=1\n  / \\\nc/   \\(end)\n/\n[5]\ncnt=1\n```\n\n- `root [1]`：空串，不存 `cnt`（或视为 0）\n- `a [2]`：3 个字符串以 `a` 开头 → `cnt=3`（\"ab\", \"abc\", \"ab\"）\n- `ab [4]`：3 个字符串以 `ab` 开头 → `cnt=3`\n- `abc [5]`：1 个字符串以 `abc` 开头 → `cnt=1`\n- `ac [7]`：1 个字符串以 `ac` 开头 → `cnt=1`\n\n### 2.2 查询过程示例\n\n查询 `\"ab\"`：`root → a(2) → b(4)`，返回 `tree_arr[4].cnt = 3`。\n查询 `\"ad\"`：`root → a(2)`，从节点 2 找不到 `d` 的边 → 返回 0。\n\n## 三、核心操作详解\n\n### 3.1 insert(str) — 插入字符串\n\n```\ncur = 1 (root)\nfor each ch in str:\n    nxt = tree_arr[cur].find(ch)   // 在 cur 的子边中找 ch\n    if nxt == -1:                  // 没找到 → 新建节点\n        nxt = ++idx\n        tree_arr[cur].add(ch, nxt)\n    tree_arr[nxt].cnt++            // 经过此节点的字符串数 +1\n    cur = nxt\n```\n\n每插入一个字符，要么沿着已有边走，要么新建一条边。`cnt` 在\"经过\"时递增，保证查前缀时终点 `cnt` = 以该前缀开头的字符串总数。\n\n### 3.2 find(str) — 查询前缀出现次数\n\n```\ncur = 1 (root)\nfor each ch in str:\n    cur = tree_arr[cur].find(ch)\n    if cur == -1: return 0         // 路径断了 → 前缀不存在\nreturn tree_arr[cur].cnt           // 返回终点节点的 cnt\n```\n\n逐字符下行，任一步找不到边就返回 0；全部走完返回终点 `cnt`。\n\n### 3.3 clear() — 清空 Trie\n\n```\nfor i = idx downto 0:\n    tree_arr[i].son.clear()\n    tree_arr[i].cnt = 0\nidx = 1                            // 重置为只有 root\n```\n\n从最高编号节点往下清，只清用过的节点（idx 以内），不遍历整个数组。重置 `idx = 1` 使 root 复活。\n\n### 3.4 动态扩容机制\n\n```cpp\nif (idx >= tree_arr.size() - 1)\n    tree_arr.insert(tree_arr.end(), new_cap, node{});\n```\n\n当节点编号逼近数组容量上限时，一次性追加 `new_cap = 128` 个空节点。批量扩容比逐个 `push_back` 更高效（减少重分配次数）。\n\n## 四、逐行代码解析\n\n### 4.1 node 结构\n\n```cpp\nstruct node\n{\n\tint cnt;\n\tunordered_map<char, int> son;\n\tnode() :cnt(0) {}\n\tint find(char ch)\n\t{\n\t\tauto it = son.find(ch);\n\t\treturn it == son.end() ? -1 : it->second;\n\t}\n\tvoid add(char ch, int rt) { son.emplace(ch, rt); }\n};\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int cnt;` | 经过此节点的字符串数 |\n| 3 | `unordered_map<char, int> son;` | 子边映射：字符 → 子节点编号。用 `unordered_map` 而非 `int[26]`，字符集不限于小写字母，支持任意字符 |\n| 4 | `node() :cnt(0) {}` | 构造函数初始化 `cnt` 为 0，`son` 默认空 |\n| 5-9 | `find(ch)` | 在子边中查找字符 `ch`，找到返回子节点编号，找不到返回 -1 |\n| 10 | `add(ch, rt)` | 添加一条边 `ch → rt` |\n\n### 4.2 strtree 结构\n\n```cpp\nstruct strtree\n{\n\tint idx;\n\tvector<node> tree_arr;\n\tstrtree(int big) :idx(1) { tree_arr.resize(big); }\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int idx;` | 当前最大已分配节点编号。root 是 1，`idx` 从 1 开始 |\n| 3 | `vector<node> tree_arr;` | 节点数组，下标即节点编号 |\n| 4 | `strtree(int big) :idx(1) { tree_arr.resize(big); }` | 预分配 `big` 个节点空间，`idx` 从 1 开始（0 不用） |\n\n### 4.3 insert 函数\n\n```cpp\nvoid insert(const string& str)\n{\n\tint cur = 1;\n\tfor (char ch : str)\n\t{\n\t\tint nxt = tree_arr[cur].find(ch);\n\t\tif (nxt == -1)\n\t\t{\n\t\t\tif (idx >= tree_arr.size() - 1) tree_arr.insert(tree_arr.end(), new_cap, node{});\n\t\t\tnxt = ++idx;\n\t\t\ttree_arr[cur].add(ch, nxt);\n\t\t}\n\t\t++tree_arr[nxt].cnt;\n\t\tcur = nxt;\n\t}\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int cur = 1;` | 从 root 开始 |\n| 4 | `int nxt = tree_arr[cur].find(ch);` | 在当前节点的子边中找 `ch` |\n| 5-10 | `if (nxt == -1)` | 找不到 → 扩容检查 + 新建节点 + 添加边 |\n| 6 | `if (idx >= tree_arr.size() - 1)` | 容量检查：`idx` 离数组末尾只剩 1 的余量时触发扩容 |\n| 7 | `tree_arr.insert(tree_arr.end(), new_cap, node{});` | 批量追加 128 个空节点 |\n| 8 | `nxt = ++idx;` | 分配新节点编号（先自增再赋值） |\n| 9 | `tree_arr[cur].add(ch, nxt);` | 在当前节点添加边 |\n| 12 | `++tree_arr[nxt].cnt;` | 新节点或已有节点的 `cnt` 都 +1 |\n| 13 | `cur = nxt;` | 下行到子节点 |\n\n### 4.4 find 函数\n\n```cpp\nint find(const string& str)\n{\n\tint cur = 1;\n\tfor (char ch : str)\n\t{\n\t\tcur = tree_arr[cur].find(ch);\n\t\tif (cur == -1) return 0;\n\t}\n\treturn tree_arr[cur].cnt;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int cur = 1;` | 从 root 开始 |\n| 4 | `cur = tree_arr[cur].find(ch);` | 沿字符边下行 |\n| 5 | `if (cur == -1) return 0;` | 任一字符找不到边 → 前缀不存在，返回 0 |\n| 7 | `return tree_arr[cur].cnt;` | 走完全程 → 返回终点 `cnt` |\n\n### 4.5 clear 函数\n\n```cpp\nvoid clear()\n{\n\tfor (int i = idx; i >= 0; i--)\n\t{\n\t\ttree_arr[i].son.clear();\n\t\ttree_arr[i].cnt = 0;\n\t}\n\tidx = 1;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 3 | `for (int i = idx; ...)` | 从最高编号往下清，只遍历用过的节点 |\n| 5 | `tree_arr[i].son.clear();` | 清空子边映射 |\n| 6 | `tree_arr[i].cnt = 0;` | 重置计数 |\n| 8 | `idx = 1;` | 重置为只有 root 可用 |\n\n### 4.6 main 函数\n\n```cpp\nstrtree tree(sz);\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint t;\n\tcin >> t;\n\twhile (t--)\n\t{\n\t\tint n, q;\n\t\tcin >> n >> q;\n\t\ttree.clear();\n\t\tfor (int i = 1; i <= n; i++)\n\t\t{\n\t\t\tstring str;\n\t\t\tcin >> str;\n\t\t\ttree.insert(str);\n\t\t}\n\t\tfor (int i = 1; i <= q; i++)\n\t\t{\n\t\t\tstring str;\n\t\t\tcin >> str;\n\t\t\tcout << tree.find(str) << '\\n';\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `strtree tree(sz);` | 全局 Trie 对象，预分配 $10^5 + 10$ 个节点 |\n| 8 | `tree.clear();` | 每组测试前清空 |\n| 10-14 | 插入 $n$ 个字符串 | |\n| 16-20 | 查询 $q$ 个前缀 | 输出每个前缀的出现次数 |\n\n## 五、复杂度分析\n\n| 操作 | 时间复杂度 | 说明 |\n|------|------------|------|\n| `insert(s)` | $O(\\|s\\|)$ | 每字符一次 `unordered_map` 查找/插入，均摊 $O(1)$ |\n| `find(s)` | $O(\\|s\\|)$ | 每字符一次 `unordered_map` 查找 |\n| `clear()` | $O(\\text{节点总数})$ | 只清用过的节点 |\n\n**空间复杂度**：$O(N \\times \\bar{|s|})$，其中 $N$ 为字符串总数，$\\bar{|s|}$ 为平均长度。每个节点有一个 `unordered_map`，常数因子比数组版大。\n\n**与数组版 Trie 的对比**：\n\n| 维度 | 数组版 `int son[maxN][26]` | 本版 `unordered_map` |\n|------|--------------------------|---------------------|\n| 单次操作 | $O(\\|s\\|)$（直接下标） | $O(\\|s\\|)$（哈希查找） |\n| 空间 | $O(\\text{maxN} \\times 26 \\times 4)$ 字节 | $O(\\text{实际节点数})$ |\n| 字符集 | 固定 26 | 任意字符 |\n| 常数 | 小 | 较大（哈希开销） |\n| 适用场景 | 字符集小且固定 | 字符集大或不确定 |\n\n## 六、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| 前缀计数 | 统计以某前缀开头的字符串个数（本代码的直接功能） |\n| 字符串检索 | 判断某字符串是否在集合中（终点 `cnt > 0`） |\n| 自动补全 | 找到前缀节点后遍历子树，列出所有候选词 |\n| 词频统计 | 重复插入同一字符串，`cnt` 自然累加 |\n| 最长公共前缀 | 两字符串在 Trie 上的公共路径长度 |\n| AC 自动机 | Trie + BFS 构造 fail 指针，多模式串匹配 |\n\n## 七、常见陷阱与注意事项\n\n### 1. `unordered_map` 的常数因子\n\n`unordered_map` 虽然均摊 $O(1)$，但常数比数组大 3-5 倍。如果字符集确定且小（如 26 个小写字母），改用 `int son[26]` 数组版更快。\n\n### 2. `cnt` 的语义：是\"经过\"不是\"终点\"\n\n本实现中 `cnt` 记录的是**经过此节点的字符串数**，不是\"在此节点结束的字符串数\"。如果要统计\"以某字符串为完整单词的次数\"，需要额外维护一个 `end_cnt` 字段，在插入结束时 +1。\n\n### 3. clear 只清用过的节点\n\n`clear()` 从 `idx` 往下清，不遍历整个 `tree_arr`。如果忘记重置 `idx = 1`，旧节点的残留边会污染下一组数据。\n\n### 4. 扩容条件用 `>=` 不是 `>`\n\n`if (idx >= tree_arr.size() - 1)` 确保在 `idx` 到达最后一个可用位置之前就扩容。如果用 `>`，当 `idx == size - 1` 时再 `++idx` 会变成 `size`，越界。\n\n### 5. `emplace` 不会覆盖已有键\n\n`son.emplace(ch, rt)` 在键已存在时不会更新值。由于 `find` 先于 `add` 调用，已存在的边不会走到 `add` 分支，所以没有问题。但如果重构代码时改变了调用顺序，需注意这个语义。\n\n### 6. 全局对象 vs 局部对象\n\n本代码的 `tree` 是全局对象，构造函数在 `main` 之前执行，预分配 $10^5 + 10$ 个 `node`。如果放局部变量且 $n$ 很大，栈空间可能不够——全局或堆分配更安全。\n\n### 7. `unordered_map` 的迭代器稳定性\n\n`unordered_map` 在 rehash 时迭代器失效。本代码不跨调用持有迭代器，没有问题。但如果后续扩展需要遍历子节点做 DFS，应先收集到 `vector` 再递归。\n\n## 八、对比与扩展\n\n### 8.1 三种 Trie 实现对比\n\n| 维度 | 数组版 `int[26]` | `unordered_map` 版（本代码） | `map` 版 |\n|------|-----------------|---------------------------|---------|\n| 单次操作 | $O(\\|s\\|)$ | $O(\\|s\\|)$ | $O(\\lvert s\\rvert \\log \\lvert\\Sigma\\rvert)$ |\n| 空间 | $O(\\text{maxN} \\times 26)$ | $O(\\text{实际节点})$ | $O(\\text{实际节点})$ |\n| 字符集 | 固定 26 | 任意 | 任意（有序） |\n| 常数 | 最小 | 中等 | 较大 |\n| 适用 | 竞赛首选 | 字符集不确定 | 需要有序遍历 |\n\n### 8.2 扩展方向\n\n| 扩展 | 说明 |\n|------|------|\n| AC 自动机 | Trie + BFS 构造 fail 指针，支持多模式串同时匹配 |\n| 可持久化 Trie | 每次插入保存历史版本，支持按版本查询前缀 |\n| 01-Trie | 字符集为 $\\{0, 1\\}$，用于异或最值等问题 |\n| Trie + 贪心 | 01-Trie 上按位贪心求最大异或和 |\n| 后缀自动机 (SAM) | 更强的字符串处理结构，支持子串计数等 |\n\n## 附：01-Trie — 最大异或和（按位贪心）\n\n#### 1.1 问题背景\n\n给定一个整数数组 $a_1, a_2, \\ldots, a_n$，对每个查询整数 $x$，求 $\\max_{i} (a_i \\oplus x)$。朴素做法是对每个查询遍历所有数，复杂度 $O(nq)$，当 $n, q \\ge 10^5$ 时完全不可行。\n\n#### 1.2 核心思想：按位贪心\n\n异或的性质是**相同为 0，不同为 1**。要让 $a_i \\oplus x$ 最大，就要让高位尽可能是 1：\n\n- 最高位如果能取到 1，**无论后面的低位是什么，都比最高位为 0 的任何情况更大**\n- 这是按位贪心的正确性基础：从最高位到最低位，每一位优先选能让当前位为 1 的路径\n\n#### 1.3 数据结构：01-Trie\n\n把每个整数的二进制位（从最高位到最低位）依次插入一棵二叉树：\n\n- 每个节点只有 0、1 两条边（对应二进制位的值）\n- 根节点代表\"没有任何位\"\n- 从根到叶子的路径 = 一个整数的二进制表示\n- 每条路径长度固定 = 总位数（本代码用 32 位，即 int 的位数）\n\n查询时，从最高位开始：\n- 如果当前位的**相反**边存在 → 走过去，答案的这一位是 1\n- 如果不存在 → 只能走相同边，这一位是 0\n\n### 二、数据结构图示\n\n#### 2.1 插入 5, 2, 7 后的 01-Trie（4 位示意）\n\n5 = 0101，2 = 0010，7 = 0111（从最高位 bit3 到最低位 bit0）\n\n```\n                 [1] root\n              0 /\n               /\n             [2]  bit3 = 0\n           0 /   \\ 1\n            /     \\\n          [3]     [4]  bit2 = 0 / 1\n        1 /         \\ 1\n         /           \\\n       [5]           [6]  bit1 = 1 / 1\n      0/             0/ \\1\n      /              /   \\\n    [7]            [8]  [9]  bit0 = 0 / 1\n     2              5     7\n   (0010)         (0101) (0111)\n```\n\n三个数的二进制路径：\n\n| 数 | 二进制 | 路径 |\n|----|--------|------|\n| 2 | 0010 | root → 0 → 0 → 1 → 0 |\n| 5 | 0101 | root → 0 → 1 → 0 → 1 |\n| 7 | 0111 | root → 0 → 1 → 1 → 1 |\n\n> 注意：bit2 层的 0 分支（节点 3）和 1 分支（节点 4）各自往下走。节点 3 只有一条路径（对应数 2），节点 4 分出两条路径（对应数 5 和数 7）。\n\n#### 2.2 查询 x = 6（0110）的最大异或\n\n从最高位（bit3）开始逐位贪心：\n\n| 位 | x 的这一位 | 期望走（相反） | 实际走 | 原因 | ans 累计 |\n|----|-----------|--------------|--------|------|----------|\n| 3 | 0 | 1 | 0 | root 的 1 边不存在，只能走 0 | 0 |\n| 2 | 1 | 0 | 0 | 节点 2 的 0 边（节点 3）存在 ✓ | 0 + 4 = 4 |\n| 1 | 1 | 0 | 1 | 节点 3 的 0 边不存在，只能走 1 | 4 |\n| 0 | 0 | 1 | 0 | 节点 5 的 1 边不存在，只能走 0 | 4 |\n\n最终 $\\text{ans} = 4$，对应 $2 \\oplus 6 = 0010 \\oplus 0110 = 0100 = 4$ ✓\n\n**关键直觉**：高位优先，每一位的决策都是\"不可逆\"的——一旦高位确定走哪条路，低位无论如何都弥补不了高位的差距。\n\n### 三、核心操作详解\n\n#### 3.1 insert(num) — 插入一个整数\n\n```\ncur = 1 (root)\nfor i = 31 downto 0:       // 从最高位到最低位\n    k = (num >> i) & 1     // 取出第 i 位\n    if tree[cur].son[k] == 0:\n        tree[cur].son[k] = ++idx   // 不存在则新建节点\n    cur = tree[cur].son[k]         // 沿边下行\n```\n\n与普通 Trie 完全类似，只是字符集只有 `{0, 1}` 两个。32 位 int，每数插入走 32 层。\n\n#### 3.2 find(num) — 查询与 num 的最大异或值\n\n```\ncur = 1 (root)\nans = 0\nfor i = 31 downto 0:\n    desired = 1 - ((num >> i) & 1)   // 期望走相反的位\n    if tree[cur].son[desired] != 0:\n        ans += (1 << i)               // 这一位能取 1，加到答案\n        cur = tree[cur].son[desired]\n    else:\n        cur = tree[cur].son[1 - desired]  // 没有相反边，只能走相同边\nreturn ans\n```\n\n**贪心策略**：每一位优先走**相反**的边（让异或结果的这一位为 1），没有相反边就退而求其次走相同边（这一位为 0）。\n\n#### 3.3 为什么是 31  downto 0\n\n`int` 是 32 位有符号整数，从最高位（第 31 位，符号位）到最低位（第 0 位）。本代码假设所有数都是非负整数，第 31 位始终为 0，但仍然从 31 开始遍历以保证统一处理。\n\n如果题目中都是非负数，也可以从第 30 位开始（跳过符号位），节省一层。但写 31 更通用，代码也更简洁。\n\n### 四、逐行代码解析\n\n#### 4.1 全局定义\n\n```cpp\nconst int sz = 1e5 * 31 + 10;\nstruct node\n{\n\tint son[2];\n\tnode() { son[0] = 0, son[1] = 0; }\n};\nnode tree[sz];\nint idx = 1;\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `const int sz = 1e5 * 31 + 10;` | 节点总数上界：$10^5$ 个数 × 31 位（实际 32 位，但根节点 1 个，每数新增最多 32 个，所以 $10^5 \\times 31 + 10$ 留有余量） |\n| 2-5 | `struct node { int son[2]; ... };` | 每个节点只有 0、1 两条边，用 `int son[2]` 数组存子节点编号。0 表示\"不存在\" |\n| 4 | `node() { son[0] = 0, son[1] = 0; }` | 构造函数初始化为 0（无儿子） |\n| 6 | `node tree[sz];` | 全局节点数组 |\n| 7 | `int idx = 1;` | 当前最大已分配节点编号。root 是 1，从 1 开始（0 表示\"空\"） |\n\n#### 4.2 insert 函数\n\n```cpp\nvoid insert(int num)\n{\n\tint cur = 1;\n\tfor (int i = 31; i >= 0; --i)\n\t{\n\t\tint k = ((num >> i) & 1) ? 1 : 0;\n\t\tif (tree[cur].son[k] == 0) tree[cur].son[k] = ++idx;\n\t\tcur = tree[cur].son[k];\n\t}\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int cur = 1;` | 从 root 开始 |\n| 3 | `for (int i = 31; i >= 0; --i)` | 从最高位（第 31 位）到最低位（第 0 位） |\n| 5 | `int k = ((num >> i) & 1) ? 1 : 0;` | 取出第 $i$ 位的值（0 或 1）。`(num >> i) & 1` 本身就是 0 或 1，三元运算符是冗余保险 |\n| 6 | `if (tree[cur].son[k] == 0) tree[cur].son[k] = ++idx;` | 第 $k$ 条边不存在 → 新建节点，分配新编号 |\n| 7 | `cur = tree[cur].son[k];` | 沿第 $k$ 条边下行 |\n\n#### 4.3 find 函数\n\n```cpp\nint find(int num)\n{\n\tint cur = 1;\n\tint ans = 0;\n\tfor (int i = 31; i >= 0; --i)\n\t{\n\t\tint k = ((num >> i) & 1) ? 0 : 1;\n\t\tif (tree[cur].son[k] == 0) k = k ? 0 : 1;\n\t\telse ans += (1 << i);\n\t\tcur = tree[cur].son[k];\n\t}\n\treturn ans;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 3 | `int ans = 0;` | 最大异或值，初始为 0 |\n| 5 | `int k = ((num >> i) & 1) ? 0 : 1;` | 期望走的边 = num 第 $i$ 位的**相反值**。num 这一位是 1 就想走 0，是 0 就想走 1 |\n| 6 | `if (tree[cur].son[k] == 0) k = k ? 0 : 1;` | 期望边不存在 → 翻转 $k$，只能走相同边。`k ? 0 : 1` 等价于 `1 - k` |\n| 7 | `else ans += (1 << i);` | 期望边存在 → 这一位异或结果为 1，加到答案中 |\n| 8 | `cur = tree[cur].son[k];` | 沿最终选择的边下行 |\n| 10 | `return ans;` | 返回最大异或值 |\n\n**第 6 行的翻转技巧**：`k = k ? 0 : 1` 是一个三元运算翻转。写成 `k = 1 - k` 更直观，效果完全相同。\n\n#### 4.4 main 函数\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint n, q;\n\tcin >> n >> q;\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tint x;\n\t\tcin >> x;\n\t\tinsert(x);\n\t}\n\tfor (int i = 1; i <= q; i++)\n\t{\n\t\tint x;\n\t\tcin >> x;\n\t\tcout << find(x) << '\\n';\n\t}\n\treturn 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 5 | `int n, q;` | n 个数，q 个查询 |\n| 7-11 | 插入 n 个数 | 逐个插入 01-Trie |\n| 13-17 | 处理 q 个查询 | 对每个 x 输出 max(a_i ^ x) |\n\n### 五、复杂度分析\n\n| 操作 | 时间复杂度 | 说明 |\n|------|------------|------|\n| `insert(x)` | $O(31)$ | 32 位 int，每数走 32 层，每层 $O(1)$ |\n| `find(x)` | $O(31)$ | 同上 |\n| 总时间 | $O((n+q) \\times 31)$ | 31 是常数，等价于 $O(n+q)$ |\n| 空间 | $O(n \\times 31)$ | 最坏每个数占 32 个新节点 |\n\n**与朴素做法对比**：\n\n| 方法 | 时间 | 适用场景 |\n|------|------|---------|\n| 朴素（暴力） | $O(nq)$ | $n, q$ 极小（如 $n, q \\le 1000$） |\n| 01-Trie | $O(31(n+q))$ | $n, q \\le 10^5$，标准解法 |\n\n**空间上界感受**：$n = 10^5$ 时，节点数约 $10^5 \\times 31 = 3.1 \\times 10^6$，每个节点 2 个 int = 8 字节，总内存约 25 MB，完全在限制内。\n\n### 六、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| 最大异或对 | 数组中选两个数，使异或值最大 |\n| 子数组最大异或 | 前缀异或 + 01-Trie，经典题 |\n| 带插入的最大异或查询 | 动态插入元素，查询当前最大值 |\n| 树上路径异或 | DFS + 01-Trie，求两点路径异或最大值 |\n| 01-Trie 上合并 | 可持久化或子树合并，处理更复杂的问题 |\n\n### 七、常见陷阱与注意事项\n\n#### 1. 位数范围：31 还是 30\n\n`int` 是 32 位有符号数，最高位是符号位。如果题目保证所有数都是非负整数，从第 30 位开始（共 31 位有效数据）也正确。但写 31 更通用，不会因为题目出现负数而出错——只是符号位那一层永远走 0 边，不影响结果。\n\n#### 2. 节点编号从 1 开始，0 表示空\n\n`son[0]` 和 `son[1]` 的初始值都是 0，0 不代表\"第 0 号节点\"，而是\"这条边不存在\"。这就是为什么 `idx` 从 1 开始——把 0 留作空标记。\n\n#### 3. 开数组大小别忘了乘位数\n\n`sz = 1e5 * 31 + 10` 是标准估算。如果写成 `sz = 1e5 + 10`，数组会越界 RE。经验法则：**节点数 = 元素数 × 位数**。\n\n#### 4. 贪心的前提：高位优先\n\n按位贪心的正确性依赖于\"高位的权重大于所有低位之和\"。这在二进制中天然成立（$2^i > 2^{i-1} + 2^{i-2} + \\cdots + 2^0$）。如果换做其他进制（如三进制），需要确认高位权重是否仍大于低位总和。\n\n#### 5. find 函数的\"翻转\"写法\n\n`k = k ? 0 : 1` 等价于 `k = 1 - k`。两种写法都对，但 `1 - k` 更直观。代码用三元运算符是个人风格，不影响正确性。\n\n#### 6. 不能处理负数（除非你知道自己在做什么）\n\n如果数组中有负数，符号位（第 31 位）为 1。直接套用代码会把符号位也参与异或，结果可能不符合预期。处理负数需要特别设计（比如整体偏移 + 用 33 位等）。\n\n#### 7. 多组测试要清空 Trie\n\n本代码是单组测试的模板。如果有多组测试，需要像普通 Trie 那样实现 `clear()` 函数，或使用 `vector` 动态分配。全局数组不清空会导致上一组数据残留。\n\n### 八、对比与扩展\n\n#### 8.1 普通 Trie vs 01-Trie\n\n| 维度 | 普通 Trie（unordered_map 版） | 01-Trie（本代码） |\n|------|----------------------------|-----------------|\n| 字符集 | 任意字符 | {0, 1} |\n| 子边存储 | `unordered_map<char, int>` | `int son[2]` 数组 |\n| 单次操作 | $O(\\|S\\|)$ | $O(31)$ |\n| 常数 | 较大（哈希开销） | 很小（数组下标） |\n| 空间 | 按需分配 | 预分配固定大小 |\n| 适用 | 字符串前缀查询 | 二进制位操作、异或最值 |\n\n#### 8.2 扩展方向\n\n| 扩展 | 说明 |\n|------|------|\n| 子数组最大异或 | 前缀异或数组 + 01-Trie，经典模板题 |\n| 可持久化 01-Trie | 每次插入保留历史版本，支持区间查询最大异或 |\n| 树上路径异或 | DFS 记录根到各节点的异或值 + 01-Trie，求两节点路径最大异或 |\n| 01-Trie + 启发式合并 | 子树合并求子树内最大异或对 |\n| 带删除的 01-Trie | 每个节点加 `cnt` 计数，删除时减计数，为 0 时视为不存在 |\n| 异或最小生成树 | Borůvka 算法 + 01-Trie 加速求最小异或边 |",
                 "codePath": "数据结构\\字典树\\源.cpp",
                 "timeComplexity": "O(|S|)",
                 "spaceComplexity": "O(N * |S|)",
@@ -7604,7 +7699,7 @@ const KNOWLEDGE_DATA = [
                 "source": "Xesir"
             }
         ],
-        "content": "## 一、算法原理\r\n\r\n### 1.1 核心思想\r\n\r\n如果有 $n$ 个字符串需要频繁做\"查询某个前缀出现了多少次\"的操作，朴素做法是每次线性扫描所有字符串——$O(n \\times |S|)$。字典树把这 $n$ 个字符串的**公共前缀合并到同一条路径上**，使得插入和查询都只需遍历一次目标串的字符序列。\r\n\r\n### 1.2 定义\r\n\r\n字典树是一棵多叉树（通常字符集为 26 个字母或更大）：\r\n\r\n- **根节点**（本实现编号为 1）代表\"空前缀\"\r\n- 每条边上标一个字符\r\n- 从根到某节点的路径上的字符序列 = 该节点代表的字符串前缀\r\n- 每个节点维护一个 `cnt`：**有多少个插入的字符串以此节点为前缀终点**（即经过此节点的字符串数）\r\n\r\n### 1.3 关键性质\r\n\r\n1. **公共前缀共享路径**：`\"apple\"` 和 `\"app\"` 共享 `a → p → p` 三层节点\r\n2. `cnt` 的语义是\"经过此节点的字符串总数\"，所以查询前缀 `\"app\"` 返回的就是 `app` 终点的 `cnt`\r\n3. 插入一个字符串 $s$ 时，路径上每个节点的 `cnt` 都 +1\r\n\r\n## 二、数据结构图示\r\n\r\n### 2.1 插入 \"ab\", \"abc\", \"ab\", \"ac\" 后的 Trie\r\n\r\n```\r\n           [1] root\r\n          /   \\\r\n        a/     \\a\r\n        /       \\\r\n      [2]       [3]\r\n      cnt=3     cnt=1\r\n      / \\         |\r\n    b/   \\c      \\c\r\n    /     \\       \\\r\n  [4]     [6]     [7]\r\n  cnt=3   cnt=0   cnt=1\r\n  / \\\r\nc/   \\(end)\r\n/\r\n[5]\r\ncnt=1\r\n```\r\n\r\n- `root [1]`：空串，不存 `cnt`（或视为 0）\r\n- `a [2]`：3 个字符串以 `a` 开头 → `cnt=3`（\"ab\", \"abc\", \"ab\"）\r\n- `ab [4]`：3 个字符串以 `ab` 开头 → `cnt=3`\r\n- `abc [5]`：1 个字符串以 `abc` 开头 → `cnt=1`\r\n- `ac [7]`：1 个字符串以 `ac` 开头 → `cnt=1`\r\n\r\n### 2.2 查询过程示例\r\n\r\n查询 `\"ab\"`：`root → a(2) → b(4)`，返回 `tree_arr[4].cnt = 3`。\r\n查询 `\"ad\"`：`root → a(2)`，从节点 2 找不到 `d` 的边 → 返回 0。\r\n\r\n## 三、核心操作详解\r\n\r\n### 3.1 insert(str) — 插入字符串\r\n\r\n```\r\ncur = 1 (root)\r\nfor each ch in str:\r\n    nxt = tree_arr[cur].find(ch)   // 在 cur 的子边中找 ch\r\n    if nxt == -1:                  // 没找到 → 新建节点\r\n        nxt = ++idx\r\n        tree_arr[cur].add(ch, nxt)\r\n    tree_arr[nxt].cnt++            // 经过此节点的字符串数 +1\r\n    cur = nxt\r\n```\r\n\r\n每插入一个字符，要么沿着已有边走，要么新建一条边。`cnt` 在\"经过\"时递增，保证查前缀时终点 `cnt` = 以该前缀开头的字符串总数。\r\n\r\n### 3.2 find(str) — 查询前缀出现次数\r\n\r\n```\r\ncur = 1 (root)\r\nfor each ch in str:\r\n    cur = tree_arr[cur].find(ch)\r\n    if cur == -1: return 0         // 路径断了 → 前缀不存在\r\nreturn tree_arr[cur].cnt           // 返回终点节点的 cnt\r\n```\r\n\r\n逐字符下行，任一步找不到边就返回 0；全部走完返回终点 `cnt`。\r\n\r\n### 3.3 clear() — 清空 Trie\r\n\r\n```\r\nfor i = idx downto 0:\r\n    tree_arr[i].son.clear()\r\n    tree_arr[i].cnt = 0\r\nidx = 1                            // 重置为只有 root\r\n```\r\n\r\n从最高编号节点往下清，只清用过的节点（idx 以内），不遍历整个数组。重置 `idx = 1` 使 root 复活。\r\n\r\n### 3.4 动态扩容机制\r\n\r\n```cpp\r\nif (idx >= tree_arr.size() - 1)\r\n    tree_arr.insert(tree_arr.end(), new_cap, node{});\r\n```\r\n\r\n当节点编号逼近数组容量上限时，一次性追加 `new_cap = 128` 个空节点。批量扩容比逐个 `push_back` 更高效（减少重分配次数）。\r\n\r\n## 四、逐行代码解析\r\n\r\n### 4.1 node 结构\r\n\r\n```cpp\r\nstruct node\r\n{\r\n\tint cnt;\r\n\tunordered_map<char, int> son;\r\n\tnode() :cnt(0) {}\r\n\tint find(char ch)\r\n\t{\r\n\t\tauto it = son.find(ch);\r\n\t\treturn it == son.end() ? -1 : it->second;\r\n\t}\r\n\tvoid add(char ch, int rt) { son.emplace(ch, rt); }\r\n};\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int cnt;` | 经过此节点的字符串数 |\r\n| 3 | `unordered_map<char, int> son;` | 子边映射：字符 → 子节点编号。用 `unordered_map` 而非 `int[26]`，字符集不限于小写字母，支持任意字符 |\r\n| 4 | `node() :cnt(0) {}` | 构造函数初始化 `cnt` 为 0，`son` 默认空 |\r\n| 5-9 | `find(ch)` | 在子边中查找字符 `ch`，找到返回子节点编号，找不到返回 -1 |\r\n| 10 | `add(ch, rt)` | 添加一条边 `ch → rt` |\r\n\r\n### 4.2 strtree 结构\r\n\r\n```cpp\r\nstruct strtree\r\n{\r\n\tint idx;\r\n\tvector<node> tree_arr;\r\n\tstrtree(int big) :idx(1) { tree_arr.resize(big); }\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int idx;` | 当前最大已分配节点编号。root 是 1，`idx` 从 1 开始 |\r\n| 3 | `vector<node> tree_arr;` | 节点数组，下标即节点编号 |\r\n| 4 | `strtree(int big) :idx(1) { tree_arr.resize(big); }` | 预分配 `big` 个节点空间，`idx` 从 1 开始（0 不用） |\r\n\r\n### 4.3 insert 函数\r\n\r\n```cpp\r\nvoid insert(const string& str)\r\n{\r\n\tint cur = 1;\r\n\tfor (char ch : str)\r\n\t{\r\n\t\tint nxt = tree_arr[cur].find(ch);\r\n\t\tif (nxt == -1)\r\n\t\t{\r\n\t\t\tif (idx >= tree_arr.size() - 1) tree_arr.insert(tree_arr.end(), new_cap, node{});\r\n\t\t\tnxt = ++idx;\r\n\t\t\ttree_arr[cur].add(ch, nxt);\r\n\t\t}\r\n\t\t++tree_arr[nxt].cnt;\r\n\t\tcur = nxt;\r\n\t}\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int cur = 1;` | 从 root 开始 |\r\n| 4 | `int nxt = tree_arr[cur].find(ch);` | 在当前节点的子边中找 `ch` |\r\n| 5-10 | `if (nxt == -1)` | 找不到 → 扩容检查 + 新建节点 + 添加边 |\r\n| 6 | `if (idx >= tree_arr.size() - 1)` | 容量检查：`idx` 离数组末尾只剩 1 的余量时触发扩容 |\r\n| 7 | `tree_arr.insert(tree_arr.end(), new_cap, node{});` | 批量追加 128 个空节点 |\r\n| 8 | `nxt = ++idx;` | 分配新节点编号（先自增再赋值） |\r\n| 9 | `tree_arr[cur].add(ch, nxt);` | 在当前节点添加边 |\r\n| 12 | `++tree_arr[nxt].cnt;` | 新节点或已有节点的 `cnt` 都 +1 |\r\n| 13 | `cur = nxt;` | 下行到子节点 |\r\n\r\n### 4.4 find 函数\r\n\r\n```cpp\r\nint find(const string& str)\r\n{\r\n\tint cur = 1;\r\n\tfor (char ch : str)\r\n\t{\r\n\t\tcur = tree_arr[cur].find(ch);\r\n\t\tif (cur == -1) return 0;\r\n\t}\r\n\treturn tree_arr[cur].cnt;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int cur = 1;` | 从 root 开始 |\r\n| 4 | `cur = tree_arr[cur].find(ch);` | 沿字符边下行 |\r\n| 5 | `if (cur == -1) return 0;` | 任一字符找不到边 → 前缀不存在，返回 0 |\r\n| 7 | `return tree_arr[cur].cnt;` | 走完全程 → 返回终点 `cnt` |\r\n\r\n### 4.5 clear 函数\r\n\r\n```cpp\r\nvoid clear()\r\n{\r\n\tfor (int i = idx; i >= 0; i--)\r\n\t{\r\n\t\ttree_arr[i].son.clear();\r\n\t\ttree_arr[i].cnt = 0;\r\n\t}\r\n\tidx = 1;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 3 | `for (int i = idx; ...)` | 从最高编号往下清，只遍历用过的节点 |\r\n| 5 | `tree_arr[i].son.clear();` | 清空子边映射 |\r\n| 6 | `tree_arr[i].cnt = 0;` | 重置计数 |\r\n| 8 | `idx = 1;` | 重置为只有 root 可用 |\r\n\r\n### 4.6 main 函数\r\n\r\n```cpp\r\nstrtree tree(sz);\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint t;\r\n\tcin >> t;\r\n\twhile (t--)\r\n\t{\r\n\t\tint n, q;\r\n\t\tcin >> n >> q;\r\n\t\ttree.clear();\r\n\t\tfor (int i = 1; i <= n; i++)\r\n\t\t{\r\n\t\t\tstring str;\r\n\t\t\tcin >> str;\r\n\t\t\ttree.insert(str);\r\n\t\t}\r\n\t\tfor (int i = 1; i <= q; i++)\r\n\t\t{\r\n\t\t\tstring str;\r\n\t\t\tcin >> str;\r\n\t\t\tcout << tree.find(str) << '\\n';\r\n\t\t}\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `strtree tree(sz);` | 全局 Trie 对象，预分配 $10^5 + 10$ 个节点 |\r\n| 8 | `tree.clear();` | 每组测试前清空 |\r\n| 10-14 | 插入 $n$ 个字符串 | |\r\n| 16-20 | 查询 $q$ 个前缀 | 输出每个前缀的出现次数 |\r\n\r\n## 五、复杂度分析\r\n\r\n| 操作 | 时间复杂度 | 说明 |\r\n|------|------------|------|\r\n| `insert(s)` | $O(\\|s\\|)$ | 每字符一次 `unordered_map` 查找/插入，均摊 $O(1)$ |\r\n| `find(s)` | $O(\\|s\\|)$ | 每字符一次 `unordered_map` 查找 |\r\n| `clear()` | $O(\\text{节点总数})$ | 只清用过的节点 |\r\n\r\n**空间复杂度**：$O(N \\times \\bar{|s|})$，其中 $N$ 为字符串总数，$\\bar{|s|}$ 为平均长度。每个节点有一个 `unordered_map`，常数因子比数组版大。\r\n\r\n**与数组版 Trie 的对比**：\r\n\r\n| 维度 | 数组版 `int son[maxN][26]` | 本版 `unordered_map` |\r\n|------|--------------------------|---------------------|\r\n| 单次操作 | $O(\\|s\\|)$（直接下标） | $O(\\|s\\|)$（哈希查找） |\r\n| 空间 | $O(\\text{maxN} \\times 26 \\times 4)$ 字节 | $O(\\text{实际节点数})$ |\r\n| 字符集 | 固定 26 | 任意字符 |\r\n| 常数 | 小 | 较大（哈希开销） |\r\n| 适用场景 | 字符集小且固定 | 字符集大或不确定 |\r\n\r\n## 六、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| 前缀计数 | 统计以某前缀开头的字符串个数（本代码的直接功能） |\r\n| 字符串检索 | 判断某字符串是否在集合中（终点 `cnt > 0`） |\r\n| 自动补全 | 找到前缀节点后遍历子树，列出所有候选词 |\r\n| 词频统计 | 重复插入同一字符串，`cnt` 自然累加 |\r\n| 最长公共前缀 | 两字符串在 Trie 上的公共路径长度 |\r\n| AC 自动机 | Trie + BFS 构造 fail 指针，多模式串匹配 |\r\n\r\n## 七、常见陷阱与注意事项\r\n\r\n### 1. `unordered_map` 的常数因子\r\n\r\n`unordered_map` 虽然均摊 $O(1)$，但常数比数组大 3-5 倍。如果字符集确定且小（如 26 个小写字母），改用 `int son[26]` 数组版更快。\r\n\r\n### 2. `cnt` 的语义：是\"经过\"不是\"终点\"\r\n\r\n本实现中 `cnt` 记录的是**经过此节点的字符串数**，不是\"在此节点结束的字符串数\"。如果要统计\"以某字符串为完整单词的次数\"，需要额外维护一个 `end_cnt` 字段，在插入结束时 +1。\r\n\r\n### 3. clear 只清用过的节点\r\n\r\n`clear()` 从 `idx` 往下清，不遍历整个 `tree_arr`。如果忘记重置 `idx = 1`，旧节点的残留边会污染下一组数据。\r\n\r\n### 4. 扩容条件用 `>=` 不是 `>`\r\n\r\n`if (idx >= tree_arr.size() - 1)` 确保在 `idx` 到达最后一个可用位置之前就扩容。如果用 `>`，当 `idx == size - 1` 时再 `++idx` 会变成 `size`，越界。\r\n\r\n### 5. `emplace` 不会覆盖已有键\r\n\r\n`son.emplace(ch, rt)` 在键已存在时不会更新值。由于 `find` 先于 `add` 调用，已存在的边不会走到 `add` 分支，所以没有问题。但如果重构代码时改变了调用顺序，需注意这个语义。\r\n\r\n### 6. 全局对象 vs 局部对象\r\n\r\n本代码的 `tree` 是全局对象，构造函数在 `main` 之前执行，预分配 $10^5 + 10$ 个 `node`。如果放局部变量且 $n$ 很大，栈空间可能不够——全局或堆分配更安全。\r\n\r\n### 7. `unordered_map` 的迭代器稳定性\r\n\r\n`unordered_map` 在 rehash 时迭代器失效。本代码不跨调用持有迭代器，没有问题。但如果后续扩展需要遍历子节点做 DFS，应先收集到 `vector` 再递归。\r\n\r\n## 八、对比与扩展\r\n\r\n### 8.1 三种 Trie 实现对比\r\n\r\n| 维度 | 数组版 `int[26]` | `unordered_map` 版（本代码） | `map` 版 |\r\n|------|-----------------|---------------------------|---------|\r\n| 单次操作 | $O(\\|s\\|)$ | $O(\\|s\\|)$ | $O(\\lvert s\\rvert \\log \\lvert\\Sigma\\rvert)$ |\r\n| 空间 | $O(\\text{maxN} \\times 26)$ | $O(\\text{实际节点})$ | $O(\\text{实际节点})$ |\r\n| 字符集 | 固定 26 | 任意 | 任意（有序） |\r\n| 常数 | 最小 | 中等 | 较大 |\r\n| 适用 | 竞赛首选 | 字符集不确定 | 需要有序遍历 |\r\n\r\n### 8.2 扩展方向\r\n\r\n| 扩展 | 说明 |\r\n|------|------|\r\n| AC 自动机 | Trie + BFS 构造 fail 指针，支持多模式串同时匹配 |\r\n| 可持久化 Trie | 每次插入保存历史版本，支持按版本查询前缀 |\r\n| 01-Trie | 字符集为 $\\{0, 1\\}$，用于异或最值等问题 |\r\n| Trie + 贪心 | 01-Trie 上按位贪心求最大异或和 |\r\n| 后缀自动机 (SAM) | 更强的字符串处理结构，支持子串计数等 |",
+        "content": "## 一、算法原理\n\n### 1.1 核心思想\n\n如果有 $n$ 个字符串需要频繁做\"查询某个前缀出现了多少次\"的操作，朴素做法是每次线性扫描所有字符串——$O(n \\times |S|)$。字典树把这 $n$ 个字符串的**公共前缀合并到同一条路径上**，使得插入和查询都只需遍历一次目标串的字符序列。\n\n### 1.2 定义\n\n字典树是一棵多叉树（通常字符集为 26 个字母或更大）：\n\n- **根节点**（本实现编号为 1）代表\"空前缀\"\n- 每条边上标一个字符\n- 从根到某节点的路径上的字符序列 = 该节点代表的字符串前缀\n- 每个节点维护一个 `cnt`：**有多少个插入的字符串以此节点为前缀终点**（即经过此节点的字符串数）\n\n### 1.3 关键性质\n\n1. **公共前缀共享路径**：`\"apple\"` 和 `\"app\"` 共享 `a → p → p` 三层节点\n2. `cnt` 的语义是\"经过此节点的字符串总数\"，所以查询前缀 `\"app\"` 返回的就是 `app` 终点的 `cnt`\n3. 插入一个字符串 $s$ 时，路径上每个节点的 `cnt` 都 +1\n\n## 二、数据结构图示\n\n### 2.1 插入 \"ab\", \"abc\", \"ab\", \"ac\" 后的 Trie\n\n```\n           [1] root\n          /   \\\n        a/     \\a\n        /       \\\n      [2]       [3]\n      cnt=3     cnt=1\n      / \\         |\n    b/   \\c      \\c\n    /     \\       \\\n  [4]     [6]     [7]\n  cnt=3   cnt=0   cnt=1\n  / \\\nc/   \\(end)\n/\n[5]\ncnt=1\n```\n\n- `root [1]`：空串，不存 `cnt`（或视为 0）\n- `a [2]`：3 个字符串以 `a` 开头 → `cnt=3`（\"ab\", \"abc\", \"ab\"）\n- `ab [4]`：3 个字符串以 `ab` 开头 → `cnt=3`\n- `abc [5]`：1 个字符串以 `abc` 开头 → `cnt=1`\n- `ac [7]`：1 个字符串以 `ac` 开头 → `cnt=1`\n\n### 2.2 查询过程示例\n\n查询 `\"ab\"`：`root → a(2) → b(4)`，返回 `tree_arr[4].cnt = 3`。\n查询 `\"ad\"`：`root → a(2)`，从节点 2 找不到 `d` 的边 → 返回 0。\n\n## 三、核心操作详解\n\n### 3.1 insert(str) — 插入字符串\n\n```\ncur = 1 (root)\nfor each ch in str:\n    nxt = tree_arr[cur].find(ch)   // 在 cur 的子边中找 ch\n    if nxt == -1:                  // 没找到 → 新建节点\n        nxt = ++idx\n        tree_arr[cur].add(ch, nxt)\n    tree_arr[nxt].cnt++            // 经过此节点的字符串数 +1\n    cur = nxt\n```\n\n每插入一个字符，要么沿着已有边走，要么新建一条边。`cnt` 在\"经过\"时递增，保证查前缀时终点 `cnt` = 以该前缀开头的字符串总数。\n\n### 3.2 find(str) — 查询前缀出现次数\n\n```\ncur = 1 (root)\nfor each ch in str:\n    cur = tree_arr[cur].find(ch)\n    if cur == -1: return 0         // 路径断了 → 前缀不存在\nreturn tree_arr[cur].cnt           // 返回终点节点的 cnt\n```\n\n逐字符下行，任一步找不到边就返回 0；全部走完返回终点 `cnt`。\n\n### 3.3 clear() — 清空 Trie\n\n```\nfor i = idx downto 0:\n    tree_arr[i].son.clear()\n    tree_arr[i].cnt = 0\nidx = 1                            // 重置为只有 root\n```\n\n从最高编号节点往下清，只清用过的节点（idx 以内），不遍历整个数组。重置 `idx = 1` 使 root 复活。\n\n### 3.4 动态扩容机制\n\n```cpp\nif (idx >= tree_arr.size() - 1)\n    tree_arr.insert(tree_arr.end(), new_cap, node{});\n```\n\n当节点编号逼近数组容量上限时，一次性追加 `new_cap = 128` 个空节点。批量扩容比逐个 `push_back` 更高效（减少重分配次数）。\n\n## 四、逐行代码解析\n\n### 4.1 node 结构\n\n```cpp\nstruct node\n{\n\tint cnt;\n\tunordered_map<char, int> son;\n\tnode() :cnt(0) {}\n\tint find(char ch)\n\t{\n\t\tauto it = son.find(ch);\n\t\treturn it == son.end() ? -1 : it->second;\n\t}\n\tvoid add(char ch, int rt) { son.emplace(ch, rt); }\n};\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int cnt;` | 经过此节点的字符串数 |\n| 3 | `unordered_map<char, int> son;` | 子边映射：字符 → 子节点编号。用 `unordered_map` 而非 `int[26]`，字符集不限于小写字母，支持任意字符 |\n| 4 | `node() :cnt(0) {}` | 构造函数初始化 `cnt` 为 0，`son` 默认空 |\n| 5-9 | `find(ch)` | 在子边中查找字符 `ch`，找到返回子节点编号，找不到返回 -1 |\n| 10 | `add(ch, rt)` | 添加一条边 `ch → rt` |\n\n### 4.2 strtree 结构\n\n```cpp\nstruct strtree\n{\n\tint idx;\n\tvector<node> tree_arr;\n\tstrtree(int big) :idx(1) { tree_arr.resize(big); }\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int idx;` | 当前最大已分配节点编号。root 是 1，`idx` 从 1 开始 |\n| 3 | `vector<node> tree_arr;` | 节点数组，下标即节点编号 |\n| 4 | `strtree(int big) :idx(1) { tree_arr.resize(big); }` | 预分配 `big` 个节点空间，`idx` 从 1 开始（0 不用） |\n\n### 4.3 insert 函数\n\n```cpp\nvoid insert(const string& str)\n{\n\tint cur = 1;\n\tfor (char ch : str)\n\t{\n\t\tint nxt = tree_arr[cur].find(ch);\n\t\tif (nxt == -1)\n\t\t{\n\t\t\tif (idx >= tree_arr.size() - 1) tree_arr.insert(tree_arr.end(), new_cap, node{});\n\t\t\tnxt = ++idx;\n\t\t\ttree_arr[cur].add(ch, nxt);\n\t\t}\n\t\t++tree_arr[nxt].cnt;\n\t\tcur = nxt;\n\t}\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int cur = 1;` | 从 root 开始 |\n| 4 | `int nxt = tree_arr[cur].find(ch);` | 在当前节点的子边中找 `ch` |\n| 5-10 | `if (nxt == -1)` | 找不到 → 扩容检查 + 新建节点 + 添加边 |\n| 6 | `if (idx >= tree_arr.size() - 1)` | 容量检查：`idx` 离数组末尾只剩 1 的余量时触发扩容 |\n| 7 | `tree_arr.insert(tree_arr.end(), new_cap, node{});` | 批量追加 128 个空节点 |\n| 8 | `nxt = ++idx;` | 分配新节点编号（先自增再赋值） |\n| 9 | `tree_arr[cur].add(ch, nxt);` | 在当前节点添加边 |\n| 12 | `++tree_arr[nxt].cnt;` | 新节点或已有节点的 `cnt` 都 +1 |\n| 13 | `cur = nxt;` | 下行到子节点 |\n\n### 4.4 find 函数\n\n```cpp\nint find(const string& str)\n{\n\tint cur = 1;\n\tfor (char ch : str)\n\t{\n\t\tcur = tree_arr[cur].find(ch);\n\t\tif (cur == -1) return 0;\n\t}\n\treturn tree_arr[cur].cnt;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int cur = 1;` | 从 root 开始 |\n| 4 | `cur = tree_arr[cur].find(ch);` | 沿字符边下行 |\n| 5 | `if (cur == -1) return 0;` | 任一字符找不到边 → 前缀不存在，返回 0 |\n| 7 | `return tree_arr[cur].cnt;` | 走完全程 → 返回终点 `cnt` |\n\n### 4.5 clear 函数\n\n```cpp\nvoid clear()\n{\n\tfor (int i = idx; i >= 0; i--)\n\t{\n\t\ttree_arr[i].son.clear();\n\t\ttree_arr[i].cnt = 0;\n\t}\n\tidx = 1;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 3 | `for (int i = idx; ...)` | 从最高编号往下清，只遍历用过的节点 |\n| 5 | `tree_arr[i].son.clear();` | 清空子边映射 |\n| 6 | `tree_arr[i].cnt = 0;` | 重置计数 |\n| 8 | `idx = 1;` | 重置为只有 root 可用 |\n\n### 4.6 main 函数\n\n```cpp\nstrtree tree(sz);\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint t;\n\tcin >> t;\n\twhile (t--)\n\t{\n\t\tint n, q;\n\t\tcin >> n >> q;\n\t\ttree.clear();\n\t\tfor (int i = 1; i <= n; i++)\n\t\t{\n\t\t\tstring str;\n\t\t\tcin >> str;\n\t\t\ttree.insert(str);\n\t\t}\n\t\tfor (int i = 1; i <= q; i++)\n\t\t{\n\t\t\tstring str;\n\t\t\tcin >> str;\n\t\t\tcout << tree.find(str) << '\\n';\n\t\t}\n\t}\n\treturn 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `strtree tree(sz);` | 全局 Trie 对象，预分配 $10^5 + 10$ 个节点 |\n| 8 | `tree.clear();` | 每组测试前清空 |\n| 10-14 | 插入 $n$ 个字符串 | |\n| 16-20 | 查询 $q$ 个前缀 | 输出每个前缀的出现次数 |\n\n## 五、复杂度分析\n\n| 操作 | 时间复杂度 | 说明 |\n|------|------------|------|\n| `insert(s)` | $O(\\|s\\|)$ | 每字符一次 `unordered_map` 查找/插入，均摊 $O(1)$ |\n| `find(s)` | $O(\\|s\\|)$ | 每字符一次 `unordered_map` 查找 |\n| `clear()` | $O(\\text{节点总数})$ | 只清用过的节点 |\n\n**空间复杂度**：$O(N \\times \\bar{|s|})$，其中 $N$ 为字符串总数，$\\bar{|s|}$ 为平均长度。每个节点有一个 `unordered_map`，常数因子比数组版大。\n\n**与数组版 Trie 的对比**：\n\n| 维度 | 数组版 `int son[maxN][26]` | 本版 `unordered_map` |\n|------|--------------------------|---------------------|\n| 单次操作 | $O(\\|s\\|)$（直接下标） | $O(\\|s\\|)$（哈希查找） |\n| 空间 | $O(\\text{maxN} \\times 26 \\times 4)$ 字节 | $O(\\text{实际节点数})$ |\n| 字符集 | 固定 26 | 任意字符 |\n| 常数 | 小 | 较大（哈希开销） |\n| 适用场景 | 字符集小且固定 | 字符集大或不确定 |\n\n## 六、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| 前缀计数 | 统计以某前缀开头的字符串个数（本代码的直接功能） |\n| 字符串检索 | 判断某字符串是否在集合中（终点 `cnt > 0`） |\n| 自动补全 | 找到前缀节点后遍历子树，列出所有候选词 |\n| 词频统计 | 重复插入同一字符串，`cnt` 自然累加 |\n| 最长公共前缀 | 两字符串在 Trie 上的公共路径长度 |\n| AC 自动机 | Trie + BFS 构造 fail 指针，多模式串匹配 |\n\n## 七、常见陷阱与注意事项\n\n### 1. `unordered_map` 的常数因子\n\n`unordered_map` 虽然均摊 $O(1)$，但常数比数组大 3-5 倍。如果字符集确定且小（如 26 个小写字母），改用 `int son[26]` 数组版更快。\n\n### 2. `cnt` 的语义：是\"经过\"不是\"终点\"\n\n本实现中 `cnt` 记录的是**经过此节点的字符串数**，不是\"在此节点结束的字符串数\"。如果要统计\"以某字符串为完整单词的次数\"，需要额外维护一个 `end_cnt` 字段，在插入结束时 +1。\n\n### 3. clear 只清用过的节点\n\n`clear()` 从 `idx` 往下清，不遍历整个 `tree_arr`。如果忘记重置 `idx = 1`，旧节点的残留边会污染下一组数据。\n\n### 4. 扩容条件用 `>=` 不是 `>`\n\n`if (idx >= tree_arr.size() - 1)` 确保在 `idx` 到达最后一个可用位置之前就扩容。如果用 `>`，当 `idx == size - 1` 时再 `++idx` 会变成 `size`，越界。\n\n### 5. `emplace` 不会覆盖已有键\n\n`son.emplace(ch, rt)` 在键已存在时不会更新值。由于 `find` 先于 `add` 调用，已存在的边不会走到 `add` 分支，所以没有问题。但如果重构代码时改变了调用顺序，需注意这个语义。\n\n### 6. 全局对象 vs 局部对象\n\n本代码的 `tree` 是全局对象，构造函数在 `main` 之前执行，预分配 $10^5 + 10$ 个 `node`。如果放局部变量且 $n$ 很大，栈空间可能不够——全局或堆分配更安全。\n\n### 7. `unordered_map` 的迭代器稳定性\n\n`unordered_map` 在 rehash 时迭代器失效。本代码不跨调用持有迭代器，没有问题。但如果后续扩展需要遍历子节点做 DFS，应先收集到 `vector` 再递归。\n\n## 八、对比与扩展\n\n### 8.1 三种 Trie 实现对比\n\n| 维度 | 数组版 `int[26]` | `unordered_map` 版（本代码） | `map` 版 |\n|------|-----------------|---------------------------|---------|\n| 单次操作 | $O(\\|s\\|)$ | $O(\\|s\\|)$ | $O(\\lvert s\\rvert \\log \\lvert\\Sigma\\rvert)$ |\n| 空间 | $O(\\text{maxN} \\times 26)$ | $O(\\text{实际节点})$ | $O(\\text{实际节点})$ |\n| 字符集 | 固定 26 | 任意 | 任意（有序） |\n| 常数 | 最小 | 中等 | 较大 |\n| 适用 | 竞赛首选 | 字符集不确定 | 需要有序遍历 |\n\n### 8.2 扩展方向\n\n| 扩展 | 说明 |\n|------|------|\n| AC 自动机 | Trie + BFS 构造 fail 指针，支持多模式串同时匹配 |\n| 可持久化 Trie | 每次插入保存历史版本，支持按版本查询前缀 |\n| 01-Trie | 字符集为 $\\{0, 1\\}$，用于异或最值等问题 |\n| Trie + 贪心 | 01-Trie 上按位贪心求最大异或和 |\n| 后缀自动机 (SAM) | 更强的字符串处理结构，支持子串计数等 |\n\n## 附：01-Trie — 最大异或和（按位贪心）\n\n#### 1.1 问题背景\n\n给定一个整数数组 $a_1, a_2, \\ldots, a_n$，对每个查询整数 $x$，求 $\\max_{i} (a_i \\oplus x)$。朴素做法是对每个查询遍历所有数，复杂度 $O(nq)$，当 $n, q \\ge 10^5$ 时完全不可行。\n\n#### 1.2 核心思想：按位贪心\n\n异或的性质是**相同为 0，不同为 1**。要让 $a_i \\oplus x$ 最大，就要让高位尽可能是 1：\n\n- 最高位如果能取到 1，**无论后面的低位是什么，都比最高位为 0 的任何情况更大**\n- 这是按位贪心的正确性基础：从最高位到最低位，每一位优先选能让当前位为 1 的路径\n\n#### 1.3 数据结构：01-Trie\n\n把每个整数的二进制位（从最高位到最低位）依次插入一棵二叉树：\n\n- 每个节点只有 0、1 两条边（对应二进制位的值）\n- 根节点代表\"没有任何位\"\n- 从根到叶子的路径 = 一个整数的二进制表示\n- 每条路径长度固定 = 总位数（本代码用 32 位，即 int 的位数）\n\n查询时，从最高位开始：\n- 如果当前位的**相反**边存在 → 走过去，答案的这一位是 1\n- 如果不存在 → 只能走相同边，这一位是 0\n\n### 二、数据结构图示\n\n#### 2.1 插入 5, 2, 7 后的 01-Trie（4 位示意）\n\n5 = 0101，2 = 0010，7 = 0111（从最高位 bit3 到最低位 bit0）\n\n```\n                 [1] root\n              0 /\n               /\n             [2]  bit3 = 0\n           0 /   \\ 1\n            /     \\\n          [3]     [4]  bit2 = 0 / 1\n        1 /         \\ 1\n         /           \\\n       [5]           [6]  bit1 = 1 / 1\n      0/             0/ \\1\n      /              /   \\\n    [7]            [8]  [9]  bit0 = 0 / 1\n     2              5     7\n   (0010)         (0101) (0111)\n```\n\n三个数的二进制路径：\n\n| 数 | 二进制 | 路径 |\n|----|--------|------|\n| 2 | 0010 | root → 0 → 0 → 1 → 0 |\n| 5 | 0101 | root → 0 → 1 → 0 → 1 |\n| 7 | 0111 | root → 0 → 1 → 1 → 1 |\n\n> 注意：bit2 层的 0 分支（节点 3）和 1 分支（节点 4）各自往下走。节点 3 只有一条路径（对应数 2），节点 4 分出两条路径（对应数 5 和数 7）。\n\n#### 2.2 查询 x = 6（0110）的最大异或\n\n从最高位（bit3）开始逐位贪心：\n\n| 位 | x 的这一位 | 期望走（相反） | 实际走 | 原因 | ans 累计 |\n|----|-----------|--------------|--------|------|----------|\n| 3 | 0 | 1 | 0 | root 的 1 边不存在，只能走 0 | 0 |\n| 2 | 1 | 0 | 0 | 节点 2 的 0 边（节点 3）存在 ✓ | 0 + 4 = 4 |\n| 1 | 1 | 0 | 1 | 节点 3 的 0 边不存在，只能走 1 | 4 |\n| 0 | 0 | 1 | 0 | 节点 5 的 1 边不存在，只能走 0 | 4 |\n\n最终 $\\text{ans} = 4$，对应 $2 \\oplus 6 = 0010 \\oplus 0110 = 0100 = 4$ ✓\n\n**关键直觉**：高位优先，每一位的决策都是\"不可逆\"的——一旦高位确定走哪条路，低位无论如何都弥补不了高位的差距。\n\n### 三、核心操作详解\n\n#### 3.1 insert(num) — 插入一个整数\n\n```\ncur = 1 (root)\nfor i = 31 downto 0:       // 从最高位到最低位\n    k = (num >> i) & 1     // 取出第 i 位\n    if tree[cur].son[k] == 0:\n        tree[cur].son[k] = ++idx   // 不存在则新建节点\n    cur = tree[cur].son[k]         // 沿边下行\n```\n\n与普通 Trie 完全类似，只是字符集只有 `{0, 1}` 两个。32 位 int，每数插入走 32 层。\n\n#### 3.2 find(num) — 查询与 num 的最大异或值\n\n```\ncur = 1 (root)\nans = 0\nfor i = 31 downto 0:\n    desired = 1 - ((num >> i) & 1)   // 期望走相反的位\n    if tree[cur].son[desired] != 0:\n        ans += (1 << i)               // 这一位能取 1，加到答案\n        cur = tree[cur].son[desired]\n    else:\n        cur = tree[cur].son[1 - desired]  // 没有相反边，只能走相同边\nreturn ans\n```\n\n**贪心策略**：每一位优先走**相反**的边（让异或结果的这一位为 1），没有相反边就退而求其次走相同边（这一位为 0）。\n\n#### 3.3 为什么是 31  downto 0\n\n`int` 是 32 位有符号整数，从最高位（第 31 位，符号位）到最低位（第 0 位）。本代码假设所有数都是非负整数，第 31 位始终为 0，但仍然从 31 开始遍历以保证统一处理。\n\n如果题目中都是非负数，也可以从第 30 位开始（跳过符号位），节省一层。但写 31 更通用，代码也更简洁。\n\n### 四、逐行代码解析\n\n#### 4.1 全局定义\n\n```cpp\nconst int sz = 1e5 * 31 + 10;\nstruct node\n{\n\tint son[2];\n\tnode() { son[0] = 0, son[1] = 0; }\n};\nnode tree[sz];\nint idx = 1;\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 1 | `const int sz = 1e5 * 31 + 10;` | 节点总数上界：$10^5$ 个数 × 31 位（实际 32 位，但根节点 1 个，每数新增最多 32 个，所以 $10^5 \\times 31 + 10$ 留有余量） |\n| 2-5 | `struct node { int son[2]; ... };` | 每个节点只有 0、1 两条边，用 `int son[2]` 数组存子节点编号。0 表示\"不存在\" |\n| 4 | `node() { son[0] = 0, son[1] = 0; }` | 构造函数初始化为 0（无儿子） |\n| 6 | `node tree[sz];` | 全局节点数组 |\n| 7 | `int idx = 1;` | 当前最大已分配节点编号。root 是 1，从 1 开始（0 表示\"空\"） |\n\n#### 4.2 insert 函数\n\n```cpp\nvoid insert(int num)\n{\n\tint cur = 1;\n\tfor (int i = 31; i >= 0; --i)\n\t{\n\t\tint k = ((num >> i) & 1) ? 1 : 0;\n\t\tif (tree[cur].son[k] == 0) tree[cur].son[k] = ++idx;\n\t\tcur = tree[cur].son[k];\n\t}\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 2 | `int cur = 1;` | 从 root 开始 |\n| 3 | `for (int i = 31; i >= 0; --i)` | 从最高位（第 31 位）到最低位（第 0 位） |\n| 5 | `int k = ((num >> i) & 1) ? 1 : 0;` | 取出第 $i$ 位的值（0 或 1）。`(num >> i) & 1` 本身就是 0 或 1，三元运算符是冗余保险 |\n| 6 | `if (tree[cur].son[k] == 0) tree[cur].son[k] = ++idx;` | 第 $k$ 条边不存在 → 新建节点，分配新编号 |\n| 7 | `cur = tree[cur].son[k];` | 沿第 $k$ 条边下行 |\n\n#### 4.3 find 函数\n\n```cpp\nint find(int num)\n{\n\tint cur = 1;\n\tint ans = 0;\n\tfor (int i = 31; i >= 0; --i)\n\t{\n\t\tint k = ((num >> i) & 1) ? 0 : 1;\n\t\tif (tree[cur].son[k] == 0) k = k ? 0 : 1;\n\t\telse ans += (1 << i);\n\t\tcur = tree[cur].son[k];\n\t}\n\treturn ans;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 3 | `int ans = 0;` | 最大异或值，初始为 0 |\n| 5 | `int k = ((num >> i) & 1) ? 0 : 1;` | 期望走的边 = num 第 $i$ 位的**相反值**。num 这一位是 1 就想走 0，是 0 就想走 1 |\n| 6 | `if (tree[cur].son[k] == 0) k = k ? 0 : 1;` | 期望边不存在 → 翻转 $k$，只能走相同边。`k ? 0 : 1` 等价于 `1 - k` |\n| 7 | `else ans += (1 << i);` | 期望边存在 → 这一位异或结果为 1，加到答案中 |\n| 8 | `cur = tree[cur].son[k];` | 沿最终选择的边下行 |\n| 10 | `return ans;` | 返回最大异或值 |\n\n**第 6 行的翻转技巧**：`k = k ? 0 : 1` 是一个三元运算翻转。写成 `k = 1 - k` 更直观，效果完全相同。\n\n#### 4.4 main 函数\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint n, q;\n\tcin >> n >> q;\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tint x;\n\t\tcin >> x;\n\t\tinsert(x);\n\t}\n\tfor (int i = 1; i <= q; i++)\n\t{\n\t\tint x;\n\t\tcin >> x;\n\t\tcout << find(x) << '\\n';\n\t}\n\treturn 0;\n}\n```\n\n| 行 | 代码 | 解析 |\n|----|------|------|\n| 5 | `int n, q;` | n 个数，q 个查询 |\n| 7-11 | 插入 n 个数 | 逐个插入 01-Trie |\n| 13-17 | 处理 q 个查询 | 对每个 x 输出 max(a_i ^ x) |\n\n### 五、复杂度分析\n\n| 操作 | 时间复杂度 | 说明 |\n|------|------------|------|\n| `insert(x)` | $O(31)$ | 32 位 int，每数走 32 层，每层 $O(1)$ |\n| `find(x)` | $O(31)$ | 同上 |\n| 总时间 | $O((n+q) \\times 31)$ | 31 是常数，等价于 $O(n+q)$ |\n| 空间 | $O(n \\times 31)$ | 最坏每个数占 32 个新节点 |\n\n**与朴素做法对比**：\n\n| 方法 | 时间 | 适用场景 |\n|------|------|---------|\n| 朴素（暴力） | $O(nq)$ | $n, q$ 极小（如 $n, q \\le 1000$） |\n| 01-Trie | $O(31(n+q))$ | $n, q \\le 10^5$，标准解法 |\n\n**空间上界感受**：$n = 10^5$ 时，节点数约 $10^5 \\times 31 = 3.1 \\times 10^6$，每个节点 2 个 int = 8 字节，总内存约 25 MB，完全在限制内。\n\n### 六、适用场景\n\n| 场景 | 说明 |\n|------|------|\n| 最大异或对 | 数组中选两个数，使异或值最大 |\n| 子数组最大异或 | 前缀异或 + 01-Trie，经典题 |\n| 带插入的最大异或查询 | 动态插入元素，查询当前最大值 |\n| 树上路径异或 | DFS + 01-Trie，求两点路径异或最大值 |\n| 01-Trie 上合并 | 可持久化或子树合并，处理更复杂的问题 |\n\n### 七、常见陷阱与注意事项\n\n#### 1. 位数范围：31 还是 30\n\n`int` 是 32 位有符号数，最高位是符号位。如果题目保证所有数都是非负整数，从第 30 位开始（共 31 位有效数据）也正确。但写 31 更通用，不会因为题目出现负数而出错——只是符号位那一层永远走 0 边，不影响结果。\n\n#### 2. 节点编号从 1 开始，0 表示空\n\n`son[0]` 和 `son[1]` 的初始值都是 0，0 不代表\"第 0 号节点\"，而是\"这条边不存在\"。这就是为什么 `idx` 从 1 开始——把 0 留作空标记。\n\n#### 3. 开数组大小别忘了乘位数\n\n`sz = 1e5 * 31 + 10` 是标准估算。如果写成 `sz = 1e5 + 10`，数组会越界 RE。经验法则：**节点数 = 元素数 × 位数**。\n\n#### 4. 贪心的前提：高位优先\n\n按位贪心的正确性依赖于\"高位的权重大于所有低位之和\"。这在二进制中天然成立（$2^i > 2^{i-1} + 2^{i-2} + \\cdots + 2^0$）。如果换做其他进制（如三进制），需要确认高位权重是否仍大于低位总和。\n\n#### 5. find 函数的\"翻转\"写法\n\n`k = k ? 0 : 1` 等价于 `k = 1 - k`。两种写法都对，但 `1 - k` 更直观。代码用三元运算符是个人风格，不影响正确性。\n\n#### 6. 不能处理负数（除非你知道自己在做什么）\n\n如果数组中有负数，符号位（第 31 位）为 1。直接套用代码会把符号位也参与异或，结果可能不符合预期。处理负数需要特别设计（比如整体偏移 + 用 33 位等）。\n\n#### 7. 多组测试要清空 Trie\n\n本代码是单组测试的模板。如果有多组测试，需要像普通 Trie 那样实现 `clear()` 函数，或使用 `vector` 动态分配。全局数组不清空会导致上一组数据残留。\n\n### 八、对比与扩展\n\n#### 8.1 普通 Trie vs 01-Trie\n\n| 维度 | 普通 Trie（unordered_map 版） | 01-Trie（本代码） |\n|------|----------------------------|-----------------|\n| 字符集 | 任意字符 | {0, 1} |\n| 子边存储 | `unordered_map<char, int>` | `int son[2]` 数组 |\n| 单次操作 | $O(\\|S\\|)$ | $O(31)$ |\n| 常数 | 较大（哈希开销） | 很小（数组下标） |\n| 空间 | 按需分配 | 预分配固定大小 |\n| 适用 | 字符串前缀查询 | 二进制位操作、异或最值 |\n\n#### 8.2 扩展方向\n\n| 扩展 | 说明 |\n|------|------|\n| 子数组最大异或 | 前缀异或数组 + 01-Trie，经典模板题 |\n| 可持久化 01-Trie | 每次插入保留历史版本，支持区间查询最大异或 |\n| 树上路径异或 | DFS 记录根到各节点的异或值 + 01-Trie，求两节点路径最大异或 |\n| 01-Trie + 启发式合并 | 子树合并求子树内最大异或对 |\n| 带删除的 01-Trie | 每个节点加 `cnt` 计数，删除时减计数，为 0 时视为不存在 |\n| 异或最小生成树 | Borůvka 算法 + 01-Trie 加速求最小异或边 |",
         "timeComplexity": "O(|S|)",
         "spaceComplexity": "O(N * |S|)",
         "tags": [
@@ -7624,55 +7719,7 @@ const KNOWLEDGE_DATA = [
             "str-hash",
             "str-kmp",
             "ds-segtree-basic",
-            "ds-trie-01-max-xor"
-        ],
-        "parent": ""
-    },
-    {
-        "id": "ds-trie-01-max-xor",
-        "category": "数据结构",
-        "subcategory": "字典树",
-        "subSubcategory": "",
-        "title": "01-Trie — 最大异或和（按位贪心）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n给定一个整数数组 $a_1, a_2, \\ldots, a_n$，对每个查询整数 $x$，求 $\\max_{i} (a_i \\oplus x)$。朴素做法是对每个查询遍历所有数，复杂度 $O(nq)$，当 $n, q \\ge 10^5$ 时完全不可行。\r\n\r\n### 1.2 核心思想：按位贪心\r\n\r\n异或的性质是**相同为 0，不同为 1**。要让 $a_i \\oplus x$ 最大，就要让高位尽可能是 1：\r\n\r\n- 最高位如果能取到 1，**无论后面的低位是什么，都比最高位为 0 的任何情况更大**\r\n- 这是按位贪心的正确性基础：从最高位到最低位，每一位优先选能让当前位为 1 的路径\r\n\r\n### 1.3 数据结构：01-Trie\r\n\r\n把每个整数的二进制位（从最高位到最低位）依次插入一棵二叉树：\r\n\r\n- 每个节点只有 0、1 两条边（对应二进制位的值）\r\n- 根节点代表\"没有任何位\"\r\n- 从根到叶子的路径 = 一个整数的二进制表示\r\n- 每条路径长度固定 = 总位数（本代码用 32 位，即 int 的位数）\r\n\r\n查询时，从最高位开始：\r\n- 如果当前位的**相反**边存在 → 走过去，答案的这一位是 1\r\n- 如果不存在 → 只能走相同边，这一位是 0\r\n\r\n## 二、数据结构图示\r\n\r\n### 2.1 插入 5, 2, 7 后的 01-Trie（4 位示意）\r\n\r\n5 = 0101，2 = 0010，7 = 0111（从最高位 bit3 到最低位 bit0）\r\n\r\n```\r\n                 [1] root\r\n              0 /\r\n               /\r\n             [2]  bit3 = 0\r\n           0 /   \\ 1\r\n            /     \\\r\n          [3]     [4]  bit2 = 0 / 1\r\n        1 /         \\ 1\r\n         /           \\\r\n       [5]           [6]  bit1 = 1 / 1\r\n      0/             0/ \\1\r\n      /              /   \\\r\n    [7]            [8]  [9]  bit0 = 0 / 1\r\n     2              5     7\r\n   (0010)         (0101) (0111)\r\n```\r\n\r\n三个数的二进制路径：\r\n\r\n| 数 | 二进制 | 路径 |\r\n|----|--------|------|\r\n| 2 | 0010 | root → 0 → 0 → 1 → 0 |\r\n| 5 | 0101 | root → 0 → 1 → 0 → 1 |\r\n| 7 | 0111 | root → 0 → 1 → 1 → 1 |\r\n\r\n> 注意：bit2 层的 0 分支（节点 3）和 1 分支（节点 4）各自往下走。节点 3 只有一条路径（对应数 2），节点 4 分出两条路径（对应数 5 和数 7）。\r\n\r\n### 2.2 查询 x = 6（0110）的最大异或\r\n\r\n从最高位（bit3）开始逐位贪心：\r\n\r\n| 位 | x 的这一位 | 期望走（相反） | 实际走 | 原因 | ans 累计 |\r\n|----|-----------|--------------|--------|------|----------|\r\n| 3 | 0 | 1 | 0 | root 的 1 边不存在，只能走 0 | 0 |\r\n| 2 | 1 | 0 | 0 | 节点 2 的 0 边（节点 3）存在 ✓ | 0 + 4 = 4 |\r\n| 1 | 1 | 0 | 1 | 节点 3 的 0 边不存在，只能走 1 | 4 |\r\n| 0 | 0 | 1 | 0 | 节点 5 的 1 边不存在，只能走 0 | 4 |\r\n\r\n最终 $\\text{ans} = 4$，对应 $2 \\oplus 6 = 0010 \\oplus 0110 = 0100 = 4$ ✓\r\n\r\n**关键直觉**：高位优先，每一位的决策都是\"不可逆\"的——一旦高位确定走哪条路，低位无论如何都弥补不了高位的差距。\r\n\r\n## 三、核心操作详解\r\n\r\n### 3.1 insert(num) — 插入一个整数\r\n\r\n```\r\ncur = 1 (root)\r\nfor i = 31 downto 0:       // 从最高位到最低位\r\n    k = (num >> i) & 1     // 取出第 i 位\r\n    if tree[cur].son[k] == 0:\r\n        tree[cur].son[k] = ++idx   // 不存在则新建节点\r\n    cur = tree[cur].son[k]         // 沿边下行\r\n```\r\n\r\n与普通 Trie 完全类似，只是字符集只有 `{0, 1}` 两个。32 位 int，每数插入走 32 层。\r\n\r\n### 3.2 find(num) — 查询与 num 的最大异或值\r\n\r\n```\r\ncur = 1 (root)\r\nans = 0\r\nfor i = 31 downto 0:\r\n    desired = 1 - ((num >> i) & 1)   // 期望走相反的位\r\n    if tree[cur].son[desired] != 0:\r\n        ans += (1 << i)               // 这一位能取 1，加到答案\r\n        cur = tree[cur].son[desired]\r\n    else:\r\n        cur = tree[cur].son[1 - desired]  // 没有相反边，只能走相同边\r\nreturn ans\r\n```\r\n\r\n**贪心策略**：每一位优先走**相反**的边（让异或结果的这一位为 1），没有相反边就退而求其次走相同边（这一位为 0）。\r\n\r\n### 3.3 为什么是 31  downto 0\r\n\r\n`int` 是 32 位有符号整数，从最高位（第 31 位，符号位）到最低位（第 0 位）。本代码假设所有数都是非负整数，第 31 位始终为 0，但仍然从 31 开始遍历以保证统一处理。\r\n\r\n如果题目中都是非负数，也可以从第 30 位开始（跳过符号位），节省一层。但写 31 更通用，代码也更简洁。\r\n\r\n## 四、逐行代码解析\r\n\r\n### 4.1 全局定义\r\n\r\n```cpp\r\nconst int sz = 1e5 * 31 + 10;\r\nstruct node\r\n{\r\n\tint son[2];\r\n\tnode() { son[0] = 0, son[1] = 0; }\r\n};\r\nnode tree[sz];\r\nint idx = 1;\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `const int sz = 1e5 * 31 + 10;` | 节点总数上界：$10^5$ 个数 × 31 位（实际 32 位，但根节点 1 个，每数新增最多 32 个，所以 $10^5 \\times 31 + 10$ 留有余量） |\r\n| 2-5 | `struct node { int son[2]; ... };` | 每个节点只有 0、1 两条边，用 `int son[2]` 数组存子节点编号。0 表示\"不存在\" |\r\n| 4 | `node() { son[0] = 0, son[1] = 0; }` | 构造函数初始化为 0（无儿子） |\r\n| 6 | `node tree[sz];` | 全局节点数组 |\r\n| 7 | `int idx = 1;` | 当前最大已分配节点编号。root 是 1，从 1 开始（0 表示\"空\"） |\r\n\r\n### 4.2 insert 函数\r\n\r\n```cpp\r\nvoid insert(int num)\r\n{\r\n\tint cur = 1;\r\n\tfor (int i = 31; i >= 0; --i)\r\n\t{\r\n\t\tint k = ((num >> i) & 1) ? 1 : 0;\r\n\t\tif (tree[cur].son[k] == 0) tree[cur].son[k] = ++idx;\r\n\t\tcur = tree[cur].son[k];\r\n\t}\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int cur = 1;` | 从 root 开始 |\r\n| 3 | `for (int i = 31; i >= 0; --i)` | 从最高位（第 31 位）到最低位（第 0 位） |\r\n| 5 | `int k = ((num >> i) & 1) ? 1 : 0;` | 取出第 $i$ 位的值（0 或 1）。`(num >> i) & 1` 本身就是 0 或 1，三元运算符是冗余保险 |\r\n| 6 | `if (tree[cur].son[k] == 0) tree[cur].son[k] = ++idx;` | 第 $k$ 条边不存在 → 新建节点，分配新编号 |\r\n| 7 | `cur = tree[cur].son[k];` | 沿第 $k$ 条边下行 |\r\n\r\n### 4.3 find 函数\r\n\r\n```cpp\r\nint find(int num)\r\n{\r\n\tint cur = 1;\r\n\tint ans = 0;\r\n\tfor (int i = 31; i >= 0; --i)\r\n\t{\r\n\t\tint k = ((num >> i) & 1) ? 0 : 1;\r\n\t\tif (tree[cur].son[k] == 0) k = k ? 0 : 1;\r\n\t\telse ans += (1 << i);\r\n\t\tcur = tree[cur].son[k];\r\n\t}\r\n\treturn ans;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 3 | `int ans = 0;` | 最大异或值，初始为 0 |\r\n| 5 | `int k = ((num >> i) & 1) ? 0 : 1;` | 期望走的边 = num 第 $i$ 位的**相反值**。num 这一位是 1 就想走 0，是 0 就想走 1 |\r\n| 6 | `if (tree[cur].son[k] == 0) k = k ? 0 : 1;` | 期望边不存在 → 翻转 $k$，只能走相同边。`k ? 0 : 1` 等价于 `1 - k` |\r\n| 7 | `else ans += (1 << i);` | 期望边存在 → 这一位异或结果为 1，加到答案中 |\r\n| 8 | `cur = tree[cur].son[k];` | 沿最终选择的边下行 |\r\n| 10 | `return ans;` | 返回最大异或值 |\r\n\r\n**第 6 行的翻转技巧**：`k = k ? 0 : 1` 是一个三元运算翻转。写成 `k = 1 - k` 更直观，效果完全相同。\r\n\r\n### 4.4 main 函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint n, q;\r\n\tcin >> n >> q;\r\n\tfor (int i = 1; i <= n; i++)\r\n\t{\r\n\t\tint x;\r\n\t\tcin >> x;\r\n\t\tinsert(x);\r\n\t}\r\n\tfor (int i = 1; i <= q; i++)\r\n\t{\r\n\t\tint x;\r\n\t\tcin >> x;\r\n\t\tcout << find(x) << '\\n';\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 5 | `int n, q;` | n 个数，q 个查询 |\r\n| 7-11 | 插入 n 个数 | 逐个插入 01-Trie |\r\n| 13-17 | 处理 q 个查询 | 对每个 x 输出 max(a_i ^ x) |\r\n\r\n## 五、复杂度分析\r\n\r\n| 操作 | 时间复杂度 | 说明 |\r\n|------|------------|------|\r\n| `insert(x)` | $O(31)$ | 32 位 int，每数走 32 层，每层 $O(1)$ |\r\n| `find(x)` | $O(31)$ | 同上 |\r\n| 总时间 | $O((n+q) \\times 31)$ | 31 是常数，等价于 $O(n+q)$ |\r\n| 空间 | $O(n \\times 31)$ | 最坏每个数占 32 个新节点 |\r\n\r\n**与朴素做法对比**：\r\n\r\n| 方法 | 时间 | 适用场景 |\r\n|------|------|---------|\r\n| 朴素（暴力） | $O(nq)$ | $n, q$ 极小（如 $n, q \\le 1000$） |\r\n| 01-Trie | $O(31(n+q))$ | $n, q \\le 10^5$，标准解法 |\r\n\r\n**空间上界感受**：$n = 10^5$ 时，节点数约 $10^5 \\times 31 = 3.1 \\times 10^6$，每个节点 2 个 int = 8 字节，总内存约 25 MB，完全在限制内。\r\n\r\n## 六、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| 最大异或对 | 数组中选两个数，使异或值最大 |\r\n| 子数组最大异或 | 前缀异或 + 01-Trie，经典题 |\r\n| 带插入的最大异或查询 | 动态插入元素，查询当前最大值 |\r\n| 树上路径异或 | DFS + 01-Trie，求两点路径异或最大值 |\r\n| 01-Trie 上合并 | 可持久化或子树合并，处理更复杂的问题 |\r\n\r\n## 七、常见陷阱与注意事项\r\n\r\n### 1. 位数范围：31 还是 30\r\n\r\n`int` 是 32 位有符号数，最高位是符号位。如果题目保证所有数都是非负整数，从第 30 位开始（共 31 位有效数据）也正确。但写 31 更通用，不会因为题目出现负数而出错——只是符号位那一层永远走 0 边，不影响结果。\r\n\r\n### 2. 节点编号从 1 开始，0 表示空\r\n\r\n`son[0]` 和 `son[1]` 的初始值都是 0，0 不代表\"第 0 号节点\"，而是\"这条边不存在\"。这就是为什么 `idx` 从 1 开始——把 0 留作空标记。\r\n\r\n### 3. 开数组大小别忘了乘位数\r\n\r\n`sz = 1e5 * 31 + 10` 是标准估算。如果写成 `sz = 1e5 + 10`，数组会越界 RE。经验法则：**节点数 = 元素数 × 位数**。\r\n\r\n### 4. 贪心的前提：高位优先\r\n\r\n按位贪心的正确性依赖于\"高位的权重大于所有低位之和\"。这在二进制中天然成立（$2^i > 2^{i-1} + 2^{i-2} + \\cdots + 2^0$）。如果换做其他进制（如三进制），需要确认高位权重是否仍大于低位总和。\r\n\r\n### 5. find 函数的\"翻转\"写法\r\n\r\n`k = k ? 0 : 1` 等价于 `k = 1 - k`。两种写法都对，但 `1 - k` 更直观。代码用三元运算符是个人风格，不影响正确性。\r\n\r\n### 6. 不能处理负数（除非你知道自己在做什么）\r\n\r\n如果数组中有负数，符号位（第 31 位）为 1。直接套用代码会把符号位也参与异或，结果可能不符合预期。处理负数需要特别设计（比如整体偏移 + 用 33 位等）。\r\n\r\n### 7. 多组测试要清空 Trie\r\n\r\n本代码是单组测试的模板。如果有多组测试，需要像普通 Trie 那样实现 `clear()` 函数，或使用 `vector` 动态分配。全局数组不清空会导致上一组数据残留。\r\n\r\n## 八、对比与扩展\r\n\r\n### 8.1 普通 Trie vs 01-Trie\r\n\r\n| 维度 | 普通 Trie（unordered_map 版） | 01-Trie（本代码） |\r\n|------|----------------------------|-----------------|\r\n| 字符集 | 任意字符 | {0, 1} |\r\n| 子边存储 | `unordered_map<char, int>` | `int son[2]` 数组 |\r\n| 单次操作 | $O(\\|S\\|)$ | $O(31)$ |\r\n| 常数 | 较大（哈希开销） | 很小（数组下标） |\r\n| 空间 | 按需分配 | 预分配固定大小 |\r\n| 适用 | 字符串前缀查询 | 二进制位操作、异或最值 |\r\n\r\n### 8.2 扩展方向\r\n\r\n| 扩展 | 说明 |\r\n|------|------|\r\n| 子数组最大异或 | 前缀异或数组 + 01-Trie，经典模板题 |\r\n| 可持久化 01-Trie | 每次插入保留历史版本，支持区间查询最大异或 |\r\n| 树上路径异或 | DFS 记录根到各节点的异或值 + 01-Trie，求两节点路径最大异或 |\r\n| 01-Trie + 启发式合并 | 子树合并求子树内最大异或对 |\r\n| 带删除的 01-Trie | 每个节点加 `cnt` 计数，删除时减计数，为 0 时视为不存在 |\r\n| 异或最小生成树 | Borůvka 算法 + 01-Trie 加速求最小异或边 |",
-                "codePath": "数据结构\\字典树\\01Trie最大异或\\源.cpp",
-                "timeComplexity": "O(31n)",
-                "spaceComplexity": "O(31n)",
-                "tags": [
-                    "数据结构",
-                    "字典树",
-                    "01-Trie",
-                    "最大异或",
-                    "按位贪心",
-                    "前缀树"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 一、算法原理\r\n\r\n### 1.1 问题背景\r\n\r\n给定一个整数数组 $a_1, a_2, \\ldots, a_n$，对每个查询整数 $x$，求 $\\max_{i} (a_i \\oplus x)$。朴素做法是对每个查询遍历所有数，复杂度 $O(nq)$，当 $n, q \\ge 10^5$ 时完全不可行。\r\n\r\n### 1.2 核心思想：按位贪心\r\n\r\n异或的性质是**相同为 0，不同为 1**。要让 $a_i \\oplus x$ 最大，就要让高位尽可能是 1：\r\n\r\n- 最高位如果能取到 1，**无论后面的低位是什么，都比最高位为 0 的任何情况更大**\r\n- 这是按位贪心的正确性基础：从最高位到最低位，每一位优先选能让当前位为 1 的路径\r\n\r\n### 1.3 数据结构：01-Trie\r\n\r\n把每个整数的二进制位（从最高位到最低位）依次插入一棵二叉树：\r\n\r\n- 每个节点只有 0、1 两条边（对应二进制位的值）\r\n- 根节点代表\"没有任何位\"\r\n- 从根到叶子的路径 = 一个整数的二进制表示\r\n- 每条路径长度固定 = 总位数（本代码用 32 位，即 int 的位数）\r\n\r\n查询时，从最高位开始：\r\n- 如果当前位的**相反**边存在 → 走过去，答案的这一位是 1\r\n- 如果不存在 → 只能走相同边，这一位是 0\r\n\r\n## 二、数据结构图示\r\n\r\n### 2.1 插入 5, 2, 7 后的 01-Trie（4 位示意）\r\n\r\n5 = 0101，2 = 0010，7 = 0111（从最高位 bit3 到最低位 bit0）\r\n\r\n```\r\n                 [1] root\r\n              0 /\r\n               /\r\n             [2]  bit3 = 0\r\n           0 /   \\ 1\r\n            /     \\\r\n          [3]     [4]  bit2 = 0 / 1\r\n        1 /         \\ 1\r\n         /           \\\r\n       [5]           [6]  bit1 = 1 / 1\r\n      0/             0/ \\1\r\n      /              /   \\\r\n    [7]            [8]  [9]  bit0 = 0 / 1\r\n     2              5     7\r\n   (0010)         (0101) (0111)\r\n```\r\n\r\n三个数的二进制路径：\r\n\r\n| 数 | 二进制 | 路径 |\r\n|----|--------|------|\r\n| 2 | 0010 | root → 0 → 0 → 1 → 0 |\r\n| 5 | 0101 | root → 0 → 1 → 0 → 1 |\r\n| 7 | 0111 | root → 0 → 1 → 1 → 1 |\r\n\r\n> 注意：bit2 层的 0 分支（节点 3）和 1 分支（节点 4）各自往下走。节点 3 只有一条路径（对应数 2），节点 4 分出两条路径（对应数 5 和数 7）。\r\n\r\n### 2.2 查询 x = 6（0110）的最大异或\r\n\r\n从最高位（bit3）开始逐位贪心：\r\n\r\n| 位 | x 的这一位 | 期望走（相反） | 实际走 | 原因 | ans 累计 |\r\n|----|-----------|--------------|--------|------|----------|\r\n| 3 | 0 | 1 | 0 | root 的 1 边不存在，只能走 0 | 0 |\r\n| 2 | 1 | 0 | 0 | 节点 2 的 0 边（节点 3）存在 ✓ | 0 + 4 = 4 |\r\n| 1 | 1 | 0 | 1 | 节点 3 的 0 边不存在，只能走 1 | 4 |\r\n| 0 | 0 | 1 | 0 | 节点 5 的 1 边不存在，只能走 0 | 4 |\r\n\r\n最终 $\\text{ans} = 4$，对应 $2 \\oplus 6 = 0010 \\oplus 0110 = 0100 = 4$ ✓\r\n\r\n**关键直觉**：高位优先，每一位的决策都是\"不可逆\"的——一旦高位确定走哪条路，低位无论如何都弥补不了高位的差距。\r\n\r\n## 三、核心操作详解\r\n\r\n### 3.1 insert(num) — 插入一个整数\r\n\r\n```\r\ncur = 1 (root)\r\nfor i = 31 downto 0:       // 从最高位到最低位\r\n    k = (num >> i) & 1     // 取出第 i 位\r\n    if tree[cur].son[k] == 0:\r\n        tree[cur].son[k] = ++idx   // 不存在则新建节点\r\n    cur = tree[cur].son[k]         // 沿边下行\r\n```\r\n\r\n与普通 Trie 完全类似，只是字符集只有 `{0, 1}` 两个。32 位 int，每数插入走 32 层。\r\n\r\n### 3.2 find(num) — 查询与 num 的最大异或值\r\n\r\n```\r\ncur = 1 (root)\r\nans = 0\r\nfor i = 31 downto 0:\r\n    desired = 1 - ((num >> i) & 1)   // 期望走相反的位\r\n    if tree[cur].son[desired] != 0:\r\n        ans += (1 << i)               // 这一位能取 1，加到答案\r\n        cur = tree[cur].son[desired]\r\n    else:\r\n        cur = tree[cur].son[1 - desired]  // 没有相反边，只能走相同边\r\nreturn ans\r\n```\r\n\r\n**贪心策略**：每一位优先走**相反**的边（让异或结果的这一位为 1），没有相反边就退而求其次走相同边（这一位为 0）。\r\n\r\n### 3.3 为什么是 31  downto 0\r\n\r\n`int` 是 32 位有符号整数，从最高位（第 31 位，符号位）到最低位（第 0 位）。本代码假设所有数都是非负整数，第 31 位始终为 0，但仍然从 31 开始遍历以保证统一处理。\r\n\r\n如果题目中都是非负数，也可以从第 30 位开始（跳过符号位），节省一层。但写 31 更通用，代码也更简洁。\r\n\r\n## 四、逐行代码解析\r\n\r\n### 4.1 全局定义\r\n\r\n```cpp\r\nconst int sz = 1e5 * 31 + 10;\r\nstruct node\r\n{\r\n\tint son[2];\r\n\tnode() { son[0] = 0, son[1] = 0; }\r\n};\r\nnode tree[sz];\r\nint idx = 1;\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 1 | `const int sz = 1e5 * 31 + 10;` | 节点总数上界：$10^5$ 个数 × 31 位（实际 32 位，但根节点 1 个，每数新增最多 32 个，所以 $10^5 \\times 31 + 10$ 留有余量） |\r\n| 2-5 | `struct node { int son[2]; ... };` | 每个节点只有 0、1 两条边，用 `int son[2]` 数组存子节点编号。0 表示\"不存在\" |\r\n| 4 | `node() { son[0] = 0, son[1] = 0; }` | 构造函数初始化为 0（无儿子） |\r\n| 6 | `node tree[sz];` | 全局节点数组 |\r\n| 7 | `int idx = 1;` | 当前最大已分配节点编号。root 是 1，从 1 开始（0 表示\"空\"） |\r\n\r\n### 4.2 insert 函数\r\n\r\n```cpp\r\nvoid insert(int num)\r\n{\r\n\tint cur = 1;\r\n\tfor (int i = 31; i >= 0; --i)\r\n\t{\r\n\t\tint k = ((num >> i) & 1) ? 1 : 0;\r\n\t\tif (tree[cur].son[k] == 0) tree[cur].son[k] = ++idx;\r\n\t\tcur = tree[cur].son[k];\r\n\t}\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 2 | `int cur = 1;` | 从 root 开始 |\r\n| 3 | `for (int i = 31; i >= 0; --i)` | 从最高位（第 31 位）到最低位（第 0 位） |\r\n| 5 | `int k = ((num >> i) & 1) ? 1 : 0;` | 取出第 $i$ 位的值（0 或 1）。`(num >> i) & 1` 本身就是 0 或 1，三元运算符是冗余保险 |\r\n| 6 | `if (tree[cur].son[k] == 0) tree[cur].son[k] = ++idx;` | 第 $k$ 条边不存在 → 新建节点，分配新编号 |\r\n| 7 | `cur = tree[cur].son[k];` | 沿第 $k$ 条边下行 |\r\n\r\n### 4.3 find 函数\r\n\r\n```cpp\r\nint find(int num)\r\n{\r\n\tint cur = 1;\r\n\tint ans = 0;\r\n\tfor (int i = 31; i >= 0; --i)\r\n\t{\r\n\t\tint k = ((num >> i) & 1) ? 0 : 1;\r\n\t\tif (tree[cur].son[k] == 0) k = k ? 0 : 1;\r\n\t\telse ans += (1 << i);\r\n\t\tcur = tree[cur].son[k];\r\n\t}\r\n\treturn ans;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 3 | `int ans = 0;` | 最大异或值，初始为 0 |\r\n| 5 | `int k = ((num >> i) & 1) ? 0 : 1;` | 期望走的边 = num 第 $i$ 位的**相反值**。num 这一位是 1 就想走 0，是 0 就想走 1 |\r\n| 6 | `if (tree[cur].son[k] == 0) k = k ? 0 : 1;` | 期望边不存在 → 翻转 $k$，只能走相同边。`k ? 0 : 1` 等价于 `1 - k` |\r\n| 7 | `else ans += (1 << i);` | 期望边存在 → 这一位异或结果为 1，加到答案中 |\r\n| 8 | `cur = tree[cur].son[k];` | 沿最终选择的边下行 |\r\n| 10 | `return ans;` | 返回最大异或值 |\r\n\r\n**第 6 行的翻转技巧**：`k = k ? 0 : 1` 是一个三元运算翻转。写成 `k = 1 - k` 更直观，效果完全相同。\r\n\r\n### 4.4 main 函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint n, q;\r\n\tcin >> n >> q;\r\n\tfor (int i = 1; i <= n; i++)\r\n\t{\r\n\t\tint x;\r\n\t\tcin >> x;\r\n\t\tinsert(x);\r\n\t}\r\n\tfor (int i = 1; i <= q; i++)\r\n\t{\r\n\t\tint x;\r\n\t\tcin >> x;\r\n\t\tcout << find(x) << '\\n';\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n| 行 | 代码 | 解析 |\r\n|----|------|------|\r\n| 5 | `int n, q;` | n 个数，q 个查询 |\r\n| 7-11 | 插入 n 个数 | 逐个插入 01-Trie |\r\n| 13-17 | 处理 q 个查询 | 对每个 x 输出 max(a_i ^ x) |\r\n\r\n## 五、复杂度分析\r\n\r\n| 操作 | 时间复杂度 | 说明 |\r\n|------|------------|------|\r\n| `insert(x)` | $O(31)$ | 32 位 int，每数走 32 层，每层 $O(1)$ |\r\n| `find(x)` | $O(31)$ | 同上 |\r\n| 总时间 | $O((n+q) \\times 31)$ | 31 是常数，等价于 $O(n+q)$ |\r\n| 空间 | $O(n \\times 31)$ | 最坏每个数占 32 个新节点 |\r\n\r\n**与朴素做法对比**：\r\n\r\n| 方法 | 时间 | 适用场景 |\r\n|------|------|---------|\r\n| 朴素（暴力） | $O(nq)$ | $n, q$ 极小（如 $n, q \\le 1000$） |\r\n| 01-Trie | $O(31(n+q))$ | $n, q \\le 10^5$，标准解法 |\r\n\r\n**空间上界感受**：$n = 10^5$ 时，节点数约 $10^5 \\times 31 = 3.1 \\times 10^6$，每个节点 2 个 int = 8 字节，总内存约 25 MB，完全在限制内。\r\n\r\n## 六、适用场景\r\n\r\n| 场景 | 说明 |\r\n|------|------|\r\n| 最大异或对 | 数组中选两个数，使异或值最大 |\r\n| 子数组最大异或 | 前缀异或 + 01-Trie，经典题 |\r\n| 带插入的最大异或查询 | 动态插入元素，查询当前最大值 |\r\n| 树上路径异或 | DFS + 01-Trie，求两点路径异或最大值 |\r\n| 01-Trie 上合并 | 可持久化或子树合并，处理更复杂的问题 |\r\n\r\n## 七、常见陷阱与注意事项\r\n\r\n### 1. 位数范围：31 还是 30\r\n\r\n`int` 是 32 位有符号数，最高位是符号位。如果题目保证所有数都是非负整数，从第 30 位开始（共 31 位有效数据）也正确。但写 31 更通用，不会因为题目出现负数而出错——只是符号位那一层永远走 0 边，不影响结果。\r\n\r\n### 2. 节点编号从 1 开始，0 表示空\r\n\r\n`son[0]` 和 `son[1]` 的初始值都是 0，0 不代表\"第 0 号节点\"，而是\"这条边不存在\"。这就是为什么 `idx` 从 1 开始——把 0 留作空标记。\r\n\r\n### 3. 开数组大小别忘了乘位数\r\n\r\n`sz = 1e5 * 31 + 10` 是标准估算。如果写成 `sz = 1e5 + 10`，数组会越界 RE。经验法则：**节点数 = 元素数 × 位数**。\r\n\r\n### 4. 贪心的前提：高位优先\r\n\r\n按位贪心的正确性依赖于\"高位的权重大于所有低位之和\"。这在二进制中天然成立（$2^i > 2^{i-1} + 2^{i-2} + \\cdots + 2^0$）。如果换做其他进制（如三进制），需要确认高位权重是否仍大于低位总和。\r\n\r\n### 5. find 函数的\"翻转\"写法\r\n\r\n`k = k ? 0 : 1` 等价于 `k = 1 - k`。两种写法都对，但 `1 - k` 更直观。代码用三元运算符是个人风格，不影响正确性。\r\n\r\n### 6. 不能处理负数（除非你知道自己在做什么）\r\n\r\n如果数组中有负数，符号位（第 31 位）为 1。直接套用代码会把符号位也参与异或，结果可能不符合预期。处理负数需要特别设计（比如整体偏移 + 用 33 位等）。\r\n\r\n### 7. 多组测试要清空 Trie\r\n\r\n本代码是单组测试的模板。如果有多组测试，需要像普通 Trie 那样实现 `clear()` 函数，或使用 `vector` 动态分配。全局数组不清空会导致上一组数据残留。\r\n\r\n## 八、对比与扩展\r\n\r\n### 8.1 普通 Trie vs 01-Trie\r\n\r\n| 维度 | 普通 Trie（unordered_map 版） | 01-Trie（本代码） |\r\n|------|----------------------------|-----------------|\r\n| 字符集 | 任意字符 | {0, 1} |\r\n| 子边存储 | `unordered_map<char, int>` | `int son[2]` 数组 |\r\n| 单次操作 | $O(\\|S\\|)$ | $O(31)$ |\r\n| 常数 | 较大（哈希开销） | 很小（数组下标） |\r\n| 空间 | 按需分配 | 预分配固定大小 |\r\n| 适用 | 字符串前缀查询 | 二进制位操作、异或最值 |\r\n\r\n### 8.2 扩展方向\r\n\r\n| 扩展 | 说明 |\r\n|------|------|\r\n| 子数组最大异或 | 前缀异或数组 + 01-Trie，经典模板题 |\r\n| 可持久化 01-Trie | 每次插入保留历史版本，支持区间查询最大异或 |\r\n| 树上路径异或 | DFS 记录根到各节点的异或值 + 01-Trie，求两节点路径最大异或 |\r\n| 01-Trie + 启发式合并 | 子树合并求子树内最大异或对 |\r\n| 带删除的 01-Trie | 每个节点加 `cnt` 计数，删除时减计数，为 0 时视为不存在 |\r\n| 异或最小生成树 | Borůvka 算法 + 01-Trie 加速求最小异或边 |",
-        "timeComplexity": "O(31n)",
-        "spaceComplexity": "O(31n)",
-        "tags": [
-            "数据结构",
-            "字典树",
-            "01-Trie",
-            "最大异或",
-            "按位贪心",
-            "前缀树"
-        ],
-        "codePath": "数据结构\\字典树\\01Trie最大异或\\源.cpp",
-        "prerequisites": [
-            "ds-trie",
-            "hub-str"
-        ],
-        "related": [
-            "math-quick-pow-basic",
-            "ds-segtree-basic",
-            "ds-trie"
+            "math-quick-pow-basic"
         ],
         "parent": ""
     },
@@ -7725,7 +7772,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\并查集\\并查集(基础)\\基础\\Untitled1.cpp",
         "prerequisites": [
-            "hub-ds"
+            "hub-ds",
+            "ds-uf-overview"
         ],
         "related": [
             "ds-uf-rank",
@@ -7734,7 +7782,7 @@ const KNOWLEDGE_DATA = [
             "ds-uf-weighted-old",
             "graph-lca-tarjan"
         ],
-        "parent": ""
+        "parent": "ds-uf-overview"
     },
     {
         "id": "ds-uf-extended-domain",
@@ -7772,12 +7820,54 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\并查集\\并查集(扩展域并查集)\\Untitled1.cpp",
         "prerequisites": [
-            "ds-uf-basic"
+            "ds-uf-basic",
+            "ds-uf-overview"
         ],
         "related": [
             "ds-uf-basic",
             "ds-uf-weighted-food"
         ],
+        "parent": "ds-uf-overview"
+    },
+    {
+        "id": "ds-uf-overview",
+        "category": "数据结构",
+        "subcategory": "并查集",
+        "subSubcategory": "",
+        "title": "并查集总览（基础 / 按秩 / 扩展域 / 带权）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「并查集」的二级栏目索引，把基础实现、按秩合并、扩展域与带权并查集收在同一入口下，具体推导与代码分别在各子页。\r\n\r\n**学习顺序**：先看「并查集（基础）」掌握 `find` / `union` 与路径压缩；再补「按秩优化」理解复杂度；最后按题型选「扩展域」或「带权」。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 用哪篇 |\r\n|---|---|\r\n| 只维护连通性（朋友关系） | 并查集（基础 - 仅路径压缩） |\r\n| 想控制树高、保证复杂度 | 并查集（带秩优化） |\r\n| 敌人的敌人是朋友、种类关系 | 扩展域并查集（P1892） |\r\n| 边权/相对关系可累加 | 带权并查集（食物链 P2024） |\r\n| 带权并查集的另一道模板 | 带权并查集（蓝桥杯 1156） |\r\n\r\n## 逐行代码解析\r\n\r\n本页是索引入口，不重复贴代码；每个子页都给出了对应实现的逐行解析与完整 `.cpp`。\r\n\r\n## 复杂度分析\r\n\r\n按子条目而定：基础并查集配合路径压缩为均摊 $O(\\log n)$；再配合按秩（启发式合并）可降到均摊 $O(\\alpha(n))$。\r\n\r\n## 适用场景\r\n\r\n- 动态连通性维护、Kruskal 求最小生成树\r\n- 关系推理（敌人/朋友、种类并查集）\r\n- 带权路径上的相对量维护（食物链、蓝桥 1156）\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 只写路径压缩、不写按秩合并时，不能声称复杂度是 $O(\\alpha(n))$。\r\n- 扩展域并查集要开双倍或三倍点，别把 `i` 与 `i+n` 写混。\r\n- 带权并查集的边权在路径压缩时要同步累加，`find` 里不能只改父指针。\r\n- 多组数据记得重置 `fa` 与 `d` 数组。\r\n- 递归 `find` 在链很长时有栈风险，必要时改迭代。\r\n\r\n## 对比与扩展\r\n\r\n- 与 DFS/BFS 求连通块相比，并查集支持在线加边。\r\n- 与「种类并查集」相比，扩展域是更通用的建模方式。\r\n- 可扩展到可撤销并查集（按秩合并、不能路径压缩）与可持久化并查集。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "并查集",
+                    "总览",
+                    "学习路线",
+                    "路径压缩",
+                    "带权并查集"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「并查集」的二级栏目索引，把基础实现、按秩合并、扩展域与带权并查集收在同一入口下，具体推导与代码分别在各子页。\r\n\r\n**学习顺序**：先看「并查集（基础）」掌握 `find` / `union` 与路径压缩；再补「按秩优化」理解复杂度；最后按题型选「扩展域」或「带权」。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 用哪篇 |\r\n|---|---|\r\n| 只维护连通性（朋友关系） | 并查集（基础 - 仅路径压缩） |\r\n| 想控制树高、保证复杂度 | 并查集（带秩优化） |\r\n| 敌人的敌人是朋友、种类关系 | 扩展域并查集（P1892） |\r\n| 边权/相对关系可累加 | 带权并查集（食物链 P2024） |\r\n| 带权并查集的另一道模板 | 带权并查集（蓝桥杯 1156） |\r\n\r\n## 逐行代码解析\r\n\r\n本页是索引入口，不重复贴代码；每个子页都给出了对应实现的逐行解析与完整 `.cpp`。\r\n\r\n## 复杂度分析\r\n\r\n按子条目而定：基础并查集配合路径压缩为均摊 $O(\\log n)$；再配合按秩（启发式合并）可降到均摊 $O(\\alpha(n))$。\r\n\r\n## 适用场景\r\n\r\n- 动态连通性维护、Kruskal 求最小生成树\r\n- 关系推理（敌人/朋友、种类并查集）\r\n- 带权路径上的相对量维护（食物链、蓝桥 1156）\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 只写路径压缩、不写按秩合并时，不能声称复杂度是 $O(\\alpha(n))$。\r\n- 扩展域并查集要开双倍或三倍点，别把 `i` 与 `i+n` 写混。\r\n- 带权并查集的边权在路径压缩时要同步累加，`find` 里不能只改父指针。\r\n- 多组数据记得重置 `fa` 与 `d` 数组。\r\n- 递归 `find` 在链很长时有栈风险，必要时改迭代。\r\n\r\n## 对比与扩展\r\n\r\n- 与 DFS/BFS 求连通块相比，并查集支持在线加边。\r\n- 与「种类并查集」相比，扩展域是更通用的建模方式。\r\n- 可扩展到可撤销并查集（按秩合并、不能路径压缩）与可持久化并查集。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "并查集",
+            "总览",
+            "学习路线",
+            "路径压缩",
+            "带权并查集"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-ds"
+        ],
+        "related": [],
         "parent": ""
     },
     {
@@ -7816,13 +7906,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\并查集\\并查集(基础)\\带秩优化\\Untitled1.cpp",
         "prerequisites": [
-            "ds-uf-basic"
+            "ds-uf-basic",
+            "ds-uf-overview"
         ],
         "related": [
             "ds-uf-basic",
             "ds-uf-weighted-old"
         ],
-        "parent": ""
+        "parent": "ds-uf-overview"
     },
     {
         "id": "ds-uf-weighted-food",
@@ -7860,13 +7951,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\并查集\\并查集(带权)\\扩展题目\\Untitled1.cpp",
         "prerequisites": [
-            "ds-uf-weighted-old"
+            "ds-uf-weighted-old",
+            "ds-uf-overview"
         ],
         "related": [
             "ds-uf-weighted-old",
             "ds-uf-extended-domain"
         ],
-        "parent": ""
+        "parent": "ds-uf-overview"
     },
     {
         "id": "ds-uf-weighted-old",
@@ -7902,14 +7994,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数据结构\\并查集\\并查集(带权)\\以前没有学的时候写的\\Untitled1.cpp",
         "prerequisites": [
-            "ds-uf-basic"
+            "ds-uf-basic",
+            "ds-uf-overview"
         ],
         "related": [
             "ds-uf-weighted-food",
             "ds-uf-basic",
             "ds-uf-rank"
         ],
-        "parent": ""
+        "parent": "ds-uf-overview"
     },
     {
         "id": "exam-bit-operation",
@@ -7959,7 +8052,7 @@ const KNOWLEDGE_DATA = [
             "basic-digit-power-cycle-self",
             "exam-csp-s-2026-round1"
         ],
-        "parent": ""
+        "parent": "hub-exam"
     },
     {
         "id": "exam-csp-s-2026-round1",
@@ -8004,7 +8097,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "exam-bit-operation"
         ],
-        "parent": ""
+        "parent": "hub-exam"
     },
     {
         "id": "gram-auto",
@@ -8047,7 +8140,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "gram-macro"
         ],
-        "parent": ""
+        "parent": "hub-gram"
     },
     {
         "id": "gram-builtin",
@@ -8090,7 +8183,7 @@ const KNOWLEDGE_DATA = [
             "hub-gram"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-gram"
     },
     {
         "id": "gram-io-tips",
@@ -8133,7 +8226,7 @@ const KNOWLEDGE_DATA = [
             "hub-io"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-io"
     },
     {
         "id": "gram-local-debug",
@@ -8176,7 +8269,7 @@ const KNOWLEDGE_DATA = [
             "hub-utility-debug"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-utility-debug"
     },
     {
         "id": "gram-macro",
@@ -8221,7 +8314,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "gram-auto"
         ],
-        "parent": ""
+        "parent": "hub-gram"
     },
     {
         "id": "gram-sequence",
@@ -8266,7 +8359,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "gram-struct"
         ],
-        "parent": ""
+        "parent": "hub-gram"
     },
     {
         "id": "gram-struct",
@@ -8312,7 +8405,7 @@ const KNOWLEDGE_DATA = [
             "gram-type-overview",
             "gram-sequence"
         ],
-        "parent": ""
+        "parent": "hub-gram"
     },
     {
         "id": "gram-type-overview",
@@ -8357,7 +8450,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "gram-struct"
         ],
-        "parent": ""
+        "parent": "hub-gram"
     },
     {
         "id": "graph-basic",
@@ -8455,26 +8548,27 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "图论\\最短路\\Bellman-Ford\\Untitled1.cpp",
         "prerequisites": [
-            "hub-graph"
+            "hub-graph",
+            "graph-shortest-overview"
         ],
         "related": [
             "graph-spfa",
             "graph-dijkstra-heap",
             "graph-johnson"
         ],
-        "parent": ""
+        "parent": "graph-shortest-overview"
     },
     {
         "id": "graph-bipartite-dfs-coloring",
         "category": "图论",
         "subcategory": "二分图",
         "subSubcategory": "",
-        "title": "二分图判定（DFS染色法）",
+        "title": "二分图（判定与最大匹配）",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n二分图（Bipartite Graph）是一种特殊的无向图，其顶点可以划分为两个**互不相交**的集合，使得图中每条边的两个端点分别属于不同的集合。换句话说，同一集合内的顶点之间没有边相连。\r\n\r\n### 什么是二分图\r\n\r\n设无向图 $G = (V, E)$，若存在顶点集的一个划分 $V = A \\cup B$，满足 $A \\cap B = \\emptyset$，且对任意边 $(u, v) \\in E$，都有 $u \\in A, v \\in B$ 或 $u \\in B, v \\in A$，则称 $G$ 为二分图。\r\n\r\n**核心性质**：一个无向图是二分图，**当且仅当图中不存在长度为奇数的环（奇环）**。\r\n\r\n### 染色法思想\r\n\r\n染色法是判定二分图最直观的方法：用两种颜色（如颜色 1 和颜色 2）给图中顶点染色，要求相邻顶点颜色不同。如果能成功完成染色，则是二分图；如果在染色过程中发现相邻顶点颜色相同，则存在奇环，不是二分图。\r\n\r\n具体步骤：\r\n1. 任选一个起点，染成颜色 1\r\n2. 从该点出发进行 DFS 遍历\r\n3. 对当前节点的每个邻接点：\r\n   - 若未染色：染成与当前节点相反的颜色，继续 DFS\r\n   - 若已染色且颜色与当前节点相同：说明存在奇环，不是二分图\r\n   - 若已染色且颜色不同：无需处理\r\n\r\n### 为什么等价于无奇环\r\n\r\n- **必要性**：若图中有奇环，则环上顶点交替染色时，绕奇环一圈后首尾颜色相同，产生矛盾\r\n- **充分性**：若图中无奇环，则从任意点出发 BFS/DFS 交替染色不会产生冲突\r\n\r\n## 核心状态定义与转移\r\n\r\n### 状态定义\r\n\r\n| 变量 | 含义 |\r\n|------|------|\r\n| `vis[u]` | 节点 $u$ 的染色状态：$0$ 表示未染色，$1$ 表示颜色 1，$2$ 表示颜色 2 |\r\n| `node[0]` | 颜色为 1 的所有节点（即集合 $A$） |\r\n| `node[1]` | 颜色为 2 的所有节点（即集合 $B$） |\r\n| `ans` | 全局标记，表示当前是否仍为二分图 |\r\n\r\n### 染色转移规则\r\n\r\nDFS 函数签名：`dfs(idx, k)` —— 将节点 `idx` 染为颜色 `k`\r\n\r\n**三种情况的处理**：\r\n\r\n$$\r\n\\text{dfs}(u, c) =\r\n\\begin{cases}\r\n\\text{跳过} & \\text{ans = false（已发现矛盾）} \\\\\r\n\\text{染色 u 为 c，递归所有邻接点为 } 3-c & \\text{vis}[u] = 0 \\text{（未染色）} \\\\\r\n\\text{返回（一致）} & \\text{vis}[u] = c \\text{（颜色相同）} \\\\\r\n\\text{ans = false（矛盾）} & \\text{vis}[u] + c = 3 \\text{（颜色冲突）}\r\n\\end{cases}\r\n$$\r\n\r\n其中 $3-c$ 是\"取反色\"的技巧：颜色 1 的反色是 2，颜色 2 的反色是 1，即 $3-1=2, 3-2=1$。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量定义\r\n\r\n```cpp\r\nvector<vector<int>> edges;  // 邻接表\r\nvector<int> vis, node[2];   // 染色数组 / 两个集合的节点列表\r\nbool ans;                   // 是否为二分图的标记\r\n```\r\n\r\n- `edges`：邻接表存图，`edges[u]` 存储所有与 $u$ 相连的节点\r\n- `vis`：染色数组，0 表示未访问/未染色，1 和 2 表示两种颜色\r\n- `node[0]`、`node[1]`：分别存储染成颜色 1 和颜色 2 的节点，用于最后输出划分结果\r\n- `ans`：全局布尔标记，一旦发现矛盾立即设为 `false`，后续 DFS 直接返回\r\n\r\n### 初始化函数\r\n\r\n```cpp\r\nvoid init(int n)\r\n{\r\n\tedges.assign(n + 1, vector<int>());\r\n\tvis.assign(n + 1, 0);\r\n\tnode[0].clear(), node[1].clear();\r\n\tans = true;\r\n}\r\n```\r\n\r\n- `edges.assign(n + 1, vector<int>())`：为 n 个节点（编号 1~n）分配邻接表\r\n- `vis.assign(n + 1, 0)`：所有节点初始化为未染色（0）\r\n- `node[0].clear(), node[1].clear()`：清空两个集合\r\n- `ans = true`：初始假设是二分图\r\n\r\n### 加边函数\r\n\r\n```cpp\r\nvoid add(int u, int v)\r\n{\r\n\tedges[u].emplace_back(v);\r\n\tedges[v].emplace_back(u);\r\n}\r\n```\r\n\r\n无向图需要双向加边：$u$ 的邻接表加入 $v$，$v$ 的邻接表加入 $u$。\r\n\r\n### DFS 染色核心函数\r\n\r\n```cpp\r\nvoid dfs(int idx, int k)\r\n{\r\n\tif (!ans) return;                    // 已发现矛盾，直接返回\r\n\tif (vis[idx] == 0)                   // 情况1：未染色\r\n\t{\r\n\t\tvis[idx] = k;                    // 染成颜色 k\r\n\t\tnode[k - 1].emplace_back(idx);   // 加入对应集合\r\n\t\tfor (int i : edges[idx])         // 遍历所有邻接点\r\n\t\t\tdfs(i, 3 - k);               // 邻接点染成相反颜色\r\n\t}\r\n\telse if (vis[idx] == k) return;      // 情况2：颜色相同，无冲突\r\n\telse if (vis[idx] + k == 3)          // 情况3：颜色不同，冲突\r\n\t{\r\n\t\tans = false;                     // 标记为非二分图\r\n\t\treturn;\r\n\t}\r\n}\r\n```\r\n\r\n关键要点：\r\n\r\n1. **提前返回**：`if (!ans) return;` 是重要的优化。一旦发现矛盾，所有递归分支都无需继续\r\n2. **染色与记录**：`vis[idx] = k` 标记颜色，同时将节点加入 `node[k-1]` 集合\r\n3. **反色技巧**：`3 - k` 巧妙地实现颜色翻转（1→2, 2→1），比 `if/else` 更简洁\r\n4. **冲突判定**：`vis[idx] + k == 3` 等价于\"已染色且颜色不同\"，因为 $1+2=3$\r\n\r\n### 主函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint n, m;\r\n\tcin >> n >> m;\r\n\tinit(n);\r\n\tfor (int i = 1; i <= m; i++)\r\n\t{\r\n\t\tint u, v;\r\n\t\tcin >> u >> v;\r\n\t\tadd(u, v);\r\n\t}\r\n\tdfs(1, 1);          // 从节点1开始，染成颜色1\r\n\tif (ans)\r\n\t{\r\n\t\tcout << \"Yes\\n\";\r\n\t\tfor (int i : node[0]) cout << i << ' ';\r\n\t\tcout << '\\n';\r\n\t\tfor (int i : node[1]) cout << i << ' ';\r\n\t\tcout << '\\n';\r\n\t}\r\n\telse cout << \"No\\n\";\r\n\treturn 0;\r\n}\r\n```\r\n\r\n注意：代码注释中说明\"所有的点都是联通的\"，因此只需要从节点 1 启动一次 DFS。如果图可能不连通，则需要遍历所有节点，对每个未染色的连通分量分别调用 DFS。\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度：$O(n+m)$\r\n\r\n- 每个节点最多被染色一次，即每个节点最多进入一次 DFS\r\n- 每条边最多被访问两次（无向图双向），即每个邻接关系被检查一次\r\n- 总操作量与顶点数 $n$ 和边数 $m$ 成线性关系\r\n\r\n### 空间复杂度：$O(n+m)$\r\n\r\n- 邻接表存储：$O(n+m)$\r\n- 染色数组 `vis`：$O(n)$\r\n- 结果数组 `node[0]` 和 `node[1]`：合计 $O(n)$\r\n- DFS 递归栈深度：最坏 $O(n)$（链状图）\r\n\r\n## 适用场景\r\n\r\n### 适用场景\r\n\r\n1. **二分图判定**：判断一个无向图是否为二分图，是许多图论问题的前置步骤\r\n2. **二部划分输出**：不仅判定是否为二分图，还输出具体的顶点划分方案\r\n3. **匹配问题前置**：最大匹配、最小顶点覆盖等问题需要先确认图是二分图\r\n4. **奇偶环检测**：利用\"二分图等价于无奇环\"的性质，检测图中是否存在奇环\r\n\r\n### 不适用场景\r\n\r\n1. **有向图**：二分图定义针对无向图，有向图的\"二分\"需另行定义\r\n2. **需要最大匹配**：本算法只做判定和划分，不求解最大匹配（需用匈牙利算法等）\r\n3. **图不连通且只调用一次 DFS**：需要确保对每个连通分量都进行染色\r\n\r\n## 常见陷阱与注意事项\r\n\r\n### 1. 图不连通的情况\r\n\r\n代码假设图是连通的（注释中明确说明）。如果图可能有多个连通分量，必须遍历所有节点：\r\n\r\n```cpp\r\nfor (int i = 1; i <= n; i++)\r\n{\r\n    if (vis[i] == 0)\r\n    {\r\n        dfs(i, 1);\r\n        if (!ans) break;\r\n    }\r\n}\r\n```\r\n\r\n否则某些连通分量未被染色，可能漏判奇环。\r\n\r\n### 2. 起点颜色的选择\r\n\r\n从哪个点开始、初始染成什么颜色不影响判定结果。二分图的两个集合是对称的，交换颜色 1 和 2 仍然是合法划分。\r\n\r\n### 3. ans 标记的全局传递\r\n\r\n`ans` 是全局变量，一旦变为 `false`，所有递归分支应立即返回。代码开头的 `if (!ans) return;` 是必要的剪枝，避免无效搜索。\r\n\r\n### 4. 反色技巧的正确性\r\n\r\n`3 - k` 只在颜色取值为 1 和 2 时成立。如果颜色用 0 和 1 表示，则反色应为 `1 - k`。\r\n\r\n### 5. 节点编号从 1 开始\r\n\r\n代码中节点编号从 1 开始（`init` 中分配 `n+1` 个空间，主函数从节点 1 开始 DFS）。如果题目中节点从 0 开始，需要调整数组大小和遍历范围。\r\n\r\n### 6. 自环的情况\r\n\r\n如果图中存在自环（节点到自身的边），则一定不是二分图。从节点 $u$ 出发遍历到邻接点 $u$（自环）时，`vis[u] == k`，而邻接点本应染成 `3-k`；代码先判断 `vis[idx] == k` 并直接返回，因此**自环不会被检测为冲突**，需要在加边时或 DFS 前单独判断。\r\n\r\n这是一个需要注意的边界情况。如果图中可能有自环，需要在加边时或 DFS 前单独判断。\r\n\r\n## 对比与扩展\r\n\r\n### 与 BFS 染色法对比\r\n\r\n| 对比维度 | DFS 染色法 | BFS 染色法 |\r\n|----------|-----------|-----------|\r\n| 遍历方式 | 深度优先，递归或栈实现 | 广度优先，队列实现 |\r\n| 时间复杂度 | $O(n+m)$ | $O(n+m)$ |\r\n| 空间复杂度 | $O(n+m)$，递归栈最坏 $O(n)$ | $O(n+m)$，队列最坏 $O(n)$ |\r\n| 实现难度 | 递归实现简洁直观 | 迭代实现稍长但无栈溢出风险 |\r\n| 栈溢出风险 | 链状图可能栈溢出（n 极大时） | 无栈溢出风险 |\r\n| 适用场景 | 图规模不大、递归深度可控 | 大规模图、避免栈溢出 |\r\n\r\n### 扩展：带权二分图\r\n\r\n本算法处理的是无权二分图的判定。带权二分图的经典问题包括：\r\n- **二分图最大匹配**：匈牙利算法，时间复杂度 $O(nm)$\r\n- **二分图最大权匹配**：KM 算法，时间复杂度 $O(n^3)$\r\n- **二分图最小顶点覆盖**：Konig 定理，等于最大匹配数\r\n- **二分图最大独立集**：等于顶点数减去最小顶点覆盖\r\n\r\n### 扩展：二分图与 2-SAT\r\n\r\n2-SAT 问题可以通过构造蕴含图并求强连通分量来解决，而二分图判定和 2-SAT 有着深刻的联系：二分图的染色约束本质上就是一种\"二选一\"的约束关系，类似 2-SAT 中的变量赋值。",
+                "content": "## 算法原理\n\n二分图（Bipartite Graph）是一种特殊的无向图，其顶点可以划分为两个**互不相交**的集合，使得图中每条边的两个端点分别属于不同的集合。换句话说，同一集合内的顶点之间没有边相连。\n\n### 什么是二分图\n\n设无向图 $G = (V, E)$，若存在顶点集的一个划分 $V = A \\cup B$，满足 $A \\cap B = \\emptyset$，且对任意边 $(u, v) \\in E$，都有 $u \\in A, v \\in B$ 或 $u \\in B, v \\in A$，则称 $G$ 为二分图。\n\n**核心性质**：一个无向图是二分图，**当且仅当图中不存在长度为奇数的环（奇环）**。\n\n### 染色法思想\n\n染色法是判定二分图最直观的方法：用两种颜色（如颜色 1 和颜色 2）给图中顶点染色，要求相邻顶点颜色不同。如果能成功完成染色，则是二分图；如果在染色过程中发现相邻顶点颜色相同，则存在奇环，不是二分图。\n\n具体步骤：\n1. 任选一个起点，染成颜色 1\n2. 从该点出发进行 DFS 遍历\n3. 对当前节点的每个邻接点：\n   - 若未染色：染成与当前节点相反的颜色，继续 DFS\n   - 若已染色且颜色与当前节点相同：说明存在奇环，不是二分图\n   - 若已染色且颜色不同：无需处理\n\n### 为什么等价于无奇环\n\n- **必要性**：若图中有奇环，则环上顶点交替染色时，绕奇环一圈后首尾颜色相同，产生矛盾\n- **充分性**：若图中无奇环，则从任意点出发 BFS/DFS 交替染色不会产生冲突\n\n## 核心状态定义与转移\n\n### 状态定义\n\n| 变量 | 含义 |\n|------|------|\n| `vis[u]` | 节点 $u$ 的染色状态：$0$ 表示未染色，$1$ 表示颜色 1，$2$ 表示颜色 2 |\n| `node[0]` | 颜色为 1 的所有节点（即集合 $A$） |\n| `node[1]` | 颜色为 2 的所有节点（即集合 $B$） |\n| `ans` | 全局标记，表示当前是否仍为二分图 |\n\n### 染色转移规则\n\nDFS 函数签名：`dfs(idx, k)` —— 将节点 `idx` 染为颜色 `k`\n\n**三种情况的处理**：\n\n$$\n\\text{dfs}(u, c) =\n\\begin{cases}\n\\text{跳过} & \\text{ans = false（已发现矛盾）} \\\\\n\\text{染色 u 为 c，递归所有邻接点为 } 3-c & \\text{vis}[u] = 0 \\text{（未染色）} \\\\\n\\text{返回（一致）} & \\text{vis}[u] = c \\text{（颜色相同）} \\\\\n\\text{ans = false（矛盾）} & \\text{vis}[u] + c = 3 \\text{（颜色冲突）}\n\\end{cases}\n$$\n\n其中 $3-c$ 是\"取反色\"的技巧：颜色 1 的反色是 2，颜色 2 的反色是 1，即 $3-1=2, 3-2=1$。\n\n## 逐行代码解析\n\n### 全局变量定义\n\n```cpp\nvector<vector<int>> edges;  // 邻接表\nvector<int> vis, node[2];   // 染色数组 / 两个集合的节点列表\nbool ans;                   // 是否为二分图的标记\n```\n\n- `edges`：邻接表存图，`edges[u]` 存储所有与 $u$ 相连的节点\n- `vis`：染色数组，0 表示未访问/未染色，1 和 2 表示两种颜色\n- `node[0]`、`node[1]`：分别存储染成颜色 1 和颜色 2 的节点，用于最后输出划分结果\n- `ans`：全局布尔标记，一旦发现矛盾立即设为 `false`，后续 DFS 直接返回\n\n### 初始化函数\n\n```cpp\nvoid init(int n)\n{\n\tedges.assign(n + 1, vector<int>());\n\tvis.assign(n + 1, 0);\n\tnode[0].clear(), node[1].clear();\n\tans = true;\n}\n```\n\n- `edges.assign(n + 1, vector<int>())`：为 n 个节点（编号 1~n）分配邻接表\n- `vis.assign(n + 1, 0)`：所有节点初始化为未染色（0）\n- `node[0].clear(), node[1].clear()`：清空两个集合\n- `ans = true`：初始假设是二分图\n\n### 加边函数\n\n```cpp\nvoid add(int u, int v)\n{\n\tedges[u].emplace_back(v);\n\tedges[v].emplace_back(u);\n}\n```\n\n无向图需要双向加边：$u$ 的邻接表加入 $v$，$v$ 的邻接表加入 $u$。\n\n### DFS 染色核心函数\n\n```cpp\nvoid dfs(int idx, int k)\n{\n\tif (!ans) return;                    // 已发现矛盾，直接返回\n\tif (vis[idx] == 0)                   // 情况1：未染色\n\t{\n\t\tvis[idx] = k;                    // 染成颜色 k\n\t\tnode[k - 1].emplace_back(idx);   // 加入对应集合\n\t\tfor (int i : edges[idx])         // 遍历所有邻接点\n\t\t\tdfs(i, 3 - k);               // 邻接点染成相反颜色\n\t}\n\telse if (vis[idx] == k) return;      // 情况2：颜色相同，无冲突\n\telse if (vis[idx] + k == 3)          // 情况3：颜色不同，冲突\n\t{\n\t\tans = false;                     // 标记为非二分图\n\t\treturn;\n\t}\n}\n```\n\n关键要点：\n\n1. **提前返回**：`if (!ans) return;` 是重要的优化。一旦发现矛盾，所有递归分支都无需继续\n2. **染色与记录**：`vis[idx] = k` 标记颜色，同时将节点加入 `node[k-1]` 集合\n3. **反色技巧**：`3 - k` 巧妙地实现颜色翻转（1→2, 2→1），比 `if/else` 更简洁\n4. **冲突判定**：`vis[idx] + k == 3` 等价于\"已染色且颜色不同\"，因为 $1+2=3$\n\n### 主函数\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint n, m;\n\tcin >> n >> m;\n\tinit(n);\n\tfor (int i = 1; i <= m; i++)\n\t{\n\t\tint u, v;\n\t\tcin >> u >> v;\n\t\tadd(u, v);\n\t}\n\tdfs(1, 1);          // 从节点1开始，染成颜色1\n\tif (ans)\n\t{\n\t\tcout << \"Yes\\n\";\n\t\tfor (int i : node[0]) cout << i << ' ';\n\t\tcout << '\\n';\n\t\tfor (int i : node[1]) cout << i << ' ';\n\t\tcout << '\\n';\n\t}\n\telse cout << \"No\\n\";\n\treturn 0;\n}\n```\n\n注意：代码注释中说明\"所有的点都是联通的\"，因此只需要从节点 1 启动一次 DFS。如果图可能不连通，则需要遍历所有节点，对每个未染色的连通分量分别调用 DFS。\n\n## 复杂度分析\n\n### 时间复杂度：$O(n+m)$\n\n- 每个节点最多被染色一次，即每个节点最多进入一次 DFS\n- 每条边最多被访问两次（无向图双向），即每个邻接关系被检查一次\n- 总操作量与顶点数 $n$ 和边数 $m$ 成线性关系\n\n### 空间复杂度：$O(n+m)$\n\n- 邻接表存储：$O(n+m)$\n- 染色数组 `vis`：$O(n)$\n- 结果数组 `node[0]` 和 `node[1]`：合计 $O(n)$\n- DFS 递归栈深度：最坏 $O(n)$（链状图）\n\n## 适用场景\n\n### 适用场景\n\n1. **二分图判定**：判断一个无向图是否为二分图，是许多图论问题的前置步骤\n2. **二部划分输出**：不仅判定是否为二分图，还输出具体的顶点划分方案\n3. **匹配问题前置**：最大匹配、最小顶点覆盖等问题需要先确认图是二分图\n4. **奇偶环检测**：利用\"二分图等价于无奇环\"的性质，检测图中是否存在奇环\n\n### 不适用场景\n\n1. **有向图**：二分图定义针对无向图，有向图的\"二分\"需另行定义\n2. **需要最大匹配**：本算法只做判定和划分，不求解最大匹配（需用匈牙利算法等）\n3. **图不连通且只调用一次 DFS**：需要确保对每个连通分量都进行染色\n\n## 常见陷阱与注意事项\n\n### 1. 图不连通的情况\n\n代码假设图是连通的（注释中明确说明）。如果图可能有多个连通分量，必须遍历所有节点：\n\n```cpp\nfor (int i = 1; i <= n; i++)\n{\n    if (vis[i] == 0)\n    {\n        dfs(i, 1);\n        if (!ans) break;\n    }\n}\n```\n\n否则某些连通分量未被染色，可能漏判奇环。\n\n### 2. 起点颜色的选择\n\n从哪个点开始、初始染成什么颜色不影响判定结果。二分图的两个集合是对称的，交换颜色 1 和 2 仍然是合法划分。\n\n### 3. ans 标记的全局传递\n\n`ans` 是全局变量，一旦变为 `false`，所有递归分支应立即返回。代码开头的 `if (!ans) return;` 是必要的剪枝，避免无效搜索。\n\n### 4. 反色技巧的正确性\n\n`3 - k` 只在颜色取值为 1 和 2 时成立。如果颜色用 0 和 1 表示，则反色应为 `1 - k`。\n\n### 5. 节点编号从 1 开始\n\n代码中节点编号从 1 开始（`init` 中分配 `n+1` 个空间，主函数从节点 1 开始 DFS）。如果题目中节点从 0 开始，需要调整数组大小和遍历范围。\n\n### 6. 自环的情况\n\n如果图中存在自环（节点到自身的边），则一定不是二分图。从节点 $u$ 出发遍历到邻接点 $u$（自环）时，`vis[u] == k`，而邻接点本应染成 `3-k`；代码先判断 `vis[idx] == k` 并直接返回，因此**自环不会被检测为冲突**，需要在加边时或 DFS 前单独判断。\n\n这是一个需要注意的边界情况。如果图中可能有自环，需要在加边时或 DFS 前单独判断。\n\n## 对比与扩展\n\n### 与 BFS 染色法对比\n\n| 对比维度 | DFS 染色法 | BFS 染色法 |\n|----------|-----------|-----------|\n| 遍历方式 | 深度优先，递归或栈实现 | 广度优先，队列实现 |\n| 时间复杂度 | $O(n+m)$ | $O(n+m)$ |\n| 空间复杂度 | $O(n+m)$，递归栈最坏 $O(n)$ | $O(n+m)$，队列最坏 $O(n)$ |\n| 实现难度 | 递归实现简洁直观 | 迭代实现稍长但无栈溢出风险 |\n| 栈溢出风险 | 链状图可能栈溢出（n 极大时） | 无栈溢出风险 |\n| 适用场景 | 图规模不大、递归深度可控 | 大规模图、避免栈溢出 |\n\n### 扩展：带权二分图\n\n本算法处理的是无权二分图的判定。带权二分图的经典问题包括：\n- **二分图最大匹配**：匈牙利算法，时间复杂度 $O(nm)$\n- **二分图最大权匹配**：KM 算法，时间复杂度 $O(n^3)$\n- **二分图最小顶点覆盖**：Konig 定理，等于最大匹配数\n- **二分图最大独立集**：等于顶点数减去最小顶点覆盖\n\n### 扩展：二分图与 2-SAT\n\n2-SAT 问题可以通过构造蕴含图并求强连通分量来解决，而二分图判定和 2-SAT 有着深刻的联系：二分图的染色约束本质上就是一种\"二选一\"的约束关系，类似 2-SAT 中的变量赋值。\n\n## 附：匈牙利算法（二分图最大匹配）\n\n匈牙利算法（Hungarian Algorithm）由匈牙利数学家 König 和 Egerváry 的理论发展而来，是求解**二分图最大匹配**的经典算法。核心思想基于**增广路定理**：一个匹配是最大匹配，当且仅当图中不存在增广路。\n\n#### 基本概念\n\n**二分图匹配**：在二分图 $G = (A \\cup B, E)$ 中，选取一组边 $M \\subseteq E$，使得 $M$ 中任意两条边没有公共端点，则 $M$ 称为一个匹配。边数最多的匹配称为**最大匹配**。\n\n**增广路**：设 $M$ 是当前匹配。一条从**未匹配点**出发，交替经过**非匹配边**和**匹配边**，最终到达另一侧的**未匹配点**的路径，称为增广路（Augmenting Path）。\n\n增广路的长度一定是奇数，且首尾都是非匹配边。\n\n#### 增广路定理\n\n**定理**：一个匹配 $M$ 是最大匹配 $\\Leftrightarrow$ 图中不存在关于 $M$ 的增广路。\n\n**推论**（增广路算法的正确性基础）：如果能找到一条增广路 $P$，将 $P$ 上的匹配边与非匹配边互换，匹配数增加 1。反复寻找增广路直到不存在，即得到最大匹配。\n\n#### 算法框架\n\n1. 初始匹配为空集\n2. 遍历左部每个未匹配点 $u$，尝试从 $u$ 出发寻找增广路\n3. DFS 搜索：对 $u$ 的每个邻接点 $v$\n   - 若 $v$ 未被匹配：直接匹配 $u \\leftrightarrow v$，增广成功\n   - 若 $v$ 已匹配给 $w$：递归尝试为 $w$ 寻找新的匹配，若成功则将 $v$ 让给 $u$\n4. 若所有左部点都尝试完毕，当前匹配即为最大匹配\n\n#### 时间戳优化\n\n朴素实现中，每次 DFS 前需要清空 `vis` 数组标记右侧节点的访问状态。本代码使用**时间戳优化**：用整数 `t` 标记当前轮次，`vis[i] == t` 表示节点 $i$ 在本轮 DFS 中已访问，无需每次清空数组，将每次增广的初始化代价从 $O(m)$ 降为 $O(1)$。\n\n### 核心公式/状态定义与转移方程\n\n#### 状态定义\n\n| 变量 | 含义 |\n|------|------|\n| `edges[u]` | 左部点 $u$ 的邻接表，存储所有可到达的右部点 |\n| `match[v]` | 右部点 $v$ 当前匹配的左部点编号，0 表示未匹配 |\n| `vis[v]` | 右部点 $v$ 的访问时间戳，记录是第几轮 DFS 访问的 |\n| `t`（DFS 参数） | 当前轮次标识，等于当前左部点编号 $i$ |\n\n#### 转移方程\n\n对左部点 `idx`，DFS 寻找增广路的递归逻辑：\n\n$$\n\\text{dfs}(u, t) =\n\\begin{cases}\n\\text{true} & \\exists\\, v \\in \\text{edges}[u],\\; \\text{vis}[v] \\neq t,\\; \\text{match}[v] = 0 \\\\\n\\text{true} & \\exists\\, v \\in \\text{edges}[u],\\; \\text{vis}[v] \\neq t,\\; \\text{dfs}(\\text{match}[v], t) = \\text{true} \\\\\n\\text{false} & \\text{否则}\n\\end{cases}\n$$\n\n成功时更新 `match[v] = u`。\n\n#### 增广路的结构\n\n一条增广路形如：\n\n$$\nu_0 \\xrightarrow{\\text{非匹配}} v_0 \\xrightarrow{\\text{匹配}} u_1 \\xrightarrow{\\text{非匹配}} v_1 \\xrightarrow{\\text{匹配}} \\cdots \\xrightarrow{\\text{非匹配}} v_k\n$$\n\n其中 $u_0$ 和 $v_k$ 是未匹配点。取反后匹配数 $+1$。\n\n### 逐行代码解析\n\n#### 全局变量定义\n\n```cpp\nvector<vector<int>> edges;  // 左边点的邻接表\nvector<int> match;           // 右边节点配对的左边点\nvector<int> vis;             // 右边节点访问时间戳\nint top;                      // （未使用）\n```\n\n- `edges`：只存**左部→右部**的有向边（二分图匹配中边是单向使用的）\n- `match`：下标是右部点，值是左部点，`match[v] = u` 表示 $v$ 匹配了 $u$，0 表示未匹配\n- `vis`：时间戳数组，`vis[v] = t` 表示 $v$ 在第 $t$ 轮 DFS 中被访问过\n\n#### 初始化函数\n\n```cpp\nvoid init(int n, int m)\n{\n\tedges.assign(n + 1, vector<int>());\n\tvis.assign(m + 1, false);\n\tmatch.assign(m + 1, 0);\n\ttop = 0;\n}\n```\n\n- `edges.assign(n + 1, ...)`：为 $n$ 个左部点分配邻接表\n- `vis.assign(m + 1, false)`：时间戳初始化为 0（所有轮次标识都大于 0，故等价于\"未访问\"）\n- `match.assign(m + 1, 0)`：所有右部点初始未匹配\n\n#### DFS 增广核心函数\n\n```cpp\nbool dfs(int idx, int t)\n{\n\tfor (int i : edges[idx])\n\t{\n\t\tif (vis[i] == t) continue;    // 本轮已访问，跳过\n\t\tvis[i] = t;                    // 标记本轮已访问\n\t\tif (!match[i] || dfs(match[i], t))  // 右部点未匹配 或 其匹配者可换边\n\t\t{\n\t\t\tmatch[i] = idx;            // 将右部点 i 匹配给左部点 idx\n\t\t\treturn true;               // 增广成功\n\t\t}\n\t}\n\treturn false;                      // 所有邻接点都无法增广\n}\n```\n\n逐行分析关键行：\n\n1. **`if (vis[i] == t) continue;`**：时间戳判重。若 $i$ 在本轮已被访问，说明从 $i$ 出发的递归增广已经失败过，无需重复尝试。这一步保证了每个右部点在单轮 DFS 中最多被访问一次。\n\n2. **`vis[i] = t;`**：在递归前标记访问，防止递归过程中形成环（同一右部点被多次访问导致死循环）。\n\n3. **`if (!match[i] || dfs(match[i], t))`**：增广的两种成功情况：\n   - `!match[i]`：右部点 $i$ 未匹配，直接匹配，增广成功\n   - `dfs(match[i], t)`：右部点 $i$ 已匹配给 `match[i]`，递归尝试为 `match[i]` 寻找新的匹配。若成功，则 $i$ 让给当前节点 `idx`\n\n4. **`match[i] = idx;`**：更新匹配关系。注意此时可能已经递归修改了 `match[i]` 原匹配者的匹配关系，所以这里只需设置 $i$ 的新匹配。\n\n#### 主函数\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint n, m, e;\n\tcin >> n >> m >> e;\n\tinit(n, m);\n\tfor (int i = 1; i <= e; i++)\n\t{\n\t\tint u, v;\n\t\tcin >> u >> v;\n\t\tedges[u].emplace_back(v);\n\t}\n\tint cnt = 0;\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tif (dfs(i, i)) ++cnt;\n\t}\n\tcout << cnt;\n\treturn 0;\n}\n```\n\n关键点：\n\n- **输入**：$n$ 个左部点，$m$ 个右部点，$e$ 条边。边只从左到右添加（单向）\n- **`dfs(i, i)`**：第 $i$ 轮 DFS 的时间戳就是 $i$ 本身，这样每轮的时间戳天然唯一，无需额外维护计数器\n- **`cnt`**：统计成功增广的次数，即最大匹配数\n\n### 复杂度分析\n\n#### 时间复杂度：$O(nm)$\n\n- 外层循环遍历 $n$ 个左部点，每次调用 DFS\n- 单次 DFS 最坏情况遍历所有 $m$ 条边（递归深度可达 $n$）\n- 总复杂度 $O(n \\cdot m)$，其中 $n$ 为左部点数，$m$ 为边数\n\n实际运行中，由于时间戳判重使每个右部点在单轮 DFS 中最多访问一次，单轮 DFS 的实际复杂度更接近 $O(m)$ 而非 $O(nm)$，但最坏上界仍为 $O(nm)$。\n\n#### 空间复杂度：$O(n + m)$\n\n- 邻接表 `edges`：$O(n + m)$（$n$ 个左部点的邻接表，共 $m$ 条边）\n- `match` 数组：$O(m)$\n- `vis` 数组：$O(m)$\n- DFS 递归栈深度：最坏 $O(n)$\n\n### 适用场景\n\n#### 适用场景\n\n1. **二分图最大匹配**：最基本的用途，如任务分配、人员调度\n2. **二分图最小点覆盖**：由 König 定理，最小点覆盖数 = 最大匹配数\n3. **二分图最大独立集**：最大独立集 = 顶点总数 $-$ 最大匹配数\n4. **最小路径覆盖**：将 DAG 拆分为最少路径，需先拆点二分图化再用匈牙利算法\n5. **棋盘问题**：将棋盘黑白染色后建二分图，求解最多放置互不攻击的棋子数\n\n#### 不适用场景\n\n1. **一般图最大匹配**：匈牙利算法仅适用于二分图，一般图需用带花树（Blossom Algorithm）\n2. **带权最大匹配**：需要最大权匹配时，应使用 KM 算法（Kuhn-Munkres）\n3. **超大规模二分图**：$n, m$ 极大（如 $10^6$ 级）时，$O(nm)$ 可能超时，需考虑 Hopcroft-Karp 算法\n\n### 常见陷阱与注意事项\n\n#### 1. 建图方向\n\n二分图匹配中，邻接表**只需从左部到右部单向建边**。如果双向建边，DFS 时可能错误地从右部走回左部，导致逻辑混乱。代码中 `edges[u].emplace_back(v)` 只加了左→右的边。\n\n#### 2. 时间戳的唯一性\n\n代码中 `dfs(i, i)` 直接用左部点编号 $i$ 作为时间戳。这要求左部点编号从 1 开始且互不相同。如果左部点编号有特殊含义（如从 0 开始），需要改为 `dfs(i, i + 1)` 或使用独立的时间戳计数器，确保时间戳不为 0（因为 `vis` 初始值为 0 表示未访问）。\n\n#### 3. match 数组的语义\n\n`match[v]` 存的是右部点 $v$ 匹配的**左部点编号**，不是反过来。如果混淆左右部语义，会导致输出结果错误。\n\n#### 4. 多组数据的初始化\n\n如果有多组测试数据，每次必须调用 `init` 清空 `edges`、`match`、`vis`。忘记初始化是常见的 WA 原因。\n\n#### 5. 自环边和重边\n\n二分图中不应有自环（左部和右部是不同集合，自环无意义）。重边不影响正确性但浪费空间，可以在加边时去重。\n\n#### 6. 左右部点数不对称\n\n代码中 $n$（左部）和 $m$（右部）可以不相等。遍历左部点 $1 \\sim n$ 即可，不需要遍历右部点。最大匹配数 $\\leq \\min(n, m)$。\n\n#### 7. `top` 变量未使用\n\n代码中全局变量 `top` 声明了但未使用，属于冗余代码，可以删除。\n\n### 对比与扩展\n\n#### 与 Hopcroft-Karp 算法对比\n\n| 对比维度 | 匈牙利算法 | Hopcroft-Karp |\n|----------|-----------|----------------|\n| 核心思想 | 单条增广路逐次增广 | 每轮找一组最短增广路批量增广 |\n| 时间复杂度 | $O(nm)$ | $O(m\\sqrt{n})$ |\n| 实现难度 | 简单，DFS 递归 | 较复杂，需 BFS 分层 + DFS |\n| 适用规模 | $n, m \\leq 500$ | $n, m \\leq 10^5$ |\n| 常数因子 | 小 | 稍大（BFS 分层开销） |\n\n#### 与 KM 算法对比\n\n| 对比维度 | 匈牙利算法 | KM 算法 |\n|----------|-----------|---------|\n| 问题类型 | 无权最大匹配 | 带权最大权匹配 |\n| 时间复杂度 | $O(nm)$ | $O(n^3)$ |\n| 核心思想 | 增广路 | 顶标 + 相等子图 + 增广 |\n| 适用场景 | 无权二分图 | 每条边有权值，求权值和最大的匹配 |\n\n#### 扩展：Konig 定理\n\n二分图中有三个经典等式：\n\n- **最小点覆盖 = 最大匹配数**：选择最少的顶点覆盖所有边\n- **最大独立集 = 顶点总数 $-$ 最大匹配数**：选择最多的互不相邻的顶点\n- **最小路径覆盖 = 顶点总数 $-$ 最大匹配数**（DAG 上，拆点后）\n\n这些定理使匈牙利算法成为解决二分图各类覆盖、独立集问题的核心工具。\n\n#### 扩展：一般图最大匹配\n\n一般图（非二分图）的最大匹配需要处理**奇环**（花，Blossom）的情况。带花树算法（Edmonds' Blossom Algorithm）通过\"缩花\"操作将奇环收缩为一个点，时间复杂度 $O(n^3)$，是匈牙利算法在一般图上的推广。",
                 "codePath": "图论\\二分图\\DFS染色法\\Untitled1.cpp",
                 "timeComplexity": "O(n+m)",
                 "spaceComplexity": "O(n+m)",
@@ -8488,7 +8582,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n二分图（Bipartite Graph）是一种特殊的无向图，其顶点可以划分为两个**互不相交**的集合，使得图中每条边的两个端点分别属于不同的集合。换句话说，同一集合内的顶点之间没有边相连。\r\n\r\n### 什么是二分图\r\n\r\n设无向图 $G = (V, E)$，若存在顶点集的一个划分 $V = A \\cup B$，满足 $A \\cap B = \\emptyset$，且对任意边 $(u, v) \\in E$，都有 $u \\in A, v \\in B$ 或 $u \\in B, v \\in A$，则称 $G$ 为二分图。\r\n\r\n**核心性质**：一个无向图是二分图，**当且仅当图中不存在长度为奇数的环（奇环）**。\r\n\r\n### 染色法思想\r\n\r\n染色法是判定二分图最直观的方法：用两种颜色（如颜色 1 和颜色 2）给图中顶点染色，要求相邻顶点颜色不同。如果能成功完成染色，则是二分图；如果在染色过程中发现相邻顶点颜色相同，则存在奇环，不是二分图。\r\n\r\n具体步骤：\r\n1. 任选一个起点，染成颜色 1\r\n2. 从该点出发进行 DFS 遍历\r\n3. 对当前节点的每个邻接点：\r\n   - 若未染色：染成与当前节点相反的颜色，继续 DFS\r\n   - 若已染色且颜色与当前节点相同：说明存在奇环，不是二分图\r\n   - 若已染色且颜色不同：无需处理\r\n\r\n### 为什么等价于无奇环\r\n\r\n- **必要性**：若图中有奇环，则环上顶点交替染色时，绕奇环一圈后首尾颜色相同，产生矛盾\r\n- **充分性**：若图中无奇环，则从任意点出发 BFS/DFS 交替染色不会产生冲突\r\n\r\n## 核心状态定义与转移\r\n\r\n### 状态定义\r\n\r\n| 变量 | 含义 |\r\n|------|------|\r\n| `vis[u]` | 节点 $u$ 的染色状态：$0$ 表示未染色，$1$ 表示颜色 1，$2$ 表示颜色 2 |\r\n| `node[0]` | 颜色为 1 的所有节点（即集合 $A$） |\r\n| `node[1]` | 颜色为 2 的所有节点（即集合 $B$） |\r\n| `ans` | 全局标记，表示当前是否仍为二分图 |\r\n\r\n### 染色转移规则\r\n\r\nDFS 函数签名：`dfs(idx, k)` —— 将节点 `idx` 染为颜色 `k`\r\n\r\n**三种情况的处理**：\r\n\r\n$$\r\n\\text{dfs}(u, c) =\r\n\\begin{cases}\r\n\\text{跳过} & \\text{ans = false（已发现矛盾）} \\\\\r\n\\text{染色 u 为 c，递归所有邻接点为 } 3-c & \\text{vis}[u] = 0 \\text{（未染色）} \\\\\r\n\\text{返回（一致）} & \\text{vis}[u] = c \\text{（颜色相同）} \\\\\r\n\\text{ans = false（矛盾）} & \\text{vis}[u] + c = 3 \\text{（颜色冲突）}\r\n\\end{cases}\r\n$$\r\n\r\n其中 $3-c$ 是\"取反色\"的技巧：颜色 1 的反色是 2，颜色 2 的反色是 1，即 $3-1=2, 3-2=1$。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量定义\r\n\r\n```cpp\r\nvector<vector<int>> edges;  // 邻接表\r\nvector<int> vis, node[2];   // 染色数组 / 两个集合的节点列表\r\nbool ans;                   // 是否为二分图的标记\r\n```\r\n\r\n- `edges`：邻接表存图，`edges[u]` 存储所有与 $u$ 相连的节点\r\n- `vis`：染色数组，0 表示未访问/未染色，1 和 2 表示两种颜色\r\n- `node[0]`、`node[1]`：分别存储染成颜色 1 和颜色 2 的节点，用于最后输出划分结果\r\n- `ans`：全局布尔标记，一旦发现矛盾立即设为 `false`，后续 DFS 直接返回\r\n\r\n### 初始化函数\r\n\r\n```cpp\r\nvoid init(int n)\r\n{\r\n\tedges.assign(n + 1, vector<int>());\r\n\tvis.assign(n + 1, 0);\r\n\tnode[0].clear(), node[1].clear();\r\n\tans = true;\r\n}\r\n```\r\n\r\n- `edges.assign(n + 1, vector<int>())`：为 n 个节点（编号 1~n）分配邻接表\r\n- `vis.assign(n + 1, 0)`：所有节点初始化为未染色（0）\r\n- `node[0].clear(), node[1].clear()`：清空两个集合\r\n- `ans = true`：初始假设是二分图\r\n\r\n### 加边函数\r\n\r\n```cpp\r\nvoid add(int u, int v)\r\n{\r\n\tedges[u].emplace_back(v);\r\n\tedges[v].emplace_back(u);\r\n}\r\n```\r\n\r\n无向图需要双向加边：$u$ 的邻接表加入 $v$，$v$ 的邻接表加入 $u$。\r\n\r\n### DFS 染色核心函数\r\n\r\n```cpp\r\nvoid dfs(int idx, int k)\r\n{\r\n\tif (!ans) return;                    // 已发现矛盾，直接返回\r\n\tif (vis[idx] == 0)                   // 情况1：未染色\r\n\t{\r\n\t\tvis[idx] = k;                    // 染成颜色 k\r\n\t\tnode[k - 1].emplace_back(idx);   // 加入对应集合\r\n\t\tfor (int i : edges[idx])         // 遍历所有邻接点\r\n\t\t\tdfs(i, 3 - k);               // 邻接点染成相反颜色\r\n\t}\r\n\telse if (vis[idx] == k) return;      // 情况2：颜色相同，无冲突\r\n\telse if (vis[idx] + k == 3)          // 情况3：颜色不同，冲突\r\n\t{\r\n\t\tans = false;                     // 标记为非二分图\r\n\t\treturn;\r\n\t}\r\n}\r\n```\r\n\r\n关键要点：\r\n\r\n1. **提前返回**：`if (!ans) return;` 是重要的优化。一旦发现矛盾，所有递归分支都无需继续\r\n2. **染色与记录**：`vis[idx] = k` 标记颜色，同时将节点加入 `node[k-1]` 集合\r\n3. **反色技巧**：`3 - k` 巧妙地实现颜色翻转（1→2, 2→1），比 `if/else` 更简洁\r\n4. **冲突判定**：`vis[idx] + k == 3` 等价于\"已染色且颜色不同\"，因为 $1+2=3$\r\n\r\n### 主函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint n, m;\r\n\tcin >> n >> m;\r\n\tinit(n);\r\n\tfor (int i = 1; i <= m; i++)\r\n\t{\r\n\t\tint u, v;\r\n\t\tcin >> u >> v;\r\n\t\tadd(u, v);\r\n\t}\r\n\tdfs(1, 1);          // 从节点1开始，染成颜色1\r\n\tif (ans)\r\n\t{\r\n\t\tcout << \"Yes\\n\";\r\n\t\tfor (int i : node[0]) cout << i << ' ';\r\n\t\tcout << '\\n';\r\n\t\tfor (int i : node[1]) cout << i << ' ';\r\n\t\tcout << '\\n';\r\n\t}\r\n\telse cout << \"No\\n\";\r\n\treturn 0;\r\n}\r\n```\r\n\r\n注意：代码注释中说明\"所有的点都是联通的\"，因此只需要从节点 1 启动一次 DFS。如果图可能不连通，则需要遍历所有节点，对每个未染色的连通分量分别调用 DFS。\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度：$O(n+m)$\r\n\r\n- 每个节点最多被染色一次，即每个节点最多进入一次 DFS\r\n- 每条边最多被访问两次（无向图双向），即每个邻接关系被检查一次\r\n- 总操作量与顶点数 $n$ 和边数 $m$ 成线性关系\r\n\r\n### 空间复杂度：$O(n+m)$\r\n\r\n- 邻接表存储：$O(n+m)$\r\n- 染色数组 `vis`：$O(n)$\r\n- 结果数组 `node[0]` 和 `node[1]`：合计 $O(n)$\r\n- DFS 递归栈深度：最坏 $O(n)$（链状图）\r\n\r\n## 适用场景\r\n\r\n### 适用场景\r\n\r\n1. **二分图判定**：判断一个无向图是否为二分图，是许多图论问题的前置步骤\r\n2. **二部划分输出**：不仅判定是否为二分图，还输出具体的顶点划分方案\r\n3. **匹配问题前置**：最大匹配、最小顶点覆盖等问题需要先确认图是二分图\r\n4. **奇偶环检测**：利用\"二分图等价于无奇环\"的性质，检测图中是否存在奇环\r\n\r\n### 不适用场景\r\n\r\n1. **有向图**：二分图定义针对无向图，有向图的\"二分\"需另行定义\r\n2. **需要最大匹配**：本算法只做判定和划分，不求解最大匹配（需用匈牙利算法等）\r\n3. **图不连通且只调用一次 DFS**：需要确保对每个连通分量都进行染色\r\n\r\n## 常见陷阱与注意事项\r\n\r\n### 1. 图不连通的情况\r\n\r\n代码假设图是连通的（注释中明确说明）。如果图可能有多个连通分量，必须遍历所有节点：\r\n\r\n```cpp\r\nfor (int i = 1; i <= n; i++)\r\n{\r\n    if (vis[i] == 0)\r\n    {\r\n        dfs(i, 1);\r\n        if (!ans) break;\r\n    }\r\n}\r\n```\r\n\r\n否则某些连通分量未被染色，可能漏判奇环。\r\n\r\n### 2. 起点颜色的选择\r\n\r\n从哪个点开始、初始染成什么颜色不影响判定结果。二分图的两个集合是对称的，交换颜色 1 和 2 仍然是合法划分。\r\n\r\n### 3. ans 标记的全局传递\r\n\r\n`ans` 是全局变量，一旦变为 `false`，所有递归分支应立即返回。代码开头的 `if (!ans) return;` 是必要的剪枝，避免无效搜索。\r\n\r\n### 4. 反色技巧的正确性\r\n\r\n`3 - k` 只在颜色取值为 1 和 2 时成立。如果颜色用 0 和 1 表示，则反色应为 `1 - k`。\r\n\r\n### 5. 节点编号从 1 开始\r\n\r\n代码中节点编号从 1 开始（`init` 中分配 `n+1` 个空间，主函数从节点 1 开始 DFS）。如果题目中节点从 0 开始，需要调整数组大小和遍历范围。\r\n\r\n### 6. 自环的情况\r\n\r\n如果图中存在自环（节点到自身的边），则一定不是二分图。从节点 $u$ 出发遍历到邻接点 $u$（自环）时，`vis[u] == k`，而邻接点本应染成 `3-k`；代码先判断 `vis[idx] == k` 并直接返回，因此**自环不会被检测为冲突**，需要在加边时或 DFS 前单独判断。\r\n\r\n这是一个需要注意的边界情况。如果图中可能有自环，需要在加边时或 DFS 前单独判断。\r\n\r\n## 对比与扩展\r\n\r\n### 与 BFS 染色法对比\r\n\r\n| 对比维度 | DFS 染色法 | BFS 染色法 |\r\n|----------|-----------|-----------|\r\n| 遍历方式 | 深度优先，递归或栈实现 | 广度优先，队列实现 |\r\n| 时间复杂度 | $O(n+m)$ | $O(n+m)$ |\r\n| 空间复杂度 | $O(n+m)$，递归栈最坏 $O(n)$ | $O(n+m)$，队列最坏 $O(n)$ |\r\n| 实现难度 | 递归实现简洁直观 | 迭代实现稍长但无栈溢出风险 |\r\n| 栈溢出风险 | 链状图可能栈溢出（n 极大时） | 无栈溢出风险 |\r\n| 适用场景 | 图规模不大、递归深度可控 | 大规模图、避免栈溢出 |\r\n\r\n### 扩展：带权二分图\r\n\r\n本算法处理的是无权二分图的判定。带权二分图的经典问题包括：\r\n- **二分图最大匹配**：匈牙利算法，时间复杂度 $O(nm)$\r\n- **二分图最大权匹配**：KM 算法，时间复杂度 $O(n^3)$\r\n- **二分图最小顶点覆盖**：Konig 定理，等于最大匹配数\r\n- **二分图最大独立集**：等于顶点数减去最小顶点覆盖\r\n\r\n### 扩展：二分图与 2-SAT\r\n\r\n2-SAT 问题可以通过构造蕴含图并求强连通分量来解决，而二分图判定和 2-SAT 有着深刻的联系：二分图的染色约束本质上就是一种\"二选一\"的约束关系，类似 2-SAT 中的变量赋值。",
+        "content": "## 算法原理\n\n二分图（Bipartite Graph）是一种特殊的无向图，其顶点可以划分为两个**互不相交**的集合，使得图中每条边的两个端点分别属于不同的集合。换句话说，同一集合内的顶点之间没有边相连。\n\n### 什么是二分图\n\n设无向图 $G = (V, E)$，若存在顶点集的一个划分 $V = A \\cup B$，满足 $A \\cap B = \\emptyset$，且对任意边 $(u, v) \\in E$，都有 $u \\in A, v \\in B$ 或 $u \\in B, v \\in A$，则称 $G$ 为二分图。\n\n**核心性质**：一个无向图是二分图，**当且仅当图中不存在长度为奇数的环（奇环）**。\n\n### 染色法思想\n\n染色法是判定二分图最直观的方法：用两种颜色（如颜色 1 和颜色 2）给图中顶点染色，要求相邻顶点颜色不同。如果能成功完成染色，则是二分图；如果在染色过程中发现相邻顶点颜色相同，则存在奇环，不是二分图。\n\n具体步骤：\n1. 任选一个起点，染成颜色 1\n2. 从该点出发进行 DFS 遍历\n3. 对当前节点的每个邻接点：\n   - 若未染色：染成与当前节点相反的颜色，继续 DFS\n   - 若已染色且颜色与当前节点相同：说明存在奇环，不是二分图\n   - 若已染色且颜色不同：无需处理\n\n### 为什么等价于无奇环\n\n- **必要性**：若图中有奇环，则环上顶点交替染色时，绕奇环一圈后首尾颜色相同，产生矛盾\n- **充分性**：若图中无奇环，则从任意点出发 BFS/DFS 交替染色不会产生冲突\n\n## 核心状态定义与转移\n\n### 状态定义\n\n| 变量 | 含义 |\n|------|------|\n| `vis[u]` | 节点 $u$ 的染色状态：$0$ 表示未染色，$1$ 表示颜色 1，$2$ 表示颜色 2 |\n| `node[0]` | 颜色为 1 的所有节点（即集合 $A$） |\n| `node[1]` | 颜色为 2 的所有节点（即集合 $B$） |\n| `ans` | 全局标记，表示当前是否仍为二分图 |\n\n### 染色转移规则\n\nDFS 函数签名：`dfs(idx, k)` —— 将节点 `idx` 染为颜色 `k`\n\n**三种情况的处理**：\n\n$$\n\\text{dfs}(u, c) =\n\\begin{cases}\n\\text{跳过} & \\text{ans = false（已发现矛盾）} \\\\\n\\text{染色 u 为 c，递归所有邻接点为 } 3-c & \\text{vis}[u] = 0 \\text{（未染色）} \\\\\n\\text{返回（一致）} & \\text{vis}[u] = c \\text{（颜色相同）} \\\\\n\\text{ans = false（矛盾）} & \\text{vis}[u] + c = 3 \\text{（颜色冲突）}\n\\end{cases}\n$$\n\n其中 $3-c$ 是\"取反色\"的技巧：颜色 1 的反色是 2，颜色 2 的反色是 1，即 $3-1=2, 3-2=1$。\n\n## 逐行代码解析\n\n### 全局变量定义\n\n```cpp\nvector<vector<int>> edges;  // 邻接表\nvector<int> vis, node[2];   // 染色数组 / 两个集合的节点列表\nbool ans;                   // 是否为二分图的标记\n```\n\n- `edges`：邻接表存图，`edges[u]` 存储所有与 $u$ 相连的节点\n- `vis`：染色数组，0 表示未访问/未染色，1 和 2 表示两种颜色\n- `node[0]`、`node[1]`：分别存储染成颜色 1 和颜色 2 的节点，用于最后输出划分结果\n- `ans`：全局布尔标记，一旦发现矛盾立即设为 `false`，后续 DFS 直接返回\n\n### 初始化函数\n\n```cpp\nvoid init(int n)\n{\n\tedges.assign(n + 1, vector<int>());\n\tvis.assign(n + 1, 0);\n\tnode[0].clear(), node[1].clear();\n\tans = true;\n}\n```\n\n- `edges.assign(n + 1, vector<int>())`：为 n 个节点（编号 1~n）分配邻接表\n- `vis.assign(n + 1, 0)`：所有节点初始化为未染色（0）\n- `node[0].clear(), node[1].clear()`：清空两个集合\n- `ans = true`：初始假设是二分图\n\n### 加边函数\n\n```cpp\nvoid add(int u, int v)\n{\n\tedges[u].emplace_back(v);\n\tedges[v].emplace_back(u);\n}\n```\n\n无向图需要双向加边：$u$ 的邻接表加入 $v$，$v$ 的邻接表加入 $u$。\n\n### DFS 染色核心函数\n\n```cpp\nvoid dfs(int idx, int k)\n{\n\tif (!ans) return;                    // 已发现矛盾，直接返回\n\tif (vis[idx] == 0)                   // 情况1：未染色\n\t{\n\t\tvis[idx] = k;                    // 染成颜色 k\n\t\tnode[k - 1].emplace_back(idx);   // 加入对应集合\n\t\tfor (int i : edges[idx])         // 遍历所有邻接点\n\t\t\tdfs(i, 3 - k);               // 邻接点染成相反颜色\n\t}\n\telse if (vis[idx] == k) return;      // 情况2：颜色相同，无冲突\n\telse if (vis[idx] + k == 3)          // 情况3：颜色不同，冲突\n\t{\n\t\tans = false;                     // 标记为非二分图\n\t\treturn;\n\t}\n}\n```\n\n关键要点：\n\n1. **提前返回**：`if (!ans) return;` 是重要的优化。一旦发现矛盾，所有递归分支都无需继续\n2. **染色与记录**：`vis[idx] = k` 标记颜色，同时将节点加入 `node[k-1]` 集合\n3. **反色技巧**：`3 - k` 巧妙地实现颜色翻转（1→2, 2→1），比 `if/else` 更简洁\n4. **冲突判定**：`vis[idx] + k == 3` 等价于\"已染色且颜色不同\"，因为 $1+2=3$\n\n### 主函数\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint n, m;\n\tcin >> n >> m;\n\tinit(n);\n\tfor (int i = 1; i <= m; i++)\n\t{\n\t\tint u, v;\n\t\tcin >> u >> v;\n\t\tadd(u, v);\n\t}\n\tdfs(1, 1);          // 从节点1开始，染成颜色1\n\tif (ans)\n\t{\n\t\tcout << \"Yes\\n\";\n\t\tfor (int i : node[0]) cout << i << ' ';\n\t\tcout << '\\n';\n\t\tfor (int i : node[1]) cout << i << ' ';\n\t\tcout << '\\n';\n\t}\n\telse cout << \"No\\n\";\n\treturn 0;\n}\n```\n\n注意：代码注释中说明\"所有的点都是联通的\"，因此只需要从节点 1 启动一次 DFS。如果图可能不连通，则需要遍历所有节点，对每个未染色的连通分量分别调用 DFS。\n\n## 复杂度分析\n\n### 时间复杂度：$O(n+m)$\n\n- 每个节点最多被染色一次，即每个节点最多进入一次 DFS\n- 每条边最多被访问两次（无向图双向），即每个邻接关系被检查一次\n- 总操作量与顶点数 $n$ 和边数 $m$ 成线性关系\n\n### 空间复杂度：$O(n+m)$\n\n- 邻接表存储：$O(n+m)$\n- 染色数组 `vis`：$O(n)$\n- 结果数组 `node[0]` 和 `node[1]`：合计 $O(n)$\n- DFS 递归栈深度：最坏 $O(n)$（链状图）\n\n## 适用场景\n\n### 适用场景\n\n1. **二分图判定**：判断一个无向图是否为二分图，是许多图论问题的前置步骤\n2. **二部划分输出**：不仅判定是否为二分图，还输出具体的顶点划分方案\n3. **匹配问题前置**：最大匹配、最小顶点覆盖等问题需要先确认图是二分图\n4. **奇偶环检测**：利用\"二分图等价于无奇环\"的性质，检测图中是否存在奇环\n\n### 不适用场景\n\n1. **有向图**：二分图定义针对无向图，有向图的\"二分\"需另行定义\n2. **需要最大匹配**：本算法只做判定和划分，不求解最大匹配（需用匈牙利算法等）\n3. **图不连通且只调用一次 DFS**：需要确保对每个连通分量都进行染色\n\n## 常见陷阱与注意事项\n\n### 1. 图不连通的情况\n\n代码假设图是连通的（注释中明确说明）。如果图可能有多个连通分量，必须遍历所有节点：\n\n```cpp\nfor (int i = 1; i <= n; i++)\n{\n    if (vis[i] == 0)\n    {\n        dfs(i, 1);\n        if (!ans) break;\n    }\n}\n```\n\n否则某些连通分量未被染色，可能漏判奇环。\n\n### 2. 起点颜色的选择\n\n从哪个点开始、初始染成什么颜色不影响判定结果。二分图的两个集合是对称的，交换颜色 1 和 2 仍然是合法划分。\n\n### 3. ans 标记的全局传递\n\n`ans` 是全局变量，一旦变为 `false`，所有递归分支应立即返回。代码开头的 `if (!ans) return;` 是必要的剪枝，避免无效搜索。\n\n### 4. 反色技巧的正确性\n\n`3 - k` 只在颜色取值为 1 和 2 时成立。如果颜色用 0 和 1 表示，则反色应为 `1 - k`。\n\n### 5. 节点编号从 1 开始\n\n代码中节点编号从 1 开始（`init` 中分配 `n+1` 个空间，主函数从节点 1 开始 DFS）。如果题目中节点从 0 开始，需要调整数组大小和遍历范围。\n\n### 6. 自环的情况\n\n如果图中存在自环（节点到自身的边），则一定不是二分图。从节点 $u$ 出发遍历到邻接点 $u$（自环）时，`vis[u] == k`，而邻接点本应染成 `3-k`；代码先判断 `vis[idx] == k` 并直接返回，因此**自环不会被检测为冲突**，需要在加边时或 DFS 前单独判断。\n\n这是一个需要注意的边界情况。如果图中可能有自环，需要在加边时或 DFS 前单独判断。\n\n## 对比与扩展\n\n### 与 BFS 染色法对比\n\n| 对比维度 | DFS 染色法 | BFS 染色法 |\n|----------|-----------|-----------|\n| 遍历方式 | 深度优先，递归或栈实现 | 广度优先，队列实现 |\n| 时间复杂度 | $O(n+m)$ | $O(n+m)$ |\n| 空间复杂度 | $O(n+m)$，递归栈最坏 $O(n)$ | $O(n+m)$，队列最坏 $O(n)$ |\n| 实现难度 | 递归实现简洁直观 | 迭代实现稍长但无栈溢出风险 |\n| 栈溢出风险 | 链状图可能栈溢出（n 极大时） | 无栈溢出风险 |\n| 适用场景 | 图规模不大、递归深度可控 | 大规模图、避免栈溢出 |\n\n### 扩展：带权二分图\n\n本算法处理的是无权二分图的判定。带权二分图的经典问题包括：\n- **二分图最大匹配**：匈牙利算法，时间复杂度 $O(nm)$\n- **二分图最大权匹配**：KM 算法，时间复杂度 $O(n^3)$\n- **二分图最小顶点覆盖**：Konig 定理，等于最大匹配数\n- **二分图最大独立集**：等于顶点数减去最小顶点覆盖\n\n### 扩展：二分图与 2-SAT\n\n2-SAT 问题可以通过构造蕴含图并求强连通分量来解决，而二分图判定和 2-SAT 有着深刻的联系：二分图的染色约束本质上就是一种\"二选一\"的约束关系，类似 2-SAT 中的变量赋值。\n\n## 附：匈牙利算法（二分图最大匹配）\n\n匈牙利算法（Hungarian Algorithm）由匈牙利数学家 König 和 Egerváry 的理论发展而来，是求解**二分图最大匹配**的经典算法。核心思想基于**增广路定理**：一个匹配是最大匹配，当且仅当图中不存在增广路。\n\n#### 基本概念\n\n**二分图匹配**：在二分图 $G = (A \\cup B, E)$ 中，选取一组边 $M \\subseteq E$，使得 $M$ 中任意两条边没有公共端点，则 $M$ 称为一个匹配。边数最多的匹配称为**最大匹配**。\n\n**增广路**：设 $M$ 是当前匹配。一条从**未匹配点**出发，交替经过**非匹配边**和**匹配边**，最终到达另一侧的**未匹配点**的路径，称为增广路（Augmenting Path）。\n\n增广路的长度一定是奇数，且首尾都是非匹配边。\n\n#### 增广路定理\n\n**定理**：一个匹配 $M$ 是最大匹配 $\\Leftrightarrow$ 图中不存在关于 $M$ 的增广路。\n\n**推论**（增广路算法的正确性基础）：如果能找到一条增广路 $P$，将 $P$ 上的匹配边与非匹配边互换，匹配数增加 1。反复寻找增广路直到不存在，即得到最大匹配。\n\n#### 算法框架\n\n1. 初始匹配为空集\n2. 遍历左部每个未匹配点 $u$，尝试从 $u$ 出发寻找增广路\n3. DFS 搜索：对 $u$ 的每个邻接点 $v$\n   - 若 $v$ 未被匹配：直接匹配 $u \\leftrightarrow v$，增广成功\n   - 若 $v$ 已匹配给 $w$：递归尝试为 $w$ 寻找新的匹配，若成功则将 $v$ 让给 $u$\n4. 若所有左部点都尝试完毕，当前匹配即为最大匹配\n\n#### 时间戳优化\n\n朴素实现中，每次 DFS 前需要清空 `vis` 数组标记右侧节点的访问状态。本代码使用**时间戳优化**：用整数 `t` 标记当前轮次，`vis[i] == t` 表示节点 $i$ 在本轮 DFS 中已访问，无需每次清空数组，将每次增广的初始化代价从 $O(m)$ 降为 $O(1)$。\n\n### 核心公式/状态定义与转移方程\n\n#### 状态定义\n\n| 变量 | 含义 |\n|------|------|\n| `edges[u]` | 左部点 $u$ 的邻接表，存储所有可到达的右部点 |\n| `match[v]` | 右部点 $v$ 当前匹配的左部点编号，0 表示未匹配 |\n| `vis[v]` | 右部点 $v$ 的访问时间戳，记录是第几轮 DFS 访问的 |\n| `t`（DFS 参数） | 当前轮次标识，等于当前左部点编号 $i$ |\n\n#### 转移方程\n\n对左部点 `idx`，DFS 寻找增广路的递归逻辑：\n\n$$\n\\text{dfs}(u, t) =\n\\begin{cases}\n\\text{true} & \\exists\\, v \\in \\text{edges}[u],\\; \\text{vis}[v] \\neq t,\\; \\text{match}[v] = 0 \\\\\n\\text{true} & \\exists\\, v \\in \\text{edges}[u],\\; \\text{vis}[v] \\neq t,\\; \\text{dfs}(\\text{match}[v], t) = \\text{true} \\\\\n\\text{false} & \\text{否则}\n\\end{cases}\n$$\n\n成功时更新 `match[v] = u`。\n\n#### 增广路的结构\n\n一条增广路形如：\n\n$$\nu_0 \\xrightarrow{\\text{非匹配}} v_0 \\xrightarrow{\\text{匹配}} u_1 \\xrightarrow{\\text{非匹配}} v_1 \\xrightarrow{\\text{匹配}} \\cdots \\xrightarrow{\\text{非匹配}} v_k\n$$\n\n其中 $u_0$ 和 $v_k$ 是未匹配点。取反后匹配数 $+1$。\n\n### 逐行代码解析\n\n#### 全局变量定义\n\n```cpp\nvector<vector<int>> edges;  // 左边点的邻接表\nvector<int> match;           // 右边节点配对的左边点\nvector<int> vis;             // 右边节点访问时间戳\nint top;                      // （未使用）\n```\n\n- `edges`：只存**左部→右部**的有向边（二分图匹配中边是单向使用的）\n- `match`：下标是右部点，值是左部点，`match[v] = u` 表示 $v$ 匹配了 $u$，0 表示未匹配\n- `vis`：时间戳数组，`vis[v] = t` 表示 $v$ 在第 $t$ 轮 DFS 中被访问过\n\n#### 初始化函数\n\n```cpp\nvoid init(int n, int m)\n{\n\tedges.assign(n + 1, vector<int>());\n\tvis.assign(m + 1, false);\n\tmatch.assign(m + 1, 0);\n\ttop = 0;\n}\n```\n\n- `edges.assign(n + 1, ...)`：为 $n$ 个左部点分配邻接表\n- `vis.assign(m + 1, false)`：时间戳初始化为 0（所有轮次标识都大于 0，故等价于\"未访问\"）\n- `match.assign(m + 1, 0)`：所有右部点初始未匹配\n\n#### DFS 增广核心函数\n\n```cpp\nbool dfs(int idx, int t)\n{\n\tfor (int i : edges[idx])\n\t{\n\t\tif (vis[i] == t) continue;    // 本轮已访问，跳过\n\t\tvis[i] = t;                    // 标记本轮已访问\n\t\tif (!match[i] || dfs(match[i], t))  // 右部点未匹配 或 其匹配者可换边\n\t\t{\n\t\t\tmatch[i] = idx;            // 将右部点 i 匹配给左部点 idx\n\t\t\treturn true;               // 增广成功\n\t\t}\n\t}\n\treturn false;                      // 所有邻接点都无法增广\n}\n```\n\n逐行分析关键行：\n\n1. **`if (vis[i] == t) continue;`**：时间戳判重。若 $i$ 在本轮已被访问，说明从 $i$ 出发的递归增广已经失败过，无需重复尝试。这一步保证了每个右部点在单轮 DFS 中最多被访问一次。\n\n2. **`vis[i] = t;`**：在递归前标记访问，防止递归过程中形成环（同一右部点被多次访问导致死循环）。\n\n3. **`if (!match[i] || dfs(match[i], t))`**：增广的两种成功情况：\n   - `!match[i]`：右部点 $i$ 未匹配，直接匹配，增广成功\n   - `dfs(match[i], t)`：右部点 $i$ 已匹配给 `match[i]`，递归尝试为 `match[i]` 寻找新的匹配。若成功，则 $i$ 让给当前节点 `idx`\n\n4. **`match[i] = idx;`**：更新匹配关系。注意此时可能已经递归修改了 `match[i]` 原匹配者的匹配关系，所以这里只需设置 $i$ 的新匹配。\n\n#### 主函数\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint n, m, e;\n\tcin >> n >> m >> e;\n\tinit(n, m);\n\tfor (int i = 1; i <= e; i++)\n\t{\n\t\tint u, v;\n\t\tcin >> u >> v;\n\t\tedges[u].emplace_back(v);\n\t}\n\tint cnt = 0;\n\tfor (int i = 1; i <= n; i++)\n\t{\n\t\tif (dfs(i, i)) ++cnt;\n\t}\n\tcout << cnt;\n\treturn 0;\n}\n```\n\n关键点：\n\n- **输入**：$n$ 个左部点，$m$ 个右部点，$e$ 条边。边只从左到右添加（单向）\n- **`dfs(i, i)`**：第 $i$ 轮 DFS 的时间戳就是 $i$ 本身，这样每轮的时间戳天然唯一，无需额外维护计数器\n- **`cnt`**：统计成功增广的次数，即最大匹配数\n\n### 复杂度分析\n\n#### 时间复杂度：$O(nm)$\n\n- 外层循环遍历 $n$ 个左部点，每次调用 DFS\n- 单次 DFS 最坏情况遍历所有 $m$ 条边（递归深度可达 $n$）\n- 总复杂度 $O(n \\cdot m)$，其中 $n$ 为左部点数，$m$ 为边数\n\n实际运行中，由于时间戳判重使每个右部点在单轮 DFS 中最多访问一次，单轮 DFS 的实际复杂度更接近 $O(m)$ 而非 $O(nm)$，但最坏上界仍为 $O(nm)$。\n\n#### 空间复杂度：$O(n + m)$\n\n- 邻接表 `edges`：$O(n + m)$（$n$ 个左部点的邻接表，共 $m$ 条边）\n- `match` 数组：$O(m)$\n- `vis` 数组：$O(m)$\n- DFS 递归栈深度：最坏 $O(n)$\n\n### 适用场景\n\n#### 适用场景\n\n1. **二分图最大匹配**：最基本的用途，如任务分配、人员调度\n2. **二分图最小点覆盖**：由 König 定理，最小点覆盖数 = 最大匹配数\n3. **二分图最大独立集**：最大独立集 = 顶点总数 $-$ 最大匹配数\n4. **最小路径覆盖**：将 DAG 拆分为最少路径，需先拆点二分图化再用匈牙利算法\n5. **棋盘问题**：将棋盘黑白染色后建二分图，求解最多放置互不攻击的棋子数\n\n#### 不适用场景\n\n1. **一般图最大匹配**：匈牙利算法仅适用于二分图，一般图需用带花树（Blossom Algorithm）\n2. **带权最大匹配**：需要最大权匹配时，应使用 KM 算法（Kuhn-Munkres）\n3. **超大规模二分图**：$n, m$ 极大（如 $10^6$ 级）时，$O(nm)$ 可能超时，需考虑 Hopcroft-Karp 算法\n\n### 常见陷阱与注意事项\n\n#### 1. 建图方向\n\n二分图匹配中，邻接表**只需从左部到右部单向建边**。如果双向建边，DFS 时可能错误地从右部走回左部，导致逻辑混乱。代码中 `edges[u].emplace_back(v)` 只加了左→右的边。\n\n#### 2. 时间戳的唯一性\n\n代码中 `dfs(i, i)` 直接用左部点编号 $i$ 作为时间戳。这要求左部点编号从 1 开始且互不相同。如果左部点编号有特殊含义（如从 0 开始），需要改为 `dfs(i, i + 1)` 或使用独立的时间戳计数器，确保时间戳不为 0（因为 `vis` 初始值为 0 表示未访问）。\n\n#### 3. match 数组的语义\n\n`match[v]` 存的是右部点 $v$ 匹配的**左部点编号**，不是反过来。如果混淆左右部语义，会导致输出结果错误。\n\n#### 4. 多组数据的初始化\n\n如果有多组测试数据，每次必须调用 `init` 清空 `edges`、`match`、`vis`。忘记初始化是常见的 WA 原因。\n\n#### 5. 自环边和重边\n\n二分图中不应有自环（左部和右部是不同集合，自环无意义）。重边不影响正确性但浪费空间，可以在加边时去重。\n\n#### 6. 左右部点数不对称\n\n代码中 $n$（左部）和 $m$（右部）可以不相等。遍历左部点 $1 \\sim n$ 即可，不需要遍历右部点。最大匹配数 $\\leq \\min(n, m)$。\n\n#### 7. `top` 变量未使用\n\n代码中全局变量 `top` 声明了但未使用，属于冗余代码，可以删除。\n\n### 对比与扩展\n\n#### 与 Hopcroft-Karp 算法对比\n\n| 对比维度 | 匈牙利算法 | Hopcroft-Karp |\n|----------|-----------|----------------|\n| 核心思想 | 单条增广路逐次增广 | 每轮找一组最短增广路批量增广 |\n| 时间复杂度 | $O(nm)$ | $O(m\\sqrt{n})$ |\n| 实现难度 | 简单，DFS 递归 | 较复杂，需 BFS 分层 + DFS |\n| 适用规模 | $n, m \\leq 500$ | $n, m \\leq 10^5$ |\n| 常数因子 | 小 | 稍大（BFS 分层开销） |\n\n#### 与 KM 算法对比\n\n| 对比维度 | 匈牙利算法 | KM 算法 |\n|----------|-----------|---------|\n| 问题类型 | 无权最大匹配 | 带权最大权匹配 |\n| 时间复杂度 | $O(nm)$ | $O(n^3)$ |\n| 核心思想 | 增广路 | 顶标 + 相等子图 + 增广 |\n| 适用场景 | 无权二分图 | 每条边有权值，求权值和最大的匹配 |\n\n#### 扩展：Konig 定理\n\n二分图中有三个经典等式：\n\n- **最小点覆盖 = 最大匹配数**：选择最少的顶点覆盖所有边\n- **最大独立集 = 顶点总数 $-$ 最大匹配数**：选择最多的互不相邻的顶点\n- **最小路径覆盖 = 顶点总数 $-$ 最大匹配数**（DAG 上，拆点后）\n\n这些定理使匈牙利算法成为解决二分图各类覆盖、独立集问题的核心工具。\n\n#### 扩展：一般图最大匹配\n\n一般图（非二分图）的最大匹配需要处理**奇环**（花，Blossom）的情况。带花树算法（Edmonds' Blossom Algorithm）通过\"缩花\"操作将奇环收缩为一个点，时间复杂度 $O(n^3)$，是匈牙利算法在一般图上的推广。",
         "timeComplexity": "O(n+m)",
         "spaceComplexity": "O(n+m)",
         "tags": [
@@ -8506,52 +8600,6 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-scc",
             "graph-tarjan-cut-vertex",
             "basic-permutation-dfs",
-            "graph-bipartite-hungarian"
-        ],
-        "parent": ""
-    },
-    {
-        "id": "graph-bipartite-hungarian",
-        "category": "图论",
-        "subcategory": "二分图",
-        "subSubcategory": "",
-        "title": "匈牙利算法（二分图最大匹配）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n匈牙利算法（Hungarian Algorithm）由匈牙利数学家 König 和 Egerváry 的理论发展而来，是求解**二分图最大匹配**的经典算法。核心思想基于**增广路定理**：一个匹配是最大匹配，当且仅当图中不存在增广路。\r\n\r\n### 基本概念\r\n\r\n**二分图匹配**：在二分图 $G = (A \\cup B, E)$ 中，选取一组边 $M \\subseteq E$，使得 $M$ 中任意两条边没有公共端点，则 $M$ 称为一个匹配。边数最多的匹配称为**最大匹配**。\r\n\r\n**增广路**：设 $M$ 是当前匹配。一条从**未匹配点**出发，交替经过**非匹配边**和**匹配边**，最终到达另一侧的**未匹配点**的路径，称为增广路（Augmenting Path）。\r\n\r\n增广路的长度一定是奇数，且首尾都是非匹配边。\r\n\r\n### 增广路定理\r\n\r\n**定理**：一个匹配 $M$ 是最大匹配 $\\Leftrightarrow$ 图中不存在关于 $M$ 的增广路。\r\n\r\n**推论**（增广路算法的正确性基础）：如果能找到一条增广路 $P$，将 $P$ 上的匹配边与非匹配边互换，匹配数增加 1。反复寻找增广路直到不存在，即得到最大匹配。\r\n\r\n### 算法框架\r\n\r\n1. 初始匹配为空集\r\n2. 遍历左部每个未匹配点 $u$，尝试从 $u$ 出发寻找增广路\r\n3. DFS 搜索：对 $u$ 的每个邻接点 $v$\r\n   - 若 $v$ 未被匹配：直接匹配 $u \\leftrightarrow v$，增广成功\r\n   - 若 $v$ 已匹配给 $w$：递归尝试为 $w$ 寻找新的匹配，若成功则将 $v$ 让给 $u$\r\n4. 若所有左部点都尝试完毕，当前匹配即为最大匹配\r\n\r\n### 时间戳优化\r\n\r\n朴素实现中，每次 DFS 前需要清空 `vis` 数组标记右侧节点的访问状态。本代码使用**时间戳优化**：用整数 `t` 标记当前轮次，`vis[i] == t` 表示节点 $i$ 在本轮 DFS 中已访问，无需每次清空数组，将每次增广的初始化代价从 $O(m)$ 降为 $O(1)$。\r\n\r\n## 核心公式/状态定义与转移方程\r\n\r\n### 状态定义\r\n\r\n| 变量 | 含义 |\r\n|------|------|\r\n| `edges[u]` | 左部点 $u$ 的邻接表，存储所有可到达的右部点 |\r\n| `match[v]` | 右部点 $v$ 当前匹配的左部点编号，0 表示未匹配 |\r\n| `vis[v]` | 右部点 $v$ 的访问时间戳，记录是第几轮 DFS 访问的 |\r\n| `t`（DFS 参数） | 当前轮次标识，等于当前左部点编号 $i$ |\r\n\r\n### 转移方程\r\n\r\n对左部点 `idx`，DFS 寻找增广路的递归逻辑：\r\n\r\n$$\r\n\\text{dfs}(u, t) =\r\n\\begin{cases}\r\n\\text{true} & \\exists\\, v \\in \\text{edges}[u],\\; \\text{vis}[v] \\neq t,\\; \\text{match}[v] = 0 \\\\\r\n\\text{true} & \\exists\\, v \\in \\text{edges}[u],\\; \\text{vis}[v] \\neq t,\\; \\text{dfs}(\\text{match}[v], t) = \\text{true} \\\\\r\n\\text{false} & \\text{否则}\r\n\\end{cases}\r\n$$\r\n\r\n成功时更新 `match[v] = u`。\r\n\r\n### 增广路的结构\r\n\r\n一条增广路形如：\r\n\r\n$$\r\nu_0 \\xrightarrow{\\text{非匹配}} v_0 \\xrightarrow{\\text{匹配}} u_1 \\xrightarrow{\\text{非匹配}} v_1 \\xrightarrow{\\text{匹配}} \\cdots \\xrightarrow{\\text{非匹配}} v_k\r\n$$\r\n\r\n其中 $u_0$ 和 $v_k$ 是未匹配点。取反后匹配数 $+1$。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量定义\r\n\r\n```cpp\r\nvector<vector<int>> edges;  // 左边点的邻接表\r\nvector<int> match;           // 右边节点配对的左边点\r\nvector<int> vis;             // 右边节点访问时间戳\r\nint top;                      // （未使用）\r\n```\r\n\r\n- `edges`：只存**左部→右部**的有向边（二分图匹配中边是单向使用的）\r\n- `match`：下标是右部点，值是左部点，`match[v] = u` 表示 $v$ 匹配了 $u$，0 表示未匹配\r\n- `vis`：时间戳数组，`vis[v] = t` 表示 $v$ 在第 $t$ 轮 DFS 中被访问过\r\n\r\n### 初始化函数\r\n\r\n```cpp\r\nvoid init(int n, int m)\r\n{\r\n\tedges.assign(n + 1, vector<int>());\r\n\tvis.assign(m + 1, false);\r\n\tmatch.assign(m + 1, 0);\r\n\ttop = 0;\r\n}\r\n```\r\n\r\n- `edges.assign(n + 1, ...)`：为 $n$ 个左部点分配邻接表\r\n- `vis.assign(m + 1, false)`：时间戳初始化为 0（所有轮次标识都大于 0，故等价于\"未访问\"）\r\n- `match.assign(m + 1, 0)`：所有右部点初始未匹配\r\n\r\n### DFS 增广核心函数\r\n\r\n```cpp\r\nbool dfs(int idx, int t)\r\n{\r\n\tfor (int i : edges[idx])\r\n\t{\r\n\t\tif (vis[i] == t) continue;    // 本轮已访问，跳过\r\n\t\tvis[i] = t;                    // 标记本轮已访问\r\n\t\tif (!match[i] || dfs(match[i], t))  // 右部点未匹配 或 其匹配者可换边\r\n\t\t{\r\n\t\t\tmatch[i] = idx;            // 将右部点 i 匹配给左部点 idx\r\n\t\t\treturn true;               // 增广成功\r\n\t\t}\r\n\t}\r\n\treturn false;                      // 所有邻接点都无法增广\r\n}\r\n```\r\n\r\n逐行分析关键行：\r\n\r\n1. **`if (vis[i] == t) continue;`**：时间戳判重。若 $i$ 在本轮已被访问，说明从 $i$ 出发的递归增广已经失败过，无需重复尝试。这一步保证了每个右部点在单轮 DFS 中最多被访问一次。\r\n\r\n2. **`vis[i] = t;`**：在递归前标记访问，防止递归过程中形成环（同一右部点被多次访问导致死循环）。\r\n\r\n3. **`if (!match[i] || dfs(match[i], t))`**：增广的两种成功情况：\r\n   - `!match[i]`：右部点 $i$ 未匹配，直接匹配，增广成功\r\n   - `dfs(match[i], t)`：右部点 $i$ 已匹配给 `match[i]`，递归尝试为 `match[i]` 寻找新的匹配。若成功，则 $i$ 让给当前节点 `idx`\r\n\r\n4. **`match[i] = idx;`**：更新匹配关系。注意此时可能已经递归修改了 `match[i]` 原匹配者的匹配关系，所以这里只需设置 $i$ 的新匹配。\r\n\r\n### 主函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint n, m, e;\r\n\tcin >> n >> m >> e;\r\n\tinit(n, m);\r\n\tfor (int i = 1; i <= e; i++)\r\n\t{\r\n\t\tint u, v;\r\n\t\tcin >> u >> v;\r\n\t\tedges[u].emplace_back(v);\r\n\t}\r\n\tint cnt = 0;\r\n\tfor (int i = 1; i <= n; i++)\r\n\t{\r\n\t\tif (dfs(i, i)) ++cnt;\r\n\t}\r\n\tcout << cnt;\r\n\treturn 0;\r\n}\r\n```\r\n\r\n关键点：\r\n\r\n- **输入**：$n$ 个左部点，$m$ 个右部点，$e$ 条边。边只从左到右添加（单向）\r\n- **`dfs(i, i)`**：第 $i$ 轮 DFS 的时间戳就是 $i$ 本身，这样每轮的时间戳天然唯一，无需额外维护计数器\r\n- **`cnt`**：统计成功增广的次数，即最大匹配数\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度：$O(nm)$\r\n\r\n- 外层循环遍历 $n$ 个左部点，每次调用 DFS\r\n- 单次 DFS 最坏情况遍历所有 $m$ 条边（递归深度可达 $n$）\r\n- 总复杂度 $O(n \\cdot m)$，其中 $n$ 为左部点数，$m$ 为边数\r\n\r\n实际运行中，由于时间戳判重使每个右部点在单轮 DFS 中最多访问一次，单轮 DFS 的实际复杂度更接近 $O(m)$ 而非 $O(nm)$，但最坏上界仍为 $O(nm)$。\r\n\r\n### 空间复杂度：$O(n + m)$\r\n\r\n- 邻接表 `edges`：$O(n + m)$（$n$ 个左部点的邻接表，共 $m$ 条边）\r\n- `match` 数组：$O(m)$\r\n- `vis` 数组：$O(m)$\r\n- DFS 递归栈深度：最坏 $O(n)$\r\n\r\n## 适用场景\r\n\r\n### 适用场景\r\n\r\n1. **二分图最大匹配**：最基本的用途，如任务分配、人员调度\r\n2. **二分图最小点覆盖**：由 König 定理，最小点覆盖数 = 最大匹配数\r\n3. **二分图最大独立集**：最大独立集 = 顶点总数 $-$ 最大匹配数\r\n4. **最小路径覆盖**：将 DAG 拆分为最少路径，需先拆点二分图化再用匈牙利算法\r\n5. **棋盘问题**：将棋盘黑白染色后建二分图，求解最多放置互不攻击的棋子数\r\n\r\n### 不适用场景\r\n\r\n1. **一般图最大匹配**：匈牙利算法仅适用于二分图，一般图需用带花树（Blossom Algorithm）\r\n2. **带权最大匹配**：需要最大权匹配时，应使用 KM 算法（Kuhn-Munkres）\r\n3. **超大规模二分图**：$n, m$ 极大（如 $10^6$ 级）时，$O(nm)$ 可能超时，需考虑 Hopcroft-Karp 算法\r\n\r\n## 常见陷阱与注意事项\r\n\r\n### 1. 建图方向\r\n\r\n二分图匹配中，邻接表**只需从左部到右部单向建边**。如果双向建边，DFS 时可能错误地从右部走回左部，导致逻辑混乱。代码中 `edges[u].emplace_back(v)` 只加了左→右的边。\r\n\r\n### 2. 时间戳的唯一性\r\n\r\n代码中 `dfs(i, i)` 直接用左部点编号 $i$ 作为时间戳。这要求左部点编号从 1 开始且互不相同。如果左部点编号有特殊含义（如从 0 开始），需要改为 `dfs(i, i + 1)` 或使用独立的时间戳计数器，确保时间戳不为 0（因为 `vis` 初始值为 0 表示未访问）。\r\n\r\n### 3. match 数组的语义\r\n\r\n`match[v]` 存的是右部点 $v$ 匹配的**左部点编号**，不是反过来。如果混淆左右部语义，会导致输出结果错误。\r\n\r\n### 4. 多组数据的初始化\r\n\r\n如果有多组测试数据，每次必须调用 `init` 清空 `edges`、`match`、`vis`。忘记初始化是常见的 WA 原因。\r\n\r\n### 5. 自环边和重边\r\n\r\n二分图中不应有自环（左部和右部是不同集合，自环无意义）。重边不影响正确性但浪费空间，可以在加边时去重。\r\n\r\n### 6. 左右部点数不对称\r\n\r\n代码中 $n$（左部）和 $m$（右部）可以不相等。遍历左部点 $1 \\sim n$ 即可，不需要遍历右部点。最大匹配数 $\\leq \\min(n, m)$。\r\n\r\n### 7. `top` 变量未使用\r\n\r\n代码中全局变量 `top` 声明了但未使用，属于冗余代码，可以删除。\r\n\r\n## 对比与扩展\r\n\r\n### 与 Hopcroft-Karp 算法对比\r\n\r\n| 对比维度 | 匈牙利算法 | Hopcroft-Karp |\r\n|----------|-----------|----------------|\r\n| 核心思想 | 单条增广路逐次增广 | 每轮找一组最短增广路批量增广 |\r\n| 时间复杂度 | $O(nm)$ | $O(m\\sqrt{n})$ |\r\n| 实现难度 | 简单，DFS 递归 | 较复杂，需 BFS 分层 + DFS |\r\n| 适用规模 | $n, m \\leq 500$ | $n, m \\leq 10^5$ |\r\n| 常数因子 | 小 | 稍大（BFS 分层开销） |\r\n\r\n### 与 KM 算法对比\r\n\r\n| 对比维度 | 匈牙利算法 | KM 算法 |\r\n|----------|-----------|---------|\r\n| 问题类型 | 无权最大匹配 | 带权最大权匹配 |\r\n| 时间复杂度 | $O(nm)$ | $O(n^3)$ |\r\n| 核心思想 | 增广路 | 顶标 + 相等子图 + 增广 |\r\n| 适用场景 | 无权二分图 | 每条边有权值，求权值和最大的匹配 |\r\n\r\n### 扩展：Konig 定理\r\n\r\n二分图中有三个经典等式：\r\n\r\n- **最小点覆盖 = 最大匹配数**：选择最少的顶点覆盖所有边\r\n- **最大独立集 = 顶点总数 $-$ 最大匹配数**：选择最多的互不相邻的顶点\r\n- **最小路径覆盖 = 顶点总数 $-$ 最大匹配数**（DAG 上，拆点后）\r\n\r\n这些定理使匈牙利算法成为解决二分图各类覆盖、独立集问题的核心工具。\r\n\r\n### 扩展：一般图最大匹配\r\n\r\n一般图（非二分图）的最大匹配需要处理**奇环**（花，Blossom）的情况。带花树算法（Edmonds' Blossom Algorithm）通过\"缩花\"操作将奇环收缩为一个点，时间复杂度 $O(n^3)$，是匈牙利算法在一般图上的推广。",
-                "codePath": "图论\\二分图\\匈牙利算法\\Untitled1.cpp",
-                "timeComplexity": "O(nm)",
-                "spaceComplexity": "O(n+m)",
-                "tags": [
-                    "图论",
-                    "二分图",
-                    "匈牙利算法",
-                    "最大匹配",
-                    "增广路",
-                    "DFS"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 算法原理\r\n\r\n匈牙利算法（Hungarian Algorithm）由匈牙利数学家 König 和 Egerváry 的理论发展而来，是求解**二分图最大匹配**的经典算法。核心思想基于**增广路定理**：一个匹配是最大匹配，当且仅当图中不存在增广路。\r\n\r\n### 基本概念\r\n\r\n**二分图匹配**：在二分图 $G = (A \\cup B, E)$ 中，选取一组边 $M \\subseteq E$，使得 $M$ 中任意两条边没有公共端点，则 $M$ 称为一个匹配。边数最多的匹配称为**最大匹配**。\r\n\r\n**增广路**：设 $M$ 是当前匹配。一条从**未匹配点**出发，交替经过**非匹配边**和**匹配边**，最终到达另一侧的**未匹配点**的路径，称为增广路（Augmenting Path）。\r\n\r\n增广路的长度一定是奇数，且首尾都是非匹配边。\r\n\r\n### 增广路定理\r\n\r\n**定理**：一个匹配 $M$ 是最大匹配 $\\Leftrightarrow$ 图中不存在关于 $M$ 的增广路。\r\n\r\n**推论**（增广路算法的正确性基础）：如果能找到一条增广路 $P$，将 $P$ 上的匹配边与非匹配边互换，匹配数增加 1。反复寻找增广路直到不存在，即得到最大匹配。\r\n\r\n### 算法框架\r\n\r\n1. 初始匹配为空集\r\n2. 遍历左部每个未匹配点 $u$，尝试从 $u$ 出发寻找增广路\r\n3. DFS 搜索：对 $u$ 的每个邻接点 $v$\r\n   - 若 $v$ 未被匹配：直接匹配 $u \\leftrightarrow v$，增广成功\r\n   - 若 $v$ 已匹配给 $w$：递归尝试为 $w$ 寻找新的匹配，若成功则将 $v$ 让给 $u$\r\n4. 若所有左部点都尝试完毕，当前匹配即为最大匹配\r\n\r\n### 时间戳优化\r\n\r\n朴素实现中，每次 DFS 前需要清空 `vis` 数组标记右侧节点的访问状态。本代码使用**时间戳优化**：用整数 `t` 标记当前轮次，`vis[i] == t` 表示节点 $i$ 在本轮 DFS 中已访问，无需每次清空数组，将每次增广的初始化代价从 $O(m)$ 降为 $O(1)$。\r\n\r\n## 核心公式/状态定义与转移方程\r\n\r\n### 状态定义\r\n\r\n| 变量 | 含义 |\r\n|------|------|\r\n| `edges[u]` | 左部点 $u$ 的邻接表，存储所有可到达的右部点 |\r\n| `match[v]` | 右部点 $v$ 当前匹配的左部点编号，0 表示未匹配 |\r\n| `vis[v]` | 右部点 $v$ 的访问时间戳，记录是第几轮 DFS 访问的 |\r\n| `t`（DFS 参数） | 当前轮次标识，等于当前左部点编号 $i$ |\r\n\r\n### 转移方程\r\n\r\n对左部点 `idx`，DFS 寻找增广路的递归逻辑：\r\n\r\n$$\r\n\\text{dfs}(u, t) =\r\n\\begin{cases}\r\n\\text{true} & \\exists\\, v \\in \\text{edges}[u],\\; \\text{vis}[v] \\neq t,\\; \\text{match}[v] = 0 \\\\\r\n\\text{true} & \\exists\\, v \\in \\text{edges}[u],\\; \\text{vis}[v] \\neq t,\\; \\text{dfs}(\\text{match}[v], t) = \\text{true} \\\\\r\n\\text{false} & \\text{否则}\r\n\\end{cases}\r\n$$\r\n\r\n成功时更新 `match[v] = u`。\r\n\r\n### 增广路的结构\r\n\r\n一条增广路形如：\r\n\r\n$$\r\nu_0 \\xrightarrow{\\text{非匹配}} v_0 \\xrightarrow{\\text{匹配}} u_1 \\xrightarrow{\\text{非匹配}} v_1 \\xrightarrow{\\text{匹配}} \\cdots \\xrightarrow{\\text{非匹配}} v_k\r\n$$\r\n\r\n其中 $u_0$ 和 $v_k$ 是未匹配点。取反后匹配数 $+1$。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量定义\r\n\r\n```cpp\r\nvector<vector<int>> edges;  // 左边点的邻接表\r\nvector<int> match;           // 右边节点配对的左边点\r\nvector<int> vis;             // 右边节点访问时间戳\r\nint top;                      // （未使用）\r\n```\r\n\r\n- `edges`：只存**左部→右部**的有向边（二分图匹配中边是单向使用的）\r\n- `match`：下标是右部点，值是左部点，`match[v] = u` 表示 $v$ 匹配了 $u$，0 表示未匹配\r\n- `vis`：时间戳数组，`vis[v] = t` 表示 $v$ 在第 $t$ 轮 DFS 中被访问过\r\n\r\n### 初始化函数\r\n\r\n```cpp\r\nvoid init(int n, int m)\r\n{\r\n\tedges.assign(n + 1, vector<int>());\r\n\tvis.assign(m + 1, false);\r\n\tmatch.assign(m + 1, 0);\r\n\ttop = 0;\r\n}\r\n```\r\n\r\n- `edges.assign(n + 1, ...)`：为 $n$ 个左部点分配邻接表\r\n- `vis.assign(m + 1, false)`：时间戳初始化为 0（所有轮次标识都大于 0，故等价于\"未访问\"）\r\n- `match.assign(m + 1, 0)`：所有右部点初始未匹配\r\n\r\n### DFS 增广核心函数\r\n\r\n```cpp\r\nbool dfs(int idx, int t)\r\n{\r\n\tfor (int i : edges[idx])\r\n\t{\r\n\t\tif (vis[i] == t) continue;    // 本轮已访问，跳过\r\n\t\tvis[i] = t;                    // 标记本轮已访问\r\n\t\tif (!match[i] || dfs(match[i], t))  // 右部点未匹配 或 其匹配者可换边\r\n\t\t{\r\n\t\t\tmatch[i] = idx;            // 将右部点 i 匹配给左部点 idx\r\n\t\t\treturn true;               // 增广成功\r\n\t\t}\r\n\t}\r\n\treturn false;                      // 所有邻接点都无法增广\r\n}\r\n```\r\n\r\n逐行分析关键行：\r\n\r\n1. **`if (vis[i] == t) continue;`**：时间戳判重。若 $i$ 在本轮已被访问，说明从 $i$ 出发的递归增广已经失败过，无需重复尝试。这一步保证了每个右部点在单轮 DFS 中最多被访问一次。\r\n\r\n2. **`vis[i] = t;`**：在递归前标记访问，防止递归过程中形成环（同一右部点被多次访问导致死循环）。\r\n\r\n3. **`if (!match[i] || dfs(match[i], t))`**：增广的两种成功情况：\r\n   - `!match[i]`：右部点 $i$ 未匹配，直接匹配，增广成功\r\n   - `dfs(match[i], t)`：右部点 $i$ 已匹配给 `match[i]`，递归尝试为 `match[i]` 寻找新的匹配。若成功，则 $i$ 让给当前节点 `idx`\r\n\r\n4. **`match[i] = idx;`**：更新匹配关系。注意此时可能已经递归修改了 `match[i]` 原匹配者的匹配关系，所以这里只需设置 $i$ 的新匹配。\r\n\r\n### 主函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint n, m, e;\r\n\tcin >> n >> m >> e;\r\n\tinit(n, m);\r\n\tfor (int i = 1; i <= e; i++)\r\n\t{\r\n\t\tint u, v;\r\n\t\tcin >> u >> v;\r\n\t\tedges[u].emplace_back(v);\r\n\t}\r\n\tint cnt = 0;\r\n\tfor (int i = 1; i <= n; i++)\r\n\t{\r\n\t\tif (dfs(i, i)) ++cnt;\r\n\t}\r\n\tcout << cnt;\r\n\treturn 0;\r\n}\r\n```\r\n\r\n关键点：\r\n\r\n- **输入**：$n$ 个左部点，$m$ 个右部点，$e$ 条边。边只从左到右添加（单向）\r\n- **`dfs(i, i)`**：第 $i$ 轮 DFS 的时间戳就是 $i$ 本身，这样每轮的时间戳天然唯一，无需额外维护计数器\r\n- **`cnt`**：统计成功增广的次数，即最大匹配数\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度：$O(nm)$\r\n\r\n- 外层循环遍历 $n$ 个左部点，每次调用 DFS\r\n- 单次 DFS 最坏情况遍历所有 $m$ 条边（递归深度可达 $n$）\r\n- 总复杂度 $O(n \\cdot m)$，其中 $n$ 为左部点数，$m$ 为边数\r\n\r\n实际运行中，由于时间戳判重使每个右部点在单轮 DFS 中最多访问一次，单轮 DFS 的实际复杂度更接近 $O(m)$ 而非 $O(nm)$，但最坏上界仍为 $O(nm)$。\r\n\r\n### 空间复杂度：$O(n + m)$\r\n\r\n- 邻接表 `edges`：$O(n + m)$（$n$ 个左部点的邻接表，共 $m$ 条边）\r\n- `match` 数组：$O(m)$\r\n- `vis` 数组：$O(m)$\r\n- DFS 递归栈深度：最坏 $O(n)$\r\n\r\n## 适用场景\r\n\r\n### 适用场景\r\n\r\n1. **二分图最大匹配**：最基本的用途，如任务分配、人员调度\r\n2. **二分图最小点覆盖**：由 König 定理，最小点覆盖数 = 最大匹配数\r\n3. **二分图最大独立集**：最大独立集 = 顶点总数 $-$ 最大匹配数\r\n4. **最小路径覆盖**：将 DAG 拆分为最少路径，需先拆点二分图化再用匈牙利算法\r\n5. **棋盘问题**：将棋盘黑白染色后建二分图，求解最多放置互不攻击的棋子数\r\n\r\n### 不适用场景\r\n\r\n1. **一般图最大匹配**：匈牙利算法仅适用于二分图，一般图需用带花树（Blossom Algorithm）\r\n2. **带权最大匹配**：需要最大权匹配时，应使用 KM 算法（Kuhn-Munkres）\r\n3. **超大规模二分图**：$n, m$ 极大（如 $10^6$ 级）时，$O(nm)$ 可能超时，需考虑 Hopcroft-Karp 算法\r\n\r\n## 常见陷阱与注意事项\r\n\r\n### 1. 建图方向\r\n\r\n二分图匹配中，邻接表**只需从左部到右部单向建边**。如果双向建边，DFS 时可能错误地从右部走回左部，导致逻辑混乱。代码中 `edges[u].emplace_back(v)` 只加了左→右的边。\r\n\r\n### 2. 时间戳的唯一性\r\n\r\n代码中 `dfs(i, i)` 直接用左部点编号 $i$ 作为时间戳。这要求左部点编号从 1 开始且互不相同。如果左部点编号有特殊含义（如从 0 开始），需要改为 `dfs(i, i + 1)` 或使用独立的时间戳计数器，确保时间戳不为 0（因为 `vis` 初始值为 0 表示未访问）。\r\n\r\n### 3. match 数组的语义\r\n\r\n`match[v]` 存的是右部点 $v$ 匹配的**左部点编号**，不是反过来。如果混淆左右部语义，会导致输出结果错误。\r\n\r\n### 4. 多组数据的初始化\r\n\r\n如果有多组测试数据，每次必须调用 `init` 清空 `edges`、`match`、`vis`。忘记初始化是常见的 WA 原因。\r\n\r\n### 5. 自环边和重边\r\n\r\n二分图中不应有自环（左部和右部是不同集合，自环无意义）。重边不影响正确性但浪费空间，可以在加边时去重。\r\n\r\n### 6. 左右部点数不对称\r\n\r\n代码中 $n$（左部）和 $m$（右部）可以不相等。遍历左部点 $1 \\sim n$ 即可，不需要遍历右部点。最大匹配数 $\\leq \\min(n, m)$。\r\n\r\n### 7. `top` 变量未使用\r\n\r\n代码中全局变量 `top` 声明了但未使用，属于冗余代码，可以删除。\r\n\r\n## 对比与扩展\r\n\r\n### 与 Hopcroft-Karp 算法对比\r\n\r\n| 对比维度 | 匈牙利算法 | Hopcroft-Karp |\r\n|----------|-----------|----------------|\r\n| 核心思想 | 单条增广路逐次增广 | 每轮找一组最短增广路批量增广 |\r\n| 时间复杂度 | $O(nm)$ | $O(m\\sqrt{n})$ |\r\n| 实现难度 | 简单，DFS 递归 | 较复杂，需 BFS 分层 + DFS |\r\n| 适用规模 | $n, m \\leq 500$ | $n, m \\leq 10^5$ |\r\n| 常数因子 | 小 | 稍大（BFS 分层开销） |\r\n\r\n### 与 KM 算法对比\r\n\r\n| 对比维度 | 匈牙利算法 | KM 算法 |\r\n|----------|-----------|---------|\r\n| 问题类型 | 无权最大匹配 | 带权最大权匹配 |\r\n| 时间复杂度 | $O(nm)$ | $O(n^3)$ |\r\n| 核心思想 | 增广路 | 顶标 + 相等子图 + 增广 |\r\n| 适用场景 | 无权二分图 | 每条边有权值，求权值和最大的匹配 |\r\n\r\n### 扩展：Konig 定理\r\n\r\n二分图中有三个经典等式：\r\n\r\n- **最小点覆盖 = 最大匹配数**：选择最少的顶点覆盖所有边\r\n- **最大独立集 = 顶点总数 $-$ 最大匹配数**：选择最多的互不相邻的顶点\r\n- **最小路径覆盖 = 顶点总数 $-$ 最大匹配数**（DAG 上，拆点后）\r\n\r\n这些定理使匈牙利算法成为解决二分图各类覆盖、独立集问题的核心工具。\r\n\r\n### 扩展：一般图最大匹配\r\n\r\n一般图（非二分图）的最大匹配需要处理**奇环**（花，Blossom）的情况。带花树算法（Edmonds' Blossom Algorithm）通过\"缩花\"操作将奇环收缩为一个点，时间复杂度 $O(n^3)$，是匈牙利算法在一般图上的推广。",
-        "timeComplexity": "O(nm)",
-        "spaceComplexity": "O(n+m)",
-        "tags": [
-            "图论",
-            "二分图",
-            "匈牙利算法",
-            "最大匹配",
-            "增广路",
-            "DFS"
-        ],
-        "codePath": "图论\\二分图\\匈牙利算法\\Untitled1.cpp",
-        "prerequisites": [
-            "graph-bipartite-dfs-coloring"
-        ],
-        "related": [
-            "graph-bipartite-dfs-coloring",
             "graph-kruskal",
             "basic-divide-conquer-merge-inversion"
         ],
@@ -8606,10 +8654,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "graph-kruskal"
+            "graph-kruskal",
+            "graph-mst-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "graph-mst-overview"
     },
     {
         "id": "graph-centroid",
@@ -8691,10 +8740,11 @@ const KNOWLEDGE_DATA = [
         "codePath": "",
         "prerequisites": [
             "hub-graph",
-            "hub-graph-modeling"
+            "hub-graph-modeling",
+            "graph-shortest-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "graph-shortest-overview"
     },
     {
         "id": "graph-cyclic-tree",
@@ -8774,7 +8824,8 @@ const KNOWLEDGE_DATA = [
         "codePath": "图论\\最短路\\DAG最短路（拓扑排序）\\Untitled1.cpp",
         "prerequisites": [
             "graph-topo-sort",
-            "hub-graph"
+            "hub-graph",
+            "graph-shortest-overview"
         ],
         "related": [
             "graph-dijkstra-heap",
@@ -8784,7 +8835,7 @@ const KNOWLEDGE_DATA = [
             "graph-scc-condensation",
             "graph-scc-dag-dp"
         ],
-        "parent": ""
+        "parent": "graph-shortest-overview"
     },
     {
         "id": "graph-difference-constraints",
@@ -8900,7 +8951,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "图论\\最短路\\Dijkstra（堆优化）\\Untitled1.cpp",
         "prerequisites": [
-            "hub-graph"
+            "hub-graph",
+            "graph-shortest-overview"
         ],
         "related": [
             "graph-bellman-ford",
@@ -8912,7 +8964,7 @@ const KNOWLEDGE_DATA = [
             "graph-topo-sort",
             "basic-bfs-bidirectional"
         ],
-        "parent": ""
+        "parent": "graph-shortest-overview"
     },
     {
         "id": "graph-e-dcc-condensation",
@@ -8952,15 +9004,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "图论\\连通分量\\边双连通分量缩点\\Untitled1.cpp",
         "prerequisites": [
-            "graph-tarjan-bridge",
-            "hub-graph"
+            "graph-tarjan-cut-vertex",
+            "hub-graph",
+            "graph-scc-overview"
         ],
         "related": [
-            "graph-tarjan-bridge",
-            "graph-scc-condensation",
-            "graph-tarjan-cut-vertex"
+            "graph-tarjan-cut-vertex",
+            "graph-scc-condensation"
         ],
-        "parent": ""
+        "parent": "graph-scc-overview"
     },
     {
         "id": "graph-floyd",
@@ -9022,7 +9074,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "图论\\最短路\\Floyd\\Untitled1.cpp",
         "prerequisites": [
-            "hub-graph"
+            "hub-graph",
+            "graph-shortest-overview"
         ],
         "related": [
             "graph-johnson",
@@ -9031,7 +9084,7 @@ const KNOWLEDGE_DATA = [
             "graph-dag-shortest-path",
             "basic-bitset"
         ],
-        "parent": ""
+        "parent": "graph-shortest-overview"
     },
     {
         "id": "graph-hld-segtree",
@@ -9109,7 +9162,6 @@ const KNOWLEDGE_DATA = [
         ],
         "related": [
             "graph-lca-hld",
-            "ds-diff-tree",
             "ds-prefix-sum-tree",
             "graph-centroid"
         ],
@@ -9158,13 +9210,14 @@ const KNOWLEDGE_DATA = [
         "codePath": "图论\\最短路\\Johnson\\Untitled1.cpp",
         "prerequisites": [
             "graph-floyd",
-            "graph-bellman-ford"
+            "graph-bellman-ford",
+            "graph-shortest-overview"
         ],
         "related": [
             "graph-floyd",
             "graph-bellman-ford"
         ],
-        "parent": ""
+        "parent": "graph-shortest-overview"
     },
     {
         "id": "graph-kosaraju",
@@ -9217,10 +9270,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "graph-tarjan-scc"
+            "graph-tarjan-scc",
+            "graph-scc-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "graph-scc-overview"
     },
     {
         "id": "graph-kruskal",
@@ -9282,14 +9336,15 @@ const KNOWLEDGE_DATA = [
         "codePath": "图论\\最小生成树\\Kruskal\\Untitled1.cpp",
         "prerequisites": [
             "ds-uf-basic",
-            "hub-graph"
+            "hub-graph",
+            "graph-mst-overview"
         ],
         "related": [
             "graph-prim",
             "ds-uf-basic",
-            "graph-bipartite-hungarian"
+            "graph-bipartite-dfs-coloring"
         ],
-        "parent": ""
+        "parent": "graph-mst-overview"
     },
     {
         "id": "graph-layered",
@@ -9389,14 +9444,15 @@ const KNOWLEDGE_DATA = [
         "codePath": "图论\\最近公共祖先\\倍增法\\Untitled1.cpp",
         "prerequisites": [
             "hub-graph",
-            "hub-graph-tree"
+            "hub-graph-tree",
+            "graph-lca-overview"
         ],
         "related": [
             "graph-lca-tarjan",
             "graph-lca-hld",
             "graph-centroid"
         ],
-        "parent": ""
+        "parent": "graph-lca-overview"
     },
     {
         "id": "graph-lca-hld",
@@ -9437,7 +9493,8 @@ const KNOWLEDGE_DATA = [
         "codePath": "图论\\最近公共祖先\\重链剖分\\Untitled1.cpp",
         "prerequisites": [
             "graph-lca-doubling",
-            "hub-graph-tree"
+            "hub-graph-tree",
+            "graph-lca-overview"
         ],
         "related": [
             "graph-lca-doubling",
@@ -9445,6 +9502,47 @@ const KNOWLEDGE_DATA = [
             "graph-hld-segtree",
             "ds-splay"
         ],
+        "parent": "graph-lca-overview"
+    },
+    {
+        "id": "graph-lca-overview",
+        "category": "图论",
+        "subcategory": "最近公共祖先",
+        "subSubcategory": "",
+        "title": "最近公共祖先总览（倍增 / 树链剖分 / Tarjan）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「最近公共祖先（LCA）」的二级栏目索引：LCA 用于求树上两点最近公共祖先、路径长度与路径统计，常见三种实现——倍增、重链剖分、Tarjan 离线。\r\n\r\n**学习顺序**：倍增 LCA（最通用）→ 重链剖分 LCA → Tarjan 离线 LCA。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按场景选子栏目**：\r\n\r\n| 场景 | 子条目 |\r\n|---|---|\r\n| 在线查询、实现简单 | 最近公共祖先 LCA（倍增法） |\r\n| 已会树剖、想复用 | 最近公共祖先 LCA（重链剖分） |\r\n| 查询可离线、想线性 | 最近公共祖先 LCA（Tarjan 离线·并查集） |\r\n\r\n倍增核心：先让深度大的点跳到同一深度，再从高位到低位同时上跳，直到父节点相同。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出预处理、上跳顺序与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- 倍增：预处理 $O(n\\log n)$，单次查询 $O(\\log n)$。\r\n- 树链剖分：预处理 $O(n)$，单次查询 $O(\\log n)$。\r\n- Tarjan 离线：总 $O(n+q)$。\r\n\r\n## 适用场景\r\n\r\n- 树上路径长度、路径点权和。\r\n- 树上差分（配合 LCA）。\r\n- 需要多次查询两点关系。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 倍增表大小要开到 $\\log n$ 以上。\r\n- 上跳前必须先对齐深度。\r\n- 根节点父指针指向自己或 0，按写法统一。\r\n- Tarjan 离线依赖并查集，注意回溯时的合并顺序。\r\n- 多组数据要清空 `up` 表与 `dep`。\r\n\r\n## 对比与扩展\r\n\r\n- 倍增 vs 树剖：前者更好写，后者常数更小且可复用路径操作。\r\n- 在线 vs 离线：查询强制在线时不能用 Tarjan。\r\n- 可扩展到欧拉序 + ST 表求 LCA。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "LCA",
+                    "最近公共祖先",
+                    "倍增",
+                    "树链剖分",
+                    "总览"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「最近公共祖先（LCA）」的二级栏目索引：LCA 用于求树上两点最近公共祖先、路径长度与路径统计，常见三种实现——倍增、重链剖分、Tarjan 离线。\r\n\r\n**学习顺序**：倍增 LCA（最通用）→ 重链剖分 LCA → Tarjan 离线 LCA。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按场景选子栏目**：\r\n\r\n| 场景 | 子条目 |\r\n|---|---|\r\n| 在线查询、实现简单 | 最近公共祖先 LCA（倍增法） |\r\n| 已会树剖、想复用 | 最近公共祖先 LCA（重链剖分） |\r\n| 查询可离线、想线性 | 最近公共祖先 LCA（Tarjan 离线·并查集） |\r\n\r\n倍增核心：先让深度大的点跳到同一深度，再从高位到低位同时上跳，直到父节点相同。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出预处理、上跳顺序与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- 倍增：预处理 $O(n\\log n)$，单次查询 $O(\\log n)$。\r\n- 树链剖分：预处理 $O(n)$，单次查询 $O(\\log n)$。\r\n- Tarjan 离线：总 $O(n+q)$。\r\n\r\n## 适用场景\r\n\r\n- 树上路径长度、路径点权和。\r\n- 树上差分（配合 LCA）。\r\n- 需要多次查询两点关系。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 倍增表大小要开到 $\\log n$ 以上。\r\n- 上跳前必须先对齐深度。\r\n- 根节点父指针指向自己或 0，按写法统一。\r\n- Tarjan 离线依赖并查集，注意回溯时的合并顺序。\r\n- 多组数据要清空 `up` 表与 `dep`。\r\n\r\n## 对比与扩展\r\n\r\n- 倍增 vs 树剖：前者更好写，后者常数更小且可复用路径操作。\r\n- 在线 vs 离线：查询强制在线时不能用 Tarjan。\r\n- 可扩展到欧拉序 + ST 表求 LCA。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "LCA",
+            "最近公共祖先",
+            "倍增",
+            "树链剖分",
+            "总览"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-graph"
+        ],
+        "related": [],
         "parent": ""
     },
     {
@@ -9489,7 +9587,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "ds-uf-basic",
             "graph-lca-doubling",
-            "hub-graph-tree"
+            "hub-graph-tree",
+            "graph-lca-overview"
         ],
         "related": [
             "graph-lca-doubling",
@@ -9498,10 +9597,9 @@ const KNOWLEDGE_DATA = [
             "graph-tarjan-cut-vertex",
             "graph-tarjan-scc",
             "ds-prefix-sum-tree",
-            "ds-diff-tree",
             "ds-cartesian-tree"
         ],
-        "parent": ""
+        "parent": "graph-lca-overview"
     },
     {
         "id": "graph-modeling",
@@ -9545,6 +9643,47 @@ const KNOWLEDGE_DATA = [
         "related": [
             "graph-difference-constraints"
         ],
+        "parent": ""
+    },
+    {
+        "id": "graph-mst-overview",
+        "category": "图论",
+        "subcategory": "最小生成树",
+        "subSubcategory": "",
+        "title": "最小生成树总览（Kruskal / Prim / Borůvka）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「最小生成树（MST）」的二级栏目索引：在连通无向带权图中选 $n-1$ 条边使总权最小。常用 Kruskal（按边贪心 + 并查集）、Prim（按点扩展）、Borůvka（按连通块找最小出边）。\r\n\r\n**学习顺序**：Kruskal → Prim → Borůvka。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按场景选子栏目**：\r\n\r\n| 场景 | 子条目 |\r\n|---|---|\r\n| 稀疏图、边排序方便 | Kruskal 最小生成树 |\r\n| 稠密图、邻接矩阵 | Prim 最小生成树（堆优化） |\r\n| 特殊题/并行求最小出边 | Borůvka 最小生成树 |\r\n\r\nKruskal 正确性依赖「切分性质」：跨切分的最小边一定属于某棵 MST。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出排序、并查集/堆操作与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- Kruskal：$O(m\\log m)$（排序主导）。\r\n- Prim 堆优化：$O((n+m)\\log n)$。\r\n- Borůvka：$O(m\\log n)$ 级别（每轮合并连通块）。\r\n\r\n## 适用场景\r\n\r\n- 连通图最小代价建网。\r\n- 稠密图 Prim、稀疏图 Kruskal。\r\n- 需要按连通块合并的变种题。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 图不连通时只能得到最小生成森林。\r\n- Kruskal 要先按边权排序，边权相同不影响正确性。\r\n- Prim 的 `dis` 初始为 INF，起点为 0。\r\n- Borůvka 每轮要清空并重新找最小出边。\r\n- 重边与自环的处理要按题意。\r\n\r\n## 对比与扩展\r\n\r\n- Kruskal vs Prim：稀疏图 Kruskal，稠密图 Prim。\r\n- MST vs 最短路：前者全局连通代价最小，后者单源路径最短。\r\n- 可扩展到次小生成树、最小树形图（朱刘算法）。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "最小生成树",
+                    "MST",
+                    "Kruskal",
+                    "Prim",
+                    "总览"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「最小生成树（MST）」的二级栏目索引：在连通无向带权图中选 $n-1$ 条边使总权最小。常用 Kruskal（按边贪心 + 并查集）、Prim（按点扩展）、Borůvka（按连通块找最小出边）。\r\n\r\n**学习顺序**：Kruskal → Prim → Borůvka。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按场景选子栏目**：\r\n\r\n| 场景 | 子条目 |\r\n|---|---|\r\n| 稀疏图、边排序方便 | Kruskal 最小生成树 |\r\n| 稠密图、邻接矩阵 | Prim 最小生成树（堆优化） |\r\n| 特殊题/并行求最小出边 | Borůvka 最小生成树 |\r\n\r\nKruskal 正确性依赖「切分性质」：跨切分的最小边一定属于某棵 MST。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出排序、并查集/堆操作与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- Kruskal：$O(m\\log m)$（排序主导）。\r\n- Prim 堆优化：$O((n+m)\\log n)$。\r\n- Borůvka：$O(m\\log n)$ 级别（每轮合并连通块）。\r\n\r\n## 适用场景\r\n\r\n- 连通图最小代价建网。\r\n- 稠密图 Prim、稀疏图 Kruskal。\r\n- 需要按连通块合并的变种题。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 图不连通时只能得到最小生成森林。\r\n- Kruskal 要先按边权排序，边权相同不影响正确性。\r\n- Prim 的 `dis` 初始为 INF，起点为 0。\r\n- Borůvka 每轮要清空并重新找最小出边。\r\n- 重边与自环的处理要按题意。\r\n\r\n## 对比与扩展\r\n\r\n- Kruskal vs Prim：稀疏图 Kruskal，稠密图 Prim。\r\n- MST vs 最短路：前者全局连通代价最小，后者单源路径最短。\r\n- 可扩展到次小生成树、最小树形图（朱刘算法）。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "最小生成树",
+            "MST",
+            "Kruskal",
+            "Prim",
+            "总览"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-graph"
+        ],
+        "related": [],
         "parent": ""
     },
     {
@@ -9682,13 +9821,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "图论\\最小生成树\\Prim\\Untitled1.cpp",
         "prerequisites": [
-            "hub-graph"
+            "hub-graph",
+            "graph-mst-overview"
         ],
         "related": [
             "graph-kruskal",
             "graph-dijkstra-heap"
         ],
-        "parent": ""
+        "parent": "graph-mst-overview"
     },
     {
         "id": "graph-scc-condensation",
@@ -9727,17 +9867,18 @@ const KNOWLEDGE_DATA = [
         "codePath": "图论\\连通分量\\SCC缩点\\源.cpp",
         "prerequisites": [
             "graph-tarjan-scc",
-            "graph-topo-sort"
+            "graph-topo-sort",
+            "graph-scc-overview"
         ],
         "related": [
             "graph-tarjan-scc",
             "graph-dag-shortest-path",
             "graph-topo-sort",
             "graph-e-dcc-condensation",
-            "graph-tarjan-bridge",
+            "graph-tarjan-cut-vertex",
             "graph-scc-dag-dp"
         ],
-        "parent": ""
+        "parent": "graph-scc-overview"
     },
     {
         "id": "graph-scc-dag-dp",
@@ -9781,7 +9922,8 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "graph-tarjan-scc",
             "graph-scc-condensation",
-            "graph-topo-sort"
+            "graph-topo-sort",
+            "graph-scc-overview"
         ],
         "related": [
             "graph-scc-condensation",
@@ -9789,6 +9931,88 @@ const KNOWLEDGE_DATA = [
             "graph-dag-shortest-path",
             "graph-topo-sort"
         ],
+        "parent": "graph-scc-overview"
+    },
+    {
+        "id": "graph-scc-overview",
+        "category": "图论",
+        "subcategory": "连通分量",
+        "subSubcategory": "",
+        "title": "连通分量总览（Tarjan / Kosaraju / 缩点 / 边双）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「连通分量」的二级栏目索引：强连通分量（SCC）用 Tarjan/Kosaraju 求出后缩点成 DAG；边双连通分量（E-DCC）用 Tarjan 求桥后缩点。\r\n\r\n**学习顺序**：Tarjan SCC → Kosaraju → SCC 缩点 → 缩点 + DAG DP → 边双缩点。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 子条目 |\r\n|---|---|\r\n| 求有向图强连通分量 | Tarjan 强连通分量、Kosaraju |\r\n| 把 SCC 缩成 DAG | SCC 缩点 |\r\n| 缩点后做拓扑 DP | SCC缩点 + DAG上拓扑DP |\r\n| 无向图边双连通分量 | 边双连通分量缩点（E-DCC） |\r\n\r\nTarjan 依靠 `dfn/low` 判定：`low[u] == dfn[u]` 时弹出栈内节点形成一个 SCC。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出 `dfn/low` 更新、栈操作与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- Tarjan / Kosaraju：$O(n+m)$。\r\n- 缩点：$O(n+m)$。\r\n- 缩点后 DAG 拓扑 DP：$O(n+m)$。\r\n\r\n## 适用场景\r\n\r\n- 有向图强连通性、环检测。\r\n- 缩点后转为 DAG 做计数/最长路。\r\n- 无向图桥、边双连通分量。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 有向图与无向图的 `low` 更新方式不同（无向图要判父边）。\r\n- 重边会影响桥的判定，需要记录边编号。\r\n- 缩点后注意去重边。\r\n- 递归 Tarjan 在深图上有栈溢出风险。\r\n- 割点、桥与 SCC 是不同概念，别混用。\r\n\r\n## 对比与扩展\r\n\r\n- Tarjan vs Kosaraju：前者一次 DFS，后者两次 DFS 但更好写。\r\n- SCC vs E-DCC：前者针对有向图，后者针对无向图。\r\n- 可扩展到点双连通分量（v-DCC）与圆方树。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "连通分量",
+                    "Tarjan",
+                    "SCC",
+                    "缩点",
+                    "总览"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「连通分量」的二级栏目索引：强连通分量（SCC）用 Tarjan/Kosaraju 求出后缩点成 DAG；边双连通分量（E-DCC）用 Tarjan 求桥后缩点。\r\n\r\n**学习顺序**：Tarjan SCC → Kosaraju → SCC 缩点 → 缩点 + DAG DP → 边双缩点。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 子条目 |\r\n|---|---|\r\n| 求有向图强连通分量 | Tarjan 强连通分量、Kosaraju |\r\n| 把 SCC 缩成 DAG | SCC 缩点 |\r\n| 缩点后做拓扑 DP | SCC缩点 + DAG上拓扑DP |\r\n| 无向图边双连通分量 | 边双连通分量缩点（E-DCC） |\r\n\r\nTarjan 依靠 `dfn/low` 判定：`low[u] == dfn[u]` 时弹出栈内节点形成一个 SCC。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出 `dfn/low` 更新、栈操作与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- Tarjan / Kosaraju：$O(n+m)$。\r\n- 缩点：$O(n+m)$。\r\n- 缩点后 DAG 拓扑 DP：$O(n+m)$。\r\n\r\n## 适用场景\r\n\r\n- 有向图强连通性、环检测。\r\n- 缩点后转为 DAG 做计数/最长路。\r\n- 无向图桥、边双连通分量。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 有向图与无向图的 `low` 更新方式不同（无向图要判父边）。\r\n- 重边会影响桥的判定，需要记录边编号。\r\n- 缩点后注意去重边。\r\n- 递归 Tarjan 在深图上有栈溢出风险。\r\n- 割点、桥与 SCC 是不同概念，别混用。\r\n\r\n## 对比与扩展\r\n\r\n- Tarjan vs Kosaraju：前者一次 DFS，后者两次 DFS 但更好写。\r\n- SCC vs E-DCC：前者针对有向图，后者针对无向图。\r\n- 可扩展到点双连通分量（v-DCC）与圆方树。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "连通分量",
+            "Tarjan",
+            "SCC",
+            "缩点",
+            "总览"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-graph"
+        ],
+        "related": [],
+        "parent": ""
+    },
+    {
+        "id": "graph-shortest-overview",
+        "category": "图论",
+        "subcategory": "最短路",
+        "subSubcategory": "",
+        "title": "最短路总览（Dijkstra / Bellman-Ford / Floyd / Johnson）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「最短路」的二级栏目索引：按「边权是否有负、求单源还是全源、图是否有环」选择算法。\r\n\r\n**学习顺序**：Dijkstra（非负单源）→ Bellman-Ford/SPFA（含负权）→ DAG 最短路 → Floyd（全源）→ Johnson（负权全源）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按场景选子栏目**：\r\n\r\n| 场景 | 子条目 |\r\n|---|---|\r\n| 非负边权、单源 | Dijkstra 最短路（堆优化） |\r\n| 含负权、单源、可判负环 | Bellman-Ford、SPFA 变体 |\r\n| DAG 上单源 | DAG 最短路（拓扑排序） |\r\n| 小规模全源 | Floyd-Warshall |\r\n| 负权图全源 | Johnson 全源最短路 |\r\n| 同余类最短路 | 同余最短路 |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出松弛方式、正确性条件与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- Dijkstra 堆优化：$O((n+m)\\log n)$。\r\n- Bellman-Ford：$O(nm)$；SPFA 为均摊更快但最坏可退化。\r\n- DAG 最短路：$O(n+m)$。\r\n- Floyd：$O(n^3)$。\r\n- Johnson：一次 Bellman-Ford + $n$ 次 Dijkstra，$O(nm\\log n)$。\r\n\r\n## 适用场景\r\n\r\n- 路径规划、差分约束转最短路。\r\n- 负权/负环判定。\r\n- 全源最短路（$n$ 较小用 Floyd，负权用 Johnson）。\r\n- DAG 上的最长/最短路。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- Dijkstra 不能处理负权边。\r\n- SPFA 最坏 $O(nm)$，不要默认它一定快。\r\n- Floyd 的三重循环顺序必须是 `k, i, j`。\r\n- 负环判定：Bellman-Ford 第 $n$ 轮仍能松弛即存在负环。\r\n- 同余最短路的状态是「余数」，不是原图点。\r\n\r\n## 对比与扩展\r\n\r\n- Dijkstra vs SPFA：非负优先 Dijkstra。\r\n- Floyd vs Johnson：小图 Floyd 更短，稀疏负权图 Johnson 更快。\r\n- 可扩展到 k 短路、分层图最短路。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "最短路",
+                    "Dijkstra",
+                    "SPFA",
+                    "Floyd",
+                    "总览"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「最短路」的二级栏目索引：按「边权是否有负、求单源还是全源、图是否有环」选择算法。\r\n\r\n**学习顺序**：Dijkstra（非负单源）→ Bellman-Ford/SPFA（含负权）→ DAG 最短路 → Floyd（全源）→ Johnson（负权全源）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按场景选子栏目**：\r\n\r\n| 场景 | 子条目 |\r\n|---|---|\r\n| 非负边权、单源 | Dijkstra 最短路（堆优化） |\r\n| 含负权、单源、可判负环 | Bellman-Ford、SPFA 变体 |\r\n| DAG 上单源 | DAG 最短路（拓扑排序） |\r\n| 小规模全源 | Floyd-Warshall |\r\n| 负权图全源 | Johnson 全源最短路 |\r\n| 同余类最短路 | 同余最短路 |\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出松弛方式、正确性条件与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- Dijkstra 堆优化：$O((n+m)\\log n)$。\r\n- Bellman-Ford：$O(nm)$；SPFA 为均摊更快但最坏可退化。\r\n- DAG 最短路：$O(n+m)$。\r\n- Floyd：$O(n^3)$。\r\n- Johnson：一次 Bellman-Ford + $n$ 次 Dijkstra，$O(nm\\log n)$。\r\n\r\n## 适用场景\r\n\r\n- 路径规划、差分约束转最短路。\r\n- 负权/负环判定。\r\n- 全源最短路（$n$ 较小用 Floyd，负权用 Johnson）。\r\n- DAG 上的最长/最短路。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- Dijkstra 不能处理负权边。\r\n- SPFA 最坏 $O(nm)$，不要默认它一定快。\r\n- Floyd 的三重循环顺序必须是 `k, i, j`。\r\n- 负环判定：Bellman-Ford 第 $n$ 轮仍能松弛即存在负环。\r\n- 同余最短路的状态是「余数」，不是原图点。\r\n\r\n## 对比与扩展\r\n\r\n- Dijkstra vs SPFA：非负优先 Dijkstra。\r\n- Floyd vs Johnson：小图 Floyd 更短，稀疏负权图 Johnson 更快。\r\n- 可扩展到 k 短路、分层图最短路。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "最短路",
+            "Dijkstra",
+            "SPFA",
+            "Floyd",
+            "总览"
+        ],
+        "codePath": "",
+        "prerequisites": [
+            "hub-graph"
+        ],
+        "related": [],
         "parent": ""
     },
     {
@@ -9865,14 +10089,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "图论\\最短路\\Bellman-Ford 批量松弛优化（类SPFA变体）\\Untitled1.cpp",
         "prerequisites": [
-            "graph-bellman-ford"
+            "graph-bellman-ford",
+            "graph-shortest-overview"
         ],
         "related": [
             "graph-bellman-ford",
             "graph-dijkstra-heap",
             "graph-dag-shortest-path"
         ],
-        "parent": ""
+        "parent": "graph-shortest-overview"
     },
     {
         "id": "graph-storage",
@@ -9932,64 +10157,16 @@ const KNOWLEDGE_DATA = [
         "parent": ""
     },
     {
-        "id": "graph-tarjan-bridge",
-        "category": "图论",
-        "subcategory": "割点与桥",
-        "subSubcategory": "",
-        "title": "Tarjan 求桥（割边）",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\nTarjan 算法由 Robert Tarjan 于 1974 年提出，通过**一次深度优先搜索（DFS）**即可找出无向图中所有的**桥**（割边），时间复杂度为 $O(n+m)$。\r\n\r\n### 什么是桥\r\n\r\n**桥（Bridge，又称割边）**：在无向图中，如果删除某条边后，图的连通分量数增加，则称这条边为桥。换句话说，桥是图中的\"生命线\"——去掉它图就会被拆成两部分。\r\n\r\n暴力做法是枚举每条边，删除后用 BFS/DFS 检查连通性，时间复杂度 $O(m(n+m))$，在大规模数据下会超时。Tarjan 算法的精髓在于：只做一次 DFS，就能同时判断所有边是不是桥。\r\n\r\n### 核心思想\r\n\r\n判断一条树边 $u \\to v$（$u$ 是父节点，$v$ 是子节点）是不是桥，关键看 $v$ 的子树能不能不经过这条边，绕回到 $u$ 或 $u$ 的祖先：\r\n\r\n- **能绕回去** → 子树和外界除了这条边还有其他通道，这条边不是桥\r\n- **绕不回去** → 这条边是子树通向外界的唯一通道，删去后子树被孤立，是桥\r\n\r\n### DFS 生成树与返祖边\r\n\r\n对无向图做 DFS，第一次走到某个点所经过的边称为**树边**，所有树边构成一棵生成树。其余的边称为**非树边**。\r\n\r\n**关键性质**：无向图的 DFS 中，非树边一定是\"连向祖先\"的**返祖边**，不存在横叉边（连向完全另一棵子树的边）。这个性质是 Tarjan 正确性的基石——因为如果有横叉边，\"low 值追溯\"的逻辑就不成立了。\r\n\r\n### dfn 与 low 数组\r\n\r\n| 数组 | 含义 |\r\n|------|------|\r\n| `dfn[u]` | 节点 $u$ 被首次访问的时间戳（DFS 序），同时充当访问标记（0 = 未访问） |\r\n| `low[u]` | 从 $u$ 及其子树中的所有点出发，通过最多一条返祖边，能到达的时间戳最小的节点的时间戳 |\r\n\r\n`low[u]` 回答的问题是：\"$u$ 这一片区域，最远能'回头'摸到多早的祖先？\"\r\n\r\n### 桥的判定条件\r\n\r\n对于树边 $u \\to v$（$u$ 是父节点，$v$ 是子节点）：\r\n\r\n$$\r\n\\text{low}[v] > \\text{dfn}[u] \\quad \\Longrightarrow \\quad u\\text{-}v \\text{ 是桥}\r\n$$\r\n\r\n含义：$v$ 的子树最多只能追溯到 $v$ 自己或更晚的节点，无法回到 $u$ 或更早的祖先，因此 $u$-$v$ 这条边是子树与外界的唯一连接——桥。\r\n\r\n对比割点的判定 `low[v] >= dfn[u]`：割点允许子树追溯到 $u$ 自身（等于号成立），而桥要求**严格大于**——因为如果子树能回到 $u$，说明存在不经过这条树边的路径（通过返祖边），所以这条边不是桥。\r\n\r\n## 核心状态定义与转移方程\r\n\r\n### 状态定义\r\n\r\n| 变量 | 含义 |\r\n|------|------|\r\n| `dfn[rt]` | 当前节点的时间戳（DFS 序编号） |\r\n| `low[rt]` | 当前节点及其子树能追溯到的最早时间戳 |\r\n| `fa` | DFS 树中的父节点，用于防止走回父边 |\r\n| `tim` | 全局时间戳计数器 |\r\n| `cnt` | tarjan 函数内的局部计数器，用于重边处理（只跳过第一条父边） |\r\n| `is_bridge` | 存储所有桥的边列表 |\r\n\r\n### 转移规则\r\n\r\n进入 DFS 时初始化：\r\n\r\n$$\r\n\\text{dfn}[u] = \\text{low}[u] = \\text{++tim}\r\n$$\r\n\r\n对每条出边 $u \\to v$，分三种情况处理：\r\n\r\n$$\r\n\\text{low}[u] \\text{ 的更新} =\r\n\\begin{cases}\r\n\\text{跳过（仅第一条父边）} & v = \\text{fa} \\text{ 且本轮未跳过过父边} \\\\\r\n\\min(\\text{low}[u], \\text{low}[v]) & v \\text{ 未访问，递归后回溯更新} \\\\\r\n\\min(\\text{low}[u], \\text{dfn}[v]) & v \\text{ 已访问且未被跳过（返祖边或重边）}\r\n\\end{cases}\r\n$$\r\n\r\n注意返祖边的情况用的是 `dfn[v]` 而不是 `low[v]`。这是因为 `low` 的定义是\"通过最多一条返祖边\"能到达的最早节点，如果用 `low[v]` 就相当于走了多条返祖边，会导致误判。\r\n\r\n### 桥的判定\r\n\r\n递归回溯后，若满足：\r\n\r\n$$\r\n\\text{low}[v] > \\text{dfn}[u]\r\n$$\r\n\r\n则 $u$-$v$ 是桥。\r\n\r\n### 重边处理机制\r\n\r\n无向图加边时每条边存两份（$u \\to v$ 和 $v \\to u$）。如果 $u$ 和 $v$ 之间有**重边**（两条以上的平行边），那么删掉其中一条不影响连通性，因此重边不可能是桥。\r\n\r\n代码通过局部计数器 `cnt` 实现正确的重边处理：对当前节点 `rt`，只跳过邻接表中**第一次出现的父边**，后续出现的同方向重边会走到 `else` 分支作为返祖边处理，从而更新 `low` 值，使重边不会被误判为桥。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量定义\r\n\r\n```cpp\r\nvector<vector<int>> edges;             // 邻接表\r\nvector<int> dfn, low;                  // 时间戳 / 能追溯的最早时间戳\r\nvector<pair<int, int>> is_bridge;     // 存储所有桥\r\nint tim;                                // 全局时间戳计数器\r\n```\r\n\r\n- `edges`：无向图的邻接表\r\n- `dfn`、`low`：Tarjan 的核心双数组\r\n- `is_bridge`：存放所有桥的端点对\r\n- `tim`：DFS 时间戳计数器\r\n\r\n### 初始化函数\r\n\r\n```cpp\r\nvoid init(int n, int m)\r\n{\r\n\tdfn.assign(n + 1, 0);\r\n\tlow.assign(n + 1, 0);\r\n\tedges.assign(n + 1, vector<int>());\r\n\tis_bridge.clear();\r\n\ttim = 0;\r\n}\r\n```\r\n\r\n所有数组初始化为 0，`dfn = 0` 表示未访问。\r\n\r\n### 加边函数\r\n\r\n```cpp\r\nvoid add(int u, int v)\r\n{\r\n\tedges[u].emplace_back(v);\r\n\tedges[v].emplace_back(u);\r\n}\r\n```\r\n\r\n无向图双向加边。重边会在邻接表中存为多个独立条目。\r\n\r\n### Tarjan 核心函数\r\n\r\n```cpp\r\nvoid tarjan(int rt, int fa)\r\n{\r\n\tint cnt = 0;                              // 局部计数器：记录是否已跳过父边\r\n\tdfn[rt] = low[rt] = ++tim;               // 初始化时间戳和 low 值\r\n\tfor (int i : edges[rt])                   // 遍历所有邻接点\r\n\t{\r\n\t\tif (fa == i && !cnt)                 // 只跳过第一条父边\r\n\t\t{\r\n\t\t\t++cnt;\r\n\t\t\tcontinue;\r\n\t\t}\r\n\t\tif (!dfn[i])                         // 情况1：未访问——树边\r\n\t\t{\r\n\t\t\ttarjan(i, rt);                   // 递归 DFS\r\n\t\t\tlow[rt] = min(low[i], low[rt]);  // 回溯：用子节点 low 更新父节点\r\n\t\t\tif (low[i] > dfn[rt])            // 桥的判定条件\r\n\t\t\t\tis_bridge.emplace_back(rt, i);\r\n\t\t}\r\n\t\telse                                  // 情况2：已访问——返祖边或重边\r\n\t\t\tlow[rt] = min(dfn[i], low[rt]);  // 用 dfn[i] 更新 low[rt]\r\n\t}\r\n}\r\n```\r\n\r\n逐行解析关键点：\r\n\r\n1. **`int cnt = 0;`**：局部计数器，每次进入 `tarjan` 函数时重置为 0。用于记录当前节点是否已经跳过了一条父边。\r\n\r\n2. **`dfn[rt] = low[rt] = ++tim;`**：新节点初始时，low 值等于自己的时间戳——目前只知道能到达自己。注意全局计数器已更名为 `tim`，避免与局部 `cnt` 混淆。\r\n\r\n3. **`if (fa == i && !cnt)`**：这是**重边处理的核心**。无向图中每条边在邻接表中出现两次（$u \\to v$ 和 $v \\to u$），从父节点来的边不能往回走，否则会死循环。但如果有重边（$u$ 和 $v$ 之间多条平行边），只跳过第一条父边，后续重边会走到 `else` 分支作为返祖边处理，从而正确地不判定为桥。\r\n\r\n4. **`++cnt;`**：标记已跳过一条父边，后续即使再遇到 `fa` 也不会跳过，而是作为返祖边处理。\r\n\r\n5. **`if (!dfn[i])` 树边分支**：\r\n   - 递归进入子节点 `tarjan(i, rt)`\r\n   - 回溯时更新：`low[rt] = min(low[i], low[rt])`——子树能追溯到的最早节点，父节点当然也能追溯到\r\n   - **桥判定**：`if (low[i] > dfn[rt])` —— 子节点的追溯能力到不了父节点或更早，说明父→子这条边是唯一通道，是桥\r\n\r\n6. **`else` 返祖边分支**：\r\n   - `low[rt] = min(dfn[i], low[rt])` —— 注意这里用的是 `dfn[i]`（邻居的时间戳）而不是 `low[i]`！因为返祖边只能算\"一条\"，不能把邻居 $i$ 通过其自身子树追溯到的能力也算上。用 `dfn[i]` 精确表达\"通过这条返祖边直接到达节点 $i$\"。\r\n\r\n### 主函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint n, m;\r\n\tcin >> n >> m;\r\n\tinit(n, m);\r\n\tfor (int i = 1; i <= m; i++)\r\n\t{\r\n\t\tint u, v;\r\n\t\tcin >> u >> v;\r\n\t\tadd(u, v);\r\n\t}\r\n\tfor (int i = 1; i <= n; i++)     // 遍历所有连通分量\r\n\t{\r\n\t\tif (!dfn[i]) tarjan(i, -1);\r\n\t}\r\n\tcout << is_bridge.size() << '\\n';\r\n\tfor (pair<int, int> i : is_bridge)\r\n\t\tcout << i.first << ' ' << i.second << '\\n';\r\n\treturn 0;\r\n}\r\n```\r\n\r\n注意：代码处理了图不连通的情况——外层循环遍历所有节点，对每个未访问的连通分量启动一次 Tarjan。根节点的父节点设为 `-1`（不存在的节点编号）。\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度：$O(n+m)$\r\n\r\n- 每个节点恰好被访问一次（`dfn` 从 0 变非 0 只发生一次）\r\n- 每条无向边被访问两次（双向各一次），其中一条因父边判定被跳过，实际有效处理一次\r\n- 总操作量与顶点数 $n$ 和边数 $m$ 成线性关系\r\n\r\n### 空间复杂度：$O(n+m)$\r\n\r\n- 邻接表：$O(n+m)$\r\n- `dfn`、`low` 数组：各 $O(n)$\r\n- `is_bridge` 结果数组：最坏 $O(m)$（全是桥，即树）\r\n- DFS 递归栈深度：最坏 $O(n)$（链状图）\r\n\r\n## 适用场景\r\n\r\n### 适用场景\r\n\r\n1. **桥的检测**：找出无向图中所有的桥（割边）\r\n2. **边双连通分量**：将所有桥删除后，每个极大连通子图就是一个边双连通分量。桥是边双连通分量之间的\"关节边\"\r\n3. **网络可靠性分析**：找出网络中的关键链路，故障后会导致网络分裂\r\n4. **2-边连通性问题**：判断图是否 2-边连通（无桥），或至少需要添加多少条边使图变成 2-边连通\r\n\r\n### 不适用场景\r\n\r\n1. **有向图**：桥是无向图的概念，有向图的对应概念需另行定义（如强连通分量）\r\n2. **需要点双连通分量**：点双连通分量基于割点，不是桥\r\n3. **动态图**：边不断增删的图，Tarjan 是静态算法，每次增删边都需要重新运行\r\n\r\n## 常见陷阱与注意事项\r\n\r\n### 1. 桥的判定是严格大于\r\n\r\n桥的判定条件是 `low[i] > dfn[rt]`（**严格大于**），而割点是 `low[i] >= dfn[u]`（大于等于）。\r\n\r\n- **割点**：子树追溯不到 $u$ 之外 → $u$ 是割点。等于号成立说明子树能回到 $u$ 自己，但 $u$ 被删后子树仍然孤立\r\n- **桥**：子树必须连 $u$ 都回不到 → 这条边才是桥。等于号时子树能通过返祖边回到 $u$，说明存在替代路径，这条边不是桥\r\n\r\n### 2. 返祖边更新必须用 dfn[i] 而不是 low[i]\r\n\r\n返祖边更新 low 值时，代码写的是 `low[rt] = min(dfn[i], low[rt])`，用的是邻居的 `dfn[i]`，不是邻居的 `low[i]`。\r\n\r\n原因：`low` 的定义是\"通过**最多一条**返祖边\"能到达的最早节点。如果用 `low[i]` 更新，就相当于把 $i$ 通过其子树进一步追溯的结果也算进来了，等于走了多条返祖边，会导致 `low` 值过小，从而把本应是桥的边漏判。\r\n\r\n### 3. 重边处理：只跳第一条父边\r\n\r\n无向图中，如果 $u$ 和 $v$ 之间有**重边**（两条以上的平行边），删掉其中一条不影响连通性，因此重边不可能是桥。\r\n\r\n**错误做法**：`if (fa == i) continue;` —— 这会跳过所有指向父节点的边，导致重边中的第二条也被跳过，无法作为返祖边更新 `low` 值，从而可能把重边误判为桥。\r\n\r\n**正确做法**：用局部计数器 `cnt` 只跳过邻接表中第一条出现的父边（`if (fa == i && !cnt)`），后续重边走到 `else` 分支作为返祖边处理，正确更新 `low` 值，使重边不会被误判为桥。\r\n\r\n### 4. 图不连通的处理\r\n\r\n代码外层有 `for (int i = 1; i <= n; i++) if (!dfn[i]) tarjan(i, -1);`，确保每个连通分量都被处理。这一点很重要，否则非连通图的某些分量会被漏掉。\r\n\r\n### 5. 桥的输出顺序\r\n\r\n桥以 `(rt, i)` 的顺序存入，即父节点在前、子节点在后。输出的方向与 DFS 树的父子关系一致，与输入的边的方向不一定相同。同一座桥只会被记录一次（从父到子的方向）。\r\n\r\n### 6. 自环边\r\n\r\n自环（节点到自己的边）不是桥——删掉自环不影响连通性。在代码中，自环会被 `else` 分支（返祖边）处理，`low[rt] = min(dfn[rt], low[rt])` 没有变化，且不会触发桥的判定（桥的判定只在树边分支）。所以自环被正确忽略。\r\n\r\n## 对比与扩展\r\n\r\n### 与割点算法对比\r\n\r\n| 对比维度 | Tarjan 求桥 | Tarjan 求割点 |\r\n|----------|-----------|-------------|\r\n| 判定对象 | 边 | 顶点 |\r\n| 判定条件 | `low[v] > dfn[u]`（严格大于） | `low[v] >= dfn[u]`（大于等于），根节点单独判定 |\r\n| 根节点处理 | 无需特殊处理 | 需统计子树个数，子树数 $\\geq 2$ 才是割点 |\r\n| 结果存储 | 边对 `(u, v)` | 顶点编号 |\r\n| 时间复杂度 | $O(n+m)$ | $O(n+m)$ |\r\n| 空间复杂度 | $O(n+m)$ | $O(n+m)$ |\r\n\r\n### 边双连通分量\r\n\r\n将图中所有的桥都删除后，每个极大的连通子图称为一个**边双连通分量**（Edge-Biconnected Component, E-BCC）。边双连通分量内部没有桥——任意两点之间至少有两条边不相交的路径。\r\n\r\n求边双连通分量的方法：\r\n1. 用 Tarjan 找出所有桥\r\n2. 删除所有桥，对剩余图做 DFS/BFS 染色，每个连通块就是一个边双连通分量\r\n\r\n### 点双连通分量\r\n\r\n点双连通分量（Vertex-Biconnected Component, V-BCC）是指不存在割点的极大子图。点双连通分量的关系比边双更复杂：一个割点可以属于多个点双连通分量。求点双连通分量需要在 DFS 中维护一个栈，保存经过的边，发现割点时弹栈得到一个点双。\r\n\r\n### 2-边连通性增强\r\n\r\n给定一个无向图，问至少添加几条边可以使图变成 2-边连通（没有桥）。解法：\r\n1. 求所有边双连通分量，将每个分量缩成一个点\r\n2. 缩点后的图是一棵树，所有的\"边\"都是原来的桥\r\n3. 答案 = $\\lceil \\frac{\\text{叶子数}}{2} \\rceil$，其中叶子是缩点后度数为 1 的节点\r\n\r\n这个结论与\"无向图添加最少边使图强连通\"（缩点后入度0和出度0的最大值）是类似的对偶问题。",
-                "codePath": "图论\\割点与桥\\Tarjan求桥\\Untitled1.cpp",
-                "timeComplexity": "O(n+m)",
-                "spaceComplexity": "O(n+m)",
-                "tags": [
-                    "图论",
-                    "Tarjan",
-                    "桥",
-                    "割边",
-                    "DFS",
-                    "连通性"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 算法原理\r\n\r\nTarjan 算法由 Robert Tarjan 于 1974 年提出，通过**一次深度优先搜索（DFS）**即可找出无向图中所有的**桥**（割边），时间复杂度为 $O(n+m)$。\r\n\r\n### 什么是桥\r\n\r\n**桥（Bridge，又称割边）**：在无向图中，如果删除某条边后，图的连通分量数增加，则称这条边为桥。换句话说，桥是图中的\"生命线\"——去掉它图就会被拆成两部分。\r\n\r\n暴力做法是枚举每条边，删除后用 BFS/DFS 检查连通性，时间复杂度 $O(m(n+m))$，在大规模数据下会超时。Tarjan 算法的精髓在于：只做一次 DFS，就能同时判断所有边是不是桥。\r\n\r\n### 核心思想\r\n\r\n判断一条树边 $u \\to v$（$u$ 是父节点，$v$ 是子节点）是不是桥，关键看 $v$ 的子树能不能不经过这条边，绕回到 $u$ 或 $u$ 的祖先：\r\n\r\n- **能绕回去** → 子树和外界除了这条边还有其他通道，这条边不是桥\r\n- **绕不回去** → 这条边是子树通向外界的唯一通道，删去后子树被孤立，是桥\r\n\r\n### DFS 生成树与返祖边\r\n\r\n对无向图做 DFS，第一次走到某个点所经过的边称为**树边**，所有树边构成一棵生成树。其余的边称为**非树边**。\r\n\r\n**关键性质**：无向图的 DFS 中，非树边一定是\"连向祖先\"的**返祖边**，不存在横叉边（连向完全另一棵子树的边）。这个性质是 Tarjan 正确性的基石——因为如果有横叉边，\"low 值追溯\"的逻辑就不成立了。\r\n\r\n### dfn 与 low 数组\r\n\r\n| 数组 | 含义 |\r\n|------|------|\r\n| `dfn[u]` | 节点 $u$ 被首次访问的时间戳（DFS 序），同时充当访问标记（0 = 未访问） |\r\n| `low[u]` | 从 $u$ 及其子树中的所有点出发，通过最多一条返祖边，能到达的时间戳最小的节点的时间戳 |\r\n\r\n`low[u]` 回答的问题是：\"$u$ 这一片区域，最远能'回头'摸到多早的祖先？\"\r\n\r\n### 桥的判定条件\r\n\r\n对于树边 $u \\to v$（$u$ 是父节点，$v$ 是子节点）：\r\n\r\n$$\r\n\\text{low}[v] > \\text{dfn}[u] \\quad \\Longrightarrow \\quad u\\text{-}v \\text{ 是桥}\r\n$$\r\n\r\n含义：$v$ 的子树最多只能追溯到 $v$ 自己或更晚的节点，无法回到 $u$ 或更早的祖先，因此 $u$-$v$ 这条边是子树与外界的唯一连接——桥。\r\n\r\n对比割点的判定 `low[v] >= dfn[u]`：割点允许子树追溯到 $u$ 自身（等于号成立），而桥要求**严格大于**——因为如果子树能回到 $u$，说明存在不经过这条树边的路径（通过返祖边），所以这条边不是桥。\r\n\r\n## 核心状态定义与转移方程\r\n\r\n### 状态定义\r\n\r\n| 变量 | 含义 |\r\n|------|------|\r\n| `dfn[rt]` | 当前节点的时间戳（DFS 序编号） |\r\n| `low[rt]` | 当前节点及其子树能追溯到的最早时间戳 |\r\n| `fa` | DFS 树中的父节点，用于防止走回父边 |\r\n| `tim` | 全局时间戳计数器 |\r\n| `cnt` | tarjan 函数内的局部计数器，用于重边处理（只跳过第一条父边） |\r\n| `is_bridge` | 存储所有桥的边列表 |\r\n\r\n### 转移规则\r\n\r\n进入 DFS 时初始化：\r\n\r\n$$\r\n\\text{dfn}[u] = \\text{low}[u] = \\text{++tim}\r\n$$\r\n\r\n对每条出边 $u \\to v$，分三种情况处理：\r\n\r\n$$\r\n\\text{low}[u] \\text{ 的更新} =\r\n\\begin{cases}\r\n\\text{跳过（仅第一条父边）} & v = \\text{fa} \\text{ 且本轮未跳过过父边} \\\\\r\n\\min(\\text{low}[u], \\text{low}[v]) & v \\text{ 未访问，递归后回溯更新} \\\\\r\n\\min(\\text{low}[u], \\text{dfn}[v]) & v \\text{ 已访问且未被跳过（返祖边或重边）}\r\n\\end{cases}\r\n$$\r\n\r\n注意返祖边的情况用的是 `dfn[v]` 而不是 `low[v]`。这是因为 `low` 的定义是\"通过最多一条返祖边\"能到达的最早节点，如果用 `low[v]` 就相当于走了多条返祖边，会导致误判。\r\n\r\n### 桥的判定\r\n\r\n递归回溯后，若满足：\r\n\r\n$$\r\n\\text{low}[v] > \\text{dfn}[u]\r\n$$\r\n\r\n则 $u$-$v$ 是桥。\r\n\r\n### 重边处理机制\r\n\r\n无向图加边时每条边存两份（$u \\to v$ 和 $v \\to u$）。如果 $u$ 和 $v$ 之间有**重边**（两条以上的平行边），那么删掉其中一条不影响连通性，因此重边不可能是桥。\r\n\r\n代码通过局部计数器 `cnt` 实现正确的重边处理：对当前节点 `rt`，只跳过邻接表中**第一次出现的父边**，后续出现的同方向重边会走到 `else` 分支作为返祖边处理，从而更新 `low` 值，使重边不会被误判为桥。\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量定义\r\n\r\n```cpp\r\nvector<vector<int>> edges;             // 邻接表\r\nvector<int> dfn, low;                  // 时间戳 / 能追溯的最早时间戳\r\nvector<pair<int, int>> is_bridge;     // 存储所有桥\r\nint tim;                                // 全局时间戳计数器\r\n```\r\n\r\n- `edges`：无向图的邻接表\r\n- `dfn`、`low`：Tarjan 的核心双数组\r\n- `is_bridge`：存放所有桥的端点对\r\n- `tim`：DFS 时间戳计数器\r\n\r\n### 初始化函数\r\n\r\n```cpp\r\nvoid init(int n, int m)\r\n{\r\n\tdfn.assign(n + 1, 0);\r\n\tlow.assign(n + 1, 0);\r\n\tedges.assign(n + 1, vector<int>());\r\n\tis_bridge.clear();\r\n\ttim = 0;\r\n}\r\n```\r\n\r\n所有数组初始化为 0，`dfn = 0` 表示未访问。\r\n\r\n### 加边函数\r\n\r\n```cpp\r\nvoid add(int u, int v)\r\n{\r\n\tedges[u].emplace_back(v);\r\n\tedges[v].emplace_back(u);\r\n}\r\n```\r\n\r\n无向图双向加边。重边会在邻接表中存为多个独立条目。\r\n\r\n### Tarjan 核心函数\r\n\r\n```cpp\r\nvoid tarjan(int rt, int fa)\r\n{\r\n\tint cnt = 0;                              // 局部计数器：记录是否已跳过父边\r\n\tdfn[rt] = low[rt] = ++tim;               // 初始化时间戳和 low 值\r\n\tfor (int i : edges[rt])                   // 遍历所有邻接点\r\n\t{\r\n\t\tif (fa == i && !cnt)                 // 只跳过第一条父边\r\n\t\t{\r\n\t\t\t++cnt;\r\n\t\t\tcontinue;\r\n\t\t}\r\n\t\tif (!dfn[i])                         // 情况1：未访问——树边\r\n\t\t{\r\n\t\t\ttarjan(i, rt);                   // 递归 DFS\r\n\t\t\tlow[rt] = min(low[i], low[rt]);  // 回溯：用子节点 low 更新父节点\r\n\t\t\tif (low[i] > dfn[rt])            // 桥的判定条件\r\n\t\t\t\tis_bridge.emplace_back(rt, i);\r\n\t\t}\r\n\t\telse                                  // 情况2：已访问——返祖边或重边\r\n\t\t\tlow[rt] = min(dfn[i], low[rt]);  // 用 dfn[i] 更新 low[rt]\r\n\t}\r\n}\r\n```\r\n\r\n逐行解析关键点：\r\n\r\n1. **`int cnt = 0;`**：局部计数器，每次进入 `tarjan` 函数时重置为 0。用于记录当前节点是否已经跳过了一条父边。\r\n\r\n2. **`dfn[rt] = low[rt] = ++tim;`**：新节点初始时，low 值等于自己的时间戳——目前只知道能到达自己。注意全局计数器已更名为 `tim`，避免与局部 `cnt` 混淆。\r\n\r\n3. **`if (fa == i && !cnt)`**：这是**重边处理的核心**。无向图中每条边在邻接表中出现两次（$u \\to v$ 和 $v \\to u$），从父节点来的边不能往回走，否则会死循环。但如果有重边（$u$ 和 $v$ 之间多条平行边），只跳过第一条父边，后续重边会走到 `else` 分支作为返祖边处理，从而正确地不判定为桥。\r\n\r\n4. **`++cnt;`**：标记已跳过一条父边，后续即使再遇到 `fa` 也不会跳过，而是作为返祖边处理。\r\n\r\n5. **`if (!dfn[i])` 树边分支**：\r\n   - 递归进入子节点 `tarjan(i, rt)`\r\n   - 回溯时更新：`low[rt] = min(low[i], low[rt])`——子树能追溯到的最早节点，父节点当然也能追溯到\r\n   - **桥判定**：`if (low[i] > dfn[rt])` —— 子节点的追溯能力到不了父节点或更早，说明父→子这条边是唯一通道，是桥\r\n\r\n6. **`else` 返祖边分支**：\r\n   - `low[rt] = min(dfn[i], low[rt])` —— 注意这里用的是 `dfn[i]`（邻居的时间戳）而不是 `low[i]`！因为返祖边只能算\"一条\"，不能把邻居 $i$ 通过其自身子树追溯到的能力也算上。用 `dfn[i]` 精确表达\"通过这条返祖边直接到达节点 $i$\"。\r\n\r\n### 主函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr); cout.tie(nullptr);\r\n\tint n, m;\r\n\tcin >> n >> m;\r\n\tinit(n, m);\r\n\tfor (int i = 1; i <= m; i++)\r\n\t{\r\n\t\tint u, v;\r\n\t\tcin >> u >> v;\r\n\t\tadd(u, v);\r\n\t}\r\n\tfor (int i = 1; i <= n; i++)     // 遍历所有连通分量\r\n\t{\r\n\t\tif (!dfn[i]) tarjan(i, -1);\r\n\t}\r\n\tcout << is_bridge.size() << '\\n';\r\n\tfor (pair<int, int> i : is_bridge)\r\n\t\tcout << i.first << ' ' << i.second << '\\n';\r\n\treturn 0;\r\n}\r\n```\r\n\r\n注意：代码处理了图不连通的情况——外层循环遍历所有节点，对每个未访问的连通分量启动一次 Tarjan。根节点的父节点设为 `-1`（不存在的节点编号）。\r\n\r\n## 复杂度分析\r\n\r\n### 时间复杂度：$O(n+m)$\r\n\r\n- 每个节点恰好被访问一次（`dfn` 从 0 变非 0 只发生一次）\r\n- 每条无向边被访问两次（双向各一次），其中一条因父边判定被跳过，实际有效处理一次\r\n- 总操作量与顶点数 $n$ 和边数 $m$ 成线性关系\r\n\r\n### 空间复杂度：$O(n+m)$\r\n\r\n- 邻接表：$O(n+m)$\r\n- `dfn`、`low` 数组：各 $O(n)$\r\n- `is_bridge` 结果数组：最坏 $O(m)$（全是桥，即树）\r\n- DFS 递归栈深度：最坏 $O(n)$（链状图）\r\n\r\n## 适用场景\r\n\r\n### 适用场景\r\n\r\n1. **桥的检测**：找出无向图中所有的桥（割边）\r\n2. **边双连通分量**：将所有桥删除后，每个极大连通子图就是一个边双连通分量。桥是边双连通分量之间的\"关节边\"\r\n3. **网络可靠性分析**：找出网络中的关键链路，故障后会导致网络分裂\r\n4. **2-边连通性问题**：判断图是否 2-边连通（无桥），或至少需要添加多少条边使图变成 2-边连通\r\n\r\n### 不适用场景\r\n\r\n1. **有向图**：桥是无向图的概念，有向图的对应概念需另行定义（如强连通分量）\r\n2. **需要点双连通分量**：点双连通分量基于割点，不是桥\r\n3. **动态图**：边不断增删的图，Tarjan 是静态算法，每次增删边都需要重新运行\r\n\r\n## 常见陷阱与注意事项\r\n\r\n### 1. 桥的判定是严格大于\r\n\r\n桥的判定条件是 `low[i] > dfn[rt]`（**严格大于**），而割点是 `low[i] >= dfn[u]`（大于等于）。\r\n\r\n- **割点**：子树追溯不到 $u$ 之外 → $u$ 是割点。等于号成立说明子树能回到 $u$ 自己，但 $u$ 被删后子树仍然孤立\r\n- **桥**：子树必须连 $u$ 都回不到 → 这条边才是桥。等于号时子树能通过返祖边回到 $u$，说明存在替代路径，这条边不是桥\r\n\r\n### 2. 返祖边更新必须用 dfn[i] 而不是 low[i]\r\n\r\n返祖边更新 low 值时，代码写的是 `low[rt] = min(dfn[i], low[rt])`，用的是邻居的 `dfn[i]`，不是邻居的 `low[i]`。\r\n\r\n原因：`low` 的定义是\"通过**最多一条**返祖边\"能到达的最早节点。如果用 `low[i]` 更新，就相当于把 $i$ 通过其子树进一步追溯的结果也算进来了，等于走了多条返祖边，会导致 `low` 值过小，从而把本应是桥的边漏判。\r\n\r\n### 3. 重边处理：只跳第一条父边\r\n\r\n无向图中，如果 $u$ 和 $v$ 之间有**重边**（两条以上的平行边），删掉其中一条不影响连通性，因此重边不可能是桥。\r\n\r\n**错误做法**：`if (fa == i) continue;` —— 这会跳过所有指向父节点的边，导致重边中的第二条也被跳过，无法作为返祖边更新 `low` 值，从而可能把重边误判为桥。\r\n\r\n**正确做法**：用局部计数器 `cnt` 只跳过邻接表中第一条出现的父边（`if (fa == i && !cnt)`），后续重边走到 `else` 分支作为返祖边处理，正确更新 `low` 值，使重边不会被误判为桥。\r\n\r\n### 4. 图不连通的处理\r\n\r\n代码外层有 `for (int i = 1; i <= n; i++) if (!dfn[i]) tarjan(i, -1);`，确保每个连通分量都被处理。这一点很重要，否则非连通图的某些分量会被漏掉。\r\n\r\n### 5. 桥的输出顺序\r\n\r\n桥以 `(rt, i)` 的顺序存入，即父节点在前、子节点在后。输出的方向与 DFS 树的父子关系一致，与输入的边的方向不一定相同。同一座桥只会被记录一次（从父到子的方向）。\r\n\r\n### 6. 自环边\r\n\r\n自环（节点到自己的边）不是桥——删掉自环不影响连通性。在代码中，自环会被 `else` 分支（返祖边）处理，`low[rt] = min(dfn[rt], low[rt])` 没有变化，且不会触发桥的判定（桥的判定只在树边分支）。所以自环被正确忽略。\r\n\r\n## 对比与扩展\r\n\r\n### 与割点算法对比\r\n\r\n| 对比维度 | Tarjan 求桥 | Tarjan 求割点 |\r\n|----------|-----------|-------------|\r\n| 判定对象 | 边 | 顶点 |\r\n| 判定条件 | `low[v] > dfn[u]`（严格大于） | `low[v] >= dfn[u]`（大于等于），根节点单独判定 |\r\n| 根节点处理 | 无需特殊处理 | 需统计子树个数，子树数 $\\geq 2$ 才是割点 |\r\n| 结果存储 | 边对 `(u, v)` | 顶点编号 |\r\n| 时间复杂度 | $O(n+m)$ | $O(n+m)$ |\r\n| 空间复杂度 | $O(n+m)$ | $O(n+m)$ |\r\n\r\n### 边双连通分量\r\n\r\n将图中所有的桥都删除后，每个极大的连通子图称为一个**边双连通分量**（Edge-Biconnected Component, E-BCC）。边双连通分量内部没有桥——任意两点之间至少有两条边不相交的路径。\r\n\r\n求边双连通分量的方法：\r\n1. 用 Tarjan 找出所有桥\r\n2. 删除所有桥，对剩余图做 DFS/BFS 染色，每个连通块就是一个边双连通分量\r\n\r\n### 点双连通分量\r\n\r\n点双连通分量（Vertex-Biconnected Component, V-BCC）是指不存在割点的极大子图。点双连通分量的关系比边双更复杂：一个割点可以属于多个点双连通分量。求点双连通分量需要在 DFS 中维护一个栈，保存经过的边，发现割点时弹栈得到一个点双。\r\n\r\n### 2-边连通性增强\r\n\r\n给定一个无向图，问至少添加几条边可以使图变成 2-边连通（没有桥）。解法：\r\n1. 求所有边双连通分量，将每个分量缩成一个点\r\n2. 缩点后的图是一棵树，所有的\"边\"都是原来的桥\r\n3. 答案 = $\\lceil \\frac{\\text{叶子数}}{2} \\rceil$，其中叶子是缩点后度数为 1 的节点\r\n\r\n这个结论与\"无向图添加最少边使图强连通\"（缩点后入度0和出度0的最大值）是类似的对偶问题。",
-        "timeComplexity": "O(n+m)",
-        "spaceComplexity": "O(n+m)",
-        "tags": [
-            "图论",
-            "Tarjan",
-            "桥",
-            "割边",
-            "DFS",
-            "连通性"
-        ],
-        "codePath": "图论\\割点与桥\\Tarjan求桥\\Untitled1.cpp",
-        "prerequisites": [
-            "hub-graph"
-        ],
-        "related": [
-            "graph-tarjan-cut-vertex",
-            "graph-tarjan-scc",
-            "graph-scc-condensation",
-            "graph-e-dcc-condensation"
-        ],
-        "parent": ""
-    },
-    {
         "id": "graph-tarjan-cut-vertex",
         "category": "图论",
         "subcategory": "割点与桥",
         "subSubcategory": "",
-        "title": "Tarjan 求割点",
+        "title": "Tarjan 割点与桥",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## Tarjan 求割点\r\n\r\n## 一、问题定义\r\n\r\n**割点（关节点）**：在无向图中，如果删掉某个点（以及它连的所有边）之后，图的连通分量数增加了，这个点就称为割点。\r\n\r\n暴力做法是枚举每个点，删掉它后用 BFS/DFS 检查连通性，时间复杂度 $O(n(n+m))$，在大规模数据下会超时。\r\n\r\nTarjan 算法的精髓在于：**只做一次 DFS，就能同时判断所有点是不是割点**，复杂度 $O(n+m)$。\r\n\r\n## 二、算法原理：核心思想\r\n\r\n删掉点 $u$ 之后图会不会断，关键看 $u$ 的\"下方\"（DFS 树中 $u$ 的子树）能不能不经过 $u$，绕回到 $u$ 的\"上方\"（$u$ 的祖先）。\r\n\r\n- 如果能绕回去 → $u$ 的子树和其余部分除了 $u$ 还有别的通道，删 $u$ 不断\r\n- 如果绕不回去 → $u$ 是子树通向外界的唯一通道，删 $u$ 后子树被孤立，$u$ 是割点\r\n\r\n## 三、基础概念\r\n\r\n### 1. DFS 生成树\r\n\r\n对图做 DFS，第一次走到某个点所经过的边称为**树边**，所有树边构成一棵生成树。其余边称为**非树边**。\r\n\r\n**重要性质**：无向图的 DFS 中，非树边一定是\"连向祖先\"的**返祖边**，不存在横叉边（连向完全另一棵子树的边）。这个性质是 Tarjan 正确性的基石。\r\n\r\n### 2. dfn[u] —— 时间戳\r\n\r\n`dfn[u]` 表示 $u$ 是第几个被访问到的点。它有两个作用：\r\n- 作为\"访问顺序\"的编号，数值越小代表越靠近 DFS 的源头（越像\"祖先\"）\r\n- 同时充当访问标记（0 = 未访问）\r\n\r\n### 3. low[u] —— 能追溯到的最早时间戳\r\n\r\n**定义**：$u$ 及其子树中的所有点，通过最多一条返祖边，能够到达的时间戳最小的点的时间戳。\r\n\r\n直观理解：`low[u]` 回答的问题是——\"$u$ 这一片区域，最远能'回头'摸到多早的祖先？\"\r\n\r\n- `low[u]` 越小 → 子树有强大的返祖通道，能绕过很多层祖先\r\n- `low[u] >= dfn[u]` → 整个子树被 $u$ 封死了，任何回头路最多回到 $u$ 自己\r\n\r\n**low 的维护规则**：\r\n\r\n| 情况 | 更新方式 | 代码 |\r\n|------|---------|------|\r\n| 初始化 | `low[u] = dfn[u]`（至少能摸到自己） | `dfn[nd] = low[nd] = ++tim` |\r\n| 走树边进入孩子 to | 孩子的回头能力可以继承给我 | `low[nd] = min(low[nd], low[to])` |\r\n| 遇到返祖边连向已访问的 to | 直接一步跳到 to，能摸到 dfn[to] | `low[nd] = min(low[nd], dfn[to])` |\r\n\r\n## 四、两个判定定理\r\n\r\n### 定理 1：非根节点 u 是割点\r\n\r\n**条件**：存在一个孩子 $v$，满足 $\\text{low}[v] \\geq \\text{dfn}[u]$\r\n\r\n**证明思路**：\r\n- 如果 $v$ 的子树中所有返祖边最远只能回到 $u$ 或 $u$ 的后代（$\\text{low}[v] \\geq \\text{dfn}[u]$），那么 $v$ 的子树与\"$u$ 的祖先部分\"之间，$u$ 是唯一通道。删掉 $u$，$v$ 的子树必然和上面断开。\r\n- 反过来，如果每个孩子的子树都能绕到 $u$ 的严格祖先（$\\text{low}[v] < \\text{dfn}[u]$），删掉 $u$ 后各子树借返祖边跳到上方再互通，图仍然连通。\r\n\r\n### 定理 2：根节点是割点\r\n\r\n**条件**：它在 DFS 树中有 $\\geq 2$ 个孩子\r\n\r\n**为什么根不能用定理 1？** 因为根的时间戳最小（`dfn = 1`），`low[v] >= dfn[root]` 对任何孩子都恒成立，直接套用会得出\"根永远是割点\"的错误结论。根本身就是最高点，\"绕不到根上面\"对根没有意义。\r\n\r\n**正确角度**：由\"无向图 DFS 无横叉边\"的性质，根的不同 DFS 子树之间一定没有边相连。所以：\r\n- 孩子数 $\\geq 2$ → 子树之间完全隔离 → 删根必断 → 根是割点\r\n- 孩子数 $= 1$ → 整张图都在一棵子树里 → 根不是割点\r\n\r\n> 注意：这里的\"孩子\"指 DFS 树中的孩子，不是图中的度数。比如星形图从叶子开始 DFS，中心节点有多个孩子（判为割点 ✓），叶子只有一个孩子（非割点 ✓）。用度数会误判。\r\n\r\n## 五、逐行代码解析\r\n\r\n### 变量定义\r\n\r\n```cpp\r\nint n, m, tim, cnt;\r\nvector<vector<int>> edges;\r\nvector<int> dfn, low;\r\nvector<bool> is_cut;\r\n```\r\n\r\n| 变量 | 含义 |\r\n|------|------|\r\n| `n, m` | 点数、边数 |\r\n| `tim` | 时间戳计数器 |\r\n| `cnt` | 割点总数 |\r\n| `edges` | 邻接表 |\r\n| `dfn` | 每个点的时间戳，0 表示未访问 |\r\n| `low` | 每个点子树能追溯到的最早时间戳 |\r\n| `is_cut` | 标记每个点是否为割点 |\r\n\r\n### 初始化函数\r\n\r\n```cpp\r\nvoid init()\r\n{\r\n    tim = 0;\r\n    cnt = 0;\r\n    dfn.assign(n + 1, 0);\r\n    low.assign(n + 1, 0);\r\n    is_cut.assign(n + 1, false);\r\n}\r\n```\r\n\r\n重置所有数组和计数器，时间戳从 1 开始（0 表示未访问）。\r\n\r\n### Tarjan 主函数\r\n\r\n```cpp\r\nvoid tarjan(int nd, int fa)\r\n{\r\n    int child_cnt = 0;\r\n    dfn[nd] = low[nd] = ++tim;\r\n```\r\n\r\n- `nd`：当前节点；`fa`：父节点，根传 -1\r\n- `child_cnt`：记录 DFS 树中的孩子数量\r\n- 打时间戳，low 初始化为自己（\"最差也能摸到自己\"）\r\n\r\n```cpp\r\n    for (int to : edges[nd])\r\n    {\r\n        if (to == fa) continue;\r\n```\r\n\r\n枚举所有邻居，**跳过父亲边**。无向边在邻接表里存了两份，从孩子往回枚举时一定会碰到父亲，如果不跳过，就会把\"来时的树边\"误认成\"返祖边\"，导致所有点都判不出割点。\r\n\r\n```cpp\r\n        if (!dfn[to])                // 情况 1: to 未访问 → 树边\r\n        {\r\n            ++child_cnt;\r\n            tarjan(to, nd);\r\n            low[nd] = min(low[nd], low[to]);\r\n            if (fa != -1 && low[to] >= dfn[nd] && !is_cut[nd])\r\n                is_cut[nd] = true, cnt++;\r\n        }\r\n```\r\n\r\n**情况 1：树边**\r\n1. 孩子数 +1\r\n2. 递归处理孩子（先递归，出来时 `low[to]` 才是最终值）\r\n3. 继承孩子的回头能力：`low[nd] = min(low[nd], low[to])`\r\n4. 定理 1 判定非根割点：`low[to] >= dfn[nd]` 且非根\r\n   - `!is_cut[nd]` 去重：多个孩子都满足条件时只计数一次\r\n\r\n```cpp\r\n        else                         // 情况 2: to 已访问 → 返祖边\r\n            low[nd] = min(low[nd], dfn[to]);\r\n    }\r\n```\r\n\r\n**情况 2：返祖边**\r\n- 用 `dfn[to]` 更新，不是 `low[to]`！\r\n- 语义：返祖边是\"我直接一步就能到达 to\"，一步可达能摸到的最早值就是 `dfn[to]`\r\n- 割点场景下误用 low[to] 恰好不出错，但割边（桥）会出 bug，养成用 `dfn[to]` 的正确习惯\r\n\r\n```cpp\r\n    if (fa == -1 && child_cnt >= 2)\r\n        is_cut[nd] = true, cnt++;\r\n}\r\n```\r\n\r\n**定理 2：根的特判**\r\n- 必须等所有邻居枚举完（所有孩子都统计完）才能下结论\r\n- 放在循环外、函数末尾\r\n\r\n### 驱动函数\r\n\r\n```cpp\r\nvoid fn()\r\n{\r\n    init();\r\n    for (int i = 1; i <= n; i++)\r\n    {\r\n        if (!dfn[i]) tarjan(i, -1);\r\n    }\r\n}\r\n```\r\n\r\n图可能不连通，对每个未访问的点都启动一次 DFS。每个连通块的第一个被访问点自动成为该块的 DFS 根，享受\"孩子数 ≥ 2\"的正确判定；孤立点孩子数为 0，不会被误判。\r\n\r\n### 主函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    cin >> n >> m;\r\n    edges.assign(n + 1, {});\r\n    for (int i = 1; i <= m; i++)\r\n    {\r\n        int u, v;\r\n        cin >> u >> v;\r\n        edges[u].emplace_back(v);\r\n        edges[v].emplace_back(u);   // 无向图，双向加边\r\n    }\r\n    fn();\r\n    cout << cnt << '\\n';\r\n    for (int i = 1; i <= n; i++)\r\n    {\r\n        if (is_cut[i]) cout << i << ' ';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n## 六、手动模拟示例\r\n\r\n**图结构**：\r\n\r\n```\r\n1 — 2 — 3\r\n    |\r\n    4 — 5\r\n```\r\n\r\n边：1-2, 2-3, 2-4, 4-5\r\n\r\n从 1 开始 DFS，路径 1→2→3→(回)→2→4→5：\r\n\r\n| 步骤 | 动作 | 结果 |\r\n|------|------|------|\r\n| 1 | 进入 1 | `dfn[1]=low[1]=1` |\r\n| 2 | 进入 2 | `dfn[2]=low[2]=2`，1 的 child_cnt=1 |\r\n| 3 | 进入 3 | `dfn[3]=low[3]=3`，2 的 child_cnt=1 |\r\n| 4 | 3 无未访问邻居，回溯 | `low[3]=3` 保持 |\r\n| 5 | 回到 2，用孩子 3 更新 | `low[2]=min(2,3)=2`；`low[3]=3 >= dfn[2]=2` 且 fa=1 非根 → **2 是割点**，cnt=1 |\r\n| 6 | 2 枚举邻居 4（未访问） | 进入 4，child_cnt[2]=2 |\r\n| 7 | 进入 5 | `dfn[5]=low[5]=5` |\r\n| 8 | 回到 4 | `low[4]=min(4,5)=4`；`low[5]=5 >= dfn[4]=4`，fa=2 非根 → **4 是割点**，cnt=2 |\r\n| 9 | 回到 2 | `low[2]=min(2,4)=2`；low[4]>=dfn[2]，但 2 已标记，不重复计数 |\r\n| 10 | 回到 1，枚举完毕 | 1 是根，child_cnt=1 < 2 → 不是割点 |\r\n\r\n**结论**：割点为 2 和 4 ✓\r\n\r\n## 七、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 时间 | $O(n + m)$ | 每个点恰好访问一次，每条无向边在邻接表中各遍历一次 |\r\n| 空间 | $O(n + m)$ | 邻接表 + dfn/low/is_cut 三个数组 |\r\n| 递归深度 | 最坏 $O(n)$ | 链状图会达到最深。本题规模下安全；$n$ 达 $10^5$ 以上需改迭代版或加大栈空间 |\r\n\r\n## 八、常见陷阱\r\n\r\n1. **返祖边误用 `low[to]`**：应使用 `dfn[to]`。割点场景下恰好不出错，但割边会出 bug，养成正确习惯。\r\n2. **忘记跳过父亲边**：树边被当返祖边，low 全部失效，所有点都判不出割点。\r\n3. **根没有特判**：或误用 `low >= dfn` 判根，导致根永远 / 永不判中。\r\n4. **用图的度数代替 DFS 树的孩子数**：重边、多入口都会使度数失真（见星形图反例）。\r\n5. **忘记处理非连通图**：必须对每个未访问点都启动一次 DFS。\r\n6. **割点判定写在递归之前**：用到未定型的 `low[to]`，判断错误。\r\n7. **忘记去重**：一个点被多个孩子的条件反复触发时多计 cnt。\r\n8. **重边与割点/割边的区别**：割点中\"跳过所有 fa 边\"没问题；但这个模板不能直接改成割边（桥）——桥必须只跳过\"来时的那一条树边\"（通常用边编号判断），否则有重边时桥会被漏判。\r\n\r\n## 九、适用场景\r\n\r\n- **求割点**：找出无向图中所有关节点\r\n- **点双连通分量**：割点是点双连通分量的交界点，求割点是求点双的基础\r\n- **网络可靠性分析**：判断哪些节点故障会导致网络分裂\r\n- **2-SAT 问题**：某些变体需要借助割点分析\r\n- **图的缩点**：点双连通分量缩成\"圆方树\"，割点是公共点\r\n\r\n## 十、与强连通分量 Tarjan 的对比\r\n\r\n| 维度 | 强连通分量 Tarjan | 割点 Tarjan |\r\n|------|------------------|------------|\r\n| 图类型 | 有向图 | 无向图 |\r\n| 核心结构 | 栈维护当前 SCC | 无栈，靠 dfn/low 直接判定 |\r\n| 判定条件 | `low[u] == dfn[u]` 弹出栈 | 非根：`low[child] >= dfn[u]`；根：child_cnt >= 2 |\r\n| 父节点处理 | 不需要跳过父边 | 必须跳过父边（`to == fa` continue） |\r\n| 输出 | 每个 SCC 的点集 + 颜色数组 | 割点标记数组 |\r\n| 延伸算法 | 缩点 → DAG → 拓扑 DP | 点双连通分量、圆方树 |",
+                "content": "## Tarjan 求割点\n\n## 一、问题定义\n\n**割点（关节点）**：在无向图中，如果删掉某个点（以及它连的所有边）之后，图的连通分量数增加了，这个点就称为割点。\n\n暴力做法是枚举每个点，删掉它后用 BFS/DFS 检查连通性，时间复杂度 $O(n(n+m))$，在大规模数据下会超时。\n\nTarjan 算法的精髓在于：**只做一次 DFS，就能同时判断所有点是不是割点**，复杂度 $O(n+m)$。\n\n## 二、算法原理：核心思想\n\n删掉点 $u$ 之后图会不会断，关键看 $u$ 的\"下方\"（DFS 树中 $u$ 的子树）能不能不经过 $u$，绕回到 $u$ 的\"上方\"（$u$ 的祖先）。\n\n- 如果能绕回去 → $u$ 的子树和其余部分除了 $u$ 还有别的通道，删 $u$ 不断\n- 如果绕不回去 → $u$ 是子树通向外界的唯一通道，删 $u$ 后子树被孤立，$u$ 是割点\n\n## 三、基础概念\n\n### 1. DFS 生成树\n\n对图做 DFS，第一次走到某个点所经过的边称为**树边**，所有树边构成一棵生成树。其余边称为**非树边**。\n\n**重要性质**：无向图的 DFS 中，非树边一定是\"连向祖先\"的**返祖边**，不存在横叉边（连向完全另一棵子树的边）。这个性质是 Tarjan 正确性的基石。\n\n### 2. dfn[u] —— 时间戳\n\n`dfn[u]` 表示 $u$ 是第几个被访问到的点。它有两个作用：\n- 作为\"访问顺序\"的编号，数值越小代表越靠近 DFS 的源头（越像\"祖先\"）\n- 同时充当访问标记（0 = 未访问）\n\n### 3. low[u] —— 能追溯到的最早时间戳\n\n**定义**：$u$ 及其子树中的所有点，通过最多一条返祖边，能够到达的时间戳最小的点的时间戳。\n\n直观理解：`low[u]` 回答的问题是——\"$u$ 这一片区域，最远能'回头'摸到多早的祖先？\"\n\n- `low[u]` 越小 → 子树有强大的返祖通道，能绕过很多层祖先\n- `low[u] >= dfn[u]` → 整个子树被 $u$ 封死了，任何回头路最多回到 $u$ 自己\n\n**low 的维护规则**：\n\n| 情况 | 更新方式 | 代码 |\n|------|---------|------|\n| 初始化 | `low[u] = dfn[u]`（至少能摸到自己） | `dfn[nd] = low[nd] = ++tim` |\n| 走树边进入孩子 to | 孩子的回头能力可以继承给我 | `low[nd] = min(low[nd], low[to])` |\n| 遇到返祖边连向已访问的 to | 直接一步跳到 to，能摸到 dfn[to] | `low[nd] = min(low[nd], dfn[to])` |\n\n## 四、两个判定定理\n\n### 定理 1：非根节点 u 是割点\n\n**条件**：存在一个孩子 $v$，满足 $\\text{low}[v] \\geq \\text{dfn}[u]$\n\n**证明思路**：\n- 如果 $v$ 的子树中所有返祖边最远只能回到 $u$ 或 $u$ 的后代（$\\text{low}[v] \\geq \\text{dfn}[u]$），那么 $v$ 的子树与\"$u$ 的祖先部分\"之间，$u$ 是唯一通道。删掉 $u$，$v$ 的子树必然和上面断开。\n- 反过来，如果每个孩子的子树都能绕到 $u$ 的严格祖先（$\\text{low}[v] < \\text{dfn}[u]$），删掉 $u$ 后各子树借返祖边跳到上方再互通，图仍然连通。\n\n### 定理 2：根节点是割点\n\n**条件**：它在 DFS 树中有 $\\geq 2$ 个孩子\n\n**为什么根不能用定理 1？** 因为根的时间戳最小（`dfn = 1`），`low[v] >= dfn[root]` 对任何孩子都恒成立，直接套用会得出\"根永远是割点\"的错误结论。根本身就是最高点，\"绕不到根上面\"对根没有意义。\n\n**正确角度**：由\"无向图 DFS 无横叉边\"的性质，根的不同 DFS 子树之间一定没有边相连。所以：\n- 孩子数 $\\geq 2$ → 子树之间完全隔离 → 删根必断 → 根是割点\n- 孩子数 $= 1$ → 整张图都在一棵子树里 → 根不是割点\n\n> 注意：这里的\"孩子\"指 DFS 树中的孩子，不是图中的度数。比如星形图从叶子开始 DFS，中心节点有多个孩子（判为割点 ✓），叶子只有一个孩子（非割点 ✓）。用度数会误判。\n\n## 五、逐行代码解析\n\n### 变量定义\n\n```cpp\nint n, m, tim, cnt;\nvector<vector<int>> edges;\nvector<int> dfn, low;\nvector<bool> is_cut;\n```\n\n| 变量 | 含义 |\n|------|------|\n| `n, m` | 点数、边数 |\n| `tim` | 时间戳计数器 |\n| `cnt` | 割点总数 |\n| `edges` | 邻接表 |\n| `dfn` | 每个点的时间戳，0 表示未访问 |\n| `low` | 每个点子树能追溯到的最早时间戳 |\n| `is_cut` | 标记每个点是否为割点 |\n\n### 初始化函数\n\n```cpp\nvoid init()\n{\n    tim = 0;\n    cnt = 0;\n    dfn.assign(n + 1, 0);\n    low.assign(n + 1, 0);\n    is_cut.assign(n + 1, false);\n}\n```\n\n重置所有数组和计数器，时间戳从 1 开始（0 表示未访问）。\n\n### Tarjan 主函数\n\n```cpp\nvoid tarjan(int nd, int fa)\n{\n    int child_cnt = 0;\n    dfn[nd] = low[nd] = ++tim;\n```\n\n- `nd`：当前节点；`fa`：父节点，根传 -1\n- `child_cnt`：记录 DFS 树中的孩子数量\n- 打时间戳，low 初始化为自己（\"最差也能摸到自己\"）\n\n```cpp\n    for (int to : edges[nd])\n    {\n        if (to == fa) continue;\n```\n\n枚举所有邻居，**跳过父亲边**。无向边在邻接表里存了两份，从孩子往回枚举时一定会碰到父亲，如果不跳过，就会把\"来时的树边\"误认成\"返祖边\"，导致所有点都判不出割点。\n\n```cpp\n        if (!dfn[to])                // 情况 1: to 未访问 → 树边\n        {\n            ++child_cnt;\n            tarjan(to, nd);\n            low[nd] = min(low[nd], low[to]);\n            if (fa != -1 && low[to] >= dfn[nd] && !is_cut[nd])\n                is_cut[nd] = true, cnt++;\n        }\n```\n\n**情况 1：树边**\n1. 孩子数 +1\n2. 递归处理孩子（先递归，出来时 `low[to]` 才是最终值）\n3. 继承孩子的回头能力：`low[nd] = min(low[nd], low[to])`\n4. 定理 1 判定非根割点：`low[to] >= dfn[nd]` 且非根\n   - `!is_cut[nd]` 去重：多个孩子都满足条件时只计数一次\n\n```cpp\n        else                         // 情况 2: to 已访问 → 返祖边\n            low[nd] = min(low[nd], dfn[to]);\n    }\n```\n\n**情况 2：返祖边**\n- 用 `dfn[to]` 更新，不是 `low[to]`！\n- 语义：返祖边是\"我直接一步就能到达 to\"，一步可达能摸到的最早值就是 `dfn[to]`\n- 割点场景下误用 low[to] 恰好不出错，但割边（桥）会出 bug，养成用 `dfn[to]` 的正确习惯\n\n```cpp\n    if (fa == -1 && child_cnt >= 2)\n        is_cut[nd] = true, cnt++;\n}\n```\n\n**定理 2：根的特判**\n- 必须等所有邻居枚举完（所有孩子都统计完）才能下结论\n- 放在循环外、函数末尾\n\n### 驱动函数\n\n```cpp\nvoid fn()\n{\n    init();\n    for (int i = 1; i <= n; i++)\n    {\n        if (!dfn[i]) tarjan(i, -1);\n    }\n}\n```\n\n图可能不连通，对每个未访问的点都启动一次 DFS。每个连通块的第一个被访问点自动成为该块的 DFS 根，享受\"孩子数 ≥ 2\"的正确判定；孤立点孩子数为 0，不会被误判。\n\n### 主函数\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    cin >> n >> m;\n    edges.assign(n + 1, {});\n    for (int i = 1; i <= m; i++)\n    {\n        int u, v;\n        cin >> u >> v;\n        edges[u].emplace_back(v);\n        edges[v].emplace_back(u);   // 无向图，双向加边\n    }\n    fn();\n    cout << cnt << '\\n';\n    for (int i = 1; i <= n; i++)\n    {\n        if (is_cut[i]) cout << i << ' ';\n    }\n    return 0;\n}\n```\n\n## 六、手动模拟示例\n\n**图结构**：\n\n```\n1 — 2 — 3\n    |\n    4 — 5\n```\n\n边：1-2, 2-3, 2-4, 4-5\n\n从 1 开始 DFS，路径 1→2→3→(回)→2→4→5：\n\n| 步骤 | 动作 | 结果 |\n|------|------|------|\n| 1 | 进入 1 | `dfn[1]=low[1]=1` |\n| 2 | 进入 2 | `dfn[2]=low[2]=2`，1 的 child_cnt=1 |\n| 3 | 进入 3 | `dfn[3]=low[3]=3`，2 的 child_cnt=1 |\n| 4 | 3 无未访问邻居，回溯 | `low[3]=3` 保持 |\n| 5 | 回到 2，用孩子 3 更新 | `low[2]=min(2,3)=2`；`low[3]=3 >= dfn[2]=2` 且 fa=1 非根 → **2 是割点**，cnt=1 |\n| 6 | 2 枚举邻居 4（未访问） | 进入 4，child_cnt[2]=2 |\n| 7 | 进入 5 | `dfn[5]=low[5]=5` |\n| 8 | 回到 4 | `low[4]=min(4,5)=4`；`low[5]=5 >= dfn[4]=4`，fa=2 非根 → **4 是割点**，cnt=2 |\n| 9 | 回到 2 | `low[2]=min(2,4)=2`；low[4]>=dfn[2]，但 2 已标记，不重复计数 |\n| 10 | 回到 1，枚举完毕 | 1 是根，child_cnt=1 < 2 → 不是割点 |\n\n**结论**：割点为 2 和 4 ✓\n\n## 七、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 时间 | $O(n + m)$ | 每个点恰好访问一次，每条无向边在邻接表中各遍历一次 |\n| 空间 | $O(n + m)$ | 邻接表 + dfn/low/is_cut 三个数组 |\n| 递归深度 | 最坏 $O(n)$ | 链状图会达到最深。本题规模下安全；$n$ 达 $10^5$ 以上需改迭代版或加大栈空间 |\n\n## 八、常见陷阱\n\n1. **返祖边误用 `low[to]`**：应使用 `dfn[to]`。割点场景下恰好不出错，但割边会出 bug，养成正确习惯。\n2. **忘记跳过父亲边**：树边被当返祖边，low 全部失效，所有点都判不出割点。\n3. **根没有特判**：或误用 `low >= dfn` 判根，导致根永远 / 永不判中。\n4. **用图的度数代替 DFS 树的孩子数**：重边、多入口都会使度数失真（见星形图反例）。\n5. **忘记处理非连通图**：必须对每个未访问点都启动一次 DFS。\n6. **割点判定写在递归之前**：用到未定型的 `low[to]`，判断错误。\n7. **忘记去重**：一个点被多个孩子的条件反复触发时多计 cnt。\n8. **重边与割点/割边的区别**：割点中\"跳过所有 fa 边\"没问题；但这个模板不能直接改成割边（桥）——桥必须只跳过\"来时的那一条树边\"（通常用边编号判断），否则有重边时桥会被漏判。\n\n## 九、适用场景\n\n- **求割点**：找出无向图中所有关节点\n- **点双连通分量**：割点是点双连通分量的交界点，求割点是求点双的基础\n- **网络可靠性分析**：判断哪些节点故障会导致网络分裂\n- **2-SAT 问题**：某些变体需要借助割点分析\n- **图的缩点**：点双连通分量缩成\"圆方树\"，割点是公共点\n\n## 十、与强连通分量 Tarjan 的对比\n\n| 维度 | 强连通分量 Tarjan | 割点 Tarjan |\n|------|------------------|------------|\n| 图类型 | 有向图 | 无向图 |\n| 核心结构 | 栈维护当前 SCC | 无栈，靠 dfn/low 直接判定 |\n| 判定条件 | `low[u] == dfn[u]` 弹出栈 | 非根：`low[child] >= dfn[u]`；根：child_cnt >= 2 |\n| 父节点处理 | 不需要跳过父边 | 必须跳过父边（`to == fa` continue） |\n| 输出 | 每个 SCC 的点集 + 颜色数组 | 割点标记数组 |\n| 延伸算法 | 缩点 → DAG → 拓扑 DP | 点双连通分量、圆方树 |\n\n## 附：Tarjan 求桥（割边）\n\nTarjan 算法由 Robert Tarjan 于 1974 年提出，通过**一次深度优先搜索（DFS）**即可找出无向图中所有的**桥**（割边），时间复杂度为 $O(n+m)$。\n\n#### 什么是桥\n\n**桥（Bridge，又称割边）**：在无向图中，如果删除某条边后，图的连通分量数增加，则称这条边为桥。换句话说，桥是图中的\"生命线\"——去掉它图就会被拆成两部分。\n\n暴力做法是枚举每条边，删除后用 BFS/DFS 检查连通性，时间复杂度 $O(m(n+m))$，在大规模数据下会超时。Tarjan 算法的精髓在于：只做一次 DFS，就能同时判断所有边是不是桥。\n\n#### 核心思想\n\n判断一条树边 $u \\to v$（$u$ 是父节点，$v$ 是子节点）是不是桥，关键看 $v$ 的子树能不能不经过这条边，绕回到 $u$ 或 $u$ 的祖先：\n\n- **能绕回去** → 子树和外界除了这条边还有其他通道，这条边不是桥\n- **绕不回去** → 这条边是子树通向外界的唯一通道，删去后子树被孤立，是桥\n\n#### DFS 生成树与返祖边\n\n对无向图做 DFS，第一次走到某个点所经过的边称为**树边**，所有树边构成一棵生成树。其余的边称为**非树边**。\n\n**关键性质**：无向图的 DFS 中，非树边一定是\"连向祖先\"的**返祖边**，不存在横叉边（连向完全另一棵子树的边）。这个性质是 Tarjan 正确性的基石——因为如果有横叉边，\"low 值追溯\"的逻辑就不成立了。\n\n#### dfn 与 low 数组\n\n| 数组 | 含义 |\n|------|------|\n| `dfn[u]` | 节点 $u$ 被首次访问的时间戳（DFS 序），同时充当访问标记（0 = 未访问） |\n| `low[u]` | 从 $u$ 及其子树中的所有点出发，通过最多一条返祖边，能到达的时间戳最小的节点的时间戳 |\n\n`low[u]` 回答的问题是：\"$u$ 这一片区域，最远能'回头'摸到多早的祖先？\"\n\n#### 桥的判定条件\n\n对于树边 $u \\to v$（$u$ 是父节点，$v$ 是子节点）：\n\n$$\n\\text{low}[v] > \\text{dfn}[u] \\quad \\Longrightarrow \\quad u\\text{-}v \\text{ 是桥}\n$$\n\n含义：$v$ 的子树最多只能追溯到 $v$ 自己或更晚的节点，无法回到 $u$ 或更早的祖先，因此 $u$-$v$ 这条边是子树与外界的唯一连接——桥。\n\n对比割点的判定 `low[v] >= dfn[u]`：割点允许子树追溯到 $u$ 自身（等于号成立），而桥要求**严格大于**——因为如果子树能回到 $u$，说明存在不经过这条树边的路径（通过返祖边），所以这条边不是桥。\n\n### 核心状态定义与转移方程\n\n#### 状态定义\n\n| 变量 | 含义 |\n|------|------|\n| `dfn[rt]` | 当前节点的时间戳（DFS 序编号） |\n| `low[rt]` | 当前节点及其子树能追溯到的最早时间戳 |\n| `fa` | DFS 树中的父节点，用于防止走回父边 |\n| `tim` | 全局时间戳计数器 |\n| `cnt` | tarjan 函数内的局部计数器，用于重边处理（只跳过第一条父边） |\n| `is_bridge` | 存储所有桥的边列表 |\n\n#### 转移规则\n\n进入 DFS 时初始化：\n\n$$\n\\text{dfn}[u] = \\text{low}[u] = \\text{++tim}\n$$\n\n对每条出边 $u \\to v$，分三种情况处理：\n\n$$\n\\text{low}[u] \\text{ 的更新} =\n\\begin{cases}\n\\text{跳过（仅第一条父边）} & v = \\text{fa} \\text{ 且本轮未跳过过父边} \\\\\n\\min(\\text{low}[u], \\text{low}[v]) & v \\text{ 未访问，递归后回溯更新} \\\\\n\\min(\\text{low}[u], \\text{dfn}[v]) & v \\text{ 已访问且未被跳过（返祖边或重边）}\n\\end{cases}\n$$\n\n注意返祖边的情况用的是 `dfn[v]` 而不是 `low[v]`。这是因为 `low` 的定义是\"通过最多一条返祖边\"能到达的最早节点，如果用 `low[v]` 就相当于走了多条返祖边，会导致误判。\n\n#### 桥的判定\n\n递归回溯后，若满足：\n\n$$\n\\text{low}[v] > \\text{dfn}[u]\n$$\n\n则 $u$-$v$ 是桥。\n\n#### 重边处理机制\n\n无向图加边时每条边存两份（$u \\to v$ 和 $v \\to u$）。如果 $u$ 和 $v$ 之间有**重边**（两条以上的平行边），那么删掉其中一条不影响连通性，因此重边不可能是桥。\n\n代码通过局部计数器 `cnt` 实现正确的重边处理：对当前节点 `rt`，只跳过邻接表中**第一次出现的父边**，后续出现的同方向重边会走到 `else` 分支作为返祖边处理，从而更新 `low` 值，使重边不会被误判为桥。\n\n### 逐行代码解析\n\n#### 全局变量定义\n\n```cpp\nvector<vector<int>> edges;             // 邻接表\nvector<int> dfn, low;                  // 时间戳 / 能追溯的最早时间戳\nvector<pair<int, int>> is_bridge;     // 存储所有桥\nint tim;                                // 全局时间戳计数器\n```\n\n- `edges`：无向图的邻接表\n- `dfn`、`low`：Tarjan 的核心双数组\n- `is_bridge`：存放所有桥的端点对\n- `tim`：DFS 时间戳计数器\n\n#### 初始化函数\n\n```cpp\nvoid init(int n, int m)\n{\n\tdfn.assign(n + 1, 0);\n\tlow.assign(n + 1, 0);\n\tedges.assign(n + 1, vector<int>());\n\tis_bridge.clear();\n\ttim = 0;\n}\n```\n\n所有数组初始化为 0，`dfn = 0` 表示未访问。\n\n#### 加边函数\n\n```cpp\nvoid add(int u, int v)\n{\n\tedges[u].emplace_back(v);\n\tedges[v].emplace_back(u);\n}\n```\n\n无向图双向加边。重边会在邻接表中存为多个独立条目。\n\n#### Tarjan 核心函数\n\n```cpp\nvoid tarjan(int rt, int fa)\n{\n\tint cnt = 0;                              // 局部计数器：记录是否已跳过父边\n\tdfn[rt] = low[rt] = ++tim;               // 初始化时间戳和 low 值\n\tfor (int i : edges[rt])                   // 遍历所有邻接点\n\t{\n\t\tif (fa == i && !cnt)                 // 只跳过第一条父边\n\t\t{\n\t\t\t++cnt;\n\t\t\tcontinue;\n\t\t}\n\t\tif (!dfn[i])                         // 情况1：未访问——树边\n\t\t{\n\t\t\ttarjan(i, rt);                   // 递归 DFS\n\t\t\tlow[rt] = min(low[i], low[rt]);  // 回溯：用子节点 low 更新父节点\n\t\t\tif (low[i] > dfn[rt])            // 桥的判定条件\n\t\t\t\tis_bridge.emplace_back(rt, i);\n\t\t}\n\t\telse                                  // 情况2：已访问——返祖边或重边\n\t\t\tlow[rt] = min(dfn[i], low[rt]);  // 用 dfn[i] 更新 low[rt]\n\t}\n}\n```\n\n逐行解析关键点：\n\n1. **`int cnt = 0;`**：局部计数器，每次进入 `tarjan` 函数时重置为 0。用于记录当前节点是否已经跳过了一条父边。\n\n2. **`dfn[rt] = low[rt] = ++tim;`**：新节点初始时，low 值等于自己的时间戳——目前只知道能到达自己。注意全局计数器已更名为 `tim`，避免与局部 `cnt` 混淆。\n\n3. **`if (fa == i && !cnt)`**：这是**重边处理的核心**。无向图中每条边在邻接表中出现两次（$u \\to v$ 和 $v \\to u$），从父节点来的边不能往回走，否则会死循环。但如果有重边（$u$ 和 $v$ 之间多条平行边），只跳过第一条父边，后续重边会走到 `else` 分支作为返祖边处理，从而正确地不判定为桥。\n\n4. **`++cnt;`**：标记已跳过一条父边，后续即使再遇到 `fa` 也不会跳过，而是作为返祖边处理。\n\n5. **`if (!dfn[i])` 树边分支**：\n   - 递归进入子节点 `tarjan(i, rt)`\n   - 回溯时更新：`low[rt] = min(low[i], low[rt])`——子树能追溯到的最早节点，父节点当然也能追溯到\n   - **桥判定**：`if (low[i] > dfn[rt])` —— 子节点的追溯能力到不了父节点或更早，说明父→子这条边是唯一通道，是桥\n\n6. **`else` 返祖边分支**：\n   - `low[rt] = min(dfn[i], low[rt])` —— 注意这里用的是 `dfn[i]`（邻居的时间戳）而不是 `low[i]`！因为返祖边只能算\"一条\"，不能把邻居 $i$ 通过其自身子树追溯到的能力也算上。用 `dfn[i]` 精确表达\"通过这条返祖边直接到达节点 $i$\"。\n\n#### 主函数\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint n, m;\n\tcin >> n >> m;\n\tinit(n, m);\n\tfor (int i = 1; i <= m; i++)\n\t{\n\t\tint u, v;\n\t\tcin >> u >> v;\n\t\tadd(u, v);\n\t}\n\tfor (int i = 1; i <= n; i++)     // 遍历所有连通分量\n\t{\n\t\tif (!dfn[i]) tarjan(i, -1);\n\t}\n\tcout << is_bridge.size() << '\\n';\n\tfor (pair<int, int> i : is_bridge)\n\t\tcout << i.first << ' ' << i.second << '\\n';\n\treturn 0;\n}\n```\n\n注意：代码处理了图不连通的情况——外层循环遍历所有节点，对每个未访问的连通分量启动一次 Tarjan。根节点的父节点设为 `-1`（不存在的节点编号）。\n\n### 复杂度分析\n\n#### 时间复杂度：$O(n+m)$\n\n- 每个节点恰好被访问一次（`dfn` 从 0 变非 0 只发生一次）\n- 每条无向边被访问两次（双向各一次），其中一条因父边判定被跳过，实际有效处理一次\n- 总操作量与顶点数 $n$ 和边数 $m$ 成线性关系\n\n#### 空间复杂度：$O(n+m)$\n\n- 邻接表：$O(n+m)$\n- `dfn`、`low` 数组：各 $O(n)$\n- `is_bridge` 结果数组：最坏 $O(m)$（全是桥，即树）\n- DFS 递归栈深度：最坏 $O(n)$（链状图）\n\n### 适用场景\n\n#### 适用场景\n\n1. **桥的检测**：找出无向图中所有的桥（割边）\n2. **边双连通分量**：将所有桥删除后，每个极大连通子图就是一个边双连通分量。桥是边双连通分量之间的\"关节边\"\n3. **网络可靠性分析**：找出网络中的关键链路，故障后会导致网络分裂\n4. **2-边连通性问题**：判断图是否 2-边连通（无桥），或至少需要添加多少条边使图变成 2-边连通\n\n#### 不适用场景\n\n1. **有向图**：桥是无向图的概念，有向图的对应概念需另行定义（如强连通分量）\n2. **需要点双连通分量**：点双连通分量基于割点，不是桥\n3. **动态图**：边不断增删的图，Tarjan 是静态算法，每次增删边都需要重新运行\n\n### 常见陷阱与注意事项\n\n#### 1. 桥的判定是严格大于\n\n桥的判定条件是 `low[i] > dfn[rt]`（**严格大于**），而割点是 `low[i] >= dfn[u]`（大于等于）。\n\n- **割点**：子树追溯不到 $u$ 之外 → $u$ 是割点。等于号成立说明子树能回到 $u$ 自己，但 $u$ 被删后子树仍然孤立\n- **桥**：子树必须连 $u$ 都回不到 → 这条边才是桥。等于号时子树能通过返祖边回到 $u$，说明存在替代路径，这条边不是桥\n\n#### 2. 返祖边更新必须用 dfn[i] 而不是 low[i]\n\n返祖边更新 low 值时，代码写的是 `low[rt] = min(dfn[i], low[rt])`，用的是邻居的 `dfn[i]`，不是邻居的 `low[i]`。\n\n原因：`low` 的定义是\"通过**最多一条**返祖边\"能到达的最早节点。如果用 `low[i]` 更新，就相当于把 $i$ 通过其子树进一步追溯的结果也算进来了，等于走了多条返祖边，会导致 `low` 值过小，从而把本应是桥的边漏判。\n\n#### 3. 重边处理：只跳第一条父边\n\n无向图中，如果 $u$ 和 $v$ 之间有**重边**（两条以上的平行边），删掉其中一条不影响连通性，因此重边不可能是桥。\n\n**错误做法**：`if (fa == i) continue;` —— 这会跳过所有指向父节点的边，导致重边中的第二条也被跳过，无法作为返祖边更新 `low` 值，从而可能把重边误判为桥。\n\n**正确做法**：用局部计数器 `cnt` 只跳过邻接表中第一条出现的父边（`if (fa == i && !cnt)`），后续重边走到 `else` 分支作为返祖边处理，正确更新 `low` 值，使重边不会被误判为桥。\n\n#### 4. 图不连通的处理\n\n代码外层有 `for (int i = 1; i <= n; i++) if (!dfn[i]) tarjan(i, -1);`，确保每个连通分量都被处理。这一点很重要，否则非连通图的某些分量会被漏掉。\n\n#### 5. 桥的输出顺序\n\n桥以 `(rt, i)` 的顺序存入，即父节点在前、子节点在后。输出的方向与 DFS 树的父子关系一致，与输入的边的方向不一定相同。同一座桥只会被记录一次（从父到子的方向）。\n\n#### 6. 自环边\n\n自环（节点到自己的边）不是桥——删掉自环不影响连通性。在代码中，自环会被 `else` 分支（返祖边）处理，`low[rt] = min(dfn[rt], low[rt])` 没有变化，且不会触发桥的判定（桥的判定只在树边分支）。所以自环被正确忽略。\n\n### 对比与扩展\n\n#### 与割点算法对比\n\n| 对比维度 | Tarjan 求桥 | Tarjan 求割点 |\n|----------|-----------|-------------|\n| 判定对象 | 边 | 顶点 |\n| 判定条件 | `low[v] > dfn[u]`（严格大于） | `low[v] >= dfn[u]`（大于等于），根节点单独判定 |\n| 根节点处理 | 无需特殊处理 | 需统计子树个数，子树数 $\\geq 2$ 才是割点 |\n| 结果存储 | 边对 `(u, v)` | 顶点编号 |\n| 时间复杂度 | $O(n+m)$ | $O(n+m)$ |\n| 空间复杂度 | $O(n+m)$ | $O(n+m)$ |\n\n#### 边双连通分量\n\n将图中所有的桥都删除后，每个极大的连通子图称为一个**边双连通分量**（Edge-Biconnected Component, E-BCC）。边双连通分量内部没有桥——任意两点之间至少有两条边不相交的路径。\n\n求边双连通分量的方法：\n1. 用 Tarjan 找出所有桥\n2. 删除所有桥，对剩余图做 DFS/BFS 染色，每个连通块就是一个边双连通分量\n\n#### 点双连通分量\n\n点双连通分量（Vertex-Biconnected Component, V-BCC）是指不存在割点的极大子图。点双连通分量的关系比边双更复杂：一个割点可以属于多个点双连通分量。求点双连通分量需要在 DFS 中维护一个栈，保存经过的边，发现割点时弹栈得到一个点双。\n\n#### 2-边连通性增强\n\n给定一个无向图，问至少添加几条边可以使图变成 2-边连通（没有桥）。解法：\n1. 求所有边双连通分量，将每个分量缩成一个点\n2. 缩点后的图是一棵树，所有的\"边\"都是原来的桥\n3. 答案 = $\\lceil \\frac{\\text{叶子数}}{2} \\rceil$，其中叶子是缩点后度数为 1 的节点\n\n这个结论与\"无向图添加最少边使图强连通\"（缩点后入度0和出度0的最大值）是类似的对偶问题。",
                 "codePath": "图论\\割点与桥\\源.cpp",
                 "timeComplexity": "O(n+m)",
                 "spaceComplexity": "O(n+m)",
@@ -10003,7 +10180,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## Tarjan 求割点\r\n\r\n## 一、问题定义\r\n\r\n**割点（关节点）**：在无向图中，如果删掉某个点（以及它连的所有边）之后，图的连通分量数增加了，这个点就称为割点。\r\n\r\n暴力做法是枚举每个点，删掉它后用 BFS/DFS 检查连通性，时间复杂度 $O(n(n+m))$，在大规模数据下会超时。\r\n\r\nTarjan 算法的精髓在于：**只做一次 DFS，就能同时判断所有点是不是割点**，复杂度 $O(n+m)$。\r\n\r\n## 二、算法原理：核心思想\r\n\r\n删掉点 $u$ 之后图会不会断，关键看 $u$ 的\"下方\"（DFS 树中 $u$ 的子树）能不能不经过 $u$，绕回到 $u$ 的\"上方\"（$u$ 的祖先）。\r\n\r\n- 如果能绕回去 → $u$ 的子树和其余部分除了 $u$ 还有别的通道，删 $u$ 不断\r\n- 如果绕不回去 → $u$ 是子树通向外界的唯一通道，删 $u$ 后子树被孤立，$u$ 是割点\r\n\r\n## 三、基础概念\r\n\r\n### 1. DFS 生成树\r\n\r\n对图做 DFS，第一次走到某个点所经过的边称为**树边**，所有树边构成一棵生成树。其余边称为**非树边**。\r\n\r\n**重要性质**：无向图的 DFS 中，非树边一定是\"连向祖先\"的**返祖边**，不存在横叉边（连向完全另一棵子树的边）。这个性质是 Tarjan 正确性的基石。\r\n\r\n### 2. dfn[u] —— 时间戳\r\n\r\n`dfn[u]` 表示 $u$ 是第几个被访问到的点。它有两个作用：\r\n- 作为\"访问顺序\"的编号，数值越小代表越靠近 DFS 的源头（越像\"祖先\"）\r\n- 同时充当访问标记（0 = 未访问）\r\n\r\n### 3. low[u] —— 能追溯到的最早时间戳\r\n\r\n**定义**：$u$ 及其子树中的所有点，通过最多一条返祖边，能够到达的时间戳最小的点的时间戳。\r\n\r\n直观理解：`low[u]` 回答的问题是——\"$u$ 这一片区域，最远能'回头'摸到多早的祖先？\"\r\n\r\n- `low[u]` 越小 → 子树有强大的返祖通道，能绕过很多层祖先\r\n- `low[u] >= dfn[u]` → 整个子树被 $u$ 封死了，任何回头路最多回到 $u$ 自己\r\n\r\n**low 的维护规则**：\r\n\r\n| 情况 | 更新方式 | 代码 |\r\n|------|---------|------|\r\n| 初始化 | `low[u] = dfn[u]`（至少能摸到自己） | `dfn[nd] = low[nd] = ++tim` |\r\n| 走树边进入孩子 to | 孩子的回头能力可以继承给我 | `low[nd] = min(low[nd], low[to])` |\r\n| 遇到返祖边连向已访问的 to | 直接一步跳到 to，能摸到 dfn[to] | `low[nd] = min(low[nd], dfn[to])` |\r\n\r\n## 四、两个判定定理\r\n\r\n### 定理 1：非根节点 u 是割点\r\n\r\n**条件**：存在一个孩子 $v$，满足 $\\text{low}[v] \\geq \\text{dfn}[u]$\r\n\r\n**证明思路**：\r\n- 如果 $v$ 的子树中所有返祖边最远只能回到 $u$ 或 $u$ 的后代（$\\text{low}[v] \\geq \\text{dfn}[u]$），那么 $v$ 的子树与\"$u$ 的祖先部分\"之间，$u$ 是唯一通道。删掉 $u$，$v$ 的子树必然和上面断开。\r\n- 反过来，如果每个孩子的子树都能绕到 $u$ 的严格祖先（$\\text{low}[v] < \\text{dfn}[u]$），删掉 $u$ 后各子树借返祖边跳到上方再互通，图仍然连通。\r\n\r\n### 定理 2：根节点是割点\r\n\r\n**条件**：它在 DFS 树中有 $\\geq 2$ 个孩子\r\n\r\n**为什么根不能用定理 1？** 因为根的时间戳最小（`dfn = 1`），`low[v] >= dfn[root]` 对任何孩子都恒成立，直接套用会得出\"根永远是割点\"的错误结论。根本身就是最高点，\"绕不到根上面\"对根没有意义。\r\n\r\n**正确角度**：由\"无向图 DFS 无横叉边\"的性质，根的不同 DFS 子树之间一定没有边相连。所以：\r\n- 孩子数 $\\geq 2$ → 子树之间完全隔离 → 删根必断 → 根是割点\r\n- 孩子数 $= 1$ → 整张图都在一棵子树里 → 根不是割点\r\n\r\n> 注意：这里的\"孩子\"指 DFS 树中的孩子，不是图中的度数。比如星形图从叶子开始 DFS，中心节点有多个孩子（判为割点 ✓），叶子只有一个孩子（非割点 ✓）。用度数会误判。\r\n\r\n## 五、逐行代码解析\r\n\r\n### 变量定义\r\n\r\n```cpp\r\nint n, m, tim, cnt;\r\nvector<vector<int>> edges;\r\nvector<int> dfn, low;\r\nvector<bool> is_cut;\r\n```\r\n\r\n| 变量 | 含义 |\r\n|------|------|\r\n| `n, m` | 点数、边数 |\r\n| `tim` | 时间戳计数器 |\r\n| `cnt` | 割点总数 |\r\n| `edges` | 邻接表 |\r\n| `dfn` | 每个点的时间戳，0 表示未访问 |\r\n| `low` | 每个点子树能追溯到的最早时间戳 |\r\n| `is_cut` | 标记每个点是否为割点 |\r\n\r\n### 初始化函数\r\n\r\n```cpp\r\nvoid init()\r\n{\r\n    tim = 0;\r\n    cnt = 0;\r\n    dfn.assign(n + 1, 0);\r\n    low.assign(n + 1, 0);\r\n    is_cut.assign(n + 1, false);\r\n}\r\n```\r\n\r\n重置所有数组和计数器，时间戳从 1 开始（0 表示未访问）。\r\n\r\n### Tarjan 主函数\r\n\r\n```cpp\r\nvoid tarjan(int nd, int fa)\r\n{\r\n    int child_cnt = 0;\r\n    dfn[nd] = low[nd] = ++tim;\r\n```\r\n\r\n- `nd`：当前节点；`fa`：父节点，根传 -1\r\n- `child_cnt`：记录 DFS 树中的孩子数量\r\n- 打时间戳，low 初始化为自己（\"最差也能摸到自己\"）\r\n\r\n```cpp\r\n    for (int to : edges[nd])\r\n    {\r\n        if (to == fa) continue;\r\n```\r\n\r\n枚举所有邻居，**跳过父亲边**。无向边在邻接表里存了两份，从孩子往回枚举时一定会碰到父亲，如果不跳过，就会把\"来时的树边\"误认成\"返祖边\"，导致所有点都判不出割点。\r\n\r\n```cpp\r\n        if (!dfn[to])                // 情况 1: to 未访问 → 树边\r\n        {\r\n            ++child_cnt;\r\n            tarjan(to, nd);\r\n            low[nd] = min(low[nd], low[to]);\r\n            if (fa != -1 && low[to] >= dfn[nd] && !is_cut[nd])\r\n                is_cut[nd] = true, cnt++;\r\n        }\r\n```\r\n\r\n**情况 1：树边**\r\n1. 孩子数 +1\r\n2. 递归处理孩子（先递归，出来时 `low[to]` 才是最终值）\r\n3. 继承孩子的回头能力：`low[nd] = min(low[nd], low[to])`\r\n4. 定理 1 判定非根割点：`low[to] >= dfn[nd]` 且非根\r\n   - `!is_cut[nd]` 去重：多个孩子都满足条件时只计数一次\r\n\r\n```cpp\r\n        else                         // 情况 2: to 已访问 → 返祖边\r\n            low[nd] = min(low[nd], dfn[to]);\r\n    }\r\n```\r\n\r\n**情况 2：返祖边**\r\n- 用 `dfn[to]` 更新，不是 `low[to]`！\r\n- 语义：返祖边是\"我直接一步就能到达 to\"，一步可达能摸到的最早值就是 `dfn[to]`\r\n- 割点场景下误用 low[to] 恰好不出错，但割边（桥）会出 bug，养成用 `dfn[to]` 的正确习惯\r\n\r\n```cpp\r\n    if (fa == -1 && child_cnt >= 2)\r\n        is_cut[nd] = true, cnt++;\r\n}\r\n```\r\n\r\n**定理 2：根的特判**\r\n- 必须等所有邻居枚举完（所有孩子都统计完）才能下结论\r\n- 放在循环外、函数末尾\r\n\r\n### 驱动函数\r\n\r\n```cpp\r\nvoid fn()\r\n{\r\n    init();\r\n    for (int i = 1; i <= n; i++)\r\n    {\r\n        if (!dfn[i]) tarjan(i, -1);\r\n    }\r\n}\r\n```\r\n\r\n图可能不连通，对每个未访问的点都启动一次 DFS。每个连通块的第一个被访问点自动成为该块的 DFS 根，享受\"孩子数 ≥ 2\"的正确判定；孤立点孩子数为 0，不会被误判。\r\n\r\n### 主函数\r\n\r\n```cpp\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr); cout.tie(nullptr);\r\n    cin >> n >> m;\r\n    edges.assign(n + 1, {});\r\n    for (int i = 1; i <= m; i++)\r\n    {\r\n        int u, v;\r\n        cin >> u >> v;\r\n        edges[u].emplace_back(v);\r\n        edges[v].emplace_back(u);   // 无向图，双向加边\r\n    }\r\n    fn();\r\n    cout << cnt << '\\n';\r\n    for (int i = 1; i <= n; i++)\r\n    {\r\n        if (is_cut[i]) cout << i << ' ';\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n## 六、手动模拟示例\r\n\r\n**图结构**：\r\n\r\n```\r\n1 — 2 — 3\r\n    |\r\n    4 — 5\r\n```\r\n\r\n边：1-2, 2-3, 2-4, 4-5\r\n\r\n从 1 开始 DFS，路径 1→2→3→(回)→2→4→5：\r\n\r\n| 步骤 | 动作 | 结果 |\r\n|------|------|------|\r\n| 1 | 进入 1 | `dfn[1]=low[1]=1` |\r\n| 2 | 进入 2 | `dfn[2]=low[2]=2`，1 的 child_cnt=1 |\r\n| 3 | 进入 3 | `dfn[3]=low[3]=3`，2 的 child_cnt=1 |\r\n| 4 | 3 无未访问邻居，回溯 | `low[3]=3` 保持 |\r\n| 5 | 回到 2，用孩子 3 更新 | `low[2]=min(2,3)=2`；`low[3]=3 >= dfn[2]=2` 且 fa=1 非根 → **2 是割点**，cnt=1 |\r\n| 6 | 2 枚举邻居 4（未访问） | 进入 4，child_cnt[2]=2 |\r\n| 7 | 进入 5 | `dfn[5]=low[5]=5` |\r\n| 8 | 回到 4 | `low[4]=min(4,5)=4`；`low[5]=5 >= dfn[4]=4`，fa=2 非根 → **4 是割点**，cnt=2 |\r\n| 9 | 回到 2 | `low[2]=min(2,4)=2`；low[4]>=dfn[2]，但 2 已标记，不重复计数 |\r\n| 10 | 回到 1，枚举完毕 | 1 是根，child_cnt=1 < 2 → 不是割点 |\r\n\r\n**结论**：割点为 2 和 4 ✓\r\n\r\n## 七、复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 时间 | $O(n + m)$ | 每个点恰好访问一次，每条无向边在邻接表中各遍历一次 |\r\n| 空间 | $O(n + m)$ | 邻接表 + dfn/low/is_cut 三个数组 |\r\n| 递归深度 | 最坏 $O(n)$ | 链状图会达到最深。本题规模下安全；$n$ 达 $10^5$ 以上需改迭代版或加大栈空间 |\r\n\r\n## 八、常见陷阱\r\n\r\n1. **返祖边误用 `low[to]`**：应使用 `dfn[to]`。割点场景下恰好不出错，但割边会出 bug，养成正确习惯。\r\n2. **忘记跳过父亲边**：树边被当返祖边，low 全部失效，所有点都判不出割点。\r\n3. **根没有特判**：或误用 `low >= dfn` 判根，导致根永远 / 永不判中。\r\n4. **用图的度数代替 DFS 树的孩子数**：重边、多入口都会使度数失真（见星形图反例）。\r\n5. **忘记处理非连通图**：必须对每个未访问点都启动一次 DFS。\r\n6. **割点判定写在递归之前**：用到未定型的 `low[to]`，判断错误。\r\n7. **忘记去重**：一个点被多个孩子的条件反复触发时多计 cnt。\r\n8. **重边与割点/割边的区别**：割点中\"跳过所有 fa 边\"没问题；但这个模板不能直接改成割边（桥）——桥必须只跳过\"来时的那一条树边\"（通常用边编号判断），否则有重边时桥会被漏判。\r\n\r\n## 九、适用场景\r\n\r\n- **求割点**：找出无向图中所有关节点\r\n- **点双连通分量**：割点是点双连通分量的交界点，求割点是求点双的基础\r\n- **网络可靠性分析**：判断哪些节点故障会导致网络分裂\r\n- **2-SAT 问题**：某些变体需要借助割点分析\r\n- **图的缩点**：点双连通分量缩成\"圆方树\"，割点是公共点\r\n\r\n## 十、与强连通分量 Tarjan 的对比\r\n\r\n| 维度 | 强连通分量 Tarjan | 割点 Tarjan |\r\n|------|------------------|------------|\r\n| 图类型 | 有向图 | 无向图 |\r\n| 核心结构 | 栈维护当前 SCC | 无栈，靠 dfn/low 直接判定 |\r\n| 判定条件 | `low[u] == dfn[u]` 弹出栈 | 非根：`low[child] >= dfn[u]`；根：child_cnt >= 2 |\r\n| 父节点处理 | 不需要跳过父边 | 必须跳过父边（`to == fa` continue） |\r\n| 输出 | 每个 SCC 的点集 + 颜色数组 | 割点标记数组 |\r\n| 延伸算法 | 缩点 → DAG → 拓扑 DP | 点双连通分量、圆方树 |",
+        "content": "## Tarjan 求割点\n\n## 一、问题定义\n\n**割点（关节点）**：在无向图中，如果删掉某个点（以及它连的所有边）之后，图的连通分量数增加了，这个点就称为割点。\n\n暴力做法是枚举每个点，删掉它后用 BFS/DFS 检查连通性，时间复杂度 $O(n(n+m))$，在大规模数据下会超时。\n\nTarjan 算法的精髓在于：**只做一次 DFS，就能同时判断所有点是不是割点**，复杂度 $O(n+m)$。\n\n## 二、算法原理：核心思想\n\n删掉点 $u$ 之后图会不会断，关键看 $u$ 的\"下方\"（DFS 树中 $u$ 的子树）能不能不经过 $u$，绕回到 $u$ 的\"上方\"（$u$ 的祖先）。\n\n- 如果能绕回去 → $u$ 的子树和其余部分除了 $u$ 还有别的通道，删 $u$ 不断\n- 如果绕不回去 → $u$ 是子树通向外界的唯一通道，删 $u$ 后子树被孤立，$u$ 是割点\n\n## 三、基础概念\n\n### 1. DFS 生成树\n\n对图做 DFS，第一次走到某个点所经过的边称为**树边**，所有树边构成一棵生成树。其余边称为**非树边**。\n\n**重要性质**：无向图的 DFS 中，非树边一定是\"连向祖先\"的**返祖边**，不存在横叉边（连向完全另一棵子树的边）。这个性质是 Tarjan 正确性的基石。\n\n### 2. dfn[u] —— 时间戳\n\n`dfn[u]` 表示 $u$ 是第几个被访问到的点。它有两个作用：\n- 作为\"访问顺序\"的编号，数值越小代表越靠近 DFS 的源头（越像\"祖先\"）\n- 同时充当访问标记（0 = 未访问）\n\n### 3. low[u] —— 能追溯到的最早时间戳\n\n**定义**：$u$ 及其子树中的所有点，通过最多一条返祖边，能够到达的时间戳最小的点的时间戳。\n\n直观理解：`low[u]` 回答的问题是——\"$u$ 这一片区域，最远能'回头'摸到多早的祖先？\"\n\n- `low[u]` 越小 → 子树有强大的返祖通道，能绕过很多层祖先\n- `low[u] >= dfn[u]` → 整个子树被 $u$ 封死了，任何回头路最多回到 $u$ 自己\n\n**low 的维护规则**：\n\n| 情况 | 更新方式 | 代码 |\n|------|---------|------|\n| 初始化 | `low[u] = dfn[u]`（至少能摸到自己） | `dfn[nd] = low[nd] = ++tim` |\n| 走树边进入孩子 to | 孩子的回头能力可以继承给我 | `low[nd] = min(low[nd], low[to])` |\n| 遇到返祖边连向已访问的 to | 直接一步跳到 to，能摸到 dfn[to] | `low[nd] = min(low[nd], dfn[to])` |\n\n## 四、两个判定定理\n\n### 定理 1：非根节点 u 是割点\n\n**条件**：存在一个孩子 $v$，满足 $\\text{low}[v] \\geq \\text{dfn}[u]$\n\n**证明思路**：\n- 如果 $v$ 的子树中所有返祖边最远只能回到 $u$ 或 $u$ 的后代（$\\text{low}[v] \\geq \\text{dfn}[u]$），那么 $v$ 的子树与\"$u$ 的祖先部分\"之间，$u$ 是唯一通道。删掉 $u$，$v$ 的子树必然和上面断开。\n- 反过来，如果每个孩子的子树都能绕到 $u$ 的严格祖先（$\\text{low}[v] < \\text{dfn}[u]$），删掉 $u$ 后各子树借返祖边跳到上方再互通，图仍然连通。\n\n### 定理 2：根节点是割点\n\n**条件**：它在 DFS 树中有 $\\geq 2$ 个孩子\n\n**为什么根不能用定理 1？** 因为根的时间戳最小（`dfn = 1`），`low[v] >= dfn[root]` 对任何孩子都恒成立，直接套用会得出\"根永远是割点\"的错误结论。根本身就是最高点，\"绕不到根上面\"对根没有意义。\n\n**正确角度**：由\"无向图 DFS 无横叉边\"的性质，根的不同 DFS 子树之间一定没有边相连。所以：\n- 孩子数 $\\geq 2$ → 子树之间完全隔离 → 删根必断 → 根是割点\n- 孩子数 $= 1$ → 整张图都在一棵子树里 → 根不是割点\n\n> 注意：这里的\"孩子\"指 DFS 树中的孩子，不是图中的度数。比如星形图从叶子开始 DFS，中心节点有多个孩子（判为割点 ✓），叶子只有一个孩子（非割点 ✓）。用度数会误判。\n\n## 五、逐行代码解析\n\n### 变量定义\n\n```cpp\nint n, m, tim, cnt;\nvector<vector<int>> edges;\nvector<int> dfn, low;\nvector<bool> is_cut;\n```\n\n| 变量 | 含义 |\n|------|------|\n| `n, m` | 点数、边数 |\n| `tim` | 时间戳计数器 |\n| `cnt` | 割点总数 |\n| `edges` | 邻接表 |\n| `dfn` | 每个点的时间戳，0 表示未访问 |\n| `low` | 每个点子树能追溯到的最早时间戳 |\n| `is_cut` | 标记每个点是否为割点 |\n\n### 初始化函数\n\n```cpp\nvoid init()\n{\n    tim = 0;\n    cnt = 0;\n    dfn.assign(n + 1, 0);\n    low.assign(n + 1, 0);\n    is_cut.assign(n + 1, false);\n}\n```\n\n重置所有数组和计数器，时间戳从 1 开始（0 表示未访问）。\n\n### Tarjan 主函数\n\n```cpp\nvoid tarjan(int nd, int fa)\n{\n    int child_cnt = 0;\n    dfn[nd] = low[nd] = ++tim;\n```\n\n- `nd`：当前节点；`fa`：父节点，根传 -1\n- `child_cnt`：记录 DFS 树中的孩子数量\n- 打时间戳，low 初始化为自己（\"最差也能摸到自己\"）\n\n```cpp\n    for (int to : edges[nd])\n    {\n        if (to == fa) continue;\n```\n\n枚举所有邻居，**跳过父亲边**。无向边在邻接表里存了两份，从孩子往回枚举时一定会碰到父亲，如果不跳过，就会把\"来时的树边\"误认成\"返祖边\"，导致所有点都判不出割点。\n\n```cpp\n        if (!dfn[to])                // 情况 1: to 未访问 → 树边\n        {\n            ++child_cnt;\n            tarjan(to, nd);\n            low[nd] = min(low[nd], low[to]);\n            if (fa != -1 && low[to] >= dfn[nd] && !is_cut[nd])\n                is_cut[nd] = true, cnt++;\n        }\n```\n\n**情况 1：树边**\n1. 孩子数 +1\n2. 递归处理孩子（先递归，出来时 `low[to]` 才是最终值）\n3. 继承孩子的回头能力：`low[nd] = min(low[nd], low[to])`\n4. 定理 1 判定非根割点：`low[to] >= dfn[nd]` 且非根\n   - `!is_cut[nd]` 去重：多个孩子都满足条件时只计数一次\n\n```cpp\n        else                         // 情况 2: to 已访问 → 返祖边\n            low[nd] = min(low[nd], dfn[to]);\n    }\n```\n\n**情况 2：返祖边**\n- 用 `dfn[to]` 更新，不是 `low[to]`！\n- 语义：返祖边是\"我直接一步就能到达 to\"，一步可达能摸到的最早值就是 `dfn[to]`\n- 割点场景下误用 low[to] 恰好不出错，但割边（桥）会出 bug，养成用 `dfn[to]` 的正确习惯\n\n```cpp\n    if (fa == -1 && child_cnt >= 2)\n        is_cut[nd] = true, cnt++;\n}\n```\n\n**定理 2：根的特判**\n- 必须等所有邻居枚举完（所有孩子都统计完）才能下结论\n- 放在循环外、函数末尾\n\n### 驱动函数\n\n```cpp\nvoid fn()\n{\n    init();\n    for (int i = 1; i <= n; i++)\n    {\n        if (!dfn[i]) tarjan(i, -1);\n    }\n}\n```\n\n图可能不连通，对每个未访问的点都启动一次 DFS。每个连通块的第一个被访问点自动成为该块的 DFS 根，享受\"孩子数 ≥ 2\"的正确判定；孤立点孩子数为 0，不会被误判。\n\n### 主函数\n\n```cpp\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr); cout.tie(nullptr);\n    cin >> n >> m;\n    edges.assign(n + 1, {});\n    for (int i = 1; i <= m; i++)\n    {\n        int u, v;\n        cin >> u >> v;\n        edges[u].emplace_back(v);\n        edges[v].emplace_back(u);   // 无向图，双向加边\n    }\n    fn();\n    cout << cnt << '\\n';\n    for (int i = 1; i <= n; i++)\n    {\n        if (is_cut[i]) cout << i << ' ';\n    }\n    return 0;\n}\n```\n\n## 六、手动模拟示例\n\n**图结构**：\n\n```\n1 — 2 — 3\n    |\n    4 — 5\n```\n\n边：1-2, 2-3, 2-4, 4-5\n\n从 1 开始 DFS，路径 1→2→3→(回)→2→4→5：\n\n| 步骤 | 动作 | 结果 |\n|------|------|------|\n| 1 | 进入 1 | `dfn[1]=low[1]=1` |\n| 2 | 进入 2 | `dfn[2]=low[2]=2`，1 的 child_cnt=1 |\n| 3 | 进入 3 | `dfn[3]=low[3]=3`，2 的 child_cnt=1 |\n| 4 | 3 无未访问邻居，回溯 | `low[3]=3` 保持 |\n| 5 | 回到 2，用孩子 3 更新 | `low[2]=min(2,3)=2`；`low[3]=3 >= dfn[2]=2` 且 fa=1 非根 → **2 是割点**，cnt=1 |\n| 6 | 2 枚举邻居 4（未访问） | 进入 4，child_cnt[2]=2 |\n| 7 | 进入 5 | `dfn[5]=low[5]=5` |\n| 8 | 回到 4 | `low[4]=min(4,5)=4`；`low[5]=5 >= dfn[4]=4`，fa=2 非根 → **4 是割点**，cnt=2 |\n| 9 | 回到 2 | `low[2]=min(2,4)=2`；low[4]>=dfn[2]，但 2 已标记，不重复计数 |\n| 10 | 回到 1，枚举完毕 | 1 是根，child_cnt=1 < 2 → 不是割点 |\n\n**结论**：割点为 2 和 4 ✓\n\n## 七、复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 时间 | $O(n + m)$ | 每个点恰好访问一次，每条无向边在邻接表中各遍历一次 |\n| 空间 | $O(n + m)$ | 邻接表 + dfn/low/is_cut 三个数组 |\n| 递归深度 | 最坏 $O(n)$ | 链状图会达到最深。本题规模下安全；$n$ 达 $10^5$ 以上需改迭代版或加大栈空间 |\n\n## 八、常见陷阱\n\n1. **返祖边误用 `low[to]`**：应使用 `dfn[to]`。割点场景下恰好不出错，但割边会出 bug，养成正确习惯。\n2. **忘记跳过父亲边**：树边被当返祖边，low 全部失效，所有点都判不出割点。\n3. **根没有特判**：或误用 `low >= dfn` 判根，导致根永远 / 永不判中。\n4. **用图的度数代替 DFS 树的孩子数**：重边、多入口都会使度数失真（见星形图反例）。\n5. **忘记处理非连通图**：必须对每个未访问点都启动一次 DFS。\n6. **割点判定写在递归之前**：用到未定型的 `low[to]`，判断错误。\n7. **忘记去重**：一个点被多个孩子的条件反复触发时多计 cnt。\n8. **重边与割点/割边的区别**：割点中\"跳过所有 fa 边\"没问题；但这个模板不能直接改成割边（桥）——桥必须只跳过\"来时的那一条树边\"（通常用边编号判断），否则有重边时桥会被漏判。\n\n## 九、适用场景\n\n- **求割点**：找出无向图中所有关节点\n- **点双连通分量**：割点是点双连通分量的交界点，求割点是求点双的基础\n- **网络可靠性分析**：判断哪些节点故障会导致网络分裂\n- **2-SAT 问题**：某些变体需要借助割点分析\n- **图的缩点**：点双连通分量缩成\"圆方树\"，割点是公共点\n\n## 十、与强连通分量 Tarjan 的对比\n\n| 维度 | 强连通分量 Tarjan | 割点 Tarjan |\n|------|------------------|------------|\n| 图类型 | 有向图 | 无向图 |\n| 核心结构 | 栈维护当前 SCC | 无栈，靠 dfn/low 直接判定 |\n| 判定条件 | `low[u] == dfn[u]` 弹出栈 | 非根：`low[child] >= dfn[u]`；根：child_cnt >= 2 |\n| 父节点处理 | 不需要跳过父边 | 必须跳过父边（`to == fa` continue） |\n| 输出 | 每个 SCC 的点集 + 颜色数组 | 割点标记数组 |\n| 延伸算法 | 缩点 → DAG → 拓扑 DP | 点双连通分量、圆方树 |\n\n## 附：Tarjan 求桥（割边）\n\nTarjan 算法由 Robert Tarjan 于 1974 年提出，通过**一次深度优先搜索（DFS）**即可找出无向图中所有的**桥**（割边），时间复杂度为 $O(n+m)$。\n\n#### 什么是桥\n\n**桥（Bridge，又称割边）**：在无向图中，如果删除某条边后，图的连通分量数增加，则称这条边为桥。换句话说，桥是图中的\"生命线\"——去掉它图就会被拆成两部分。\n\n暴力做法是枚举每条边，删除后用 BFS/DFS 检查连通性，时间复杂度 $O(m(n+m))$，在大规模数据下会超时。Tarjan 算法的精髓在于：只做一次 DFS，就能同时判断所有边是不是桥。\n\n#### 核心思想\n\n判断一条树边 $u \\to v$（$u$ 是父节点，$v$ 是子节点）是不是桥，关键看 $v$ 的子树能不能不经过这条边，绕回到 $u$ 或 $u$ 的祖先：\n\n- **能绕回去** → 子树和外界除了这条边还有其他通道，这条边不是桥\n- **绕不回去** → 这条边是子树通向外界的唯一通道，删去后子树被孤立，是桥\n\n#### DFS 生成树与返祖边\n\n对无向图做 DFS，第一次走到某个点所经过的边称为**树边**，所有树边构成一棵生成树。其余的边称为**非树边**。\n\n**关键性质**：无向图的 DFS 中，非树边一定是\"连向祖先\"的**返祖边**，不存在横叉边（连向完全另一棵子树的边）。这个性质是 Tarjan 正确性的基石——因为如果有横叉边，\"low 值追溯\"的逻辑就不成立了。\n\n#### dfn 与 low 数组\n\n| 数组 | 含义 |\n|------|------|\n| `dfn[u]` | 节点 $u$ 被首次访问的时间戳（DFS 序），同时充当访问标记（0 = 未访问） |\n| `low[u]` | 从 $u$ 及其子树中的所有点出发，通过最多一条返祖边，能到达的时间戳最小的节点的时间戳 |\n\n`low[u]` 回答的问题是：\"$u$ 这一片区域，最远能'回头'摸到多早的祖先？\"\n\n#### 桥的判定条件\n\n对于树边 $u \\to v$（$u$ 是父节点，$v$ 是子节点）：\n\n$$\n\\text{low}[v] > \\text{dfn}[u] \\quad \\Longrightarrow \\quad u\\text{-}v \\text{ 是桥}\n$$\n\n含义：$v$ 的子树最多只能追溯到 $v$ 自己或更晚的节点，无法回到 $u$ 或更早的祖先，因此 $u$-$v$ 这条边是子树与外界的唯一连接——桥。\n\n对比割点的判定 `low[v] >= dfn[u]`：割点允许子树追溯到 $u$ 自身（等于号成立），而桥要求**严格大于**——因为如果子树能回到 $u$，说明存在不经过这条树边的路径（通过返祖边），所以这条边不是桥。\n\n### 核心状态定义与转移方程\n\n#### 状态定义\n\n| 变量 | 含义 |\n|------|------|\n| `dfn[rt]` | 当前节点的时间戳（DFS 序编号） |\n| `low[rt]` | 当前节点及其子树能追溯到的最早时间戳 |\n| `fa` | DFS 树中的父节点，用于防止走回父边 |\n| `tim` | 全局时间戳计数器 |\n| `cnt` | tarjan 函数内的局部计数器，用于重边处理（只跳过第一条父边） |\n| `is_bridge` | 存储所有桥的边列表 |\n\n#### 转移规则\n\n进入 DFS 时初始化：\n\n$$\n\\text{dfn}[u] = \\text{low}[u] = \\text{++tim}\n$$\n\n对每条出边 $u \\to v$，分三种情况处理：\n\n$$\n\\text{low}[u] \\text{ 的更新} =\n\\begin{cases}\n\\text{跳过（仅第一条父边）} & v = \\text{fa} \\text{ 且本轮未跳过过父边} \\\\\n\\min(\\text{low}[u], \\text{low}[v]) & v \\text{ 未访问，递归后回溯更新} \\\\\n\\min(\\text{low}[u], \\text{dfn}[v]) & v \\text{ 已访问且未被跳过（返祖边或重边）}\n\\end{cases}\n$$\n\n注意返祖边的情况用的是 `dfn[v]` 而不是 `low[v]`。这是因为 `low` 的定义是\"通过最多一条返祖边\"能到达的最早节点，如果用 `low[v]` 就相当于走了多条返祖边，会导致误判。\n\n#### 桥的判定\n\n递归回溯后，若满足：\n\n$$\n\\text{low}[v] > \\text{dfn}[u]\n$$\n\n则 $u$-$v$ 是桥。\n\n#### 重边处理机制\n\n无向图加边时每条边存两份（$u \\to v$ 和 $v \\to u$）。如果 $u$ 和 $v$ 之间有**重边**（两条以上的平行边），那么删掉其中一条不影响连通性，因此重边不可能是桥。\n\n代码通过局部计数器 `cnt` 实现正确的重边处理：对当前节点 `rt`，只跳过邻接表中**第一次出现的父边**，后续出现的同方向重边会走到 `else` 分支作为返祖边处理，从而更新 `low` 值，使重边不会被误判为桥。\n\n### 逐行代码解析\n\n#### 全局变量定义\n\n```cpp\nvector<vector<int>> edges;             // 邻接表\nvector<int> dfn, low;                  // 时间戳 / 能追溯的最早时间戳\nvector<pair<int, int>> is_bridge;     // 存储所有桥\nint tim;                                // 全局时间戳计数器\n```\n\n- `edges`：无向图的邻接表\n- `dfn`、`low`：Tarjan 的核心双数组\n- `is_bridge`：存放所有桥的端点对\n- `tim`：DFS 时间戳计数器\n\n#### 初始化函数\n\n```cpp\nvoid init(int n, int m)\n{\n\tdfn.assign(n + 1, 0);\n\tlow.assign(n + 1, 0);\n\tedges.assign(n + 1, vector<int>());\n\tis_bridge.clear();\n\ttim = 0;\n}\n```\n\n所有数组初始化为 0，`dfn = 0` 表示未访问。\n\n#### 加边函数\n\n```cpp\nvoid add(int u, int v)\n{\n\tedges[u].emplace_back(v);\n\tedges[v].emplace_back(u);\n}\n```\n\n无向图双向加边。重边会在邻接表中存为多个独立条目。\n\n#### Tarjan 核心函数\n\n```cpp\nvoid tarjan(int rt, int fa)\n{\n\tint cnt = 0;                              // 局部计数器：记录是否已跳过父边\n\tdfn[rt] = low[rt] = ++tim;               // 初始化时间戳和 low 值\n\tfor (int i : edges[rt])                   // 遍历所有邻接点\n\t{\n\t\tif (fa == i && !cnt)                 // 只跳过第一条父边\n\t\t{\n\t\t\t++cnt;\n\t\t\tcontinue;\n\t\t}\n\t\tif (!dfn[i])                         // 情况1：未访问——树边\n\t\t{\n\t\t\ttarjan(i, rt);                   // 递归 DFS\n\t\t\tlow[rt] = min(low[i], low[rt]);  // 回溯：用子节点 low 更新父节点\n\t\t\tif (low[i] > dfn[rt])            // 桥的判定条件\n\t\t\t\tis_bridge.emplace_back(rt, i);\n\t\t}\n\t\telse                                  // 情况2：已访问——返祖边或重边\n\t\t\tlow[rt] = min(dfn[i], low[rt]);  // 用 dfn[i] 更新 low[rt]\n\t}\n}\n```\n\n逐行解析关键点：\n\n1. **`int cnt = 0;`**：局部计数器，每次进入 `tarjan` 函数时重置为 0。用于记录当前节点是否已经跳过了一条父边。\n\n2. **`dfn[rt] = low[rt] = ++tim;`**：新节点初始时，low 值等于自己的时间戳——目前只知道能到达自己。注意全局计数器已更名为 `tim`，避免与局部 `cnt` 混淆。\n\n3. **`if (fa == i && !cnt)`**：这是**重边处理的核心**。无向图中每条边在邻接表中出现两次（$u \\to v$ 和 $v \\to u$），从父节点来的边不能往回走，否则会死循环。但如果有重边（$u$ 和 $v$ 之间多条平行边），只跳过第一条父边，后续重边会走到 `else` 分支作为返祖边处理，从而正确地不判定为桥。\n\n4. **`++cnt;`**：标记已跳过一条父边，后续即使再遇到 `fa` 也不会跳过，而是作为返祖边处理。\n\n5. **`if (!dfn[i])` 树边分支**：\n   - 递归进入子节点 `tarjan(i, rt)`\n   - 回溯时更新：`low[rt] = min(low[i], low[rt])`——子树能追溯到的最早节点，父节点当然也能追溯到\n   - **桥判定**：`if (low[i] > dfn[rt])` —— 子节点的追溯能力到不了父节点或更早，说明父→子这条边是唯一通道，是桥\n\n6. **`else` 返祖边分支**：\n   - `low[rt] = min(dfn[i], low[rt])` —— 注意这里用的是 `dfn[i]`（邻居的时间戳）而不是 `low[i]`！因为返祖边只能算\"一条\"，不能把邻居 $i$ 通过其自身子树追溯到的能力也算上。用 `dfn[i]` 精确表达\"通过这条返祖边直接到达节点 $i$\"。\n\n#### 主函数\n\n```cpp\nint main()\n{\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr); cout.tie(nullptr);\n\tint n, m;\n\tcin >> n >> m;\n\tinit(n, m);\n\tfor (int i = 1; i <= m; i++)\n\t{\n\t\tint u, v;\n\t\tcin >> u >> v;\n\t\tadd(u, v);\n\t}\n\tfor (int i = 1; i <= n; i++)     // 遍历所有连通分量\n\t{\n\t\tif (!dfn[i]) tarjan(i, -1);\n\t}\n\tcout << is_bridge.size() << '\\n';\n\tfor (pair<int, int> i : is_bridge)\n\t\tcout << i.first << ' ' << i.second << '\\n';\n\treturn 0;\n}\n```\n\n注意：代码处理了图不连通的情况——外层循环遍历所有节点，对每个未访问的连通分量启动一次 Tarjan。根节点的父节点设为 `-1`（不存在的节点编号）。\n\n### 复杂度分析\n\n#### 时间复杂度：$O(n+m)$\n\n- 每个节点恰好被访问一次（`dfn` 从 0 变非 0 只发生一次）\n- 每条无向边被访问两次（双向各一次），其中一条因父边判定被跳过，实际有效处理一次\n- 总操作量与顶点数 $n$ 和边数 $m$ 成线性关系\n\n#### 空间复杂度：$O(n+m)$\n\n- 邻接表：$O(n+m)$\n- `dfn`、`low` 数组：各 $O(n)$\n- `is_bridge` 结果数组：最坏 $O(m)$（全是桥，即树）\n- DFS 递归栈深度：最坏 $O(n)$（链状图）\n\n### 适用场景\n\n#### 适用场景\n\n1. **桥的检测**：找出无向图中所有的桥（割边）\n2. **边双连通分量**：将所有桥删除后，每个极大连通子图就是一个边双连通分量。桥是边双连通分量之间的\"关节边\"\n3. **网络可靠性分析**：找出网络中的关键链路，故障后会导致网络分裂\n4. **2-边连通性问题**：判断图是否 2-边连通（无桥），或至少需要添加多少条边使图变成 2-边连通\n\n#### 不适用场景\n\n1. **有向图**：桥是无向图的概念，有向图的对应概念需另行定义（如强连通分量）\n2. **需要点双连通分量**：点双连通分量基于割点，不是桥\n3. **动态图**：边不断增删的图，Tarjan 是静态算法，每次增删边都需要重新运行\n\n### 常见陷阱与注意事项\n\n#### 1. 桥的判定是严格大于\n\n桥的判定条件是 `low[i] > dfn[rt]`（**严格大于**），而割点是 `low[i] >= dfn[u]`（大于等于）。\n\n- **割点**：子树追溯不到 $u$ 之外 → $u$ 是割点。等于号成立说明子树能回到 $u$ 自己，但 $u$ 被删后子树仍然孤立\n- **桥**：子树必须连 $u$ 都回不到 → 这条边才是桥。等于号时子树能通过返祖边回到 $u$，说明存在替代路径，这条边不是桥\n\n#### 2. 返祖边更新必须用 dfn[i] 而不是 low[i]\n\n返祖边更新 low 值时，代码写的是 `low[rt] = min(dfn[i], low[rt])`，用的是邻居的 `dfn[i]`，不是邻居的 `low[i]`。\n\n原因：`low` 的定义是\"通过**最多一条**返祖边\"能到达的最早节点。如果用 `low[i]` 更新，就相当于把 $i$ 通过其子树进一步追溯的结果也算进来了，等于走了多条返祖边，会导致 `low` 值过小，从而把本应是桥的边漏判。\n\n#### 3. 重边处理：只跳第一条父边\n\n无向图中，如果 $u$ 和 $v$ 之间有**重边**（两条以上的平行边），删掉其中一条不影响连通性，因此重边不可能是桥。\n\n**错误做法**：`if (fa == i) continue;` —— 这会跳过所有指向父节点的边，导致重边中的第二条也被跳过，无法作为返祖边更新 `low` 值，从而可能把重边误判为桥。\n\n**正确做法**：用局部计数器 `cnt` 只跳过邻接表中第一条出现的父边（`if (fa == i && !cnt)`），后续重边走到 `else` 分支作为返祖边处理，正确更新 `low` 值，使重边不会被误判为桥。\n\n#### 4. 图不连通的处理\n\n代码外层有 `for (int i = 1; i <= n; i++) if (!dfn[i]) tarjan(i, -1);`，确保每个连通分量都被处理。这一点很重要，否则非连通图的某些分量会被漏掉。\n\n#### 5. 桥的输出顺序\n\n桥以 `(rt, i)` 的顺序存入，即父节点在前、子节点在后。输出的方向与 DFS 树的父子关系一致，与输入的边的方向不一定相同。同一座桥只会被记录一次（从父到子的方向）。\n\n#### 6. 自环边\n\n自环（节点到自己的边）不是桥——删掉自环不影响连通性。在代码中，自环会被 `else` 分支（返祖边）处理，`low[rt] = min(dfn[rt], low[rt])` 没有变化，且不会触发桥的判定（桥的判定只在树边分支）。所以自环被正确忽略。\n\n### 对比与扩展\n\n#### 与割点算法对比\n\n| 对比维度 | Tarjan 求桥 | Tarjan 求割点 |\n|----------|-----------|-------------|\n| 判定对象 | 边 | 顶点 |\n| 判定条件 | `low[v] > dfn[u]`（严格大于） | `low[v] >= dfn[u]`（大于等于），根节点单独判定 |\n| 根节点处理 | 无需特殊处理 | 需统计子树个数，子树数 $\\geq 2$ 才是割点 |\n| 结果存储 | 边对 `(u, v)` | 顶点编号 |\n| 时间复杂度 | $O(n+m)$ | $O(n+m)$ |\n| 空间复杂度 | $O(n+m)$ | $O(n+m)$ |\n\n#### 边双连通分量\n\n将图中所有的桥都删除后，每个极大的连通子图称为一个**边双连通分量**（Edge-Biconnected Component, E-BCC）。边双连通分量内部没有桥——任意两点之间至少有两条边不相交的路径。\n\n求边双连通分量的方法：\n1. 用 Tarjan 找出所有桥\n2. 删除所有桥，对剩余图做 DFS/BFS 染色，每个连通块就是一个边双连通分量\n\n#### 点双连通分量\n\n点双连通分量（Vertex-Biconnected Component, V-BCC）是指不存在割点的极大子图。点双连通分量的关系比边双更复杂：一个割点可以属于多个点双连通分量。求点双连通分量需要在 DFS 中维护一个栈，保存经过的边，发现割点时弹栈得到一个点双。\n\n#### 2-边连通性增强\n\n给定一个无向图，问至少添加几条边可以使图变成 2-边连通（没有桥）。解法：\n1. 求所有边双连通分量，将每个分量缩成一个点\n2. 缩点后的图是一棵树，所有的\"边\"都是原来的桥\n3. 答案 = $\\lceil \\frac{\\text{叶子数}}{2} \\rceil$，其中叶子是缩点后度数为 1 的节点\n\n这个结论与\"无向图添加最少边使图强连通\"（缩点后入度0和出度0的最大值）是类似的对偶问题。",
         "timeComplexity": "O(n+m)",
         "spaceComplexity": "O(n+m)",
         "tags": [
@@ -10020,9 +10197,9 @@ const KNOWLEDGE_DATA = [
         "related": [
             "graph-tarjan-scc",
             "graph-lca-tarjan",
-            "graph-tarjan-bridge",
             "graph-e-dcc-condensation",
-            "graph-bipartite-dfs-coloring"
+            "graph-bipartite-dfs-coloring",
+            "graph-scc-condensation"
         ],
         "parent": ""
     },
@@ -10092,7 +10269,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "图论\\连通分量\\Tarjan强连通分量\\Untitled1.cpp",
         "prerequisites": [
-            "hub-graph"
+            "hub-graph",
+            "graph-scc-overview"
         ],
         "related": [
             "graph-topo-sort",
@@ -10100,11 +10278,10 @@ const KNOWLEDGE_DATA = [
             "graph-dag-shortest-path",
             "graph-scc-condensation",
             "graph-tarjan-cut-vertex",
-            "graph-tarjan-bridge",
             "graph-bipartite-dfs-coloring",
             "graph-scc-dag-dp"
         ],
-        "parent": ""
+        "parent": "graph-scc-overview"
     },
     {
         "id": "graph-topo-sort",
@@ -10290,14 +10467,14 @@ const KNOWLEDGE_DATA = [
     {
         "id": "hub-basic-divide",
         "category": "基础算法",
-        "subcategory": "总述",
+        "subcategory": "分治",
         "subSubcategory": "",
         "title": "分治总述",
         "hub": true,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n分治是把问题**劈成若干规模更小的同类子问题**，分别求解后合并答案。本页收「分治思想」这一族，成员为：\r\n\r\n- **归并类**：归并排序求逆序对（`basic-divide-conquer-merge-inversion`）、最近点对（`basic-divide-conquer-closest-pair`）。\r\n- **二分类**：三分法求单峰函数极值（`basic-ternary-search`）、快速选择求第 $k$ 小（`basic-quickselect-kth`）——二者都是「每次砍掉一部分搜索空间」。\r\n- **按规模分治**：根号分治（`basic-sqrt-decomposition`），按参数大小分成两套做法，复杂度取平衡点。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- 归并求逆序对：合并左右两段时，右段元素出队即产生「左段剩余元素个数」个逆序对。\r\n- 三分法：在 $[l,r]$ 上取 `m1 = l+(r-l)/3`、`m2 = r-(r-l)/3`，比较 `f(m1)`、`f(m2)` 后舍弃一侧。\r\n- 快速选择：按基准值划分后，只递归包含第 $k$ 小的一侧，期望 $O(n)$。\r\n- 根号分治：阈值 $B=\\sqrt n$；参数 $\\le B$ 暴力、$>B$ 预处理/整体处理，两部分复杂度都控制在 $O(n\\sqrt n)$。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现。各子条目给出完整模板：归并的合并统计、三分的区间收缩、快速选择的划分、根号分治的双分支写法。\r\n\r\n## 复杂度分析\r\n\r\n- 归并排序 / 逆序对：$O(n\\log n)$。\r\n- 最近点对：$O(n\\log n)$（先按 $x$ 分治，再按 $y$ 扫描带宽）。\r\n- 三分法：$O(\\log_{1.5} n)$ 次函数求值（精度迭代）。\r\n- 快速选择：期望 $O(n)$，最坏 $O(n^2)$。\r\n- 根号分治：$O(n\\sqrt n)$ 量级。\r\n\r\n## 适用场景\r\n\r\n- 答案可以由左右两半合并得到，且合并代价可控 → 分治。\r\n- 函数单峰（凸/凹）求极值 → 三分。\r\n- 只需要第 $k$ 小、不需要完全排序 → 快速选择。\r\n- 参数规模差异大、大参数与小参数需要的做法不同 → 根号分治。\r\n- 不适合：子问题之间不独立、无法合并答案，或递归深度过大。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 分治的合并步骤漏掉跨区间贡献（最近点对的带宽扫描最容易漏）。\r\n- 三分法用于非单峰函数，结果无意义。\r\n- 快速选择的划分写错，导致递归区间不缩小而死循环。\r\n- 根号分治的阈值不取 $\\sqrt n$，两侧复杂度失衡。\r\n- 递归边界写成 `l < r` 还是 `l <= r` 与具体实现不符。\r\n\r\n## 对比与扩展\r\n\r\n分治与倍增、分块、CDQ 分治同源：分治强调「拆子问题」，倍增强调「预处理 $2^k$ 的信息」，分块强调「按块整体处理」。归并思想还可以扩展成 CDQ 分治处理偏序问题。学习顺序建议：归并/二分 → 三分与快速选择 → 根号分治 → CDQ 分治。",
+                "content": "## 算法原理\n\n分治是把问题**劈成若干规模更小的同类子问题**，分别求解后合并答案。本页收「分治思想」这一族，成员为：\n\n- **归并类**：归并排序求逆序对（`basic-divide-conquer-merge-inversion`）、最近点对（`basic-divide-conquer-closest-pair`）。\n- **二分类**：三分法求单峰函数极值（`basic-ternary-search`）、快速选择求第 $k$ 小（`basic-quickselect-kth`）——二者都是「每次砍掉一部分搜索空间」。\n- **按规模分治**：根号分治（`basic-sqrt-decomposition`），按参数大小分成两套做法，复杂度取平衡点。\n\n## 核心公式 / 状态定义与转移方程\n\n- 归并求逆序对：合并左右两段时，右段元素出队即产生「左段剩余元素个数」个逆序对。\n- 三分法：在 $[l,r]$ 上取 `m1 = l+(r-l)/3`、`m2 = r-(r-l)/3`，比较 `f(m1)`、`f(m2)` 后舍弃一侧。\n- 快速选择：按基准值划分后，只递归包含第 $k$ 小的一侧，期望 $O(n)$。\n- 根号分治：阈值 $B=\\sqrt n$；参数 $\\le B$ 暴力、$>B$ 预处理/整体处理，两部分复杂度都控制在 $O(n\\sqrt n)$。\n\n## 逐行代码解析\n\n本页是总述页，不附实现。各子条目给出完整模板：归并的合并统计、三分的区间收缩、快速选择的划分、根号分治的双分支写法。\n\n## 复杂度分析\n\n- 归并排序 / 逆序对：$O(n\\log n)$。\n- 最近点对：$O(n\\log n)$（先按 $x$ 分治，再按 $y$ 扫描带宽）。\n- 三分法：$O(\\log_{1.5} n)$ 次函数求值（精度迭代）。\n- 快速选择：期望 $O(n)$，最坏 $O(n^2)$。\n- 根号分治：$O(n\\sqrt n)$ 量级。\n\n## 适用场景\n\n- 答案可以由左右两半合并得到，且合并代价可控 → 分治。\n- 函数单峰（凸/凹）求极值 → 三分。\n- 只需要第 $k$ 小、不需要完全排序 → 快速选择。\n- 参数规模差异大、大参数与小参数需要的做法不同 → 根号分治。\n- 不适合：子问题之间不独立、无法合并答案，或递归深度过大。\n\n## 常见陷阱与注意事项\n\n- 分治的合并步骤漏掉跨区间贡献（最近点对的带宽扫描最容易漏）。\n- 三分法用于非单峰函数，结果无意义。\n- 快速选择的划分写错，导致递归区间不缩小而死循环。\n- 根号分治的阈值不取 $\\sqrt n$，两侧复杂度失衡。\n- 递归边界写成 `l < r` 还是 `l <= r` 与具体实现不符。\n\n## 对比与扩展\n\n分治与倍增、分块、CDQ 分治同源：分治强调「拆子问题」，倍增强调「预处理 $2^k$ 的信息」，分块强调「按块整体处理」。归并思想还可以扩展成 CDQ 分治处理偏序问题。学习顺序建议：归并/二分 → 三分与快速选择 → 根号分治 → CDQ 分治。",
                 "codePath": "",
                 "timeComplexity": "按子条目而定",
                 "spaceComplexity": "按子条目而定",
@@ -10310,7 +10487,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n分治是把问题**劈成若干规模更小的同类子问题**，分别求解后合并答案。本页收「分治思想」这一族，成员为：\r\n\r\n- **归并类**：归并排序求逆序对（`basic-divide-conquer-merge-inversion`）、最近点对（`basic-divide-conquer-closest-pair`）。\r\n- **二分类**：三分法求单峰函数极值（`basic-ternary-search`）、快速选择求第 $k$ 小（`basic-quickselect-kth`）——二者都是「每次砍掉一部分搜索空间」。\r\n- **按规模分治**：根号分治（`basic-sqrt-decomposition`），按参数大小分成两套做法，复杂度取平衡点。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- 归并求逆序对：合并左右两段时，右段元素出队即产生「左段剩余元素个数」个逆序对。\r\n- 三分法：在 $[l,r]$ 上取 `m1 = l+(r-l)/3`、`m2 = r-(r-l)/3`，比较 `f(m1)`、`f(m2)` 后舍弃一侧。\r\n- 快速选择：按基准值划分后，只递归包含第 $k$ 小的一侧，期望 $O(n)$。\r\n- 根号分治：阈值 $B=\\sqrt n$；参数 $\\le B$ 暴力、$>B$ 预处理/整体处理，两部分复杂度都控制在 $O(n\\sqrt n)$。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现。各子条目给出完整模板：归并的合并统计、三分的区间收缩、快速选择的划分、根号分治的双分支写法。\r\n\r\n## 复杂度分析\r\n\r\n- 归并排序 / 逆序对：$O(n\\log n)$。\r\n- 最近点对：$O(n\\log n)$（先按 $x$ 分治，再按 $y$ 扫描带宽）。\r\n- 三分法：$O(\\log_{1.5} n)$ 次函数求值（精度迭代）。\r\n- 快速选择：期望 $O(n)$，最坏 $O(n^2)$。\r\n- 根号分治：$O(n\\sqrt n)$ 量级。\r\n\r\n## 适用场景\r\n\r\n- 答案可以由左右两半合并得到，且合并代价可控 → 分治。\r\n- 函数单峰（凸/凹）求极值 → 三分。\r\n- 只需要第 $k$ 小、不需要完全排序 → 快速选择。\r\n- 参数规模差异大、大参数与小参数需要的做法不同 → 根号分治。\r\n- 不适合：子问题之间不独立、无法合并答案，或递归深度过大。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 分治的合并步骤漏掉跨区间贡献（最近点对的带宽扫描最容易漏）。\r\n- 三分法用于非单峰函数，结果无意义。\r\n- 快速选择的划分写错，导致递归区间不缩小而死循环。\r\n- 根号分治的阈值不取 $\\sqrt n$，两侧复杂度失衡。\r\n- 递归边界写成 `l < r` 还是 `l <= r` 与具体实现不符。\r\n\r\n## 对比与扩展\r\n\r\n分治与倍增、分块、CDQ 分治同源：分治强调「拆子问题」，倍增强调「预处理 $2^k$ 的信息」，分块强调「按块整体处理」。归并思想还可以扩展成 CDQ 分治处理偏序问题。学习顺序建议：归并/二分 → 三分与快速选择 → 根号分治 → CDQ 分治。",
+        "content": "## 算法原理\n\n分治是把问题**劈成若干规模更小的同类子问题**，分别求解后合并答案。本页收「分治思想」这一族，成员为：\n\n- **归并类**：归并排序求逆序对（`basic-divide-conquer-merge-inversion`）、最近点对（`basic-divide-conquer-closest-pair`）。\n- **二分类**：三分法求单峰函数极值（`basic-ternary-search`）、快速选择求第 $k$ 小（`basic-quickselect-kth`）——二者都是「每次砍掉一部分搜索空间」。\n- **按规模分治**：根号分治（`basic-sqrt-decomposition`），按参数大小分成两套做法，复杂度取平衡点。\n\n## 核心公式 / 状态定义与转移方程\n\n- 归并求逆序对：合并左右两段时，右段元素出队即产生「左段剩余元素个数」个逆序对。\n- 三分法：在 $[l,r]$ 上取 `m1 = l+(r-l)/3`、`m2 = r-(r-l)/3`，比较 `f(m1)`、`f(m2)` 后舍弃一侧。\n- 快速选择：按基准值划分后，只递归包含第 $k$ 小的一侧，期望 $O(n)$。\n- 根号分治：阈值 $B=\\sqrt n$；参数 $\\le B$ 暴力、$>B$ 预处理/整体处理，两部分复杂度都控制在 $O(n\\sqrt n)$。\n\n## 逐行代码解析\n\n本页是总述页，不附实现。各子条目给出完整模板：归并的合并统计、三分的区间收缩、快速选择的划分、根号分治的双分支写法。\n\n## 复杂度分析\n\n- 归并排序 / 逆序对：$O(n\\log n)$。\n- 最近点对：$O(n\\log n)$（先按 $x$ 分治，再按 $y$ 扫描带宽）。\n- 三分法：$O(\\log_{1.5} n)$ 次函数求值（精度迭代）。\n- 快速选择：期望 $O(n)$，最坏 $O(n^2)$。\n- 根号分治：$O(n\\sqrt n)$ 量级。\n\n## 适用场景\n\n- 答案可以由左右两半合并得到，且合并代价可控 → 分治。\n- 函数单峰（凸/凹）求极值 → 三分。\n- 只需要第 $k$ 小、不需要完全排序 → 快速选择。\n- 参数规模差异大、大参数与小参数需要的做法不同 → 根号分治。\n- 不适合：子问题之间不独立、无法合并答案，或递归深度过大。\n\n## 常见陷阱与注意事项\n\n- 分治的合并步骤漏掉跨区间贡献（最近点对的带宽扫描最容易漏）。\n- 三分法用于非单峰函数，结果无意义。\n- 快速选择的划分写错，导致递归区间不缩小而死循环。\n- 根号分治的阈值不取 $\\sqrt n$，两侧复杂度失衡。\n- 递归边界写成 `l < r` 还是 `l <= r` 与具体实现不符。\n\n## 对比与扩展\n\n分治与倍增、分块、CDQ 分治同源：分治强调「拆子问题」，倍增强调「预处理 $2^k$ 的信息」，分块强调「按块整体处理」。归并思想还可以扩展成 CDQ 分治处理偏序问题。学习顺序建议：归并/二分 → 三分与快速选择 → 根号分治 → CDQ 分治。",
         "timeComplexity": "按子条目而定",
         "spaceComplexity": "按子条目而定",
         "tags": [
@@ -10329,14 +10506,14 @@ const KNOWLEDGE_DATA = [
     {
         "id": "hub-basic-search",
         "category": "基础算法",
-        "subcategory": "总述",
+        "subcategory": "搜索",
         "subSubcategory": "",
         "title": "搜索总述",
         "hub": true,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n搜索是在**状态空间**上枚举可行解的过程。两种基本形态：\r\n\r\n- **DFS（深度优先）**：沿一条路径走到底再回溯，天然适合「按位/按位置逐个决策」的枚举（`basic-dfs`），以及排列、组合的生成（`basic-permutation-dfs`、`basic-combination-dfs`）。\r\n- **BFS（广度优先）**：按层扩展，第一次到达即最短路（边权为 1 时）；双向 BFS 从起点与终点同时扩展（`basic-bfs`、`basic-bfs-bidirectional`）。\r\n\r\n当状态数太大时，用**折半搜索**把枚举量从 $2^n$ 降到 $2^{n/2}$，再在两侧结果上做二分或双指针匹配（`basic-meet-in-middle-binary-search`、`basic-meet-in-middle-two-pointer`）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- DFS：`dfs(step, state)` → 枚举 `step` 的所有取值 → 递归 → 撤销。\r\n- BFS：队列中存状态，`dis[v] = dis[u] + 1`，首次访问即最短。\r\n- 双向 BFS：两端轮流扩展，相遇时 `dis = du + dv`。\r\n- 折半搜索：把 $n$ 个元素劈成两半，各自枚举 $2^{n/2}$ 个和，排序后用二分/双指针配对。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现。各子条目给出完整模板：DFS 的回溯与剪枝、BFS 的访问标记、双向 BFS 的两端队列、折半搜索的枚举与匹配。\r\n\r\n## 复杂度分析\r\n\r\n- DFS：$O(\\text{状态数}\\times\\text{转移数})$，通常配合剪枝。\r\n- BFS：$O(V+E)$，$V$ 为状态数、$E$ 为转移数。\r\n- 双向 BFS：$O(b^{d/2})$，$b$ 为分支因子、$d$ 为最短步数。\r\n- 折半搜索：枚举 $O(2^{n/2})$，排序 $O(2^{n/2}\\log 2^{n/2})$，匹配 $O(2^{n/2}\\log 2^{n/2})$ 或 $O(2^{n/2})$。\r\n\r\n## 适用场景\r\n\r\n- 状态数在 $10^6\\sim10^7$、需要枚举所有方案或找最优 → DFS + 剪枝。\r\n- 求最少步数、状态转移代价相同 → BFS。\r\n- 状态空间大但答案深度浅 → 双向 BFS。\r\n- $n\\le 40$ 且答案可由两部分组合 → 折半搜索。\r\n- 不适合：状态数超过搜索可承受范围，且没有可用的剪枝/记忆化；此时应改 DP 或数学方法。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- DFS 忘记回溯（撤销现场），导致后续分支状态被污染。\r\n- BFS 入队时没有立即标记访问，同一状态被重复入队。\r\n- 双向 BFS 两端扩展层数不平衡，退化成一端 BFS。\r\n- 折半搜索枚举后进行匹配时下标越界或没有去重。\r\n- 递归深度过大爆栈；必要时改迭代或手动开栈。\r\n\r\n## 对比与扩展\r\n\r\n搜索与 DP 是互补的：状态可压缩、有重叠子问题时用 DP 更快；搜索适合状态难以用下标描述的题。BFS 与最短路同源（边权为 1），折半搜索可以看成「meet in the middle 的枚举版」。学习顺序建议：DFS/BFS 基础 → 排列组合生成 → 双向 BFS → 折半搜索。",
+                "content": "## 算法原理\n\n搜索是在**状态空间**上枚举可行解的过程。两种基本形态：\n\n- **DFS（深度优先）**：沿一条路径走到底再回溯，天然适合「按位/按位置逐个决策」的枚举（`basic-dfs`），以及排列、组合的生成（`basic-permutation-dfs`、`basic-combination-dfs`）。\n- **BFS（广度优先）**：按层扩展，第一次到达即最短路（边权为 1 时）；双向 BFS 从起点与终点同时扩展（`basic-bfs`、`basic-bfs-bidirectional`）。\n\n当状态数太大时，用**折半搜索**把枚举量从 $2^n$ 降到 $2^{n/2}$，再在两侧结果上做二分或双指针匹配（`basic-meet-in-middle-binary-search`、`basic-meet-in-middle-two-pointer`）。\n\n## 核心公式 / 状态定义与转移方程\n\n- DFS：`dfs(step, state)` → 枚举 `step` 的所有取值 → 递归 → 撤销。\n- BFS：队列中存状态，`dis[v] = dis[u] + 1`，首次访问即最短。\n- 双向 BFS：两端轮流扩展，相遇时 `dis = du + dv`。\n- 折半搜索：把 $n$ 个元素劈成两半，各自枚举 $2^{n/2}$ 个和，排序后用二分/双指针配对。\n\n## 逐行代码解析\n\n本页是总述页，不附实现。各子条目给出完整模板：DFS 的回溯与剪枝、BFS 的访问标记、双向 BFS 的两端队列、折半搜索的枚举与匹配。\n\n## 复杂度分析\n\n- DFS：$O(\\text{状态数}\\times\\text{转移数})$，通常配合剪枝。\n- BFS：$O(V+E)$，$V$ 为状态数、$E$ 为转移数。\n- 双向 BFS：$O(b^{d/2})$，$b$ 为分支因子、$d$ 为最短步数。\n- 折半搜索：枚举 $O(2^{n/2})$，排序 $O(2^{n/2}\\log 2^{n/2})$，匹配 $O(2^{n/2}\\log 2^{n/2})$ 或 $O(2^{n/2})$。\n\n## 适用场景\n\n- 状态数在 $10^6\\sim10^7$、需要枚举所有方案或找最优 → DFS + 剪枝。\n- 求最少步数、状态转移代价相同 → BFS。\n- 状态空间大但答案深度浅 → 双向 BFS。\n- $n\\le 40$ 且答案可由两部分组合 → 折半搜索。\n- 不适合：状态数超过搜索可承受范围，且没有可用的剪枝/记忆化；此时应改 DP 或数学方法。\n\n## 常见陷阱与注意事项\n\n- DFS 忘记回溯（撤销现场），导致后续分支状态被污染。\n- BFS 入队时没有立即标记访问，同一状态被重复入队。\n- 双向 BFS 两端扩展层数不平衡，退化成一端 BFS。\n- 折半搜索枚举后进行匹配时下标越界或没有去重。\n- 递归深度过大爆栈；必要时改迭代或手动开栈。\n\n## 对比与扩展\n\n搜索与 DP 是互补的：状态可压缩、有重叠子问题时用 DP 更快；搜索适合状态难以用下标描述的题。BFS 与最短路同源（边权为 1），折半搜索可以看成「meet in the middle 的枚举版」。学习顺序建议：DFS/BFS 基础 → 排列组合生成 → 双向 BFS → 折半搜索。",
                 "codePath": "",
                 "timeComplexity": "按子条目而定",
                 "spaceComplexity": "按子条目而定",
@@ -10349,7 +10526,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n搜索是在**状态空间**上枚举可行解的过程。两种基本形态：\r\n\r\n- **DFS（深度优先）**：沿一条路径走到底再回溯，天然适合「按位/按位置逐个决策」的枚举（`basic-dfs`），以及排列、组合的生成（`basic-permutation-dfs`、`basic-combination-dfs`）。\r\n- **BFS（广度优先）**：按层扩展，第一次到达即最短路（边权为 1 时）；双向 BFS 从起点与终点同时扩展（`basic-bfs`、`basic-bfs-bidirectional`）。\r\n\r\n当状态数太大时，用**折半搜索**把枚举量从 $2^n$ 降到 $2^{n/2}$，再在两侧结果上做二分或双指针匹配（`basic-meet-in-middle-binary-search`、`basic-meet-in-middle-two-pointer`）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- DFS：`dfs(step, state)` → 枚举 `step` 的所有取值 → 递归 → 撤销。\r\n- BFS：队列中存状态，`dis[v] = dis[u] + 1`，首次访问即最短。\r\n- 双向 BFS：两端轮流扩展，相遇时 `dis = du + dv`。\r\n- 折半搜索：把 $n$ 个元素劈成两半，各自枚举 $2^{n/2}$ 个和，排序后用二分/双指针配对。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现。各子条目给出完整模板：DFS 的回溯与剪枝、BFS 的访问标记、双向 BFS 的两端队列、折半搜索的枚举与匹配。\r\n\r\n## 复杂度分析\r\n\r\n- DFS：$O(\\text{状态数}\\times\\text{转移数})$，通常配合剪枝。\r\n- BFS：$O(V+E)$，$V$ 为状态数、$E$ 为转移数。\r\n- 双向 BFS：$O(b^{d/2})$，$b$ 为分支因子、$d$ 为最短步数。\r\n- 折半搜索：枚举 $O(2^{n/2})$，排序 $O(2^{n/2}\\log 2^{n/2})$，匹配 $O(2^{n/2}\\log 2^{n/2})$ 或 $O(2^{n/2})$。\r\n\r\n## 适用场景\r\n\r\n- 状态数在 $10^6\\sim10^7$、需要枚举所有方案或找最优 → DFS + 剪枝。\r\n- 求最少步数、状态转移代价相同 → BFS。\r\n- 状态空间大但答案深度浅 → 双向 BFS。\r\n- $n\\le 40$ 且答案可由两部分组合 → 折半搜索。\r\n- 不适合：状态数超过搜索可承受范围，且没有可用的剪枝/记忆化；此时应改 DP 或数学方法。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- DFS 忘记回溯（撤销现场），导致后续分支状态被污染。\r\n- BFS 入队时没有立即标记访问，同一状态被重复入队。\r\n- 双向 BFS 两端扩展层数不平衡，退化成一端 BFS。\r\n- 折半搜索枚举后进行匹配时下标越界或没有去重。\r\n- 递归深度过大爆栈；必要时改迭代或手动开栈。\r\n\r\n## 对比与扩展\r\n\r\n搜索与 DP 是互补的：状态可压缩、有重叠子问题时用 DP 更快；搜索适合状态难以用下标描述的题。BFS 与最短路同源（边权为 1），折半搜索可以看成「meet in the middle 的枚举版」。学习顺序建议：DFS/BFS 基础 → 排列组合生成 → 双向 BFS → 折半搜索。",
+        "content": "## 算法原理\n\n搜索是在**状态空间**上枚举可行解的过程。两种基本形态：\n\n- **DFS（深度优先）**：沿一条路径走到底再回溯，天然适合「按位/按位置逐个决策」的枚举（`basic-dfs`），以及排列、组合的生成（`basic-permutation-dfs`、`basic-combination-dfs`）。\n- **BFS（广度优先）**：按层扩展，第一次到达即最短路（边权为 1 时）；双向 BFS 从起点与终点同时扩展（`basic-bfs`、`basic-bfs-bidirectional`）。\n\n当状态数太大时，用**折半搜索**把枚举量从 $2^n$ 降到 $2^{n/2}$，再在两侧结果上做二分或双指针匹配（`basic-meet-in-middle-binary-search`、`basic-meet-in-middle-two-pointer`）。\n\n## 核心公式 / 状态定义与转移方程\n\n- DFS：`dfs(step, state)` → 枚举 `step` 的所有取值 → 递归 → 撤销。\n- BFS：队列中存状态，`dis[v] = dis[u] + 1`，首次访问即最短。\n- 双向 BFS：两端轮流扩展，相遇时 `dis = du + dv`。\n- 折半搜索：把 $n$ 个元素劈成两半，各自枚举 $2^{n/2}$ 个和，排序后用二分/双指针配对。\n\n## 逐行代码解析\n\n本页是总述页，不附实现。各子条目给出完整模板：DFS 的回溯与剪枝、BFS 的访问标记、双向 BFS 的两端队列、折半搜索的枚举与匹配。\n\n## 复杂度分析\n\n- DFS：$O(\\text{状态数}\\times\\text{转移数})$，通常配合剪枝。\n- BFS：$O(V+E)$，$V$ 为状态数、$E$ 为转移数。\n- 双向 BFS：$O(b^{d/2})$，$b$ 为分支因子、$d$ 为最短步数。\n- 折半搜索：枚举 $O(2^{n/2})$，排序 $O(2^{n/2}\\log 2^{n/2})$，匹配 $O(2^{n/2}\\log 2^{n/2})$ 或 $O(2^{n/2})$。\n\n## 适用场景\n\n- 状态数在 $10^6\\sim10^7$、需要枚举所有方案或找最优 → DFS + 剪枝。\n- 求最少步数、状态转移代价相同 → BFS。\n- 状态空间大但答案深度浅 → 双向 BFS。\n- $n\\le 40$ 且答案可由两部分组合 → 折半搜索。\n- 不适合：状态数超过搜索可承受范围，且没有可用的剪枝/记忆化；此时应改 DP 或数学方法。\n\n## 常见陷阱与注意事项\n\n- DFS 忘记回溯（撤销现场），导致后续分支状态被污染。\n- BFS 入队时没有立即标记访问，同一状态被重复入队。\n- 双向 BFS 两端扩展层数不平衡，退化成一端 BFS。\n- 折半搜索枚举后进行匹配时下标越界或没有去重。\n- 递归深度过大爆栈；必要时改迭代或手动开栈。\n\n## 对比与扩展\n\n搜索与 DP 是互补的：状态可压缩、有重叠子问题时用 DP 更快；搜索适合状态难以用下标描述的题。BFS 与最短路同源（边权为 1），折半搜索可以看成「meet in the middle 的枚举版」。学习顺序建议：DFS/BFS 基础 → 排列组合生成 → 双向 BFS → 折半搜索。",
         "timeComplexity": "按子条目而定",
         "spaceComplexity": "按子条目而定",
         "tags": [
@@ -10438,14 +10615,14 @@ const KNOWLEDGE_DATA = [
     {
         "id": "hub-ds-block",
         "category": "数据结构",
-        "subcategory": "总述",
+        "subcategory": "分块",
         "subSubcategory": "",
         "title": "分块总述",
         "hub": true,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n分块的核心思想是**把序列（或值域、操作序列、树）切成大小约为 $\\sqrt n$ 的块**，块内暴力、块间整体处理。它的复杂度通常比线段树多一个 $\\sqrt n$，但实现简单、常数小，而且能处理线段树很难维护的信息（区间众数、区间不同数个数、区间 $\\le k$ 的个数等）。\r\n\r\n本页是「数据结构」大类下的二级总述，按「对什么分块」把相关知识点分成七组：\r\n\r\n- **序列分块**：区间加 / 区间求和、区间 $\\le k$ 的个数、区间开根等（`ds-block-decomposition`）。\r\n- **莫队**：把询问按块排序，用指针在相邻询问之间移动（普通莫队、带修莫队、回滚莫队，`ds-mo-team`、`ds-mo-team-modify`）。\r\n- **值域分块**：对值域而非下标分块，用于第 $k$ 小、mex、值出现次数统计（`ds-block-value-domain`）。\r\n- **时间分块（操作分块）**：把修改/询问按时间切块，块内暴力重做、块间复用（`ds-block-time`）。\r\n- **树分块**：在树上按深度或关键点分块，处理树上路径统计（`ds-block-tree`）。\r\n- **二维分块**：矩阵与二维数点类问题（`ds-block-2d`）。\r\n- **块状链表与 Sqrt Tree**：把块做成链表以支持插入删除（`ds-fast-block-list`、`ds-index-tree-block-list`），以及在块上建静态 RMQ 结构（`ds-sqrt-tree`）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- 块长通常取 $B=\\lfloor\\sqrt n\\rfloor$ 或 $\\sqrt{n\\log n}$；块数 $n/B$。\r\n- 单次修改/查询：整块 $O(n/B)$ 个 + 零散 $O(B)$ 个元素，取 $B=\\sqrt n$ 得 $O(\\sqrt n)$。\r\n- 莫队：块长取 $n/\\sqrt m$ 时总复杂度约 $O(n\\sqrt m)$；带修莫队块长取 $n^{2/3}$，复杂度约 $O(n^{5/3})$。\r\n- 值域分块：值域 $V$ 上的查询为 $O(\\sqrt V)$。\r\n- Sqrt Tree：$O(n\\log\\log n)$ 预处理，$O(1)$ 区间查询。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现。各分块类型的模板、块长取法与逐行注释在对应子条目中；分块的核心代码骨架是「预处理每个元素所属块 + 每块的聚合信息 + 修改/查询时分别处理整块与零散块」三段。\r\n\r\n## 复杂度分析\r\n\r\n- 序列分块：单次修改/查询 $O(\\sqrt n)$；$q$ 次操作 $O(q\\sqrt n)$。\r\n- 莫队：$O((n+q)\\sqrt n)$（普通）、$O(n^{5/3})$（带修）。\r\n- 值域分块：$O(\\sqrt V)$ 单次，$O(n\\sqrt V)$ 总量级。\r\n- 树分块：单次路径查询 $O(\\sqrt n)$ 级别，视具体形态而定。\r\n- 二维分块：单次 $O(\\sqrt n)$ 或 $O(n^{2/3})$，取决于块长设计。\r\n\r\n## 适用场景\r\n\r\n- 需要维护区间信息，但线段树难以合并（众数、不同数个数、$\\le k$ 计数）。\r\n- 询问可离线、且相邻询问的答案可以 $O(1)$ 移动指针维护 → 莫队。\r\n- 值域大而询问少 → 值域分块。\r\n- 修改与询问混合、且修改难以快速作用到结构上 → 时间分块（操作分块）。\r\n- 树上路径统计、且不想写树链剖分 → 树分块。\r\n- 需要支持在序列中间插入删除 → 块状链表。\r\n- 不适合：能直接用线段树/树状数组 $O(\\log n)$ 解决的问题，分块的 $\\sqrt n$ 常数反而更慢。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 块长不是 $\\sqrt n$ 一定最优：带修莫队、二维分块、树上分块的块长要按操作类型重新推。\r\n- 零散块边界写成 `l` 到 `min(r, bel[l]*B)`，容易把整块也暴力一遍。\r\n- 懒标记与块内实际值不同步：整块加标记后，块内元素值没有更新。\r\n- 莫队指针移动顺序写错，导致区间为空时答案非法。\r\n- 带修莫队忘记把时间维一起排序。\r\n- 值域分块的下标映射（离散化）与原始值混淆。\r\n\r\n## 对比与扩展\r\n\r\n分块与线段树、树状数组是互补关系：能用可合并信息就用线段树，信息不可合并时退回分块。莫队可以看成「分块 + 双指针」，树分块与树链剖分解决同一类问题但实现代价不同；二维分块常与莫队二次离线结合。学习顺序建议：序列分块 → 莫队 → 值域分块/时间分块 → 树分块/二维分块 → Sqrt Tree 与块状链表。",
+                "content": "## 算法原理\n\n分块的核心思想是**把序列（或值域、操作序列、树）切成大小约为 $\\sqrt n$ 的块**，块内暴力、块间整体处理。它的复杂度通常比线段树多一个 $\\sqrt n$，但实现简单、常数小，而且能处理线段树很难维护的信息（区间众数、区间不同数个数、区间 $\\le k$ 的个数等）。\n\n本页是「数据结构」大类下的二级总述，按「对什么分块」把相关知识点分成七组：\n\n- **序列分块**：区间加 / 区间求和、区间 $\\le k$ 的个数、区间开根等（`ds-block-decomposition`）。\n- **莫队**：把询问按块排序，用指针在相邻询问之间移动（普通莫队、带修莫队、回滚莫队，`ds-mo-team`、`ds-mo-team-modify`）。\n- **值域分块**：对值域而非下标分块，用于第 $k$ 小、mex、值出现次数统计（`ds-block-value-domain`）。\n- **时间分块（操作分块）**：把修改/询问按时间切块，块内暴力重做、块间复用（`ds-block-time`）。\n- **树分块**：在树上按深度或关键点分块，处理树上路径统计（`ds-block-tree`）。\n- **二维分块**：矩阵与二维数点类问题（`ds-block-2d`）。\n- **块状链表与 Sqrt Tree**：把块做成链表以支持插入删除（`ds-fast-block-list`、`ds-index-tree-block-list`），以及在块上建静态 RMQ 结构（`ds-sqrt-tree`）。\n\n## 核心公式 / 状态定义与转移方程\n\n- 块长通常取 $B=\\lfloor\\sqrt n\\rfloor$ 或 $\\sqrt{n\\log n}$；块数 $n/B$。\n- 单次修改/查询：整块 $O(n/B)$ 个 + 零散 $O(B)$ 个元素，取 $B=\\sqrt n$ 得 $O(\\sqrt n)$。\n- 莫队：块长取 $n/\\sqrt m$ 时总复杂度约 $O(n\\sqrt m)$；带修莫队块长取 $n^{2/3}$，复杂度约 $O(n^{5/3})$。\n- 值域分块：值域 $V$ 上的查询为 $O(\\sqrt V)$。\n- Sqrt Tree：$O(n\\log\\log n)$ 预处理，$O(1)$ 区间查询。\n\n## 逐行代码解析\n\n本页是总述页，不附实现。各分块类型的模板、块长取法与逐行注释在对应子条目中；分块的核心代码骨架是「预处理每个元素所属块 + 每块的聚合信息 + 修改/查询时分别处理整块与零散块」三段。\n\n## 复杂度分析\n\n- 序列分块：单次修改/查询 $O(\\sqrt n)$；$q$ 次操作 $O(q\\sqrt n)$。\n- 莫队：$O((n+q)\\sqrt n)$（普通）、$O(n^{5/3})$（带修）。\n- 值域分块：$O(\\sqrt V)$ 单次，$O(n\\sqrt V)$ 总量级。\n- 树分块：单次路径查询 $O(\\sqrt n)$ 级别，视具体形态而定。\n- 二维分块：单次 $O(\\sqrt n)$ 或 $O(n^{2/3})$，取决于块长设计。\n\n## 适用场景\n\n- 需要维护区间信息，但线段树难以合并（众数、不同数个数、$\\le k$ 计数）。\n- 询问可离线、且相邻询问的答案可以 $O(1)$ 移动指针维护 → 莫队。\n- 值域大而询问少 → 值域分块。\n- 修改与询问混合、且修改难以快速作用到结构上 → 时间分块（操作分块）。\n- 树上路径统计、且不想写树链剖分 → 树分块。\n- 需要支持在序列中间插入删除 → 块状链表。\n- 不适合：能直接用线段树/树状数组 $O(\\log n)$ 解决的问题，分块的 $\\sqrt n$ 常数反而更慢。\n\n## 常见陷阱与注意事项\n\n- 块长不是 $\\sqrt n$ 一定最优：带修莫队、二维分块、树上分块的块长要按操作类型重新推。\n- 零散块边界写成 `l` 到 `min(r, bel[l]*B)`，容易把整块也暴力一遍。\n- 懒标记与块内实际值不同步：整块加标记后，块内元素值没有更新。\n- 莫队指针移动顺序写错，导致区间为空时答案非法。\n- 带修莫队忘记把时间维一起排序。\n- 值域分块的下标映射（离散化）与原始值混淆。\n\n## 对比与扩展\n\n分块与线段树、树状数组是互补关系：能用可合并信息就用线段树，信息不可合并时退回分块。莫队可以看成「分块 + 双指针」，树分块与树链剖分解决同一类问题但实现代价不同；二维分块常与莫队二次离线结合。学习顺序建议：序列分块 → 莫队 → 值域分块/时间分块 → 树分块/二维分块 → Sqrt Tree 与块状链表。",
                 "codePath": "",
                 "timeComplexity": "按子条目而定",
                 "spaceComplexity": "按子条目而定",
@@ -10458,7 +10635,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n分块的核心思想是**把序列（或值域、操作序列、树）切成大小约为 $\\sqrt n$ 的块**，块内暴力、块间整体处理。它的复杂度通常比线段树多一个 $\\sqrt n$，但实现简单、常数小，而且能处理线段树很难维护的信息（区间众数、区间不同数个数、区间 $\\le k$ 的个数等）。\r\n\r\n本页是「数据结构」大类下的二级总述，按「对什么分块」把相关知识点分成七组：\r\n\r\n- **序列分块**：区间加 / 区间求和、区间 $\\le k$ 的个数、区间开根等（`ds-block-decomposition`）。\r\n- **莫队**：把询问按块排序，用指针在相邻询问之间移动（普通莫队、带修莫队、回滚莫队，`ds-mo-team`、`ds-mo-team-modify`）。\r\n- **值域分块**：对值域而非下标分块，用于第 $k$ 小、mex、值出现次数统计（`ds-block-value-domain`）。\r\n- **时间分块（操作分块）**：把修改/询问按时间切块，块内暴力重做、块间复用（`ds-block-time`）。\r\n- **树分块**：在树上按深度或关键点分块，处理树上路径统计（`ds-block-tree`）。\r\n- **二维分块**：矩阵与二维数点类问题（`ds-block-2d`）。\r\n- **块状链表与 Sqrt Tree**：把块做成链表以支持插入删除（`ds-fast-block-list`、`ds-index-tree-block-list`），以及在块上建静态 RMQ 结构（`ds-sqrt-tree`）。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- 块长通常取 $B=\\lfloor\\sqrt n\\rfloor$ 或 $\\sqrt{n\\log n}$；块数 $n/B$。\r\n- 单次修改/查询：整块 $O(n/B)$ 个 + 零散 $O(B)$ 个元素，取 $B=\\sqrt n$ 得 $O(\\sqrt n)$。\r\n- 莫队：块长取 $n/\\sqrt m$ 时总复杂度约 $O(n\\sqrt m)$；带修莫队块长取 $n^{2/3}$，复杂度约 $O(n^{5/3})$。\r\n- 值域分块：值域 $V$ 上的查询为 $O(\\sqrt V)$。\r\n- Sqrt Tree：$O(n\\log\\log n)$ 预处理，$O(1)$ 区间查询。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现。各分块类型的模板、块长取法与逐行注释在对应子条目中；分块的核心代码骨架是「预处理每个元素所属块 + 每块的聚合信息 + 修改/查询时分别处理整块与零散块」三段。\r\n\r\n## 复杂度分析\r\n\r\n- 序列分块：单次修改/查询 $O(\\sqrt n)$；$q$ 次操作 $O(q\\sqrt n)$。\r\n- 莫队：$O((n+q)\\sqrt n)$（普通）、$O(n^{5/3})$（带修）。\r\n- 值域分块：$O(\\sqrt V)$ 单次，$O(n\\sqrt V)$ 总量级。\r\n- 树分块：单次路径查询 $O(\\sqrt n)$ 级别，视具体形态而定。\r\n- 二维分块：单次 $O(\\sqrt n)$ 或 $O(n^{2/3})$，取决于块长设计。\r\n\r\n## 适用场景\r\n\r\n- 需要维护区间信息，但线段树难以合并（众数、不同数个数、$\\le k$ 计数）。\r\n- 询问可离线、且相邻询问的答案可以 $O(1)$ 移动指针维护 → 莫队。\r\n- 值域大而询问少 → 值域分块。\r\n- 修改与询问混合、且修改难以快速作用到结构上 → 时间分块（操作分块）。\r\n- 树上路径统计、且不想写树链剖分 → 树分块。\r\n- 需要支持在序列中间插入删除 → 块状链表。\r\n- 不适合：能直接用线段树/树状数组 $O(\\log n)$ 解决的问题，分块的 $\\sqrt n$ 常数反而更慢。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 块长不是 $\\sqrt n$ 一定最优：带修莫队、二维分块、树上分块的块长要按操作类型重新推。\r\n- 零散块边界写成 `l` 到 `min(r, bel[l]*B)`，容易把整块也暴力一遍。\r\n- 懒标记与块内实际值不同步：整块加标记后，块内元素值没有更新。\r\n- 莫队指针移动顺序写错，导致区间为空时答案非法。\r\n- 带修莫队忘记把时间维一起排序。\r\n- 值域分块的下标映射（离散化）与原始值混淆。\r\n\r\n## 对比与扩展\r\n\r\n分块与线段树、树状数组是互补关系：能用可合并信息就用线段树，信息不可合并时退回分块。莫队可以看成「分块 + 双指针」，树分块与树链剖分解决同一类问题但实现代价不同；二维分块常与莫队二次离线结合。学习顺序建议：序列分块 → 莫队 → 值域分块/时间分块 → 树分块/二维分块 → Sqrt Tree 与块状链表。",
+        "content": "## 算法原理\n\n分块的核心思想是**把序列（或值域、操作序列、树）切成大小约为 $\\sqrt n$ 的块**，块内暴力、块间整体处理。它的复杂度通常比线段树多一个 $\\sqrt n$，但实现简单、常数小，而且能处理线段树很难维护的信息（区间众数、区间不同数个数、区间 $\\le k$ 的个数等）。\n\n本页是「数据结构」大类下的二级总述，按「对什么分块」把相关知识点分成七组：\n\n- **序列分块**：区间加 / 区间求和、区间 $\\le k$ 的个数、区间开根等（`ds-block-decomposition`）。\n- **莫队**：把询问按块排序，用指针在相邻询问之间移动（普通莫队、带修莫队、回滚莫队，`ds-mo-team`、`ds-mo-team-modify`）。\n- **值域分块**：对值域而非下标分块，用于第 $k$ 小、mex、值出现次数统计（`ds-block-value-domain`）。\n- **时间分块（操作分块）**：把修改/询问按时间切块，块内暴力重做、块间复用（`ds-block-time`）。\n- **树分块**：在树上按深度或关键点分块，处理树上路径统计（`ds-block-tree`）。\n- **二维分块**：矩阵与二维数点类问题（`ds-block-2d`）。\n- **块状链表与 Sqrt Tree**：把块做成链表以支持插入删除（`ds-fast-block-list`、`ds-index-tree-block-list`），以及在块上建静态 RMQ 结构（`ds-sqrt-tree`）。\n\n## 核心公式 / 状态定义与转移方程\n\n- 块长通常取 $B=\\lfloor\\sqrt n\\rfloor$ 或 $\\sqrt{n\\log n}$；块数 $n/B$。\n- 单次修改/查询：整块 $O(n/B)$ 个 + 零散 $O(B)$ 个元素，取 $B=\\sqrt n$ 得 $O(\\sqrt n)$。\n- 莫队：块长取 $n/\\sqrt m$ 时总复杂度约 $O(n\\sqrt m)$；带修莫队块长取 $n^{2/3}$，复杂度约 $O(n^{5/3})$。\n- 值域分块：值域 $V$ 上的查询为 $O(\\sqrt V)$。\n- Sqrt Tree：$O(n\\log\\log n)$ 预处理，$O(1)$ 区间查询。\n\n## 逐行代码解析\n\n本页是总述页，不附实现。各分块类型的模板、块长取法与逐行注释在对应子条目中；分块的核心代码骨架是「预处理每个元素所属块 + 每块的聚合信息 + 修改/查询时分别处理整块与零散块」三段。\n\n## 复杂度分析\n\n- 序列分块：单次修改/查询 $O(\\sqrt n)$；$q$ 次操作 $O(q\\sqrt n)$。\n- 莫队：$O((n+q)\\sqrt n)$（普通）、$O(n^{5/3})$（带修）。\n- 值域分块：$O(\\sqrt V)$ 单次，$O(n\\sqrt V)$ 总量级。\n- 树分块：单次路径查询 $O(\\sqrt n)$ 级别，视具体形态而定。\n- 二维分块：单次 $O(\\sqrt n)$ 或 $O(n^{2/3})$，取决于块长设计。\n\n## 适用场景\n\n- 需要维护区间信息，但线段树难以合并（众数、不同数个数、$\\le k$ 计数）。\n- 询问可离线、且相邻询问的答案可以 $O(1)$ 移动指针维护 → 莫队。\n- 值域大而询问少 → 值域分块。\n- 修改与询问混合、且修改难以快速作用到结构上 → 时间分块（操作分块）。\n- 树上路径统计、且不想写树链剖分 → 树分块。\n- 需要支持在序列中间插入删除 → 块状链表。\n- 不适合：能直接用线段树/树状数组 $O(\\log n)$ 解决的问题，分块的 $\\sqrt n$ 常数反而更慢。\n\n## 常见陷阱与注意事项\n\n- 块长不是 $\\sqrt n$ 一定最优：带修莫队、二维分块、树上分块的块长要按操作类型重新推。\n- 零散块边界写成 `l` 到 `min(r, bel[l]*B)`，容易把整块也暴力一遍。\n- 懒标记与块内实际值不同步：整块加标记后，块内元素值没有更新。\n- 莫队指针移动顺序写错，导致区间为空时答案非法。\n- 带修莫队忘记把时间维一起排序。\n- 值域分块的下标映射（离散化）与原始值混淆。\n\n## 对比与扩展\n\n分块与线段树、树状数组是互补关系：能用可合并信息就用线段树，信息不可合并时退回分块。莫队可以看成「分块 + 双指针」，树分块与树链剖分解决同一类问题但实现代价不同；二维分块常与莫队二次离线结合。学习顺序建议：序列分块 → 莫队 → 值域分块/时间分块 → 树分块/二维分块 → Sqrt Tree 与块状链表。",
         "timeComplexity": "按子条目而定",
         "spaceComplexity": "按子条目而定",
         "tags": [
@@ -10477,14 +10654,14 @@ const KNOWLEDGE_DATA = [
     {
         "id": "hub-ds-segtree",
         "category": "数据结构",
-        "subcategory": "总述",
+        "subcategory": "线段树",
         "subSubcategory": "",
         "title": "线段树总述",
         "hub": true,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n线段树把区间递归二分，每个结点维护一段区间的聚合信息；修改与查询都沿树高走，单次 $O(\\log n)$。它的关键前提是**信息可合并**：父结点的答案能由左右儿子的答案拼出来。\r\n\r\n本页是「数据结构」大类下的二级总述，覆盖所有以线段树为核心的条目，分四组：\r\n\r\n- **基础与标记**：区间加 + 区间求和（`ds-segtree-basic`）、区间加/乘/赋值与区间求和/最值（`ds-segtree-mul`、`ds-segtree-combined`）。\r\n- **建树方式**：动态开点（`ds-segtree-dynamic`）、离散化后建树（`ds-segtree-discretize`）、权值线段树（`ds-segtree-weight`）。\r\n- **可持久化**：单点修改单点/区间查询（`ds-persistent-segtree-3919`、`ds-persistent-segtree-template`）、主席树求区间第 $k$ 小（`ds-persistent-segtree-kth`）。这一组同时挂在「可持久化总纲」下。\r\n- **与树结构结合**：树链剖分 + 线段树（`ds-hld-segtree`），处理树上路径与子树的区间操作。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- 结点 `p` 表示区间 $[l,r]$，左儿子 `p<<1` 表示 $[l,mid]$，右儿子 `p<<1|1` 表示 $[mid+1,r]$。\r\n- 聚合：`tr[p] = merge(tr[p<<1], tr[p<<1|1])`；区间加时 `tr[p] += k*(r-l+1)`。\r\n- 懒标记下传：`pushdown` 把标记作用到儿子，再清空本结点标记。\r\n- 权值线段树：下标为值域，结点存该值域内元素个数；第 $k$ 小沿「左儿子个数 $\\ge k$」分支走。\r\n- 可持久化：每次修改只新建 $O(\\log n)$ 个结点，`root[i]` 指向第 $i$ 个版本。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现。各子条目给出完整模板与逐行注释；通用的三段结构是 `build`（建树或动态开点）、`pushdown`（懒标记下传）、`modify/query`（递归定位区间）。\r\n\r\n## 复杂度分析\r\n\r\n- 建树 $O(n)$；单次区间修改/查询 $O(\\log n)$。\r\n- 动态开点：空间 $O(q\\log n)$，$q$ 为操作次数。\r\n- 离散化：预处理 $O(n\\log n)$，之后同普通线段树。\r\n- 可持久化：每次修改 $O(\\log n)$ 时间与空间。\r\n- 树链剖分 + 线段树：单次路径操作 $O(\\log^2 n)$。\r\n\r\n## 适用场景\r\n\r\n- 区间信息的合并是「可结合」的：和、最值、最左/最右满足条件的元素、矩阵乘积等。\r\n- 需要懒标记处理整段修改（加、乘、赋值、覆盖）。\r\n- 值域巨大但出现的数有限 → 动态开点或离散化。\r\n- 需要历史版本查询、区间第 $k$ 小 → 可持久化线段树 / 主席树。\r\n- 树上路径或子树整体修改 → 树链剖分 + 线段树。\r\n- 不适合：信息不可合并（区间众数）或强制在线且无法离散化，此时改用分块或平衡树。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 数组开 $4n$ 不够（动态开点要按操作数估空间）。\r\n- 乘法 + 加法双标记时，下传顺序写反（先乘后加）。\r\n- 懒标记下传后忘记清空，导致重复作用。\r\n- 区间查询的边界写成闭区间却按半开区间递归。\r\n- 权值线段树的上界小于实际值域。\r\n- 可持久化时直接复用旧结点并修改，破坏历史版本。\r\n- 树链剖分后 `dfn` 与原始编号混淆。\r\n\r\n## 对比与扩展\r\n\r\n线段树与树状数组、ST 表、分块是同一族工具：单点改区间查用树状数组更短，静态区间最值用 ST 表，信息不可合并用分块。线段树向可持久化扩展得到主席树，向树上扩展得到树链剖分 + 线段树，向动态值域扩展得到动态开点。学习顺序建议：基础模板 → 双标记 → 权值/动态开点 → 可持久化 → 树链剖分。",
+                "content": "## 算法原理\n\n线段树把区间递归二分，每个结点维护一段区间的聚合信息；修改与查询都沿树高走，单次 $O(\\log n)$。它的关键前提是**信息可合并**：父结点的答案能由左右儿子的答案拼出来。\n\n本页是「数据结构」大类下的二级总述，覆盖所有以线段树为核心的条目，分四组：\n\n- **基础与标记**：区间加 + 区间求和（`ds-segtree-basic`）、区间加/乘/赋值与区间求和/最值（`ds-segtree-mul`、`ds-segtree-combined`）。\n- **建树方式**：动态开点（`ds-segtree-dynamic`）、离散化后建树（`ds-segtree-discretize`）、权值线段树（`ds-segtree-weight`）。\n- **可持久化**：单点修改单点/区间查询（`ds-persistent-segtree-3919`、`ds-persistent-segtree-template`）、主席树求区间第 $k$ 小（`ds-persistent-segtree-kth`）。这一组同时挂在「可持久化总纲」下。\n- **与树结构结合**：树链剖分 + 线段树（`ds-hld-segtree`），处理树上路径与子树的区间操作。\n\n## 核心公式 / 状态定义与转移方程\n\n- 结点 `p` 表示区间 $[l,r]$，左儿子 `p<<1` 表示 $[l,mid]$，右儿子 `p<<1|1` 表示 $[mid+1,r]$。\n- 聚合：`tr[p] = merge(tr[p<<1], tr[p<<1|1])`；区间加时 `tr[p] += k*(r-l+1)`。\n- 懒标记下传：`pushdown` 把标记作用到儿子，再清空本结点标记。\n- 权值线段树：下标为值域，结点存该值域内元素个数；第 $k$ 小沿「左儿子个数 $\\ge k$」分支走。\n- 可持久化：每次修改只新建 $O(\\log n)$ 个结点，`root[i]` 指向第 $i$ 个版本。\n\n## 逐行代码解析\n\n本页是总述页，不附实现。各子条目给出完整模板与逐行注释；通用的三段结构是 `build`（建树或动态开点）、`pushdown`（懒标记下传）、`modify/query`（递归定位区间）。\n\n## 复杂度分析\n\n- 建树 $O(n)$；单次区间修改/查询 $O(\\log n)$。\n- 动态开点：空间 $O(q\\log n)$，$q$ 为操作次数。\n- 离散化：预处理 $O(n\\log n)$，之后同普通线段树。\n- 可持久化：每次修改 $O(\\log n)$ 时间与空间。\n- 树链剖分 + 线段树：单次路径操作 $O(\\log^2 n)$。\n\n## 适用场景\n\n- 区间信息的合并是「可结合」的：和、最值、最左/最右满足条件的元素、矩阵乘积等。\n- 需要懒标记处理整段修改（加、乘、赋值、覆盖）。\n- 值域巨大但出现的数有限 → 动态开点或离散化。\n- 需要历史版本查询、区间第 $k$ 小 → 可持久化线段树 / 主席树。\n- 树上路径或子树整体修改 → 树链剖分 + 线段树。\n- 不适合：信息不可合并（区间众数）或强制在线且无法离散化，此时改用分块或平衡树。\n\n## 常见陷阱与注意事项\n\n- 数组开 $4n$ 不够（动态开点要按操作数估空间）。\n- 乘法 + 加法双标记时，下传顺序写反（先乘后加）。\n- 懒标记下传后忘记清空，导致重复作用。\n- 区间查询的边界写成闭区间却按半开区间递归。\n- 权值线段树的上界小于实际值域。\n- 可持久化时直接复用旧结点并修改，破坏历史版本。\n- 树链剖分后 `dfn` 与原始编号混淆。\n\n## 对比与扩展\n\n线段树与树状数组、ST 表、分块是同一族工具：单点改区间查用树状数组更短，静态区间最值用 ST 表，信息不可合并用分块。线段树向可持久化扩展得到主席树，向树上扩展得到树链剖分 + 线段树，向动态值域扩展得到动态开点。学习顺序建议：基础模板 → 双标记 → 权值/动态开点 → 可持久化 → 树链剖分。",
                 "codePath": "",
                 "timeComplexity": "按子条目而定",
                 "spaceComplexity": "按子条目而定",
@@ -10497,7 +10674,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n线段树把区间递归二分，每个结点维护一段区间的聚合信息；修改与查询都沿树高走，单次 $O(\\log n)$。它的关键前提是**信息可合并**：父结点的答案能由左右儿子的答案拼出来。\r\n\r\n本页是「数据结构」大类下的二级总述，覆盖所有以线段树为核心的条目，分四组：\r\n\r\n- **基础与标记**：区间加 + 区间求和（`ds-segtree-basic`）、区间加/乘/赋值与区间求和/最值（`ds-segtree-mul`、`ds-segtree-combined`）。\r\n- **建树方式**：动态开点（`ds-segtree-dynamic`）、离散化后建树（`ds-segtree-discretize`）、权值线段树（`ds-segtree-weight`）。\r\n- **可持久化**：单点修改单点/区间查询（`ds-persistent-segtree-3919`、`ds-persistent-segtree-template`）、主席树求区间第 $k$ 小（`ds-persistent-segtree-kth`）。这一组同时挂在「可持久化总纲」下。\r\n- **与树结构结合**：树链剖分 + 线段树（`ds-hld-segtree`），处理树上路径与子树的区间操作。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- 结点 `p` 表示区间 $[l,r]$，左儿子 `p<<1` 表示 $[l,mid]$，右儿子 `p<<1|1` 表示 $[mid+1,r]$。\r\n- 聚合：`tr[p] = merge(tr[p<<1], tr[p<<1|1])`；区间加时 `tr[p] += k*(r-l+1)`。\r\n- 懒标记下传：`pushdown` 把标记作用到儿子，再清空本结点标记。\r\n- 权值线段树：下标为值域，结点存该值域内元素个数；第 $k$ 小沿「左儿子个数 $\\ge k$」分支走。\r\n- 可持久化：每次修改只新建 $O(\\log n)$ 个结点，`root[i]` 指向第 $i$ 个版本。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现。各子条目给出完整模板与逐行注释；通用的三段结构是 `build`（建树或动态开点）、`pushdown`（懒标记下传）、`modify/query`（递归定位区间）。\r\n\r\n## 复杂度分析\r\n\r\n- 建树 $O(n)$；单次区间修改/查询 $O(\\log n)$。\r\n- 动态开点：空间 $O(q\\log n)$，$q$ 为操作次数。\r\n- 离散化：预处理 $O(n\\log n)$，之后同普通线段树。\r\n- 可持久化：每次修改 $O(\\log n)$ 时间与空间。\r\n- 树链剖分 + 线段树：单次路径操作 $O(\\log^2 n)$。\r\n\r\n## 适用场景\r\n\r\n- 区间信息的合并是「可结合」的：和、最值、最左/最右满足条件的元素、矩阵乘积等。\r\n- 需要懒标记处理整段修改（加、乘、赋值、覆盖）。\r\n- 值域巨大但出现的数有限 → 动态开点或离散化。\r\n- 需要历史版本查询、区间第 $k$ 小 → 可持久化线段树 / 主席树。\r\n- 树上路径或子树整体修改 → 树链剖分 + 线段树。\r\n- 不适合：信息不可合并（区间众数）或强制在线且无法离散化，此时改用分块或平衡树。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 数组开 $4n$ 不够（动态开点要按操作数估空间）。\r\n- 乘法 + 加法双标记时，下传顺序写反（先乘后加）。\r\n- 懒标记下传后忘记清空，导致重复作用。\r\n- 区间查询的边界写成闭区间却按半开区间递归。\r\n- 权值线段树的上界小于实际值域。\r\n- 可持久化时直接复用旧结点并修改，破坏历史版本。\r\n- 树链剖分后 `dfn` 与原始编号混淆。\r\n\r\n## 对比与扩展\r\n\r\n线段树与树状数组、ST 表、分块是同一族工具：单点改区间查用树状数组更短，静态区间最值用 ST 表，信息不可合并用分块。线段树向可持久化扩展得到主席树，向树上扩展得到树链剖分 + 线段树，向动态值域扩展得到动态开点。学习顺序建议：基础模板 → 双标记 → 权值/动态开点 → 可持久化 → 树链剖分。",
+        "content": "## 算法原理\n\n线段树把区间递归二分，每个结点维护一段区间的聚合信息；修改与查询都沿树高走，单次 $O(\\log n)$。它的关键前提是**信息可合并**：父结点的答案能由左右儿子的答案拼出来。\n\n本页是「数据结构」大类下的二级总述，覆盖所有以线段树为核心的条目，分四组：\n\n- **基础与标记**：区间加 + 区间求和（`ds-segtree-basic`）、区间加/乘/赋值与区间求和/最值（`ds-segtree-mul`、`ds-segtree-combined`）。\n- **建树方式**：动态开点（`ds-segtree-dynamic`）、离散化后建树（`ds-segtree-discretize`）、权值线段树（`ds-segtree-weight`）。\n- **可持久化**：单点修改单点/区间查询（`ds-persistent-segtree-3919`、`ds-persistent-segtree-template`）、主席树求区间第 $k$ 小（`ds-persistent-segtree-kth`）。这一组同时挂在「可持久化总纲」下。\n- **与树结构结合**：树链剖分 + 线段树（`ds-hld-segtree`），处理树上路径与子树的区间操作。\n\n## 核心公式 / 状态定义与转移方程\n\n- 结点 `p` 表示区间 $[l,r]$，左儿子 `p<<1` 表示 $[l,mid]$，右儿子 `p<<1|1` 表示 $[mid+1,r]$。\n- 聚合：`tr[p] = merge(tr[p<<1], tr[p<<1|1])`；区间加时 `tr[p] += k*(r-l+1)`。\n- 懒标记下传：`pushdown` 把标记作用到儿子，再清空本结点标记。\n- 权值线段树：下标为值域，结点存该值域内元素个数；第 $k$ 小沿「左儿子个数 $\\ge k$」分支走。\n- 可持久化：每次修改只新建 $O(\\log n)$ 个结点，`root[i]` 指向第 $i$ 个版本。\n\n## 逐行代码解析\n\n本页是总述页，不附实现。各子条目给出完整模板与逐行注释；通用的三段结构是 `build`（建树或动态开点）、`pushdown`（懒标记下传）、`modify/query`（递归定位区间）。\n\n## 复杂度分析\n\n- 建树 $O(n)$；单次区间修改/查询 $O(\\log n)$。\n- 动态开点：空间 $O(q\\log n)$，$q$ 为操作次数。\n- 离散化：预处理 $O(n\\log n)$，之后同普通线段树。\n- 可持久化：每次修改 $O(\\log n)$ 时间与空间。\n- 树链剖分 + 线段树：单次路径操作 $O(\\log^2 n)$。\n\n## 适用场景\n\n- 区间信息的合并是「可结合」的：和、最值、最左/最右满足条件的元素、矩阵乘积等。\n- 需要懒标记处理整段修改（加、乘、赋值、覆盖）。\n- 值域巨大但出现的数有限 → 动态开点或离散化。\n- 需要历史版本查询、区间第 $k$ 小 → 可持久化线段树 / 主席树。\n- 树上路径或子树整体修改 → 树链剖分 + 线段树。\n- 不适合：信息不可合并（区间众数）或强制在线且无法离散化，此时改用分块或平衡树。\n\n## 常见陷阱与注意事项\n\n- 数组开 $4n$ 不够（动态开点要按操作数估空间）。\n- 乘法 + 加法双标记时，下传顺序写反（先乘后加）。\n- 懒标记下传后忘记清空，导致重复作用。\n- 区间查询的边界写成闭区间却按半开区间递归。\n- 权值线段树的上界小于实际值域。\n- 可持久化时直接复用旧结点并修改，破坏历史版本。\n- 树链剖分后 `dfn` 与原始编号混淆。\n\n## 对比与扩展\n\n线段树与树状数组、ST 表、分块是同一族工具：单点改区间查用树状数组更短，静态区间最值用 ST 表，信息不可合并用分块。线段树向可持久化扩展得到主席树，向树上扩展得到树链剖分 + 线段树，向动态值域扩展得到动态开点。学习顺序建议：基础模板 → 双标记 → 权值/动态开点 → 可持久化 → 树链剖分。",
         "timeComplexity": "按子条目而定",
         "spaceComplexity": "按子条目而定",
         "tags": [
@@ -10775,14 +10952,14 @@ const KNOWLEDGE_DATA = [
     {
         "id": "hub-math-number-theory",
         "category": "数学",
-        "subcategory": "总述",
+        "subcategory": "数论基础",
         "subSubcategory": "",
         "title": "数论总述",
         "hub": true,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n数论在竞赛里主要处理三类问题：**判定与分解**（这个数是不是素数、怎么分解质因数）、**同余方程**（求解模意义下的方程与逆元）、**批量求和与计数**（在 $1\\sim n$ 上做整除相关的统计）。\r\n\r\n本页是「数学」大类下的二级总述，把数论相关知识点按工具分五组：\r\n\r\n- **同余与模运算**：快速幂、乘法逆元、Modint 封装、费马小定理与扩展欧拉定理（降幂）。\r\n- **素数**：素性判定、埃氏筛与线性筛、算术基本定理、威尔逊定理、Miller-Rabin、Pollard-Rho。\r\n- **公约数**：gcd / lcm、裴蜀定理、扩展欧几里得、解线性同余方程。\r\n- **数论函数**：欧拉函数及其线性筛、约数个数与约数和。\r\n- **整除与转化**：整除分块（数论分块）、同余最短路（把同余条件转成图上最短路）。\r\n\r\n所有结论都要先确认**适用范围**：逆元存在要求 $\\gcd(a,m)=1$；费马小定理要求 $m$ 为素数；扩展欧拉定理用于指数极大时降幂，且 $b\\ge\\varphi(m)$ 才成立。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- 快速幂：$a^b \\bmod p$ 按二进制拆分，$a^{2^k}$ 逐层平方。\r\n- 逆元：$a^{-1}\\equiv a^{p-2}\\pmod p$（$p$ 素数），或解 $ax+my=1$。\r\n- 线性筛：每个合数只被其最小质因子筛掉一次。\r\n- 欧拉函数：$\\varphi(n)=n\\prod_{p\\mid n}(1-\\frac{1}{p})$。\r\n- 整除分块：$\\sum_{i=1}^{n} f(i)\\lfloor n/i\\rfloor$ 中 $\\lfloor n/i\\rfloor$ 只有 $O(\\sqrt n)$ 种取值，右端点 $r=\\lfloor n/\\lfloor n/l\\rfloor\\rfloor$。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现；快速幂、筛法、exgcd、欧拉函数、整除分块等模板在各子条目中给出，并配套逐行注释与边界处理。\r\n\r\n## 复杂度分析\r\n\r\n- 快速幂：$O(\\log b)$。\r\n- 埃氏筛 $O(n\\log\\log n)$；线性筛 $O(n)$。\r\n- 试除分解 $O(\\sqrt n)$；Pollard-Rho 期望约 $O(n^{1/4})$ 次乘法。\r\n- 扩展欧几里得 $O(\\log n)$。\r\n- 整除分块 $O(\\sqrt n)$。\r\n\r\n## 适用场景\r\n\r\n- 需要在大指数、模意义下做乘除与幂运算。\r\n- 需要判定素数、分解大整数、求离散对数。\r\n- 需要解同余方程 / 线性同余方程组。\r\n- 需要统计与整除、约数、欧拉函数相关的量。\r\n- 不适合：数据范围小、直接枚举即可的题目，硬套数论工具反而增加常数与出错面。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 负数取模没有调整到非负。\r\n- 乘法溢出：中间量需要 `long long` 甚至 `__int128`。\r\n- 模数与底数不互质时直接套费马小定理求逆元。\r\n- 筛法数组开小；把 $1$ 当成素数。\r\n- 多组数据没有清空与模数相关的全局数组。\r\n- 扩展欧拉定理降幂时漏判 $b<\\varphi(m)$ 的情况。\r\n\r\n## 对比与扩展\r\n\r\n数论与组合计数、矩阵加速、图论都有交叉：组合数取模需要阶乘逆元，线性递推用矩阵快速幂，同余条件可以建成最短路模型（同余最短路）。学习顺序建议：gcd 与快速幂 → 筛法与分解 → 逆元与同余方程 → 欧拉函数与数论定理 → 整除分块、同余最短路等应用。",
+                "content": "## 算法原理\n\n数论在竞赛里主要处理三类问题：**判定与分解**（这个数是不是素数、怎么分解质因数）、**同余方程**（求解模意义下的方程与逆元）、**批量求和与计数**（在 $1\\sim n$ 上做整除相关的统计）。\n\n本页是「数学」大类下的二级总述，把数论相关知识点按工具分五组：\n\n- **同余与模运算**：快速幂、乘法逆元、Modint 封装、费马小定理与扩展欧拉定理（降幂）。\n- **素数**：素性判定、埃氏筛与线性筛、算术基本定理、威尔逊定理、Miller-Rabin、Pollard-Rho。\n- **公约数**：gcd / lcm、裴蜀定理、扩展欧几里得、解线性同余方程。\n- **数论函数**：欧拉函数及其线性筛、约数个数与约数和。\n- **整除与转化**：整除分块（数论分块）、同余最短路（把同余条件转成图上最短路）。\n\n所有结论都要先确认**适用范围**：逆元存在要求 $\\gcd(a,m)=1$；费马小定理要求 $m$ 为素数；扩展欧拉定理用于指数极大时降幂，且 $b\\ge\\varphi(m)$ 才成立。\n\n## 核心公式 / 状态定义与转移方程\n\n- 快速幂：$a^b \\bmod p$ 按二进制拆分，$a^{2^k}$ 逐层平方。\n- 逆元：$a^{-1}\\equiv a^{p-2}\\pmod p$（$p$ 素数），或解 $ax+my=1$。\n- 线性筛：每个合数只被其最小质因子筛掉一次。\n- 欧拉函数：$\\varphi(n)=n\\prod_{p\\mid n}(1-\\frac{1}{p})$。\n- 整除分块：$\\sum_{i=1}^{n} f(i)\\lfloor n/i\\rfloor$ 中 $\\lfloor n/i\\rfloor$ 只有 $O(\\sqrt n)$ 种取值，右端点 $r=\\lfloor n/\\lfloor n/l\\rfloor\\rfloor$。\n\n## 逐行代码解析\n\n本页是总述页，不附实现；快速幂、筛法、exgcd、欧拉函数、整除分块等模板在各子条目中给出，并配套逐行注释与边界处理。\n\n## 复杂度分析\n\n- 快速幂：$O(\\log b)$。\n- 埃氏筛 $O(n\\log\\log n)$；线性筛 $O(n)$。\n- 试除分解 $O(\\sqrt n)$；Pollard-Rho 期望约 $O(n^{1/4})$ 次乘法。\n- 扩展欧几里得 $O(\\log n)$。\n- 整除分块 $O(\\sqrt n)$。\n\n## 适用场景\n\n- 需要在大指数、模意义下做乘除与幂运算。\n- 需要判定素数、分解大整数、求离散对数。\n- 需要解同余方程 / 线性同余方程组。\n- 需要统计与整除、约数、欧拉函数相关的量。\n- 不适合：数据范围小、直接枚举即可的题目，硬套数论工具反而增加常数与出错面。\n\n## 常见陷阱与注意事项\n\n- 负数取模没有调整到非负。\n- 乘法溢出：中间量需要 `long long` 甚至 `__int128`。\n- 模数与底数不互质时直接套费马小定理求逆元。\n- 筛法数组开小；把 $1$ 当成素数。\n- 多组数据没有清空与模数相关的全局数组。\n- 扩展欧拉定理降幂时漏判 $b<\\varphi(m)$ 的情况。\n\n## 对比与扩展\n\n数论与组合计数、矩阵加速、图论都有交叉：组合数取模需要阶乘逆元，线性递推用矩阵快速幂，同余条件可以建成最短路模型（同余最短路）。学习顺序建议：gcd 与快速幂 → 筛法与分解 → 逆元与同余方程 → 欧拉函数与数论定理 → 整除分块、同余最短路等应用。",
                 "codePath": "",
                 "timeComplexity": "按子条目而定",
                 "spaceComplexity": "按子条目而定",
@@ -10794,7 +10971,7 @@ const KNOWLEDGE_DATA = [
                 "source": ""
             }
         ],
-        "content": "## 算法原理\r\n\r\n数论在竞赛里主要处理三类问题：**判定与分解**（这个数是不是素数、怎么分解质因数）、**同余方程**（求解模意义下的方程与逆元）、**批量求和与计数**（在 $1\\sim n$ 上做整除相关的统计）。\r\n\r\n本页是「数学」大类下的二级总述，把数论相关知识点按工具分五组：\r\n\r\n- **同余与模运算**：快速幂、乘法逆元、Modint 封装、费马小定理与扩展欧拉定理（降幂）。\r\n- **素数**：素性判定、埃氏筛与线性筛、算术基本定理、威尔逊定理、Miller-Rabin、Pollard-Rho。\r\n- **公约数**：gcd / lcm、裴蜀定理、扩展欧几里得、解线性同余方程。\r\n- **数论函数**：欧拉函数及其线性筛、约数个数与约数和。\r\n- **整除与转化**：整除分块（数论分块）、同余最短路（把同余条件转成图上最短路）。\r\n\r\n所有结论都要先确认**适用范围**：逆元存在要求 $\\gcd(a,m)=1$；费马小定理要求 $m$ 为素数；扩展欧拉定理用于指数极大时降幂，且 $b\\ge\\varphi(m)$ 才成立。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n- 快速幂：$a^b \\bmod p$ 按二进制拆分，$a^{2^k}$ 逐层平方。\r\n- 逆元：$a^{-1}\\equiv a^{p-2}\\pmod p$（$p$ 素数），或解 $ax+my=1$。\r\n- 线性筛：每个合数只被其最小质因子筛掉一次。\r\n- 欧拉函数：$\\varphi(n)=n\\prod_{p\\mid n}(1-\\frac{1}{p})$。\r\n- 整除分块：$\\sum_{i=1}^{n} f(i)\\lfloor n/i\\rfloor$ 中 $\\lfloor n/i\\rfloor$ 只有 $O(\\sqrt n)$ 种取值，右端点 $r=\\lfloor n/\\lfloor n/l\\rfloor\\rfloor$。\r\n\r\n## 逐行代码解析\r\n\r\n本页是总述页，不附实现；快速幂、筛法、exgcd、欧拉函数、整除分块等模板在各子条目中给出，并配套逐行注释与边界处理。\r\n\r\n## 复杂度分析\r\n\r\n- 快速幂：$O(\\log b)$。\r\n- 埃氏筛 $O(n\\log\\log n)$；线性筛 $O(n)$。\r\n- 试除分解 $O(\\sqrt n)$；Pollard-Rho 期望约 $O(n^{1/4})$ 次乘法。\r\n- 扩展欧几里得 $O(\\log n)$。\r\n- 整除分块 $O(\\sqrt n)$。\r\n\r\n## 适用场景\r\n\r\n- 需要在大指数、模意义下做乘除与幂运算。\r\n- 需要判定素数、分解大整数、求离散对数。\r\n- 需要解同余方程 / 线性同余方程组。\r\n- 需要统计与整除、约数、欧拉函数相关的量。\r\n- 不适合：数据范围小、直接枚举即可的题目，硬套数论工具反而增加常数与出错面。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- 负数取模没有调整到非负。\r\n- 乘法溢出：中间量需要 `long long` 甚至 `__int128`。\r\n- 模数与底数不互质时直接套费马小定理求逆元。\r\n- 筛法数组开小；把 $1$ 当成素数。\r\n- 多组数据没有清空与模数相关的全局数组。\r\n- 扩展欧拉定理降幂时漏判 $b<\\varphi(m)$ 的情况。\r\n\r\n## 对比与扩展\r\n\r\n数论与组合计数、矩阵加速、图论都有交叉：组合数取模需要阶乘逆元，线性递推用矩阵快速幂，同余条件可以建成最短路模型（同余最短路）。学习顺序建议：gcd 与快速幂 → 筛法与分解 → 逆元与同余方程 → 欧拉函数与数论定理 → 整除分块、同余最短路等应用。",
+        "content": "## 算法原理\n\n数论在竞赛里主要处理三类问题：**判定与分解**（这个数是不是素数、怎么分解质因数）、**同余方程**（求解模意义下的方程与逆元）、**批量求和与计数**（在 $1\\sim n$ 上做整除相关的统计）。\n\n本页是「数学」大类下的二级总述，把数论相关知识点按工具分五组：\n\n- **同余与模运算**：快速幂、乘法逆元、Modint 封装、费马小定理与扩展欧拉定理（降幂）。\n- **素数**：素性判定、埃氏筛与线性筛、算术基本定理、威尔逊定理、Miller-Rabin、Pollard-Rho。\n- **公约数**：gcd / lcm、裴蜀定理、扩展欧几里得、解线性同余方程。\n- **数论函数**：欧拉函数及其线性筛、约数个数与约数和。\n- **整除与转化**：整除分块（数论分块）、同余最短路（把同余条件转成图上最短路）。\n\n所有结论都要先确认**适用范围**：逆元存在要求 $\\gcd(a,m)=1$；费马小定理要求 $m$ 为素数；扩展欧拉定理用于指数极大时降幂，且 $b\\ge\\varphi(m)$ 才成立。\n\n## 核心公式 / 状态定义与转移方程\n\n- 快速幂：$a^b \\bmod p$ 按二进制拆分，$a^{2^k}$ 逐层平方。\n- 逆元：$a^{-1}\\equiv a^{p-2}\\pmod p$（$p$ 素数），或解 $ax+my=1$。\n- 线性筛：每个合数只被其最小质因子筛掉一次。\n- 欧拉函数：$\\varphi(n)=n\\prod_{p\\mid n}(1-\\frac{1}{p})$。\n- 整除分块：$\\sum_{i=1}^{n} f(i)\\lfloor n/i\\rfloor$ 中 $\\lfloor n/i\\rfloor$ 只有 $O(\\sqrt n)$ 种取值，右端点 $r=\\lfloor n/\\lfloor n/l\\rfloor\\rfloor$。\n\n## 逐行代码解析\n\n本页是总述页，不附实现；快速幂、筛法、exgcd、欧拉函数、整除分块等模板在各子条目中给出，并配套逐行注释与边界处理。\n\n## 复杂度分析\n\n- 快速幂：$O(\\log b)$。\n- 埃氏筛 $O(n\\log\\log n)$；线性筛 $O(n)$。\n- 试除分解 $O(\\sqrt n)$；Pollard-Rho 期望约 $O(n^{1/4})$ 次乘法。\n- 扩展欧几里得 $O(\\log n)$。\n- 整除分块 $O(\\sqrt n)$。\n\n## 适用场景\n\n- 需要在大指数、模意义下做乘除与幂运算。\n- 需要判定素数、分解大整数、求离散对数。\n- 需要解同余方程 / 线性同余方程组。\n- 需要统计与整除、约数、欧拉函数相关的量。\n- 不适合：数据范围小、直接枚举即可的题目，硬套数论工具反而增加常数与出错面。\n\n## 常见陷阱与注意事项\n\n- 负数取模没有调整到非负。\n- 乘法溢出：中间量需要 `long long` 甚至 `__int128`。\n- 模数与底数不互质时直接套费马小定理求逆元。\n- 筛法数组开小；把 $1$ 当成素数。\n- 多组数据没有清空与模数相关的全局数组。\n- 扩展欧拉定理降幂时漏判 $b<\\varphi(m)$ 的情况。\n\n## 对比与扩展\n\n数论与组合计数、矩阵加速、图论都有交叉：组合数取模需要阶乘逆元，线性递推用矩阵快速幂，同余条件可以建成最短路模型（同余最短路）。学习顺序建议：gcd 与快速幂 → 筛法与分解 → 逆元与同余方程 → 欧拉函数与数论定理 → 整除分块、同余最短路等应用。",
         "timeComplexity": "按子条目而定",
         "spaceComplexity": "按子条目而定",
         "tags": [
@@ -11111,7 +11288,7 @@ const KNOWLEDGE_DATA = [
             "hub-io"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-io"
     },
     {
         "id": "math-01-fractional",
@@ -11136,7 +11313,7 @@ const KNOWLEDGE_DATA = [
             },
             {
                 "author": "Fohen",
-                "content": "## 算法原理\r\n\r\n0/1 分数规划解决一类**比值最优化**问题：有 $n$ 个元素，第 $i$ 个元素带两个正整数属性 $a_i$ 与 $b_i$，要在满足一定约束的前提下选出一个子集 $S$，使比值\r\n\r\n$$\r\n\\frac{\\sum_{i \\in S} a_i}{\\sum_{i \\in S} b_i}\r\n$$\r\n\r\n达到最大（求最小可对称处理）。以「恰好选 $k$ 个」为例，设 $s_i \\in \\{0,1\\}$ 表示第 $i$ 个元素是否被选，目标即\r\n\r\n$$\r\n\\max \\frac{\\sum_{i=1}^{n} a_i s_i}{\\sum_{i=1}^{n} b_i s_i},\\quad s_i \\in \\{0,1\\},\\ \\sum_{i=1}^{n} s_i = k\r\n$$\r\n\r\n暴力枚举子集是 $O(2^n)$，完全不可接受。核心思想是**二分答案**：先猜一个值 $x$，判断「是否存在方案使比值 $\\ge x$」。因为 $b_i > 0$、分母恒正，可安全移项：\r\n\r\n$$\r\n\\frac{\\sum a_i s_i}{\\sum b_i s_i} \\ge x \\iff \\sum s_i\\,(a_i - x b_i) \\ge 0\r\n$$\r\n\r\n令 $c_i = a_i - x b_i$，判定就退化成「是否存在方案使 $\\sum_{i \\in S} c_i \\ge 0$」。这个判定通常远比原问题简单：例如「恰好选 $k$ 个」时，只要取 $c_i$ 最大的 $k$ 个求和即可。\r\n\r\n答案具有**单调性**：若在 $x$ 处存在可行方案，则对所有更小的 $x$ 也一定可行。于是可以二分 $x$：可行则上调下界，不可行则下调上界，逐步逼近最优值。\r\n\r\n## 核心公式\r\n\r\n0/1 分数规划的关键，是把「分数形式的目标」通过二分转成「线性形式的判定」。设答案为 $x$，判定式：\r\n\r\n$$\r\n\\sum_{i=1}^{n} s_i\\,(a_i - x b_i) \\ge 0\r\n$$\r\n\r\n即令\r\n\r\n$$\r\nc_i = a_i - x b_i\r\n$$\r\n\r\n后判断 $\\sum_{i \\in S} c_i$ 是否可能非负。移项的依据是 $b_i > 0$ 且 $\\sum b_i s_i > 0$，乘到右边不改变不等号方向。整个算法就是「二分 $x$ + 按约束对 $c_i$ 做内层判定」。\r\n\r\n## 逐行代码解析\r\n\r\n二分答案的整体框架如下（伪代码，`check(x)` 按具体约束实现）：\r\n\r\n```cpp\r\n// 二分答案：check(x) 判断是否存在方案使比值 >= x\r\ndouble l = 0, r = max(a[i] / b[i]);   // 答案区间，r 取单个比值的最大值\r\nfor (int it = 0; it < 60; it++) {     // 固定迭代次数，精度更稳\r\n    double mid = (l + r) / 2;\r\n    if (check(mid)) l = mid;          // 可行，答案可以更大\r\n    else            r = mid;          // 不可行，答案需要更小\r\n}\r\n\r\nbool check(double x) {\r\n    for (int i = 1; i <= n; i++)\r\n        c[i] = a[i] - x * b[i];       // 计算 c_i = a_i - x*b_i\r\n    // 按约束判断 sum(c_i) 是否能 >= 0：\r\n    //   恰好选 k 个 → 排序取前 k 大求和\r\n    //   无限制任选 → 累加所有正的 c_i\r\n    //   重量受限   → 以 c_i 为价值跑 0/1 背包\r\n}\r\n```\r\n\r\n要点：\r\n\r\n- `r` 的初值可取 $\\max \\frac{a_i}{b_i}$，因为最优比值不会超过单个元素的比值最大值。\r\n- 二分用「固定迭代次数」（如 60 次）比 `while (r - l > eps)` 更容易控制精度，也能避免浮点死循环。\r\n- `check(x)` 只回答「存在 / 不存在」，不是「所有方案是否都满足」，二者不要混淆。\r\n\r\n## 复杂度分析\r\n\r\n- **时间复杂度**：视具体实现。外层二分为 $O(\\log V)$ 次（$V$ 为二分区间长度与所需精度的比值），再乘以内层判定的开销。常见内层判定：恰好选 $k$ 个为 $O(n \\log n)$，重量受限背包为 $O(nW)$，生成树为 $O(m \\log m)$，判环为 $O(nm)$。\r\n- **空间复杂度**：视具体实现。通常 $O(n)$ 用于存储 $a_i, b_i, c_i$，再加上内层判定所需结构（如背包的 $O(W)$、存图的 $O(n+m)$）。\r\n\r\n## 适用场景\r\n\r\n- 求**最大 / 最小比值**的优化问题，例如性价比、单位时间收益、最优比率生成树、最优比率环等。\r\n- 原目标带分数、难以直接优化，但「给定 $x$ 判断可行性」容易实现时，用二分转判定。\r\n- 与 0/1 背包、生成树、最短路、网络流等经典算法结合，构成「外层二分 + 内层判定」的统一模板。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **分母必须恒正**：$b_i > 0$ 才能保证移项时不等号方向不变；若分母可能为负或为 0，需单独讨论，不能直接乘过去。\r\n2. **精度控制**：二分迭代次数不足或 `eps` 设得过大，会导致答案精度不够；浮点运算用 `double` / `long double` 并固定迭代次数更稳妥。\r\n3. **判定语义**：`check(x)` 判断的是「是否存在方案使比值 $\\ge x$」，不要写成「所有方案都 $\\ge x$」。\r\n4. **贪心不通用**：「取前 $k$ 大」只适用于「恰好选 $k$ 个」且无附加限制；一旦有重量、连通性等约束，就要换成背包、生成树、网络流等对应判定。\r\n5. **$c_i$ 符号**：$x$ 较大时 $c_i = a_i - x b_i$ 可能全为负，内层判定会稳定返回「不可行」，这是二分向回收敛的正常现象。\r\n\r\n## 对比与扩展\r\n\r\n不同约束下，内层判定方法随之变化：\r\n\r\n| 题目约束 | 内层判定方法 | 复杂度 |\r\n|---|---|---|\r\n| 无限制，任选 | 把所有正的 $c_i$ 相加，判断是否 $\\ge 0$ | $O(n)$ |\r\n| 恰好选 $k$ 个 | 对 $c_i$ 排序，取最大的 $k$ 个求和 | $O(n \\log n)$ |\r\n| 总重量 $\\le W$（背包） | 以 $c_i$ 为价值、$w_i$ 为重量跑 0/1 背包 | $O(nW)$ |\r\n| 选出的边构成生成树 | 以 $c_i$ 为边权求最大生成树 | $O(m \\log m)$ |\r\n| 选出的边构成环 | 以 $c_i$ 为边权判定正环 / 负环 | $O(nm)$ |\r\n| 选出的点构成闭合子图 | 转化为最小割跑网络流 | 视问题而定 |\r\n\r\n扩展方面：分数规划也可用 **Dinkelbach 迭代法**求解，它在每轮固定当前比值、直接解一次线性目标的最优解来更新答案，通常比二分收敛更快；二分答案与 Dinkelbach 都建立在「比值目标可线性化」这一共同基础上。",
+                "content": "## 算法原理\n\n0/1 分数规划解决一类**比值最优化**问题：有 $n$ 个元素，第 $i$ 个元素带两个正整数属性 $a_i$ 与 $b_i$，要在满足一定约束的前提下选出一个子集 $S$，使比值\n\n$$\n\\frac{\\sum_{i \\in S} a_i}{\\sum_{i \\in S} b_i}\n$$\n\n达到最大（求最小可对称处理）。以「恰好选 $k$ 个」为例，设 $s_i \\in \\{0,1\\}$ 表示第 $i$ 个元素是否被选，目标即\n\n$$\n\\max \\frac{\\sum_{i=1}^{n} a_i s_i}{\\sum_{i=1}^{n} b_i s_i},\\quad s_i \\in \\{0,1\\},\\ \\sum_{i=1}^{n} s_i = k\n$$\n\n暴力枚举子集是 $O(2^n)$，完全不可接受。核心思想是**二分答案**：先猜一个值 $x$，判断「是否存在方案使比值 $\\ge x$」。因为 $b_i > 0$、分母恒正，可安全移项：\n\n$$\n\\frac{\\sum a_i s_i}{\\sum b_i s_i} \\ge x \\iff \\sum s_i\\,(a_i - x b_i) \\ge 0\n$$\n\n令 $c_i = a_i - x b_i$，判定就退化成「是否存在方案使 $\\sum_{i \\in S} c_i \\ge 0$」。这个判定通常远比原问题简单：例如「恰好选 $k$ 个」时，只要取 $c_i$ 最大的 $k$ 个求和即可。\n\n答案具有**单调性**：若在 $x$ 处存在可行方案，则对所有更小的 $x$ 也一定可行。于是可以二分 $x$：可行则上调下界，不可行则下调上界，逐步逼近最优值。\n\n## 核心公式\n\n0/1 分数规划的关键，是把「分数形式的目标」通过二分转成「线性形式的判定」。设答案为 $x$，判定式：\n\n$$\n\\sum_{i=1}^{n} s_i\\,(a_i - x b_i) \\ge 0\n$$\n\n即令\n\n$$\nc_i = a_i - x b_i\n$$\n\n后判断 $\\sum_{i \\in S} c_i$ 是否可能非负。移项的依据是 $b_i > 0$ 且 $\\sum b_i s_i > 0$，乘到右边不改变不等号方向。整个算法就是「二分 $x$ + 按约束对 $c_i$ 做内层判定」。\n\n## 逐行代码解析\n\n二分答案的整体框架如下（伪代码，`check(x)` 按具体约束实现）：\n\n```cpp\n// 二分答案：check(x) 判断是否存在方案使比值 >= x\ndouble l = 0, r = max(a[i] / b[i]);   // 答案区间，r 取单个比值的最大值\nfor (int it = 0; it < 60; it++) {     // 固定迭代次数，精度更稳\n    double mid = (l + r) / 2;\n    if (check(mid)) l = mid;          // 可行，答案可以更大\n    else            r = mid;          // 不可行，答案需要更小\n}\n\nbool check(double x) {\n    for (int i = 1; i <= n; i++)\n        c[i] = a[i] - x * b[i];       // 计算 c_i = a_i - x*b_i\n    // 按约束判断 sum(c_i) 是否能 >= 0：\n    //   恰好选 k 个 → 排序取前 k 大求和\n    //   无限制任选 → 累加所有正的 c_i\n    //   重量受限   → 以 c_i 为价值跑 0/1 背包\n}\n```\n\n要点：\n\n- `r` 的初值可取 $\\max \\frac{a_i}{b_i}$，因为最优比值不会超过单个元素的比值最大值。\n- 二分用「固定迭代次数」（如 60 次）比 `while (r - l > eps)` 更容易控制精度，也能避免浮点死循环。\n- `check(x)` 只回答「存在 / 不存在」，不是「所有方案是否都满足」，二者不要混淆。\n\n## 复杂度分析\n\n- **时间复杂度**：视具体实现。外层二分为 $O(\\log V)$ 次（$V$ 为二分区间长度与所需精度的比值），再乘以内层判定的开销。常见内层判定：恰好选 $k$ 个为 $O(n \\log n)$，重量受限背包为 $O(nW)$，生成树为 $O(m \\log m)$，判环为 $O(nm)$。\n- **空间复杂度**：视具体实现。通常 $O(n)$ 用于存储 $a_i, b_i, c_i$，再加上内层判定所需结构（如背包的 $O(W)$、存图的 $O(n+m)$）。\n\n## 适用场景\n\n- 求**最大 / 最小比值**的优化问题，例如性价比、单位时间收益、最优比率生成树、最优比率环等。\n- 原目标带分数、难以直接优化，但「给定 $x$ 判断可行性」容易实现时，用二分转判定。\n- 与 0/1 背包、生成树、最短路、网络流等经典算法结合，构成「外层二分 + 内层判定」的统一模板。\n\n## 常见陷阱与注意事项\n\n1. **分母必须恒正**：$b_i > 0$ 才能保证移项时不等号方向不变；若分母可能为负或为 0，需单独讨论，不能直接乘过去。\n2. **精度控制**：二分迭代次数不足或 `eps` 设得过大，会导致答案精度不够；浮点运算用 `double` / `long double` 并固定迭代次数更稳妥。\n3. **判定语义**：`check(x)` 判断的是「是否存在方案使比值 $\\ge x$」，不要写成「所有方案都 $\\ge x$」。\n4. **贪心不通用**：「取前 $k$ 大」只适用于「恰好选 $k$ 个」且无附加限制；一旦有重量、连通性等约束，就要换成背包、生成树、网络流等对应判定。\n5. **$c_i$ 符号**：$x$ 较大时 $c_i = a_i - x b_i$ 可能全为负，内层判定会稳定返回「不可行」，这是二分向回收敛的正常现象。\n\n## 对比与扩展\n\n不同约束下，内层判定方法随之变化：\n\n| 题目约束 | 内层判定方法 | 复杂度 |\n|---|---|---|\n| 无限制，任选 | 把所有正的 $c_i$ 相加，判断是否 $\\ge 0$ | $O(n)$ |\n| 恰好选 $k$ 个 | 对 $c_i$ 排序，取最大的 $k$ 个求和 | $O(n \\log n)$ |\n| 总重量 $\\le W$（背包） | 以 $c_i$ 为价值、$w_i$ 为重量跑 0/1 背包 | $O(nW)$ |\n| 选出的边构成生成树 | 以 $c_i$ 为边权求最大生成树 | $O(m \\log m)$ |\n| 选出的边构成环 | 以 $c_i$ 为边权判定正环 / 负环 | $O(nm)$ |\n| 选出的点构成闭合子图 | 转化为最小割跑网络流 | 视问题而定 |\n\n扩展方面：分数规划也可用 **Dinkelbach 迭代法**求解，它在每轮固定当前比值、直接解一次线性目标的最优解来更新答案，通常比二分收敛更快；二分答案与 Dinkelbach 都建立在「比值目标可线性化」这一共同基础上。",
                 "codePath": "",
                 "timeComplexity": "视具体实现",
                 "spaceComplexity": "视具体实现",
@@ -11174,10 +11351,11 @@ const KNOWLEDGE_DATA = [
         "codePath": "",
         "prerequisites": [
             "hub-math",
-            "hub-math-number-theory"
+            "hub-math-number-theory",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-binomial-inversion",
@@ -11268,10 +11446,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-bit-operation-advanced",
@@ -11305,10 +11484,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-block-division",
@@ -11393,7 +11573,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "basic-sqrt-decomposition"
         ],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-bsgs",
@@ -11439,7 +11619,7 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-cartesian-plane",
@@ -11477,10 +11657,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-catalan",
@@ -11626,10 +11807,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-congruence-basics",
@@ -11669,7 +11851,7 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-counting-misc",
@@ -11815,7 +11997,7 @@ const KNOWLEDGE_DATA = [
             "math-gcd-lcm",
             "math-quick-pow-basic"
         ],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-derangement",
@@ -11929,7 +12111,7 @@ const KNOWLEDGE_DATA = [
             "math-quick-pow-basic",
             "math-modular-inverse"
         ],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-eulerian-number",
@@ -12015,7 +12197,7 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-factorization",
@@ -12042,7 +12224,7 @@ const KNOWLEDGE_DATA = [
             },
             {
                 "author": "Fohen",
-                "content": "## 算法原理\r\n\r\nPollard-Rho 用于**大整数的质因数分解**。当 $n$ 大到 $10^{18}$ 级别，试除法需要枚举到 $\\sqrt{n} \\approx 10^9$，直接超时。Pollard-Rho 把「逐个试因子」换成「**随机猜因子**」，借助**生日悖论**大幅降低尝试次数。\r\n\r\n**生日悖论**：一个房间要多少人，才能让「至少两个人同一天生日」的概率超过 50%？直觉是 183 人（365 的一半），但答案是 **23 人**。原因在于比较对象不是「某个人和你是否同天」，而是「任意两个人之间」：$k$ 个人两两配对的组合数是 $\\binom{k}{2} \\approx \\frac{k^2}{2}$，随 $k$ 平方增长，碰撞来得远比直觉早。\r\n\r\n把生日悖论搬到因数分解上：设 $n$ 有一个（未知的）质因子 $p$，必有 $p \\le \\sqrt{n}$。若随机生成 $k$ 个数并对 $p$ 取模，当 $k \\approx \\sqrt{p}$ 时，几乎必然有两个数同余，即 $x_i \\equiv x_j \\pmod{p}$。此时 $p \\mid (x_i - x_j)$，于是 $\\gcd(\\lvert x_i - x_j \\rvert, n)$ 是 $p$ 的倍数，极大概率就是 $n$ 的一个**非平凡因子**（既不是 $1$ 也不是 $n$）。\r\n\r\n关键点在于 $p \\le \\sqrt{n}$，所以 $\\sqrt{p} \\le n^{1/4}$：只需约 $n^{1/4}$ 次随机「碰撞」就能挖出一个因子，比试除法的 $\\sqrt{n}$ 快得多。找到因子后递归分解，直到全部拆成质数。\r\n\r\n具体怎么生成随机数？Pollard-Rho 用一个**伪随机递推** $x_{i+1} \\equiv (x_i^2 + c) \\pmod{n}$。因为状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」整体形似希腊字母 $\\rho$，算法因此得名。对 $p$ 取模后状态只有 $p$ 种，环更短（约 $\\sqrt{p}$），所以在模 $p$ 意义下先碰撞、在模 $n$ 意义下尚未碰撞——正是这种「差」暴露了因子。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**伪随机递推**：\r\n\r\n$$\r\nx_{i+1} \\equiv (x_i^2 + c) \\pmod{n}, \\qquad c \\not\\equiv 0,\\ -2 \\pmod{n}\r\n$$\r\n\r\n**生日悖论（碰撞概率）**：$k$ 个数中至少有一对模 $p$ 同余的概率约为\r\n\r\n$$\r\nP \\approx 1 - e^{-k^2 / (2p)}\r\n$$\r\n\r\n当 $k \\approx \\sqrt{p}$ 时 $P$ 超过 $50\\%$。\r\n\r\n**碰撞给出因子**：若 $x_i \\equiv x_j \\pmod{p}$ 且 $x_i \\not\\equiv x_j \\pmod{n}$，则\r\n\r\n$$\r\nd = \\gcd(\\lvert x_i - x_j \\rvert, n), \\qquad 1 < d < n\r\n$$\r\n\r\n**复杂度依据**：$p \\le \\sqrt{n} \\implies \\sqrt{p} \\le n^{1/4}$，因此期望尝试次数为 $O(n^{1/4})$。\r\n\r\n## 逐行代码解析\r\n\r\nPollard-Rho 的完整实现还需配合 Miller-Rabin 素性测试与防溢出模乘，下面用伪代码分模块讲解核心流程。\r\n\r\n### 模块一：伪随机递推与 ρ 形结构\r\n\r\n```cpp\r\n// 伪随机递推：x_{i+1} ≡ (x_i^2 + c) (mod n)\r\nlong long f(long long x, long long c, long long n) {\r\n    return ((__int128)x * x + c) % n;   // __int128 防止 x*x 溢出\r\n}\r\n```\r\n\r\n- 递推是「伪随机」的：给定 $n$ 与 $c$ 后序列完全确定，但取值在 $[0, n)$ 上乱跳。\r\n- 状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」构成 $\\rho$ 形，是算法名字的由来。\r\n- 平方项让相邻值快速散开；改变 $c$ 可换一条新序列，供失败时重试。\r\n\r\n### 模块二：Floyd 判环（龟兔赛跑）\r\n\r\n```cpp\r\n// 快慢指针在「模 p 的环」上必然相遇，差值暴露因子\r\nx = f(x, c, n);              // 慢指针（乌龟）走一步\r\ny = f(f(y, c, n), c, n);     // 快指针（兔子）走两步\r\nd = gcd(abs(x - y), n);      // 相遇时 |x - y| 是 p 的倍数\r\n```\r\n\r\n- 无需存下整条序列：只维护两个指针 $x$（慢）与 $y$（快）。\r\n- 当序列在模 $p$ 上成环时，快慢指针必然在同一环内追上，即 $x \\equiv y \\pmod{p}$。\r\n- 此时 $p \\mid (x - y)$，$\\gcd(\\lvert x - y \\rvert, n)$ 就是候选因子 $d$。\r\n\r\n### 模块三：单次 Pollard-Rho 找非平凡因子\r\n\r\n```cpp\r\nlong long pollard_rho(long long n) {\r\n    if (n % 2 == 0) return 2;             // 偶数特判，直接拆出 2\r\n    long long c = rand() % (n - 1) + 1;   // 随机常数 c（避开 0 与 -2）\r\n    long long x = rand() % n, y = x, d = 1;\r\n    while (d == 1) {                      // 未碰撞则继续推进\r\n        x = f(x, c, n);\r\n        y = f(f(y, c, n), c, n);\r\n        d = gcd(abs(x - y), n);\r\n    }\r\n    return d == n ? pollard_rho(n) : d;   // d==n 撞在模 n 上，换 c 重试\r\n}\r\n```\r\n\r\n- $d = 1$ 说明还没碰撞，继续推进序列。\r\n- $d = n$ 说明 $x \\equiv y \\pmod{n}$，这次运气不好，换随机 $c$ 重新跑。\r\n- $1 < d < n$ 时，$d$ 就是一个非平凡因子。\r\n\r\n### 模块四：Miller-Rabin 判质数 + 递归分解\r\n\r\n```cpp\r\nvoid factorize(long long n, vector<long long>& fac) {\r\n    if (n == 1) return;\r\n    if (is_prime(n)) { fac.push_back(n); return; }   // Miller-Rabin 判定质数\r\n    long long d = pollard_rho(n);                    // 拆出非平凡因子\r\n    factorize(d, fac);                               // 递归分解 d\r\n    factorize(n / d, fac);                           // 递归分解另一半\r\n}\r\n```\r\n\r\n- `is_prime` 用 Miller-Rabin 随机化素性测试，误判概率可忽略（详见「对比与扩展」）。\r\n- 找到因子 $d$ 后对 $d$ 与 $n/d$ 分别递归，直到全部拆成质数。\r\n- 分工：Pollard-Rho 负责「拆」，Miller-Rabin 负责「判定是否还要拆」。\r\n\r\n## 复杂度分析\r\n\r\n| 维度 | 复杂度 | 说明 |\r\n|------|--------|------|\r\n| 时间 | $O(n^{1/4})$（期望） | 每个因子期望 $O(n^{1/4})$ 次迭代找到；每次迭代一次模乘与一次 gcd |\r\n| 空间 | $O(1)$ | Floyd 判环只需两个指针，不存整条序列 |\r\n\r\n**与试除法对比**：试除法 $O(\\sqrt{n})$，Pollard-Rho $O(n^{1/4})$。当 $n = 10^{18}$ 时，$\\sqrt{n} \\approx 10^9$ 已经扛不住，而 $n^{1/4} \\approx 3 \\times 10^4$ 瞬间完成。\r\n\r\n## 适用场景\r\n\r\n- 大整数质因数分解：$n$ 到 $10^{18}$ 甚至更大（配合 Miller-Rabin），试除法顶不住时。\r\n- 只需单个非平凡因子（不要求全部质因子）时，可只调用一次 `pollard_rho`。\r\n- 数论题里对 $n$ 做唯一分解、求 $\\varphi(n)$、求约数个数/约数和等，当 $\\sqrt{n}$ 过不了时。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **模乘溢出**：$x \\cdot x$ 在 $n$ 接近 $2^{63}$ 时会溢出，必须用 `__int128` 或龟速乘做模乘。\r\n2. **$d = n$ 的失败**：撞在模 $n$ 上得到的 $\\gcd = n$ 不是有效因子，必须换 $c$ 重试（递归重跑）。\r\n3. **$c$ 的取值**：$c = 0$ 或 $c = -2$ 时序列会退化（很快循环），应避开。\r\n4. **初值固定**：随机化初始 $x$ 与 $c$，否则对某些 $n$ 可能反复失败。\r\n5. **必须配合素性测试**：Pollard-Rho 只能拆合数，需 Miller-Rabin 先判质数，否则会无限递归。\r\n6. **偶数特判**：偶数 $n$ 直接返回 $2$，否则平方递推在偶数上表现差。\r\n\r\n## 对比与扩展\r\n\r\n| 方法 | 复杂度 | 适用 |\r\n|------|--------|------|\r\n| 试除法 | $O(\\sqrt{n})$ | $n \\le 10^{12}$ 左右 |\r\n| Pollard-Rho | $O(n^{1/4})$（期望） | $n$ 到 $10^{18}$ 甚至更大 |\r\n| 埃氏筛 / 线性筛 | $O(n\\log\\log n)$ / $O(n)$ | 批量筛出 $[1,n]$ 的质因子，$n \\le 10^7$ |\r\n\r\n扩展：\r\n\r\n- **Miller-Rabin**：随机化素性测试，与 Pollard-Rho 组成完整的「大整数分解」工具链。\r\n- **Brent 判环**：Floyd 判环的改进版，减少 gcd 调用次数，常数更小。\r\n- **平方根攻击思想**：Pollard-Rho 是「用碰撞把 $O(n)$ 降到 $O(\\sqrt{n})$」的典型例子，同源的还有 BSGS（大步小步）、Meet-in-the-Middle 等，核心都是生日悖论。",
+                "content": "## 算法原理\n\nPollard-Rho 用于**大整数的质因数分解**。当 $n$ 大到 $10^{18}$ 级别，试除法需要枚举到 $\\sqrt{n} \\approx 10^9$，直接超时。Pollard-Rho 把「逐个试因子」换成「**随机猜因子**」，借助**生日悖论**大幅降低尝试次数。\n\n**生日悖论**：一个房间要多少人，才能让「至少两个人同一天生日」的概率超过 50%？直觉是 183 人（365 的一半），但答案是 **23 人**。原因在于比较对象不是「某个人和你是否同天」，而是「任意两个人之间」：$k$ 个人两两配对的组合数是 $\\binom{k}{2} \\approx \\frac{k^2}{2}$，随 $k$ 平方增长，碰撞来得远比直觉早。\n\n把生日悖论搬到因数分解上：设 $n$ 有一个（未知的）质因子 $p$，必有 $p \\le \\sqrt{n}$。若随机生成 $k$ 个数并对 $p$ 取模，当 $k \\approx \\sqrt{p}$ 时，几乎必然有两个数同余，即 $x_i \\equiv x_j \\pmod{p}$。此时 $p \\mid (x_i - x_j)$，于是 $\\gcd(\\lvert x_i - x_j \\rvert, n)$ 是 $p$ 的倍数，极大概率就是 $n$ 的一个**非平凡因子**（既不是 $1$ 也不是 $n$）。\n\n关键点在于 $p \\le \\sqrt{n}$，所以 $\\sqrt{p} \\le n^{1/4}$：只需约 $n^{1/4}$ 次随机「碰撞」就能挖出一个因子，比试除法的 $\\sqrt{n}$ 快得多。找到因子后递归分解，直到全部拆成质数。\n\n具体怎么生成随机数？Pollard-Rho 用一个**伪随机递推** $x_{i+1} \\equiv (x_i^2 + c) \\pmod{n}$。因为状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」整体形似希腊字母 $\\rho$，算法因此得名。对 $p$ 取模后状态只有 $p$ 种，环更短（约 $\\sqrt{p}$），所以在模 $p$ 意义下先碰撞、在模 $n$ 意义下尚未碰撞——正是这种「差」暴露了因子。\n\n## 核心公式 / 状态定义与转移方程\n\n**伪随机递推**：\n\n$$\nx_{i+1} \\equiv (x_i^2 + c) \\pmod{n}, \\qquad c \\not\\equiv 0,\\ -2 \\pmod{n}\n$$\n\n**生日悖论（碰撞概率）**：$k$ 个数中至少有一对模 $p$ 同余的概率约为\n\n$$\nP \\approx 1 - e^{-k^2 / (2p)}\n$$\n\n当 $k \\approx \\sqrt{p}$ 时 $P$ 超过 $50\\%$。\n\n**碰撞给出因子**：若 $x_i \\equiv x_j \\pmod{p}$ 且 $x_i \\not\\equiv x_j \\pmod{n}$，则\n\n$$\nd = \\gcd(\\lvert x_i - x_j \\rvert, n), \\qquad 1 < d < n\n$$\n\n**复杂度依据**：$p \\le \\sqrt{n} \\implies \\sqrt{p} \\le n^{1/4}$，因此期望尝试次数为 $O(n^{1/4})$。\n\n## 逐行代码解析\n\nPollard-Rho 的完整实现还需配合 Miller-Rabin 素性测试与防溢出模乘，下面用伪代码分模块讲解核心流程。\n\n### 模块一：伪随机递推与 ρ 形结构\n\n```cpp\n// 伪随机递推：x_{i+1} ≡ (x_i^2 + c) (mod n)\nlong long f(long long x, long long c, long long n) {\n    return ((__int128)x * x + c) % n;   // __int128 防止 x*x 溢出\n}\n```\n\n- 递推是「伪随机」的：给定 $n$ 与 $c$ 后序列完全确定，但取值在 $[0, n)$ 上乱跳。\n- 状态只有 $n$ 种，序列必然进入循环；「尾巴 + 环」构成 $\\rho$ 形，是算法名字的由来。\n- 平方项让相邻值快速散开；改变 $c$ 可换一条新序列，供失败时重试。\n\n### 模块二：Floyd 判环（龟兔赛跑）\n\n```cpp\n// 快慢指针在「模 p 的环」上必然相遇，差值暴露因子\nx = f(x, c, n);              // 慢指针（乌龟）走一步\ny = f(f(y, c, n), c, n);     // 快指针（兔子）走两步\nd = gcd(abs(x - y), n);      // 相遇时 |x - y| 是 p 的倍数\n```\n\n- 无需存下整条序列：只维护两个指针 $x$（慢）与 $y$（快）。\n- 当序列在模 $p$ 上成环时，快慢指针必然在同一环内追上，即 $x \\equiv y \\pmod{p}$。\n- 此时 $p \\mid (x - y)$，$\\gcd(\\lvert x - y \\rvert, n)$ 就是候选因子 $d$。\n\n### 模块三：单次 Pollard-Rho 找非平凡因子\n\n```cpp\nlong long pollard_rho(long long n) {\n    if (n % 2 == 0) return 2;             // 偶数特判，直接拆出 2\n    long long c = rand() % (n - 1) + 1;   // 随机常数 c（避开 0 与 -2）\n    long long x = rand() % n, y = x, d = 1;\n    while (d == 1) {                      // 未碰撞则继续推进\n        x = f(x, c, n);\n        y = f(f(y, c, n), c, n);\n        d = gcd(abs(x - y), n);\n    }\n    return d == n ? pollard_rho(n) : d;   // d==n 撞在模 n 上，换 c 重试\n}\n```\n\n- $d = 1$ 说明还没碰撞，继续推进序列。\n- $d = n$ 说明 $x \\equiv y \\pmod{n}$，这次运气不好，换随机 $c$ 重新跑。\n- $1 < d < n$ 时，$d$ 就是一个非平凡因子。\n\n### 模块四：Miller-Rabin 判质数 + 递归分解\n\n```cpp\nvoid factorize(long long n, vector<long long>& fac) {\n    if (n == 1) return;\n    if (is_prime(n)) { fac.push_back(n); return; }   // Miller-Rabin 判定质数\n    long long d = pollard_rho(n);                    // 拆出非平凡因子\n    factorize(d, fac);                               // 递归分解 d\n    factorize(n / d, fac);                           // 递归分解另一半\n}\n```\n\n- `is_prime` 用 Miller-Rabin 随机化素性测试，误判概率可忽略（详见「对比与扩展」）。\n- 找到因子 $d$ 后对 $d$ 与 $n/d$ 分别递归，直到全部拆成质数。\n- 分工：Pollard-Rho 负责「拆」，Miller-Rabin 负责「判定是否还要拆」。\n\n## 复杂度分析\n\n| 维度 | 复杂度 | 说明 |\n|------|--------|------|\n| 时间 | $O(n^{1/4})$（期望） | 每个因子期望 $O(n^{1/4})$ 次迭代找到；每次迭代一次模乘与一次 gcd |\n| 空间 | $O(1)$ | Floyd 判环只需两个指针，不存整条序列 |\n\n**与试除法对比**：试除法 $O(\\sqrt{n})$，Pollard-Rho $O(n^{1/4})$。当 $n = 10^{18}$ 时，$\\sqrt{n} \\approx 10^9$ 已经扛不住，而 $n^{1/4} \\approx 3 \\times 10^4$ 瞬间完成。\n\n## 适用场景\n\n- 大整数质因数分解：$n$ 到 $10^{18}$ 甚至更大（配合 Miller-Rabin），试除法顶不住时。\n- 只需单个非平凡因子（不要求全部质因子）时，可只调用一次 `pollard_rho`。\n- 数论题里对 $n$ 做唯一分解、求 $\\varphi(n)$、求约数个数/约数和等，当 $\\sqrt{n}$ 过不了时。\n\n## 常见陷阱与注意事项\n\n1. **模乘溢出**：$x \\cdot x$ 在 $n$ 接近 $2^{63}$ 时会溢出，必须用 `__int128` 或龟速乘做模乘。\n2. **$d = n$ 的失败**：撞在模 $n$ 上得到的 $\\gcd = n$ 不是有效因子，必须换 $c$ 重试（递归重跑）。\n3. **$c$ 的取值**：$c = 0$ 或 $c = -2$ 时序列会退化（很快循环），应避开。\n4. **初值固定**：随机化初始 $x$ 与 $c$，否则对某些 $n$ 可能反复失败。\n5. **必须配合素性测试**：Pollard-Rho 只能拆合数，需 Miller-Rabin 先判质数，否则会无限递归。\n6. **偶数特判**：偶数 $n$ 直接返回 $2$，否则平方递推在偶数上表现差。\n\n## 对比与扩展\n\n| 方法 | 复杂度 | 适用 |\n|------|--------|------|\n| 试除法 | $O(\\sqrt{n})$ | $n \\le 10^{12}$ 左右 |\n| Pollard-Rho | $O(n^{1/4})$（期望） | $n$ 到 $10^{18}$ 甚至更大 |\n| 埃氏筛 / 线性筛 | $O(n\\log\\log n)$ / $O(n)$ | 批量筛出 $[1,n]$ 的质因子，$n \\le 10^7$ |\n\n扩展：\n\n- **Miller-Rabin**：随机化素性测试，与 Pollard-Rho 组成完整的「大整数分解」工具链。\n- **Brent 判环**：Floyd 判环的改进版，减少 gcd 调用次数，常数更小。\n- **平方根攻击思想**：Pollard-Rho 是「用碰撞把 $O(n)$ 降到 $O(\\sqrt{n})$」的典型例子，同源的还有 BSGS（大步小步）、Meet-in-the-Middle 等，核心都是生日悖论。",
                 "codePath": "",
                 "timeComplexity": "O(n^{1/4})",
                 "spaceComplexity": "O(1)",
@@ -12075,7 +12257,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "math-miller-rabin"
         ],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-gauss-elimination",
@@ -12192,7 +12374,7 @@ const KNOWLEDGE_DATA = [
             "math-euler-phi",
             "math-crt"
         ],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-group-theory",
@@ -12324,10 +12506,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-lcm-pair-count",
@@ -12487,14 +12670,15 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "数学\\矩阵\\矩阵加速线性递推\\源.cpp",
         "prerequisites": [
-            "math-matrix-quick-pow"
+            "math-matrix-quick-pow",
+            "math-matrix-multiplication"
         ],
         "related": [
             "math-matrix-quick-pow",
             "math-matrix-multiplication",
             "math-quick-pow-basic"
         ],
-        "parent": ""
+        "parent": "math-matrix-multiplication"
     },
     {
         "id": "math-matrix-multiplication",
@@ -12598,7 +12782,7 @@ const KNOWLEDGE_DATA = [
             "math-quick-pow-basic",
             "math-matrix-linear-recurrence"
         ],
-        "parent": ""
+        "parent": "math-matrix-multiplication"
     },
     {
         "id": "math-miller-rabin",
@@ -12658,7 +12842,7 @@ const KNOWLEDGE_DATA = [
         "related": [
             "math-factorization"
         ],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-modular-arithmetic",
@@ -12721,7 +12905,7 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-modular-inverse",
@@ -12774,7 +12958,7 @@ const KNOWLEDGE_DATA = [
             "math-sieve",
             "math-crt"
         ],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-nested-radical",
@@ -12810,10 +12994,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-number-theory-basic",
@@ -12874,7 +13059,7 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-number-theory-theorems",
@@ -12912,7 +13097,7 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-oi-foundations",
@@ -13030,7 +13215,7 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-prime-theory",
@@ -13070,7 +13255,7 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-probability",
@@ -13117,12 +13302,12 @@ const KNOWLEDGE_DATA = [
         "category": "数学",
         "subcategory": "快速幂",
         "subSubcategory": "",
-        "title": "快速幂（基础，模意义下）",
+        "title": "快速幂（基础与高精度）",
         "hub": false,
         "versions": [
             {
                 "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n快速幂用于高效计算 $a^b \\bmod q$。朴素方法是将 $a$ 连乘 $b$ 次，时间复杂度为 $O(b)$，当 $b$ 达到 $10^{18}$ 量级时完全不可行。快速幂的核心思想是利用指数的二进制拆分：将 $b$ 写成若干 $2$ 的幂之和，则 $a^b$ 可以分解为对应 $a^{2^i}$ 项的乘积，而每个 $a^{2^i}$ 都可以由前一项平方递推得到。\r\n\r\n具体地，设 $b$ 的二进制表示为 $b = \\sum_{i} b_i \\cdot 2^i$（其中 $b_i \\in \\{0, 1\\}$），则 $a^b = \\prod_{i: b_i = 1} a^{2^i}$。算法维护一个\"当前底数\" `gap`，初始为 $a$，每轮循环将其平方得到 $a^2, a^4, a^8, \\ldots$，对应二进制位的权值。同时维护\"累积答案\" `ans`，当 $b$ 的当前最低位为 $1$ 时，将对应的 `gap` 乘入 `ans`。每轮处理后 $b$ 右移一位，直到 $b$ 为 $0$。\r\n\r\n整个过程中所有乘法都在模 $q$ 意义下进行，确保中间值始终小于 $q$，避免溢出。由于 $b$ 的二进制位数为 $\\lfloor \\log_2 b \\rfloor + 1$，循环只需执行 $O(\\log b)$ 次，每次做至多两次模乘运算，因此总时间复杂度为 $O(\\log b)$，空间复杂度为 $O(1)$（迭代实现无需递归栈）。快速幂是数论和组合数学中最基础的工具，广泛应用于模逆元、组合数取模、矩阵快速幂等场景。\r\n\r\n## 核心公式\r\n\r\n指数的二进制拆分：\r\n$$b = \\sum_{i=0}^{\\lfloor \\log_2 b \\rfloor} b_i \\cdot 2^i, \\quad b_i \\in \\{0, 1\\}$$\r\n\r\n快速幂的乘积分解：\r\n$$a^b = \\prod_{i:\\, b_i = 1} a^{2^i} \\pmod{q}$$\r\n\r\n底数平方递推：\r\n$$\\text{gap}_i = \\text{gap}_{i-1}^2 = a^{2^i} \\pmod{q}$$\r\n\r\n答案累积（当 $b_i = 1$ 时）：\r\n$$\\text{ans} \\leftarrow \\text{ans} \\times \\text{gap}_i \\pmod{q}$$\r\n\r\n## 逐行代码解析\r\n\r\n### 头文件与命名空间\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n```\r\n\r\n- `#include<bits/stdc++.h>`：一次性引入几乎所有标准库头文件，是竞赛环境的常用写法。\r\n- `using namespace std`：省略 `std::` 前缀，让 `cin`、`cout` 等可以直接书写。\r\n\r\n### fastpow 函数 — 边界与初始化\r\n\r\n```cpp\r\nlong long fastpow(long long a,long long b,long long q)\r\n{\r\n\tif(b == 0) return 1;  // a^0 = 1 的边界处理\r\n\tlong long ans = 1;    // 累积答案，初始为乘法单位元\r\n\tlong long gap = a;    // 当前底数，初始为 a = a^{2^0}\r\n```\r\n\r\n- `if(b == 0) return 1`：处理指数为 $0$ 的边界情况。实际上 `while(b)` 在 $b=0$ 时不进入，会直接返回 `ans=1`，此行可省略但保留使语义更清晰。\r\n- `ans = 1`：乘法单位元，作为累积答案的初始值。\r\n- `gap = a`：`gap` 始终维护 $a^{2^i} \\bmod q$，其中 $i$ 为当前已处理的二进制位数；初始 $i=0$ 时 `gap = a = a^{2^0}`。\r\n\r\n### fastpow 函数 — 主循环\r\n\r\n```cpp\r\n\twhile(b)\r\n\t{\r\n\t\tif(b & 1) ans = (ans * gap) % q;   // 当前最低位为 1，乘入对应 a^{2^i}\r\n\t\tgap = (gap * gap) % q;             // 底数平方：a^{2^i} -> a^{2^{i+1}}\r\n\t\tb >>= 1;                           // 右移一位，处理下一位\r\n\t}\r\n\treturn ans;\r\n}\r\n```\r\n\r\n- `if(b & 1) ans = (ans * gap) % q`：检查 $b$ 的最低位，为 $1$ 则把该项 $a^{2^i}$ 乘入答案；取模确保 `ans` 始终在 $[0, q)$ 范围内。\r\n- `gap = (gap * gap) % q`：将底数从 $a^{2^i}$ 平方为 $a^{2^{i+1}}$，为下一轮做准备，是快速幂\"倍增\"思想的核心。\r\n- `b >>= 1`：右移一位，丢弃已处理的最低位，使下一次 `b & 1` 检查的是更高位。\r\n- 参数与返回值均为 `long long`：两个 `long long` 相乘最大约 $q^2 \\approx 10^{18}$，仍落在 `long long` 范围（$\\approx 9.2 \\times 10^{18}$）内，避免溢出。\r\n\r\n### main 函数\r\n\r\n```cpp\r\nint main() \r\n{\r\n\tlong long a,b,q;\r\n\tcin >> a >> b >> q;\r\n\tcout << a << \"^\" << b << \" mod \" << q << \"=\" << fastpow(a,b,q);\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- `cin >> a >> b >> q`：读入底数 `a`、指数 `b` 与模数 `q`。\r\n- 输出格式为 `a^b mod q=` 后接 `fastpow(a, b, q)` 的结果，便于直接观察计算过程。\r\n\r\n## 复杂度分析\r\n\r\n循环次数等于 $b$ 的二进制位数，即 $\\lfloor \\log_2 b \\rfloor + 1$。每次循环至多执行两次模乘运算（`ans * gap` 和 `gap * gap`），因此总时间复杂度为 $O(\\log b)$。由于采用迭代而非递归实现，无需调用栈，空间复杂度为 $O(1)$。相比之下，朴素连乘需要 $O(b)$ 次乘法，当 $b = 10^{18}$ 时快速幂仅需约 $60$ 次乘法，加速比超过 $10^{16}$。\r\n\r\n## 适用场景\r\n\r\n模幂运算是数论与组合数学的基石。具体应用包括：费马小定理求模逆元（$a^{-1} \\equiv a^{q-2} \\pmod{q}$，$q$ 为质数）、组合数取模中的阶乘幂预处理、RSA 等公钥密码学中的模幂运算、以及作为矩阵快速幂的基本运算单元（将标量乘法替换为矩阵乘法即可推广）。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **中间溢出**：当 $q$ 接近 $10^9$ 时，`ans * gap` 可达 $10^{18}$，仍在 `long long` 范围内。但若 $q$ 接近 $10^{18}$，则两个 $10^{18}$ 级数相乘会溢出，需改用 `__int128` 或快速乘（类似于快速幂的加法分解）。\r\n2. **负数指数**：本代码未处理 $b < 0$ 的情况。若需支持负指数，应先判断 $b$ 的符号，取绝对值计算后用模逆元转换。\r\n3. **底数为负**：当 $a < 0$ 时，`a % q` 在 C++ 中可能为负数，应先做 `(a % q + q) % q` 归一化到 $[0, q)$。\r\n4. **$q = 1$ 的退化**：任何数模 $1$ 均为 $0$，`fastpow(a, b, 1)` 应返回 $0$。代码中 `ans` 初始为 $1$ 但首次乘法后取模即变为 $0$，结果正确但需注意初始值。\r\n5. **递归 vs 迭代**：递归写法逻辑等价但存在栈开销，在 $b$ 极大时（虽然不太可能超过 $64$ 层）无实际问题，但迭代写法常数更小、更安全。\r\n6. **模数 $q = 0$ 会除零**：`a % q`、`ans % q` 在 $q = 0$ 时是未定义行为（除零）。本模板假设 $q \\ge 2$（模意义下 $q = 1$ 退化已在第 4 条说明）；若 $q$ 可能为 0，需在入口处特判。\r\n\r\n## 对比与扩展\r\n\r\n与朴素 $O(b)$ 幂相比，快速幂将复杂度降至对数级，是指数运算的根本优化。与光速幂（预计算 $a^0 \\sim a^S$ 和 $a^0, a^S, a^{2S}, \\ldots$，通过查表 + 一次乘法实现 $O(1)$ 单次查询）相比，快速幂无需预处理但单次查询为 $O(\\log b)$，适合查询次数少的场景。扩展方向包括：矩阵快速幂（将标量乘法替换为矩阵乘法，用于求解线性递推数列的第 $n$ 项）、快速乘（用类似思想实现大数取模乘法防溢出）、以及结合欧拉降幂公式处理超大指数 $b \\ge \\varphi(q)$ 的情形。",
+                "content": "## 算法原理\n\n快速幂用于高效计算 $a^b \\bmod q$。朴素方法是将 $a$ 连乘 $b$ 次，时间复杂度为 $O(b)$，当 $b$ 达到 $10^{18}$ 量级时完全不可行。快速幂的核心思想是利用指数的二进制拆分：将 $b$ 写成若干 $2$ 的幂之和，则 $a^b$ 可以分解为对应 $a^{2^i}$ 项的乘积，而每个 $a^{2^i}$ 都可以由前一项平方递推得到。\n\n具体地，设 $b$ 的二进制表示为 $b = \\sum_{i} b_i \\cdot 2^i$（其中 $b_i \\in \\{0, 1\\}$），则 $a^b = \\prod_{i: b_i = 1} a^{2^i}$。算法维护一个\"当前底数\" `gap`，初始为 $a$，每轮循环将其平方得到 $a^2, a^4, a^8, \\ldots$，对应二进制位的权值。同时维护\"累积答案\" `ans`，当 $b$ 的当前最低位为 $1$ 时，将对应的 `gap` 乘入 `ans`。每轮处理后 $b$ 右移一位，直到 $b$ 为 $0$。\n\n整个过程中所有乘法都在模 $q$ 意义下进行，确保中间值始终小于 $q$，避免溢出。由于 $b$ 的二进制位数为 $\\lfloor \\log_2 b \\rfloor + 1$，循环只需执行 $O(\\log b)$ 次，每次做至多两次模乘运算，因此总时间复杂度为 $O(\\log b)$，空间复杂度为 $O(1)$（迭代实现无需递归栈）。快速幂是数论和组合数学中最基础的工具，广泛应用于模逆元、组合数取模、矩阵快速幂等场景。\n\n## 核心公式\n\n指数的二进制拆分：\n$$b = \\sum_{i=0}^{\\lfloor \\log_2 b \\rfloor} b_i \\cdot 2^i, \\quad b_i \\in \\{0, 1\\}$$\n\n快速幂的乘积分解：\n$$a^b = \\prod_{i:\\, b_i = 1} a^{2^i} \\pmod{q}$$\n\n底数平方递推：\n$$\\text{gap}_i = \\text{gap}_{i-1}^2 = a^{2^i} \\pmod{q}$$\n\n答案累积（当 $b_i = 1$ 时）：\n$$\\text{ans} \\leftarrow \\text{ans} \\times \\text{gap}_i \\pmod{q}$$\n\n## 逐行代码解析\n\n### 头文件与命名空间\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n```\n\n- `#include<bits/stdc++.h>`：一次性引入几乎所有标准库头文件，是竞赛环境的常用写法。\n- `using namespace std`：省略 `std::` 前缀，让 `cin`、`cout` 等可以直接书写。\n\n### fastpow 函数 — 边界与初始化\n\n```cpp\nlong long fastpow(long long a,long long b,long long q)\n{\n\tif(b == 0) return 1;  // a^0 = 1 的边界处理\n\tlong long ans = 1;    // 累积答案，初始为乘法单位元\n\tlong long gap = a;    // 当前底数，初始为 a = a^{2^0}\n```\n\n- `if(b == 0) return 1`：处理指数为 $0$ 的边界情况。实际上 `while(b)` 在 $b=0$ 时不进入，会直接返回 `ans=1`，此行可省略但保留使语义更清晰。\n- `ans = 1`：乘法单位元，作为累积答案的初始值。\n- `gap = a`：`gap` 始终维护 $a^{2^i} \\bmod q$，其中 $i$ 为当前已处理的二进制位数；初始 $i=0$ 时 `gap = a = a^{2^0}`。\n\n### fastpow 函数 — 主循环\n\n```cpp\n\twhile(b)\n\t{\n\t\tif(b & 1) ans = (ans * gap) % q;   // 当前最低位为 1，乘入对应 a^{2^i}\n\t\tgap = (gap * gap) % q;             // 底数平方：a^{2^i} -> a^{2^{i+1}}\n\t\tb >>= 1;                           // 右移一位，处理下一位\n\t}\n\treturn ans;\n}\n```\n\n- `if(b & 1) ans = (ans * gap) % q`：检查 $b$ 的最低位，为 $1$ 则把该项 $a^{2^i}$ 乘入答案；取模确保 `ans` 始终在 $[0, q)$ 范围内。\n- `gap = (gap * gap) % q`：将底数从 $a^{2^i}$ 平方为 $a^{2^{i+1}}$，为下一轮做准备，是快速幂\"倍增\"思想的核心。\n- `b >>= 1`：右移一位，丢弃已处理的最低位，使下一次 `b & 1` 检查的是更高位。\n- 参数与返回值均为 `long long`：两个 `long long` 相乘最大约 $q^2 \\approx 10^{18}$，仍落在 `long long` 范围（$\\approx 9.2 \\times 10^{18}$）内，避免溢出。\n\n### main 函数\n\n```cpp\nint main() \n{\n\tlong long a,b,q;\n\tcin >> a >> b >> q;\n\tcout << a << \"^\" << b << \" mod \" << q << \"=\" << fastpow(a,b,q);\n\treturn 0;\n}\n```\n\n- `cin >> a >> b >> q`：读入底数 `a`、指数 `b` 与模数 `q`。\n- 输出格式为 `a^b mod q=` 后接 `fastpow(a, b, q)` 的结果，便于直接观察计算过程。\n\n## 复杂度分析\n\n循环次数等于 $b$ 的二进制位数，即 $\\lfloor \\log_2 b \\rfloor + 1$。每次循环至多执行两次模乘运算（`ans * gap` 和 `gap * gap`），因此总时间复杂度为 $O(\\log b)$。由于采用迭代而非递归实现，无需调用栈，空间复杂度为 $O(1)$。相比之下，朴素连乘需要 $O(b)$ 次乘法，当 $b = 10^{18}$ 时快速幂仅需约 $60$ 次乘法，加速比超过 $10^{16}$。\n\n## 适用场景\n\n模幂运算是数论与组合数学的基石。具体应用包括：费马小定理求模逆元（$a^{-1} \\equiv a^{q-2} \\pmod{q}$，$q$ 为质数）、组合数取模中的阶乘幂预处理、RSA 等公钥密码学中的模幂运算、以及作为矩阵快速幂的基本运算单元（将标量乘法替换为矩阵乘法即可推广）。\n\n## 常见陷阱与注意事项\n\n1. **中间溢出**：当 $q$ 接近 $10^9$ 时，`ans * gap` 可达 $10^{18}$，仍在 `long long` 范围内。但若 $q$ 接近 $10^{18}$，则两个 $10^{18}$ 级数相乘会溢出，需改用 `__int128` 或快速乘（类似于快速幂的加法分解）。\n2. **负数指数**：本代码未处理 $b < 0$ 的情况。若需支持负指数，应先判断 $b$ 的符号，取绝对值计算后用模逆元转换。\n3. **底数为负**：当 $a < 0$ 时，`a % q` 在 C++ 中可能为负数，应先做 `(a % q + q) % q` 归一化到 $[0, q)$。\n4. **$q = 1$ 的退化**：任何数模 $1$ 均为 $0$，`fastpow(a, b, 1)` 应返回 $0$。代码中 `ans` 初始为 $1$ 但首次乘法后取模即变为 $0$，结果正确但需注意初始值。\n5. **递归 vs 迭代**：递归写法逻辑等价但存在栈开销，在 $b$ 极大时（虽然不太可能超过 $64$ 层）无实际问题，但迭代写法常数更小、更安全。\n6. **模数 $q = 0$ 会除零**：`a % q`、`ans % q` 在 $q = 0$ 时是未定义行为（除零）。本模板假设 $q \\ge 2$（模意义下 $q = 1$ 退化已在第 4 条说明）；若 $q$ 可能为 0，需在入口处特判。\n\n## 对比与扩展\n\n与朴素 $O(b)$ 幂相比，快速幂将复杂度降至对数级，是指数运算的根本优化。与光速幂（预计算 $a^0 \\sim a^S$ 和 $a^0, a^S, a^{2S}, \\ldots$，通过查表 + 一次乘法实现 $O(1)$ 单次查询）相比，快速幂无需预处理但单次查询为 $O(\\log b)$，适合查询次数少的场景。扩展方向包括：矩阵快速幂（将标量乘法替换为矩阵乘法，用于求解线性递推数列的第 $n$ 项）、快速乘（用类似思想实现大数取模乘法防溢出）、以及结合欧拉降幂公式处理超大指数 $b \\ge \\varphi(q)$ 的情形。\n\n## 附：快速幂（高精度）——麦森数2^P−1\n\n本算法计算 $2^P$ 并保留末 $500$ 位（即麦森数 $2^P - 1$ 的末 $500$ 位），用于解决如洛谷 P1045 麦森数问题。由于 $2^P$ 的位数可达数百位（$P \\le 3.1 \\times 10^6$ 时约 $10^6$ 位），远超 `long long` 的表示范围，因此必须使用高精度整数运算。算法用 `char` 数组按十进制位存储大整数（低位在前），实现\"竖式乘法\"函数 `mul`，再套用二进制快速幂框架进行幂运算。\n\n高精度乘法 `mul` 采用经典的竖式算法：两个长度分别为 $n_a$、$n_b$ 的大数相乘，结果的第 $i+j$ 位累加 $A[i] \\times B[j]$，最后统一进位。为控制计算量和存储，乘法中通过 `if(i + j < 500)` 截断，只保留末 $500$ 位，相当于在模 $10^{500}$ 意义下运算。由于题目只需末 $500$ 位，这种截断不会丢失所需信息，同时将每次乘法的复杂度从 $O(L^2)$（$L$ 为完整位数）降至 $O(500^2)$。\n\n快速幂框架与基础快速幂完全一致：维护结果 $A$（初始 $1$）和底数 $B$（初始 $2$），逐位检查指数 $P$ 的二进制位，为 $1$ 时 `mul(A, B)` 并更新 $A$，每轮 `mul(B, B)` 更新 $B$，最后 $P$ 右移一位。$2^P$ 的总位数预先用对数公式 $\\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$ 算出并输出。最终 $A[0] -= 1$ 实现 $2^P - 1$（由于 $2^P$ 末位必为偶数非零，减 $1$ 不需借位传播），再逆序输出 $500$ 位。\n\n### 核心公式\n\n$2^P$ 的十进制位数：\n$$\\text{num} = \\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$$\n\n高精度竖式乘法（截断到末 $L=500$ 位）：\n$$\\text{ans}[i+j] = \\sum_{i+j < L} A[i] \\times B[j], \\quad \\text{ans}[i+1] \\mathrel{+}= \\left\\lfloor \\frac{\\text{ans}[i]}{10} \\right\\rfloor, \\quad \\text{ans}[i] \\bmod 10$$\n\n快速幂分解（模 $10^{500}$ 意义下）：\n$$2^P = \\prod_{i:\\, P_i = 1} 2^{2^i} \\pmod{10^{500}}$$\n\n麦森数：\n$$M_P = 2^P - 1$$\n\n### 逐行代码解析\n\n#### 全局变量与头文件\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int n = 510;\nchar A[n];    // 结果数组，低位在前\nchar B[n];    // 底数数组，低位在前\nint ans[n];   // 乘法临时结果\n```\n\n- `const int n = 510`：数组开 $510$ 略大于 $500$，多出的空间用于承接进位时 `ans[i + 1]`（当 `i = 499` 时写入 `ans[500]`），避免越界。\n- `char A[n]` / `char B[n]`：用 `char` 存储十进制每位数字（0~9），低位在前，符合竖式乘法从低位到高位的进位方向。\n- `int ans[n]`：乘法临时结果用 `int` 而非 `char`，避免累加时超过 `char` 的 $127$ 范围。\n\n#### mul —— 高精度竖式乘法\n\n```cpp\n// 高精度乘法：ans = tA * tB，只保留末 500 位\nvoid mul(char tA[], char tB[])\n{\n\tmemset(ans, 0, sizeof(ans));\n\tint na = 500, nb = 500;\n\twhile(!tA[na - 1]) --na;        // 跳过前导零，确定实际有效位数\n\twhile(!tB[nb - 1]) --nb;\n\tfor(int i = 0; i < na; i++)\n\t{\n\t\tfor(int j = 0; j < nb; j++)\n\t\t{\n\t\t\tif(i + j < 500)          // 截断：只保留末 500 位\n\t\t\t\tans[i + j] += tA[i] * tB[j];\n\t\t}\n\t}\n\tfor(int i = 0; i < 500; i++)     // 统一进位\n\t{\n\t\tans[i + 1] += ans[i] / 10;\n\t\tans[i] %= 10;\n\t}\n}\n```\n\n- `while(!tA[na - 1]) --na`：从最高位向低位扫描跳过前导零，确定实际有效位数 `na`、`nb`，减少内层循环次数；当 $B = 2^{2^i}$ 位数远小于 $500$ 时显著加速。\n- `if(i + j < 500)`：截断条件。结果的第 $i+j$ 位若 $\\ge 500$ 则丢弃，等价于模 $10^{500}$ 运算，高位丢弃不影响末 $500$ 位结果。\n- `memset(ans, 0, sizeof(ans))`：每次必须清零，否则累加结果会被上一轮残留数据污染。\n- 进位循环上界取 $500$：`ans[i + 1] += ans[i] / 10` 在 `i = 499` 时写入 `ans[500]`，落在 $n = 510$ 的数组内，不会越界。\n\n#### fastpow —— 高精度快速幂\n\n```cpp\n// 高精度快速幂：计算 2^q，结果存入 A（末 500 位）\nvoid fastpow(int q)\n{\n\tif(q == 0) { A[0] = 1; return; }\n\tA[0] = 1;                        // 结果初值 = 1\n\tB[0] = 2;                        // 底数初值 = 2\n\twhile(q)\n\t{\n\t\tif(q & 1)                     // 当前位为 1，A = A * B\n\t\t{\n\t\t\tmul(A, B);\n\t\t\tfor(int i = 0; i < 500; i++) A[i] = ans[i];\n\t\t}\n\t\tmul(B, B);                    // B = B * B\n\t\tfor(int i = 0; i < 500; i++) B[i] = ans[i];\n\t\tq >>= 1;\n\t}\n}\n```\n\n- `A[0] = 1`（结果初值）、`B[0] = 2`（底数初值）：与标量快速幂框架完全一致。\n- `if(q & 1)`：当前二进制位为 $1$ 时执行 `mul(A, B)` 并把 `ans` 拷回 `A`，实现 `A = A * B`。\n- `mul(B, B)`：每轮底数平方并拷回 `B`，`q >>= 1` 右移检查下一位。\n- `if(q == 0) { A[0] = 1; return; }`：单独处理 $2^0 = 1$ 的边界，避免进入循环。\n\n#### main —— 位数计算与输出\n\n```cpp\nint main()\n{\n\tint q;\n\tscanf(\"%d\", &q);\n\tint num = q * log10(2) + 1;      // 计算总位数\n\tprintf(\"%d\\n\", num);\n\tfastpow(q);\n\tA[0] -= 1;                       // 2^P - 1，末位必非零无需借位\n\treverse(A, A + 500);             // 逆序：高位在前\n\tfor(int i = 0; i < 500; i++)\n\t{\n\t\tif(i && i % 50 == 0) putchar('\\n');  // 每 50 位换行\n\t\tputchar(A[i] + 48);\n\t}\n\treturn 0;\n}\n```\n\n- `int num = q * log10(2) + 1`：利用 $\\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$ 计算 $2^P$ 的总位数并先输出。\n- `A[0] -= 1`：$2^P$ 末位必为 $2, 4, 8, 6$ 循环、始终非零，减 $1$ 不需借位，直接得到 $2^P - 1$。\n- `reverse(A, A + 500)`：乘法低位在前，输出时逆序为高位在前。\n- 输出循环每 $50$ 位换行（`i % 50 == 0`），数字转字符用 `A[i] + 48`。\n\n### 复杂度分析\n\n每次高精度乘法 `mul` 的双重循环为 $O(na \\cdot nb)$，最坏情况下 $na = nb = 500$，故单次乘法为 $O(500^2) = O(L^2)$（$L = 500$）。快速幂循环次数为 $P$ 的二进制位数 $O(\\log P)$，每轮至多两次乘法，因此总时间复杂度为 $O(L^2 \\cdot \\log P)$。空间上 `A`、`B`、`ans` 各为 $O(L)$，总空间复杂度为 $O(L)$。对于 $P = 3.1 \\times 10^6$，$\\log P \\approx 22$，总乘法约 $44$ 次，每次 $250000$ 次基本运算，总计约 $10^7$ 量级，可在时限内完成。\n\n### 适用场景\n\n超大整数幂运算、麦森数/梅森素数末位问题、位数远超 `long long` 的大数幂问题，以及模运算无法承载（需完整十进制表示）的高精度计算场景。\n\n### 常见陷阱与注意事项\n\n1. **位数公式精度**：`q * log10(2)` 使用浮点运算，当 $P$ 极大时浮点误差可能导致位数差 $1$。更安全的做法是用整数模拟或预留 $\\pm 1$ 的容差。\n2. **截断位置**：`if(i + j < 500)` 截断在第 $500$ 位。若题目要求保留不同位数，需同步修改截断条件和进位循环上界，否则进位丢失导致结果错误。\n3. **`A[0] -= 1` 的前提**：此操作仅在底数为 $2$ 时安全（末位非零）。若推广到其他底数，末位可能为 $0$，减 $1$ 会触发借位传播，需实现完整的高精度减法。\n4. **前导零跳过的边界**：`while(!tA[na - 1]) --na` 当所有位为零时 `na` 会减到 $0$ 甚至负数（若数组全零），需确保至少保留 $1$ 位。\n5. **数组清零**：`mul` 中 `memset(ans, 0, sizeof(ans))` 每次必须清零，否则累加结果被上一轮残留数据污染。\n6. **`char` 类型的乘法溢出**：`tA[i] * tB[j]` 最大为 $9 \\times 9 = 81$，累加多次后在进位前可能超过 `char` 范围（$127$）。代码中 `ans` 为 `int` 数组避免了此问题，但需注意 `char` 数组参与乘法时类型提升。\n\n### 对比与扩展\n\n与模意义下的标量快速幂相比，高精度快速幂将标量乘法替换为 $O(L^2)$ 的高精度竖式乘法，适用于需要完整十进制表示的场景。若使用 FFT/NTT 加速大数乘法，可将单次乘法降至 $O(L \\log L)$，在 $L$ 很大时（如 $10^5$ 位以上）优势显著。扩展方向包括：支持任意底数的高精度快速幂（需完整减法实现 $a^b - c$）、结合 Miller-Rabin 素性测试判断麦森数是否为梅森素数、以及用高精度快速幂实现大数 RSA 加解密等。",
                 "codePath": "数学\\快速幂（基础）\\Untitled1.cpp",
                 "timeComplexity": "O(log b)",
                 "spaceComplexity": "O(1)",
@@ -13151,7 +13336,7 @@ const KNOWLEDGE_DATA = [
                 "source": "Xesir"
             }
         ],
-        "content": "## 算法原理\r\n\r\n快速幂用于高效计算 $a^b \\bmod q$。朴素方法是将 $a$ 连乘 $b$ 次，时间复杂度为 $O(b)$，当 $b$ 达到 $10^{18}$ 量级时完全不可行。快速幂的核心思想是利用指数的二进制拆分：将 $b$ 写成若干 $2$ 的幂之和，则 $a^b$ 可以分解为对应 $a^{2^i}$ 项的乘积，而每个 $a^{2^i}$ 都可以由前一项平方递推得到。\r\n\r\n具体地，设 $b$ 的二进制表示为 $b = \\sum_{i} b_i \\cdot 2^i$（其中 $b_i \\in \\{0, 1\\}$），则 $a^b = \\prod_{i: b_i = 1} a^{2^i}$。算法维护一个\"当前底数\" `gap`，初始为 $a$，每轮循环将其平方得到 $a^2, a^4, a^8, \\ldots$，对应二进制位的权值。同时维护\"累积答案\" `ans`，当 $b$ 的当前最低位为 $1$ 时，将对应的 `gap` 乘入 `ans`。每轮处理后 $b$ 右移一位，直到 $b$ 为 $0$。\r\n\r\n整个过程中所有乘法都在模 $q$ 意义下进行，确保中间值始终小于 $q$，避免溢出。由于 $b$ 的二进制位数为 $\\lfloor \\log_2 b \\rfloor + 1$，循环只需执行 $O(\\log b)$ 次，每次做至多两次模乘运算，因此总时间复杂度为 $O(\\log b)$，空间复杂度为 $O(1)$（迭代实现无需递归栈）。快速幂是数论和组合数学中最基础的工具，广泛应用于模逆元、组合数取模、矩阵快速幂等场景。\r\n\r\n## 核心公式\r\n\r\n指数的二进制拆分：\r\n$$b = \\sum_{i=0}^{\\lfloor \\log_2 b \\rfloor} b_i \\cdot 2^i, \\quad b_i \\in \\{0, 1\\}$$\r\n\r\n快速幂的乘积分解：\r\n$$a^b = \\prod_{i:\\, b_i = 1} a^{2^i} \\pmod{q}$$\r\n\r\n底数平方递推：\r\n$$\\text{gap}_i = \\text{gap}_{i-1}^2 = a^{2^i} \\pmod{q}$$\r\n\r\n答案累积（当 $b_i = 1$ 时）：\r\n$$\\text{ans} \\leftarrow \\text{ans} \\times \\text{gap}_i \\pmod{q}$$\r\n\r\n## 逐行代码解析\r\n\r\n### 头文件与命名空间\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n```\r\n\r\n- `#include<bits/stdc++.h>`：一次性引入几乎所有标准库头文件，是竞赛环境的常用写法。\r\n- `using namespace std`：省略 `std::` 前缀，让 `cin`、`cout` 等可以直接书写。\r\n\r\n### fastpow 函数 — 边界与初始化\r\n\r\n```cpp\r\nlong long fastpow(long long a,long long b,long long q)\r\n{\r\n\tif(b == 0) return 1;  // a^0 = 1 的边界处理\r\n\tlong long ans = 1;    // 累积答案，初始为乘法单位元\r\n\tlong long gap = a;    // 当前底数，初始为 a = a^{2^0}\r\n```\r\n\r\n- `if(b == 0) return 1`：处理指数为 $0$ 的边界情况。实际上 `while(b)` 在 $b=0$ 时不进入，会直接返回 `ans=1`，此行可省略但保留使语义更清晰。\r\n- `ans = 1`：乘法单位元，作为累积答案的初始值。\r\n- `gap = a`：`gap` 始终维护 $a^{2^i} \\bmod q$，其中 $i$ 为当前已处理的二进制位数；初始 $i=0$ 时 `gap = a = a^{2^0}`。\r\n\r\n### fastpow 函数 — 主循环\r\n\r\n```cpp\r\n\twhile(b)\r\n\t{\r\n\t\tif(b & 1) ans = (ans * gap) % q;   // 当前最低位为 1，乘入对应 a^{2^i}\r\n\t\tgap = (gap * gap) % q;             // 底数平方：a^{2^i} -> a^{2^{i+1}}\r\n\t\tb >>= 1;                           // 右移一位，处理下一位\r\n\t}\r\n\treturn ans;\r\n}\r\n```\r\n\r\n- `if(b & 1) ans = (ans * gap) % q`：检查 $b$ 的最低位，为 $1$ 则把该项 $a^{2^i}$ 乘入答案；取模确保 `ans` 始终在 $[0, q)$ 范围内。\r\n- `gap = (gap * gap) % q`：将底数从 $a^{2^i}$ 平方为 $a^{2^{i+1}}$，为下一轮做准备，是快速幂\"倍增\"思想的核心。\r\n- `b >>= 1`：右移一位，丢弃已处理的最低位，使下一次 `b & 1` 检查的是更高位。\r\n- 参数与返回值均为 `long long`：两个 `long long` 相乘最大约 $q^2 \\approx 10^{18}$，仍落在 `long long` 范围（$\\approx 9.2 \\times 10^{18}$）内，避免溢出。\r\n\r\n### main 函数\r\n\r\n```cpp\r\nint main() \r\n{\r\n\tlong long a,b,q;\r\n\tcin >> a >> b >> q;\r\n\tcout << a << \"^\" << b << \" mod \" << q << \"=\" << fastpow(a,b,q);\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- `cin >> a >> b >> q`：读入底数 `a`、指数 `b` 与模数 `q`。\r\n- 输出格式为 `a^b mod q=` 后接 `fastpow(a, b, q)` 的结果，便于直接观察计算过程。\r\n\r\n## 复杂度分析\r\n\r\n循环次数等于 $b$ 的二进制位数，即 $\\lfloor \\log_2 b \\rfloor + 1$。每次循环至多执行两次模乘运算（`ans * gap` 和 `gap * gap`），因此总时间复杂度为 $O(\\log b)$。由于采用迭代而非递归实现，无需调用栈，空间复杂度为 $O(1)$。相比之下，朴素连乘需要 $O(b)$ 次乘法，当 $b = 10^{18}$ 时快速幂仅需约 $60$ 次乘法，加速比超过 $10^{16}$。\r\n\r\n## 适用场景\r\n\r\n模幂运算是数论与组合数学的基石。具体应用包括：费马小定理求模逆元（$a^{-1} \\equiv a^{q-2} \\pmod{q}$，$q$ 为质数）、组合数取模中的阶乘幂预处理、RSA 等公钥密码学中的模幂运算、以及作为矩阵快速幂的基本运算单元（将标量乘法替换为矩阵乘法即可推广）。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **中间溢出**：当 $q$ 接近 $10^9$ 时，`ans * gap` 可达 $10^{18}$，仍在 `long long` 范围内。但若 $q$ 接近 $10^{18}$，则两个 $10^{18}$ 级数相乘会溢出，需改用 `__int128` 或快速乘（类似于快速幂的加法分解）。\r\n2. **负数指数**：本代码未处理 $b < 0$ 的情况。若需支持负指数，应先判断 $b$ 的符号，取绝对值计算后用模逆元转换。\r\n3. **底数为负**：当 $a < 0$ 时，`a % q` 在 C++ 中可能为负数，应先做 `(a % q + q) % q` 归一化到 $[0, q)$。\r\n4. **$q = 1$ 的退化**：任何数模 $1$ 均为 $0$，`fastpow(a, b, 1)` 应返回 $0$。代码中 `ans` 初始为 $1$ 但首次乘法后取模即变为 $0$，结果正确但需注意初始值。\r\n5. **递归 vs 迭代**：递归写法逻辑等价但存在栈开销，在 $b$ 极大时（虽然不太可能超过 $64$ 层）无实际问题，但迭代写法常数更小、更安全。\r\n6. **模数 $q = 0$ 会除零**：`a % q`、`ans % q` 在 $q = 0$ 时是未定义行为（除零）。本模板假设 $q \\ge 2$（模意义下 $q = 1$ 退化已在第 4 条说明）；若 $q$ 可能为 0，需在入口处特判。\r\n\r\n## 对比与扩展\r\n\r\n与朴素 $O(b)$ 幂相比，快速幂将复杂度降至对数级，是指数运算的根本优化。与光速幂（预计算 $a^0 \\sim a^S$ 和 $a^0, a^S, a^{2S}, \\ldots$，通过查表 + 一次乘法实现 $O(1)$ 单次查询）相比，快速幂无需预处理但单次查询为 $O(\\log b)$，适合查询次数少的场景。扩展方向包括：矩阵快速幂（将标量乘法替换为矩阵乘法，用于求解线性递推数列的第 $n$ 项）、快速乘（用类似思想实现大数取模乘法防溢出）、以及结合欧拉降幂公式处理超大指数 $b \\ge \\varphi(q)$ 的情形。",
+        "content": "## 算法原理\n\n快速幂用于高效计算 $a^b \\bmod q$。朴素方法是将 $a$ 连乘 $b$ 次，时间复杂度为 $O(b)$，当 $b$ 达到 $10^{18}$ 量级时完全不可行。快速幂的核心思想是利用指数的二进制拆分：将 $b$ 写成若干 $2$ 的幂之和，则 $a^b$ 可以分解为对应 $a^{2^i}$ 项的乘积，而每个 $a^{2^i}$ 都可以由前一项平方递推得到。\n\n具体地，设 $b$ 的二进制表示为 $b = \\sum_{i} b_i \\cdot 2^i$（其中 $b_i \\in \\{0, 1\\}$），则 $a^b = \\prod_{i: b_i = 1} a^{2^i}$。算法维护一个\"当前底数\" `gap`，初始为 $a$，每轮循环将其平方得到 $a^2, a^4, a^8, \\ldots$，对应二进制位的权值。同时维护\"累积答案\" `ans`，当 $b$ 的当前最低位为 $1$ 时，将对应的 `gap` 乘入 `ans`。每轮处理后 $b$ 右移一位，直到 $b$ 为 $0$。\n\n整个过程中所有乘法都在模 $q$ 意义下进行，确保中间值始终小于 $q$，避免溢出。由于 $b$ 的二进制位数为 $\\lfloor \\log_2 b \\rfloor + 1$，循环只需执行 $O(\\log b)$ 次，每次做至多两次模乘运算，因此总时间复杂度为 $O(\\log b)$，空间复杂度为 $O(1)$（迭代实现无需递归栈）。快速幂是数论和组合数学中最基础的工具，广泛应用于模逆元、组合数取模、矩阵快速幂等场景。\n\n## 核心公式\n\n指数的二进制拆分：\n$$b = \\sum_{i=0}^{\\lfloor \\log_2 b \\rfloor} b_i \\cdot 2^i, \\quad b_i \\in \\{0, 1\\}$$\n\n快速幂的乘积分解：\n$$a^b = \\prod_{i:\\, b_i = 1} a^{2^i} \\pmod{q}$$\n\n底数平方递推：\n$$\\text{gap}_i = \\text{gap}_{i-1}^2 = a^{2^i} \\pmod{q}$$\n\n答案累积（当 $b_i = 1$ 时）：\n$$\\text{ans} \\leftarrow \\text{ans} \\times \\text{gap}_i \\pmod{q}$$\n\n## 逐行代码解析\n\n### 头文件与命名空间\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n```\n\n- `#include<bits/stdc++.h>`：一次性引入几乎所有标准库头文件，是竞赛环境的常用写法。\n- `using namespace std`：省略 `std::` 前缀，让 `cin`、`cout` 等可以直接书写。\n\n### fastpow 函数 — 边界与初始化\n\n```cpp\nlong long fastpow(long long a,long long b,long long q)\n{\n\tif(b == 0) return 1;  // a^0 = 1 的边界处理\n\tlong long ans = 1;    // 累积答案，初始为乘法单位元\n\tlong long gap = a;    // 当前底数，初始为 a = a^{2^0}\n```\n\n- `if(b == 0) return 1`：处理指数为 $0$ 的边界情况。实际上 `while(b)` 在 $b=0$ 时不进入，会直接返回 `ans=1`，此行可省略但保留使语义更清晰。\n- `ans = 1`：乘法单位元，作为累积答案的初始值。\n- `gap = a`：`gap` 始终维护 $a^{2^i} \\bmod q$，其中 $i$ 为当前已处理的二进制位数；初始 $i=0$ 时 `gap = a = a^{2^0}`。\n\n### fastpow 函数 — 主循环\n\n```cpp\n\twhile(b)\n\t{\n\t\tif(b & 1) ans = (ans * gap) % q;   // 当前最低位为 1，乘入对应 a^{2^i}\n\t\tgap = (gap * gap) % q;             // 底数平方：a^{2^i} -> a^{2^{i+1}}\n\t\tb >>= 1;                           // 右移一位，处理下一位\n\t}\n\treturn ans;\n}\n```\n\n- `if(b & 1) ans = (ans * gap) % q`：检查 $b$ 的最低位，为 $1$ 则把该项 $a^{2^i}$ 乘入答案；取模确保 `ans` 始终在 $[0, q)$ 范围内。\n- `gap = (gap * gap) % q`：将底数从 $a^{2^i}$ 平方为 $a^{2^{i+1}}$，为下一轮做准备，是快速幂\"倍增\"思想的核心。\n- `b >>= 1`：右移一位，丢弃已处理的最低位，使下一次 `b & 1` 检查的是更高位。\n- 参数与返回值均为 `long long`：两个 `long long` 相乘最大约 $q^2 \\approx 10^{18}$，仍落在 `long long` 范围（$\\approx 9.2 \\times 10^{18}$）内，避免溢出。\n\n### main 函数\n\n```cpp\nint main() \n{\n\tlong long a,b,q;\n\tcin >> a >> b >> q;\n\tcout << a << \"^\" << b << \" mod \" << q << \"=\" << fastpow(a,b,q);\n\treturn 0;\n}\n```\n\n- `cin >> a >> b >> q`：读入底数 `a`、指数 `b` 与模数 `q`。\n- 输出格式为 `a^b mod q=` 后接 `fastpow(a, b, q)` 的结果，便于直接观察计算过程。\n\n## 复杂度分析\n\n循环次数等于 $b$ 的二进制位数，即 $\\lfloor \\log_2 b \\rfloor + 1$。每次循环至多执行两次模乘运算（`ans * gap` 和 `gap * gap`），因此总时间复杂度为 $O(\\log b)$。由于采用迭代而非递归实现，无需调用栈，空间复杂度为 $O(1)$。相比之下，朴素连乘需要 $O(b)$ 次乘法，当 $b = 10^{18}$ 时快速幂仅需约 $60$ 次乘法，加速比超过 $10^{16}$。\n\n## 适用场景\n\n模幂运算是数论与组合数学的基石。具体应用包括：费马小定理求模逆元（$a^{-1} \\equiv a^{q-2} \\pmod{q}$，$q$ 为质数）、组合数取模中的阶乘幂预处理、RSA 等公钥密码学中的模幂运算、以及作为矩阵快速幂的基本运算单元（将标量乘法替换为矩阵乘法即可推广）。\n\n## 常见陷阱与注意事项\n\n1. **中间溢出**：当 $q$ 接近 $10^9$ 时，`ans * gap` 可达 $10^{18}$，仍在 `long long` 范围内。但若 $q$ 接近 $10^{18}$，则两个 $10^{18}$ 级数相乘会溢出，需改用 `__int128` 或快速乘（类似于快速幂的加法分解）。\n2. **负数指数**：本代码未处理 $b < 0$ 的情况。若需支持负指数，应先判断 $b$ 的符号，取绝对值计算后用模逆元转换。\n3. **底数为负**：当 $a < 0$ 时，`a % q` 在 C++ 中可能为负数，应先做 `(a % q + q) % q` 归一化到 $[0, q)$。\n4. **$q = 1$ 的退化**：任何数模 $1$ 均为 $0$，`fastpow(a, b, 1)` 应返回 $0$。代码中 `ans` 初始为 $1$ 但首次乘法后取模即变为 $0$，结果正确但需注意初始值。\n5. **递归 vs 迭代**：递归写法逻辑等价但存在栈开销，在 $b$ 极大时（虽然不太可能超过 $64$ 层）无实际问题，但迭代写法常数更小、更安全。\n6. **模数 $q = 0$ 会除零**：`a % q`、`ans % q` 在 $q = 0$ 时是未定义行为（除零）。本模板假设 $q \\ge 2$（模意义下 $q = 1$ 退化已在第 4 条说明）；若 $q$ 可能为 0，需在入口处特判。\n\n## 对比与扩展\n\n与朴素 $O(b)$ 幂相比，快速幂将复杂度降至对数级，是指数运算的根本优化。与光速幂（预计算 $a^0 \\sim a^S$ 和 $a^0, a^S, a^{2S}, \\ldots$，通过查表 + 一次乘法实现 $O(1)$ 单次查询）相比，快速幂无需预处理但单次查询为 $O(\\log b)$，适合查询次数少的场景。扩展方向包括：矩阵快速幂（将标量乘法替换为矩阵乘法，用于求解线性递推数列的第 $n$ 项）、快速乘（用类似思想实现大数取模乘法防溢出）、以及结合欧拉降幂公式处理超大指数 $b \\ge \\varphi(q)$ 的情形。\n\n## 附：快速幂（高精度）——麦森数2^P−1\n\n本算法计算 $2^P$ 并保留末 $500$ 位（即麦森数 $2^P - 1$ 的末 $500$ 位），用于解决如洛谷 P1045 麦森数问题。由于 $2^P$ 的位数可达数百位（$P \\le 3.1 \\times 10^6$ 时约 $10^6$ 位），远超 `long long` 的表示范围，因此必须使用高精度整数运算。算法用 `char` 数组按十进制位存储大整数（低位在前），实现\"竖式乘法\"函数 `mul`，再套用二进制快速幂框架进行幂运算。\n\n高精度乘法 `mul` 采用经典的竖式算法：两个长度分别为 $n_a$、$n_b$ 的大数相乘，结果的第 $i+j$ 位累加 $A[i] \\times B[j]$，最后统一进位。为控制计算量和存储，乘法中通过 `if(i + j < 500)` 截断，只保留末 $500$ 位，相当于在模 $10^{500}$ 意义下运算。由于题目只需末 $500$ 位，这种截断不会丢失所需信息，同时将每次乘法的复杂度从 $O(L^2)$（$L$ 为完整位数）降至 $O(500^2)$。\n\n快速幂框架与基础快速幂完全一致：维护结果 $A$（初始 $1$）和底数 $B$（初始 $2$），逐位检查指数 $P$ 的二进制位，为 $1$ 时 `mul(A, B)` 并更新 $A$，每轮 `mul(B, B)` 更新 $B$，最后 $P$ 右移一位。$2^P$ 的总位数预先用对数公式 $\\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$ 算出并输出。最终 $A[0] -= 1$ 实现 $2^P - 1$（由于 $2^P$ 末位必为偶数非零，减 $1$ 不需借位传播），再逆序输出 $500$ 位。\n\n### 核心公式\n\n$2^P$ 的十进制位数：\n$$\\text{num} = \\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$$\n\n高精度竖式乘法（截断到末 $L=500$ 位）：\n$$\\text{ans}[i+j] = \\sum_{i+j < L} A[i] \\times B[j], \\quad \\text{ans}[i+1] \\mathrel{+}= \\left\\lfloor \\frac{\\text{ans}[i]}{10} \\right\\rfloor, \\quad \\text{ans}[i] \\bmod 10$$\n\n快速幂分解（模 $10^{500}$ 意义下）：\n$$2^P = \\prod_{i:\\, P_i = 1} 2^{2^i} \\pmod{10^{500}}$$\n\n麦森数：\n$$M_P = 2^P - 1$$\n\n### 逐行代码解析\n\n#### 全局变量与头文件\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\nconst int n = 510;\nchar A[n];    // 结果数组，低位在前\nchar B[n];    // 底数数组，低位在前\nint ans[n];   // 乘法临时结果\n```\n\n- `const int n = 510`：数组开 $510$ 略大于 $500$，多出的空间用于承接进位时 `ans[i + 1]`（当 `i = 499` 时写入 `ans[500]`），避免越界。\n- `char A[n]` / `char B[n]`：用 `char` 存储十进制每位数字（0~9），低位在前，符合竖式乘法从低位到高位的进位方向。\n- `int ans[n]`：乘法临时结果用 `int` 而非 `char`，避免累加时超过 `char` 的 $127$ 范围。\n\n#### mul —— 高精度竖式乘法\n\n```cpp\n// 高精度乘法：ans = tA * tB，只保留末 500 位\nvoid mul(char tA[], char tB[])\n{\n\tmemset(ans, 0, sizeof(ans));\n\tint na = 500, nb = 500;\n\twhile(!tA[na - 1]) --na;        // 跳过前导零，确定实际有效位数\n\twhile(!tB[nb - 1]) --nb;\n\tfor(int i = 0; i < na; i++)\n\t{\n\t\tfor(int j = 0; j < nb; j++)\n\t\t{\n\t\t\tif(i + j < 500)          // 截断：只保留末 500 位\n\t\t\t\tans[i + j] += tA[i] * tB[j];\n\t\t}\n\t}\n\tfor(int i = 0; i < 500; i++)     // 统一进位\n\t{\n\t\tans[i + 1] += ans[i] / 10;\n\t\tans[i] %= 10;\n\t}\n}\n```\n\n- `while(!tA[na - 1]) --na`：从最高位向低位扫描跳过前导零，确定实际有效位数 `na`、`nb`，减少内层循环次数；当 $B = 2^{2^i}$ 位数远小于 $500$ 时显著加速。\n- `if(i + j < 500)`：截断条件。结果的第 $i+j$ 位若 $\\ge 500$ 则丢弃，等价于模 $10^{500}$ 运算，高位丢弃不影响末 $500$ 位结果。\n- `memset(ans, 0, sizeof(ans))`：每次必须清零，否则累加结果会被上一轮残留数据污染。\n- 进位循环上界取 $500$：`ans[i + 1] += ans[i] / 10` 在 `i = 499` 时写入 `ans[500]`，落在 $n = 510$ 的数组内，不会越界。\n\n#### fastpow —— 高精度快速幂\n\n```cpp\n// 高精度快速幂：计算 2^q，结果存入 A（末 500 位）\nvoid fastpow(int q)\n{\n\tif(q == 0) { A[0] = 1; return; }\n\tA[0] = 1;                        // 结果初值 = 1\n\tB[0] = 2;                        // 底数初值 = 2\n\twhile(q)\n\t{\n\t\tif(q & 1)                     // 当前位为 1，A = A * B\n\t\t{\n\t\t\tmul(A, B);\n\t\t\tfor(int i = 0; i < 500; i++) A[i] = ans[i];\n\t\t}\n\t\tmul(B, B);                    // B = B * B\n\t\tfor(int i = 0; i < 500; i++) B[i] = ans[i];\n\t\tq >>= 1;\n\t}\n}\n```\n\n- `A[0] = 1`（结果初值）、`B[0] = 2`（底数初值）：与标量快速幂框架完全一致。\n- `if(q & 1)`：当前二进制位为 $1$ 时执行 `mul(A, B)` 并把 `ans` 拷回 `A`，实现 `A = A * B`。\n- `mul(B, B)`：每轮底数平方并拷回 `B`，`q >>= 1` 右移检查下一位。\n- `if(q == 0) { A[0] = 1; return; }`：单独处理 $2^0 = 1$ 的边界，避免进入循环。\n\n#### main —— 位数计算与输出\n\n```cpp\nint main()\n{\n\tint q;\n\tscanf(\"%d\", &q);\n\tint num = q * log10(2) + 1;      // 计算总位数\n\tprintf(\"%d\\n\", num);\n\tfastpow(q);\n\tA[0] -= 1;                       // 2^P - 1，末位必非零无需借位\n\treverse(A, A + 500);             // 逆序：高位在前\n\tfor(int i = 0; i < 500; i++)\n\t{\n\t\tif(i && i % 50 == 0) putchar('\\n');  // 每 50 位换行\n\t\tputchar(A[i] + 48);\n\t}\n\treturn 0;\n}\n```\n\n- `int num = q * log10(2) + 1`：利用 $\\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$ 计算 $2^P$ 的总位数并先输出。\n- `A[0] -= 1`：$2^P$ 末位必为 $2, 4, 8, 6$ 循环、始终非零，减 $1$ 不需借位，直接得到 $2^P - 1$。\n- `reverse(A, A + 500)`：乘法低位在前，输出时逆序为高位在前。\n- 输出循环每 $50$ 位换行（`i % 50 == 0`），数字转字符用 `A[i] + 48`。\n\n### 复杂度分析\n\n每次高精度乘法 `mul` 的双重循环为 $O(na \\cdot nb)$，最坏情况下 $na = nb = 500$，故单次乘法为 $O(500^2) = O(L^2)$（$L = 500$）。快速幂循环次数为 $P$ 的二进制位数 $O(\\log P)$，每轮至多两次乘法，因此总时间复杂度为 $O(L^2 \\cdot \\log P)$。空间上 `A`、`B`、`ans` 各为 $O(L)$，总空间复杂度为 $O(L)$。对于 $P = 3.1 \\times 10^6$，$\\log P \\approx 22$，总乘法约 $44$ 次，每次 $250000$ 次基本运算，总计约 $10^7$ 量级，可在时限内完成。\n\n### 适用场景\n\n超大整数幂运算、麦森数/梅森素数末位问题、位数远超 `long long` 的大数幂问题，以及模运算无法承载（需完整十进制表示）的高精度计算场景。\n\n### 常见陷阱与注意事项\n\n1. **位数公式精度**：`q * log10(2)` 使用浮点运算，当 $P$ 极大时浮点误差可能导致位数差 $1$。更安全的做法是用整数模拟或预留 $\\pm 1$ 的容差。\n2. **截断位置**：`if(i + j < 500)` 截断在第 $500$ 位。若题目要求保留不同位数，需同步修改截断条件和进位循环上界，否则进位丢失导致结果错误。\n3. **`A[0] -= 1` 的前提**：此操作仅在底数为 $2$ 时安全（末位非零）。若推广到其他底数，末位可能为 $0$，减 $1$ 会触发借位传播，需实现完整的高精度减法。\n4. **前导零跳过的边界**：`while(!tA[na - 1]) --na` 当所有位为零时 `na` 会减到 $0$ 甚至负数（若数组全零），需确保至少保留 $1$ 位。\n5. **数组清零**：`mul` 中 `memset(ans, 0, sizeof(ans))` 每次必须清零，否则累加结果被上一轮残留数据污染。\n6. **`char` 类型的乘法溢出**：`tA[i] * tB[j]` 最大为 $9 \\times 9 = 81$，累加多次后在进位前可能超过 `char` 范围（$127$）。代码中 `ans` 为 `int` 数组避免了此问题，但需注意 `char` 数组参与乘法时类型提升。\n\n### 对比与扩展\n\n与模意义下的标量快速幂相比，高精度快速幂将标量乘法替换为 $O(L^2)$ 的高精度竖式乘法，适用于需要完整十进制表示的场景。若使用 FFT/NTT 加速大数乘法，可将单次乘法降至 $O(L \\log L)$，在 $L$ 很大时（如 $10^5$ 位以上）优势显著。扩展方向包括：支持任意底数的高精度快速幂（需完整减法实现 $a^b - c$）、结合 Miller-Rabin 素性测试判断麦森数是否为梅森素数、以及用高精度快速幂实现大数 RSA 加解密等。",
         "timeComplexity": "O(log b)",
         "spaceComplexity": "O(1)",
         "tags": [
@@ -13167,11 +13352,10 @@ const KNOWLEDGE_DATA = [
             "hub-math-number-theory"
         ],
         "related": [
-            "math-quick-pow-highprecision",
             "math-lcm-pair-count",
             "basic-digit-power-cycle-self",
             "math-matrix-linear-recurrence",
-            "ds-trie-01-max-xor",
+            "ds-trie",
             "math-matrix-multiplication",
             "math-matrix-quick-pow",
             "math-gcd-lcm",
@@ -13179,51 +13363,7 @@ const KNOWLEDGE_DATA = [
             "math-euler-phi",
             "math-modular-inverse",
             "math-crt",
-            "exam-bit-operation"
-        ],
-        "parent": ""
-    },
-    {
-        "id": "math-quick-pow-highprecision",
-        "category": "数学",
-        "subcategory": "快速幂",
-        "subSubcategory": "",
-        "title": "快速幂（高精度）——麦森数2^P−1",
-        "hub": false,
-        "versions": [
-            {
-                "author": "world-needs-sunday",
-                "content": "## 算法原理\r\n\r\n本算法计算 $2^P$ 并保留末 $500$ 位（即麦森数 $2^P - 1$ 的末 $500$ 位），用于解决如洛谷 P1045 麦森数问题。由于 $2^P$ 的位数可达数百位（$P \\le 3.1 \\times 10^6$ 时约 $10^6$ 位），远超 `long long` 的表示范围，因此必须使用高精度整数运算。算法用 `char` 数组按十进制位存储大整数（低位在前），实现\"竖式乘法\"函数 `mul`，再套用二进制快速幂框架进行幂运算。\r\n\r\n高精度乘法 `mul` 采用经典的竖式算法：两个长度分别为 $n_a$、$n_b$ 的大数相乘，结果的第 $i+j$ 位累加 $A[i] \\times B[j]$，最后统一进位。为控制计算量和存储，乘法中通过 `if(i + j < 500)` 截断，只保留末 $500$ 位，相当于在模 $10^{500}$ 意义下运算。由于题目只需末 $500$ 位，这种截断不会丢失所需信息，同时将每次乘法的复杂度从 $O(L^2)$（$L$ 为完整位数）降至 $O(500^2)$。\r\n\r\n快速幂框架与基础快速幂完全一致：维护结果 $A$（初始 $1$）和底数 $B$（初始 $2$），逐位检查指数 $P$ 的二进制位，为 $1$ 时 `mul(A, B)` 并更新 $A$，每轮 `mul(B, B)` 更新 $B$，最后 $P$ 右移一位。$2^P$ 的总位数预先用对数公式 $\\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$ 算出并输出。最终 $A[0] -= 1$ 实现 $2^P - 1$（由于 $2^P$ 末位必为偶数非零，减 $1$ 不需借位传播），再逆序输出 $500$ 位。\r\n\r\n## 核心公式\r\n\r\n$2^P$ 的十进制位数：\r\n$$\\text{num} = \\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$$\r\n\r\n高精度竖式乘法（截断到末 $L=500$ 位）：\r\n$$\\text{ans}[i+j] = \\sum_{i+j < L} A[i] \\times B[j], \\quad \\text{ans}[i+1] \\mathrel{+}= \\left\\lfloor \\frac{\\text{ans}[i]}{10} \\right\\rfloor, \\quad \\text{ans}[i] \\bmod 10$$\r\n\r\n快速幂分解（模 $10^{500}$ 意义下）：\r\n$$2^P = \\prod_{i:\\, P_i = 1} 2^{2^i} \\pmod{10^{500}}$$\r\n\r\n麦森数：\r\n$$M_P = 2^P - 1$$\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量与头文件\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nconst int n = 510;\r\nchar A[n];    // 结果数组，低位在前\r\nchar B[n];    // 底数数组，低位在前\r\nint ans[n];   // 乘法临时结果\r\n```\r\n\r\n- `const int n = 510`：数组开 $510$ 略大于 $500$，多出的空间用于承接进位时 `ans[i + 1]`（当 `i = 499` 时写入 `ans[500]`），避免越界。\r\n- `char A[n]` / `char B[n]`：用 `char` 存储十进制每位数字（0~9），低位在前，符合竖式乘法从低位到高位的进位方向。\r\n- `int ans[n]`：乘法临时结果用 `int` 而非 `char`，避免累加时超过 `char` 的 $127$ 范围。\r\n\r\n### mul —— 高精度竖式乘法\r\n\r\n```cpp\r\n// 高精度乘法：ans = tA * tB，只保留末 500 位\r\nvoid mul(char tA[], char tB[])\r\n{\r\n\tmemset(ans, 0, sizeof(ans));\r\n\tint na = 500, nb = 500;\r\n\twhile(!tA[na - 1]) --na;        // 跳过前导零，确定实际有效位数\r\n\twhile(!tB[nb - 1]) --nb;\r\n\tfor(int i = 0; i < na; i++)\r\n\t{\r\n\t\tfor(int j = 0; j < nb; j++)\r\n\t\t{\r\n\t\t\tif(i + j < 500)          // 截断：只保留末 500 位\r\n\t\t\t\tans[i + j] += tA[i] * tB[j];\r\n\t\t}\r\n\t}\r\n\tfor(int i = 0; i < 500; i++)     // 统一进位\r\n\t{\r\n\t\tans[i + 1] += ans[i] / 10;\r\n\t\tans[i] %= 10;\r\n\t}\r\n}\r\n```\r\n\r\n- `while(!tA[na - 1]) --na`：从最高位向低位扫描跳过前导零，确定实际有效位数 `na`、`nb`，减少内层循环次数；当 $B = 2^{2^i}$ 位数远小于 $500$ 时显著加速。\r\n- `if(i + j < 500)`：截断条件。结果的第 $i+j$ 位若 $\\ge 500$ 则丢弃，等价于模 $10^{500}$ 运算，高位丢弃不影响末 $500$ 位结果。\r\n- `memset(ans, 0, sizeof(ans))`：每次必须清零，否则累加结果会被上一轮残留数据污染。\r\n- 进位循环上界取 $500$：`ans[i + 1] += ans[i] / 10` 在 `i = 499` 时写入 `ans[500]`，落在 $n = 510$ 的数组内，不会越界。\r\n\r\n### fastpow —— 高精度快速幂\r\n\r\n```cpp\r\n// 高精度快速幂：计算 2^q，结果存入 A（末 500 位）\r\nvoid fastpow(int q)\r\n{\r\n\tif(q == 0) { A[0] = 1; return; }\r\n\tA[0] = 1;                        // 结果初值 = 1\r\n\tB[0] = 2;                        // 底数初值 = 2\r\n\twhile(q)\r\n\t{\r\n\t\tif(q & 1)                     // 当前位为 1，A = A * B\r\n\t\t{\r\n\t\t\tmul(A, B);\r\n\t\t\tfor(int i = 0; i < 500; i++) A[i] = ans[i];\r\n\t\t}\r\n\t\tmul(B, B);                    // B = B * B\r\n\t\tfor(int i = 0; i < 500; i++) B[i] = ans[i];\r\n\t\tq >>= 1;\r\n\t}\r\n}\r\n```\r\n\r\n- `A[0] = 1`（结果初值）、`B[0] = 2`（底数初值）：与标量快速幂框架完全一致。\r\n- `if(q & 1)`：当前二进制位为 $1$ 时执行 `mul(A, B)` 并把 `ans` 拷回 `A`，实现 `A = A * B`。\r\n- `mul(B, B)`：每轮底数平方并拷回 `B`，`q >>= 1` 右移检查下一位。\r\n- `if(q == 0) { A[0] = 1; return; }`：单独处理 $2^0 = 1$ 的边界，避免进入循环。\r\n\r\n### main —— 位数计算与输出\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tint q;\r\n\tscanf(\"%d\", &q);\r\n\tint num = q * log10(2) + 1;      // 计算总位数\r\n\tprintf(\"%d\\n\", num);\r\n\tfastpow(q);\r\n\tA[0] -= 1;                       // 2^P - 1，末位必非零无需借位\r\n\treverse(A, A + 500);             // 逆序：高位在前\r\n\tfor(int i = 0; i < 500; i++)\r\n\t{\r\n\t\tif(i && i % 50 == 0) putchar('\\n');  // 每 50 位换行\r\n\t\tputchar(A[i] + 48);\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- `int num = q * log10(2) + 1`：利用 $\\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$ 计算 $2^P$ 的总位数并先输出。\r\n- `A[0] -= 1`：$2^P$ 末位必为 $2, 4, 8, 6$ 循环、始终非零，减 $1$ 不需借位，直接得到 $2^P - 1$。\r\n- `reverse(A, A + 500)`：乘法低位在前，输出时逆序为高位在前。\r\n- 输出循环每 $50$ 位换行（`i % 50 == 0`），数字转字符用 `A[i] + 48`。\r\n\r\n## 复杂度分析\r\n\r\n每次高精度乘法 `mul` 的双重循环为 $O(na \\cdot nb)$，最坏情况下 $na = nb = 500$，故单次乘法为 $O(500^2) = O(L^2)$（$L = 500$）。快速幂循环次数为 $P$ 的二进制位数 $O(\\log P)$，每轮至多两次乘法，因此总时间复杂度为 $O(L^2 \\cdot \\log P)$。空间上 `A`、`B`、`ans` 各为 $O(L)$，总空间复杂度为 $O(L)$。对于 $P = 3.1 \\times 10^6$，$\\log P \\approx 22$，总乘法约 $44$ 次，每次 $250000$ 次基本运算，总计约 $10^7$ 量级，可在时限内完成。\r\n\r\n## 适用场景\r\n\r\n超大整数幂运算、麦森数/梅森素数末位问题、位数远超 `long long` 的大数幂问题，以及模运算无法承载（需完整十进制表示）的高精度计算场景。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **位数公式精度**：`q * log10(2)` 使用浮点运算，当 $P$ 极大时浮点误差可能导致位数差 $1$。更安全的做法是用整数模拟或预留 $\\pm 1$ 的容差。\r\n2. **截断位置**：`if(i + j < 500)` 截断在第 $500$ 位。若题目要求保留不同位数，需同步修改截断条件和进位循环上界，否则进位丢失导致结果错误。\r\n3. **`A[0] -= 1` 的前提**：此操作仅在底数为 $2$ 时安全（末位非零）。若推广到其他底数，末位可能为 $0$，减 $1$ 会触发借位传播，需实现完整的高精度减法。\r\n4. **前导零跳过的边界**：`while(!tA[na - 1]) --na` 当所有位为零时 `na` 会减到 $0$ 甚至负数（若数组全零），需确保至少保留 $1$ 位。\r\n5. **数组清零**：`mul` 中 `memset(ans, 0, sizeof(ans))` 每次必须清零，否则累加结果被上一轮残留数据污染。\r\n6. **`char` 类型的乘法溢出**：`tA[i] * tB[j]` 最大为 $9 \\times 9 = 81$，累加多次后在进位前可能超过 `char` 范围（$127$）。代码中 `ans` 为 `int` 数组避免了此问题，但需注意 `char` 数组参与乘法时类型提升。\r\n\r\n## 对比与扩展\r\n\r\n与模意义下的标量快速幂相比，高精度快速幂将标量乘法替换为 $O(L^2)$ 的高精度竖式乘法，适用于需要完整十进制表示的场景。若使用 FFT/NTT 加速大数乘法，可将单次乘法降至 $O(L \\log L)$，在 $L$ 很大时（如 $10^5$ 位以上）优势显著。扩展方向包括：支持任意底数的高精度快速幂（需完整减法实现 $a^b - c$）、结合 Miller-Rabin 素性测试判断麦森数是否为梅森素数、以及用高精度快速幂实现大数 RSA 加解密等。",
-                "codePath": "数学\\快速幂(高精度)\\Untitled1.cpp",
-                "timeComplexity": "乘法O(500²)，快速幂O(P对应二进制位数×L²)",
-                "spaceComplexity": "O(L)",
-                "tags": [
-                    "数学",
-                    "快速幂",
-                    "高精度",
-                    "大数乘法",
-                    "麦森数"
-                ],
-                "source": ""
-            }
-        ],
-        "content": "## 算法原理\r\n\r\n本算法计算 $2^P$ 并保留末 $500$ 位（即麦森数 $2^P - 1$ 的末 $500$ 位），用于解决如洛谷 P1045 麦森数问题。由于 $2^P$ 的位数可达数百位（$P \\le 3.1 \\times 10^6$ 时约 $10^6$ 位），远超 `long long` 的表示范围，因此必须使用高精度整数运算。算法用 `char` 数组按十进制位存储大整数（低位在前），实现\"竖式乘法\"函数 `mul`，再套用二进制快速幂框架进行幂运算。\r\n\r\n高精度乘法 `mul` 采用经典的竖式算法：两个长度分别为 $n_a$、$n_b$ 的大数相乘，结果的第 $i+j$ 位累加 $A[i] \\times B[j]$，最后统一进位。为控制计算量和存储，乘法中通过 `if(i + j < 500)` 截断，只保留末 $500$ 位，相当于在模 $10^{500}$ 意义下运算。由于题目只需末 $500$ 位，这种截断不会丢失所需信息，同时将每次乘法的复杂度从 $O(L^2)$（$L$ 为完整位数）降至 $O(500^2)$。\r\n\r\n快速幂框架与基础快速幂完全一致：维护结果 $A$（初始 $1$）和底数 $B$（初始 $2$），逐位检查指数 $P$ 的二进制位，为 $1$ 时 `mul(A, B)` 并更新 $A$，每轮 `mul(B, B)` 更新 $B$，最后 $P$ 右移一位。$2^P$ 的总位数预先用对数公式 $\\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$ 算出并输出。最终 $A[0] -= 1$ 实现 $2^P - 1$（由于 $2^P$ 末位必为偶数非零，减 $1$ 不需借位传播），再逆序输出 $500$ 位。\r\n\r\n## 核心公式\r\n\r\n$2^P$ 的十进制位数：\r\n$$\\text{num} = \\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$$\r\n\r\n高精度竖式乘法（截断到末 $L=500$ 位）：\r\n$$\\text{ans}[i+j] = \\sum_{i+j < L} A[i] \\times B[j], \\quad \\text{ans}[i+1] \\mathrel{+}= \\left\\lfloor \\frac{\\text{ans}[i]}{10} \\right\\rfloor, \\quad \\text{ans}[i] \\bmod 10$$\r\n\r\n快速幂分解（模 $10^{500}$ 意义下）：\r\n$$2^P = \\prod_{i:\\, P_i = 1} 2^{2^i} \\pmod{10^{500}}$$\r\n\r\n麦森数：\r\n$$M_P = 2^P - 1$$\r\n\r\n## 逐行代码解析\r\n\r\n### 全局变量与头文件\r\n\r\n```cpp\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\nconst int n = 510;\r\nchar A[n];    // 结果数组，低位在前\r\nchar B[n];    // 底数数组，低位在前\r\nint ans[n];   // 乘法临时结果\r\n```\r\n\r\n- `const int n = 510`：数组开 $510$ 略大于 $500$，多出的空间用于承接进位时 `ans[i + 1]`（当 `i = 499` 时写入 `ans[500]`），避免越界。\r\n- `char A[n]` / `char B[n]`：用 `char` 存储十进制每位数字（0~9），低位在前，符合竖式乘法从低位到高位的进位方向。\r\n- `int ans[n]`：乘法临时结果用 `int` 而非 `char`，避免累加时超过 `char` 的 $127$ 范围。\r\n\r\n### mul —— 高精度竖式乘法\r\n\r\n```cpp\r\n// 高精度乘法：ans = tA * tB，只保留末 500 位\r\nvoid mul(char tA[], char tB[])\r\n{\r\n\tmemset(ans, 0, sizeof(ans));\r\n\tint na = 500, nb = 500;\r\n\twhile(!tA[na - 1]) --na;        // 跳过前导零，确定实际有效位数\r\n\twhile(!tB[nb - 1]) --nb;\r\n\tfor(int i = 0; i < na; i++)\r\n\t{\r\n\t\tfor(int j = 0; j < nb; j++)\r\n\t\t{\r\n\t\t\tif(i + j < 500)          // 截断：只保留末 500 位\r\n\t\t\t\tans[i + j] += tA[i] * tB[j];\r\n\t\t}\r\n\t}\r\n\tfor(int i = 0; i < 500; i++)     // 统一进位\r\n\t{\r\n\t\tans[i + 1] += ans[i] / 10;\r\n\t\tans[i] %= 10;\r\n\t}\r\n}\r\n```\r\n\r\n- `while(!tA[na - 1]) --na`：从最高位向低位扫描跳过前导零，确定实际有效位数 `na`、`nb`，减少内层循环次数；当 $B = 2^{2^i}$ 位数远小于 $500$ 时显著加速。\r\n- `if(i + j < 500)`：截断条件。结果的第 $i+j$ 位若 $\\ge 500$ 则丢弃，等价于模 $10^{500}$ 运算，高位丢弃不影响末 $500$ 位结果。\r\n- `memset(ans, 0, sizeof(ans))`：每次必须清零，否则累加结果会被上一轮残留数据污染。\r\n- 进位循环上界取 $500$：`ans[i + 1] += ans[i] / 10` 在 `i = 499` 时写入 `ans[500]`，落在 $n = 510$ 的数组内，不会越界。\r\n\r\n### fastpow —— 高精度快速幂\r\n\r\n```cpp\r\n// 高精度快速幂：计算 2^q，结果存入 A（末 500 位）\r\nvoid fastpow(int q)\r\n{\r\n\tif(q == 0) { A[0] = 1; return; }\r\n\tA[0] = 1;                        // 结果初值 = 1\r\n\tB[0] = 2;                        // 底数初值 = 2\r\n\twhile(q)\r\n\t{\r\n\t\tif(q & 1)                     // 当前位为 1，A = A * B\r\n\t\t{\r\n\t\t\tmul(A, B);\r\n\t\t\tfor(int i = 0; i < 500; i++) A[i] = ans[i];\r\n\t\t}\r\n\t\tmul(B, B);                    // B = B * B\r\n\t\tfor(int i = 0; i < 500; i++) B[i] = ans[i];\r\n\t\tq >>= 1;\r\n\t}\r\n}\r\n```\r\n\r\n- `A[0] = 1`（结果初值）、`B[0] = 2`（底数初值）：与标量快速幂框架完全一致。\r\n- `if(q & 1)`：当前二进制位为 $1$ 时执行 `mul(A, B)` 并把 `ans` 拷回 `A`，实现 `A = A * B`。\r\n- `mul(B, B)`：每轮底数平方并拷回 `B`，`q >>= 1` 右移检查下一位。\r\n- `if(q == 0) { A[0] = 1; return; }`：单独处理 $2^0 = 1$ 的边界，避免进入循环。\r\n\r\n### main —— 位数计算与输出\r\n\r\n```cpp\r\nint main()\r\n{\r\n\tint q;\r\n\tscanf(\"%d\", &q);\r\n\tint num = q * log10(2) + 1;      // 计算总位数\r\n\tprintf(\"%d\\n\", num);\r\n\tfastpow(q);\r\n\tA[0] -= 1;                       // 2^P - 1，末位必非零无需借位\r\n\treverse(A, A + 500);             // 逆序：高位在前\r\n\tfor(int i = 0; i < 500; i++)\r\n\t{\r\n\t\tif(i && i % 50 == 0) putchar('\\n');  // 每 50 位换行\r\n\t\tputchar(A[i] + 48);\r\n\t}\r\n\treturn 0;\r\n}\r\n```\r\n\r\n- `int num = q * log10(2) + 1`：利用 $\\lfloor P \\cdot \\log_{10} 2 \\rfloor + 1$ 计算 $2^P$ 的总位数并先输出。\r\n- `A[0] -= 1`：$2^P$ 末位必为 $2, 4, 8, 6$ 循环、始终非零，减 $1$ 不需借位，直接得到 $2^P - 1$。\r\n- `reverse(A, A + 500)`：乘法低位在前，输出时逆序为高位在前。\r\n- 输出循环每 $50$ 位换行（`i % 50 == 0`），数字转字符用 `A[i] + 48`。\r\n\r\n## 复杂度分析\r\n\r\n每次高精度乘法 `mul` 的双重循环为 $O(na \\cdot nb)$，最坏情况下 $na = nb = 500$，故单次乘法为 $O(500^2) = O(L^2)$（$L = 500$）。快速幂循环次数为 $P$ 的二进制位数 $O(\\log P)$，每轮至多两次乘法，因此总时间复杂度为 $O(L^2 \\cdot \\log P)$。空间上 `A`、`B`、`ans` 各为 $O(L)$，总空间复杂度为 $O(L)$。对于 $P = 3.1 \\times 10^6$，$\\log P \\approx 22$，总乘法约 $44$ 次，每次 $250000$ 次基本运算，总计约 $10^7$ 量级，可在时限内完成。\r\n\r\n## 适用场景\r\n\r\n超大整数幂运算、麦森数/梅森素数末位问题、位数远超 `long long` 的大数幂问题，以及模运算无法承载（需完整十进制表示）的高精度计算场景。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n1. **位数公式精度**：`q * log10(2)` 使用浮点运算，当 $P$ 极大时浮点误差可能导致位数差 $1$。更安全的做法是用整数模拟或预留 $\\pm 1$ 的容差。\r\n2. **截断位置**：`if(i + j < 500)` 截断在第 $500$ 位。若题目要求保留不同位数，需同步修改截断条件和进位循环上界，否则进位丢失导致结果错误。\r\n3. **`A[0] -= 1` 的前提**：此操作仅在底数为 $2$ 时安全（末位非零）。若推广到其他底数，末位可能为 $0$，减 $1$ 会触发借位传播，需实现完整的高精度减法。\r\n4. **前导零跳过的边界**：`while(!tA[na - 1]) --na` 当所有位为零时 `na` 会减到 $0$ 甚至负数（若数组全零），需确保至少保留 $1$ 位。\r\n5. **数组清零**：`mul` 中 `memset(ans, 0, sizeof(ans))` 每次必须清零，否则累加结果被上一轮残留数据污染。\r\n6. **`char` 类型的乘法溢出**：`tA[i] * tB[j]` 最大为 $9 \\times 9 = 81$，累加多次后在进位前可能超过 `char` 范围（$127$）。代码中 `ans` 为 `int` 数组避免了此问题，但需注意 `char` 数组参与乘法时类型提升。\r\n\r\n## 对比与扩展\r\n\r\n与模意义下的标量快速幂相比，高精度快速幂将标量乘法替换为 $O(L^2)$ 的高精度竖式乘法，适用于需要完整十进制表示的场景。若使用 FFT/NTT 加速大数乘法，可将单次乘法降至 $O(L \\log L)$，在 $L$ 很大时（如 $10^5$ 位以上）优势显著。扩展方向包括：支持任意底数的高精度快速幂（需完整减法实现 $a^b - c$）、结合 Miller-Rabin 素性测试判断麦森数是否为梅森素数、以及用高精度快速幂实现大数 RSA 加解密等。",
-        "timeComplexity": "乘法O(500²)，快速幂O(P对应二进制位数×L²)",
-        "spaceComplexity": "O(L)",
-        "tags": [
-            "数学",
-            "快速幂",
-            "高精度",
-            "大数乘法",
-            "麦森数"
-        ],
-        "codePath": "数学\\快速幂(高精度)\\Untitled1.cpp",
-        "prerequisites": [
-            "math-quick-pow-basic",
-            "hub-math-number-theory"
-        ],
-        "related": [
-            "math-quick-pow-basic",
+            "exam-bit-operation",
             "basic-high-precision"
         ],
         "parent": ""
@@ -13262,10 +13402,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-set-binary",
@@ -13303,10 +13444,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-sieve",
@@ -13376,7 +13518,7 @@ const KNOWLEDGE_DATA = [
             "math-euler-phi",
             "math-modular-inverse"
         ],
-        "parent": ""
+        "parent": "hub-math-number-theory"
     },
     {
         "id": "math-special-angle-method",
@@ -13412,10 +13554,11 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "",
         "prerequisites": [
-            "hub-math"
+            "hub-math",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "math-stars-and-bars",
@@ -13557,10 +13700,11 @@ const KNOWLEDGE_DATA = [
         "codePath": "",
         "prerequisites": [
             "hub-math",
-            "math-cartesian-plane"
+            "math-cartesian-plane",
+            "math-oi-foundations"
         ],
         "related": [],
-        "parent": ""
+        "parent": "math-oi-foundations"
     },
     {
         "id": "str-ac-automaton",
@@ -13618,10 +13762,11 @@ const KNOWLEDGE_DATA = [
         "prerequisites": [
             "str-kmp",
             "ds-trie",
-            "hub-str"
+            "hub-str",
+            "str-match-overview"
         ],
         "related": [],
-        "parent": ""
+        "parent": "str-match-overview"
     },
     {
         "id": "str-hash",
@@ -13752,7 +13897,8 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "字符串\\字符串匹配\\KMP\\源.cpp",
         "prerequisites": [
-            "hub-str"
+            "hub-str",
+            "str-match-overview"
         ],
         "related": [
             "str-hash",
@@ -13760,7 +13906,7 @@ const KNOWLEDGE_DATA = [
             "str-sunday",
             "ds-trie"
         ],
-        "parent": ""
+        "parent": "str-match-overview"
     },
     {
         "id": "str-manacher",
@@ -13827,6 +13973,48 @@ const KNOWLEDGE_DATA = [
             "线性"
         ],
         "codePath": "字符串\\Manacher\\Untitled1.cpp",
+        "prerequisites": [
+            "hub-str",
+            "str-match-overview"
+        ],
+        "related": [],
+        "parent": "str-match-overview"
+    },
+    {
+        "id": "str-match-overview",
+        "category": "字符串",
+        "subcategory": "字符串匹配",
+        "subSubcategory": "",
+        "title": "字符串匹配总览（KMP / Sunday / AC 自动机 / Manacher）",
+        "hub": true,
+        "versions": [
+            {
+                "author": "world-needs-sunday",
+                "content": "## 算法原理\r\n\r\n本页是「字符串匹配」的二级栏目索引：单模式匹配用 KMP/Sunday，多模式匹配用 AC 自动机，回文子串用 Manacher。\r\n\r\n**学习顺序**：KMP → Sunday → Manacher → AC 自动机。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 子条目 |\r\n|---|---|\r\n| 单模式串匹配、求 next | KMP 字符串匹配算法 |\r\n| 单模式串匹配、平均更快 | Sunday 字符串匹配算法 |\r\n| 多模式串同时匹配 | AC 自动机 |\r\n| 最长回文子串 | Manacher 算法 |\r\n\r\nKMP 的核心是 `next` 数组（失配后模式串回跳）；AC 自动机在 Trie 上建 fail 指针。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出 next/fail 构造与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- KMP：$O(n+m)$。\r\n- Sunday：平均 $O(n/m)$ 级别，最坏 $O(nm)$。\r\n- Manacher：$O(n)$。\r\n- AC 自动机：建树 $O(\\sum|s|)$，匹配 $O(n+\\text{命中数})$。\r\n\r\n## 适用场景\r\n\r\n- 子串查找、周期/前缀函数。\r\n- 多模式串敏感词、统计出现次数。\r\n- 回文相关（最长回文、回文划分预处理）。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- next 数组下标从 0 还是从 1 开始要统一。\r\n- KMP 求「所有出现位置」时失配后要继续跳 next。\r\n- Manacher 要插入分隔符处理奇偶回文。\r\n- AC 自动机建 fail 时用 BFS，注意根节点转移。\r\n- 多组数据要清空 Trie 与 fail。\r\n\r\n## 对比与扩展\r\n\r\n- KMP vs Sunday：后者在随机文本上常数更小。\r\n- AC 自动机 vs 后缀自动机：前者多模式匹配，后者处理单串子串结构。\r\n- 可扩展到 Z 函数、后缀数组、后缀自动机。",
+                "codePath": "",
+                "timeComplexity": "按子条目而定",
+                "spaceComplexity": "按子条目而定",
+                "tags": [
+                    "字符串匹配",
+                    "KMP",
+                    "AC自动机",
+                    "Manacher",
+                    "总览"
+                ],
+                "source": ""
+            }
+        ],
+        "content": "## 算法原理\r\n\r\n本页是「字符串匹配」的二级栏目索引：单模式匹配用 KMP/Sunday，多模式匹配用 AC 自动机，回文子串用 Manacher。\r\n\r\n**学习顺序**：KMP → Sunday → Manacher → AC 自动机。\r\n\r\n## 核心公式 / 状态定义与转移方程\r\n\r\n**按需求选子栏目**：\r\n\r\n| 需求 | 子条目 |\r\n|---|---|\r\n| 单模式串匹配、求 next | KMP 字符串匹配算法 |\r\n| 单模式串匹配、平均更快 | Sunday 字符串匹配算法 |\r\n| 多模式串同时匹配 | AC 自动机 |\r\n| 最长回文子串 | Manacher 算法 |\r\n\r\nKMP 的核心是 `next` 数组（失配后模式串回跳）；AC 自动机在 Trie 上建 fail 指针。\r\n\r\n## 逐行代码解析\r\n\r\n本页只做导航，不重复贴代码；各子页给出 next/fail 构造与逐行解析。\r\n\r\n## 复杂度分析\r\n\r\n- KMP：$O(n+m)$。\r\n- Sunday：平均 $O(n/m)$ 级别，最坏 $O(nm)$。\r\n- Manacher：$O(n)$。\r\n- AC 自动机：建树 $O(\\sum|s|)$，匹配 $O(n+\\text{命中数})$。\r\n\r\n## 适用场景\r\n\r\n- 子串查找、周期/前缀函数。\r\n- 多模式串敏感词、统计出现次数。\r\n- 回文相关（最长回文、回文划分预处理）。\r\n\r\n## 常见陷阱与注意事项\r\n\r\n- next 数组下标从 0 还是从 1 开始要统一。\r\n- KMP 求「所有出现位置」时失配后要继续跳 next。\r\n- Manacher 要插入分隔符处理奇偶回文。\r\n- AC 自动机建 fail 时用 BFS，注意根节点转移。\r\n- 多组数据要清空 Trie 与 fail。\r\n\r\n## 对比与扩展\r\n\r\n- KMP vs Sunday：后者在随机文本上常数更小。\r\n- AC 自动机 vs 后缀自动机：前者多模式匹配，后者处理单串子串结构。\r\n- 可扩展到 Z 函数、后缀数组、后缀自动机。",
+        "timeComplexity": "按子条目而定",
+        "spaceComplexity": "按子条目而定",
+        "tags": [
+            "字符串匹配",
+            "KMP",
+            "AC自动机",
+            "Manacher",
+            "总览"
+        ],
+        "codePath": "",
         "prerequisites": [
             "hub-str"
         ],
@@ -13914,13 +14102,14 @@ const KNOWLEDGE_DATA = [
         ],
         "codePath": "字符串\\字符串匹配\\Sunday\\源.cpp",
         "prerequisites": [
-            "hub-str"
+            "hub-str",
+            "str-match-overview"
         ],
         "related": [
             "str-kmp",
             "str-hash"
         ],
-        "parent": ""
+        "parent": "str-match-overview"
     }
 ];
 

@@ -342,6 +342,7 @@
                                     <label for="column-content">专栏内容（Markdown）</label>
                                     <textarea class="textarea column-content" id="column-content"></textarea>
                                     <div class="form-inline" style="margin-top:.4rem;">
+                                        <button class="btn btn-ghost btn-sm" type="button" id="column-reveal" disabled>显示 Markdown 源码</button>
                                         <button class="btn btn-ghost btn-sm" type="button" id="column-download">⬇ 下载当前专栏</button>
                                         <label class="btn btn-ghost btn-sm">
                                             ⬆ 上传文件覆盖内容
@@ -349,7 +350,7 @@
                                                    accept=".md,.markdown,.txt,text/*" hidden>
                                         </label>
                                     </div>
-                                    <p class="form-hint" id="column-file-hint">长专栏可下载到本地修改，再上传覆盖文本框内容。</p>
+                                    <p class="form-hint" id="column-file-hint">源码默认不在网页端展开（避免卡顿）；需要时点「显示 Markdown 源码」，或下载到本地修改后上传。</p>
                                 </div>
                                 <div class="form-inline">
                                     <label class="checkbox-row">
@@ -529,7 +530,6 @@
             var authorProfiles = [];
             var columnDataPromise = null;
             var columnUploadedText = null;
-            var columnSourceLarge = false;
 
             function isArticleColumn(column) {
                 var key = String((column && column.column_key) || '');
@@ -793,15 +793,43 @@
                     ? columnUploadedText
                     : document.getElementById('column-content').value;
             }
+            // 只有用户主动点击时才把源码写进文本框，避免长文一载入就卡顿
+            function revealColumnSource() {
+                var col = currentColumn();
+                if (!col) {
+                    setColumnError('column-error', '请选择专栏');
+                    return;
+                }
+                var reveal = document.getElementById('column-reveal');
+                if (columnUploadedText === null) {
+                    reveal.disabled = true;
+                    return;
+                }
+                var text = columnUploadedText;
+                if (text.length > 200000 &&
+                    !window.confirm('源码约 ' + text.length + ' 字符，在网页端展开可能卡顿，确定继续？')) {
+                    return;
+                }
+                var content = document.getElementById('column-content');
+                content.value = text;
+                content.disabled = false;
+                content.placeholder = '';
+                columnUploadedText = null;
+                reveal.disabled = true;
+                reveal.textContent = '源码已显示';
+                document.getElementById('column-file-hint').textContent = '当前 ' + text.length + ' 字符';
+            }
             function loadColumnDetail() {
                 var col = currentColumn();
                 var edit = document.getElementById('column-edit-fields');
                 var content = document.getElementById('column-content');
                 var statusEl = document.getElementById('column-lock-status');
+                var reveal = document.getElementById('column-reveal');
                 columnUploadedText = null;
-                columnSourceLarge = false;
+                reveal.disabled = true;
+                reveal.textContent = '显示 Markdown 源码';
                 document.getElementById('column-file-hint').textContent =
-                    '长专栏可下载到本地修改，再上传覆盖文本框内容。';
+                    '源码默认不在网页端展开（避免卡顿）；需要时点「显示 Markdown 源码」，或下载到本地修改后上传。';
                 document.getElementById('column-default-password').value = '';
                 document.getElementById('column-specific-password').value = '';
                 setColumnError('column-error', '');
@@ -830,19 +858,15 @@
                 document.getElementById('column-difficulty').disabled = col.kind !== 'problem';
                 document.getElementById('column-difficulty').value = col.difficulty || '暂未评定';
                 var text = col.content || '';
-                columnSourceLarge = text.length > 100000;
-                if (columnSourceLarge) {
-                    columnUploadedText = text;
-                    content.value = '';
-                    content.disabled = true;
-                    content.placeholder = '内容较长，已跳过网页渲染；请下载到本地修改后上传。';
-                    document.getElementById('column-file-hint').textContent =
-                        '当前 ' + text.length + ' 字符，已跳过网页渲染。';
-                } else {
-                    content.disabled = false;
-                    content.placeholder = '';
-                    content.value = text;
-                }
+                // 源码先放内存，不写入文本框：点「显示 Markdown 源码」后才展开
+                columnUploadedText = text;
+                content.value = '';
+                content.disabled = true;
+                content.placeholder = '点击「显示 Markdown 源码」后在网页端编辑；改动后请保存。';
+                reveal.disabled = false;
+                reveal.textContent = '显示 Markdown 源码（' + text.length + ' 字符）';
+                document.getElementById('column-file-hint').textContent =
+                    '当前 ' + text.length + ' 字符（尚未在网页端显示）。';
                 statusEl.textContent = '正在读取密码状态…';
                 if (!client) return;
                 client.rpc('get_column_lock_status', { p_key: col.column_key }).then(function (result) {
@@ -1694,9 +1718,9 @@
             });
 
             document.getElementById('column-select').addEventListener('change', loadColumnDetail);
+            document.getElementById('column-reveal').addEventListener('click', revealColumnSource);
             document.getElementById('column-content').addEventListener('input', function () {
                 columnUploadedText = null;
-                columnSourceLarge = false;
                 document.getElementById('column-file-hint').textContent =
                     '当前 ' + this.value.length + ' 字符';
             });
@@ -1749,20 +1773,15 @@
                         return;
                     }
                     var content = document.getElementById('column-content');
-                    columnSourceLarge = text.length > 100000;
-                    if (columnSourceLarge) {
-                        columnUploadedText = text;
-                        content.value = '';
-                        content.disabled = true;
-                        content.placeholder = '内容较长，已跳过网页渲染；保存时使用上传的文件内容。';
-                    } else {
-                        columnUploadedText = null;
-                        content.disabled = false;
-                        content.placeholder = '';
-                        content.value = text;
-                    }
+                    columnUploadedText = text;
+                    content.value = '';
+                    content.disabled = true;
+                    content.placeholder = '已读取上传文件；点「显示 Markdown 源码」可在网页端查看，或直接保存。';
+                    var reveal = document.getElementById('column-reveal');
+                    reveal.disabled = false;
+                    reveal.textContent = '显示 Markdown 源码（' + text.length + ' 字符）';
                     document.getElementById('column-file-hint').textContent =
-                        '已读取：' + file.name + '（' + text.length + ' 字符）';
+                        '已读取：' + file.name + '（' + text.length + ' 字符，保存时使用上传内容）';
                 } catch (error) {
                     setColumnError('column-error', '读取文件失败：' + error.message);
                 }

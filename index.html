@@ -3953,6 +3953,7 @@
         var dbSyncBusy = false;
         var dbLockMap = {};
         var viewerAuthed = false;
+        var viewerIsAdmin = false;
         var lockStatusReady = false;
         var lockStatusLoading = false;
 
@@ -3976,10 +3977,11 @@
             return suffix ? ('col-' + item.id + '--' + suffix) : ('col-' + item.id);
         }
 
-        // 有密码的专栏：游客直接拦截；登录用户需在本标签页输入过密码
+        // 有密码的专栏：游客直接拦截；登录用户需在本标签页输入过密码；管理员直接放行
         function isColumnViewLocked(key) {
             if (!key) return false;
             if (!dbLockMap[key]) return false;
+            if (viewerIsAdmin) return false;
             if (viewerAuthed) {
                 try {
                     if (sessionStorage.getItem('akb_unlock:' + key) === '1') return false;
@@ -4129,13 +4131,22 @@
             });
         }
 
-        // 登录用户不受专栏密码限制
+        // 登录用户需输入专栏密码；管理员可直接查看任何人的专栏
         function refreshViewerAuth() {
             if (!window.AKB || !window.AKB.getUser) return Promise.resolve();
             return window.AKB.getUser().then(function(user) {
                 var was = viewerAuthed;
+                var wasAdmin = viewerIsAdmin;
                 viewerAuthed = !!user;
-                if (was !== viewerAuthed) rerenderCurrentArticle();
+                if (!user) {
+                    viewerIsAdmin = false;
+                    if (was !== viewerAuthed || wasAdmin !== viewerIsAdmin) rerenderCurrentArticle();
+                    return null;
+                }
+                return window.AKB.getProfile().then(function(profile) {
+                    viewerIsAdmin = !!(profile && profile.role === 'admin');
+                    if (was !== viewerAuthed || wasAdmin !== viewerIsAdmin) rerenderCurrentArticle();
+                });
             }).catch(function() {});
         }
 

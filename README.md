@@ -260,7 +260,10 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - `index.html` 访问规则：
   - 未登录游客可直接查看**无密码**知识点与题目；有密码的专栏只显示「请先登录」拦截，不提供密码输入；
   - 登录用户访问有密码的专栏时显示密码门，输入正确密码后本标签页内可继续查看；密码为空则无需输入；
+  - 管理员（`profiles.role='admin'`）无需输入专栏密码，可直接查看任意作者的专栏；
   - 修改专栏同样要求登录 + 专栏密码（密码为空则无需输入）；
   - 密码状态来自 `published_columns.locked`，每 5 分钟与切回前台时补拉一次。
 - `login.html` 修改工单：载入源码后可修改**标题、标签、所属大类、难度（题目）**，提交后进入待审批；`admin.html` 编辑工单弹窗可同步调整，审核详情显示「旧值 → 新值」。
+- 新增迁移 [`supabase/phase13-login-by-identifier.sql`](supabase/phase13-login-by-identifier.sql)（**已应用**）：`resolve_login_email()` 支持邮箱 / QQ / 洛谷 / CF / 昵称任意一个 + 密码登录；密码错误返回 `null`，不泄露账号是否存在。
+- 修改工单与专栏管理的 Markdown 源码默认不写入文本框，点「显示 Markdown 源码」后才展开，避免长文卡顿；提交/保存时使用内存中的源码或文本框内容。
 - 说明：密码门是前端展示层控制，正文本身仍存在于公开的 `data.js`，无法阻止直接读取静态文件。

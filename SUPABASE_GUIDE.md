@@ -84,6 +84,7 @@ login.html 投稿表单
 | 9 | `supabase/phase10-guest-access-edit-metadata.sql` | 视图增加 `locked`（游客访问控制）；`submit_column_edit` 支持 `p_tags` / `p_category` / `p_difficulty`；审批时写回元数据 |
 | 10 | `supabase/phase11-edit-column-title.sql` | 「修改」工单增加 `p_column_name`，审批时写回 `columns.column_name` |
 | 11 | `supabase/phase12-author-default-passwords.sql` | 除 Xesir 外，作者默认专栏密码 = `auth.users.encrypted_password`；Xesir 默认密码留空 |
+| 12 | `supabase/phase13-login-by-identifier.sql` | 登录解析 RPC：昵称 / 邮箱 / QQ / 洛谷 / CF 任一标识 + 密码 → 返回登录邮箱（密码错误返回 `null`） |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -131,6 +132,7 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-07 | phase10-guest-access-edit-metadata | 已应用：视图 `locked` 生效；修改工单 payload 含标签/分类/难度与旧值，审批写回已验证 |
 | 2026-11-08 | phase11-edit-column-title | 已应用：修改工单支持改专栏标题，payload 含 `old_column_name`，审批写回已验证 |
 | 2026-11-08 | phase12-author-default-passwords | 已应用：475 条非 Xesir 专栏锁定，133 条 Xesir 专栏未锁定；默认密码 hash 复制自作者登录密码 |
+| 2026-11-08 | phase13-login-by-identifier | 已应用：`resolve_login_email()` 仅授予 `anon` / `authenticated`；昵称/QQ/洛谷/CF/邮箱 + 正确密码均能解析出登录邮箱，错误密码返回 `null` |
 
 ---
 
@@ -259,8 +261,13 @@ node scripts/seed-columns-from-content.js --only=knowledge
   - 打开页面时额外读取 608 条 `column_key, locked`（每 5 分钟与回到前台时补拉）；
   - 未登录游客：`locked=false` 直接看；`locked=true` 只显示「请先登录」拦截，不提供密码输入；
   - 登录用户：`locked=true` 显示密码门，调用 `verify_column_password` 验证，成功后本标签页内放行；`locked=false` 直接看；
+  - 管理员（`profiles.role='admin'`）：无论 `locked` 与否都直接放行，可查看任意作者的专栏；
   - 修改专栏同样要求登录 + 密码验证（密码为空则无需输入）；
   - 密码门是前端展示层控制，正文本身仍在公开的 `data.js` 里，无法阻止直接读取静态文件。
+- **登录标识（phase13）**：
+  - 登录页把输入内容交给 `resolve_login_email(p_identifier, p_password)`；昵称 / 邮箱 / QQ / 洛谷 / CF 任一匹配、且 bcrypt 密码正确时才返回该账号的登录邮箱；
+  - 前端拿到邮箱后再调 `signInWithPassword`（Supabase Auth 只认邮箱）；
+  - 密码错误一律返回 `null`，不泄露账号是否存在，也不泄露邮箱。
 - **作者默认密码（phase12）**：
   - 除 Xesir 外，每位作者的 `column_locks` 默认行（`column_key='__default__', is_default=true`）的 `password_hash` 直接复制自 `auth.users.encrypted_password`，因此作者用自己的**登录密码**即可解锁其全部专栏；
   - Xesir 的默认密码为 `null`，其 133 条专栏保持无密码；
@@ -332,6 +339,8 @@ node scripts/seed-columns-from-content.js --only=knowledge
 | 游客打开有密码专栏没有输入框 | 设计如此：游客不提供密码入口 | 先登录；登录后才会出现密码门 |
 | 登录用户输对密码仍不显示正文 | `verify_column_password` 未授予 authenticated / 密码优先级不匹配 | 检查函数授权；密码规则为「特定 > 默认 > 无密码」 |
 | 密码完全不生效、`locked` 全是 0 | 默认 `column_locks.password_hash` 为空，等于没有设置密码 | 执行 `phase12-author-default-passwords.sql`，默认密码复制自作者登录密码 |
+| 用昵称 / QQ / 洛谷 / CF 登录提示密码错误 | 未执行 phase13 / 该账号没填过这个标识 / 输入的是专栏密码 | 执行 `phase13-login-by-identifier.sql`；确认注册时填过该标识，并用登录密码 |
+| 管理员仍被专栏密码拦住 | `profiles.role` 不是 `admin`，或浏览器缓存旧 HTML | 查 `profiles.role`；Ctrl+F5 后重试 |
 | 修改工单提示「专栏密码不正确」 | 专栏设置了特定/通用密码，输入不匹配 | 用 `column_locks` 的规则：特定 > 通用 > 无密码 |
 | 修改工单提示「请先登录」 | 未登录就调 `submit_column_edit` | 先登录；该 RPC 只授予 authenticated |
 | 修改工单被 RLS 拒绝 | 绕过 RPC 直接 insert `type='edit'` | 必须走 `submit_column_edit()` |
@@ -397,3 +406,4 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-07 | 新增 phase10：视图增加 `locked`，游客只能直接查看无密码专栏，有密码的弹出密码门；`submit_column_edit()` 支持标签/分类/难度并在审批时写回，后台可查看元数据变化 |
 | 2026-11-08 | 新增 phase11：修改工单支持改专栏标题；访问控制收紧为「游客不可访问有密码专栏，登录用户需输入密码（密码为空除外）」 |
 | 2026-11-08 | 新增 phase12：作者默认专栏密码 = 作者登录密码（复制 bcrypt hash），Xesir 留空；首页增加权限检查占位，避免正文在拦截前闪现 |
+| 2026-11-08 | 新增 phase13：邮箱 / QQ / 洛谷 / CF / 昵称任意一个 + 密码均可登录；管理员免密码查看任意专栏；修改专栏的源码默认不展开，点按钮才写入文本框以避免卡顿 |

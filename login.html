@@ -61,7 +61,7 @@
             <!-- 登录 -->
             <section class="tab-panel active" id="panel-login" role="tabpanel">
                 <h3 class="auth-title">欢迎回来</h3>
-                <p class="auth-subtitle" style="margin-bottom:1rem;">使用注册时填写的邮箱、QQ、洛谷、CF 或作者用户名登录</p>
+                <p class="auth-subtitle" style="margin-bottom:1rem;">邮箱 / QQ / 洛谷 / CF / 用户名，任意一个 + 密码即可登录</p>
                 <form class="form-grid" id="login-form" novalidate>
                     <div class="form-field">
                         <label for="login-contact">登录账号</label>
@@ -115,7 +115,7 @@
                             <input class="input" type="text" id="reg-cf" name="cf" placeholder="留空即可">
                         </div>
                     </div>
-                    <p class="form-hint">邮箱、QQ、洛谷、CF 至少填一项；不填的保持为空。邮箱只作联系方式，不会发送验证邮件；注册后由管理员在后台审批，一切以工单审批结果为准。登录优先用邮箱，其次 QQ、洛谷、CF。</p>
+                    <p class="form-hint">邮箱、QQ、洛谷、CF 至少填一项；不填的保持为空。邮箱只作联系方式，不会发送验证邮件；注册后由管理员在后台审批，一切以工单审批结果为准。登录时邮箱、QQ、洛谷、CF、昵称任意一个 + 密码均可。</p>
                     <p class="form-error" id="register-mail-warning" hidden>Supabase 仍开启邮箱确认：注册后将无法登录。请在 Authentication → Providers → Email 关闭 Confirm email。</p>
                     <div class="form-row">
                         <div class="form-field">
@@ -268,6 +268,7 @@
                                       disabled placeholder="验证通过后在此查看并修改源码"></textarea>
                             <p class="form-hint" id="ticket-edit-count">未载入源码</p>
                             <div class="form-inline">
+                                <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-reveal" disabled>显示 Markdown 源码</button>
                                 <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-download" disabled>⬇ 下载当前源码</button>
                                 <label class="btn btn-ghost btn-sm">
                                     ⬆ 上传修改后的文件
@@ -275,7 +276,7 @@
                                            accept=".md,.markdown,.txt,text/*" hidden>
                                 </label>
                             </div>
-                            <p class="form-hint" id="ticket-edit-file-hint">过长的专栏可先下载到本地编辑，再上传覆盖文本框内容。</p>
+                            <p class="form-hint" id="ticket-edit-file-hint">源码默认不在网页端展开（避免卡顿）；需要时点「显示 Markdown 源码」，或下载到本地修改后上传。</p>
                         </div>
                         <div class="form-field">
                             <label for="ticket-edit-note">修改说明 <span class="label-hint">选填</span></label>
@@ -451,7 +452,6 @@
             var editVerifiedKey = '';
             var editVerifiedPassword = '';
             var editUploadedText = null;
-            var editSourceLarge = false;
             var editFromUpload = false;
 
             function showToast(text) {
@@ -572,8 +572,15 @@
                     return;
                 }
                 if (!needClient()) return;
+                // 邮箱 / QQ / 洛谷 / CF / 昵称 → 登录邮箱（密码正确才会返回）
+                var email = window.AKB.contactToEmail(contact);
+                var resolved = await client.rpc('resolve_login_email', {
+                    p_identifier: contact,
+                    p_password: password
+                });
+                if (!resolved.error && resolved.data) email = resolved.data;
                 var result = await client.auth.signInWithPassword({
-                    email: window.AKB.contactToEmail(contact),
+                    email: email,
                     password: password
                 });
                 if (result.error) {
@@ -821,14 +828,15 @@
                 editVerifiedKey = '';
                 editVerifiedPassword = '';
                 editUploadedText = null;
-                editSourceLarge = false;
                 editFromUpload = false;
                 var content = document.getElementById('ticket-edit-content');
                 content.value = '';
                 content.disabled = true;
                 content.placeholder = '验证通过后在此查看并修改源码';
+                document.getElementById('ticket-edit-reveal').disabled = true;
+                document.getElementById('ticket-edit-reveal').textContent = '显示 Markdown 源码';
                 document.getElementById('ticket-edit-file-hint').textContent =
-                    '过长的专栏可先下载到本地编辑，再上传覆盖文本框内容。';
+                    '源码默认不在网页端展开（避免卡顿）；需要时点「显示 Markdown 源码」，或下载到本地修改后上传。';
                 document.getElementById('ticket-edit-status').textContent =
                     '修改需先登录；未设置密码的专栏选中后可直接载入。';
                 document.getElementById('ticket-edit-count').textContent = '未载入源码';
@@ -843,6 +851,31 @@
                 return editUploadedText !== null
                     ? editUploadedText
                     : document.getElementById('ticket-edit-content').value;
+            }
+            // 只有用户主动点击时才把源码写进文本框，避免长文一载入就卡顿
+            function revealEditSource() {
+                if (!editVerifiedKey) {
+                    setError('ticket-error', '请先选择专栏并载入源码');
+                    return;
+                }
+                var reveal = document.getElementById('ticket-edit-reveal');
+                if (editUploadedText === null) {
+                    reveal.disabled = true;
+                    return;
+                }
+                var text = editUploadedText;
+                if (text.length > 200000 &&
+                    !window.confirm('源码约 ' + text.length + ' 字符，在网页端展开可能卡顿，确定继续？')) {
+                    return;
+                }
+                var content = document.getElementById('ticket-edit-content');
+                content.value = text;
+                content.disabled = false;
+                content.placeholder = '在此直接修改 Markdown 源码';
+                editUploadedText = null;
+                document.getElementById('ticket-edit-count').textContent = '当前 ' + text.length + ' 字符';
+                reveal.disabled = true;
+                reveal.textContent = '源码已显示';
             }
             async function showEditSource(key, password) {
                 var statusEl = document.getElementById('ticket-edit-status');
@@ -859,25 +892,19 @@
                 var column = result.data;
                 var text = column.content || '';
                 var content = document.getElementById('ticket-edit-content');
+                var reveal = document.getElementById('ticket-edit-reveal');
                 editVerifiedKey = key;
                 editVerifiedPassword = password;
                 editFromUpload = false;
-                editSourceLarge = text.length > 100000;
-                if (editSourceLarge) {
-                    editUploadedText = text;
-                    content.value = '';
-                    content.disabled = true;
-                    content.placeholder = '内容较长，已跳过网页渲染；请下载到本地修改后上传文件。';
-                    document.getElementById('ticket-edit-count').textContent =
-                        '当前 ' + text.length + ' 字符（已跳过网页渲染）';
-                } else {
-                    editUploadedText = null;
-                    content.disabled = false;
-                    content.placeholder = '在此直接修改 Markdown 源码';
-                    content.value = text;
-                    document.getElementById('ticket-edit-count').textContent =
-                        '当前 ' + text.length + ' 字符';
-                }
+                // 源码先放内存，不写入文本框：只有点「显示 Markdown 源码」才展开，避免长文卡顿
+                editUploadedText = text;
+                content.value = '';
+                content.disabled = true;
+                content.placeholder = '点击「显示 Markdown 源码」后在网页端编辑，或直接下载到本地修改后上传。';
+                reveal.disabled = false;
+                reveal.textContent = '显示 Markdown 源码（' + text.length + ' 字符）';
+                document.getElementById('ticket-edit-count').textContent =
+                    '当前 ' + text.length + ' 字符（尚未在网页端显示）';
                 document.getElementById('ticket-edit-download').disabled = false;
                 // 回填可修改的元数据
                 document.getElementById('ticket-edit-name').value = column.column_name || '';
@@ -925,10 +952,8 @@
                 }
                 var column = await showEditSource(key, password);
                 if (column) {
-                    statusEl.textContent = editSourceLarge
-                        ? '已验证：' + (column.column_name || key) +
-                          '。内容较长，已跳过网页渲染；请下载到本地修改后上传。'
-                        : '已验证：' + (column.column_name || key) + '。可直接修改下方源码。';
+                    statusEl.textContent = '已验证：' + (column.column_name || key) +
+                        '。点「显示 Markdown 源码」在网页端编辑，或直接下载后上传。';
                 }
             }
             async function onEditColumnChange() {
@@ -954,9 +979,7 @@
                 if (verify.data) {
                     var column = await showEditSource(key, '');
                     if (column) {
-                        statusEl.textContent = editSourceLarge
-                            ? '该专栏未设置密码；内容较长，已跳过网页渲染，请下载到本地修改后上传。'
-                            : '该专栏未设置密码，已直接载入源码，可直接修改。';
+                        statusEl.textContent = '该专栏未设置密码；点「显示 Markdown 源码」查看/编辑，或直接下载。';
                     }
                 } else {
                     statusEl.textContent = '该专栏已设置密码，请输入密码后点击“验证并载入源码”。';
@@ -992,9 +1015,9 @@
                 if (editVerifiedKey) resetEditVerification(false);
             });
             document.getElementById('ticket-edit-load').addEventListener('click', loadEditSource);
+            document.getElementById('ticket-edit-reveal').addEventListener('click', revealEditSource);
             document.getElementById('ticket-edit-content').addEventListener('input', function () {
                 editUploadedText = null;
-                editSourceLarge = false;
                 document.getElementById('ticket-edit-count').textContent =
                     '当前 ' + this.value.length + ' 字符';
             });
@@ -1042,22 +1065,16 @@
                         this.value = '';
                         return;
                     }
-                    editSourceLarge = text.length > 100000;
                     editFromUpload = true;
-                    if (editSourceLarge) {
-                        editUploadedText = text;
-                        content.value = '';
-                        content.disabled = true;
-                        content.placeholder = '内容较长，已跳过网页渲染；提交时将使用上传的文件内容。';
-                    } else {
-                        editUploadedText = null;
-                        content.disabled = false;
-                        content.placeholder = '在此直接修改 Markdown 源码';
-                        content.value = text;
-                    }
+                    editUploadedText = text;
+                    content.value = '';
+                    content.disabled = true;
+                    content.placeholder = '已读取上传文件；点「显示 Markdown 源码」可在网页端查看，或直接提交。';
+                    var reveal = document.getElementById('ticket-edit-reveal');
+                    reveal.disabled = false;
+                    reveal.textContent = '显示 Markdown 源码（' + text.length + ' 字符）';
                     document.getElementById('ticket-edit-count').textContent =
-                        '当前 ' + text.length + ' 字符' +
-                        (editSourceLarge ? '（已跳过网页渲染）' : '');
+                        '当前 ' + text.length + ' 字符（尚未在网页端显示）';
                     document.getElementById('ticket-edit-file-hint').textContent =
                         '已读取：' + file.name + '（' + text.length + ' 字符，按上传文件提交）';
                     setError('ticket-error', '');

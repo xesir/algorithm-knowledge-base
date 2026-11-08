@@ -440,6 +440,32 @@
             flex-shrink: 0;
         }
 
+        /* 左下角醒目的「提交工单」快捷入口 */
+        .sidebar-ticket-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 0.55rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.45);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .sidebar-ticket-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.65);
+            color: #fff;
+        }
+
         /* ===== Sidebar Tree ===== */
         .category-header {
             display: flex;
@@ -1584,13 +1610,16 @@
                 <div class="catalog-btn" id="catalog-btn" onclick="openCatalogForMode()">📑 总目录</div>
             </div>
             <nav id="sidebar-nav"></nav>
-            <div class="sidebar-footer" style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;">
-                <span><span id="kp-count">…</span> <span id="footer-count-label">个知识点</span></span>
-                <span style="display:flex;align-items:center;gap:.55rem;white-space:nowrap;">
-                    <a href="login.html" id="login-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">登录</a>
-                    <a href="admin.html?tab=profile" id="account-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">账号设置</a>
-                    <a href="login.html" id="logout-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">退出登录</a>
-                </span>
+            <div class="sidebar-footer">
+                <a href="login.html?tab=ticket" class="sidebar-ticket-btn">📝 提交工单</a>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;">
+                    <span><span id="kp-count">…</span> <span id="footer-count-label">个知识点</span></span>
+                    <span style="display:flex;align-items:center;gap:.55rem;white-space:nowrap;">
+                        <a href="login.html" id="login-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">登录</a>
+                        <a href="admin.html?tab=profile" id="account-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">账号设置</a>
+                        <a href="login.html" id="logout-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">退出登录</a>
+                    </span>
+                </div>
             </div>
         </aside>
         <main id="content"><div class="placeholder">📑 正在加载知识点总目录…</div></main>

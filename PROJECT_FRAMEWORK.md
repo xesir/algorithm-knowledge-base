@@ -10,11 +10,11 @@
 
 | 问题 | 答案 |
 |---|---|
-| 网站是什么 | 纯静态算法/知识点查询站（单文件 `index.html` + 三个构建产物），GitHub Pages 托管 |
+| 网站是什么 | 纯静态算法/知识点查询站（单文件 `index.html` + 构建产物），GitHub Pages 托管 |
 | 内容从哪来 | `content/*.md`（知识点 292 篇）、`problems/*.md`（题目 200 道）、各分类目录下的 `.cpp`（你本人写的代码） |
-| 怎么生成网页数据 | `node build.js` → `data.js` + `problems_data.js` + `code_data.js` |
+| 怎么生成网页数据 | `node build.js` → `data.js` + `problems_data.js` + `code_data.js`（另生成 `tags.json` / `titles.json`） |
 | 改了内容怎么验证 | `node tools/lint.js`（**error 必须为 0**）→ `node build.js` → 浏览器 Ctrl+F5 |
-| 什么绝对不能做 | ① 代写 `.cpp` 实现 ② 手改三个产物 ③ 不过门禁就交付 |
+| 什么绝对不能做 | ① 代写 `.cpp` 实现 ② 手改构建产物 ③ 不过门禁就交付 |
 | 四个能力在哪 | `.trae/skills/add-knowledge`、`add-problem`、`edit-content`、`release-github` |
 
 ---
@@ -27,7 +27,7 @@
    **禁止**：生成或补全这些 `.cpp` 的实现，或在正文里写出完整可提交代码。
    例外：用户明确说"破例帮我写"时，回复首行标注 `⚠️ 已按你的破例要求代写代码`。
 2. **改完必须过门禁。** `node tools/lint.js`（error 必须 0）→ `node build.js`。
-3. **内容源是唯一真相。** `data.js` / `code_data.js` / `problems_data.js` 是构建产物，永不手改。
+3. **内容源是唯一真相。** `data.js` / `code_data.js` / `problems_data.js` / `tags.json` / `titles.json` 是构建产物，永不手改。
 
 ---
 
@@ -50,7 +50,7 @@
 ├── docs/                   # 内容质量标准.md / 网页版总结提示词.md
 ├── .trae/skills/           # 四个能力技能
 ├── vendor/                 # 本地前端依赖（KaTeX / marked / highlight.js + 字体）
-├── data.js problems_data.js code_data.js   # 【产物】不要手改
+├── data.js problems_data.js code_data.js tags.json titles.json   # 【产物】不要手改
 └── .github/workflows/      # 内容质检 CI（可选）
 ```
 
@@ -61,9 +61,15 @@ content/*.md ─┐
 problems/*.md ─┼─► build.js ─┬─► data.js          KNOWLEDGE_DATA + CATEGORY_META + SUBCATEGORY_META
 knowledge_graph.json ─┘       ├─► problems_data.js PROBLEMS_DATA
 各分类/*.cpp ─────────────────┴─► code_data.js     CODE_DATA（key = codePath）
+                                     ├─► tags.json    标签库（投稿/专栏标签选择器）
+                                     └─► titles.json  知识点 id → 标题（工单选择器显示可读名称）
                                      ↓
                           index.html 渲染（公式走 KaTeX 三步法，代码走 highlight.js）
 ```
+
+**运行时数据库覆盖**：`index.html` 载入后还会按 `data.js` 里的 `DATA_BUILD_AT` 作为基线，增量拉取 Supabase 视图 `published_columns`，覆盖已审批的 `col-*` 正文、追加新审批的 `sub-*` 投稿（每 60 秒与回到前台时刷新）。静态 Markdown 仍是构建期唯一内容源，覆盖只发生在浏览器运行时。
+
+**游客访问规则**：未登录游客可直接查看无密码知识点与题目；有密码的专栏只显示「请先登录」拦截。登录用户访问有密码专栏时需输入密码（密码为空则无需输入），验证后本标签页内放行；修改专栏同样要求登录 + 密码。密码状态来自 `published_columns.locked`（特定密码 > 作者默认密码）。
 
 **build.js 的关键行为**（写内容时要顺着它）：
 
@@ -333,7 +339,7 @@ knowledge_graph.json ─┘       ├─► problems_data.js PROBLEMS_DATA
 ## 9. 绝对不要做的事
 
 1. ❌ 生成/补全任何 `.cpp` 的实现（含暴力程序、造数据程序）。
-2. ❌ 手改 `data.js` / `code_data.js` / `problems_data.js`。
+2. ❌ 手改 `data.js` / `code_data.js` / `problems_data.js` / `tags.json` / `titles.json`。
 3. ❌ 编造题号、样例、年份、出处、数据范围。
 4. ❌ 没跑门禁就宣称"完成了"。
 5. ❌ 顺手重构、批量改格式、改动与任务无关的文件。

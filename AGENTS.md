@@ -14,7 +14,7 @@
 - 多版本：`content/<id>.md`=world-needs-sunday版，`content/<id>--作者.md`=其他作者版（详情页顶部 tab 切换，默认world-needs-sunday；作者映射见 `build.js` 的 `AUTHOR_KEYS`）
 - 代码：各分类目录下的 `.cpp`（由 `codePath` 指向，**用户本人编写**）
 - 图谱：`knowledge_graph.json`
-- 构建：`node build.js` → `data.js` / `code_data.js` / `problems_data.js`
+- 构建：`node build.js` → `data.js` / `code_data.js` / `problems_data.js`（另生成 `tags.json` / `titles.json`）
 - 门禁：`node tools/lint.js`（error 必须为 0）
 
 ## 三条铁律

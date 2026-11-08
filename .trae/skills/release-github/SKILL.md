@@ -40,6 +40,7 @@ node build.js
 |---|---|---|
 | `index.html` | 页面本体 | `git ls-files --error-unmatch index.html` |
 | `data.js` / `problems_data.js` / `code_data.js` | 三个数据产物 | 同上 |
+| `tags.json` / `titles.json` | 标签库 / 知识点 id→标题（工单选择器、投稿关系选择用） | 同上 |
 | `vendor/**` | KaTeX / marked / highlight.js + 字体 | 同上 |
 | `favicon.svg` | 站点图标 | ⚠️ **目前未跟踪，线上会 404** |
 

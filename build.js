@@ -55,6 +55,8 @@ const PROBLEMS_DIR = path.join(ROOT, 'problems');
 const OUTPUT_DATA = path.join(ROOT, 'data.js');
 const OUTPUT_CODE = path.join(ROOT, 'code_data.js');
 const OUTPUT_PROBLEMS = path.join(ROOT, 'problems_data.js');
+const OUTPUT_TAGS = path.join(ROOT, 'tags.json');
+const OUTPUT_TITLES = path.join(ROOT, 'titles.json');
 const GRAPH_FILE = path.join(ROOT, 'knowledge_graph.json');
 
 // ===== 解析 YAML Frontmatter =====
@@ -351,9 +353,13 @@ function build() {
     // 生成 data.js
     const dataJs = `// 此文件由 build.js 自动生成，请勿手动编辑
 // 修改 content/ 下的 .md 文件后运行 node build.js 重新生成
+const DATA_BUILD_AT = ${JSON.stringify(new Date().toISOString())};
+
 const KNOWLEDGE_DATA = ${JSON.stringify(knowledgeData, null, 4)};
 
 const AUTHORS = ${JSON.stringify(['world-needs-sunday', ...Object.values(AUTHOR_KEYS)])};
+
+const AUTHOR_KEYS = ${JSON.stringify(AUTHOR_KEYS)};
 
 const CATEGORY_META = ${JSON.stringify(graph.categories || {}, null, 4)};
 
@@ -363,6 +369,24 @@ const SUBSUBCATEGORY_META = ${JSON.stringify(graph.subSubcategories || {}, null,
 `;
     fs.writeFileSync(OUTPUT_DATA, dataJs, 'utf8');
     console.log(`\n✅ 生成 data.js (${knowledgeData.length} 个知识点, ${(dataJs.length / 1024).toFixed(1)} KB)`);
+
+    // 生成标签库（供投稿/专栏标签选择器使用）
+    const tagSet = new Set();
+    knowledgeData.forEach(item => {
+        (item.tags || []).forEach(tag => tagSet.add(tag));
+    });
+    const tagsJson = JSON.stringify(Array.from(tagSet).sort(), null, 2);
+    fs.writeFileSync(OUTPUT_TAGS, tagsJson, 'utf8');
+    console.log(`✅ 生成 tags.json (${tagSet.size} 个标签, ${(tagsJson.length / 1024).toFixed(1)} KB)`);
+
+    // 生成知识点 id → 标题映射（供工单选择器显示可读名称，而不是 dp-xxx 这类 id）
+    const titlesJson = JSON.stringify(
+        Object.fromEntries(knowledgeData.map(item => [item.id, item.title])),
+        null,
+        2
+    );
+    fs.writeFileSync(OUTPUT_TITLES, titlesJson, 'utf8');
+    console.log(`✅ 生成 titles.json (${knowledgeData.length} 个标题, ${(titlesJson.length / 1024).toFixed(1)} KB)`);
 
     // 生成 code_data.js
     const codeJs = `// 此文件由 build.js 自动生成，请勿手动编辑

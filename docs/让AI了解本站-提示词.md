@@ -77,7 +77,8 @@
 - knowledge_graph.json  分类描述 + 前置/相关关系
 - 各分类目录/*.cpp  我自己写的代码（由 frontmatter 的 codePath 指向）
 - 一个构建脚本把它们合成三个数据文件（data.js / problems_data.js / code_data.js），
-  页面只读这三个产物；产物永不手改，改了内容必须重新构建。
+  另生成 tags.json / titles.json（标签库与知识点标题，供工单选择器使用）；
+  页面只读这些产物；产物永不手改，改了内容必须重新构建。
 
 【一篇知识点长什么样】
 frontmatter：id（=文件名）/ title（正式名）/ category / subcategory / subSubcategory（二级标签，可空）/

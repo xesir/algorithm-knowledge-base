@@ -2,6 +2,7 @@
 
 > 一个个人维护的**算法/知识点查询网站**：内容源是 Markdown，用 `build.js` 生成前端数据，纯静态托管在 GitHub Pages。
 > **给 AI 的一句话**：先读 [`AGENTS.md`](AGENTS.md)（铁律 + 入口），再读 [`PROJECT_FRAMEWORK.md`](PROJECT_FRAMEWORK.md)（完整框架与操作手册），然后按 `.trae/skills/` 里对应的技能执行。
+> **只要本轮涉及 Supabase / 数据库 / 登录 / 工单 / 专栏 / 后端字段，必须再读 [`SUPABASE_GUIDE.md`](SUPABASE_GUIDE.md)**（接入 SQL 环境后的工作规范、迁移顺序、加功能清单与排错表）。
 
 ---
 
@@ -59,6 +60,7 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 | `.trae/skills/` | **四个能力技能**（见下） |
 | `.trae/rules/project_rules.md` | Trae 原生项目规则 |
 | `AGENTS.md` / `PROJECT_FRAMEWORK.md` | AI 入口 / 框架与操作手册 |
+| `SUPABASE_GUIDE.md` | **Supabase 接入环境工作指南**：迁移顺序（phase2→6）、数据模型与 RLS、审批自动入库、加新功能清单、测试与排错 |
 
 ## 5. 四个能力（都能直接让 AI 执行）
 
@@ -209,3 +211,54 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 
 - 本轮完整纪要见 [`docs/会话纪要-2026-11-04.md`](docs/会话纪要-2026-11-04.md)。
 - 备份 tag：`backup-before-major-rework-20261104`；全量 zip：`..\backup_AKB_20261104.zip`（仓库全量，含 `.git`）。
+
+## 备注（2026-11-06 · Supabase 投稿闭环联调通过 + 新增环境指南）
+
+- 本轮完整纪要见 [`docs/会话纪要-2026-11-06.md`](docs/会话纪要-2026-11-06.md)。
+- **新增指导文件 [`SUPABASE_GUIDE.md`](SUPABASE_GUIDE.md)**：涉及 Supabase / 数据库 / 登录 / 工单 / 专栏 / 后端字段的会话，**必须先读该文件**。其优先级低于 `AGENTS.md`、`.trae/rules/project_rules.md`、`README.md`、`PROJECT_FRAMEWORK.md`，高于 `docs/` 下的会话纪要与提示词。
+- 数据库迁移已全部执行：phase4（`tickets.payload`）→ phase5（作者/单关系）→ phase6（多关系 / 标签库 / 匿名建议）。
+- 联调结论：投稿提交、后台「通过并入库」、触发器自动写入 `columns`、标签并入 `tags`、多条关系落库均通过；测试期间产生的工单、专栏、测试账号与测试标签已清理。
+- 修复：投稿表单「作者」下拉被 `sub-*` 自动生成专栏名覆盖，现优先取作者本人的专栏名。
+- 规模：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
+
+## 备注（2026-11-06 · 「修改」工单与后台 diff）
+
+- 新增迁移 [`supabase/phase7-column-edit-tickets.sql`](supabase/phase7-column-edit-tickets.sql)（**已在 SQL Editor 执行**）：
+  - `submit_column_edit(p_key, p_password, p_content, p_note)` RPC：必须登录，并在函数内校验该专栏密码（特定 > 通用 > 无密码）；
+  - 审批通过后由 `publish_submission_ticket()` 把修改后的 Markdown 写回 `columns.content`；
+  - RLS 禁止 authenticated 直接 `insert type='edit'`，修改工单只能走 RPC。
+- 新增迁移 [`supabase/phase8-column-edit-upload-flag.sql`](supabase/phase8-column-edit-upload-flag.sql)（**已应用**）：`submit_column_edit()` 增加 `p_uploaded` 参数，payload 记录 `uploaded`，供后台判断是否隐藏逐行 diff。
+- `login.html`：工单类型新增「修改」，支持选择专栏（显示专栏名称）、输入专栏密码、验证并载入 Markdown 源码后修改提交；提交后进入待审批，不会立即生效。
+- 修改工单的目标只列 `sub-*` / `col-*` 这类实际专栏，**排除 7 条作者占位专栏**；未设置密码的专栏选中后自动载入源码，可直接修改。
+- 修改表单支持「下载当前源码 / 上传修改后的文件」（`.md` / `.markdown` / `.txt`，≤5 MB）；正文超过 10 万字符时跳过网页 textarea 渲染，下载到本地修改后上传，避免页面卡顿。走上传文件提交时后台不展示逐行 diff。
+- `admin.html`：投稿工单可展开查看原文；修改工单默认展示逐行 diff（含新增/删除行数与修改处数），但**上传文件提交或修改点 > 5 处时改为只展示修改后全文**；所有待审批工单新增「编辑」，管理员可直接修改标题、备注、payload 与内容后再通过。
+- `admin.html` 专栏管理同样支持「下载当前专栏 / 上传文件覆盖内容」，长文不再强制渲染进 textarea，保存时优先取上传内容。
+- 专栏/知识点选择统一显示可读名称：`build.js` 新增产物 `titles.json`（知识点 id → 标题），投稿关系、后台关系、修改工单目标均优先显示名称而不是 `dp-xxxx` 这类 id。
+- 新增 [`scripts/seed-columns-from-content.js`](scripts/seed-columns-from-content.js)：把 `content/` 与 `problems/` 中已有的 Markdown 批量生成 `columns` 种子 SQL（`supabase/seed-columns/01~16`，共 608 行：知识点 408 + 题目 200），按文件名归属作者，可重复执行；在 SQL Editor 按序号执行后，「修改」下拉才会出现这些 `col-*` 专栏。
+- 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
+
+## 备注（2026-11-07 · 审批后的修改 / 投稿实时覆盖到公开页）
+
+- 新增迁移 [`supabase/phase9-published-columns-view.sql`](supabase/phase9-published-columns-view.sql)（**已应用**）：公开只读视图 `published_columns`，只暴露 `status='published'` 的 `col-*` / `sub-*` 专栏，并附带作者昵称。
+- `build.js` 在 `data.js` 顶部写入 `DATA_BUILD_AT`（构建时间）与 `AUTHOR_KEYS`（文件名作者 key → 显示名）。
+- `index.html` 打开后调用 `syncPublishedColumns()`：以 `updated_at > DATA_BUILD_AT` 增量拉取数据库专栏。
+  - 修改工单审批后：覆盖对应知识点/题目（含指定作者版本）的正文；
+  - 投稿工单审批后：新专栏（`sub-*`）自动追加到知识点或题目目录的「投稿」分组，可直接通过 URL 访问；
+  - 打开页面同步一次，之后每 60 秒、切回前台时各同步一次，无需重新构建或刷新部署。
+- 静态 Markdown 仍是构建期唯一内容源；数据库覆盖只发生在浏览器运行时。若先审批、后重新构建且 Markdown 未同步，重新构建会以 Markdown 为准（基线是构建时间）。
+- 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
+
+## 备注（2026-11-07 · 游客访问控制与「修改」工单元数据）
+
+- 新增迁移 [`supabase/phase10-guest-access-edit-metadata.sql`](supabase/phase10-guest-access-edit-metadata.sql)（**已应用**）：
+  - `published_columns` 视图增加 `locked`（特定密码优先，其次作者默认密码）；
+  - `submit_column_edit()` 增加 `p_tags` / `p_category` / `p_difficulty`，payload 同时记录旧值；
+  - 审批「修改」工单时把正文与标签 / 分类 / 难度一起写回 `columns`。
+- 新增迁移 [`supabase/phase11-edit-column-title.sql`](supabase/phase11-edit-column-title.sql)（**已应用**）：`submit_column_edit()` 增加 `p_column_name`，payload 记录 `old_column_name`，审批时写回 `columns.column_name`。
+- `index.html` 访问规则：
+  - 未登录游客可直接查看**无密码**知识点与题目；有密码的专栏只显示「请先登录」拦截，不提供密码输入；
+  - 登录用户访问有密码的专栏时显示密码门，输入正确密码后本标签页内可继续查看；密码为空则无需输入；
+  - 修改专栏同样要求登录 + 专栏密码（密码为空则无需输入）；
+  - 密码状态来自 `published_columns.locked`，每 5 分钟与切回前台时补拉一次。
+- `login.html` 修改工单：载入源码后可修改**标题、标签、所属大类、难度（题目）**，提交后进入待审批；`admin.html` 编辑工单弹窗可同步调整，审核详情显示「旧值 → 新值」。
+- 说明：密码门是前端展示层控制，正文本身仍存在于公开的 `data.js`，无法阻止直接读取静态文件。

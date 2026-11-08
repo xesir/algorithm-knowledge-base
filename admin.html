@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="算法知识点查询系统 · 管理员后台">
+    <meta name="theme-color" content="#1e293b">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>管理员后台 · 算法知识点查询系统</title>
+    <script>
+        (function () {
+            var t = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/forms.css?v=20261106b">
+</head>
+<body>
+    <div class="admin-shell">
+        <aside class="admin-sidebar" id="admin-sidebar">
+            <div class="admin-brand">
+                <span class="brand-mark" style="width:1.85rem;height:1.85rem;font-size:.9rem;">📚</span>
+                <span>
+                    知识库后台
+                    <small>ALGORITHM KNOWLEDGE BASE</small>
+                </span>
+            </div>
+
+            <div class="admin-profile">
+                <span class="avatar" id="admin-avatar">管</span>
+                <div>
+                    <div class="admin-profile-name" id="admin-name">管理员</div>
+                    <div class="admin-profile-role" id="admin-role">正在校验身份…</div>
+                </div>
+            </div>
+
+            <nav class="admin-nav">
+                <div class="admin-nav-label">审核工作台</div>
+                <button class="admin-nav-item active" type="button" data-admin-tab="tickets" id="nav-tickets">
+                    🎫 工单审批 <span class="admin-nav-count" id="nav-ticket-count">0</span>
+                </button>
+                <button class="admin-nav-item" type="button" data-admin-tab="users" id="nav-users">
+                    👥 用户审核 <span class="admin-nav-count" id="nav-user-count">0</span>
+                </button>
+                <button class="admin-nav-item" type="button" data-admin-tab="profile" id="nav-profile">
+                    👤 个人设置
+                </button>
+                <button class="admin-nav-item" type="button" data-admin-tab="columns" id="nav-columns">
+                    📚 专栏管理
+                </button>
+                <div class="admin-nav-label">站点</div>
+                <a class="admin-nav-item" href="index.html">📖 返回知识库</a>
+                <a class="admin-nav-item" href="login.html?tab=account">🔑 修改密码</a>
+            </nav>
+
+            <div class="admin-sidebar-footer">
+                <a href="index.html">← 返回站点首页</a>
+                <a href="login.html" id="logout-link">退出登录 / 切换账号</a>
+            </div>
+        </aside>
+
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <div class="admin-topbar-title">
+                    <button class="admin-menu-toggle" id="admin-menu-toggle" type="button" aria-label="打开菜单">☰</button>
+                    <span id="admin-page-title">工单审批</span> <span class="crumb">/ 管理员后台</span>
+                </div>
+                <div class="admin-topbar-actions">
+                    <div class="conn-status" id="supabase-status">
+                        <span class="dot"></span>
+                        <span>正在检查 Supabase 配置…</span>
+                    </div>
+                    <button class="theme-toggle inline" id="theme-toggle" type="button" aria-label="切换主题">🌙</button>
+                </div>
+            </header>
+
+            <main class="admin-content">
+                <div class="admin-content-inner">
+                    <div class="page-head">
+                        <div>
+                            <h1 class="page-title" id="content-title">审核工作台</h1>
+                            <p class="page-desc" id="content-desc">处理待审核用户与待审批工单。数据实时来自 Supabase。</p>
+                        </div>
+                        <div class="panel-actions">
+                            <button class="btn btn-ghost btn-sm" type="button" id="refresh-btn">↻ 刷新</button>
+                        </div>
+                    </div>
+
+                    <p class="form-error" id="admin-message" hidden></p>
+
+                    <div class="stat-grid" id="admin-stats">
+                        <div class="stat-card">
+                            <div class="stat-top"><span class="stat-label">待审批工单</span><span class="stat-icon">⏳</span></div>
+                            <div class="stat-value" id="stat-pending-tickets">—</div>
+                            <div class="stat-trend">tickets.status = pending</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-top"><span class="stat-label">待审核用户</span><span class="stat-icon">👤</span></div>
+                            <div class="stat-value" id="stat-pending-users">—</div>
+                            <div class="stat-trend">profiles.status = pending</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-top"><span class="stat-label">已激活用户</span><span class="stat-icon">✅</span></div>
+                            <div class="stat-value" id="stat-active-users">—</div>
+                            <div class="stat-trend">profiles.status = active</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-top"><span class="stat-label">已通过工单</span><span class="stat-icon">📌</span></div>
+                            <div class="stat-value" id="stat-approved-tickets">—</div>
+                            <div class="stat-trend">tickets.status = approved</div>
+                        </div>
+                    </div>
+
+                    <div class="tabs" role="tablist" aria-label="后台功能" id="admin-tabs">
+                        <button class="tab active" type="button" role="tab" data-admin-tab="tickets" aria-selected="true">工单审批</button>
+                        <button class="tab" type="button" role="tab" data-admin-tab="users" aria-selected="false">用户审核</button>
+                        <button class="tab" type="button" role="tab" data-admin-tab="profile" aria-selected="false">个人设置</button>
+                        <button class="tab" type="button" role="tab" data-admin-tab="columns" aria-selected="false">专栏管理</button>
+                    </div>
+
+                    <section class="panel" data-admin-panel="tickets">
+                        <div class="panel-head">
+                            <div>
+                                <h2 class="panel-title">待审批工单</h2>
+                                <p class="panel-subtitle">显示 tickets 表中 status = pending 的记录</p>
+                            </div>
+                        </div>
+                        <div class="table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>工单内容 / 提交备注</th>
+                                        <th>提交者</th>
+                                        <th>类型</th>
+                                        <th>效果</th>
+                                        <th>优先级</th>
+                                        <th>提交时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tickets-tbody">
+                                    <tr><td colspan="8"><div class="empty-state">正在加载…</div></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="panel" data-admin-panel="users" hidden>
+                        <div class="panel-head">
+                            <div>
+                                <h2 class="panel-title">待审核用户</h2>
+                                <p class="panel-subtitle">显示 profiles 表中 status = pending 的记录</p>
+                            </div>
+                        </div>
+                        <div class="table-wrap">
+                            <table class="data-table" style="min-width:980px;">
+                                <thead>
+                                    <tr>
+                                        <th>昵称</th>
+                                        <th>邮箱</th>
+                                        <th>QQ</th>
+                                        <th>洛谷</th>
+                                        <th>Codeforces</th>
+                                        <th>注册时间</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-tbody">
+                                    <tr><td colspan="8"><div class="empty-state">正在加载…</div></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="panel" data-admin-panel="profile" hidden>
+                        <div class="panel-head">
+                            <div>
+                                <h2 class="panel-title">个人设置</h2>
+                                <p class="panel-subtitle">所有登录用户都可以修改自己的资料；role / status 只能由管理员修改。</p>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="avatar-editor">
+                                <span class="avatar avatar-lg" id="profile-avatar">管</span>
+                                <div class="avatar-actions">
+                                    <label class="btn btn-ghost btn-sm">
+                                        上传 PNG 头像
+                                        <input class="avatar-file" type="file" id="avatar-file" accept="image/png">
+                                    </label>
+                                    <span class="form-hint">仅支持 PNG，≤ 2 MB；不上传时显示昵称首字母。</span>
+                                </div>
+                            </div>
+                            <form class="form-grid" id="profile-form" novalidate>
+                                <div class="form-row">
+                                    <div class="form-field">
+                                        <label for="profile-nickname">昵称</label>
+                                        <input class="input" type="text" id="profile-nickname" autocomplete="nickname">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="profile-contact">邮箱 <span class="label-hint">仅作联系方式</span></label>
+                                        <input class="input" type="email" id="profile-contact" autocomplete="email"
+                                               placeholder="选填，不会发送验证邮件">
+                                    </div>
+                                </div>
+                                <div class="form-row-3">
+                                    <div class="form-field">
+                                        <label for="profile-qq">QQ 号</label>
+                                        <input class="input" type="text" id="profile-qq" placeholder="留空即可">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="profile-luogu">洛谷号</label>
+                                        <input class="input" type="text" id="profile-luogu" placeholder="留空即可">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="profile-cf">Codeforces 号</label>
+                                        <input class="input" type="text" id="profile-cf" placeholder="留空即可">
+                                    </div>
+                                </div>
+                                <p class="form-hint">邮箱 / QQ / 洛谷 / CF 只作联系参考，不发验证邮件；工单由管理员人工核对。</p>
+                                <p class="form-error" id="profile-error" hidden></p>
+                                <p class="form-ok" id="profile-ok" hidden></p>
+                                <div class="form-actions">
+                                    <button class="btn btn-primary btn-sm" type="submit">保存个人信息</button>
+                                    <a class="btn btn-ghost btn-sm" href="login.html?tab=account">修改登录密码 / 专栏密码</a>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <section class="panel" data-admin-panel="columns" hidden>
+                        <div class="panel-head">
+                            <div>
+                                <h2 class="panel-title">专栏管理</h2>
+                                <p class="panel-subtitle">查看、修改、删除自己写过的专栏；新建专栏按身份决定直接入库或走投稿审批。</p>
+                            </div>
+                            <div class="panel-actions">
+                                <button class="btn btn-primary btn-sm" type="button" id="new-column-toggle">＋ 新建专栏</button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-grid" id="new-column-form" hidden>
+                                <div class="form-row">
+                                    <div class="form-field">
+                                        <label for="new-column-title">专栏标题</label>
+                                        <input class="input" type="text" id="new-column-title" placeholder="必填">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="new-column-description">简介 <span class="label-hint">选填</span></label>
+                                        <input class="input" type="text" id="new-column-description">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-field">
+                                        <label for="new-column-category">从属大类</label>
+                                        <select class="select" id="new-column-category">
+                                            <option value="">请选择（必填）</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="new-column-parent">父知识点 <span class="label-hint">选填</span></label>
+                                        <input class="input" type="text" id="new-column-parent" list="parent-kp-list"
+                                               placeholder="如 dp-01bag-standard">
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label for="new-column-tags">标签 <span class="label-hint">可留空，逗号分隔</span></label>
+                                    <input class="input" type="text" id="new-column-tags" placeholder="如 背包, 动态规划">
+                                </div>
+                                <div class="form-field">
+                                    <label>关系 <span class="label-hint">可选，可添加多条</span></label>
+                                    <div id="new-column-relations"></div>
+                                    <button class="btn btn-ghost btn-sm" type="button" id="new-column-add-relation">＋ 添加关系</button>
+                                    <p class="form-hint">每条关系需要选择类型并填写关联目标。</p>
+                                </div>
+                                <div class="form-field">
+                                    <label for="new-column-content">内容（Markdown）</label>
+                                    <textarea class="textarea column-content" id="new-column-content"></textarea>
+                                </div>
+                                <div class="form-inline">
+                                    <label class="checkbox-row">
+                                        <input type="checkbox" id="new-column-is-problem">
+                                        <span>作为题目投稿</span>
+                                    </label>
+                                    <div class="form-field">
+                                        <label for="new-column-difficulty">难度</label>
+                                        <select class="select" id="new-column-difficulty" disabled></select>
+                                    </div>
+                                </div>
+                                <p class="form-hint" id="new-column-mode-hint">管理员新建会直接入库；普通用户会提交为投稿工单，审批通过后自动按原文入库。</p>
+                                <p class="form-error" id="new-column-error" hidden></p>
+                                <p class="form-ok" id="new-column-ok" hidden></p>
+                                <div class="form-actions">
+                                    <button class="btn btn-primary btn-sm" type="submit" id="new-column-submit">提交</button>
+                                    <button class="btn btn-ghost btn-sm" type="button" id="new-column-cancel">取消</button>
+                                </div>
+                            </form>
+                            <p class="form-ok" id="new-column-result" hidden></p>
+
+                            <div class="form-field">
+                                <label for="column-select">选择自己写过的专栏</label>
+                                <select class="select" id="column-select">
+                                    <option value="">正在加载专栏…</option>
+                                </select>
+                            </div>
+
+                            <div id="column-edit-fields" hidden>
+                                <div class="form-row" style="margin-top:.8rem;">
+                                    <div class="form-field">
+                                        <label for="column-title">专栏标题</label>
+                                        <input class="input" type="text" id="column-title">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="column-description">简介</label>
+                                        <input class="input" type="text" id="column-description">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-field">
+                                        <label for="column-category">从属大类</label>
+                                        <select class="select" id="column-category">
+                                            <option value="">未分类</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="column-parent">父知识点</label>
+                                        <input class="input" type="text" id="column-parent" list="parent-kp-list">
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label for="column-tags">标签</label>
+                                    <input class="input" type="text" id="column-tags" placeholder="逗号分隔">
+                                </div>
+                                <div class="form-field">
+                                    <label>关系</label>
+                                    <div id="column-relations"></div>
+                                    <button class="btn btn-ghost btn-sm" type="button" id="column-add-relation">＋ 添加关系</button>
+                                    <p class="form-hint">每条关系需要选择类型并填写关联目标。</p>
+                                </div>
+                                <div class="form-field" style="margin-top:.8rem;">
+                                    <label for="column-content">专栏内容（Markdown）</label>
+                                    <textarea class="textarea column-content" id="column-content"></textarea>
+                                    <div class="form-inline" style="margin-top:.4rem;">
+                                        <button class="btn btn-ghost btn-sm" type="button" id="column-download">⬇ 下载当前专栏</button>
+                                        <label class="btn btn-ghost btn-sm">
+                                            ⬆ 上传文件覆盖内容
+                                            <input type="file" id="column-upload"
+                                                   accept=".md,.markdown,.txt,text/*" hidden>
+                                        </label>
+                                    </div>
+                                    <p class="form-hint" id="column-file-hint">长专栏可下载到本地修改，再上传覆盖文本框内容。</p>
+                                </div>
+                                <div class="form-inline">
+                                    <label class="checkbox-row">
+                                        <input type="checkbox" id="column-is-problem">
+                                        <span>作为题目</span>
+                                    </label>
+                                    <div class="form-field">
+                                        <label for="column-difficulty">难度</label>
+                                        <select class="select" id="column-difficulty" disabled></select>
+                                    </div>
+                                </div>
+                                <p class="form-hint">保存后立即更新数据库；删除后不可恢复。</p>
+                                <p class="form-error" id="column-error" hidden></p>
+                                <p class="form-ok" id="column-ok" hidden></p>
+                                <div class="form-actions">
+                                    <button class="btn btn-primary btn-sm" type="button" id="column-save">保存修改</button>
+                                    <button class="btn btn-danger btn-sm" type="button" id="column-delete">删除专栏</button>
+                                </div>
+                            </div>
+
+                            <div class="detail-divider" style="margin:1.2rem 0;"></div>
+                            <h3 class="panel-title" style="margin-bottom:.5rem;">进入密码</h3>
+                            <p class="column-lock-status" id="column-lock-status">正在读取密码状态…</p>
+                            <div class="form-row" style="margin-top:.7rem;">
+                                <div class="form-field">
+                                    <label for="column-default-password">通用进入密码</label>
+                                    <input class="input" type="password" id="column-default-password"
+                                           placeholder="留空 = 无通用密码">
+                                    <p class="form-hint">对没有特定密码的专栏生效。</p>
+                                </div>
+                                <div class="form-field">
+                                    <label for="column-specific-password">当前专栏特定密码</label>
+                                    <input class="input" type="password" id="column-specific-password"
+                                           placeholder="留空 = 跟随通用密码">
+                                    <p class="form-hint">优先级：特定密码 &gt; 通用密码 &gt; 无密码。</p>
+                                </div>
+                            </div>
+                            <p class="form-error" id="column-password-error" hidden></p>
+                            <p class="form-ok" id="column-password-ok" hidden></p>
+                            <div class="form-actions">
+                                <button class="btn btn-primary btn-sm" type="button" id="column-default-save">保存通用密码</button>
+                                <button class="btn btn-primary btn-sm" type="button" id="column-specific-save">保存特定密码</button>
+                            </div>
+
+                            <div class="detail-divider" style="margin:1.2rem 0;"></div>
+                            <div id="my-submissions-wrap" hidden>
+                                <h3 class="panel-title" style="margin-bottom:.5rem;">我的工单（投稿 / 修改）</h3>
+                                <div id="my-submissions"></div>
+                            </div>
+                            <datalist id="parent-kp-list"></datalist>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal" id="ticket-edit-modal" hidden>
+        <div class="modal-backdrop" data-close-ticket-editor></div>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="ticket-edit-modal-title">
+            <div class="modal-head">
+                <h3 id="ticket-edit-modal-title">编辑工单</h3>
+                <button class="modal-close" type="button" data-close-ticket-editor aria-label="关闭">×</button>
+            </div>
+            <form class="form-grid" id="ticket-edit-form" novalidate>
+                <input type="hidden" id="ticket-edit-id">
+                <div class="form-field">
+                    <label for="ticket-edit-title">工单标题</label>
+                    <input class="input" type="text" id="ticket-edit-title">
+                </div>
+                <div class="form-field">
+                    <label for="ticket-edit-description">提交备注</label>
+                    <textarea class="textarea" id="ticket-edit-description"></textarea>
+                </div>
+                <div id="ticket-edit-submission-fields" hidden>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="ticket-edit-column-name">栏目名称</label>
+                            <input class="input" type="text" id="ticket-edit-column-name">
+                        </div>
+                        <div class="form-field">
+                            <label for="ticket-edit-category">所属大类</label>
+                            <select class="select" id="ticket-edit-category"></select>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="ticket-edit-author">作者</label>
+                        <select class="select" id="ticket-edit-author"></select>
+                    </div>
+                    <div class="form-field">
+                        <label for="ticket-edit-tags">标签 <span class="label-hint">逗号分隔</span></label>
+                        <input class="input" type="text" id="ticket-edit-tags">
+                    </div>
+                    <div class="form-inline">
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="ticket-edit-is-problem">
+                            <span>作为题目</span>
+                        </label>
+                        <div class="form-field">
+                            <label for="ticket-edit-difficulty">难度</label>
+                            <select class="select" id="ticket-edit-difficulty" disabled></select>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label>关系</label>
+                        <div id="ticket-edit-relations"></div>
+                        <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-add-relation">＋ 添加关系</button>
+                    </div>
+                    <div class="form-field">
+                        <label for="ticket-edit-content">投稿内容（Markdown）</label>
+                        <textarea class="textarea column-content" id="ticket-edit-content"></textarea>
+                    </div>
+                </div>
+                <div id="ticket-edit-edit-fields" hidden>
+                    <div class="form-field">
+                        <label for="ticket-edit-target">目标专栏</label>
+                        <select class="select" id="ticket-edit-target"></select>
+                    </div>
+                    <div class="form-field">
+                        <label for="ticket-edit-note">修改说明</label>
+                        <input class="input" type="text" id="ticket-edit-note">
+                    </div>
+                    <div class="form-field">
+                        <label for="ticket-edit-edit-name">专栏标题</label>
+                        <input class="input" type="text" id="ticket-edit-edit-name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="ticket-edit-edit-category">所属大类</label>
+                            <select class="select" id="ticket-edit-edit-category"></select>
+                        </div>
+                        <div class="form-field" id="ticket-edit-edit-difficulty-field">
+                            <label for="ticket-edit-edit-difficulty">难度（题目）</label>
+                            <select class="select" id="ticket-edit-edit-difficulty"></select>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="ticket-edit-edit-tags">标签 <span class="label-hint">逗号分隔</span></label>
+                        <input class="input" type="text" id="ticket-edit-edit-tags">
+                    </div>
+                    <div class="form-field">
+                        <label for="ticket-edit-content-edit">修改后内容（Markdown）</label>
+                        <textarea class="textarea column-content" id="ticket-edit-content-edit"></textarea>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label for="ticket-edit-admin-note">管理员备注</label>
+                    <textarea class="textarea" id="ticket-edit-admin-note"></textarea>
+                </div>
+                <p class="form-error" id="ticket-edit-error" hidden></p>
+                <div class="form-actions">
+                    <button class="btn btn-primary btn-sm" type="submit">保存工单</button>
+                    <button class="btn btn-ghost btn-sm" type="button" data-close-ticket-editor>取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js?v=20261105"></script>
+    <script src="assets/auth.js?v=20261106"></script>
+    <script>
+        (function () {
+            var client = window.supabaseClient;
+            var toast = document.getElementById('toast');
+            var toastTimer = null;
+            var isAdmin = false;
+            var currentProfile = null;
+            var columns = [];
+            var CATEGORIES = ['基础算法', '动态规划', '数据结构', '图论', '数学', '字符串', '实用工具'];
+            var DIFFICULTIES = ['暂未评定', '入门', '普及−', '普及/提高−', '普及+/提高−', '提高', '提高+/省选−', '省选/NOI−', 'NOI/NOI+/CTSC'];
+            var allColumns = [];
+            var kpTitles = {};
+            var ticketsById = {};
+            var authorProfiles = [];
+            var columnDataPromise = null;
+            var columnUploadedText = null;
+            var columnSourceLarge = false;
+
+            function isArticleColumn(column) {
+                var key = String((column && column.column_key) || '');
+                return key.indexOf('sub-') === 0 || key.indexOf('col-') === 0;
+            }
+            function displayNameForColumn(key) {
+                if (!key) return '';
+                var found = allColumns.find(function (column) {
+                    return column.column_key === key;
+                });
+                if (found && found.column_name) return found.column_name;
+                if (kpTitles[key]) return kpTitles[key];
+                if (key.indexOf('col-') === 0 && kpTitles[key.slice(4)]) return kpTitles[key.slice(4)];
+                return key;
+            }
+            function loadTitles() {
+                if (Object.keys(kpTitles).length) return Promise.resolve();
+                return fetch('titles.json').then(function (response) {
+                    return response.ok ? response.json() : {};
+                }).then(function (data) {
+                    if (data && typeof data === 'object') kpTitles = data;
+                }).catch(function () {});
+            }
+            function loadAllColumns() {
+                if (columnDataPromise) return columnDataPromise;
+                if (!client) {
+                    columnDataPromise = Promise.resolve([]);
+                    return columnDataPromise;
+                }
+                columnDataPromise = client.from('columns')
+                    .select('column_key, column_name, category, status, owner_id, source_ticket_id')
+                    .order('column_name')
+                    .then(function (result) {
+                        if (result.error) return [];
+                        allColumns = result.data || [];
+                        return allColumns;
+                    }).catch(function () { return []; });
+                return columnDataPromise;
+            }
+            function relationTargetOptions() {
+                var map = {};
+                allColumns.forEach(function (column) {
+                    if (!isArticleColumn(column)) return;
+                    map[column.column_key] = {
+                        value: column.column_key,
+                        label: column.column_name || column.column_key,
+                        category: column.category || '未分类'
+                    };
+                });
+                Object.keys(kpTitles).forEach(function (id) {
+                    var baseKey = 'col-' + id;
+                    var hasColumn = allColumns.some(function (column) {
+                        return column.column_key === baseKey ||
+                            column.column_key.indexOf(baseKey + '--') === 0;
+                    });
+                    if (!hasColumn) {
+                        map[baseKey] = { value: baseKey, label: kpTitles[id], category: '知识点' };
+                    }
+                });
+                return Object.keys(map).map(function (key) { return map[key]; });
+            }
+            function fillRelationTargetSelect(select, current) {
+                var options = relationTargetOptions();
+                var groups = {};
+                options.forEach(function (item) {
+                    if (!groups[item.category]) groups[item.category] = [];
+                    groups[item.category].push(item);
+                });
+                var html = '<option value="">请选择关联目标</option>';
+                Object.keys(groups).sort(function (a, b) {
+                    return a.localeCompare(b, 'zh-CN');
+                }).forEach(function (category) {
+                    html += '<optgroup label="' + esc(category) + '">';
+                    groups[category].sort(function (a, b) {
+                        return a.label.localeCompare(b.label, 'zh-CN');
+                    }).forEach(function (item) {
+                        html += '<option value="' + esc(item.value) + '">' + esc(item.label) + '</option>';
+                    });
+                    html += '</optgroup>';
+                });
+                if (current && !options.some(function (item) { return item.value === current; })) {
+                    html += '<option value="' + esc(current) + '">' +
+                        esc(displayNameForColumn(current)) + '</option>';
+                }
+                select.innerHTML = html;
+                select.value = current || '';
+            }
+            function refreshAdminRelationTargets() {
+                document.querySelectorAll('.relation-target').forEach(function (select) {
+                    fillRelationTargetSelect(select, select.value);
+                });
+            }
+
+            function fillSelect(select, items, emptyText) {
+                var html = emptyText == null ? '' : '<option value="">' + esc(emptyText) + '</option>';
+                html += items.map(function (item) {
+                    return '<option value="' + esc(item) + '">' + esc(item) + '</option>';
+                }).join('');
+                select.innerHTML = html;
+            }
+            function parseTags(text) {
+                return String(text || '').split(/[,，\s]+/).map(function (item) {
+                    return item.trim();
+                }).filter(Boolean);
+            }
+            function initColumnMetaOptions() {
+                fillSelect(document.getElementById('new-column-category'), CATEGORIES, '请选择（必填）');
+                fillSelect(document.getElementById('column-category'), CATEGORIES, '未分类');
+                fillSelect(document.getElementById('new-column-difficulty'), DIFFICULTIES, null);
+                fillSelect(document.getElementById('column-difficulty'), DIFFICULTIES, null);
+                fillSelect(document.getElementById('ticket-edit-category'), CATEGORIES, '未分类');
+                fillSelect(document.getElementById('ticket-edit-difficulty'), DIFFICULTIES, null);
+                fillSelect(document.getElementById('ticket-edit-edit-category'), CATEGORIES, '不修改分类');
+                fillSelect(document.getElementById('ticket-edit-edit-difficulty'), DIFFICULTIES, null);
+                fetch('knowledge_graph.json').then(function (response) {
+                    return response.ok ? response.json() : null;
+                }).then(function (data) {
+                    if (!data || !data.knowledgePoints) return;
+                    var list = document.getElementById('parent-kp-list');
+                    list.innerHTML = Object.keys(data.knowledgePoints).map(function (id) {
+                        return '<option value="' + esc(id) + '"></option>';
+                    }).join('');
+                }).catch(function () {});
+            }
+
+            function showToast(text) {
+                toast.textContent = text;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+            }
+            function setMessage(text) {
+                var el = document.getElementById('admin-message');
+                el.textContent = text || '';
+                el.hidden = !text;
+            }
+            function setProfileError(text) {
+                var el = document.getElementById('profile-error');
+                el.textContent = text || '';
+                el.hidden = !text;
+            }
+            function setProfileOk(text) {
+                var el = document.getElementById('profile-ok');
+                el.textContent = text || '';
+                el.hidden = !text;
+            }
+            function renderAvatar(el, url, label) {
+                if (!el) return;
+                if (url) {
+                    el.innerHTML = '<img src="' + window.AKB.escapeHtml(url) + '" alt="头像">';
+                } else {
+                    var text = String(label || '?').trim();
+                    el.textContent = text ? text.charAt(0).toUpperCase() : '?';
+                }
+            }
+            function loadProfileForm(profile) {
+                currentProfile = profile;
+                if (!profile) return;
+                document.getElementById('profile-nickname').value = profile.nickname || '';
+                document.getElementById('profile-contact').value = profile.contact || '';
+                document.getElementById('profile-qq').value = profile.qq || '';
+                document.getElementById('profile-luogu').value = profile.luogu || '';
+                document.getElementById('profile-cf').value = profile.cf || '';
+                var label = profile.nickname || profile.id || '?';
+                renderAvatar(document.getElementById('admin-avatar'), profile.avatar_url, label);
+                renderAvatar(document.getElementById('profile-avatar'), profile.avatar_url, label);
+            }
+            function esc(value) {
+                return window.AKB.escapeHtml(value);
+            }
+            function setColumnError(id, text) {
+                var el = document.getElementById(id);
+                if (!el) return;
+                el.textContent = text || '';
+                el.hidden = !text;
+            }
+            function setColumnOk(id, text) {
+                var el = document.getElementById(id);
+                if (!el) return;
+                el.textContent = text || '';
+                el.hidden = !text;
+            }
+            function currentColumn() {
+                var key = document.getElementById('column-select').value;
+                return columns.find(function (item) { return item.column_key === key; }) || null;
+            }
+            function addAdminRelationRow(containerId, type, target) {
+                var row = document.createElement('div');
+                row.className = 'relation-row';
+                row.innerHTML =
+                    '<select class="select relation-type">' +
+                        '<option value="related">关联关系</option>' +
+                        '<option value="sequence">前后置关系</option>' +
+                        '<option value="parent-child">父子关系</option>' +
+                    '</select>' +
+                    '<select class="select relation-target"></select>' +
+                    '<button class="btn btn-ghost btn-sm relation-remove" type="button">删除</button>';
+                row.querySelector('.relation-type').value = type || 'related';
+                fillRelationTargetSelect(row.querySelector('.relation-target'), target || '');
+                document.getElementById(containerId).appendChild(row);
+            }
+            function renderAdminRelations(containerId, relations) {
+                var container = document.getElementById(containerId);
+                if (!container) return;
+                container.innerHTML = '';
+                (relations || []).forEach(function (item) {
+                    addAdminRelationRow(containerId, item.type, item.target);
+                });
+            }
+            function collectAdminRelations(containerId) {
+                return Array.prototype.slice.call(
+                    document.querySelectorAll('#' + containerId + ' .relation-row')
+                ).map(function (row) {
+                    return {
+                        type: row.querySelector('.relation-type').value,
+                        target: row.querySelector('.relation-target').value.trim()
+                    };
+                });
+            }
+            async function loadColumns() {
+                var select = document.getElementById('column-select');
+                var content = document.getElementById('column-content');
+                setColumnError('column-error', '');
+                setColumnOk('column-ok', '');
+                setColumnError('column-password-error', '');
+                setColumnOk('column-password-ok', '');
+                select.innerHTML = '<option value="">正在加载专栏…</option>';
+                content.value = '';
+                document.getElementById('column-lock-status').textContent = '正在读取密码状态…';
+
+                if (!client) {
+                    select.innerHTML = '<option value="">Supabase 未配置</option>';
+                    return;
+                }
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    select.innerHTML = '<option value="">未登录</option>';
+                    return;
+                }
+                var result = await client.from('columns')
+                    .select('*')
+                    .eq('owner_id', user.id)
+                    .order('column_key');
+                if (result.error) {
+                    select.innerHTML = '<option value="">读取失败</option>';
+                    setColumnError('column-error', '读取专栏失败：' + result.error.message);
+                    return;
+                }
+                columns = (result.data || []).filter(isArticleColumn);
+                if (!columns.length) {
+                    select.innerHTML = '<option value="">暂无专栏（可点右上角“新建专栏”）</option>';
+                    document.getElementById('column-lock-status').textContent = '暂无专栏';
+                    document.getElementById('column-edit-fields').hidden = true;
+                    return;
+                }
+                select.innerHTML = adminColumnOptionsHtml(columns, '请选择专栏');
+                loadColumnDetail();
+            }
+            function getColumnText() {
+                return columnUploadedText !== null
+                    ? columnUploadedText
+                    : document.getElementById('column-content').value;
+            }
+            function loadColumnDetail() {
+                var col = currentColumn();
+                var edit = document.getElementById('column-edit-fields');
+                var content = document.getElementById('column-content');
+                var statusEl = document.getElementById('column-lock-status');
+                columnUploadedText = null;
+                columnSourceLarge = false;
+                document.getElementById('column-file-hint').textContent =
+                    '长专栏可下载到本地修改，再上传覆盖文本框内容。';
+                document.getElementById('column-default-password').value = '';
+                document.getElementById('column-specific-password').value = '';
+                setColumnError('column-error', '');
+                setColumnOk('column-ok', '');
+                setColumnError('column-password-error', '');
+                setColumnOk('column-password-ok', '');
+                if (!col) {
+                    edit.hidden = true;
+                    content.value = '';
+                    content.disabled = false;
+                    content.placeholder = '';
+                    statusEl.textContent = '暂无专栏';
+                    return;
+                }
+                edit.hidden = false;
+                document.getElementById('column-title').value = col.column_name || '';
+                document.getElementById('column-description').value = col.description || '';
+                document.getElementById('column-category').value = col.category || '';
+                document.getElementById('column-parent').value = col.parent_key || '';
+                document.getElementById('column-tags').value = (col.tags || []).join(', ');
+                var relations = Array.isArray(col.relations) && col.relations.length
+                    ? col.relations
+                    : (col.relation_type ? [{ type: col.relation_type, target: col.relation_target || '' }] : []);
+                renderAdminRelations('column-relations', relations);
+                document.getElementById('column-is-problem').checked = col.kind === 'problem';
+                document.getElementById('column-difficulty').disabled = col.kind !== 'problem';
+                document.getElementById('column-difficulty').value = col.difficulty || '暂未评定';
+                var text = col.content || '';
+                columnSourceLarge = text.length > 100000;
+                if (columnSourceLarge) {
+                    columnUploadedText = text;
+                    content.value = '';
+                    content.disabled = true;
+                    content.placeholder = '内容较长，已跳过网页渲染；请下载到本地修改后上传。';
+                    document.getElementById('column-file-hint').textContent =
+                        '当前 ' + text.length + ' 字符，已跳过网页渲染。';
+                } else {
+                    content.disabled = false;
+                    content.placeholder = '';
+                    content.value = text;
+                }
+                statusEl.textContent = '正在读取密码状态…';
+                if (!client) return;
+                client.rpc('get_column_lock_status', { p_key: col.column_key }).then(function (result) {
+                    if (result.error) {
+                        statusEl.textContent = '密码状态读取失败：' + result.error.message;
+                        return;
+                    }
+                    var row = Array.isArray(result.data) ? result.data[0] : result.data;
+                    if (!row) {
+                        statusEl.textContent = '密码状态未知';
+                        return;
+                    }
+                    statusEl.textContent =
+                        '通用密码：' + (row.default_set ? '已设置' : '未设置（无密码）') +
+                        ' · 当前专栏特定密码：' + (row.specific_set ? '已设置（优先）' : '未设置（跟随通用）');
+                });
+            }
+            function emptyRow(colspan, text) {
+                return '<tr><td colspan="' + colspan + '"><div class="empty-state">' + esc(text) + '</div></td></tr>';
+            }
+            function priorityLabel(value) {
+                var map = { high: ['高', 'priority-high'], mid: ['中', 'priority-mid'], low: ['低', 'priority-low'] };
+                var item = map[value] || map.low;
+                return '<span class="priority ' + item[1] + '">' + item[0] + '</span>';
+            }
+            function typeLabel(value) {
+                var map = {
+                    content: '内容纠错',
+                    bug: '页面故障',
+                    account: '账号问题',
+                    suggestion: '建议',
+                    submission: '投稿',
+                    edit: '修改',
+                    other: '其他'
+                };
+                return map[value] || value || '—';
+            }
+            function effectLabel(value) {
+                if (value === 'submission') {
+                    return '<span class="effect-badge effect-auto">通过后自动入库</span>';
+                }
+                if (value === 'edit') {
+                    return '<span class="effect-badge effect-auto">通过后修改专栏</span>';
+                }
+                return '<span class="effect-badge">无</span>';
+            }
+            function splitLines(text) {
+                return text === '' ? [] : String(text == null ? '' : text).split('\n');
+            }
+            function lcsPairs(a, b) {
+                var n = a.length;
+                var m = b.length;
+                var width = m + 1;
+                var dp = new Uint32Array((n + 1) * width);
+                for (var i = n - 1; i >= 0; i--) {
+                    for (var j = m - 1; j >= 0; j--) {
+                        dp[i * width + j] = a[i] === b[j]
+                            ? dp[(i + 1) * width + j + 1] + 1
+                            : Math.max(dp[(i + 1) * width + j], dp[i * width + j + 1]);
+                    }
+                }
+                var pairs = [];
+                var x = 0;
+                var y = 0;
+                while (x < n && y < m) {
+                    if (a[x] === b[y]) {
+                        pairs.push([x, y]);
+                        x++;
+                        y++;
+                    } else if (dp[(x + 1) * width + y] >= dp[x * width + y + 1]) {
+                        x++;
+                    } else {
+                        y++;
+                    }
+                }
+                return pairs;
+            }
+            function diffLines(oldText, newText) {
+                var a = splitLines(oldText);
+                var b = splitLines(newText);
+                var prefix = 0;
+                while (prefix < a.length && prefix < b.length && a[prefix] === b[prefix]) prefix++;
+                var suffix = 0;
+                while (suffix < a.length - prefix && suffix < b.length - prefix &&
+                       a[a.length - 1 - suffix] === b[b.length - 1 - suffix]) suffix++;
+                var midA = a.slice(prefix, a.length - suffix);
+                var midB = b.slice(prefix, b.length - suffix);
+                var ops = [];
+                var i;
+                for (i = 0; i < prefix; i++) {
+                    ops.push({ type: 'equal', text: a[i], oldNo: i + 1, newNo: i + 1 });
+                }
+                var pairs = midA.length * midB.length <= 4000000 ? lcsPairs(midA, midB) : [];
+                var ai = 0;
+                var bi = 0;
+                pairs.forEach(function (pair) {
+                    while (ai < pair[0]) {
+                        ops.push({ type: 'del', text: midA[ai], oldNo: prefix + ai + 1 });
+                        ai++;
+                    }
+                    while (bi < pair[1]) {
+                        ops.push({ type: 'add', text: midB[bi], newNo: prefix + bi + 1 });
+                        bi++;
+                    }
+                    ops.push({
+                        type: 'equal',
+                        text: midA[ai],
+                        oldNo: prefix + ai + 1,
+                        newNo: prefix + bi + 1
+                    });
+                    ai++;
+                    bi++;
+                });
+                while (ai < midA.length) {
+                    ops.push({ type: 'del', text: midA[ai], oldNo: prefix + ai + 1 });
+                    ai++;
+                }
+                while (bi < midB.length) {
+                    ops.push({ type: 'add', text: midB[bi], newNo: prefix + bi + 1 });
+                    bi++;
+                }
+                for (i = 0; i < suffix; i++) {
+                    ops.push({
+                        type: 'equal',
+                        text: a[a.length - suffix + i],
+                        oldNo: a.length - suffix + i + 1,
+                        newNo: b.length - suffix + i + 1
+                    });
+                }
+                return ops;
+            }
+            function renderDiff(oldText, newText) {
+                var ops = diffLines(oldText, newText);
+                var added = 0;
+                var removed = 0;
+                var groups = 0;
+                var inChange = false;
+                ops.forEach(function (op) {
+                    if (op.type === 'add') added++;
+                    if (op.type === 'del') removed++;
+                    if (op.type !== 'equal') {
+                        if (!inChange) groups++;
+                        inChange = true;
+                    } else {
+                        inChange = false;
+                    }
+                });
+                if (!added && !removed) {
+                    return { html: '<div class="diff-empty">内容与提交时的快照一致，没有修改点。</div>', groups: 0, added: 0, removed: 0 };
+                }
+                var show = new Array(ops.length);
+                ops.forEach(function (op, index) {
+                    if (op.type === 'equal') return;
+                    var from = Math.max(0, index - 3);
+                    var to = Math.min(ops.length - 1, index + 3);
+                    for (var k = from; k <= to; k++) show[k] = true;
+                });
+                var html = '';
+                var i = 0;
+                while (i < ops.length) {
+                    if (!show[i]) {
+                        var j = i;
+                        while (j < ops.length && !show[j]) j++;
+                        html += '<div class="diff-gap">… 省略 ' + (j - i) + ' 行未修改内容 …</div>';
+                        i = j;
+                        continue;
+                    }
+                    var op = ops[i];
+                    var sign = op.type === 'add' ? '+' : (op.type === 'del' ? '−' : ' ');
+                    html += '<div class="diff-line diff-' + op.type + '">' +
+                        '<span class="diff-no">' + (op.oldNo || '') + '</span>' +
+                        '<span class="diff-no">' + (op.newNo || '') + '</span>' +
+                        '<span class="diff-sign">' + sign + '</span>' +
+                        '<span class="diff-text">' + esc(op.text || ' ') + '</span></div>';
+                    i++;
+                }
+                return { html: html, groups: groups, added: added, removed: removed };
+            }
+            function submissionDetail(ticket) {
+                if (ticket.type !== 'submission' || !ticket.payload) return '';
+                var p = ticket.payload || {};
+                var tags = Array.isArray(p.tags) ? p.tags.join('、') : '';
+                var relationMap = {
+                    related: '关联关系',
+                    sequence: '前后置关系',
+                    'parent-child': '父子关系'
+                };
+                var meta = [];
+                if (p.author_name) meta.push('作者：' + p.author_name);
+                if (p.category) meta.push('大类：' + p.category);
+                if (tags) meta.push('标签：' + tags);
+                var relations = Array.isArray(p.relations)
+                    ? p.relations
+                    : (p.relation_type ? [{ type: p.relation_type, target: p.relation_target || '' }] : []);
+                relations.forEach(function (relation) {
+                    meta.push('关系：' + (relationMap[relation.type] || relation.type) +
+                        (relation.target ? ' → ' + displayNameForColumn(relation.target) : ''));
+                });
+                if (p.kind === 'problem') {
+                    meta.push('题目' + (p.difficulty ? ' · ' + p.difficulty : ''));
+                }
+                var content = p.content || '';
+                return '<details class="submission-detail"><summary>查看投稿原文（' +
+                    content.length + ' 字符）</summary>' +
+                    (meta.length ? '<div class="cell-sub">' + esc(meta.join(' · ')) + '</div>' : '') +
+                    '<pre>' + esc(content) + '</pre></details>';
+            }
+            function editDetail(ticket) {
+                if (ticket.type !== 'edit' || !ticket.payload) return '';
+                var p = ticket.payload || {};
+                var meta = [];
+                meta.push('专栏：' + (p.column_name || displayNameForColumn(p.column_key)));
+                if (p.old_column_name !== undefined && (p.column_name || '') !== (p.old_column_name || '')) {
+                    meta.push('标题：' + (p.old_column_name || '—') + ' → ' + (p.column_name || '—'));
+                }
+                if (p.note) meta.push('说明：' + p.note);
+                var oldTags = Array.isArray(p.old_tags) ? p.old_tags : [];
+                var newTags = Array.isArray(p.tags) ? p.tags : [];
+                if (p.old_tags !== undefined || p.tags !== undefined) {
+                    var oldTagText = oldTags.length ? oldTags.join('、') : '（空）';
+                    var newTagText = newTags.length ? newTags.join('、') : '（空）';
+                    if (oldTagText !== newTagText) meta.push('标签：' + oldTagText + ' → ' + newTagText);
+                }
+                if (p.old_category !== undefined && (p.category || '') !== (p.old_category || '')) {
+                    meta.push('分类：' + (p.old_category || '未分类') + ' → ' + (p.category || '未分类'));
+                }
+                if (p.old_difficulty !== undefined && (p.difficulty || '') !== (p.old_difficulty || '')) {
+                    meta.push('难度：' + (p.old_difficulty || '未设置') + ' → ' + (p.difficulty || '未设置'));
+                }
+                var diff = renderDiff(p.old_content || '', p.content || '');
+                var uploaded = p.uploaded === true;
+                if (uploaded || diff.groups > 5) {
+                    var reason = uploaded
+                        ? '上传文件提交'
+                        : ('修改点 ' + diff.groups + ' 处，超过 5 处');
+                    return '<details class="submission-detail diff-detail"><summary>查看修改后内容（' +
+                        esc(reason) + '，已隐藏逐行差异）</summary>' +
+                        '<div class="cell-sub">' + esc(meta.join(' · ')) + '</div>' +
+                        '<pre>' + esc(p.content || '') + '</pre></details>';
+                }
+                return '<details class="submission-detail diff-detail"><summary>查看全部修改点（' +
+                    diff.groups + ' 处，+' + diff.added + ' / −' + diff.removed + ' 行）</summary>' +
+                    '<div class="cell-sub">' + esc(meta.join(' · ')) + '</div>' +
+                    '<div class="diff-view">' + diff.html + '</div></details>';
+            }
+            var TAB_TITLES = { tickets: '工单审批', users: '用户审核', profile: '个人设置', columns: '专栏管理' };
+            function activateTab(name) {
+                if (!isAdmin && name !== 'profile' && name !== 'columns') name = 'profile';
+                document.querySelectorAll('[data-admin-tab]').forEach(function (el) {
+                    var tab = el.getAttribute('data-admin-tab');
+                    var allowed = isAdmin || tab === 'profile' || tab === 'columns';
+                    el.hidden = !allowed;
+                    var on = tab === name && allowed;
+                    el.classList.toggle('active', on);
+                    if (el.getAttribute('role') === 'tab') el.setAttribute('aria-selected', on ? 'true' : 'false');
+                });
+                document.querySelectorAll('[data-admin-panel]').forEach(function (panel) {
+                    var tab = panel.getAttribute('data-admin-panel');
+                    var allowed = isAdmin || tab === 'profile' || tab === 'columns';
+                    panel.hidden = !allowed || tab !== name;
+                });
+                var title = TAB_TITLES[name] || '个人设置';
+                document.getElementById('admin-page-title').textContent = title;
+                document.getElementById('content-title').textContent =
+                    name === 'profile' ? '个人设置' : name === 'columns' ? '专栏管理' : '审核工作台';
+                document.getElementById('content-desc').textContent = {
+                    tickets: '处理待审核用户与待审批工单。数据实时来自 Supabase。',
+                    users: '审核新注册用户，通过后才能登录并提交工单。',
+                    profile: isAdmin
+                        ? '修改自己的资料；role / status 只能由管理员修改。'
+                        : '普通用户只能查看和修改自己的个人信息；工单审批与用户审核仅管理员可用。',
+                    columns: '编辑自己名下的专栏内容与进入密码，保存后立即生效，不需要提交工单。'
+                }[name] || '';
+                if (name === 'profile') loadProfileForm(currentProfile);
+                if (name === 'columns') {
+                    loadColumns();
+                    loadMySubmissions();
+                }
+            }
+            document.querySelectorAll('[data-admin-tab]').forEach(function (el) {
+                el.addEventListener('click', function () { activateTab(el.getAttribute('data-admin-tab')); });
+            });
+
+            // ===== 主题 / 移动端侧栏 =====
+            var root = document.documentElement;
+            var themeBtn = document.getElementById('theme-toggle');
+            function syncThemeIcon() {
+                themeBtn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+            }
+            themeBtn.addEventListener('click', function () {
+                var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                syncThemeIcon();
+            });
+            syncThemeIcon();
+
+            var sidebar = document.getElementById('admin-sidebar');
+            document.getElementById('admin-menu-toggle').addEventListener('click', function () {
+                sidebar.classList.toggle('open');
+            });
+            document.addEventListener('click', function (event) {
+                if (window.innerWidth > 900 || !sidebar.classList.contains('open')) return;
+                if (sidebar.contains(event.target) || event.target.closest('#admin-menu-toggle')) return;
+                sidebar.classList.remove('open');
+            });
+
+            // ===== 连接状态 =====
+            var status = window.supabaseStatus || { configured: false, connected: false, message: 'Supabase 未初始化' };
+            var statusEl = document.getElementById('supabase-status');
+            statusEl.classList.add(status.connected ? 'is-ok' : 'is-warn');
+            statusEl.lastElementChild.textContent = status.message;
+
+            // ===== 登录与权限拦截（普通用户只开放个人设置） =====
+            async function guard() {
+                var requested = new URLSearchParams(window.location.search).get('tab') || window.location.hash.replace('#', '');
+                if (!client) {
+                    setMessage('Supabase 未配置：请在 supabase-config.js 填入 Project URL 与 anon key。');
+                    document.getElementById('admin-role').textContent = '未连接';
+                    document.getElementById('tickets-tbody').innerHTML = emptyRow(8, 'Supabase 未配置');
+                    document.getElementById('users-tbody').innerHTML = emptyRow(8, 'Supabase 未配置');
+                    return false;
+                }
+                var session = await window.AKB.getSession();
+                if (!session) {
+                    var loginUrl = 'login.html?redirect=admin.html';
+                    if (requested) loginUrl += '&tab=' + encodeURIComponent(requested);
+                    window.location.replace(loginUrl);
+                    return false;
+                }
+                var profile = await window.AKB.getProfile();
+                if (!profile) {
+                    setMessage('读取账号资料失败：请确认 profiles 表已建好，且当前账号有对应记录。');
+                    document.getElementById('admin-role').textContent = '资料缺失';
+                    return false;
+                }
+                if (profile.status !== 'active') {
+                    setMessage('账号状态为“' + profile.status + '”，暂时不能进入。请在 Supabase 的 profiles 表把 status 改为 active。');
+                    document.getElementById('admin-role').textContent = '账号未激活';
+                    return false;
+                }
+
+                isAdmin = profile.role === 'admin';
+                currentProfile = profile;
+                await Promise.all([loadTitles(), loadAllColumns()]);
+                refreshAdminRelationTargets();
+                loadProfileForm(profile);
+                document.getElementById('admin-name').textContent = profile.nickname || (isAdmin ? '管理员' : '用户');
+                document.getElementById('new-column-mode-hint').textContent = isAdmin
+                    ? '管理员新建会直接写入 columns 表并立即生效。'
+                    : '普通用户会提交为「投稿」工单，管理员通过后自动按原文写入 columns 表。';
+                document.getElementById('new-column-submit').textContent = isAdmin ? '直接新建专栏' : '提交投稿工单';
+
+                if (!isAdmin) {
+                    document.title = '个人设置 · 算法知识点查询系统';
+                    document.getElementById('admin-role').textContent = '普通用户 · 已登录';
+                    document.getElementById('admin-stats').hidden = true;
+                    document.getElementById('refresh-btn').hidden = true;
+                    document.getElementById('nav-tickets').hidden = true;
+                    document.getElementById('nav-users').hidden = true;
+                    document.getElementById('content-desc').textContent = '普通用户只能查看和修改自己的个人信息；工单审批与用户审核仅管理员可用。';
+                    document.querySelector('.admin-topbar-title .crumb').textContent = '/ 个人中心';
+                } else {
+                    document.getElementById('admin-role').textContent = '管理员 · 已登录';
+                }
+                return true;
+            }
+
+            // ===== 加载 =====
+            async function loadStats() {
+                var results = await Promise.all([
+                    client.from('tickets').select('*', { count: 'exact', head: true }).eq('status', 'pending'),
+                    client.from('profiles').select('*', { count: 'exact', head: true }).eq('status', 'pending'),
+                    client.from('profiles').select('*', { count: 'exact', head: true }).eq('status', 'active'),
+                    client.from('tickets').select('*', { count: 'exact', head: true }).eq('status', 'approved')
+                ]);
+                var values = results.map(function (result) { return result.count == null ? 0 : result.count; });
+                document.getElementById('stat-pending-tickets').textContent = values[0];
+                document.getElementById('stat-pending-users').textContent = values[1];
+                document.getElementById('stat-active-users').textContent = values[2];
+                document.getElementById('stat-approved-tickets').textContent = values[3];
+                document.getElementById('nav-ticket-count').textContent = values[0];
+                document.getElementById('nav-user-count').textContent = values[1];
+            }
+
+            async function loadTickets() {
+                var tbody = document.getElementById('tickets-tbody');
+                var result = await client.from('tickets')
+                    .select('*')
+                    .eq('status', 'pending')
+                    .order('created_at', { ascending: false });
+                if (result.error) {
+                    tbody.innerHTML = emptyRow(8, '读取工单失败：' + result.error.message);
+                    return;
+                }
+                if (!result.data.length) {
+                    tbody.innerHTML = emptyRow(8, '暂无待审批工单');
+                    ticketsById = {};
+                    return;
+                }
+                ticketsById = {};
+                tbody.innerHTML = result.data.map(function (ticket) {
+                    ticketsById[ticket.id] = ticket;
+                    var submitter = (!ticket.user_id && ticket.type === 'suggestion')
+                        ? '热心群众'
+                        : (ticket.contact || '—');
+                    var approveText = ticket.type === 'submission'
+                        ? '通过并入库'
+                        : (ticket.type === 'edit' ? '通过并生效' : '通过');
+                    return '<tr>' +
+                        '<td class="cell-mono">#TK-' + esc(ticket.id) + '</td>' +
+                        '<td><div class="cell-title">' + esc(ticket.title) + '</div>' +
+                        '<div class="cell-sub">' + esc(ticket.description || '（无备注）') + '</div>' +
+                        submissionDetail(ticket) + editDetail(ticket) + '</td>' +
+                        '<td>' + esc(submitter) + '</td>' +
+                        '<td>' + esc(typeLabel(ticket.type)) + '</td>' +
+                        '<td>' + effectLabel(ticket.type) + '</td>' +
+                        '<td>' + priorityLabel(ticket.priority) + '</td>' +
+                        '<td class="cell-mono">' + esc(window.AKB.formatTime(ticket.created_at)) + '</td>' +
+                        '<td><div class="form-actions">' +
+                        '<button class="btn btn-primary btn-sm" type="button" data-ticket-action="approved" data-id="' + esc(ticket.id) + '">' +
+                        approveText + '</button>' +
+                        '<button class="btn btn-ghost btn-sm" type="button" data-ticket-edit="' + esc(ticket.id) + '">编辑</button>' +
+                        '<button class="btn btn-ghost btn-sm" type="button" data-ticket-action="rejected" data-id="' + esc(ticket.id) + '">驳回</button>' +
+                        '</div></td>' +
+                        '</tr>';
+                }).join('');
+            }
+
+            async function loadUsers() {
+                var tbody = document.getElementById('users-tbody');
+                var result = await client.from('profiles')
+                    .select('id, nickname, contact, qq, luogu, cf, created_at')
+                    .eq('status', 'pending')
+                    .order('created_at', { ascending: true });
+                if (result.error) {
+                    tbody.innerHTML = emptyRow(8, '读取用户失败：' + result.error.message);
+                    return;
+                }
+                if (!result.data.length) {
+                    tbody.innerHTML = emptyRow(8, '暂无待审核用户');
+                    return;
+                }
+                tbody.innerHTML = result.data.map(function (profile) {
+                    return '<tr>' +
+                        '<td><div class="cell-title">' + esc(profile.nickname || '—') + '</div>' +
+                        '<div class="cell-sub cell-mono">' + esc(profile.id) + '</div></td>' +
+                        '<td>' + esc(profile.contact || '—') + '</td>' +
+                        '<td class="cell-mono">' + esc(profile.qq || '—') + '</td>' +
+                        '<td>' + esc(profile.luogu || '—') + '</td>' +
+                        '<td class="cell-mono">' + esc(profile.cf || '—') + '</td>' +
+                        '<td class="cell-mono">' + esc(window.AKB.formatTime(profile.created_at)) + '</td>' +
+                        '<td><span class="status status-pending">待审核</span></td>' +
+                        '<td><div class="form-actions">' +
+                        '<button class="btn btn-primary btn-sm" type="button" data-user-action="active" data-id="' + esc(profile.id) + '">通过</button>' +
+                        '<button class="btn btn-ghost btn-sm" type="button" data-user-action="rejected" data-id="' + esc(profile.id) + '">驳回</button>' +
+                        '</div></td>' +
+                        '</tr>';
+                }).join('');
+            }
+
+            async function loadAll() {
+                setMessage('');
+                await loadTitles();
+                columnDataPromise = null;
+                await loadAllColumns();
+                refreshAdminRelationTargets();
+                await Promise.all([loadStats(), loadTickets(), loadUsers()]);
+            }
+
+            // ===== 审批操作 =====
+            async function updateTicket(id, nextStatus) {
+                var result = await client.from('tickets').update({ status: nextStatus }).eq('id', id);
+                if (result.error) {
+                    setMessage('工单更新失败：' + result.error.message);
+                    return;
+                }
+                showToast(nextStatus === 'approved' ? '工单已通过' : '工单已驳回');
+                await loadAll();
+            }
+            async function updateUser(id, nextStatus) {
+                var result = await client.from('profiles').update({ status: nextStatus }).eq('id', id);
+                if (result.error) {
+                    setMessage('用户更新失败：' + result.error.message);
+                    return;
+                }
+                showToast(nextStatus === 'active' ? '用户已通过' : '用户已驳回');
+                await loadAll();
+            }
+
+            function setTicketEditError(text) {
+                var el = document.getElementById('ticket-edit-error');
+                el.textContent = text || '';
+                el.hidden = !text;
+            }
+            function ticketRelations(payload) {
+                var p = payload || {};
+                return Array.isArray(p.relations) && p.relations.length
+                    ? p.relations
+                    : (p.relation_type ? [{ type: p.relation_type, target: p.relation_target || '' }] : []);
+            }
+            async function ensureAuthorProfiles() {
+                if (authorProfiles.length || !client) return;
+                var result = await client.from('profiles')
+                    .select('id, nickname, status')
+                    .eq('status', 'active')
+                    .order('nickname');
+                if (!result.error && result.data) authorProfiles = result.data;
+            }
+            function fillTicketEditAuthors(currentId, currentName) {
+                var select = document.getElementById('ticket-edit-author');
+                var html = '<option value="">跟随提交者</option>' + authorProfiles.map(function (profile) {
+                    return '<option value="' + esc(profile.id) + '">' +
+                        esc(profile.nickname || profile.id) + '</option>';
+                }).join('');
+                if (currentId && !authorProfiles.some(function (profile) { return profile.id === currentId; })) {
+                    html += '<option value="' + esc(currentId) + '">' +
+                        esc(currentName || currentId) + '</option>';
+                }
+                select.innerHTML = html;
+                select.value = currentId || '';
+            }
+            function adminColumnOptionsHtml(columns, emptyText) {
+                var groups = {};
+                columns.forEach(function (column) {
+                    var category = column.category || '未分类';
+                    if (!groups[category]) groups[category] = [];
+                    groups[category].push(column);
+                });
+                var html = '<option value="">' + esc(emptyText) + '</option>';
+                Object.keys(groups).sort(function (a, b) {
+                    return a.localeCompare(b, 'zh-CN');
+                }).forEach(function (category) {
+                    html += '<optgroup label="' + esc(category) + '">';
+                    groups[category].sort(function (a, b) {
+                        return String(a.column_name || a.column_key).localeCompare(
+                            String(b.column_name || b.column_key), 'zh-CN');
+                    }).forEach(function (column) {
+                        html += '<option value="' + esc(column.column_key) + '">' +
+                            esc(column.column_name || column.column_key) + '</option>';
+                    });
+                    html += '</optgroup>';
+                });
+                return html;
+            }
+            function fillTicketEditTarget(current) {
+                var select = document.getElementById('ticket-edit-target');
+                var options = allColumns.filter(isArticleColumn);
+                var html = adminColumnOptionsHtml(options, '请选择专栏');
+                if (current && !options.some(function (column) { return column.column_key === current; })) {
+                    html += '<option value="' + esc(current) + '">' +
+                        esc(displayNameForColumn(current)) + '</option>';
+                }
+                select.innerHTML = html;
+                select.value = current || '';
+            }
+            async function openTicketEditor(ticket) {
+                if (!ticket) return;
+                var p = ticket.payload || {};
+                document.getElementById('ticket-edit-id').value = ticket.id;
+                document.getElementById('ticket-edit-modal-title').textContent =
+                    '编辑工单 #TK-' + ticket.id + ' · ' + typeLabel(ticket.type);
+                document.getElementById('ticket-edit-title').value = ticket.title || '';
+                document.getElementById('ticket-edit-description').value = ticket.description || '';
+                document.getElementById('ticket-edit-admin-note').value = ticket.admin_note || '';
+                var isSubmission = ticket.type === 'submission';
+                var isEdit = ticket.type === 'edit';
+                document.getElementById('ticket-edit-submission-fields').hidden = !isSubmission;
+                document.getElementById('ticket-edit-edit-fields').hidden = !isEdit;
+                if (isSubmission) {
+                    await ensureAuthorProfiles();
+                    fillTicketEditAuthors(p.author_id || '', p.author_name || '');
+                    document.getElementById('ticket-edit-column-name').value = p.column_name || '';
+                    document.getElementById('ticket-edit-category').value = p.category || '';
+                    document.getElementById('ticket-edit-tags').value =
+                        Array.isArray(p.tags) ? p.tags.join(', ') : (p.tags || '');
+                    var isProblem = p.kind === 'problem';
+                    document.getElementById('ticket-edit-is-problem').checked = isProblem;
+                    document.getElementById('ticket-edit-difficulty').disabled = !isProblem;
+                    document.getElementById('ticket-edit-difficulty').value = p.difficulty || '暂未评定';
+                    renderAdminRelations('ticket-edit-relations', ticketRelations(p));
+                    document.getElementById('ticket-edit-content').value = p.content || '';
+                }
+                if (isEdit) {
+                    fillTicketEditTarget(p.column_key || '');
+                    document.getElementById('ticket-edit-note').value = p.note || '';
+                    document.getElementById('ticket-edit-edit-name').value =
+                        p.column_name || displayNameForColumn(p.column_key);
+                    document.getElementById('ticket-edit-content-edit').value = p.content || '';
+                    document.getElementById('ticket-edit-edit-category').value = p.category || '';
+                    document.getElementById('ticket-edit-edit-tags').value =
+                        Array.isArray(p.tags) ? p.tags.join(', ') : (p.tags || '');
+                    document.getElementById('ticket-edit-edit-difficulty').value =
+                        p.difficulty || '暂未评定';
+                    document.getElementById('ticket-edit-edit-difficulty-field').hidden =
+                        p.kind !== 'problem';
+                }
+                setTicketEditError('');
+                document.getElementById('ticket-edit-modal').hidden = false;
+                document.body.classList.add('modal-open');
+            }
+            function closeTicketEditor() {
+                document.getElementById('ticket-edit-modal').hidden = true;
+                document.body.classList.remove('modal-open');
+            }
+            document.querySelectorAll('[data-close-ticket-editor]').forEach(function (el) {
+                el.addEventListener('click', closeTicketEditor);
+            });
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && !document.getElementById('ticket-edit-modal').hidden) {
+                    closeTicketEditor();
+                }
+            });
+            document.getElementById('ticket-edit-add-relation').addEventListener('click', function () {
+                addAdminRelationRow('ticket-edit-relations', 'related', '');
+            });
+            document.getElementById('ticket-edit-relations').addEventListener('click', function (event) {
+                var btn = event.target.closest('.relation-remove');
+                if (!btn) return;
+                btn.closest('.relation-row').remove();
+            });
+            document.getElementById('ticket-edit-is-problem').addEventListener('change', function () {
+                document.getElementById('ticket-edit-difficulty').disabled = !this.checked;
+            });
+            document.getElementById('ticket-edit-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setTicketEditError('');
+                if (!client) {
+                    setTicketEditError('Supabase 未配置');
+                    return;
+                }
+                var id = document.getElementById('ticket-edit-id').value;
+                var ticket = ticketsById[id];
+                if (!ticket) {
+                    setTicketEditError('工单不存在或已被刷新，请关闭后重试');
+                    return;
+                }
+                var title = document.getElementById('ticket-edit-title').value.trim();
+                var description = document.getElementById('ticket-edit-description').value.trim();
+                var adminNote = document.getElementById('ticket-edit-admin-note').value.trim();
+                if (!title || !description) {
+                    setTicketEditError('工单标题与提交备注不能为空');
+                    return;
+                }
+                var payload = Object.assign({}, ticket.payload || {});
+                if (ticket.type === 'submission') {
+                    var columnName = document.getElementById('ticket-edit-column-name').value.trim();
+                    var content = document.getElementById('ticket-edit-content').value;
+                    var isProblem = document.getElementById('ticket-edit-is-problem').checked;
+                    var relations = collectAdminRelations('ticket-edit-relations');
+                    if (!columnName) {
+                        setTicketEditError('栏目名称不能为空');
+                        return;
+                    }
+                    if (!content.trim()) {
+                        setTicketEditError('投稿内容不能为空');
+                        return;
+                    }
+                    if (relations.some(function (item) { return !item.target; })) {
+                        setTicketEditError('每条关系都需要选择关联目标');
+                        return;
+                    }
+                    var firstRelation = relations[0] || null;
+                    var authorSelect = document.getElementById('ticket-edit-author');
+                    payload.author_id = authorSelect.value || null;
+                    payload.author_name = authorSelect.value && authorSelect.selectedIndex >= 0
+                        ? authorSelect.options[authorSelect.selectedIndex].textContent
+                        : null;
+                    payload.column_name = columnName;
+                    payload.category = document.getElementById('ticket-edit-category').value || null;
+                    payload.tags = parseTags(document.getElementById('ticket-edit-tags').value);
+                    payload.relations = relations;
+                    payload.relation_type = firstRelation ? firstRelation.type : null;
+                    payload.relation_target = firstRelation ? firstRelation.target : null;
+                    payload.parent_key = firstRelation && firstRelation.type === 'parent-child'
+                        ? firstRelation.target
+                        : (payload.parent_key || null);
+                    payload.kind = isProblem ? 'problem' : 'knowledge';
+                    payload.difficulty = isProblem
+                        ? (document.getElementById('ticket-edit-difficulty').value || null)
+                        : null;
+                    payload.content = content;
+                } else if (ticket.type === 'edit') {
+                    var target = document.getElementById('ticket-edit-target').value;
+                    var editContent = document.getElementById('ticket-edit-content-edit').value;
+                    if (!target) {
+                        setTicketEditError('目标专栏不能为空');
+                        return;
+                    }
+                    if (!editContent.trim()) {
+                        setTicketEditError('修改后的内容不能为空');
+                        return;
+                    }
+                    if (target !== (ticket.payload || {}).column_key) {
+                        var targetResult = await client.from('columns')
+                            .select('column_name, content')
+                            .eq('column_key', target)
+                            .single();
+                        if (targetResult.error) {
+                            setTicketEditError('读取目标专栏失败：' + targetResult.error.message);
+                            return;
+                        }
+                        payload.old_content = targetResult.data.content || '';
+                        payload.column_name = targetResult.data.column_name || displayNameForColumn(target);
+                    } else {
+                        payload.column_name = displayNameForColumn(target);
+                    }
+                    payload.column_key = target;
+                    payload.note = document.getElementById('ticket-edit-note').value.trim() || null;
+                    payload.content = editContent;
+                    var editName = document.getElementById('ticket-edit-edit-name').value.trim();
+                    if (!editName) {
+                        setTicketEditError('专栏标题不能为空');
+                        return;
+                    }
+                    payload.column_name = editName;
+                    payload.category = document.getElementById('ticket-edit-edit-category').value || null;
+                    payload.tags = parseTags(document.getElementById('ticket-edit-edit-tags').value);
+                    payload.difficulty = document.getElementById('ticket-edit-edit-difficulty-field').hidden
+                        ? null
+                        : (document.getElementById('ticket-edit-edit-difficulty').value || null);
+                }
+                var result = await client.from('tickets').update({
+                    title: title,
+                    description: description,
+                    admin_note: adminNote || null,
+                    payload: payload
+                }).eq('id', id);
+                if (result.error) {
+                    setTicketEditError('保存失败：' + result.error.message);
+                    return;
+                }
+                closeTicketEditor();
+                await loadAll();
+                showToast('工单已保存');
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!isAdmin) return;
+                var editTicketBtn = event.target.closest('[data-ticket-edit]');
+                if (editTicketBtn) {
+                    openTicketEditor(ticketsById[editTicketBtn.getAttribute('data-ticket-edit')]);
+                    return;
+                }
+                var ticketBtn = event.target.closest('[data-ticket-action]');
+                if (ticketBtn) {
+                    var ticketStatus = ticketBtn.getAttribute('data-ticket-action');
+                    if (ticketStatus === 'rejected' && !window.confirm('确认驳回这条工单？')) return;
+                    ticketBtn.disabled = true;
+                    updateTicket(ticketBtn.getAttribute('data-id'), ticketStatus);
+                    return;
+                }
+                var userBtn = event.target.closest('[data-user-action]');
+                if (userBtn) {
+                    var userStatus = userBtn.getAttribute('data-user-action');
+                    if (userStatus === 'rejected' && !window.confirm('确认驳回这个用户？')) return;
+                    userBtn.disabled = true;
+                    updateUser(userBtn.getAttribute('data-id'), userStatus);
+                }
+            });
+
+            document.getElementById('profile-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setProfileError('');
+                setProfileOk('');
+                if (!client) {
+                    setProfileError('Supabase 未配置');
+                    return;
+                }
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    setProfileError('请先登录');
+                    return;
+                }
+                var nickname = document.getElementById('profile-nickname').value.trim();
+                if (!nickname) {
+                    setProfileError('昵称不能为空');
+                    return;
+                }
+                var result = await client.from('profiles').update({
+                    nickname: nickname,
+                    contact: document.getElementById('profile-contact').value.trim() || null,
+                    qq: document.getElementById('profile-qq').value.trim() || null,
+                    luogu: document.getElementById('profile-luogu').value.trim() || null,
+                    cf: document.getElementById('profile-cf').value.trim() || null
+                }).eq('id', user.id);
+                if (result.error) {
+                    setProfileError('保存失败：' + result.error.message);
+                    return;
+                }
+                var profile = await window.AKB.getProfile();
+                if (profile) {
+                    currentProfile = profile;
+                    loadProfileForm(profile);
+                    document.getElementById('admin-name').textContent = profile.nickname || '用户';
+                }
+                setProfileOk('个人信息已保存。');
+                showToast('个人信息已保存');
+            });
+
+            document.getElementById('avatar-file').addEventListener('change', async function () {
+                var file = this.files && this.files[0];
+                if (!file) return;
+                setProfileError('');
+                setProfileOk('');
+                if (file.type !== 'image/png' && !/\.png$/i.test(file.name)) {
+                    setProfileError('头像只支持 PNG');
+                    this.value = '';
+                    return;
+                }
+                if (file.size > 2 * 1024 * 1024) {
+                    setProfileError('头像不能超过 2 MB');
+                    this.value = '';
+                    return;
+                }
+                if (!client) {
+                    setProfileError('Supabase 未配置');
+                    return;
+                }
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    setProfileError('请先登录');
+                    return;
+                }
+                var path = user.id + '/avatar.png';
+                var upload = await client.storage.from('avatars').upload(path, file, {
+                    contentType: 'image/png',
+                    upsert: true
+                });
+                if (upload.error) {
+                    setProfileError('上传失败：' + upload.error.message);
+                    return;
+                }
+                var publicUrl = client.storage.from('avatars').getPublicUrl(path).data.publicUrl;
+                var result = await client.from('profiles')
+                    .update({ avatar_url: publicUrl + '?v=' + Date.now() })
+                    .eq('id', user.id);
+                if (result.error) {
+                    setProfileError('保存头像失败：' + result.error.message);
+                    return;
+                }
+                var profile = await window.AKB.getProfile();
+                if (profile) {
+                    currentProfile = profile;
+                    loadProfileForm(profile);
+                }
+                setProfileOk('头像已更新。');
+                this.value = '';
+            });
+
+            document.getElementById('column-select').addEventListener('change', loadColumnDetail);
+            document.getElementById('column-content').addEventListener('input', function () {
+                columnUploadedText = null;
+                columnSourceLarge = false;
+                document.getElementById('column-file-hint').textContent =
+                    '当前 ' + this.value.length + ' 字符';
+            });
+            document.getElementById('column-download').addEventListener('click', function () {
+                var col = currentColumn();
+                setColumnError('column-error', '');
+                if (!col) {
+                    setColumnError('column-error', '请选择专栏');
+                    return;
+                }
+                var text = getColumnText();
+                var name = String(col.column_name || col.column_key || 'column')
+                    .replace(/[\\/:*?"<>|]/g, '_');
+                var blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+                var url = URL.createObjectURL(blob);
+                var link = document.createElement('a');
+                link.href = url;
+                link.download = name + '.md';
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+            });
+            document.getElementById('column-upload').addEventListener('change', async function () {
+                var file = this.files && this.files[0];
+                if (!file) return;
+                var col = currentColumn();
+                setColumnError('column-error', '');
+                if (!col) {
+                    setColumnError('column-error', '请选择专栏');
+                    this.value = '';
+                    return;
+                }
+                var isText = (file.type && file.type.indexOf('text/') === 0) ||
+                    /\.(md|markdown|txt)$/i.test(file.name);
+                if (!isText) {
+                    setColumnError('column-error', '请上传 .md / .markdown / .txt 文本文件');
+                    this.value = '';
+                    return;
+                }
+                if (file.size > 5 * 1024 * 1024) {
+                    setColumnError('column-error', '文件不能超过 5 MB');
+                    this.value = '';
+                    return;
+                }
+                try {
+                    var text = await file.text();
+                    if (getColumnText() && !window.confirm('上传会覆盖当前专栏内容，继续？')) {
+                        this.value = '';
+                        return;
+                    }
+                    var content = document.getElementById('column-content');
+                    columnSourceLarge = text.length > 100000;
+                    if (columnSourceLarge) {
+                        columnUploadedText = text;
+                        content.value = '';
+                        content.disabled = true;
+                        content.placeholder = '内容较长，已跳过网页渲染；保存时使用上传的文件内容。';
+                    } else {
+                        columnUploadedText = null;
+                        content.disabled = false;
+                        content.placeholder = '';
+                        content.value = text;
+                    }
+                    document.getElementById('column-file-hint').textContent =
+                        '已读取：' + file.name + '（' + text.length + ' 字符）';
+                } catch (error) {
+                    setColumnError('column-error', '读取文件失败：' + error.message);
+                }
+                this.value = '';
+            });
+
+            document.getElementById('column-save').addEventListener('click', async function () {
+                var col = currentColumn();
+                setColumnError('column-error', '');
+                setColumnOk('column-ok', '');
+                if (!col) {
+                    setColumnError('column-error', '请选择专栏');
+                    return;
+                }
+                if (!client) {
+                    setColumnError('column-error', 'Supabase 未配置');
+                    return;
+                }
+                var title = document.getElementById('column-title').value.trim();
+                if (!title) {
+                    setColumnError('column-error', '专栏标题不能为空');
+                    return;
+                }
+                var isProblem = document.getElementById('column-is-problem').checked;
+                var relations = collectAdminRelations('column-relations');
+                if (relations.some(function (item) { return !item.target; })) {
+                    setColumnError('column-error', '每条关系都需要填写关联目标');
+                    return;
+                }
+                var firstRelation = relations[0] || null;
+                var parentKey = document.getElementById('column-parent').value.trim();
+                var result = await client.from('columns').update({
+                    column_name: title,
+                    description: document.getElementById('column-description').value.trim() || null,
+                    content: getColumnText(),
+                    tags: parseTags(document.getElementById('column-tags').value),
+                    category: document.getElementById('column-category').value || null,
+                    parent_key: firstRelation && firstRelation.type === 'parent-child'
+                        ? (firstRelation.target || parentKey || null)
+                        : (parentKey || null),
+                    relation_type: firstRelation ? firstRelation.type : null,
+                    relation_target: firstRelation ? firstRelation.target : null,
+                    relations: relations,
+                    difficulty: isProblem ? (document.getElementById('column-difficulty').value || null) : null,
+                    kind: isProblem ? 'problem' : 'knowledge'
+                }).eq('id', col.id);
+                if (result.error) {
+                    setColumnError('column-error', '保存失败：' + result.error.message);
+                    return;
+                }
+                var key = col.column_key;
+                await loadColumns();
+                document.getElementById('column-select').value = key;
+                loadColumnDetail();
+                setColumnOk('column-ok', '专栏已保存。');
+                showToast('专栏已保存');
+            });
+
+            document.getElementById('column-delete').addEventListener('click', async function () {
+                var col = currentColumn();
+                setColumnError('column-error', '');
+                setColumnOk('column-ok', '');
+                if (!col) {
+                    setColumnError('column-error', '请选择专栏');
+                    return;
+                }
+                if (!client) {
+                    setColumnError('column-error', 'Supabase 未配置');
+                    return;
+                }
+                if (!window.confirm('删除后不可恢复，确认删除「' + (col.column_name || col.column_key) + '」？')) {
+                    return;
+                }
+                var result = await client.from('columns').delete().eq('id', col.id);
+                if (result.error) {
+                    setColumnError('column-error', '删除失败：' + result.error.message);
+                    return;
+                }
+                showToast('专栏已删除');
+                await loadColumns();
+            });
+
+            var newColumnForm = document.getElementById('new-column-form');
+            function setNewColumnFormVisible(show) {
+                newColumnForm.hidden = !show;
+                document.getElementById('new-column-toggle').textContent = show ? '收起新建' : '＋ 新建专栏';
+                if (show) {
+                    setColumnError('new-column-error', '');
+                    document.getElementById('new-column-result').hidden = true;
+                    document.getElementById('new-column-title').focus();
+                }
+            }
+            document.getElementById('new-column-toggle').addEventListener('click', function () {
+                setNewColumnFormVisible(newColumnForm.hidden);
+            });
+            document.getElementById('new-column-cancel').addEventListener('click', function () {
+                newColumnForm.reset();
+                document.getElementById('new-column-difficulty').disabled = true;
+                document.getElementById('new-column-relations').innerHTML = '';
+                setNewColumnFormVisible(false);
+            });
+            document.getElementById('new-column-add-relation').addEventListener('click', function () {
+                addAdminRelationRow('new-column-relations', 'related', '');
+            });
+            document.getElementById('column-add-relation').addEventListener('click', function () {
+                addAdminRelationRow('column-relations', 'related', '');
+            });
+            document.getElementById('new-column-relations').addEventListener('click', function (event) {
+                var btn = event.target.closest('.relation-remove');
+                if (!btn) return;
+                btn.closest('.relation-row').remove();
+            });
+            document.getElementById('column-relations').addEventListener('click', function (event) {
+                var btn = event.target.closest('.relation-remove');
+                if (!btn) return;
+                btn.closest('.relation-row').remove();
+            });
+            document.getElementById('new-column-is-problem').addEventListener('change', function () {
+                document.getElementById('new-column-difficulty').disabled = !this.checked;
+            });
+            document.getElementById('column-is-problem').addEventListener('change', function () {
+                document.getElementById('column-difficulty').disabled = !this.checked;
+            });
+
+            document.getElementById('new-column-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setColumnError('new-column-error', '');
+                document.getElementById('new-column-result').hidden = true;
+                if (!client) {
+                    setColumnError('new-column-error', 'Supabase 未配置');
+                    return;
+                }
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    setColumnError('new-column-error', '请先登录');
+                    return;
+                }
+                var title = document.getElementById('new-column-title').value.trim();
+                var description = document.getElementById('new-column-description').value.trim();
+                var content = document.getElementById('new-column-content').value;
+                var category = document.getElementById('new-column-category').value;
+                var parentKey = document.getElementById('new-column-parent').value.trim();
+                var tags = parseTags(document.getElementById('new-column-tags').value);
+                var relations = collectAdminRelations('new-column-relations');
+                var isProblem = document.getElementById('new-column-is-problem').checked;
+                var difficulty = isProblem ? document.getElementById('new-column-difficulty').value : null;
+
+                if (!title) {
+                    setColumnError('new-column-error', '请填写专栏标题');
+                    return;
+                }
+                if (!content.trim()) {
+                    setColumnError('new-column-error', '请填写专栏内容');
+                    return;
+                }
+                if (!category) {
+                    setColumnError('new-column-error', '请选择从属大类');
+                    return;
+                }
+                if (relations.some(function (item) { return !item.target; })) {
+                    setColumnError('new-column-error', '每条关系都需要填写关联目标');
+                    return;
+                }
+                var firstRelation = relations[0] || null;
+
+                var resultEl = document.getElementById('new-column-result');
+                if (isAdmin) {
+                    var columnKey = 'col-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
+                    var insertResult = await client.from('columns').insert({
+                        owner_id: user.id,
+                        column_key: columnKey,
+                        column_name: title,
+                        description: description || null,
+                        content: content,
+                        tags: tags,
+                        category: category,
+                        parent_key: firstRelation && firstRelation.type === 'parent-child'
+                            ? (firstRelation.target || parentKey || null)
+                            : (parentKey || null),
+                        relation_type: firstRelation ? firstRelation.type : null,
+                        relation_target: firstRelation ? firstRelation.target : null,
+                        relations: relations,
+                        difficulty: difficulty || null,
+                        kind: isProblem ? 'problem' : 'knowledge',
+                        status: 'published'
+                    });
+                    if (insertResult.error) {
+                        setColumnError('new-column-error', '新建失败：' + insertResult.error.message);
+                        return;
+                    }
+                    newColumnForm.reset();
+                    document.getElementById('new-column-difficulty').disabled = true;
+                    document.getElementById('new-column-relations').innerHTML = '';
+                    setNewColumnFormVisible(false);
+                    await loadColumns();
+                    document.getElementById('column-select').value = columnKey;
+                    loadColumnDetail();
+                    resultEl.textContent = '专栏已直接入库。';
+                    resultEl.hidden = false;
+                    showToast('专栏已直接入库');
+                    return;
+                }
+
+                var profile = currentProfile || await window.AKB.getProfile();
+                var payload = {
+                    column_name: title,
+                    description: description || null,
+                    content: content,
+                    tags: tags,
+                    category: category,
+                    parent_key: firstRelation && firstRelation.type === 'parent-child'
+                        ? (firstRelation.target || parentKey || null)
+                        : (parentKey || null),
+                    relation_type: firstRelation ? firstRelation.type : null,
+                    relation_target: firstRelation ? firstRelation.target : null,
+                    relations: relations,
+                    difficulty: difficulty || null,
+                    kind: isProblem ? 'problem' : 'knowledge'
+                };
+                var ticketResult = await client.from('tickets').insert({
+                    user_id: user.id,
+                    title: '投稿：' + title,
+                    type: 'submission',
+                    priority: 'mid',
+                    description: '投稿专栏 · ' + category + (tags.length ? ' · ' + tags.join('、') : ''),
+                    contact: contactSummary(profile) || user.email,
+                    status: 'pending',
+                    payload: payload
+                });
+                if (ticketResult.error) {
+                    setColumnError('new-column-error', '提交失败：' + ticketResult.error.message);
+                    return;
+                }
+                newColumnForm.reset();
+                document.getElementById('new-column-difficulty').disabled = true;
+                document.getElementById('new-column-relations').innerHTML = '';
+                setNewColumnFormVisible(false);
+                resultEl.textContent = '投稿已提交，等待管理员在「工单审批」中通过后自动入库。';
+                resultEl.hidden = false;
+                showToast('投稿已提交');
+                loadMySubmissions();
+            });
+
+            function contactSummary(profile) {
+                if (!profile) return '';
+                var parts = [];
+                if (profile.contact) parts.push(profile.contact);
+                if (profile.qq) parts.push('QQ: ' + profile.qq);
+                if (profile.luogu) parts.push('洛谷: ' + profile.luogu);
+                if (profile.cf) parts.push('CF: ' + profile.cf);
+                return parts.join(' / ');
+            }
+
+            async function loadMySubmissions() {
+                var wrap = document.getElementById('my-submissions-wrap');
+                var box = document.getElementById('my-submissions');
+                if (!client) {
+                    wrap.hidden = true;
+                    return;
+                }
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    wrap.hidden = true;
+                    return;
+                }
+                var result = await client.from('tickets')
+                    .select('id, title, type, status, created_at')
+                    .eq('user_id', user.id)
+                    .in('type', ['submission', 'edit'])
+                    .order('created_at', { ascending: false });
+                if (result.error) {
+                    wrap.hidden = false;
+                    box.innerHTML = '<p class="form-error">读取投稿失败：' + esc(result.error.message) + '</p>';
+                    return;
+                }
+                if (!result.data.length) {
+                    wrap.hidden = true;
+                    box.innerHTML = '';
+                    return;
+                }
+                wrap.hidden = false;
+                box.innerHTML = result.data.map(function (item) {
+                    var cls = item.status === 'approved' ? 'status-done' :
+                        item.status === 'rejected' ? 'status-closed' : 'status-pending';
+                    var text = item.status === 'approved' ? '已通过' :
+                        item.status === 'rejected' ? '已驳回' : '待审批';
+                    var withdraw = item.status === 'pending'
+                        ? '<button class="btn btn-ghost btn-sm" type="button" data-withdraw="' + esc(item.id) + '">撤回</button>'
+                        : '';
+                    return '<div class="submission-item"><div>' +
+                        '<div class="cell-title">' + esc(item.title) + '</div>' +
+                        '<div class="cell-sub">' + esc(typeLabel(item.type)) + ' · ' +
+                        esc(window.AKB.formatTime(item.created_at)) + '</div>' +
+                        '</div><div class="form-actions"><span class="status ' + cls + '">' + text + '</span>' +
+                        withdraw + '</div></div>';
+                }).join('');
+            }
+            document.getElementById('my-submissions').addEventListener('click', async function (event) {
+                var btn = event.target.closest('[data-withdraw]');
+                if (!btn) return;
+                if (!window.confirm('确认撤回这条投稿？')) return;
+                var result = await client.from('tickets')
+                    .delete()
+                    .eq('id', btn.getAttribute('data-withdraw'))
+                    .eq('status', 'pending');
+                if (result.error) {
+                    showToast('撤回失败：' + result.error.message);
+                    return;
+                }
+                showToast('投稿已撤回');
+                loadMySubmissions();
+            });
+
+            document.getElementById('column-default-save').addEventListener('click', async function () {
+                setColumnError('column-password-error', '');
+                setColumnOk('column-password-ok', '');
+                if (!client) {
+                    setColumnError('column-password-error', 'Supabase 未配置');
+                    return;
+                }
+                var value = document.getElementById('column-default-password').value;
+                if (value && value.length < 6) {
+                    setColumnError('column-password-error', '密码至少 6 位；留空表示无密码');
+                    return;
+                }
+                var result = await client.rpc('set_column_password', {
+                    p_key: '__default__',
+                    p_password: value
+                });
+                if (result.error) {
+                    setColumnError('column-password-error', '保存失败：' + result.error.message);
+                    return;
+                }
+                document.getElementById('column-default-password').value = '';
+                loadColumnDetail();
+                setColumnOk('column-password-ok', value ? '通用密码已保存。' : '通用密码已清除（无密码）。');
+            });
+
+            document.getElementById('column-specific-save').addEventListener('click', async function () {
+                var col = currentColumn();
+                setColumnError('column-password-error', '');
+                setColumnOk('column-password-ok', '');
+                if (!col) {
+                    setColumnError('column-password-error', '请选择专栏');
+                    return;
+                }
+                if (!client) {
+                    setColumnError('column-password-error', 'Supabase 未配置');
+                    return;
+                }
+                var value = document.getElementById('column-specific-password').value;
+                if (value && value.length < 6) {
+                    setColumnError('column-password-error', '密码至少 6 位；留空表示跟随通用密码');
+                    return;
+                }
+                var result = await client.rpc('set_column_password', {
+                    p_key: col.column_key,
+                    p_password: value
+                });
+                if (result.error) {
+                    setColumnError('column-password-error', '保存失败：' + result.error.message);
+                    return;
+                }
+                document.getElementById('column-specific-password').value = '';
+                loadColumnDetail();
+                setColumnOk('column-password-ok', value ? '当前专栏特定密码已保存。' : '特定密码已清除（跟随通用密码）。');
+            });
+
+            document.getElementById('refresh-btn').addEventListener('click', function () {
+                if (!client || !isAdmin) return;
+                loadAll().then(function () { showToast('已刷新'); });
+            });
+
+            // ===== 启动 =====
+            initColumnMetaOptions();
+            guard().then(function (ok) {
+                if (!ok) return;
+                var requested = new URLSearchParams(window.location.search).get('tab') || window.location.hash.replace('#', '');
+                if (!isAdmin && ['profile', 'columns'].indexOf(requested) === -1) requested = 'profile';
+                if (['tickets', 'users', 'profile', 'columns'].indexOf(requested) === -1) {
+                    requested = isAdmin ? 'tickets' : 'profile';
+                }
+                activateTab(requested);
+                if (isAdmin) loadAll();
+            });
+        })();
+    </script>
+</body>
+</html>

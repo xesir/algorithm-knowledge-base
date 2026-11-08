@@ -1,5 +1,7 @@
 // 此文件由 build.js 自动生成，请勿手动编辑
 // 修改 content/ 下的 .md 文件后运行 node build.js 重新生成
+const DATA_BUILD_AT = "2026-11-08T01:37:02.681Z";
+
 const KNOWLEDGE_DATA = [
     {
         "id": "basic-astar",
@@ -14538,6 +14540,8 @@ const KNOWLEDGE_DATA = [
 ];
 
 const AUTHORS = ["world-needs-sunday","Fohen","Xesir","lker","stripe-python","renzhaoyang","dbywsc"];
+
+const AUTHOR_KEYS = {"fenfeng":"Fohen","xesir":"Xesir","lker":"lker","stripe-python":"stripe-python","renzhaoyang":"renzhaoyang","dbywsc":"dbywsc"};
 
 const CATEGORY_META = {
     "基础算法": {

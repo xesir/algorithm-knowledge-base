@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="算法知识点查询系统 · 登录、注册、工单与账号设置">
+    <meta name="theme-color" content="#1e293b">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>登录 / 注册 · 算法知识点查询系统</title>
+    <script>
+        // 与 index.html 共用主题，防止刷新闪烁
+        (function () {
+            var t = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/forms.css?v=20261106b">
+</head>
+<body class="auth-page">
+    <div class="auth-shell">
+        <aside class="auth-aside">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">📚</span>
+                <span class="brand-text">
+                    <strong>算法知识点查询系统</strong>
+                    <small>ALGORITHM KNOWLEDGE BASE</small>
+                </span>
+            </a>
+            <h1>登录后，<br>把反馈与内容维护连起来</h1>
+            <p>账号、工单与专栏密码均由 Supabase 托管。作者账号与专栏访问密码已按初始密码表初始化。</p>
+            <ul class="auth-points">
+                <li><span class="dot">01</span><span>登录 / 注册：昵称、联系方式与密码三件套</span></li>
+                <li><span class="dot">02</span><span>提交工单：问题类型、优先级、描述与管理员审批</span></li>
+                <li><span class="dot">03</span><span>账号设置：登录密码、默认专栏密码与指定专栏密码</span></li>
+            </ul>
+            <div class="conn-status" id="supabase-status">
+                <span class="dot"></span>
+                <span>正在检查 Supabase 配置…</span>
+            </div>
+        </aside>
+
+        <main class="auth-card">
+            <div class="auth-card-head">
+                <div>
+                    <h2 class="auth-title">账号中心</h2>
+                    <p class="auth-subtitle">选择下面的入口开始</p>
+                </div>
+                <div style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;">
+                    <a class="btn btn-ghost btn-sm" href="index.html">← 返回站点</a>
+                    <a class="btn btn-ghost btn-sm" href="login.html" id="logout-link">退出登录</a>
+                </div>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="账号操作">
+                <button class="tab active" type="button" role="tab" data-tab="login" aria-selected="true">登录</button>
+                <button class="tab" type="button" role="tab" data-tab="register" aria-selected="false">注册</button>
+                <button class="tab" type="button" role="tab" data-tab="ticket" aria-selected="false">提交工单</button>
+                <button class="tab" type="button" role="tab" data-tab="account" aria-selected="false">账号设置</button>
+            </div>
+
+            <!-- 登录 -->
+            <section class="tab-panel active" id="panel-login" role="tabpanel">
+                <h3 class="auth-title">欢迎回来</h3>
+                <p class="auth-subtitle" style="margin-bottom:1rem;">使用注册时填写的邮箱、QQ、洛谷、CF 或作者用户名登录</p>
+                <form class="form-grid" id="login-form" novalidate>
+                    <div class="form-field">
+                        <label for="login-contact">登录账号</label>
+                        <input class="input" type="text" id="login-contact" name="contact"
+                               placeholder="邮箱 / QQ / 洛谷号 / CF 号 / 作者用户名" autocomplete="username">
+                    </div>
+                    <div class="form-field">
+                        <label for="login-password">密码</label>
+                        <input class="input" type="password" id="login-password" name="password"
+                               placeholder="请输入密码" autocomplete="current-password">
+                    </div>
+                    <div class="form-inline">
+                        <label class="checkbox-row">
+                            <input type="checkbox" name="remember">
+                            <span>记住我</span>
+                        </label>
+                        <button class="text-link" type="button" data-toast="请联系管理员重置密码">忘记密码？</button>
+                    </div>
+                    <p class="form-error" id="login-error" hidden></p>
+                    <button class="btn btn-primary btn-block" type="submit">登录</button>
+                </form>
+                <p class="auth-footer">还没有账号？<button class="text-link" type="button" data-switch="register">立即注册</button></p>
+            </section>
+
+            <!-- 注册 -->
+            <section class="tab-panel" id="panel-register" role="tabpanel">
+                <h3 class="auth-title">创建账号</h3>
+                <p class="auth-subtitle" style="margin-bottom:1rem;">昵称会显示在工单与评论中，注册后需管理员审核</p>
+                <form class="form-grid" id="register-form" novalidate>
+                    <div class="form-field">
+                        <label for="reg-nickname">昵称</label>
+                        <input class="input" type="text" id="reg-nickname" name="nickname"
+                               placeholder="2–20 个字符" autocomplete="nickname">
+                    </div>
+                    <div class="form-field">
+                        <label for="reg-contact">邮箱 <span class="label-hint">选填，仅作联系方式</span></label>
+                        <input class="input" type="email" id="reg-contact" name="contact"
+                               placeholder="选填，不会发送验证邮件" autocomplete="email">
+                    </div>
+                    <div class="form-row-3">
+                        <div class="form-field">
+                            <label for="reg-qq">QQ 号 <span class="label-hint">选填</span></label>
+                            <input class="input" type="text" id="reg-qq" name="qq" placeholder="留空即可">
+                        </div>
+                        <div class="form-field">
+                            <label for="reg-luogu">洛谷号 <span class="label-hint">选填</span></label>
+                            <input class="input" type="text" id="reg-luogu" name="luogu" placeholder="留空即可">
+                        </div>
+                        <div class="form-field">
+                            <label for="reg-cf">Codeforces 号 <span class="label-hint">选填</span></label>
+                            <input class="input" type="text" id="reg-cf" name="cf" placeholder="留空即可">
+                        </div>
+                    </div>
+                    <p class="form-hint">邮箱、QQ、洛谷、CF 至少填一项；不填的保持为空。邮箱只作联系方式，不会发送验证邮件；注册后由管理员在后台审批，一切以工单审批结果为准。登录优先用邮箱，其次 QQ、洛谷、CF。</p>
+                    <p class="form-error" id="register-mail-warning" hidden>Supabase 仍开启邮箱确认：注册后将无法登录。请在 Authentication → Providers → Email 关闭 Confirm email。</p>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="reg-password">密码</label>
+                            <input class="input" type="password" id="reg-password" name="password"
+                                   placeholder="至少 8 位" autocomplete="new-password">
+                        </div>
+                        <div class="form-field">
+                            <label for="reg-password2">确认密码</label>
+                            <input class="input" type="password" id="reg-password2" name="password2"
+                                   placeholder="再次输入" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <p class="form-hint">建议同时包含字母、数字与符号；密码不会显示在页面上。</p>
+                    <label class="checkbox-row">
+                        <input type="checkbox" name="agreement">
+                        <span>我已阅读并同意《用户协议》与《隐私说明》</span>
+                    </label>
+                    <p class="form-error" id="register-error" hidden></p>
+                    <button class="btn btn-primary btn-block" type="submit">注册账号</button>
+                </form>
+                <p class="auth-footer">已经有账号？<button class="text-link" type="button" data-switch="login">返回登录</button></p>
+            </section>
+
+            <!-- 提交工单 -->
+            <section class="tab-panel" id="panel-ticket" role="tabpanel">
+                <h3 class="auth-title">提交工单</h3>
+                <p class="auth-subtitle" style="margin-bottom:1rem;">建议类仅需标题和内容；投稿类通过后会自动添加栏目；修改类需登录并验证专栏密码。</p>
+                <form class="form-grid" id="ticket-form" novalidate>
+                    <div class="form-field">
+                        <label for="ticket-type">工单类型</label>
+                        <select class="select" id="ticket-type" name="type">
+                            <option value="suggestion">建议</option>
+                            <option value="submission">投稿</option>
+                            <option value="edit">修改</option>
+                        </select>
+                        <p class="form-hint">建议：管理员查看，无自动效果；投稿：审批通过后自动入库；修改：审批通过后写回原专栏。</p>
+                    </div>
+
+                    <div id="ticket-suggestion-fields">
+                        <div class="form-field">
+                            <label for="ticket-title">标题</label>
+                            <input class="input" type="text" id="ticket-title" name="title"
+                                   placeholder="一句话说明你的建议">
+                        </div>
+                        <div class="form-field">
+                            <label for="ticket-desc">内容</label>
+                            <textarea class="textarea" id="ticket-desc" name="description"
+                                      placeholder="写下你的建议，格式不限"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="ticket-submission-fields" hidden>
+                        <div class="form-field">
+                            <label for="ticket-column-name">栏目名称</label>
+                            <input class="input" type="text" id="ticket-column-name" name="column_name"
+                                   placeholder="必填，例如：树状数组入门">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="ticket-author">作者</label>
+                                <select class="select" id="ticket-author" name="author"></select>
+                            </div>
+                            <div class="form-field">
+                                <label for="ticket-category">所属大类</label>
+                                <select class="select" id="ticket-category" name="category">
+                                    <option value="">请选择（必填）</option>
+                                    <option value="基础算法">基础算法</option>
+                                    <option value="动态规划">动态规划</option>
+                                    <option value="数据结构">数据结构</option>
+                                    <option value="图论">图论</option>
+                                    <option value="数学">数学</option>
+                                    <option value="字符串">字符串</option>
+                                    <option value="实用工具">实用工具</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label>标签 <span class="label-hint">可选，可自定义</span></label>
+                            <div class="tag-editor">
+                                <div class="tag-editor-chips" id="ticket-tag-chips"></div>
+                                <div class="form-inline">
+                                    <input class="input" type="text" id="ticket-tag-input"
+                                           list="ticket-tag-list" placeholder="输入或选择标签">
+                                    <button class="btn btn-ghost btn-sm" type="button" id="ticket-tag-add">添加标签</button>
+                                </div>
+                                <p class="form-hint">自定义标签在投稿通过后会进入可选标签库。</p>
+                            </div>
+                            <datalist id="ticket-tag-list"></datalist>
+                        </div>
+                        <div class="form-field">
+                            <label>关系 <span class="label-hint">可选，可添加多条</span></label>
+                            <div id="ticket-relations"></div>
+                            <button class="btn btn-ghost btn-sm" type="button" id="ticket-add-relation">＋ 添加关系</button>
+                            <p class="form-hint">每条关系需要选择类型并填写关联目标。</p>
+                        </div>
+                        <div class="form-inline">
+                            <label class="checkbox-row">
+                                <input type="checkbox" id="ticket-is-problem">
+                                <span>作为题目</span>
+                            </label>
+                            <div class="form-field">
+                                <label for="ticket-difficulty">难度 <span class="label-hint">可选</span></label>
+                                <select class="select" id="ticket-difficulty" disabled></select>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label>内容来源</label>
+                            <div class="chip-group">
+                                <label class="chip"><input type="radio" name="submission-source" value="text" checked><span>网页输入</span></label>
+                                <label class="chip"><input type="radio" name="submission-source" value="file"><span>上传文件</span></label>
+                            </div>
+                        </div>
+                        <div class="form-field" id="ticket-file-field" hidden>
+                            <label for="ticket-file">上传文本文件 <span class="label-hint">默认 Markdown</span></label>
+                            <input class="input" type="file" id="ticket-file"
+                                   accept="text/*,.md,.markdown,.txt,.json,.yaml,.yml,.csv,.log,.tex">
+                            <p class="form-hint" id="ticket-file-hint">支持 .md / .txt 等文本文件，读取后会填入下方栏目内容。</p>
+                        </div>
+                        <div class="form-field">
+                            <label for="ticket-submission-content">栏目内容</label>
+                            <textarea class="textarea" id="ticket-submission-content"
+                                      placeholder="Markdown 内容"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="ticket-edit-fields" hidden>
+                        <div class="form-field">
+                            <label for="ticket-edit-column">要修改的专栏</label>
+                            <select class="select" id="ticket-edit-column">
+                                <option value="">正在加载专栏…</option>
+                            </select>
+                            <p class="form-hint">只列出已发布的专栏；下拉显示专栏名称，不再显示注册名。</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="ticket-edit-password">专栏访问密码</label>
+                                <input class="input" type="password" id="ticket-edit-password"
+                                       autocomplete="off" placeholder="输入该专栏的访问密码">
+                            </div>
+                            <div class="form-field">
+                                <label>&nbsp;</label>
+                                <button class="btn btn-ghost btn-block" type="button" id="ticket-edit-load">验证并载入源码</button>
+                            </div>
+                        </div>
+                        <p class="form-hint" id="ticket-edit-status">修改需先登录；未设置密码的专栏选中后可直接载入。</p>
+                        <div class="form-field">
+                            <label for="ticket-edit-content">专栏 Markdown 源码</label>
+                            <textarea class="textarea column-content" id="ticket-edit-content"
+                                      disabled placeholder="验证通过后在此查看并修改源码"></textarea>
+                            <p class="form-hint" id="ticket-edit-count">未载入源码</p>
+                            <div class="form-inline">
+                                <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-download" disabled>⬇ 下载当前源码</button>
+                                <label class="btn btn-ghost btn-sm">
+                                    ⬆ 上传修改后的文件
+                                    <input type="file" id="ticket-edit-upload"
+                                           accept=".md,.markdown,.txt,text/*" hidden>
+                                </label>
+                            </div>
+                            <p class="form-hint" id="ticket-edit-file-hint">过长的专栏可先下载到本地编辑，再上传覆盖文本框内容。</p>
+                        </div>
+                        <div class="form-field">
+                            <label for="ticket-edit-note">修改说明 <span class="label-hint">选填</span></label>
+                            <input class="input" type="text" id="ticket-edit-note"
+                                   placeholder="例如：修正复杂度、补充样例、调整表述">
+                        </div>
+                        <div class="form-field">
+                            <label for="ticket-edit-name">专栏标题 <span class="label-hint">可修改</span></label>
+                            <input class="input" type="text" id="ticket-edit-name"
+                                   placeholder="显示在目录与详情页的标题">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="ticket-edit-category-edit">所属大类 <span class="label-hint">可修改</span></label>
+                                <select class="select" id="ticket-edit-category-edit">
+                                    <option value="">不修改分类</option>
+                                    <option value="基础算法">基础算法</option>
+                                    <option value="动态规划">动态规划</option>
+                                    <option value="数据结构">数据结构</option>
+                                    <option value="图论">图论</option>
+                                    <option value="数学">数学</option>
+                                    <option value="字符串">字符串</option>
+                                    <option value="实用工具">实用工具</option>
+                                </select>
+                            </div>
+                            <div class="form-field" id="ticket-edit-difficulty-field" hidden>
+                                <label for="ticket-edit-difficulty-edit">难度</label>
+                                <select class="select" id="ticket-edit-difficulty-edit"></select>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label>标签 <span class="label-hint">可修改；全部移除表示清空</span></label>
+                            <div class="tag-editor">
+                                <div class="tag-editor-chips" id="ticket-edit-tag-chips"></div>
+                                <div class="form-inline">
+                                    <input class="input" type="text" id="ticket-edit-tag-input"
+                                           list="ticket-edit-tag-list" placeholder="输入或选择标签">
+                                    <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-tag-add">添加标签</button>
+                                </div>
+                            </div>
+                            <datalist id="ticket-edit-tag-list"></datalist>
+                        </div>
+                        <p class="form-hint">提交后生成「修改」工单，管理员通过后才会写回专栏（正文与标签/分类/难度）。</p>
+                    </div>
+
+                    <p class="form-error" id="ticket-error" hidden></p>
+                    <button class="btn btn-primary btn-block" type="submit" id="ticket-submit">提交建议</button>
+                </form>
+                <p class="auth-footer">想先看看已有处理进度？<a href="admin.html">打开管理员后台</a></p>
+            </section>
+
+            <!-- 账号设置 -->
+            <section class="tab-panel" id="panel-account" role="tabpanel">
+                <h3 class="auth-title">账号设置</h3>
+                <p class="auth-subtitle">修改登录密码或专栏密码前，必须先输入当前登录密码。</p>
+                <p class="form-hint" id="account-state" style="margin-top:.5rem;">正在读取登录状态…</p>
+
+                <div class="form-field" style="margin-top:.8rem;">
+                    <label for="account-current">当前登录密码 <span class="label-hint">以下三项修改共用</span></label>
+                    <input class="input" type="password" id="account-current" autocomplete="current-password"
+                           placeholder="请输入当前登录密码">
+                </div>
+
+                <div class="account-sections">
+                    <form class="account-section" id="contact-form" novalidate>
+                        <div class="account-section-head">
+                            <h4>联系方式</h4>
+                            <span class="form-hint">QQ / 洛谷 / CF 默认留空，可随时修改</span>
+                        </div>
+                        <div class="form-field">
+                            <label for="account-contact">邮箱 <span class="label-hint">仅作联系方式</span></label>
+                            <input class="input" type="text" id="account-contact" placeholder="选填，不会发送验证邮件">
+                        </div>
+                        <div class="form-row-3">
+                            <div class="form-field">
+                                <label for="account-qq">QQ 号</label>
+                                <input class="input" type="text" id="account-qq" placeholder="留空即可">
+                            </div>
+                            <div class="form-field">
+                                <label for="account-luogu">洛谷号</label>
+                                <input class="input" type="text" id="account-luogu" placeholder="留空即可">
+                            </div>
+                            <div class="form-field">
+                                <label for="account-cf">Codeforces 号</label>
+                                <input class="input" type="text" id="account-cf" placeholder="留空即可">
+                            </div>
+                        </div>
+                        <p class="form-error" id="contact-error" hidden></p>
+                        <button class="btn btn-primary btn-sm" type="submit">保存联系方式</button>
+                    </form>
+
+                    <form class="account-section" id="login-password-form" novalidate>
+                        <div class="account-section-head">
+                            <h4>修改登录密码</h4>
+                            <span class="form-hint">修改成功后需使用新密码重新登录</span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="new-login-password">新登录密码</label>
+                                <input class="input" type="password" id="new-login-password" autocomplete="new-password"
+                                       placeholder="至少 8 位">
+                            </div>
+                            <div class="form-field">
+                                <label for="new-login-password2">确认新密码</label>
+                                <input class="input" type="password" id="new-login-password2" autocomplete="new-password"
+                                       placeholder="再次输入">
+                            </div>
+                        </div>
+                        <p class="form-error" id="login-password-error" hidden></p>
+                        <button class="btn btn-primary btn-sm" type="submit">保存登录密码</button>
+                    </form>
+
+                    <form class="account-section" id="default-lock-form" novalidate>
+                        <div class="account-section-head">
+                            <h4>修改默认专栏访问密码</h4>
+                            <span class="form-hint">对所有未单独设置密码的专栏生效</span>
+                        </div>
+                        <div class="form-field">
+                            <label for="default-lock-password">新的默认密码 <span class="label-hint">留空 = 无密码</span></label>
+                            <input class="input" type="password" id="default-lock-password" autocomplete="new-password"
+                                   placeholder="留空表示无通用密码">
+                        </div>
+                        <p class="form-error" id="default-lock-error" hidden></p>
+                        <button class="btn btn-primary btn-sm" type="submit">保存默认密码</button>
+                    </form>
+
+                    <form class="account-section" id="column-lock-form" novalidate>
+                        <div class="account-section-head">
+                            <h4>修改特定专栏访问密码</h4>
+                            <span class="form-hint">只影响选中的专栏</span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="column-lock-select">选择专栏</label>
+                                <select class="select" id="column-lock-select">
+                                    <option value="">正在加载专栏…</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="column-lock-password">新的专栏密码 <span class="label-hint">留空 = 跟随通用</span></label>
+                                <input class="input" type="password" id="column-lock-password" autocomplete="new-password"
+                                       placeholder="留空表示使用通用密码">
+                            </div>
+                        </div>
+                        <p class="form-hint">优先级：特定密码 &gt; 通用密码 &gt; 无密码。</p>
+                        <p class="form-error" id="column-lock-error" hidden></p>
+                        <button class="btn btn-primary btn-sm" type="submit">保存专栏密码</button>
+                    </form>
+                </div>
+                <p class="form-ok" id="account-ok" hidden></p>
+            </section>
+        </main>
+    </div>
+
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换主题">🌙</button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js?v=20261105"></script>
+    <script src="assets/auth.js?v=20261106"></script>
+    <script>
+        /* 任务一：登录后的重定向白名单（只允许站内两个入口） */
+        const allowedRedirects = ['index.html', 'admin.html'];
+
+        (function () {
+            var client = window.supabaseClient;
+            var toast = document.getElementById('toast');
+            var toastTimer = null;
+            var columnNameMap = {};
+            var kpTitles = {};
+            var allColumns = [];
+            var columnDataPromise = null;
+            var editVerifiedKey = '';
+            var editVerifiedPassword = '';
+            var editUploadedText = null;
+            var editSourceLarge = false;
+            var editFromUpload = false;
+
+            function showToast(text) {
+                toast.textContent = text;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+            }
+            function setError(id, text) {
+                var el = document.getElementById(id);
+                if (!el) return;
+                el.textContent = text || '';
+                el.hidden = !text;
+            }
+            function setOk(id, text) {
+                var el = document.getElementById(id);
+                if (!el) return;
+                el.textContent = text || '';
+                el.hidden = !text;
+            }
+            function needClient() {
+                if (client) return true;
+                showToast('Supabase 未配置：请先填写 supabase-config.js');
+                return false;
+            }
+            function errorText(prefix, error) {
+                return prefix + (error && error.message ? error.message : '未知错误');
+            }
+            function friendlyAuthError(error) {
+                var msg = (error && error.message) || '未知错误';
+                if (/email not confirmed/i.test(msg)) {
+                    return 'Supabase 仍在要求邮箱确认：请关闭 Authentication → Providers → Email → Confirm email；本项目不做邮箱验证';
+                }
+                if (/invalid login credentials/i.test(msg)) {
+                    return '账号或密码不正确；如果刚注册，请确认使用的是注册时填写的登录账号';
+                }
+                if (/user already registered/i.test(msg)) {
+                    return '该登录账号已被注册，请直接登录或更换联系方式';
+                }
+                return '登录失败：' + msg;
+            }
+
+            // ===== 主题切换 =====
+            var root = document.documentElement;
+            var themeBtn = document.getElementById('theme-toggle');
+            function syncThemeIcon() {
+                themeBtn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+            }
+            themeBtn.addEventListener('click', function () {
+                var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                syncThemeIcon();
+            });
+            syncThemeIcon();
+
+            // ===== 选项卡 =====
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+            function activate(name) {
+                tabs.forEach(function (tab) {
+                    var on = tab.getAttribute('data-tab') === name;
+                    tab.classList.toggle('active', on);
+                    tab.setAttribute('aria-selected', on ? 'true' : 'false');
+                });
+                document.querySelectorAll('.tab-panel').forEach(function (panel) {
+                    panel.classList.toggle('active', panel.id === 'panel-' + name);
+                });
+                if (name === 'account') loadAccount();
+                if (name === 'ticket') prepareTicketForm();
+            }
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    activate(tab.getAttribute('data-tab'));
+                });
+            });
+            document.querySelectorAll('[data-switch]').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    activate(el.getAttribute('data-switch'));
+                });
+            });
+            document.querySelectorAll('[data-toast]').forEach(function (el) {
+                el.addEventListener('click', function () { showToast(el.getAttribute('data-toast')); });
+            });
+
+            // 支持 login.html?tab=account 或 #account 直达指定标签
+            var initialTab = new URLSearchParams(window.location.search).get('tab') || window.location.hash.replace('#', '');
+            if (['login', 'register', 'ticket', 'account'].indexOf(initialTab) !== -1) {
+                activate(initialTab);
+            }
+
+            // ===== Supabase 连接状态 =====
+            var status = window.supabaseStatus || { configured: false, connected: false, message: 'Supabase 未初始化' };
+            var statusEl = document.getElementById('supabase-status');
+            statusEl.classList.add(status.connected ? 'is-ok' : 'is-warn');
+            statusEl.lastElementChild.textContent = status.message;
+
+            // 检查 Supabase 是否仍强制邮箱确认（本项目不需要邮箱验证）
+            if (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url) {
+                fetch(window.SUPABASE_CONFIG.url + '/auth/v1/settings', {
+                    headers: { apikey: window.SUPABASE_CONFIG.anonKey }
+                }).then(function (response) {
+                    return response.ok ? response.json() : null;
+                }).then(function (settings) {
+                    if (settings && settings.mailer_autoconfirm === false) {
+                        document.getElementById('register-mail-warning').hidden = false;
+                    }
+                }).catch(function () {});
+            }
+
+            // ===== 登录 =====
+            document.getElementById('login-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setError('login-error', '');
+                var contact = document.getElementById('login-contact').value.trim();
+                var password = document.getElementById('login-password').value;
+                if (!contact || !password) {
+                    setError('login-error', '请填写联系方式与密码');
+                    return;
+                }
+                if (!needClient()) return;
+                var result = await client.auth.signInWithPassword({
+                    email: window.AKB.contactToEmail(contact),
+                    password: password
+                });
+                if (result.error) {
+                    setError('login-error', friendlyAuthError(result.error));
+                    return;
+                }
+                var profileResult = await client.from('profiles')
+                    .select('nickname, role, status')
+                    .eq('id', result.data.user.id)
+                    .single();
+                if (profileResult.error || !profileResult.data) {
+                    await client.auth.signOut();
+                    setError('login-error', '账号资料不存在，请联系管理员');
+                    return;
+                }
+                var profile = profileResult.data;
+                if (profile.status === 'pending') {
+                    await client.auth.signOut();
+                    setError('login-error', '账号正在等待管理员审核，暂时无法登录');
+                    return;
+                }
+                if (profile.status === 'rejected') {
+                    await client.auth.signOut();
+                    setError('login-error', '账号已被驳回，请联系管理员');
+                    return;
+                }
+                var params = new URLSearchParams(window.location.search);
+                var redirect = params.get('redirect');
+                var target = allowedRedirects.includes(redirect) ? redirect : 'index.html';
+                var tab = params.get('tab');
+                if (target === 'admin.html' && tab) {
+                    target += '?tab=' + encodeURIComponent(tab);
+                }
+                window.location.href = target;
+            });
+
+            // ===== 注册 =====
+            document.getElementById('register-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setError('register-error', '');
+                var nickname = document.getElementById('reg-nickname').value.trim();
+                var contact = document.getElementById('reg-contact').value.trim();
+                var qq = document.getElementById('reg-qq').value.trim();
+                var luogu = document.getElementById('reg-luogu').value.trim();
+                var cf = document.getElementById('reg-cf').value.trim();
+                var password = document.getElementById('reg-password').value;
+                var password2 = document.getElementById('reg-password2').value;
+                var agreement = document.querySelector('#register-form input[name="agreement"]').checked;
+                var loginAccount = contact || qq || luogu || cf;
+                if (!nickname) {
+                    setError('register-error', '请填写昵称');
+                    return;
+                }
+                if (!loginAccount) {
+                    setError('register-error', '邮箱、QQ、洛谷、CF 至少填一项');
+                    return;
+                }
+                if (password.length < 8) {
+                    setError('register-error', '密码至少 8 位');
+                    return;
+                }
+                if (password !== password2) {
+                    setError('register-error', '两次输入的密码不一致');
+                    return;
+                }
+                if (!agreement) {
+                    setError('register-error', '请先同意用户协议与隐私说明');
+                    return;
+                }
+                if (!needClient()) return;
+                var authEmail = window.AKB.contactToEmail(loginAccount);
+                if (!authEmail) {
+                    setError('register-error', '登录账号只能使用邮箱、QQ、洛谷号或 CF 号（需包含字母或数字）');
+                    return;
+                }
+                var result = await client.auth.signUp({
+                    email: authEmail,
+                    password: password,
+                    options: {
+                        data: {
+                            nickname: nickname,
+                            contact: contact || null,
+                            qq: qq || null,
+                            luogu: luogu || null,
+                            cf: cf || null
+                        }
+                    }
+                });
+                if (result.error) {
+                    setError('register-error', errorText('注册失败：', result.error));
+                    return;
+                }
+                // 注册后统一退出，等待管理员审核
+                await client.auth.signOut();
+                this.reset();
+                document.getElementById('login-contact').value = loginAccount;
+                activate('login');
+                showToast('注册成功，登录账号：' + loginAccount + '（等待管理员审核）');
+            });
+
+            // ===== 提交工单 =====
+
+            function ticketContactSummary(profile) {
+                if (!profile) return '';
+                var parts = [];
+                if (profile.contact) parts.push(profile.contact);
+                if (profile.qq) parts.push('QQ: ' + profile.qq);
+                if (profile.luogu) parts.push('洛谷: ' + profile.luogu);
+                if (profile.cf) parts.push('CF: ' + profile.cf);
+                return parts.join(' / ');
+            }
+
+            function isArticleColumn(column) {
+                var key = String((column && column.column_key) || '');
+                return key.indexOf('sub-') === 0 || key.indexOf('col-') === 0;
+            }
+            function displayNameForColumn(key) {
+                if (!key) return '';
+                if (columnNameMap[key]) return columnNameMap[key];
+                if (kpTitles[key]) return kpTitles[key];
+                if (key.indexOf('col-') === 0 && kpTitles[key.slice(4)]) return kpTitles[key.slice(4)];
+                return key;
+            }
+            function loadTitles() {
+                if (Object.keys(kpTitles).length) return Promise.resolve();
+                return fetch('titles.json').then(function (response) {
+                    return response.ok ? response.json() : {};
+                }).then(function (data) {
+                    if (data && typeof data === 'object') kpTitles = data;
+                }).catch(function () {});
+            }
+            function loadColumnData() {
+                if (columnDataPromise) return columnDataPromise;
+                if (!client) {
+                    columnDataPromise = Promise.resolve([]);
+                    return columnDataPromise;
+                }
+                columnDataPromise = client.from('columns')
+                    .select('column_key, column_name, category, status, owner_id, source_ticket_id')
+                    .order('column_name')
+                    .then(function (result) {
+                        if (result.error) return [];
+                        allColumns = result.data || [];
+                        columnNameMap = {};
+                        allColumns.forEach(function (column) {
+                            columnNameMap[column.column_key] = column.column_name;
+                        });
+                        return allColumns;
+                    }).catch(function () { return []; });
+                return columnDataPromise;
+            }
+            function relationTargetOptions() {
+                var map = {};
+                allColumns.forEach(function (column) {
+                    if (!isArticleColumn(column)) return;
+                    map[column.column_key] = {
+                        value: column.column_key,
+                        label: column.column_name || column.column_key,
+                        category: column.category || '未分类'
+                    };
+                });
+                Object.keys(kpTitles).forEach(function (id) {
+                    var baseKey = 'col-' + id;
+                    var hasColumn = allColumns.some(function (column) {
+                        return column.column_key === baseKey ||
+                            column.column_key.indexOf(baseKey + '--') === 0;
+                    });
+                    if (!hasColumn) {
+                        map[baseKey] = { value: baseKey, label: kpTitles[id], category: '知识点' };
+                    }
+                });
+                return Object.keys(map).map(function (key) { return map[key]; });
+            }
+            function fillRelationTargetSelect(select, current) {
+                var options = relationTargetOptions();
+                var groups = {};
+                options.forEach(function (item) {
+                    if (!groups[item.category]) groups[item.category] = [];
+                    groups[item.category].push(item);
+                });
+                var html = '<option value="">请选择关联目标</option>';
+                Object.keys(groups).sort(function (a, b) {
+                    return a.localeCompare(b, 'zh-CN');
+                }).forEach(function (category) {
+                    html += '<optgroup label="' + window.AKB.escapeHtml(category) + '">';
+                    groups[category].sort(function (a, b) {
+                        return a.label.localeCompare(b.label, 'zh-CN');
+                    }).forEach(function (item) {
+                        html += '<option value="' + window.AKB.escapeHtml(item.value) + '">' +
+                            window.AKB.escapeHtml(item.label) + '</option>';
+                    });
+                    html += '</optgroup>';
+                });
+                if (current && !options.some(function (item) { return item.value === current; })) {
+                    html += '<option value="' + window.AKB.escapeHtml(current) + '">' +
+                        window.AKB.escapeHtml(displayNameForColumn(current)) + '</option>';
+                }
+                select.innerHTML = html;
+                select.value = current || '';
+            }
+            function refreshRelationTargets() {
+                document.querySelectorAll('#ticket-relations .relation-target').forEach(function (select) {
+                    fillRelationTargetSelect(select, select.value);
+                });
+            }
+            function columnOptionsHtml(columns, emptyText) {
+                var groups = {};
+                columns.forEach(function (column) {
+                    var category = column.category || '未分类';
+                    if (!groups[category]) groups[category] = [];
+                    groups[category].push(column);
+                });
+                var html = '<option value="">' + window.AKB.escapeHtml(emptyText) + '</option>';
+                Object.keys(groups).sort(function (a, b) {
+                    return a.localeCompare(b, 'zh-CN');
+                }).forEach(function (category) {
+                    html += '<optgroup label="' + window.AKB.escapeHtml(category) + '">';
+                    groups[category].sort(function (a, b) {
+                        return String(a.column_name || a.column_key).localeCompare(
+                            String(b.column_name || b.column_key), 'zh-CN');
+                    }).forEach(function (column) {
+                        html += '<option value="' + window.AKB.escapeHtml(column.column_key) + '">' +
+                            window.AKB.escapeHtml(column.column_name || column.column_key) + '</option>';
+                    });
+                    html += '</optgroup>';
+                });
+                return html;
+            }
+            function loadEditColumnOptions() {
+                var select = document.getElementById('ticket-edit-column');
+                var current = select.value;
+                loadColumnData().then(function () {
+                    var published = allColumns.filter(function (column) {
+                        return column.status === 'published' && isArticleColumn(column);
+                    });
+                    if (!published.length) {
+                        select.innerHTML = '<option value="">暂无可修改的专栏（投稿通过或管理员新建专栏后才会出现）</option>';
+                        return;
+                    }
+                    select.innerHTML = columnOptionsHtml(published, '请选择专栏');
+                    if (current) select.value = current;
+                });
+            }
+            function resetEditVerification(clearPassword) {
+                editVerifiedKey = '';
+                editVerifiedPassword = '';
+                editUploadedText = null;
+                editSourceLarge = false;
+                editFromUpload = false;
+                var content = document.getElementById('ticket-edit-content');
+                content.value = '';
+                content.disabled = true;
+                content.placeholder = '验证通过后在此查看并修改源码';
+                document.getElementById('ticket-edit-file-hint').textContent =
+                    '过长的专栏可先下载到本地编辑，再上传覆盖文本框内容。';
+                document.getElementById('ticket-edit-status').textContent =
+                    '修改需先登录；未设置密码的专栏选中后可直接载入。';
+                document.getElementById('ticket-edit-count').textContent = '未载入源码';
+                document.getElementById('ticket-edit-download').disabled = true;
+                document.getElementById('ticket-edit-category-edit').value = '';
+                document.getElementById('ticket-edit-difficulty-field').hidden = true;
+                document.getElementById('ticket-edit-name').value = '';
+                resetEditTags();
+                if (clearPassword) document.getElementById('ticket-edit-password').value = '';
+            }
+            function getEditText() {
+                return editUploadedText !== null
+                    ? editUploadedText
+                    : document.getElementById('ticket-edit-content').value;
+            }
+            async function showEditSource(key, password) {
+                var statusEl = document.getElementById('ticket-edit-status');
+                var result = await client.from('columns')
+                    .select('column_key, column_name, content, tags, category, kind, difficulty')
+                    .eq('column_key', key)
+                    .single();
+                if (result.error) {
+                    resetEditVerification(false);
+                    statusEl.textContent = '读取专栏失败：' + result.error.message;
+                    return null;
+                }
+                if (document.getElementById('ticket-edit-column').value !== key) return null;
+                var column = result.data;
+                var text = column.content || '';
+                var content = document.getElementById('ticket-edit-content');
+                editVerifiedKey = key;
+                editVerifiedPassword = password;
+                editFromUpload = false;
+                editSourceLarge = text.length > 100000;
+                if (editSourceLarge) {
+                    editUploadedText = text;
+                    content.value = '';
+                    content.disabled = true;
+                    content.placeholder = '内容较长，已跳过网页渲染；请下载到本地修改后上传文件。';
+                    document.getElementById('ticket-edit-count').textContent =
+                        '当前 ' + text.length + ' 字符（已跳过网页渲染）';
+                } else {
+                    editUploadedText = null;
+                    content.disabled = false;
+                    content.placeholder = '在此直接修改 Markdown 源码';
+                    content.value = text;
+                    document.getElementById('ticket-edit-count').textContent =
+                        '当前 ' + text.length + ' 字符';
+                }
+                document.getElementById('ticket-edit-download').disabled = false;
+                // 回填可修改的元数据
+                document.getElementById('ticket-edit-name').value = column.column_name || '';
+                editTags = Array.isArray(column.tags) ? column.tags.slice() : [];
+                renderEditTags();
+                document.getElementById('ticket-edit-category-edit').value = column.category || '';
+                var isProblem = column.kind === 'problem';
+                document.getElementById('ticket-edit-difficulty-field').hidden = !isProblem;
+                if (isProblem) {
+                    document.getElementById('ticket-edit-difficulty-edit').value =
+                        column.difficulty || '暂未评定';
+                }
+                return column;
+            }
+            async function loadEditSource() {
+                setError('ticket-error', '');
+                if (!needClient()) return;
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    setError('ticket-error', '修改专栏需要先登录后再操作');
+                    return;
+                }
+                var key = document.getElementById('ticket-edit-column').value;
+                var password = document.getElementById('ticket-edit-password').value;
+                var statusEl = document.getElementById('ticket-edit-status');
+                if (!key) {
+                    setError('ticket-error', '请选择要修改的专栏');
+                    return;
+                }
+                statusEl.textContent = '正在验证专栏密码…';
+                var verify = await client.rpc('verify_column_password', {
+                    p_key: key,
+                    p_password: password
+                });
+                if (verify.error) {
+                    resetEditVerification(false);
+                    statusEl.textContent = '验证失败：' + verify.error.message;
+                    return;
+                }
+                if (!verify.data) {
+                    resetEditVerification(false);
+                    statusEl.textContent = '专栏密码不正确，无法载入源码。';
+                    setError('ticket-error', '专栏密码不正确');
+                    return;
+                }
+                var column = await showEditSource(key, password);
+                if (column) {
+                    statusEl.textContent = editSourceLarge
+                        ? '已验证：' + (column.column_name || key) +
+                          '。内容较长，已跳过网页渲染；请下载到本地修改后上传。'
+                        : '已验证：' + (column.column_name || key) + '。可直接修改下方源码。';
+                }
+            }
+            async function onEditColumnChange() {
+                resetEditVerification(true);
+                var key = document.getElementById('ticket-edit-column').value;
+                var statusEl = document.getElementById('ticket-edit-status');
+                if (!key || !client) return;
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    statusEl.textContent = '修改专栏需要先登录后再载入源码。';
+                    return;
+                }
+                statusEl.textContent = '正在检查该专栏是否设置了密码…';
+                var verify = await client.rpc('verify_column_password', {
+                    p_key: key,
+                    p_password: ''
+                });
+                if (verify.error) {
+                    statusEl.textContent = '检查密码失败：' + verify.error.message;
+                    return;
+                }
+                if (document.getElementById('ticket-edit-column').value !== key) return;
+                if (verify.data) {
+                    var column = await showEditSource(key, '');
+                    if (column) {
+                        statusEl.textContent = editSourceLarge
+                            ? '该专栏未设置密码；内容较长，已跳过网页渲染，请下载到本地修改后上传。'
+                            : '该专栏未设置密码，已直接载入源码，可直接修改。';
+                    }
+                } else {
+                    statusEl.textContent = '该专栏已设置密码，请输入密码后点击“验证并载入源码”。';
+                }
+            }
+
+            function syncTicketType() {
+                var type = document.getElementById('ticket-type').value;
+                var isSuggestion = type === 'suggestion';
+                var isSubmission = type === 'submission';
+                var isEdit = type === 'edit';
+                document.getElementById('ticket-suggestion-fields').hidden = !isSuggestion;
+                document.getElementById('ticket-submission-fields').hidden = !isSubmission;
+                document.getElementById('ticket-edit-fields').hidden = !isEdit;
+                document.getElementById('ticket-submit').textContent = isEdit
+                    ? '提交修改工单'
+                    : (isSubmission ? '提交投稿工单' : '提交建议');
+                setError('ticket-error', '');
+                if (isEdit) {
+                    loadEditColumnOptions();
+                    if (editVerifiedKey &&
+                        document.getElementById('ticket-edit-column').value !== editVerifiedKey) {
+                        resetEditVerification(false);
+                    }
+                }
+            }
+            document.getElementById('ticket-type').addEventListener('change', syncTicketType);
+            document.getElementById('ticket-is-problem').addEventListener('change', function () {
+                document.getElementById('ticket-difficulty').disabled = !this.checked;
+            });
+            document.getElementById('ticket-edit-column').addEventListener('change', onEditColumnChange);
+            document.getElementById('ticket-edit-password').addEventListener('input', function () {
+                if (editVerifiedKey) resetEditVerification(false);
+            });
+            document.getElementById('ticket-edit-load').addEventListener('click', loadEditSource);
+            document.getElementById('ticket-edit-content').addEventListener('input', function () {
+                editUploadedText = null;
+                editSourceLarge = false;
+                document.getElementById('ticket-edit-count').textContent =
+                    '当前 ' + this.value.length + ' 字符';
+            });
+            document.getElementById('ticket-edit-download').addEventListener('click', function () {
+                if (!editVerifiedKey) {
+                    setError('ticket-error', '请先选择专栏并载入源码');
+                    return;
+                }
+                var text = getEditText();
+                var name = displayNameForColumn(editVerifiedKey).replace(/[\\/:*?"<>|]/g, '_') || 'column';
+                var blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+                var url = URL.createObjectURL(blob);
+                var link = document.createElement('a');
+                link.href = url;
+                link.download = name + '.md';
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+            });
+            document.getElementById('ticket-edit-upload').addEventListener('change', async function () {
+                var file = this.files && this.files[0];
+                if (!file) return;
+                if (!editVerifiedKey) {
+                    setError('ticket-error', '请先选择专栏并载入源码，再上传修改后的文件');
+                    this.value = '';
+                    return;
+                }
+                var isText = (file.type && file.type.indexOf('text/') === 0) ||
+                    /\.(md|markdown|txt)$/i.test(file.name);
+                if (!isText) {
+                    setError('ticket-error', '请上传 .md / .markdown / .txt 文本文件');
+                    this.value = '';
+                    return;
+                }
+                if (file.size > 5 * 1024 * 1024) {
+                    setError('ticket-error', '文件不能超过 5 MB');
+                    this.value = '';
+                    return;
+                }
+                try {
+                    var text = await file.text();
+                    var content = document.getElementById('ticket-edit-content');
+                    if (getEditText() && !window.confirm('上传会覆盖当前内容，继续？')) {
+                        this.value = '';
+                        return;
+                    }
+                    editSourceLarge = text.length > 100000;
+                    editFromUpload = true;
+                    if (editSourceLarge) {
+                        editUploadedText = text;
+                        content.value = '';
+                        content.disabled = true;
+                        content.placeholder = '内容较长，已跳过网页渲染；提交时将使用上传的文件内容。';
+                    } else {
+                        editUploadedText = null;
+                        content.disabled = false;
+                        content.placeholder = '在此直接修改 Markdown 源码';
+                        content.value = text;
+                    }
+                    document.getElementById('ticket-edit-count').textContent =
+                        '当前 ' + text.length + ' 字符' +
+                        (editSourceLarge ? '（已跳过网页渲染）' : '');
+                    document.getElementById('ticket-edit-file-hint').textContent =
+                        '已读取：' + file.name + '（' + text.length + ' 字符，按上传文件提交）';
+                    setError('ticket-error', '');
+                } catch (error) {
+                    setError('ticket-error', '读取文件失败：' + error.message);
+                }
+                this.value = '';
+            });
+            syncTicketType();
+
+            // ===== 标签选择器 =====
+            var ticketTags = [];
+            var tagNameSet = {};
+            function renderTicketTags() {
+                document.getElementById('ticket-tag-chips').innerHTML = ticketTags.map(function (tag, index) {
+                    return '<span class="tag-chip">' + window.AKB.escapeHtml(tag) +
+                        '<button type="button" data-remove-ticket-tag="' + index + '" aria-label="移除">×</button></span>';
+                }).join('');
+            }
+            function applyTagOptions() {
+                var html = Object.keys(tagNameSet).sort().map(function (name) {
+                    return '<option value="' + window.AKB.escapeHtml(name) + '"></option>';
+                }).join('');
+                document.getElementById('ticket-tag-list').innerHTML = html;
+                var editList = document.getElementById('ticket-edit-tag-list');
+                if (editList) editList.innerHTML = html;
+            }
+            function addTicketTag(value) {
+                var tag = String(value || '').trim();
+                if (!tag) return;
+                if (ticketTags.indexOf(tag) === -1) {
+                    ticketTags.push(tag);
+                    tagNameSet[tag] = true;
+                    renderTicketTags();
+                    applyTagOptions();
+                }
+                document.getElementById('ticket-tag-input').value = '';
+            }
+            function loadTagOptions() {
+                var addNames = function (list) {
+                    (list || []).forEach(function (name) {
+                        if (name) tagNameSet[name] = true;
+                    });
+                    applyTagOptions();
+                };
+                if (client) {
+                    client.from('tags').select('name').order('name').then(function (result) {
+                        if (!result.error && result.data) {
+                            addNames(result.data.map(function (item) { return item.name; }));
+                        }
+                    });
+                }
+                fetch('tags.json').then(function (response) {
+                    return response.ok ? response.json() : [];
+                }).then(function (list) {
+                    addNames(Array.isArray(list) ? list : []);
+                }).catch(function () {});
+            }
+            document.getElementById('ticket-tag-add').addEventListener('click', function () {
+                addTicketTag(document.getElementById('ticket-tag-input').value);
+            });
+            document.getElementById('ticket-tag-input').addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    addTicketTag(this.value);
+                }
+            });
+            document.getElementById('ticket-tag-chips').addEventListener('click', function (event) {
+                var btn = event.target.closest('[data-remove-ticket-tag]');
+                if (!btn) return;
+                ticketTags.splice(Number(btn.getAttribute('data-remove-ticket-tag')), 1);
+                renderTicketTags();
+            });
+
+            // ===== 修改工单：标签编辑器 =====
+            var editTags = [];
+            function renderEditTags() {
+                document.getElementById('ticket-edit-tag-chips').innerHTML = editTags.map(function (tag, index) {
+                    return '<span class="tag-chip">' + window.AKB.escapeHtml(tag) +
+                        '<button type="button" data-remove-edit-tag="' + index + '" aria-label="移除">×</button></span>';
+                }).join('');
+            }
+            function addEditTag(value) {
+                var tag = String(value || '').trim();
+                if (!tag) return;
+                if (editTags.indexOf(tag) === -1) {
+                    editTags.push(tag);
+                    tagNameSet[tag] = true;
+                    renderEditTags();
+                    applyTagOptions();
+                }
+                document.getElementById('ticket-edit-tag-input').value = '';
+            }
+            function resetEditTags() {
+                editTags = [];
+                renderEditTags();
+            }
+            document.getElementById('ticket-edit-tag-add').addEventListener('click', function () {
+                addEditTag(document.getElementById('ticket-edit-tag-input').value);
+            });
+            document.getElementById('ticket-edit-tag-input').addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    addEditTag(this.value);
+                }
+            });
+            document.getElementById('ticket-edit-tag-chips').addEventListener('click', function (event) {
+                var btn = event.target.closest('[data-remove-edit-tag]');
+                if (!btn) return;
+                editTags.splice(Number(btn.getAttribute('data-remove-edit-tag')), 1);
+                renderEditTags();
+            });
+
+            // ===== 多条关系 =====
+            function addRelationRow(type, target) {
+                var row = document.createElement('div');
+                row.className = 'relation-row';
+                row.innerHTML =
+                    '<select class="select relation-type">' +
+                        '<option value="related">关联关系</option>' +
+                        '<option value="sequence">前后置关系</option>' +
+                        '<option value="parent-child">父子关系</option>' +
+                    '</select>' +
+                    '<select class="select relation-target"></select>' +
+                    '<button class="btn btn-ghost btn-sm relation-remove" type="button">删除</button>';
+                row.querySelector('.relation-type').value = type || 'related';
+                fillRelationTargetSelect(row.querySelector('.relation-target'), target || '');
+                document.getElementById('ticket-relations').appendChild(row);
+            }
+            function collectRelations() {
+                return Array.prototype.slice.call(document.querySelectorAll('#ticket-relations .relation-row'))
+                    .map(function (row) {
+                        return {
+                            type: row.querySelector('.relation-type').value,
+                            target: row.querySelector('.relation-target').value.trim()
+                        };
+                    });
+            }
+            document.getElementById('ticket-add-relation').addEventListener('click', function () {
+                addRelationRow('related', '');
+            });
+            document.getElementById('ticket-relations').addEventListener('click', function (event) {
+                var btn = event.target.closest('.relation-remove');
+                if (!btn) return;
+                btn.closest('.relation-row').remove();
+            });
+
+            // ===== 内容来源：网页输入 / 上传文本文件 =====
+            function currentSubmissionSource() {
+                var checked = document.querySelector('input[name="submission-source"]:checked');
+                return checked ? checked.value : 'text';
+            }
+            document.querySelectorAll('input[name="submission-source"]').forEach(function (radio) {
+                radio.addEventListener('change', function () {
+                    document.getElementById('ticket-file-field').hidden = currentSubmissionSource() !== 'file';
+                });
+            });
+            document.getElementById('ticket-file').addEventListener('change', async function () {
+                var file = this.files && this.files[0];
+                if (!file) return;
+                var isText = (file.type && file.type.indexOf('text/') === 0) ||
+                    /\.(md|markdown|txt|json|ya?ml|csv|log|tex)$/i.test(file.name);
+                if (!isText) {
+                    setError('ticket-error', '请上传文本文件（.md / .markdown / .txt 等）');
+                    this.value = '';
+                    return;
+                }
+                if (file.size > 2 * 1024 * 1024) {
+                    setError('ticket-error', '文本文件不能超过 2 MB');
+                    this.value = '';
+                    return;
+                }
+                try {
+                    var text = await file.text();
+                    document.getElementById('ticket-submission-content').value = text;
+                    document.getElementById('ticket-file-hint').textContent =
+                        '已读取：' + file.name + '（' + text.length + ' 字符）';
+                    setError('ticket-error', '');
+                } catch (error) {
+                    setError('ticket-error', '读取文件失败：' + error.message);
+                }
+            });
+
+            document.getElementById('ticket-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setError('ticket-error', '');
+                if (!needClient()) return;
+                var type = document.getElementById('ticket-type').value;
+                var user = await window.AKB.getUser();
+                var profile = user ? await window.AKB.getProfile() : null;
+                var contact = ticketContactSummary(profile) || (user ? user.email : '') || null;
+                var result;
+
+                if (type === 'suggestion') {
+                    var title = document.getElementById('ticket-title').value.trim();
+                    var content = document.getElementById('ticket-desc').value.trim();
+                    if (!title || !content) {
+                        setError('ticket-error', '请填写建议标题和内容');
+                        return;
+                    }
+                    // 建议工单无需登录；匿名提交时管理员显示“热心群众”
+                    result = await client.from('tickets').insert({
+                        user_id: user ? user.id : null,
+                        title: title,
+                        type: 'suggestion',
+                        priority: 'mid',
+                        description: content,
+                        contact: contact,
+                        status: 'pending'
+                    });
+                } else if (type === 'submission') {
+                    if (!user) {
+                        setError('ticket-error', '投稿需要登录后再提交');
+                        return;
+                    }
+                    var columnName = document.getElementById('ticket-column-name').value.trim();
+                    var authorSelect = document.getElementById('ticket-author');
+                    var authorId = authorSelect.value;
+                    var authorName = authorSelect.selectedIndex >= 0
+                        ? authorSelect.options[authorSelect.selectedIndex].textContent
+                        : '';
+                    var category = document.getElementById('ticket-category').value;
+                    var relations = collectRelations();
+                    var isProblem = document.getElementById('ticket-is-problem').checked;
+                    var difficulty = isProblem ? document.getElementById('ticket-difficulty').value : null;
+                    var submissionContent = document.getElementById('ticket-submission-content').value;
+
+                    if (!columnName || !authorId || !category || !submissionContent.trim()) {
+                        setError('ticket-error', '请填写栏目名称、作者、所属大类与栏目内容');
+                        return;
+                    }
+                    if (relations.some(function (item) { return !item.target; })) {
+                        setError('ticket-error', '每条关系都需要填写关联目标');
+                        return;
+                    }
+                    var pendingTag = document.getElementById('ticket-tag-input').value.trim();
+                    if (pendingTag) addTicketTag(pendingTag);
+                    var payload = {
+                        column_name: columnName,
+                        author_id: authorId,
+                        author_name: authorName,
+                        category: category,
+                        tags: ticketTags.slice(),
+                        relations: relations,
+                        kind: isProblem ? 'problem' : 'knowledge',
+                        difficulty: difficulty || null,
+                        content: submissionContent
+                    };
+                    result = await client.from('tickets').insert({
+                        user_id: user.id,
+                        title: '投稿：' + columnName,
+                        type: 'submission',
+                        priority: 'mid',
+                        description: '投稿栏目 · ' + category + (ticketTags.length ? ' · ' + ticketTags.join('、') : ''),
+                        contact: contact,
+                        status: 'pending',
+                        payload: payload
+                    });
+                } else {
+                    if (!user) {
+                        setError('ticket-error', '修改专栏需要登录后再提交');
+                        return;
+                    }
+                    var editKey = document.getElementById('ticket-edit-column').value;
+                    var editPassword = document.getElementById('ticket-edit-password').value;
+                    var editContent = getEditText();
+                    var editNote = document.getElementById('ticket-edit-note').value.trim();
+                    if (!editKey) {
+                        setError('ticket-error', '请选择要修改的专栏');
+                        return;
+                    }
+                    if (editVerifiedKey !== editKey || editVerifiedPassword !== editPassword) {
+                        setError('ticket-error', '请先验证专栏密码并载入源码');
+                        return;
+                    }
+                    if (!editContent.trim()) {
+                        setError('ticket-error', '修改后的专栏内容不能为空');
+                        return;
+                    }
+                    var pendingEditTag = document.getElementById('ticket-edit-tag-input').value.trim();
+                    if (pendingEditTag) addEditTag(pendingEditTag);
+                    var editTitle = document.getElementById('ticket-edit-name').value.trim();
+                    if (!editTitle) {
+                        setError('ticket-error', '专栏标题不能为空');
+                        return;
+                    }
+                    var editCategory = document.getElementById('ticket-edit-category-edit').value || null;
+                    var editDifficulty = document.getElementById('ticket-edit-difficulty-field').hidden
+                        ? null
+                        : (document.getElementById('ticket-edit-difficulty-edit').value || null);
+                    result = await client.rpc('submit_column_edit', {
+                        p_key: editKey,
+                        p_password: editPassword,
+                        p_content: editContent,
+                        p_note: editNote || null,
+                        p_uploaded: editFromUpload,
+                        p_tags: editTags.slice(),
+                        p_category: editCategory,
+                        p_difficulty: editDifficulty,
+                        p_column_name: editTitle
+                    });
+                }
+
+                if (result.error) {
+                    setError('ticket-error', errorText('提交失败：', result.error));
+                    return;
+                }
+                this.reset();
+                ticketTags = [];
+                renderTicketTags();
+                document.getElementById('ticket-relations').innerHTML = '';
+                document.getElementById('ticket-file-field').hidden = true;
+                document.getElementById('ticket-file-hint').textContent = '支持 .md / .txt 等文本文件，读取后会填入下方栏目内容。';
+                document.getElementById('ticket-difficulty').disabled = true;
+                resetEditVerification(true);
+                syncTicketType();
+                await prepareTicketForm();
+                showToast(type === 'submission'
+                    ? '投稿已提交，等待管理员审批'
+                    : (type === 'edit' ? '修改工单已提交，等待管理员审批' : '建议已提交，等待管理员查看'));
+            });
+
+            // ===== 账号设置 =====
+            async function verifyCurrentPassword() {
+                var current = document.getElementById('account-current').value;
+                if (!current) throw new Error('请先输入当前登录密码');
+                var user = await window.AKB.getUser();
+                if (!user) throw new Error('请先登录');
+                var result = await client.auth.signInWithPassword({
+                    email: user.email,
+                    password: current
+                });
+                if (result.error) throw new Error('当前登录密码不正确');
+            }
+
+            async function prepareTicketForm() {
+                if (!client) return;
+                loadTagOptions();
+                var difficulty = document.getElementById('ticket-difficulty');
+                var difficulties = ['暂未评定', '入门', '普及−', '普及/提高−', '普及+/提高−', '提高', '提高+/省选−', '省选/NOI−', 'NOI/NOI+/CTSC'];
+                if (!difficulty.options.length) {
+                    difficulty.innerHTML = difficulties.map(function (item) {
+                        return '<option value="' + window.AKB.escapeHtml(item) + '">' +
+                            window.AKB.escapeHtml(item) + '</option>';
+                    }).join('');
+                }
+                var editDifficulty = document.getElementById('ticket-edit-difficulty-edit');
+                if (!editDifficulty.options.length) {
+                    editDifficulty.innerHTML = difficulties.map(function (item) {
+                        return '<option value="' + window.AKB.escapeHtml(item) + '">' +
+                            window.AKB.escapeHtml(item) + '</option>';
+                    }).join('');
+                }
+
+                await Promise.all([loadTitles(), loadColumnData()]);
+                refreshRelationTargets();
+                loadEditColumnOptions();
+
+                var select = document.getElementById('ticket-author');
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    select.innerHTML = '<option value="">请先登录</option>';
+                    return;
+                }
+                var profile = await window.AKB.getProfile();
+                var options = [{
+                    id: user.id,
+                    name: (profile && profile.nickname) || '我自己'
+                }];
+                var seen = {};
+                seen[user.id] = true;
+                // 同一作者可能有多个专栏（含投稿自动生成的 sub-*），优先用作者本人专栏名
+                var byOwner = {};
+                allColumns.forEach(function (item) {
+                    if (!item.owner_id) return;
+                    var isGenerated = String(item.column_key || '').indexOf('sub-') === 0;
+                    var prev = byOwner[item.owner_id];
+                    if (!prev || (prev.generated && !isGenerated)) {
+                        byOwner[item.owner_id] = {
+                            name: item.column_name || '未命名作者',
+                            generated: isGenerated
+                        };
+                    }
+                });
+                Object.keys(byOwner).forEach(function (ownerId) {
+                    if (seen[ownerId]) return;
+                    seen[ownerId] = true;
+                    options.push({ id: ownerId, name: byOwner[ownerId].name });
+                });
+                var current = select.value;
+                select.innerHTML = options.map(function (item) {
+                    return '<option value="' + window.AKB.escapeHtml(item.id) + '">' +
+                        window.AKB.escapeHtml(item.name) + '</option>';
+                }).join('');
+                var keep = options.some(function (item) { return item.id === current; });
+                select.value = keep ? current : user.id;
+                if (!select.value) select.value = user.id;
+            }
+
+            async function loadAccount() {
+                var stateEl = document.getElementById('account-state');
+                var selectEl = document.getElementById('column-lock-select');
+                if (!client) {
+                    stateEl.textContent = 'Supabase 未配置，无法读取账号信息。';
+                    selectEl.innerHTML = '<option value="">Supabase 未配置</option>';
+                    return;
+                }
+                var user = await window.AKB.getUser();
+                if (!user) {
+                    stateEl.textContent = '未登录：请先在“登录”页登录，再回来修改密码。';
+                    ['account-contact', 'account-qq', 'account-luogu', 'account-cf'].forEach(function (id) {
+                        document.getElementById(id).value = '';
+                    });
+                    selectEl.innerHTML = '<option value="">未登录</option>';
+                    return;
+                }
+                var profile = await window.AKB.getProfile();
+                stateEl.textContent = '已登录：' + (profile ? profile.nickname : user.email) +
+                    (profile ? '（' + (profile.role === 'admin' ? '管理员' : '普通用户') + '）' : '');
+                document.getElementById('account-contact').value = (profile && profile.contact) || '';
+                document.getElementById('account-qq').value = (profile && profile.qq) || '';
+                document.getElementById('account-luogu').value = (profile && profile.luogu) || '';
+                document.getElementById('account-cf').value = (profile && profile.cf) || '';
+                var result = await client.from('columns')
+                    .select('column_key, column_name')
+                    .eq('owner_id', user.id)
+                    .order('column_key');
+                if (result.error) {
+                    selectEl.innerHTML = '<option value="">读取专栏失败</option>';
+                    return;
+                }
+                var ownColumns = result.data.filter(isArticleColumn);
+                if (!ownColumns.length) {
+                    selectEl.innerHTML = '<option value="">暂无专栏</option>';
+                    return;
+                }
+                selectEl.innerHTML = '<option value="">请选择专栏</option>' + ownColumns.map(function (column) {
+                    return '<option value="' + window.AKB.escapeHtml(column.column_key) + '">' +
+                        window.AKB.escapeHtml(column.column_name || column.column_key) + '</option>';
+                }).join('');
+            }
+
+            document.getElementById('contact-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setError('contact-error', '');
+                setOk('account-ok', '');
+                if (!needClient()) return;
+                try {
+                    var user = await window.AKB.getUser();
+                    if (!user) throw new Error('请先登录');
+                    var result = await client.from('profiles').update({
+                        contact: document.getElementById('account-contact').value.trim() || null,
+                        qq: document.getElementById('account-qq').value.trim() || null,
+                        luogu: document.getElementById('account-luogu').value.trim() || null,
+                        cf: document.getElementById('account-cf').value.trim() || null
+                    }).eq('id', user.id);
+                    if (result.error) throw new Error(result.error.message);
+                    setOk('account-ok', '联系方式已保存。');
+                } catch (err) {
+                    setError('contact-error', err.message);
+                }
+            });
+
+            document.getElementById('login-password-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setError('login-password-error', '');
+                setOk('account-ok', '');
+                if (!needClient()) return;
+                var newPassword = document.getElementById('new-login-password').value;
+                var confirmPassword = document.getElementById('new-login-password2').value;
+                if (newPassword.length < 8) {
+                    setError('login-password-error', '新密码至少 8 位');
+                    return;
+                }
+                if (newPassword !== confirmPassword) {
+                    setError('login-password-error', '两次输入的新密码不一致');
+                    return;
+                }
+                try {
+                    await verifyCurrentPassword();
+                    var result = await client.auth.updateUser({ password: newPassword });
+                    if (result.error) throw new Error(result.error.message);
+                    this.reset();
+                    setOk('account-ok', '登录密码已修改，请使用新密码重新登录。');
+                } catch (err) {
+                    setError('login-password-error', err.message);
+                }
+            });
+
+            document.getElementById('default-lock-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setError('default-lock-error', '');
+                setOk('account-ok', '');
+                if (!needClient()) return;
+                var newPassword = document.getElementById('default-lock-password').value;
+                if (newPassword && newPassword.length < 6) {
+                    setError('default-lock-error', '密码至少 6 位；留空表示无密码');
+                    return;
+                }
+                try {
+                    await verifyCurrentPassword();
+                    var result = await client.rpc('set_column_password', {
+                        p_key: '__default__',
+                        p_password: newPassword
+                    });
+                    if (result.error) throw new Error(result.error.message);
+                    this.reset();
+                    setOk('account-ok', newPassword ? '默认专栏访问密码已更新。' : '默认专栏密码已清除（无密码）。');
+                } catch (err) {
+                    setError('default-lock-error', err.message);
+                }
+            });
+
+            document.getElementById('column-lock-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                setError('column-lock-error', '');
+                setOk('account-ok', '');
+                if (!needClient()) return;
+                var key = document.getElementById('column-lock-select').value;
+                var newPassword = document.getElementById('column-lock-password').value;
+                if (!key) {
+                    setError('column-lock-error', '请选择要修改的专栏');
+                    return;
+                }
+                if (newPassword && newPassword.length < 6) {
+                    setError('column-lock-error', '密码至少 6 位；留空表示跟随通用密码');
+                    return;
+                }
+                try {
+                    await verifyCurrentPassword();
+                    var result = await client.rpc('set_column_password', {
+                        p_key: key,
+                        p_password: newPassword
+                    });
+                    if (result.error) throw new Error(result.error.message);
+                    this.reset();
+                    setOk('account-ok', newPassword ? '专栏访问密码已更新。' : '专栏特定密码已清除（跟随通用密码）。');
+                } catch (err) {
+                    setError('column-lock-error', err.message);
+                }
+            });
+
+            // 已登录时预读账号信息
+            window.AKB.getSession().then(function (session) {
+                if (session) {
+                    loadAccount();
+                    prepareTicketForm();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

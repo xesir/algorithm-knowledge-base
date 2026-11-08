@@ -255,6 +255,8 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
   - `submit_column_edit()` 增加 `p_tags` / `p_category` / `p_difficulty`，payload 同时记录旧值；
   - 审批「修改」工单时把正文与标签 / 分类 / 难度一起写回 `columns`。
 - 新增迁移 [`supabase/phase11-edit-column-title.sql`](supabase/phase11-edit-column-title.sql)（**已应用**）：`submit_column_edit()` 增加 `p_column_name`，payload 记录 `old_column_name`，审批时写回 `columns.column_name`。
+- 新增迁移 [`supabase/phase12-author-default-passwords.sql`](supabase/phase12-author-default-passwords.sql)（**已应用**）：除 Xesir 外，作者默认专栏密码直接复制自 `auth.users.encrypted_password`（即作者登录密码）；Xesir 默认密码留空。当前 475 条专栏锁定、133 条 Xesir 专栏未锁定。
+- `index.html` 增加「正在检查访问权限…」占位：密码状态加载完成前不渲染正文，避免拦截前闪现内容。
 - `index.html` 访问规则：
   - 未登录游客可直接查看**无密码**知识点与题目；有密码的专栏只显示「请先登录」拦截，不提供密码输入；
   - 登录用户访问有密码的专栏时显示密码门，输入正确密码后本标签页内可继续查看；密码为空则无需输入；

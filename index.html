@@ -2249,6 +2249,13 @@
             }];
             var ver = versions[verIdx];
 
+            // 等待密码状态加载完成，避免正文在拦截前闪现
+            if (!lockStatusReady && window.supabaseClient) {
+                renderColumnLockChecking();
+                loadColumnLocks();
+                return;
+            }
+
             // 游客访问控制：有密码的专栏先显示解锁入口
             var lockKey = columnKeyForVersion(kp, verIdx);
             if (isColumnViewLocked(lockKey)) {
@@ -3020,6 +3027,13 @@
                 tags: prob.tags, source: prob.source
             }];
             var ver = versions[verIdx];
+
+            // 等待密码状态加载完成，避免正文在拦截前闪现
+            if (!lockStatusReady && window.supabaseClient) {
+                renderColumnLockChecking();
+                loadColumnLocks();
+                return;
+            }
 
             // 游客访问控制：有密码的题目专栏先显示解锁入口
             var lockKey = columnKeyForVersion(prob, verIdx);
@@ -3939,6 +3953,8 @@
         var dbSyncBusy = false;
         var dbLockMap = {};
         var viewerAuthed = false;
+        var lockStatusReady = false;
+        var lockStatusLoading = false;
 
         // 作者显示名 → 版本文件名 key（用于 col-<id>--<key>）
         var AUTHOR_KEY_BY_NAME = {};
@@ -4078,10 +4094,24 @@
             }
         }
 
+        function renderColumnLockChecking() {
+            contentEl.innerHTML =
+                '<div class="column-lock-gate">' +
+                    '<div class="lock-icon">🔐</div>' +
+                    '<h2>正在检查访问权限…</h2>' +
+                '</div>';
+        }
+
         // 全量读取 608 条专栏的 locked（很小），用于游客首次进入时判断
         function loadColumnLocks() {
             var client = window.supabaseClient;
-            if (!client) return Promise.resolve();
+            if (!client) {
+                lockStatusReady = true;
+                rerenderCurrentArticle();
+                return Promise.resolve();
+            }
+            if (lockStatusLoading) return Promise.resolve();
+            lockStatusLoading = true;
             return client.from('published_columns').select('column_key,locked').then(function(res) {
                 if (res.error) {
                     console.warn('[AKB] 读取专栏密码状态失败：' + res.error.message);
@@ -4090,9 +4120,12 @@
                 (res.data || []).forEach(function(row) {
                     dbLockMap[row.column_key] = row.locked === true;
                 });
-                rerenderCurrentArticle();
             }).catch(function(err) {
                 console.warn('[AKB] 读取专栏密码状态异常：' + (err && err.message ? err.message : err));
+            }).then(function() {
+                lockStatusLoading = false;
+                lockStatusReady = true;
+                rerenderCurrentArticle();
             });
         }
 

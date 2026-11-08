@@ -83,6 +83,7 @@ login.html 投稿表单
 | 8 | `supabase/phase9-published-columns-view.sql` | 公开只读视图 `published_columns`：已发布 `col-*` / `sub-*` 专栏 + 作者昵称 + `updated_at`，供首页增量覆盖静态内容 |
 | 9 | `supabase/phase10-guest-access-edit-metadata.sql` | 视图增加 `locked`（游客访问控制）；`submit_column_edit` 支持 `p_tags` / `p_category` / `p_difficulty`；审批时写回元数据 |
 | 10 | `supabase/phase11-edit-column-title.sql` | 「修改」工单增加 `p_column_name`，审批时写回 `columns.column_name` |
+| 11 | `supabase/phase12-author-default-passwords.sql` | 除 Xesir 外，作者默认专栏密码 = `auth.users.encrypted_password`；Xesir 默认密码留空 |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -129,6 +130,7 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-07 | phase9-published-columns-view | 已应用：匿名 REST 可读 `published_columns`（608 条已发布栏目），首页增量覆盖联调通过 |
 | 2026-11-07 | phase10-guest-access-edit-metadata | 已应用：视图 `locked` 生效；修改工单 payload 含标签/分类/难度与旧值，审批写回已验证 |
 | 2026-11-08 | phase11-edit-column-title | 已应用：修改工单支持改专栏标题，payload 含 `old_column_name`，审批写回已验证 |
+| 2026-11-08 | phase12-author-default-passwords | 已应用：475 条非 Xesir 专栏锁定，133 条 Xesir 专栏未锁定；默认密码 hash 复制自作者登录密码 |
 
 ---
 
@@ -259,6 +261,11 @@ node scripts/seed-columns-from-content.js --only=knowledge
   - 登录用户：`locked=true` 显示密码门，调用 `verify_column_password` 验证，成功后本标签页内放行；`locked=false` 直接看；
   - 修改专栏同样要求登录 + 密码验证（密码为空则无需输入）；
   - 密码门是前端展示层控制，正文本身仍在公开的 `data.js` 里，无法阻止直接读取静态文件。
+- **作者默认密码（phase12）**：
+  - 除 Xesir 外，每位作者的 `column_locks` 默认行（`column_key='__default__', is_default=true`）的 `password_hash` 直接复制自 `auth.users.encrypted_password`，因此作者用自己的**登录密码**即可解锁其全部专栏；
+  - Xesir 的默认密码为 `null`，其 133 条专栏保持无密码；
+  - 特定密码（`is_default=false`）仍优先于默认密码；当前没有特定密码行；
+  - 游客访问有密码专栏只看到登录拦截，不提供密码输入；登录用户才出现密码门。
 - **已知边界**：基线是构建时间。若某次审批发生在上一次 `node build.js` 之前、且 Markdown 源文件没有同步，重新构建后这条改动会被跳过；保持「先合并 Markdown 再构建发布」即可避免。
 
 ---
@@ -324,6 +331,7 @@ node scripts/seed-columns-from-content.js --only=knowledge
 | 游客看不到密码门 / 无密码专栏也要密码 | 没执行 phase10 / 视图缺 `locked` / 浏览器缓存旧 HTML | 执行 phase10；Ctrl+F5；确认 REST 返回 `locked` 字段 |
 | 游客打开有密码专栏没有输入框 | 设计如此：游客不提供密码入口 | 先登录；登录后才会出现密码门 |
 | 登录用户输对密码仍不显示正文 | `verify_column_password` 未授予 authenticated / 密码优先级不匹配 | 检查函数授权；密码规则为「特定 > 默认 > 无密码」 |
+| 密码完全不生效、`locked` 全是 0 | 默认 `column_locks.password_hash` 为空，等于没有设置密码 | 执行 `phase12-author-default-passwords.sql`，默认密码复制自作者登录密码 |
 | 修改工单提示「专栏密码不正确」 | 专栏设置了特定/通用密码，输入不匹配 | 用 `column_locks` 的规则：特定 > 通用 > 无密码 |
 | 修改工单提示「请先登录」 | 未登录就调 `submit_column_edit` | 先登录；该 RPC 只授予 authenticated |
 | 修改工单被 RLS 拒绝 | 绕过 RPC 直接 insert `type='edit'` | 必须走 `submit_column_edit()` |
@@ -388,3 +396,4 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-07 | 新增 phase9：公开视图 `published_columns`；`index.html` 按 `updated_at` 增量覆盖静态正文，新投稿（`sub-*`）自动进入目录，每 60 秒与回到前台时刷新 |
 | 2026-11-07 | 新增 phase10：视图增加 `locked`，游客只能直接查看无密码专栏，有密码的弹出密码门；`submit_column_edit()` 支持标签/分类/难度并在审批时写回，后台可查看元数据变化 |
 | 2026-11-08 | 新增 phase11：修改工单支持改专栏标题；访问控制收紧为「游客不可访问有密码专栏，登录用户需输入密码（密码为空除外）」 |
+| 2026-11-08 | 新增 phase12：作者默认专栏密码 = 作者登录密码（复制 bcrypt hash），Xesir 留空；首页增加权限检查占位，避免正文在拦截前闪现 |

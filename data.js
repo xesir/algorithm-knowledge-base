@@ -1,6 +1,6 @@
 // 此文件由 build.js 自动生成，请勿手动编辑
 // 修改 content/ 下的 .md 文件后运行 node build.js 重新生成
-const DATA_BUILD_AT = "2026-11-08T01:37:02.681Z";
+const DATA_BUILD_AT = "2026-11-08T02:39:42.234Z";
 
 const KNOWLEDGE_DATA = [
     {

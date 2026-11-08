@@ -466,6 +466,45 @@
             color: #fff;
         }
 
+        /* 账号设置 / 退出登录：与「提交工单」同宽同高，作为次要按钮纵向排列 */
+        .sidebar-auth-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            margin-bottom: 0.55rem;
+        }
+        .sidebar-auth-btn {
+            flex: none;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            background: rgba(147, 197, 253, 0.14);
+            color: #93c5fd;
+            font-size: 0.86rem;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.15s, color 0.15s;
+        }
+        .sidebar-auth-btn:hover {
+            background: rgba(147, 197, 253, 0.24);
+            color: #bfdbfe;
+            text-decoration: none;
+        }
+        .sidebar-footer-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            color: #475569;
+        }
+
         /* ===== Sidebar Tree ===== */
         .category-header {
             display: flex;
@@ -1472,6 +1511,49 @@
             font-size: 0.73rem;
             margin-left: 0.45rem;
         }
+        .author-edit-list {
+            border: 1px solid var(--border);
+            border-radius: 0.6rem;
+            overflow: hidden;
+        }
+        .author-edit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.5rem 0.85rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.84rem;
+        }
+        .author-edit-item:last-child { border-bottom: none; }
+        .author-edit-item.clickable { cursor: pointer; }
+        .author-edit-item.clickable:hover { background: var(--hover-bg); }
+        .author-edit-main { flex: 1; min-width: 0; }
+        .author-edit-title {
+            color: var(--text);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .author-edit-meta {
+            color: var(--text-secondary);
+            font-size: 0.72rem;
+            margin-top: 0.1rem;
+        }
+        .author-edit-score {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .author-edit-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            padding: 0.05rem 0.35rem;
+            border-radius: 0.35rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            margin-left: 0.35rem;
+        }
 
         /* ===== 三级知识点（父 / 子栏目） ===== */
         .kp-item.kp-item-child {
@@ -1612,13 +1694,13 @@
             <nav id="sidebar-nav"></nav>
             <div class="sidebar-footer">
                 <a href="login.html?tab=ticket" class="sidebar-ticket-btn">📝 提交工单</a>
-                <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;">
+                <div class="sidebar-auth-actions">
+                    <a href="login.html" id="login-link" class="sidebar-auth-btn" data-auth-toggle="hide" style="display:none;">登录</a>
+                    <a href="admin.html?tab=profile" id="account-link" class="sidebar-auth-btn" data-auth-toggle="hide" style="display:none;">账号设置</a>
+                    <a href="login.html" id="logout-link" class="sidebar-auth-btn" data-auth-toggle="hide" style="display:none;">退出登录</a>
+                </div>
+                <div class="sidebar-footer-meta">
                     <span><span id="kp-count">…</span> <span id="footer-count-label">个知识点</span></span>
-                    <span style="display:flex;align-items:center;gap:.55rem;white-space:nowrap;">
-                        <a href="login.html" id="login-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">登录</a>
-                        <a href="admin.html?tab=profile" id="account-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">账号设置</a>
-                        <a href="login.html" id="logout-link" data-auth-toggle="hide" style="display:none;color:#93c5fd;">退出登录</a>
-                    </span>
                 </div>
             </div>
         </aside>
@@ -2743,47 +2825,233 @@
             return (rate * 100).toFixed(1) + '%';
         }
 
-        // 统计每位作者的署名版本（知识点 + 题目），贡献率 = 作者署名版本数 ÷ 全站版本总数
+        // ===== 作者贡献加权 =====
+        // 新建 1 篇 = 1.0；修补 1 次 = 0.4 × 难度 × 体量 × 优先级 × 自改系数，单专栏上限 0.8。
+        var CONTRIB_WEIGHTS = {
+            create: 1.0,
+            edit: 0.4,
+            editCapPerColumn: 0.8,
+            selfEdit: 0.25,
+            sizeFloor: 0.8,
+            sizeFullDelta: 2000
+        };
+        var EDIT_CREDITS = [];
+        var editCreditsReady = false;
+        var editCreditsLoading = false;
+        var editCreditsError = false;
+        var editCreditWarned = {};
+
+        // profiles.nickname → 静态作者显示名；匹配不上时保留原名并在控制台警告一次
+        var AUTHOR_ALIASES = {
+            'world-needs-sunday': 'world-needs-sunday',
+            'worldneedssunday': 'world-needs-sunday',
+            'wnss': 'world-needs-sunday',
+            'fenfeng': 'Fohen',
+            'fohen': 'Fohen',
+            'xesir': 'Xesir',
+            'lker': 'lker',
+            'stripe-python': 'stripe-python',
+            'stripepython': 'stripe-python',
+            'renzhaoyang': 'renzhaoyang',
+            'dbywsc': 'dbywsc'
+        };
+
+        function resolveAuthorName(name) {
+            var raw = String(name == null ? '' : name).trim();
+            if (!raw) return 'world-needs-sunday';
+            var lower = raw.toLowerCase();
+            var known = (typeof AUTHORS !== 'undefined' && AUTHORS) ? AUTHORS : [];
+            for (var i = 0; i < known.length; i++) {
+                if (String(known[i]).toLowerCase() === lower) return known[i];
+            }
+            if (AUTHOR_ALIASES[lower]) return AUTHOR_ALIASES[lower];
+            if (!editCreditWarned[raw]) {
+                editCreditWarned[raw] = true;
+                console.warn('[AKB] 作者名未匹配到静态作者列表，按原名计入：' + raw);
+            }
+            return raw;
+        }
+
+        var PROBLEM_DIFFICULTY_FACTOR = {
+            '入门': 0.90,
+            '普及−': 1.00,
+            '普及/提高−': 1.10,
+            '普及+/提高−': 1.20,
+            '提高': 1.30,
+            '提高+/省选−': 1.40,
+            '省选/NOI−': 1.50,
+            'NOI/NOI+/CTSC': 1.60
+        };
+
+        function contributionLevelFactor(level) {
+            var lv = String(level || 'A').toUpperCase();
+            if (lv === 'B') return 1.15;
+            if (lv === 'C') return 1.30;
+            return 1.00;
+        }
+
+        function contributionDifficultyFactor(kind, difficulty, level, cfRating) {
+            if (kind !== 'problem') return contributionLevelFactor(level);
+            if (PROBLEM_DIFFICULTY_FACTOR[difficulty]) return PROBLEM_DIFFICULTY_FACTOR[difficulty];
+            var rating = Number(cfRating);
+            if (isFinite(rating) && rating > 0) {
+                return Math.max(0.9, Math.min(1.6, 0.9 + (rating - 800) / 4000));
+            }
+            return 1.00;
+        }
+
+        function contributionPriorityFactor(priority) {
+            if (priority === 'low') return 0.90;
+            if (priority === 'high') return 1.10;
+            return 1.00;
+        }
+
+        function contributionSizeFactor(oldLen, newLen) {
+            var delta = Math.abs(Number(newLen) - Number(oldLen));
+            if (!isFinite(delta) || delta < 0) delta = 0;
+            var ratio = Math.min(1, delta / CONTRIB_WEIGHTS.sizeFullDelta);
+            return CONTRIB_WEIGHTS.sizeFloor + (1 - CONTRIB_WEIGHTS.sizeFloor) * ratio;
+        }
+
+        // 修补数据未就绪时不要把“加载失败”误显示成 0
+        function editCountText(a) {
+            if (window.supabaseClient) {
+                if (!editCreditsReady) return '…';
+                if (editCreditsError) return '—';
+            }
+            return a.editCount;
+        }
+
+        function findStaticColumnVersion(columnKey) {
+            var target = findDbColumnTarget(columnKey);
+            if (!target || !target.item || target.verIdx < 0) return null;
+            return {
+                item: target.item,
+                ver: (target.item.versions || [])[target.verIdx] || {},
+                verIdx: target.verIdx,
+                kind: target.kind || 'knowledge'
+            };
+        }
+
+        // 统计每位作者的加权贡献：新建版本 + 审批通过的修补工单
         function getAuthorStats() {
             var stats = {};
             function ensure(name) {
-                if (!stats[name]) stats[name] = { name: name, kp: [], prob: [], total: 0, rate: 0 };
+                if (!stats[name]) {
+                    stats[name] = {
+                        name: name,
+                        kp: [],
+                        prob: [],
+                        editRecords: [],
+                        creationCount: 0,
+                        editCount: 0,
+                        creationScore: 0,
+                        editScore: 0,
+                        score: 0,
+                        total: 0,
+                        rate: 0
+                    };
+                }
                 return stats[name];
             }
-            (typeof AUTHORS !== 'undefined' ? AUTHORS : []).forEach(ensure);
+            (typeof AUTHORS !== 'undefined' ? AUTHORS : []).forEach(function(name) {
+                ensure(resolveAuthorName(name));
+            });
             (typeof KNOWLEDGE_DATA !== 'undefined' ? KNOWLEDGE_DATA : []).forEach(function(kp) {
                 (kp.versions || []).forEach(function(v, i) {
-                    ensure(v.author || 'world-needs-sunday').kp.push({
+                    var author = resolveAuthorName(v.author || 'world-needs-sunday');
+                    var s = ensure(author);
+                    var level = String(v.level || 'A').toUpperCase();
+                    s.kp.push({
                         id: kp.id, title: kp.title, category: kp.category || '未分类',
-                        subcategory: kp.subcategory || '', verIdx: i
+                        subcategory: kp.subcategory || '', verIdx: i, level: level,
+                        kind: 'knowledge'
                     });
+                    s.creationCount++;
+                    s.creationScore += CONTRIB_WEIGHTS.create * contributionLevelFactor(level);
                 });
             });
             if (typeof PROBLEMS_DATA !== 'undefined') {
                 PROBLEMS_DATA.forEach(function(prob) {
                     (prob.versions || []).forEach(function(v, i) {
-                        ensure(v.author || 'world-needs-sunday').prob.push({
+                        var author = resolveAuthorName(v.author || 'world-needs-sunday');
+                        var s = ensure(author);
+                        var difficulty = prob.difficulty || '暂未评定';
+                        s.prob.push({
                             id: prob.id, title: prob.title, category: prob.category || '未分类',
-                            oj: prob.oj || '', problemId: prob.problemId || '', verIdx: i
+                            oj: prob.oj || '', problemId: prob.problemId || '', verIdx: i,
+                            difficulty: difficulty, cfRating: prob.cfRating,
+                            kind: 'problem'
                         });
+                        s.creationCount++;
+                        s.creationScore += CONTRIB_WEIGHTS.create *
+                            contributionDifficultyFactor('problem', difficulty, '', prob.cfRating);
                     });
                 });
             }
+
+            // 前端再按 (编辑者, 专栏) 去重一次；视图已去重，这里是防御性处理
+            var latestEdits = {};
+            (EDIT_CREDITS || []).forEach(function(row) {
+                if (!row || !row.column_key) return;
+                if (String(row.column_key).indexOf('sub-') === 0) return;
+                if (!row.editor_name || row.editor_name === 'unknown') return;
+                var key = String(row.editor_name) + '|' + String(row.column_key);
+                var prev = latestEdits[key];
+                if (!prev || String(row.reviewed_at || '') > String(prev.reviewed_at || '')) {
+                    latestEdits[key] = row;
+                }
+            });
+
+            Object.keys(latestEdits).forEach(function(key) {
+                var row = latestEdits[key];
+                var editor = resolveAuthorName(row.editor_name);
+                var s = ensure(editor);
+                var target = findStaticColumnVersion(row.column_key);
+                var kind = row.kind || (target ? target.kind : 'knowledge');
+                var level = target ? String(target.ver.level || 'A').toUpperCase() : 'A';
+                var difficulty = row.difficulty || (target && target.item ? target.item.difficulty : '') || '暂未评定';
+                var cfRating = target && target.item ? target.item.cfRating : '';
+                var selfFactor = row.is_self_edit === true ? CONTRIB_WEIGHTS.selfEdit : 1.0;
+                var credit = CONTRIB_WEIGHTS.edit *
+                    contributionDifficultyFactor(kind, difficulty, level, cfRating) *
+                    contributionSizeFactor(row.old_len, row.new_len) *
+                    contributionPriorityFactor(row.priority) *
+                    selfFactor;
+                credit = Math.min(credit, CONTRIB_WEIGHTS.editCapPerColumn);
+                s.editCount++;
+                s.editScore += credit;
+                s.editRecords.push({
+                    columnKey: row.column_key,
+                    columnName: row.column_name || row.column_key,
+                    category: row.category || '未分类',
+                    kind: kind,
+                    difficulty: difficulty,
+                    isSelfEdit: row.is_self_edit === true,
+                    reviewedAt: row.reviewed_at || '',
+                    credit: credit
+                });
+            });
+
             var totalAll = 0;
-            Object.keys(stats).forEach(function(name) { totalAll += stats[name].kp.length + stats[name].prob.length; });
             Object.keys(stats).forEach(function(name) {
                 var s = stats[name];
-                s.total = s.kp.length + s.prob.length;
-                s.rate = totalAll ? s.total / totalAll : 0;
+                s.total = s.creationCount;
+                s.score = s.creationScore + s.editScore;
+                totalAll += s.score;
+            });
+            Object.keys(stats).forEach(function(name) {
+                var s = stats[name];
+                s.rate = totalAll ? s.score / totalAll : 0;
             });
             return { stats: stats, totalAll: totalAll };
         }
 
-        // 按署名版本数从高到低；同数时按名字排序
+        // 按加权贡献从高到低；同分时按名字排序
         function sortedAuthors() {
             var pack = getAuthorStats();
             var arr = Object.keys(pack.stats).map(function(n) { return pack.stats[n]; });
-            arr.sort(function(a, b) { return (b.total - a.total) || String(a.name).localeCompare(String(b.name)); });
+            arr.sort(function(a, b) { return (b.score - a.score) || String(a.name).localeCompare(String(b.name)); });
             return { authors: arr, totalAll: pack.totalAll };
         }
 
@@ -2807,7 +3075,7 @@
                 shown++;
                 var active = (currentAuthor === a.name) ? ' active' : '';
                 html += '<div class="kp-item' + active + '" onclick="selectAuthor(\'' + escAttr(a.name) + '\')" title="' +
-                    escAttr(a.name + ' · 贡献率 ' + authorRateText(a.rate)) + '">' +
+                    escAttr(a.name + ' · 加权贡献 ' + a.score.toFixed(2) + ' · 贡献率 ' + authorRateText(a.rate)) + '">' +
                     escHtml(a.name) + '<span class="author-side-count">' + a.total + '</span></div>';
             });
             if (!shown) html = '<div class="no-results">未找到匹配的作者</div>';
@@ -2821,8 +3089,13 @@
             document.title = '作者专栏 · 算法知识点查询系统';
             var html = '<div class="authors-page">';
             html += '<h1>👤 作者专栏</h1>';
-            html += '<div class="catalog-desc">按贡献排名浏览本站作者。贡献率 = 该作者署名版本数 ÷ 全站知识点与题目版本总数（当前共 ' +
-                pack.totalAll + ' 个版本）；同一栏目的多作者版本分别计入。</div>';
+            html += '<div class="catalog-desc">按加权贡献排名浏览本站作者。贡献率 = 加权贡献 ÷ 全站加权贡献（当前全站 ' +
+                pack.totalAll.toFixed(2) + '）；新建 1 篇 = 1.0，修补 1 处 = 0.4 × 难度 × 体量 × 维护系数，单专栏最多 0.8；sub-* 未同步投稿暂不计入修补。</div>';
+            if (!editCreditsReady && window.supabaseClient) {
+                html += '<div class="author-note">正在加载修补贡献数据…</div>';
+            } else if (editCreditsError) {
+                html += '<div class="author-note">修补贡献数据未加载（请确认已执行 phase14-contribution-view.sql），当前仅显示新建贡献。</div>';
+            }
             html += '<div class="author-grid">';
             pack.authors.forEach(function(a) {
                 var prof = authorProfile(a.name);
@@ -2837,7 +3110,8 @@
                 html += '<div class="author-rate-row"><span>贡献率</span><span class="author-rate-num">' + authorRateText(a.rate) + '</span></div>';
                 html += '<div class="author-bar"><div class="author-bar-fill" style="width:' +
                     Math.max(a.rate * 100, 1.5).toFixed(1) + '%"></div></div>';
-                html += '<div class="author-card-meta">知识点版本 ' + a.kp.length + ' · 题目版本 ' + a.prob.length + ' ｜ ' + sig + '</div>';
+                html += '<div class="author-card-meta">加权 ' + a.score.toFixed(2) + ' ｜ 新建 ' + a.creationCount +
+                    ' · 修补 ' + editCountText(a) + ' ｜ ' + sig + '</div>';
                 html += '</div>';
             });
             html += '</div></div>';
@@ -2859,7 +3133,7 @@
             document.getElementById('sidebar').classList.remove('open');
         }
 
-        // 作者主页：贡献率 / 贡献栏目 / 战绩（留空）/ 签名（留空）
+        // 作者主页：加权贡献 / 贡献栏目 / 修补记录 / 战绩（留空）/ 签名（留空）
         function renderAuthorProfile(a, totalAll) {
             var prof = authorProfile(a.name);
             document.title = a.name + ' · 作者专栏 · 算法知识点查询系统';
@@ -2873,13 +3147,20 @@
 
             html += '<div class="author-stats">';
             html += '<div class="author-stat"><div class="author-stat-num">' + authorRateText(a.rate) + '</div><div class="author-stat-label">贡献率</div></div>';
-            html += '<div class="author-stat"><div class="author-stat-num">' + a.total + '</div><div class="author-stat-label">署名版本</div></div>';
-            html += '<div class="author-stat"><div class="author-stat-num">' + totalAll + '</div><div class="author-stat-label">全站版本</div></div>';
+            html += '<div class="author-stat"><div class="author-stat-num">' + a.score.toFixed(2) + '</div><div class="author-stat-label">加权贡献</div></div>';
+            html += '<div class="author-stat"><div class="author-stat-num">' + a.creationCount + '</div><div class="author-stat-label">新建版本</div></div>';
+            html += '<div class="author-stat"><div class="author-stat-num">' + editCountText(a) + '</div><div class="author-stat-label">有效修补</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + uniqueCount(a.kp) + '</div><div class="author-stat-label">知识点</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + uniqueCount(a.prob) + '</div><div class="author-stat-label">题目</div></div>';
             html += '</div>';
             html += '<div class="author-bar"><div class="author-bar-fill" style="width:' + (a.rate * 100).toFixed(1) + '%"></div></div>';
-            html += '<div class="author-note">贡献率 = 该作者署名版本数 ÷ 全站知识点与题目版本总数。</div>';
+            html += '<div class="author-note">贡献率 = 加权贡献 ÷ 全站加权贡献（全站 ' + Number(totalAll).toFixed(2) +
+                '）。新建 1 篇 = 1.0；修补 1 处 = 0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数（0.25），单专栏上限 0.8；sub-* 未同步投稿暂不计入。</div>';
+            if (!editCreditsReady && window.supabaseClient) {
+                html += '<div class="author-note">正在加载修补贡献数据…</div>';
+            } else if (editCreditsError) {
+                html += '<div class="author-note">修补贡献数据未加载（请确认已执行 phase14-contribution-view.sql），当前仅显示新建贡献。</div>';
+            }
 
             html += '<div class="author-section"><h2>🏆 战绩</h2>';
             if (prof.honors && prof.honors.length) {
@@ -2892,10 +3173,14 @@
             html += '</div>';
 
             html += '<div class="author-section"><h2>📚 贡献栏目</h2>';
-            html += '<div class="author-note">共 ' + a.total + ' 个署名版本：知识点 ' + a.kp.length +
+            html += '<div class="author-note">共 ' + a.total + ' 个新建署名版本：知识点 ' + a.kp.length +
                 ' 版、题目 ' + a.prob.length + ' 版；点击条目直接打开该作者的版本。</div>';
             html += renderAuthorContrib(a.kp, '知识点', true);
             html += renderAuthorContrib(a.prob, '题目', false);
+            html += '</div>';
+
+            html += '<div class="author-section"><h2>🛠 修补记录</h2>';
+            html += renderAuthorEditRecords(a.editRecords || []);
             html += '</div>';
 
             html += '</div>';
@@ -2925,6 +3210,39 @@
                 });
             });
             html += '</ul></div>';
+            return html;
+        }
+
+        function renderAuthorEditRecords(records) {
+            if (!records || !records.length) {
+                return '<div class="author-empty">暂无审批通过的修补记录</div>';
+            }
+            var sorted = records.slice().sort(function(a, b) {
+                return String(b.reviewedAt || '').localeCompare(String(a.reviewedAt || ''));
+            });
+            var html = '<div class="author-edit-list">';
+            sorted.forEach(function(rec) {
+                var target = findDbColumnTarget(rec.columnKey);
+                var clickable = !!(target && target.verIdx >= 0);
+                var kind = target && target.kind ? target.kind : rec.kind;
+                var kindLabel = kind === 'problem' ? '题目' : '知识点';
+                var date = String(rec.reviewedAt || '').slice(0, 10);
+                var meta = [kindLabel, rec.category, date].filter(Boolean).join(' · ');
+                var onclick = '';
+                if (clickable) {
+                    var fn = kind === 'problem' ? 'goProblemVersion' : 'goKpVersion';
+                    onclick = ' onclick="' + fn + '(\'' + escAttr(target.item.id) + '\',' + target.verIdx + ')"';
+                }
+                var selfBadge = rec.isSelfEdit ? '<span class="author-edit-badge">自改</span>' : '';
+                html += '<div class="author-edit-item' + (clickable ? ' clickable' : '') + '"' + onclick + '>' +
+                    '<div class="author-edit-main">' +
+                        '<div class="author-edit-title">' + escHtml(rec.columnName) + selfBadge + '</div>' +
+                        '<div class="author-edit-meta">' + escHtml(meta) + '</div>' +
+                    '</div>' +
+                    '<div class="author-edit-score">+' + rec.credit.toFixed(2) + '</div>' +
+                '</div>';
+            });
+            html += '</div>';
             return html;
         }
 
@@ -4160,6 +4478,53 @@
             });
         }
 
+        // 读取审批通过的修补工单（视图已去重、已排除 sub-*）
+        function loadEditCredits() {
+            var client = window.supabaseClient;
+            if (!client) return Promise.resolve();
+            if (editCreditsLoading) return Promise.resolve();
+            editCreditsLoading = true;
+            return client.from('author_edit_credits').select('*').then(function(res) {
+                if (res.error) {
+                    console.warn('[AKB] 读取修补贡献失败：' + res.error.message);
+                    editCreditsError = true;
+                    editCreditsReady = true;
+                    refreshAuthorViews();
+                    return;
+                }
+                var next = Array.isArray(res.data) ? res.data : [];
+                var wasReady = editCreditsReady;
+                var changed = JSON.stringify(next) !== JSON.stringify(EDIT_CREDITS);
+                EDIT_CREDITS = next;
+                editCreditsError = false;
+                editCreditsReady = true;
+                if (changed || !wasReady) refreshAuthorViews();
+            }).catch(function(err) {
+                console.warn('[AKB] 读取修补贡献异常：' + (err && err.message ? err.message : err));
+                editCreditsError = true;
+                editCreditsReady = true;
+                refreshAuthorViews();
+            }).then(function() {
+                editCreditsLoading = false;
+            });
+        }
+
+        // 修补数据到达后，只重绘作者相关视图
+        function refreshAuthorViews() {
+            if (currentMode !== 'author') return;
+            buildAuthorSidebar(searchInput.value);
+            if (currentAuthor) {
+                var pack = sortedAuthors();
+                var target = null;
+                pack.authors.forEach(function(a) { if (a.name === currentAuthor) target = a; });
+                if (target) {
+                    renderAuthorProfile(target, pack.totalAll);
+                    return;
+                }
+            }
+            showAuthors();
+        }
+
         // 登录用户需输入专栏密码；管理员可直接查看任何人的专栏
         function refreshViewerAuth() {
             if (!window.AKB || !window.AKB.getUser) return Promise.resolve();
@@ -4187,11 +4552,14 @@
             var baseId = dash >= 0 ? rest.slice(0, dash) : rest;
             var suffix = dash >= 0 ? rest.slice(dash + 2) : '';
             var item = null;
+            var kind = '';
             if (typeof KNOWLEDGE_DATA !== 'undefined') {
                 item = KNOWLEDGE_DATA.find(function(k) { return k.id === baseId; });
+                if (item) kind = 'knowledge';
             }
             if (!item && typeof PROBLEMS_DATA !== 'undefined') {
                 item = PROBLEMS_DATA.find(function(p) { return p.id === baseId; });
+                if (item) kind = 'problem';
             }
             if (!item) return null;
             var author = suffix
@@ -4199,7 +4567,7 @@
                 : 'world-needs-sunday';
             var versions = item.versions || [];
             var verIdx = versions.findIndex(function(v) { return v.author === author; });
-            return { item: item, verIdx: verIdx };
+            return { item: item, verIdx: verIdx, kind: kind };
         }
 
         // 数据库里的新投稿（sub-*）→ 追加到静态数据数组
@@ -4307,8 +4675,7 @@
         // 覆盖后重绘当前视图（保留阅读位置与版本选择）
         function refreshAfterDbSync() {
             if (currentMode === 'author') {
-                buildAuthorSidebar();
-                showAuthors();
+                refreshAuthorViews();
                 updateFooter();
                 return;
             }
@@ -4374,19 +4741,24 @@
         function startDbSync() {
             refreshViewerAuth();
             loadColumnLocks();
+            loadEditCredits();
             syncPublishedColumns();
             var tick = 0;
             setInterval(function() {
                 if (document.visibilityState !== 'visible') return;
                 syncPublishedColumns();
                 tick++;
-                // 密码状态变化不会更新 columns.updated_at，每 5 分钟补拉一次
-                if (tick % 5 === 0) loadColumnLocks();
+                // 密码状态与修补数据变化不会更新 columns.updated_at，每 5 分钟补拉一次
+                if (tick % 5 === 0) {
+                    loadColumnLocks();
+                    loadEditCredits();
+                }
             }, DB_SYNC_INTERVAL);
             document.addEventListener('visibilitychange', function() {
                 if (document.visibilityState !== 'visible') return;
                 refreshViewerAuth();
                 loadColumnLocks();
+                loadEditCredits();
                 syncPublishedColumns();
             });
         }

@@ -218,7 +218,8 @@ function build() {
                 timeComplexity: v.timeComplexity,
                 spaceComplexity: v.spaceComplexity,
                 tags: v.tags,
-                source: v.source
+                source: v.source,
+                level: v.meta.level || 'A'
             })),
             // 兼容旧字段（取主版本），供目录/搜索/筛选使用
             content: primary.body.trim(),

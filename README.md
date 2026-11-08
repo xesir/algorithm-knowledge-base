@@ -267,3 +267,19 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - 新增迁移 [`supabase/phase13-login-by-identifier.sql`](supabase/phase13-login-by-identifier.sql)（**已应用**）：`resolve_login_email()` 支持邮箱 / QQ / 洛谷 / CF / 昵称任意一个 + 密码登录；密码错误返回 `null`，不泄露账号是否存在。
 - 修改工单与专栏管理的 Markdown 源码默认不写入文本框，点「显示 Markdown 源码」后才展开，避免长文卡顿；提交/保存时使用内存中的源码或文本框内容。
 - 说明：密码门是前端展示层控制，正文本身仍存在于公开的 `data.js`，无法阻止直接读取静态文件。
+
+## 备注（2026-11-08 · 作者贡献度接入修改工单）
+
+- 新增迁移 [`supabase/phase14-contribution-view.sql`](supabase/phase14-contribution-view.sql)（**待用户在 SQL Editor 执行**）：
+  - `tickets.reviewed_at` + 审批时间触发器，用于判断同一作者对同一专栏的最新有效修改；
+  - 公开只读视图 `author_edit_credits`：只含 `type='edit'`、`status='approved'`、`columns.status='published'` 且 `column_key` 非 `sub-%` 的工单，按 `(user_id, column_key)` 去重取最新；
+  - 只暴露作者名、专栏键/名、分类、kind、难度、优先级、新旧字符数、自改标记与审批时间，不含正文与联系方式。
+- `build.js`：知识点 `versions[]` 新增 `level`（A/B/C），供难度加权使用。
+- `index.html` 作者专栏改为加权贡献：
+  - 新建 1 篇 = 1.0；
+  - 修补 1 处 = `0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数(0.25)`，单专栏上限 0.8；
+  - 贡献率 = 个人加权分 ÷ 全站加权分；
+  - 作者主页新增「🛠 修补记录」；`sub-*` 未同步投稿暂不计入修补。
+- 作者名匹配：`profiles.nickname` 与静态作者显示名不一致时，前端按 `AUTHOR_ALIASES` 临时映射并在控制台 `console.warn`。
+- 验证：`node tools/lint.js --quiet` → error 0 / warning 3；`node build.js` → 292 知识点 / 200 题目 / 192 题目组 / 263 代码文件。
+- 下一步：在 Supabase SQL Editor 执行 phase14，然后刷新作者专栏；执行前页面会提示修补数据未加载，仅显示新建贡献。

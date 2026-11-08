@@ -85,6 +85,7 @@ login.html 投稿表单
 | 10 | `supabase/phase11-edit-column-title.sql` | 「修改」工单增加 `p_column_name`，审批时写回 `columns.column_name` |
 | 11 | `supabase/phase12-author-default-passwords.sql` | 除 Xesir 外，作者默认专栏密码 = `auth.users.encrypted_password`；Xesir 默认密码留空 |
 | 12 | `supabase/phase13-login-by-identifier.sql` | 登录解析 RPC：昵称 / 邮箱 / QQ / 洛谷 / CF 任一标识 + 密码 → 返回登录邮箱（密码错误返回 `null`） |
+| 13 | `supabase/phase14-contribution-view.sql` | `tickets.reviewed_at` + 审批时间触发器；公开视图 `author_edit_credits`（approved 修改工单按作者+专栏去重，排除 `sub-*`，供作者贡献度加权） |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -133,6 +134,7 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-08 | phase11-edit-column-title | 已应用：修改工单支持改专栏标题，payload 含 `old_column_name`，审批写回已验证 |
 | 2026-11-08 | phase12-author-default-passwords | 已应用：475 条非 Xesir 专栏锁定，133 条 Xesir 专栏未锁定；默认密码 hash 复制自作者登录密码 |
 | 2026-11-08 | phase13-login-by-identifier | 已应用：`resolve_login_email()` 仅授予 `anon` / `authenticated`；昵称/QQ/洛谷/CF/邮箱 + 正确密码均能解析出登录邮箱，错误密码返回 `null` |
+| 2026-11-08 | phase14-contribution-view | **待用户在 SQL Editor 执行**：`tickets.reviewed_at`、`author_edit_credits` 公开视图；执行后刷新作者专栏验证加权贡献与修补记录 |
 
 ---
 
@@ -275,6 +277,14 @@ node scripts/seed-columns-from-content.js --only=knowledge
   - 游客访问有密码专栏只看到登录拦截，不提供密码输入；登录用户才出现密码门。
 - **已知边界**：基线是构建时间。若某次审批发生在上一次 `node build.js` 之前、且 Markdown 源文件没有同步，重新构建后这条改动会被跳过；保持「先合并 Markdown 再构建发布」即可避免。
 
+### 4.7 作者贡献视图（phase14）
+
+- `author_edit_credits` 只暴露 `editor_name / column_key / column_name / category / kind / difficulty / priority / old_len / new_len / is_self_edit / reviewed_at`，不含正文与联系方式。
+- 只统计 `type='edit'`、`status='approved'`、`columns.status='published'` 且 `column_key` 不是 `sub-%` 的工单；按 `(user_id, column_key)` 去重，取 `reviewed_at` 最新一条。
+- 前端加权：新建 1 篇 = 1.0；修补 1 处 = `0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数`，单专栏上限 0.8；贡献率 = 个人加权分 ÷ 全站加权分。
+- 知识点难度取 `build.js` 导出的 `versions[].level`（A/B/C）；题目难度取洛谷九档，缺档时用 `cfRating` 估算。
+- `profiles.nickname` 必须能匹配静态作者显示名；匹配不上时前端会 `console.warn` 并按原名计入，需要时在 `index.html` 的 `AUTHOR_ALIASES` 补映射。
+
 ---
 
 ## 5. 添加新功能的标准流程
@@ -407,3 +417,4 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-08 | 新增 phase11：修改工单支持改专栏标题；访问控制收紧为「游客不可访问有密码专栏，登录用户需输入密码（密码为空除外）」 |
 | 2026-11-08 | 新增 phase12：作者默认专栏密码 = 作者登录密码（复制 bcrypt hash），Xesir 留空；首页增加权限检查占位，避免正文在拦截前闪现 |
 | 2026-11-08 | 新增 phase13：邮箱 / QQ / 洛谷 / CF / 昵称任意一个 + 密码均可登录；管理员免密码查看任意专栏；修改专栏的源码默认不展开，点按钮才写入文本框以避免卡顿 |
+| 2026-11-08 | 新增 phase14：`tickets.reviewed_at` 与审批时间触发器；公开视图 `author_edit_credits`（approved 修改工单按作者+专栏去重，排除 `sub-*`）；前端作者专栏改为加权贡献（新建 1.0，修补 0.4 × 难度 × 体量 × 优先级 × 自改系数，单专栏上限 0.8） |

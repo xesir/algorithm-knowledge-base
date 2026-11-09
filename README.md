@@ -286,3 +286,17 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - 新增迁移 [`supabase/phase15-author-avatars.sql`](supabase/phase15-author-avatars.sql)（**待用户在 SQL Editor 执行**）：公开视图 `author_profiles`，作者列表 / 作者主页 / 密码门优先显示头像；头像为空或视图未执行时回退首字母。
 - 作者页修补数据改为 **30 秒自动刷新**；新建计数仍来自静态 `data.js`，需要重新构建并部署后才会更新。点击需要密码的知识点/题目时，密码门会显示「作者：X」。
 - 新增迁移 [`supabase/phase16-author-profile-fields.sql`](supabase/phase16-author-profile-fields.sql)（**待用户在 SQL Editor 执行**）：`profiles.signature` / `profiles.honors`；作者在 `admin.html`「个人设置」编辑签名与战绩（战绩每行一条），作者页展示，作者本人访问自己的专栏时出现「编辑签名 / 战绩」入口。
+
+## 备注（2026-11-09 · 已有专栏投稿 / 头像回退 / 管理员标识）
+
+- 新增迁移 [`supabase/phase17-existing-column-version.sql`](supabase/phase17-existing-column-version.sql)（**待用户在 SQL Editor 执行**）：重建 `publish_submission_ticket()`，投稿工单 payload 带 `version_of` 时不再新建 `sub-*` 专栏，而是生成作者版本 `col-<base>--<作者昵称>`，标题为「原标题 · 作者昵称」，分类 / 题型 / 难度 / 关系继承基础专栏；另加 `(split_part(column_key,'--',1))` 索引。
+- 新增迁移 [`supabase/phase18-author-admin-badge.sql`](supabase/phase18-author-admin-badge.sql)（**待用户在 SQL Editor 执行**）：重建 `author_profiles` 公开视图，增加 `role` 字段，供前端展示管理员标识。
+- `login.html` 投稿新增「投稿方式」：
+  - 新建专栏：沿用原表单（栏目名 / 大类 / 关系 / 题目字段）；
+  - 投稿已有专栏：下拉选择基础专栏（按分类分组，共 485 个），提交 `version_of` 工单，由审批触发器生成新作者版本；
+  - 若当前账号在该专栏下已有自己的版本，提交时自动提示并切换为「修改工单」，载入该版本源码。
+- `admin.html` 编辑投稿工单时，顶部提示「该工单是『为已有专栏添加新作者版本』」，审核详情显示对应基础专栏。
+- `index.html`：
+  - 数据库返回的作者版本（`col-<base>--<作者昵称>`）会追加到对应知识点的 `versions[]`，无需重新构建即可看到；
+  - 作者头像有图片时背景透明，仅无头像时使用首字母 + 纯色（`#6366f1`）填充；
+  - `profiles.role = 'admin'` 的账号在作者列表、作者主页、密码门显示「管理员」徽章。

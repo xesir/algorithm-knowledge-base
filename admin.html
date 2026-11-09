@@ -434,6 +434,7 @@
                     <textarea class="textarea" id="ticket-edit-description"></textarea>
                 </div>
                 <div id="ticket-edit-submission-fields" hidden>
+                    <p class="form-hint" id="ticket-version-hint" hidden>该工单是「为已有专栏添加新作者版本」：审批后会在目标专栏下新增版本，不覆盖原专栏。</p>
                     <div class="form-row">
                         <div class="form-field">
                             <label for="ticket-edit-column-name">栏目名称</label>
@@ -1067,6 +1068,7 @@
                     'parent-child': '父子关系'
                 };
                 var meta = [];
+                if (p.version_of) meta.push('已有专栏新版本：' + displayNameForColumn(String(p.version_of).split('--')[0]));
                 if (p.author_name) meta.push('作者：' + p.author_name);
                 if (p.category) meta.push('大类：' + p.category);
                 if (tags) meta.push('标签：' + tags);
@@ -1448,6 +1450,7 @@
                 var isEdit = ticket.type === 'edit';
                 document.getElementById('ticket-edit-submission-fields').hidden = !isSubmission;
                 document.getElementById('ticket-edit-edit-fields').hidden = !isEdit;
+                document.getElementById('ticket-version-hint').hidden = !(isSubmission && p.version_of);
                 if (isSubmission) {
                     await ensureAuthorProfiles();
                     fillTicketEditAuthors(p.author_id || '', p.author_name || '');

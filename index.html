@@ -1387,8 +1387,8 @@
             width: 2.6rem;
             height: 2.6rem;
             border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: #fff;
+            background: transparent;
+            color: var(--text);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1396,6 +1396,10 @@
             font-size: 1.05rem;
             flex-shrink: 0;
             overflow: hidden;
+        }
+        .author-avatar-fallback {
+            background: #6366f1;
+            color: #fff;
         }
         .author-avatar img {
             width: 100%;
@@ -1406,6 +1410,18 @@
         }
         .author-avatar-sm { width: 1.8rem; height: 1.8rem; font-size: 0.85rem; }
         .author-card-name { font-weight: 600; font-size: 0.98rem; color: var(--text); word-break: break-all; }
+        .admin-badge {
+            display: inline-block;
+            margin-left: 0.45rem;
+            padding: 0.08rem 0.4rem;
+            border-radius: 0.35rem;
+            background: rgba(99, 102, 241, 0.16);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            font-size: 0.68rem;
+            font-weight: 700;
+            vertical-align: middle;
+        }
         .author-card-sub {
             font-size: 0.75rem;
             color: var(--text-secondary);
@@ -2846,10 +2862,11 @@
             if (fromDb) {
                 return {
                     signature: fromDb.signature || '',
-                    honors: Array.isArray(fromDb.honors) ? fromDb.honors : []
+                    honors: Array.isArray(fromDb.honors) ? fromDb.honors : [],
+                    role: fromDb.role || ''
                 };
             }
-            return AUTHOR_PROFILES[canonical] || AUTHOR_PROFILES[name] || { signature: '', honors: [] };
+            return AUTHOR_PROFILES[canonical] || AUTHOR_PROFILES[name] || { signature: '', honors: [], role: '' };
         }
 
         function authorInitial(name) {
@@ -2864,7 +2881,7 @@
             if (url) {
                 return '<div class="' + cls + '"><img src="' + escAttr(url) + '" alt="' + escAttr(canonical) + '" loading="lazy"></div>';
             }
-            return '<div class="' + cls + '">' + escHtml(authorInitial(canonical)) + '</div>';
+            return '<div class="' + cls + ' author-avatar-fallback">' + escHtml(authorInitial(canonical)) + '</div>';
         }
 
         function authorRateText(rate) {
@@ -3123,9 +3140,10 @@
                     String(prof.signature || '').toLowerCase().indexOf(q) < 0) return;
                 shown++;
                 var active = (currentAuthor === a.name) ? ' active' : '';
+                var adminBadge = prof.role === 'admin' ? '<span class="admin-badge">管理员</span>' : '';
                 html += '<div class="kp-item' + active + '" onclick="selectAuthor(\'' + escAttr(a.name) + '\')" title="' +
                     escAttr(a.name + ' · 加权贡献 ' + a.score.toFixed(2) + ' · 贡献率 ' + authorRateText(a.rate)) + '">' +
-                    escHtml(a.name) + '<span class="author-side-count">' + a.total + '</span></div>';
+                    escHtml(a.name) + adminBadge + '<span class="author-side-count">' + a.total + '</span></div>';
             });
             if (!shown) html = '<div class="no-results">未找到匹配的作者</div>';
             sidebarNav.innerHTML = html;
@@ -3150,10 +3168,11 @@
                 var prof = authorProfile(a.name);
                 var sig = prof.signature ? escHtml(prof.signature) : '暂无签名';
                 var honors = (prof.honors && prof.honors.length) ? escHtml(prof.honors.join(' · ')) : '暂无战绩（待补充）';
+                var adminBadge = prof.role === 'admin' ? '<span class="admin-badge">管理员</span>' : '';
                 html += '<div class="author-card" onclick="selectAuthor(\'' + escAttr(a.name) + '\')">';
                 html += '<div class="author-card-head">';
                 html += authorAvatarHtml(a.name);
-                html += '<div style="min-width:0;"><div class="author-card-name">' + escHtml(a.name) + '</div>';
+                html += '<div style="min-width:0;"><div class="author-card-name">' + escHtml(a.name) + adminBadge + '</div>';
                 html += '<div class="author-card-sub">' + honors + '</div></div>';
                 html += '</div>';
                 html += '<div class="author-rate-row"><span>贡献率</span><span class="author-rate-num">' + authorRateText(a.rate) + '</span></div>';
@@ -3192,7 +3211,8 @@
             html += '<div class="author-back" onclick="showAuthors()">← 返回作者列表</div>';
             html += '<div class="author-hero">';
             html += authorAvatarHtml(a.name);
-            html += '<div><h1>' + escHtml(a.name) + '</h1>';
+            html += '<div><h1>' + escHtml(a.name) +
+                (prof.role === 'admin' ? '<span class="admin-badge">管理员</span>' : '') + '</h1>';
             html += '<div class="author-signature">签名：' + (prof.signature ? escHtml(prof.signature) : '暂无（待补充）') + '</div>';
             if (isSelf) {
                 html += '<a class="author-edit-link" href="admin.html?tab=profile">✏️ 编辑签名 / 战绩</a>';
@@ -4406,9 +4426,12 @@
 
         function renderColumnLockGate(kind, itemId, verIdx, key, title) {
             var authorName = authorNameForVersion(kind, itemId, verIdx);
+            var authorBadge = authorName && authorProfile(authorName).role === 'admin'
+                ? '<span class="admin-badge">管理员</span>'
+                : '';
             var authorLine = authorName
                 ? '<div class="column-lock-author">' + authorAvatarHtml(authorName, 'author-avatar-sm') +
-                  '<span>作者：<strong>' + escHtml(authorName) + '</strong></span></div>'
+                  '<span>作者：<strong>' + escHtml(authorName) + '</strong>' + authorBadge + '</span></div>'
                 : '';
             if (!viewerAuthed) {
                 contentEl.innerHTML =
@@ -4595,8 +4618,18 @@
             if (authorProfilesLoading) return Promise.resolve();
             authorProfilesLoading = true;
             return client.from('author_profiles')
-                .select('author_name,avatar_url,signature,honors')
+                .select('author_name,avatar_url,signature,honors,role')
                 .then(function(res) {
+                    if (res.error && /role/i.test(res.error.message || '')) {
+                        return client.from('author_profiles').select('author_name,avatar_url,signature,honors').then(function(res2) {
+                            if (res2.error) {
+                                return client.from('author_profiles').select('author_name,avatar_url').then(function(res3) {
+                                    return { data: res3.data || [], error: res3.error, hasMeta: false };
+                                });
+                            }
+                            return { data: res2.data || [], error: null, hasMeta: true };
+                        });
+                    }
                     if (res.error && /signature|honors/i.test(res.error.message || '')) {
                         return client.from('author_profiles').select('author_name,avatar_url').then(function(res2) {
                             return { data: res2.data || [], error: res2.error, hasMeta: false };
@@ -4621,7 +4654,8 @@
                         if (result.hasMeta) {
                             profileMap[canonical] = {
                                 signature: row.signature || '',
-                                honors: Array.isArray(row.honors) ? row.honors : []
+                                honors: Array.isArray(row.honors) ? row.honors : [],
+                                role: row.role || ''
                             };
                         }
                     });
@@ -4703,8 +4737,10 @@
                 ? ((typeof AUTHOR_KEYS !== 'undefined' && AUTHOR_KEYS[suffix]) || suffix)
                 : 'world-needs-sunday';
             var versions = item.versions || [];
-            var verIdx = versions.findIndex(function(v) { return v.author === author; });
-            return { item: item, verIdx: verIdx, kind: kind };
+            var verIdx = versions.findIndex(function(v) {
+                return resolveAuthorName(v.author || '') === resolveAuthorName(author);
+            });
+            return { item: item, verIdx: verIdx, kind: kind, author: author };
         }
 
         // 数据库里的新投稿（sub-*）→ 追加到静态数据数组
@@ -4803,6 +4839,25 @@
                     }
                     target.item._searchBlob = undefined;
                     changed = true;
+                } else if (target && key.indexOf('--') >= 0) {
+                    // 已有专栏新增作者版本：数据库行 col-<base>--<author> 追加到 versions[]
+                    var newAuthor = row.author_name || target.author || '';
+                    if (newAuthor) {
+                        var baseLevel = (target.item.versions[0] || {}).level || 'A';
+                        target.item.versions = target.item.versions || [];
+                        target.item.versions.push({
+                            author: newAuthor,
+                            content: row.content || '',
+                            codePath: '',
+                            timeComplexity: '未知',
+                            spaceComplexity: '未知',
+                            tags: Array.isArray(row.tags) ? row.tags : [],
+                            source: '',
+                            level: baseLevel
+                        });
+                        target.item._searchBlob = undefined;
+                        changed = true;
+                    }
                 }
             }
             if (changed) dbAppliedAt[key] = row.updated_at;

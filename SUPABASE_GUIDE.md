@@ -88,6 +88,8 @@ login.html 投稿表单
 | 13 | `supabase/phase14-contribution-view.sql` | `tickets.reviewed_at` + 审批时间触发器；公开视图 `author_edit_credits`（approved 修改工单按作者+专栏去重，排除 `sub-*`，供作者贡献度加权） |
 | 14 | `supabase/phase15-author-avatars.sql` | 公开视图 `author_profiles`（活跃作者昵称 + 头像 URL），供作者专栏与密码门显示头像 |
 | 15 | `supabase/phase16-author-profile-fields.sql` | `profiles.signature` / `profiles.honors`；重建 `author_profiles`，供作者本人编辑签名与战绩、公开页展示 |
+| 16 | `supabase/phase17-existing-column-version.sql` | 投稿工单支持 `version_of`：审批通过后在已有专栏下新增 `col-<base>--<作者昵称>` 版本，不覆盖原专栏 |
+| 17 | `supabase/phase18-author-admin-badge.sql` | `author_profiles` 增加 `role`，作者列表 / 主页 / 密码门显示「管理员」标识 |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -139,6 +141,8 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-08 | phase14-contribution-view | **待用户在 SQL Editor 执行**：`tickets.reviewed_at`、`author_edit_credits` 公开视图；执行后刷新作者专栏验证加权贡献与修补记录 |
 | 2026-11-08 | phase15-author-avatars | **待用户在 SQL Editor 执行**：公开视图 `author_profiles`；执行后作者页与密码门显示头像，未执行时回退首字母头像 |
 | 2026-11-08 | phase16-author-profile-fields | **待用户在 SQL Editor 执行**：`profiles.signature` / `profiles.honors`；重建 `author_profiles`；作者本人在 `admin.html`「个人设置」编辑签名与战绩 |
+| 2026-11-09 | phase17-existing-column-version | **待用户在 SQL Editor 执行**：投稿 payload 支持 `version_of`；审批通过后新增已有专栏的作者版本，不覆盖原专栏 |
+| 2026-11-09 | phase18-author-admin-badge | **待用户在 SQL Editor 执行**：`author_profiles.role`；作者列表 / 主页 / 密码门显示管理员标识 |
 
 ---
 
@@ -290,6 +294,9 @@ node scripts/seed-columns-from-content.js --only=knowledge
 - `profiles.nickname` 必须能匹配静态作者显示名；匹配不上时前端会 `console.warn` 并按原名计入，需要时在 `index.html` 的 `AUTHOR_ALIASES` 补映射。
 - 作者头像来自公开视图 `author_profiles`（phase15）；作者列表 / 主页 / 密码门优先显示头像，头像为空或视图未执行时回退首字母。
 - 签名 / 战绩保存在 `profiles.signature` / `profiles.honors`（phase16）；作者本人在 `admin.html`「个人设置」编辑，公开视图 `author_profiles` 暴露给作者页展示；作者登录后访问自己的作者页会出现「编辑签名 / 战绩」入口。
+- 作者头像有图时容器背景透明；无头像时才显示首字母 + 纯色 `#6366f1` 填充。
+- `author_profiles.role`（phase18）供作者列表 / 主页 / 密码门显示「管理员」标识。
+- 投稿已有专栏（phase17）：payload 带 `version_of`（base key），审批通过后新增 `col-<base>--<作者昵称>` 行，前端把它作为新 `versions[]` 追加；同一作者已写过该专栏时，登录页会提示并自动切换到「修改」工单。
 - 作者页的修补数据每 30 秒自动刷新；新建计数来自静态 `data.js`，需要重新构建并部署后才会变。
 
 ---
@@ -427,3 +434,5 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-08 | 新增 phase14：`tickets.reviewed_at` 与审批时间触发器；公开视图 `author_edit_credits`（approved 修改工单按作者+专栏去重，排除 `sub-*`）；前端作者专栏改为加权贡献（新建 1.0，修补 0.4 × 难度 × 体量 × 优先级 × 自改系数，单专栏上限 0.8） |
 | 2026-11-08 | 新增 phase15：公开视图 `author_profiles`（活跃作者昵称 + 头像 URL）；作者列表/主页/密码门显示头像；作者页修补数据改为 30 秒自动刷新 |
 | 2026-11-08 | 新增 phase16：`profiles.signature` / `profiles.honors`；`author_profiles` 暴露签名与战绩；作者在 `admin.html`「个人设置」编辑，自己的作者页出现编辑入口 |
+| 2026-11-09 | 新增 phase17：投稿工单支持 `version_of`；审批通过后为已有专栏新增 `col-<base>--<作者昵称>` 版本；同一作者已写过时前端提示并切换到修改工单 |
+| 2026-11-09 | 新增 phase18：`author_profiles.role`；作者列表 / 主页 / 密码门显示「管理员」标识；作者头像有图时透明背景，无图时才首字母 + 纯色填充 |

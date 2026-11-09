@@ -170,14 +170,28 @@
 
                     <div id="ticket-submission-fields" hidden>
                         <div class="form-field">
-                            <label for="ticket-column-name">栏目名称</label>
-                            <input class="input" type="text" id="ticket-column-name" name="column_name"
-                                   placeholder="必填，例如：树状数组入门">
+                            <label for="ticket-submission-mode">投稿方式</label>
+                            <select class="select" id="ticket-submission-mode">
+                                <option value="new">新建专栏</option>
+                                <option value="existing">为已有专栏添加新作者版本</option>
+                            </select>
+                            <p class="form-hint">已有专栏会新增一个作者版本，不覆盖原作者内容；如果你已写过该专栏，会提示改用修改工单。</p>
                         </div>
-                        <div class="form-row">
+                        <div class="form-field" id="ticket-existing-column-field" hidden>
+                            <label for="ticket-existing-column">选择已有专栏</label>
+                            <select class="select" id="ticket-existing-column"></select>
+                            <p class="form-hint" id="ticket-existing-column-info">选择后会继承该专栏的分类、题型与难度。</p>
+                            <p class="form-error" id="ticket-existing-warning" hidden></p>
+                        </div>
+                        <div class="form-field">
+                            <label for="ticket-author">作者</label>
+                            <select class="select" id="ticket-author" name="author"></select>
+                        </div>
+                        <div id="ticket-new-column-fields">
                             <div class="form-field">
-                                <label for="ticket-author">作者</label>
-                                <select class="select" id="ticket-author" name="author"></select>
+                                <label for="ticket-column-name">栏目名称</label>
+                                <input class="input" type="text" id="ticket-column-name" name="column_name"
+                                       placeholder="必填，例如：树状数组入门">
                             </div>
                             <div class="form-field">
                                 <label for="ticket-category">所属大类</label>
@@ -192,6 +206,22 @@
                                     <option value="实用工具">实用工具</option>
                                 </select>
                             </div>
+                            <div class="form-field">
+                                <label>关系 <span class="label-hint">可选，可添加多条</span></label>
+                                <div id="ticket-relations"></div>
+                                <button class="btn btn-ghost btn-sm" type="button" id="ticket-add-relation">＋ 添加关系</button>
+                                <p class="form-hint">每条关系需要选择类型并填写关联目标。</p>
+                            </div>
+                            <div class="form-inline">
+                                <label class="checkbox-row">
+                                    <input type="checkbox" id="ticket-is-problem">
+                                    <span>作为题目</span>
+                                </label>
+                                <div class="form-field">
+                                    <label for="ticket-difficulty">难度 <span class="label-hint">可选</span></label>
+                                    <select class="select" id="ticket-difficulty" disabled></select>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-field">
                             <label>标签 <span class="label-hint">可选，可自定义</span></label>
@@ -205,22 +235,6 @@
                                 <p class="form-hint">自定义标签在投稿通过后会进入可选标签库。</p>
                             </div>
                             <datalist id="ticket-tag-list"></datalist>
-                        </div>
-                        <div class="form-field">
-                            <label>关系 <span class="label-hint">可选，可添加多条</span></label>
-                            <div id="ticket-relations"></div>
-                            <button class="btn btn-ghost btn-sm" type="button" id="ticket-add-relation">＋ 添加关系</button>
-                            <p class="form-hint">每条关系需要选择类型并填写关联目标。</p>
-                        </div>
-                        <div class="form-inline">
-                            <label class="checkbox-row">
-                                <input type="checkbox" id="ticket-is-problem">
-                                <span>作为题目</span>
-                            </label>
-                            <div class="form-field">
-                                <label for="ticket-difficulty">难度 <span class="label-hint">可选</span></label>
-                                <select class="select" id="ticket-difficulty" disabled></select>
-                            </div>
                         </div>
                         <div class="form-field">
                             <label>内容来源</label>
@@ -449,6 +463,8 @@
             var kpTitles = {};
             var allColumns = [];
             var columnDataPromise = null;
+            var columnAuthorMap = {};
+            var existingColumnMap = {};
             var editVerifiedKey = '';
             var editVerifiedPassword = '';
             var editUploadedText = null;
@@ -718,18 +734,28 @@
                     columnDataPromise = Promise.resolve([]);
                     return columnDataPromise;
                 }
-                columnDataPromise = client.from('columns')
-                    .select('column_key, column_name, category, status, owner_id, source_ticket_id')
-                    .order('column_name')
-                    .then(function (result) {
-                        if (result.error) return [];
-                        allColumns = result.data || [];
-                        columnNameMap = {};
-                        allColumns.forEach(function (column) {
-                            columnNameMap[column.column_key] = column.column_name;
+                columnDataPromise = Promise.all([
+                    client.from('columns')
+                        .select('column_key, column_name, category, status, owner_id, source_ticket_id, kind, difficulty, tags')
+                        .order('column_name'),
+                    client.from('published_columns').select('column_key, author_name')
+                ]).then(function (results) {
+                    var result = results[0];
+                    var authors = results[1];
+                    if (result.error) return [];
+                    allColumns = result.data || [];
+                    columnNameMap = {};
+                    columnAuthorMap = {};
+                    allColumns.forEach(function (column) {
+                        columnNameMap[column.column_key] = column.column_name;
+                    });
+                    if (!authors.error) {
+                        (authors.data || []).forEach(function (row) {
+                            if (row && row.column_key) columnAuthorMap[row.column_key] = row.author_name;
                         });
-                        return allColumns;
-                    }).catch(function () { return []; });
+                    }
+                    return allColumns;
+                }).catch(function () { return []; });
                 return columnDataPromise;
             }
             function relationTargetOptions() {
@@ -824,6 +850,140 @@
                     if (current) select.value = current;
                 });
             }
+
+            function columnBaseKey(key) {
+                var text = String(key || '');
+                var idx = text.indexOf('--');
+                return idx >= 0 ? text.slice(0, idx) : text;
+            }
+
+            function buildExistingColumnMap() {
+                var map = {};
+                allColumns.forEach(function (column) {
+                    if (column.status !== 'published') return;
+                    var key = String(column.column_key || '');
+                    if (key.indexOf('col-') !== 0) return;
+                    var base = columnBaseKey(key);
+                    if (!base) return;
+                    var current = map[base];
+                    // 优先使用主专栏行，标题最干净
+                    if (!current || key === base) {
+                        map[base] = {
+                            key: base,
+                            name: displayNameForColumn(base) || column.column_name || base,
+                            category: column.category || '未分类',
+                            kind: column.kind || 'knowledge',
+                            difficulty: column.difficulty || '',
+                            tags: Array.isArray(column.tags) ? column.tags : []
+                        };
+                    }
+                });
+                return map;
+            }
+
+            function loadExistingColumnOptions() {
+                var select = document.getElementById('ticket-existing-column');
+                var current = select.value;
+                return loadColumnData().then(function () {
+                    existingColumnMap = buildExistingColumnMap();
+                    var keys = Object.keys(existingColumnMap).sort(function (a, b) {
+                        var A = existingColumnMap[a], B = existingColumnMap[b];
+                        return (A.category + A.name).localeCompare(B.category + B.name, 'zh-CN');
+                    });
+                    if (!keys.length) {
+                        select.innerHTML = '<option value="">暂无可添加版本的已有专栏</option>';
+                        updateExistingSubmissionWarning();
+                        return;
+                    }
+                    var groups = {};
+                    keys.forEach(function (key) {
+                        var item = existingColumnMap[key];
+                        if (!groups[item.category]) groups[item.category] = [];
+                        groups[item.category].push(item);
+                    });
+                    var html = '<option value="">请选择已有专栏</option>';
+                    Object.keys(groups).sort(function (a, b) {
+                        return a.localeCompare(b, 'zh-CN');
+                    }).forEach(function (category) {
+                        html += '<optgroup label="' + window.AKB.escapeHtml(category) + '">';
+                        groups[category].forEach(function (item) {
+                            html += '<option value="' + window.AKB.escapeHtml(item.key) + '">' +
+                                window.AKB.escapeHtml(item.name) + '</option>';
+                        });
+                        html += '</optgroup>';
+                    });
+                    select.innerHTML = html;
+                    if (current && existingColumnMap[current]) select.value = current;
+                    updateExistingSubmissionWarning();
+                });
+            }
+
+            function currentSubmissionMode() {
+                return document.getElementById('ticket-submission-mode').value || 'new';
+            }
+
+            function syncSubmissionMode() {
+                var isExisting = currentSubmissionMode() === 'existing';
+                document.getElementById('ticket-existing-column-field').hidden = !isExisting;
+                document.getElementById('ticket-new-column-fields').hidden = isExisting;
+                if (isExisting) loadExistingColumnOptions();
+                updateExistingSubmissionWarning();
+            }
+
+            function findExistingAuthorColumn(baseKey, authorId) {
+                if (!baseKey || !authorId) return '';
+                var match = '';
+                allColumns.forEach(function (column) {
+                    if (column.owner_id !== authorId) return;
+                    var key = String(column.column_key || '');
+                    if (key === baseKey || key.indexOf(baseKey + '--') === 0) {
+                        if (!match || key === baseKey) match = key;
+                    }
+                });
+                return match;
+            }
+
+            function updateExistingSubmissionWarning() {
+                var warning = document.getElementById('ticket-existing-warning');
+                var info = document.getElementById('ticket-existing-column-info');
+                if (currentSubmissionMode() !== 'existing') {
+                    warning.hidden = true;
+                    warning.textContent = '';
+                    return;
+                }
+                var baseKey = document.getElementById('ticket-existing-column').value;
+                var authorId = document.getElementById('ticket-author').value;
+                var item = existingColumnMap[baseKey];
+                if (info) {
+                    info.textContent = item
+                        ? '目标：' + item.name + ' · ' + item.category +
+                          (item.kind === 'problem'
+                              ? ' · 题目' + (item.difficulty ? ' · ' + item.difficulty : '')
+                              : ' · 知识点') +
+                          '；将继承这些设置。'
+                        : '选择后会继承该专栏的分类、题型与难度。';
+                }
+                var existing = findExistingAuthorColumn(baseKey, authorId);
+                if (existing) {
+                    warning.hidden = false;
+                    warning.textContent = '你已写过该专栏，本次不能重复添加版本；提交时会自动切换到「修改」工单。';
+                } else {
+                    warning.hidden = true;
+                    warning.textContent = '';
+                }
+            }
+
+            function switchToEditForExisting(existingKey) {
+                document.getElementById('ticket-type').value = 'edit';
+                syncTicketType();
+                loadEditColumnOptions().then(function () {
+                    var select = document.getElementById('ticket-edit-column');
+                    select.value = existingKey;
+                    onEditColumnChange();
+                });
+                setError('ticket-error', '你已写过该专栏，已切换到修改工单；请验证并载入源码后提交。');
+            }
+
             function resetEditVerification(clearPassword) {
                 editVerifiedKey = '';
                 editVerifiedPassword = '';
@@ -998,6 +1158,7 @@
                     ? '提交修改工单'
                     : (isSubmission ? '提交投稿工单' : '提交建议');
                 setError('ticket-error', '');
+                if (isSubmission) syncSubmissionMode();
                 if (isEdit) {
                     loadEditColumnOptions();
                     if (editVerifiedKey &&
@@ -1007,6 +1168,9 @@
                 }
             }
             document.getElementById('ticket-type').addEventListener('change', syncTicketType);
+            document.getElementById('ticket-submission-mode').addEventListener('change', syncSubmissionMode);
+            document.getElementById('ticket-existing-column').addEventListener('change', updateExistingSubmissionWarning);
+            document.getElementById('ticket-author').addEventListener('change', updateExistingSubmissionWarning);
             document.getElementById('ticket-is-problem').addEventListener('change', function () {
                 document.getElementById('ticket-difficulty').disabled = !this.checked;
             });
@@ -1290,49 +1454,91 @@
                         setError('ticket-error', '投稿需要登录后再提交');
                         return;
                     }
-                    var columnName = document.getElementById('ticket-column-name').value.trim();
                     var authorSelect = document.getElementById('ticket-author');
                     var authorId = authorSelect.value;
                     var authorName = authorSelect.selectedIndex >= 0
                         ? authorSelect.options[authorSelect.selectedIndex].textContent
                         : '';
-                    var category = document.getElementById('ticket-category').value;
-                    var relations = collectRelations();
-                    var isProblem = document.getElementById('ticket-is-problem').checked;
-                    var difficulty = isProblem ? document.getElementById('ticket-difficulty').value : null;
                     var submissionContent = document.getElementById('ticket-submission-content').value;
-
-                    if (!columnName || !authorId || !category || !submissionContent.trim()) {
-                        setError('ticket-error', '请填写栏目名称、作者、所属大类与栏目内容');
-                        return;
-                    }
-                    if (relations.some(function (item) { return !item.target; })) {
-                        setError('ticket-error', '每条关系都需要填写关联目标');
+                    if (!authorId || !submissionContent.trim()) {
+                        setError('ticket-error', '请选择作者并填写栏目内容');
                         return;
                     }
                     var pendingTag = document.getElementById('ticket-tag-input').value.trim();
                     if (pendingTag) addTicketTag(pendingTag);
-                    var payload = {
-                        column_name: columnName,
-                        author_id: authorId,
-                        author_name: authorName,
-                        category: category,
-                        tags: ticketTags.slice(),
-                        relations: relations,
-                        kind: isProblem ? 'problem' : 'knowledge',
-                        difficulty: difficulty || null,
-                        content: submissionContent
-                    };
-                    result = await client.from('tickets').insert({
-                        user_id: user.id,
-                        title: '投稿：' + columnName,
-                        type: 'submission',
-                        priority: 'mid',
-                        description: '投稿栏目 · ' + category + (ticketTags.length ? ' · ' + ticketTags.join('、') : ''),
-                        contact: contact,
-                        status: 'pending',
-                        payload: payload
-                    });
+
+                    if (currentSubmissionMode() === 'existing') {
+                        var baseKey = document.getElementById('ticket-existing-column').value;
+                        var target = existingColumnMap[baseKey];
+                        if (!baseKey || !target) {
+                            setError('ticket-error', '请选择要添加版本的已有专栏');
+                            return;
+                        }
+                        var existingKey = findExistingAuthorColumn(baseKey, authorId);
+                        if (existingKey) {
+                            switchToEditForExisting(existingKey);
+                            return;
+                        }
+                        var versionPayload = {
+                            version_of: baseKey,
+                            column_key: baseKey,
+                            column_name: target.name,
+                            author_id: authorId,
+                            author_name: authorName,
+                            category: target.category,
+                            tags: ticketTags.length ? ticketTags.slice() : (target.tags || []),
+                            kind: target.kind,
+                            difficulty: target.difficulty || null,
+                            content: submissionContent,
+                            uploaded: currentSubmissionSource() === 'file'
+                        };
+                        result = await client.from('tickets').insert({
+                            user_id: user.id,
+                            title: '投稿新版本：' + target.name,
+                            type: 'submission',
+                            priority: 'mid',
+                            description: '已有专栏新增作者版本 · ' + target.category,
+                            contact: contact,
+                            status: 'pending',
+                            payload: versionPayload
+                        });
+                    } else {
+                        var columnName = document.getElementById('ticket-column-name').value.trim();
+                        var category = document.getElementById('ticket-category').value;
+                        var relations = collectRelations();
+                        var isProblem = document.getElementById('ticket-is-problem').checked;
+                        var difficulty = isProblem ? document.getElementById('ticket-difficulty').value : null;
+
+                        if (!columnName || !category) {
+                            setError('ticket-error', '请填写栏目名称与所属大类');
+                            return;
+                        }
+                        if (relations.some(function (item) { return !item.target; })) {
+                            setError('ticket-error', '每条关系都需要填写关联目标');
+                            return;
+                        }
+                        var payload = {
+                            column_name: columnName,
+                            author_id: authorId,
+                            author_name: authorName,
+                            category: category,
+                            tags: ticketTags.slice(),
+                            relations: relations,
+                            kind: isProblem ? 'problem' : 'knowledge',
+                            difficulty: difficulty || null,
+                            content: submissionContent
+                        };
+                        result = await client.from('tickets').insert({
+                            user_id: user.id,
+                            title: '投稿：' + columnName,
+                            type: 'submission',
+                            priority: 'mid',
+                            description: '投稿栏目 · ' + category + (ticketTags.length ? ' · ' + ticketTags.join('、') : ''),
+                            contact: contact,
+                            status: 'pending',
+                            payload: payload
+                        });
+                    }
                 } else {
                     if (!user) {
                         setError('ticket-error', '修改专栏需要登录后再提交');
@@ -1391,6 +1597,7 @@
                 document.getElementById('ticket-difficulty').disabled = true;
                 resetEditVerification(true);
                 syncTicketType();
+                syncSubmissionMode();
                 await prepareTicketForm();
                 showToast(type === 'submission'
                     ? '投稿已提交，等待管理员审批'
@@ -1432,6 +1639,7 @@
                 await Promise.all([loadTitles(), loadColumnData()]);
                 refreshRelationTargets();
                 loadEditColumnOptions();
+                loadExistingColumnOptions();
 
                 var select = document.getElementById('ticket-author');
                 var user = await window.AKB.getUser();
@@ -1446,16 +1654,18 @@
                 }];
                 var seen = {};
                 seen[user.id] = true;
-                // 同一作者可能有多个专栏（含投稿自动生成的 sub-*），优先用作者本人专栏名
+                // 同一作者可能有多个专栏（含投稿自动生成的 sub-*），优先用作者昵称
                 var byOwner = {};
                 allColumns.forEach(function (item) {
                     if (!item.owner_id) return;
                     var isGenerated = String(item.column_key || '').indexOf('sub-') === 0;
+                    var authorName = columnAuthorMap[item.column_key] || '';
                     var prev = byOwner[item.owner_id];
-                    if (!prev || (prev.generated && !isGenerated)) {
+                    if (!prev || (prev.generated && !isGenerated) || (authorName && !prev.hasAuthorName)) {
                         byOwner[item.owner_id] = {
-                            name: item.column_name || '未命名作者',
-                            generated: isGenerated
+                            name: authorName || item.column_name || '未命名作者',
+                            generated: isGenerated,
+                            hasAuthorName: !!authorName
                         };
                     }
                 });
@@ -1472,6 +1682,7 @@
                 var keep = options.some(function (item) { return item.id === current; });
                 select.value = keep ? current : user.id;
                 if (!select.value) select.value = user.id;
+                updateExistingSubmissionWarning();
             }
 
             async function loadAccount() {

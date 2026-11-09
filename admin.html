@@ -178,7 +178,7 @@
                         <div class="panel-head">
                             <div>
                                 <h2 class="panel-title">个人设置</h2>
-                                <p class="panel-subtitle">所有登录用户都可以修改自己的资料；role / status 只能由管理员修改。</p>
+                                <p class="panel-subtitle">所有登录用户都可以修改自己的资料（含签名 / 战绩）；role / status 只能由管理员修改。</p>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -217,6 +217,14 @@
                                         <label for="profile-cf">Codeforces 号</label>
                                         <input class="input" type="text" id="profile-cf" placeholder="留空即可">
                                     </div>
+                                </div>
+                                <div class="form-field">
+                                    <label for="profile-signature">签名 <span class="label-hint">显示在作者专栏</span></label>
+                                    <input class="input" type="text" id="profile-signature" maxlength="120" placeholder="一句话介绍自己">
+                                </div>
+                                <div class="form-field">
+                                    <label for="profile-honors">战绩 <span class="label-hint">每行一条，最多 20 条</span></label>
+                                    <textarea class="textarea" id="profile-honors" rows="4" placeholder="例如：CSP-S 2025 提高组一等奖"></textarea>
                                 </div>
                                 <p class="form-hint">邮箱 / QQ / 洛谷 / CF 只作联系参考，不发验证邮件；工单由管理员人工核对。</p>
                                 <p class="form-error" id="profile-error" hidden></p>
@@ -693,6 +701,10 @@
                 document.getElementById('profile-qq').value = profile.qq || '';
                 document.getElementById('profile-luogu').value = profile.luogu || '';
                 document.getElementById('profile-cf').value = profile.cf || '';
+                document.getElementById('profile-signature').value = profile.signature || '';
+                document.getElementById('profile-honors').value = Array.isArray(profile.honors)
+                    ? profile.honors.join('\n')
+                    : '';
                 var label = profile.nickname || profile.id || '?';
                 renderAvatar(document.getElementById('admin-avatar'), profile.avatar_url, label);
                 renderAvatar(document.getElementById('profile-avatar'), profile.avatar_url, label);
@@ -1646,13 +1658,34 @@
                     setProfileError('昵称不能为空');
                     return;
                 }
-                var result = await client.from('profiles').update({
+                var seenHonors = {};
+                var honors = document.getElementById('profile-honors').value
+                    .split(/\r?\n/)
+                    .map(function (line) { return line.trim().slice(0, 120); })
+                    .filter(function (line) {
+                        if (!line || seenHonors[line]) return false;
+                        seenHonors[line] = true;
+                        return true;
+                    })
+                    .slice(0, 20);
+                var payload = {
                     nickname: nickname,
                     contact: document.getElementById('profile-contact').value.trim() || null,
                     qq: document.getElementById('profile-qq').value.trim() || null,
                     luogu: document.getElementById('profile-luogu').value.trim() || null,
-                    cf: document.getElementById('profile-cf').value.trim() || null
-                }).eq('id', user.id);
+                    cf: document.getElementById('profile-cf').value.trim() || null,
+                    signature: document.getElementById('profile-signature').value.trim() || null,
+                    honors: honors
+                };
+                var result = await client.from('profiles').update(payload).eq('id', user.id);
+                var metaMissing = false;
+                // 兼容还没执行 phase16-author-profile-fields.sql 的数据库：先把其余资料保存成功
+                if (result.error && /signature|honors/i.test(result.error.message || '')) {
+                    metaMissing = true;
+                    delete payload.signature;
+                    delete payload.honors;
+                    result = await client.from('profiles').update(payload).eq('id', user.id);
+                }
                 if (result.error) {
                     setProfileError('保存失败：' + result.error.message);
                     return;
@@ -1663,8 +1696,10 @@
                     loadProfileForm(profile);
                     document.getElementById('admin-name').textContent = profile.nickname || '用户';
                 }
-                setProfileOk('个人信息已保存。');
-                showToast('个人信息已保存');
+                setProfileOk(metaMissing
+                    ? '其余资料已保存；签名 / 战绩需先在 Supabase 执行 phase16-author-profile-fields.sql。'
+                    : '个人信息、签名与战绩已保存。');
+                showToast(metaMissing ? '资料已保存，签名 / 战绩字段未创建' : '个人信息、签名与战绩已保存');
             });
 
             document.getElementById('avatar-file').addEventListener('change', async function () {

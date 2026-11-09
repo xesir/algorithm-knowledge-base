@@ -36,17 +36,34 @@
         var client = getClient();
         var user = await getUser();
         if (!client || !user) return null;
+        var base = 'id, nickname, contact, qq, luogu, cf, role, status';
+        var withAvatar = base + ', avatar_url';
         var result = await client.from('profiles')
-            .select('id, nickname, contact, qq, luogu, cf, avatar_url, role, status')
+            .select(withAvatar + ', signature, honors')
             .eq('id', user.id)
             .single();
+        // 兼容还没执行 phase16-author-profile-fields.sql 的数据库
+        if (result.error && /signature|honors/i.test(result.error.message || '')) {
+            result = await client.from('profiles')
+                .select(withAvatar)
+                .eq('id', user.id)
+                .single();
+            if (!result.error && result.data) {
+                result.data.signature = '';
+                result.data.honors = [];
+            }
+        }
         // 兼容还没执行 phase3-columns.sql 的数据库
         if (result.error && /avatar_url/i.test(result.error.message || '')) {
             result = await client.from('profiles')
-                .select('id, nickname, contact, qq, luogu, cf, role, status')
+                .select(base)
                 .eq('id', user.id)
                 .single();
-            if (!result.error && result.data) result.data.avatar_url = null;
+            if (!result.error && result.data) {
+                result.data.avatar_url = null;
+                result.data.signature = '';
+                result.data.honors = [];
+            }
         }
         return result.error ? null : result.data;
     }

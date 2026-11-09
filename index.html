@@ -1395,7 +1395,16 @@
             font-weight: 700;
             font-size: 1.05rem;
             flex-shrink: 0;
+            overflow: hidden;
         }
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+        .author-avatar-sm { width: 1.8rem; height: 1.8rem; font-size: 0.85rem; }
         .author-card-name { font-weight: 600; font-size: 0.98rem; color: var(--text); word-break: break-all; }
         .author-card-sub {
             font-size: 0.75rem;
@@ -1446,6 +1455,14 @@
             margin-top: 0.3rem;
             font-style: italic;
         }
+        .author-edit-link {
+            display: inline-block;
+            margin-top: 0.35rem;
+            font-size: 0.78rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .author-edit-link:hover { text-decoration: underline; }
         .author-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
@@ -1617,6 +1634,16 @@
         }
         .column-lock-gate .lock-icon { font-size: 2.2rem; margin-bottom: .6rem; }
         .column-lock-gate h2 { font-size: 1.15rem; margin-bottom: .5rem; }
+        .column-lock-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            margin: 0.2rem 0 0.6rem;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+        }
+        .column-lock-author strong { color: var(--text); }
         .column-lock-gate p { color: var(--text-secondary); font-size: .88rem; line-height: 1.7; }
         .column-lock-form {
             display: flex;
@@ -2803,7 +2830,7 @@
         }
 
         // ===== 作者专栏 =====
-        // 战绩 / 签名目前留空：以后直接在这里填（honors 填字符串数组，signature 填字符串）
+        // 兜底资料；线上以 Supabase profiles.signature / profiles.honors 为准（author_profiles 视图）
         var AUTHOR_PROFILES = {
             'world-needs-sunday': { signature: '', honors: [] },
             'Fohen': { signature: '', honors: [] },
@@ -2811,14 +2838,33 @@
             'lker': { signature: '', honors: [] },
             'stripe-python': { signature: '', honors: [] }
         };
+        var DB_AUTHOR_PROFILES = {};
 
         function authorProfile(name) {
-            return AUTHOR_PROFILES[name] || { signature: '', honors: [] };
+            var canonical = resolveAuthorName(name);
+            var fromDb = DB_AUTHOR_PROFILES[canonical] || DB_AUTHOR_PROFILES[name];
+            if (fromDb) {
+                return {
+                    signature: fromDb.signature || '',
+                    honors: Array.isArray(fromDb.honors) ? fromDb.honors : []
+                };
+            }
+            return AUTHOR_PROFILES[canonical] || AUTHOR_PROFILES[name] || { signature: '', honors: [] };
         }
 
         function authorInitial(name) {
             var s = String(name || '?').trim();
             return s ? s.charAt(0).toUpperCase() : '?';
+        }
+
+        function authorAvatarHtml(name, extraClass) {
+            var canonical = resolveAuthorName(name);
+            var url = AUTHOR_AVATARS[canonical] || AUTHOR_AVATARS[name] || '';
+            var cls = 'author-avatar' + (extraClass ? ' ' + extraClass : '');
+            if (url) {
+                return '<div class="' + cls + '"><img src="' + escAttr(url) + '" alt="' + escAttr(canonical) + '" loading="lazy"></div>';
+            }
+            return '<div class="' + cls + '">' + escHtml(authorInitial(canonical)) + '</div>';
         }
 
         function authorRateText(rate) {
@@ -2840,6 +2886,9 @@
         var editCreditsLoading = false;
         var editCreditsError = false;
         var editCreditWarned = {};
+        var AUTHOR_AVATARS = {};
+        var authorProfilesLoading = false;
+        var authorProfilesWarned = false;
 
         // profiles.nickname → 静态作者显示名；匹配不上时保留原名并在控制台警告一次
         var AUTHOR_ALIASES = {
@@ -3090,7 +3139,7 @@
             var html = '<div class="authors-page">';
             html += '<h1>👤 作者专栏</h1>';
             html += '<div class="catalog-desc">按加权贡献排名浏览本站作者。贡献率 = 加权贡献 ÷ 全站加权贡献（当前全站 ' +
-                pack.totalAll.toFixed(2) + '）；新建 1 篇 = 1.0，修补 1 处 = 0.4 × 难度 × 体量 × 维护系数，单专栏最多 0.8；sub-* 未同步投稿暂不计入修补。</div>';
+                pack.totalAll.toFixed(2) + '）；新建 1 篇 = 1.0，修补 1 处 = 0.4 × 难度 × 体量 × 维护系数，单专栏最多 0.8；sub-* 未同步投稿暂不计入修补；修补数据每 30 秒自动刷新。</div>';
             if (!editCreditsReady && window.supabaseClient) {
                 html += '<div class="author-note">正在加载修补贡献数据…</div>';
             } else if (editCreditsError) {
@@ -3103,7 +3152,7 @@
                 var honors = (prof.honors && prof.honors.length) ? escHtml(prof.honors.join(' · ')) : '暂无战绩（待补充）';
                 html += '<div class="author-card" onclick="selectAuthor(\'' + escAttr(a.name) + '\')">';
                 html += '<div class="author-card-head">';
-                html += '<div class="author-avatar">' + escHtml(authorInitial(a.name)) + '</div>';
+                html += authorAvatarHtml(a.name);
                 html += '<div style="min-width:0;"><div class="author-card-name">' + escHtml(a.name) + '</div>';
                 html += '<div class="author-card-sub">' + honors + '</div></div>';
                 html += '</div>';
@@ -3138,11 +3187,17 @@
             var prof = authorProfile(a.name);
             document.title = a.name + ' · 作者专栏 · 算法知识点查询系统';
             var html = '<div class="author-page">';
+            var isSelf = viewerAuthed && viewerName &&
+                resolveAuthorName(viewerName) === resolveAuthorName(a.name);
             html += '<div class="author-back" onclick="showAuthors()">← 返回作者列表</div>';
             html += '<div class="author-hero">';
-            html += '<div class="author-avatar">' + escHtml(authorInitial(a.name)) + '</div>';
+            html += authorAvatarHtml(a.name);
             html += '<div><h1>' + escHtml(a.name) + '</h1>';
-            html += '<div class="author-signature">签名：' + (prof.signature ? escHtml(prof.signature) : '暂无（待补充）') + '</div></div>';
+            html += '<div class="author-signature">签名：' + (prof.signature ? escHtml(prof.signature) : '暂无（待补充）') + '</div>';
+            if (isSelf) {
+                html += '<a class="author-edit-link" href="admin.html?tab=profile">✏️ 编辑签名 / 战绩</a>';
+            }
+            html += '</div>';
             html += '</div>';
 
             html += '<div class="author-stats">';
@@ -3155,7 +3210,7 @@
             html += '</div>';
             html += '<div class="author-bar"><div class="author-bar-fill" style="width:' + (a.rate * 100).toFixed(1) + '%"></div></div>';
             html += '<div class="author-note">贡献率 = 加权贡献 ÷ 全站加权贡献（全站 ' + Number(totalAll).toFixed(2) +
-                '）。新建 1 篇 = 1.0；修补 1 处 = 0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数（0.25），单专栏上限 0.8；sub-* 未同步投稿暂不计入。</div>';
+                '）。新建 1 篇 = 1.0；修补 1 处 = 0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数（0.25），单专栏上限 0.8；sub-* 未同步投稿暂不计入。修补数据每 30 秒自动刷新；新建计数来自静态数据，需重新构建后更新。</div>';
             if (!editCreditsReady && window.supabaseClient) {
                 html += '<div class="author-note">正在加载修补贡献数据…</div>';
             } else if (editCreditsError) {
@@ -4301,6 +4356,7 @@
         var dbLockMap = {};
         var viewerAuthed = false;
         var viewerIsAdmin = false;
+        var viewerName = '';
         var lockStatusReady = false;
         var lockStatusLoading = false;
 
@@ -4337,12 +4393,29 @@
             return true;
         }
 
+        function authorNameForVersion(kind, itemId, verIdx) {
+            var list = kind === 'prob'
+                ? (typeof PROBLEMS_DATA !== 'undefined' ? PROBLEMS_DATA : [])
+                : (typeof KNOWLEDGE_DATA !== 'undefined' ? KNOWLEDGE_DATA : []);
+            var item = list.find(function(x) { return x.id === itemId; });
+            if (!item) return '';
+            var idx = (typeof verIdx === 'number' && verIdx >= 0) ? verIdx : 0;
+            var ver = (item.versions || [])[idx];
+            return ver ? resolveAuthorName(ver.author || 'world-needs-sunday') : '';
+        }
+
         function renderColumnLockGate(kind, itemId, verIdx, key, title) {
+            var authorName = authorNameForVersion(kind, itemId, verIdx);
+            var authorLine = authorName
+                ? '<div class="column-lock-author">' + authorAvatarHtml(authorName, 'author-avatar-sm') +
+                  '<span>作者：<strong>' + escHtml(authorName) + '</strong></span></div>'
+                : '';
             if (!viewerAuthed) {
                 contentEl.innerHTML =
                     '<div class="column-lock-gate">' +
                         '<div class="lock-icon">🔒</div>' +
                         '<h2>' + escHtml(title || '该专栏') + ' 已设置访问密码</h2>' +
+                        authorLine +
                         '<p>游客不能访问有密码的专栏。请先登录，登录后输入专栏密码即可查看。</p>' +
                         '<p class="column-lock-hint"><a href="login.html">去登录</a> · 无密码专栏可直接查看</p>' +
                     '</div>';
@@ -4352,6 +4425,7 @@
                 '<div class="column-lock-gate">' +
                     '<div class="lock-icon">🔒</div>' +
                     '<h2>' + escHtml(title || '该专栏') + ' 已设置访问密码</h2>' +
+                    authorLine +
                     '<p>该专栏需要输入访问密码后才能查看；密码为空则无需输入。</p>' +
                     '<div class="column-lock-form">' +
                         '<input class="column-lock-input" type="password" id="column-unlock-input" placeholder="输入专栏访问密码" autocomplete="off">' +
@@ -4429,6 +4503,10 @@
 
         // 只在需要时重绘当前文章（锁状态/登录状态变化后）
         function rerenderCurrentArticle() {
+            if (currentMode === 'author') {
+                refreshAuthorViews();
+                return;
+            }
             if (!currentId) return;
             if (currentMode === 'prob' && typeof PROBLEMS_DATA !== 'undefined') {
                 var prob = PROBLEMS_DATA.find(function(p) { return p.id === currentId; });
@@ -4509,6 +4587,62 @@
             });
         }
 
+        // 读取活跃作者头像 / 签名 / 战绩（公开视图 author_profiles）
+        // 兼容只执行到 phase15 的数据库：缺 signature/honors 时退回只读头像。
+        function loadAuthorProfiles() {
+            var client = window.supabaseClient;
+            if (!client) return Promise.resolve();
+            if (authorProfilesLoading) return Promise.resolve();
+            authorProfilesLoading = true;
+            return client.from('author_profiles')
+                .select('author_name,avatar_url,signature,honors')
+                .then(function(res) {
+                    if (res.error && /signature|honors/i.test(res.error.message || '')) {
+                        return client.from('author_profiles').select('author_name,avatar_url').then(function(res2) {
+                            return { data: res2.data || [], error: res2.error, hasMeta: false };
+                        });
+                    }
+                    return { data: res.data || [], error: res.error, hasMeta: true };
+                })
+                .then(function(result) {
+                    if (result.error) {
+                        if (!authorProfilesWarned) {
+                            authorProfilesWarned = true;
+                            console.warn('[AKB] 读取作者资料失败：' + result.error.message);
+                        }
+                        return;
+                    }
+                    var avatarMap = {};
+                    var profileMap = {};
+                    result.data.forEach(function(row) {
+                        if (!row || !row.author_name) return;
+                        var canonical = resolveAuthorName(row.author_name);
+                        if (row.avatar_url) avatarMap[canonical] = row.avatar_url;
+                        if (result.hasMeta) {
+                            profileMap[canonical] = {
+                                signature: row.signature || '',
+                                honors: Array.isArray(row.honors) ? row.honors : []
+                            };
+                        }
+                    });
+                    var changed = JSON.stringify(avatarMap) !== JSON.stringify(AUTHOR_AVATARS) ||
+                        JSON.stringify(profileMap) !== JSON.stringify(DB_AUTHOR_PROFILES);
+                    AUTHOR_AVATARS = avatarMap;
+                    DB_AUTHOR_PROFILES = profileMap;
+                    authorProfilesWarned = false;
+                    if (changed) refreshAuthorViews();
+                })
+                .catch(function(err) {
+                    if (!authorProfilesWarned) {
+                        authorProfilesWarned = true;
+                        console.warn('[AKB] 读取作者资料异常：' + (err && err.message ? err.message : err));
+                    }
+                })
+                .then(function() {
+                    authorProfilesLoading = false;
+                });
+        }
+
         // 修补数据到达后，只重绘作者相关视图
         function refreshAuthorViews() {
             if (currentMode !== 'author') return;
@@ -4531,15 +4665,18 @@
             return window.AKB.getUser().then(function(user) {
                 var was = viewerAuthed;
                 var wasAdmin = viewerIsAdmin;
+                var wasName = viewerName;
                 viewerAuthed = !!user;
                 if (!user) {
                     viewerIsAdmin = false;
-                    if (was !== viewerAuthed || wasAdmin !== viewerIsAdmin) rerenderCurrentArticle();
+                    viewerName = '';
+                    if (was !== viewerAuthed || wasAdmin !== viewerIsAdmin || wasName !== viewerName) rerenderCurrentArticle();
                     return null;
                 }
                 return window.AKB.getProfile().then(function(profile) {
                     viewerIsAdmin = !!(profile && profile.role === 'admin');
-                    if (was !== viewerAuthed || wasAdmin !== viewerIsAdmin) rerenderCurrentArticle();
+                    viewerName = profile ? (profile.nickname || '') : '';
+                    if (was !== viewerAuthed || wasAdmin !== viewerIsAdmin || wasName !== viewerName) rerenderCurrentArticle();
                 });
             }).catch(function() {});
         }
@@ -4742,23 +4879,30 @@
             refreshViewerAuth();
             loadColumnLocks();
             loadEditCredits();
+            loadAuthorProfiles();
             syncPublishedColumns();
             var tick = 0;
             setInterval(function() {
                 if (document.visibilityState !== 'visible') return;
                 syncPublishedColumns();
                 tick++;
-                // 密码状态与修补数据变化不会更新 columns.updated_at，每 5 分钟补拉一次
+                // 密码状态与作者头像变化不会更新 columns.updated_at，每 5 分钟补拉一次
                 if (tick % 5 === 0) {
                     loadColumnLocks();
-                    loadEditCredits();
+                    loadAuthorProfiles();
                 }
             }, DB_SYNC_INTERVAL);
+            // 作者页的贡献数字：30 秒轮询，数据变化才重绘
+            setInterval(function() {
+                if (document.visibilityState !== 'visible') return;
+                if (currentMode === 'author') loadEditCredits();
+            }, 30000);
             document.addEventListener('visibilitychange', function() {
                 if (document.visibilityState !== 'visible') return;
                 refreshViewerAuth();
                 loadColumnLocks();
                 loadEditCredits();
+                loadAuthorProfiles();
                 syncPublishedColumns();
             });
         }

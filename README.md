@@ -283,3 +283,6 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - 作者名匹配：`profiles.nickname` 与静态作者显示名不一致时，前端按 `AUTHOR_ALIASES` 临时映射并在控制台 `console.warn`。
 - 验证：`node tools/lint.js --quiet` → error 0 / warning 3；`node build.js` → 292 知识点 / 200 题目 / 192 题目组 / 263 代码文件。
 - 下一步：在 Supabase SQL Editor 执行 phase14，然后刷新作者专栏；执行前页面会提示修补数据未加载，仅显示新建贡献。
+- 新增迁移 [`supabase/phase15-author-avatars.sql`](supabase/phase15-author-avatars.sql)（**待用户在 SQL Editor 执行**）：公开视图 `author_profiles`，作者列表 / 作者主页 / 密码门优先显示头像；头像为空或视图未执行时回退首字母。
+- 作者页修补数据改为 **30 秒自动刷新**；新建计数仍来自静态 `data.js`，需要重新构建并部署后才会更新。点击需要密码的知识点/题目时，密码门会显示「作者：X」。
+- 新增迁移 [`supabase/phase16-author-profile-fields.sql`](supabase/phase16-author-profile-fields.sql)（**待用户在 SQL Editor 执行**）：`profiles.signature` / `profiles.honors`；作者在 `admin.html`「个人设置」编辑签名与战绩（战绩每行一条），作者页展示，作者本人访问自己的专栏时出现「编辑签名 / 战绩」入口。

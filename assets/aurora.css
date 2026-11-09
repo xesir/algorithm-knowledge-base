@@ -1,0 +1,517 @@
+/* ============================================================
+   Aurora theme
+   1) 登录 / 注册 / 工单 / 账号设置页：纯 CSS 渐变 + 玻璃卡
+   2) 知识库内容区：轻量表面修饰，不使用动画与大面积滤镜
+   ============================================================ */
+
+/* ---------- 登录页：深色极光底板 ---------- */
+body.auth-page {
+    --bg: #070a18;
+    --bg-secondary: rgba(255, 255, 255, 0.06);
+    --text: #f5f7ff;
+    --text-secondary: #aab4d4;
+    --border: rgba(255, 255, 255, 0.14);
+    --primary: #a5b4fc;
+    --primary-hover: #c7d2fe;
+    --primary-light: #c4b5fd;
+    --tag-bg: rgba(255, 255, 255, 0.08);
+    --tag-text: #dbe3ff;
+    --hover-bg: rgba(255, 255, 255, 0.09);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    --shadow-lg: 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+    --success: #6ee7b7;
+    --warning: #fcd34d;
+    --danger: #fda4af;
+    min-height: 100vh;
+    color: var(--text);
+    background:
+        radial-gradient(900px 520px at 8% -10%, rgba(99, 102, 241, 0.40), transparent 62%),
+        radial-gradient(760px 520px at 100% 0%, rgba(236, 72, 153, 0.26), transparent 58%),
+        radial-gradient(700px 500px at 50% 118%, rgba(34, 211, 238, 0.20), transparent 60%),
+        #05060c;
+}
+
+/* 一层极轻的星尘，仅作静态装饰，不参与交互 */
+body.auth-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.55) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 72% 16%, rgba(255, 255, 255, 0.42) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 84% 68%, rgba(255, 255, 255, 0.34) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 32% 82%, rgba(255, 255, 255, 0.30) 0 1px, transparent 1.4px);
+    opacity: 0.7;
+}
+
+body.auth-page .auth-shell {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+    grid-template-columns: minmax(0, 1.05fr) 470px;
+    gap: 3.2rem;
+}
+
+/* ---------- 左侧品牌区 ---------- */
+body.auth-page .brand {
+    color: #f5f7ff;
+}
+
+body.auth-page .brand-mark {
+    background: linear-gradient(135deg, #818cf8, #ec4899 60%, #22d3ee);
+    box-shadow: 0 10px 30px -10px rgba(129, 140, 248, 0.8);
+}
+
+body.auth-page .brand-text small {
+    color: rgba(203, 213, 225, 0.72);
+    letter-spacing: 0.14em;
+}
+
+body.auth-page .auth-aside h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(2.2rem, 3.4vw, 3.15rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    color: transparent;
+    background: linear-gradient(105deg, #ffffff 6%, #c7d2fe 42%, #f9a8d4 72%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+body.auth-page .auth-aside > p {
+    max-width: 36em;
+    color: rgba(203, 213, 225, 0.78);
+    font-size: 0.92rem;
+    line-height: 1.85;
+}
+
+body.auth-page .auth-points {
+    gap: 0.75rem;
+    margin: 1.8rem 0 1.6rem;
+}
+
+body.auth-page .auth-points li {
+    padding: 0.72rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 0.9rem;
+    background: rgba(255, 255, 255, 0.045);
+    color: #cbd5e1;
+}
+
+body.auth-page .auth-points .dot {
+    background: linear-gradient(135deg, #818cf8, #f472b6);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(129, 140, 248, 0.35);
+}
+
+/* 左侧四张能力玻璃卡：静态半透明表面，不加滤镜 */
+body.auth-page .auth-glass-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin: 0 0 1.2rem;
+}
+
+body.auth-page .auth-glass-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.22rem;
+    padding: 0.8rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.9rem;
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.025));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+body.auth-page .auth-glass-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-bottom: 0.2rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, rgba(129, 140, 248, 0.30), rgba(236, 72, 153, 0.24));
+    color: #e0e7ff;
+    font-size: 0.78rem;
+}
+
+body.auth-page .auth-glass-card strong {
+    color: #eef2ff;
+    font-size: 0.82rem;
+    letter-spacing: -0.01em;
+}
+
+body.auth-page .auth-glass-card small {
+    color: rgba(170, 180, 212, 0.80);
+    font-size: 0.68rem;
+    line-height: 1.5;
+}
+
+body.auth-page .conn-status {
+    border-color: rgba(255, 255, 255, 0.13);
+    background: rgba(255, 255, 255, 0.05);
+    color: #aab4d4;
+}
+
+body.auth-page .conn-status.is-ok {
+    border-color: rgba(110, 231, 183, 0.32);
+    background: rgba(16, 185, 129, 0.12);
+    color: #a7f3d0;
+}
+
+body.auth-page .conn-status.is-warn {
+    border-color: rgba(252, 211, 77, 0.32);
+    background: rgba(245, 158, 11, 0.12);
+    color: #fde68a;
+}
+
+/* ---------- 右侧玻璃卡 ---------- */
+body.auth-page .auth-card {
+    position: relative;
+    overflow: hidden;
+    padding: 1.55rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 1.35rem;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.04));
+    box-shadow:
+        0 34px 90px -38px rgba(0, 0, 0, 0.95),
+        inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(16px) saturate(145%);
+    -webkit-backdrop-filter: blur(16px) saturate(145%);
+}
+
+body.auth-page .auth-card::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -30%;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.18), transparent 68%);
+}
+
+body.auth-page .auth-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+body.auth-page .auth-title {
+    color: #f8faff;
+    letter-spacing: -0.01em;
+}
+
+body.auth-page .auth-subtitle,
+body.auth-page .form-hint,
+body.auth-page .auth-footer,
+body.auth-page .label-hint {
+    color: rgba(170, 180, 212, 0.82);
+}
+
+body.auth-page .auth-footer {
+    border-top-color: rgba(255, 255, 255, 0.10);
+}
+
+/* ---------- 选项卡 ---------- */
+body.auth-page .tabs {
+    gap: 0.3rem;
+    padding: 0.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.85rem;
+    background: rgba(6, 9, 22, 0.52);
+}
+
+body.auth-page .tab {
+    padding: 0.55rem 0.4rem;
+    border-radius: 0.6rem;
+    color: rgba(203, 213, 225, 0.72);
+}
+
+body.auth-page .tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.auth-page .tab.active {
+    color: #fff;
+    background: linear-gradient(135deg, rgba(129, 140, 248, 0.95), rgba(244, 114, 182, 0.9));
+    box-shadow: 0 10px 28px -14px rgba(129, 140, 248, 0.9);
+}
+
+/* ---------- 表单控件 ---------- */
+body.auth-page .input,
+body.auth-page .select,
+body.auth-page .textarea {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(6, 9, 22, 0.55);
+    color: #f5f7ff;
+}
+
+body.auth-page .input::placeholder,
+body.auth-page .textarea::placeholder {
+    color: rgba(124, 134, 168, 0.9);
+}
+
+body.auth-page .input:focus,
+body.auth-page .select:focus,
+body.auth-page .textarea:focus {
+    border-color: rgba(165, 180, 252, 0.8);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.18);
+}
+
+body.auth-page .select option {
+    background: #0b1026;
+    color: #f5f7ff;
+}
+
+body.auth-page .checkbox-row {
+    color: rgba(203, 213, 225, 0.78);
+}
+
+body.auth-page .text-link {
+    color: #a5b4fc;
+}
+
+body.auth-page .form-error {
+    color: #fda4af;
+}
+
+body.auth-page .form-ok {
+    color: #6ee7b7;
+}
+
+/* ---------- 按钮 ---------- */
+body.auth-page .btn {
+    border-radius: 0.65rem;
+}
+
+body.auth-page .btn-primary {
+    border: 0;
+    color: #fff;
+    background: linear-gradient(135deg, #818cf8, #ec4899);
+    box-shadow: 0 14px 32px -16px rgba(236, 72, 153, 0.9);
+}
+
+body.auth-page .btn-primary:hover {
+    background: linear-gradient(135deg, #93a0ff, #f472b6);
+}
+
+body.auth-page .btn-ghost {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.06);
+    color: #e5e7ff;
+}
+
+body.auth-page .btn-ghost:hover {
+    border-color: rgba(196, 181, 253, 0.6);
+    color: #fff;
+}
+
+body.auth-page .btn-soft {
+    background: rgba(255, 255, 255, 0.08);
+    color: #dbe3ff;
+}
+
+body.auth-page .btn-soft:hover {
+    background: rgba(255, 255, 255, 0.13);
+    color: #fff;
+}
+
+body.auth-page .btn-danger {
+    background: rgba(244, 63, 94, 0.85);
+}
+
+/* ---------- 工单 / 账号设置里的轻量表面 ---------- */
+body.auth-page .account-section {
+    border-color: rgba(255, 255, 255, 0.10);
+    border-radius: 0.9rem;
+    background: rgba(255, 255, 255, 0.045);
+}
+
+body.auth-page .account-section h4 {
+    color: #f1f5ff;
+}
+
+body.auth-page .chip span,
+body.auth-page .tag-chip,
+body.auth-page .effect-badge {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+}
+
+body.auth-page .chip input:checked + span {
+    border-color: rgba(165, 180, 252, 0.8);
+    background: rgba(129, 140, 248, 0.18);
+    color: #e0e7ff;
+}
+
+body.auth-page .file-drop {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.045);
+    color: #aab4d4;
+}
+
+body.auth-page .file-drop:hover {
+    border-color: rgba(165, 180, 252, 0.8);
+    color: #e0e7ff;
+}
+
+body.auth-page .submission-detail pre,
+body.auth-page .diff-view {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(4, 7, 18, 0.7);
+    color: #dbe3ff;
+}
+
+body.auth-page .toast {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(10, 14, 30, 0.92);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+body.auth-page .theme-toggle {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(10, 14, 30, 0.72);
+    color: #e5e7ff;
+}
+
+/* ============================================================
+   知识库内容区：只做表面修饰，不加动画 / 不加滤镜
+   ============================================================ */
+#content {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(1100px 520px at 100% -10%, rgba(99, 102, 241, 0.07), transparent 62%),
+        radial-gradient(900px 500px at -10% 108%, rgba(236, 72, 153, 0.05), transparent 60%);
+}
+
+[data-theme="dark"] #content {
+    background-image:
+        radial-gradient(1100px 520px at 100% -10%, rgba(129, 140, 248, 0.12), transparent 62%),
+        radial-gradient(900px 500px at -10% 108%, rgba(236, 72, 153, 0.08), transparent 60%);
+}
+
+/* 文章标题 + 渐变强调线 */
+.article h1 {
+    letter-spacing: -0.02em;
+}
+
+.article h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin-top: 0.8rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #6366f1, #ec4899 55%, #22d3ee);
+}
+
+/* 元信息条 */
+.meta-bar {
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.07), transparent);
+}
+
+[data-theme="dark"] .meta-bar {
+    background: linear-gradient(180deg, rgba(129, 140, 248, 0.11), transparent);
+}
+
+.badge,
+.tag {
+    border-radius: 999px;
+}
+
+/* 正文章节标题 */
+.markdown-body h2 {
+    position: relative;
+    padding-left: 0.72rem;
+}
+
+.markdown-body h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.18em;
+    bottom: 0.18em;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #6366f1, #ec4899);
+}
+
+/* 引用块 */
+.markdown-body blockquote {
+    border-left: 3px solid #818cf8;
+    border-radius: 0 0.6rem 0.6rem 0;
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.10), transparent 82%);
+}
+
+[data-theme="dark"] .markdown-body blockquote {
+    background: linear-gradient(90deg, rgba(129, 140, 248, 0.14), transparent 82%);
+}
+
+/* 行内代码 / 代码块 */
+.markdown-body code {
+    border-radius: 0.4rem;
+}
+
+.markdown-body pre {
+    border-radius: 0.8rem;
+    box-shadow: 0 20px 44px -34px rgba(15, 23, 42, 0.65);
+}
+
+.code-section {
+    border-radius: 0.8rem;
+    box-shadow: 0 22px 48px -38px rgba(15, 23, 42, 0.7);
+}
+
+/* 表格 */
+.markdown-body th {
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.10), rgba(99, 102, 241, 0.04));
+}
+
+[data-theme="dark"] .markdown-body th {
+    background: linear-gradient(180deg, rgba(129, 140, 248, 0.16), rgba(129, 140, 248, 0.06));
+}
+
+/* 版本 tab / 翻页按钮 */
+.version-tab,
+.nav-btn {
+    border-radius: 999px;
+}
+
+.version-tab.active {
+    border-color: transparent;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    box-shadow: 0 10px 24px -14px rgba(99, 102, 241, 0.8);
+}
+
+.nav-btn:hover {
+    border-color: rgba(129, 140, 248, 0.6);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 900px) {
+    body.auth-page .auth-shell {
+        grid-template-columns: 1fr;
+        max-width: 540px;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 560px) {
+    body.auth-page {
+        padding: 1rem;
+    }
+
+    body.auth-page .auth-card {
+        padding: 1.2rem;
+        border-radius: 1rem;
+    }
+}

@@ -8,10 +8,10 @@
 
 ## 1. 这是什么
 
-- **当前规模**：知识点 **207** 篇 · 题目 **67** 道 · **9** 个大类（基础算法 / 动态规划 / 数据结构 / 图论 / 数学 / 字符串 / 输入输出 / 初赛笔记 / 语法技巧）
-- **形态**：单文件前端 `index.html`（自带 CSS + JS）+ 三个构建产物，**没有框架、没有 npm 依赖、没有后端**
-- **在线**：GitHub Pages —— 仓库 `https://github.com/World-Needs-Sunday/algorithm-knowledge-base.git`（分支 `master`）
-- **本地**：`C:\Users\penti\Desktop\算法 - 副本`
+- **当前规模**：知识点 **292** 篇 · 题目 **200** 道 · **263** 个代码文件 · **7** 个大类（基础算法 / 动态规划 / 数据结构 / 图论 / 数学 / 字符串 / 实用工具）
+- **形态**：单文件前端 `index.html`（自带 CSS + JS）+ 三个构建产物，**没有框架、没有 npm 依赖**；登录 / 工单 / 专栏走 Supabase 后端，其余仍是纯静态托管
+- **在线**：GitHub Pages —— 仓库 `https://github.com/xesir/algorithm-knowledge-base.git`（分支 `master`）
+- **本地**：`c:\Users\admin\Desktop\test\OIgit\algorithm-knowledge-base`
 
 ## 2. 怎么跑起来
 
@@ -289,8 +289,8 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 
 ## 备注（2026-11-09 · 已有专栏投稿 / 头像回退 / 管理员标识）
 
-- 新增迁移 [`supabase/phase17-existing-column-version.sql`](supabase/phase17-existing-column-version.sql)（**待用户在 SQL Editor 执行**）：重建 `publish_submission_ticket()`，投稿工单 payload 带 `version_of` 时不再新建 `sub-*` 专栏，而是生成作者版本 `col-<base>--<作者昵称>`，标题为「原标题 · 作者昵称」，分类 / 题型 / 难度 / 关系继承基础专栏；另加 `(split_part(column_key,'--',1))` 索引。
-- 新增迁移 [`supabase/phase18-author-admin-badge.sql`](supabase/phase18-author-admin-badge.sql)（**待用户在 SQL Editor 执行**）：重建 `author_profiles` 公开视图，增加 `role` 字段，供前端展示管理员标识。
+- 新增迁移 [`supabase/phase17-existing-column-version.sql`](supabase/phase17-existing-column-version.sql)（**已应用**，2026-11-09 用户确认）：重建 `publish_submission_ticket()`，投稿工单 payload 带 `version_of` 时不再新建 `sub-*` 专栏，而是生成作者版本 `col-<base>--<作者昵称>`，标题为「原标题 · 作者昵称」，分类 / 题型 / 难度 / 关系继承基础专栏；另加 `(split_part(column_key,'--',1))` 索引。
+- 新增迁移 [`supabase/phase18-author-admin-badge.sql`](supabase/phase18-author-admin-badge.sql)（**已应用**，2026-11-09 用户确认）：重建 `author_profiles` 公开视图，增加 `role` 字段，供前端展示管理员标识。
 - `login.html` 投稿新增「投稿方式」：
   - 新建专栏：沿用原表单（栏目名 / 大类 / 关系 / 题目字段）；
   - 投稿已有专栏：下拉选择基础专栏（按分类分组，共 485 个），提交 `version_of` 工单，由审批触发器生成新作者版本；
@@ -300,3 +300,30 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
   - 数据库返回的作者版本（`col-<base>--<作者昵称>`）会追加到对应知识点的 `versions[]`，无需重新构建即可看到；
   - 作者头像有图片时背景透明，仅无头像时使用首字母 + 纯色（`#6366f1`）填充；
   - `profiles.role = 'admin'` 的账号在作者列表、作者主页、密码门显示「管理员」徽章。
+
+## 备注（2026-11-11 · 修改工单关系 / 星图难度配色）
+
+- 新增迁移 [`supabase/phase19-edit-relations.sql`](supabase/phase19-edit-relations.sql)（**待用户在 SQL Editor 执行**）：
+  - `published_columns` 增加 `relations` / `relations_override`，前端可把数据库关系同步到星图（包括人工清空）；
+  - `submit_column_edit` 增加 `p_relations`（`null` 不改、`[]` 清空），payload 记录 `relations` / `old_relations` 与旧字段；
+  - 审批通过后写回 `columns.relations` / `relation_type` / `relation_target` / `parent_key` / `relations_override`。
+- `login.html` 修改工单：
+  - 可编辑题目难度（兼容早期没有 `kind` 字段的题目专栏）；
+  - 新增关系编辑（关联 / 前后置 / 父子），可增删；
+  - 新增「🌌 预览星图」，按当前表单关系渲染预览，题目节点按难度着色；
+  - phase19 未执行时自动回退为旧 RPC，并提示关系字段待生效。
+- `admin.html` 审核修改工单时同样可编辑关系，详情显示「关系：旧值 → 新值」。
+- `index.html`：
+  - 星图题目节点按难度颜色显示，图例改为对应难度色块；
+  - 题目专辑统计卡改为按洛谷档位逐档计数（含颜色圆点）；
+  - 数据库 `relations` 写回静态图（sequence→前置、related→关联、parent-child→父栏目；题目→知识点）。
+
+## 备注（2026-11-09 · 文档事实修正）
+
+- 按用户 2026-11-09 授权，只修正事实性偏差，不改动三条铁律、数据流与章节规范。
+- 顶部「当前规模」由 `207 篇 / 67 道 / 9 个大类（含输入输出、初赛笔记、语法技巧）` 修正为 `292 篇 / 200 道 / 263 个代码文件 / 7 个大类（含实用工具）`；本地路径改为 `c:\Users\admin\Desktop\test\OIgit\algorithm-knowledge-base`。
+- `PROJECT_FRAMEWORK.md` 的 `category` 说明由「8 个之一」修正为「7 个之一」并补「实用工具」；项目根路径同步更新。
+- `AGENTS.md` 只改项目根路径，三条铁律未动。
+- `docs/四个技能-调用提示词.md` 的示例目录改为 `临时文件\<算法名>`。
+- `SUPABASE_GUIDE.md` 的 node 路径统一为 2026-11-08 实测的 v22.14.0 路径；phase14–18 迁移记录更新为「已应用（2026-11-09 用户确认）」。
+- 本轮完整纪要见 [`docs/会话纪要-2026-11-09.md`](docs/会话纪要-2026-11-09.md)。

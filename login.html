@@ -16,6 +16,37 @@
     </script>
     <link rel="stylesheet" href="assets/forms.css?v=20261106b">
     <link rel="stylesheet" href="assets/aurora.css?v=20261109c">
+    <style>
+        .star-preview-body {
+            background: #0b1220;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+        }
+        .star-preview-body svg { width: 100%; height: auto; display: block; }
+        .star-preview-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1rem;
+            margin-top: 0.6rem;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+        .star-preview-legend i {
+            display: inline-block;
+            width: 0.65rem;
+            height: 0.65rem;
+            border-radius: 50%;
+            margin-right: 0.25rem;
+            vertical-align: middle;
+        }
+        .star-preview-note {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin: 0 0 0.6rem;
+        }
+        .star-preview .viz-label { fill: #e2e8f0; font-size: 12px; }
+        .star-preview .viz-label.center { font-size: 15px; font-weight: 700; }
+    </style>
 </head>
 <body class="auth-page">
     <div class="auth-shell">
@@ -345,6 +376,15 @@
                             </div>
                         </div>
                         <div class="form-field">
+                            <label>关系 <span class="label-hint">可修改；全部移除表示清空</span></label>
+                            <div id="ticket-edit-relations"></div>
+                            <div class="form-inline">
+                                <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-add-relation">＋ 添加关系</button>
+                                <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-preview-star">🌌 预览星图</button>
+                            </div>
+                            <p class="form-hint">关联 / 前后置 / 父子关系；审批通过后会同步到站点星图。</p>
+                        </div>
+                        <div class="form-field">
                             <label>标签 <span class="label-hint">可修改；全部移除表示清空</span></label>
                             <div class="tag-editor">
                                 <div class="tag-editor-chips" id="ticket-edit-tag-chips"></div>
@@ -356,7 +396,7 @@
                             </div>
                             <datalist id="ticket-edit-tag-list"></datalist>
                         </div>
-                        <p class="form-hint">提交后生成「修改」工单，管理员通过后才会写回专栏（正文与标签/分类/难度）。</p>
+                        <p class="form-hint">提交后生成「修改」工单，管理员通过后才会写回专栏（正文与标签 / 分类 / 难度 / 关系）。</p>
                     </div>
 
                     <p class="form-error" id="ticket-error" hidden></p>
@@ -468,6 +508,19 @@
         </main>
     </div>
 
+    <div class="modal" id="edit-star-modal" hidden>
+        <div class="modal-backdrop" data-close-edit-star></div>
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3 id="edit-star-title">星图预览</h3>
+                <button class="modal-close" type="button" data-close-edit-star aria-label="关闭">✕</button>
+            </div>
+            <p class="star-preview-note">预览基于本次修改的关系；审批通过后才会同步到站点星图。</p>
+            <div class="star-preview-body star-preview" id="edit-star-body"></div>
+            <div class="star-preview-legend" id="edit-star-legend"></div>
+        </div>
+    </div>
+
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换主题">🌙</button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -492,6 +545,10 @@
             var editVerifiedPassword = '';
             var editUploadedText = null;
             var editFromUpload = false;
+            var currentEditColumn = null;
+            var relationsFallback = false;
+            var staticGraphPromise = null;
+            var problemsDataPromise = null;
 
             function showToast(text) {
                 toast.textContent = text;
@@ -831,7 +888,7 @@
                 select.value = current || '';
             }
             function refreshRelationTargets() {
-                document.querySelectorAll('#ticket-relations .relation-target').forEach(function (select) {
+                document.querySelectorAll('#ticket-relations .relation-target, #ticket-edit-relations .relation-target').forEach(function(select) {
                     fillRelationTargetSelect(select, select.value);
                 });
             }
@@ -878,6 +935,65 @@
                 var text = String(key || '');
                 var idx = text.indexOf('--');
                 return idx >= 0 ? text.slice(0, idx) : text;
+            }
+
+            // 兼容早期没有 kind 字段的题目专栏
+            function columnIsProblem(column) {
+                if (!column) return false;
+                if (column.kind === 'problem') return true;
+                var key = columnBaseKey(column.column_key || '');
+                if (key.indexOf('col-') === 0) key = key.slice(4);
+                return key.indexOf('prob-') === 0;
+            }
+
+            // 静态关系：知识点取 knowledge_graph.json，题目按需加载 problems_data.js
+            function loadStaticGraph() {
+                if (!staticGraphPromise) {
+                    staticGraphPromise = fetch('knowledge_graph.json')
+                        .then(function (response) { return response.ok ? response.json() : null; })
+                        .catch(function () { return null; });
+                }
+                return staticGraphPromise;
+            }
+            function loadProblemsData() {
+                if (typeof PROBLEMS_DATA !== 'undefined') return Promise.resolve(PROBLEMS_DATA);
+                if (!problemsDataPromise) {
+                    problemsDataPromise = new Promise(function (resolve) {
+                        var script = document.createElement('script');
+                        script.src = 'problems_data.js';
+                        script.onload = function () {
+                            resolve(typeof PROBLEMS_DATA !== 'undefined' ? PROBLEMS_DATA : []);
+                        };
+                        script.onerror = function () { resolve([]); };
+                        document.head.appendChild(script);
+                    });
+                }
+                return problemsDataPromise;
+            }
+            async function staticRelationsFor(column, key) {
+                var base = columnBaseKey(key);
+                if (base.indexOf('col-') === 0) base = base.slice(4);
+                var out = [];
+                if (columnIsProblem(column)) {
+                    var problems = await loadProblemsData();
+                    var problem = (problems || []).find(function (item) { return item.id === base; });
+                    (problem && Array.isArray(problem.knowledgePoints) ? problem.knowledgePoints : [])
+                        .forEach(function (id) {
+                            out.push({ type: 'sequence', target: 'col-' + id });
+                        });
+                    return out;
+                }
+                var graph = await loadStaticGraph();
+                var entry = graph && graph.knowledgePoints ? graph.knowledgePoints[base] : null;
+                if (!entry) return out;
+                (entry.prerequisites || []).forEach(function (id) {
+                    out.push({ type: 'sequence', target: 'col-' + id });
+                });
+                (entry.related || []).forEach(function (id) {
+                    out.push({ type: 'related', target: 'col-' + id });
+                });
+                if (entry.parent) out.push({ type: 'parent-child', target: 'col-' + entry.parent });
+                return out;
             }
 
             function buildExistingColumnMap() {
@@ -1012,6 +1128,8 @@
                 editVerifiedPassword = '';
                 editUploadedText = null;
                 editFromUpload = false;
+                currentEditColumn = null;
+                document.getElementById('ticket-edit-relations').innerHTML = '';
                 var content = document.getElementById('ticket-edit-content');
                 content.value = '';
                 content.disabled = true;
@@ -1062,10 +1180,18 @@
             }
             async function showEditSource(key, password) {
                 var statusEl = document.getElementById('ticket-edit-status');
+                var editSelect = 'column_key, column_name, content, tags, category, kind, difficulty, relations, relations_override, parent_key, relation_type, relation_target';
                 var result = await client.from('columns')
-                    .select('column_key, column_name, content, tags, category, kind, difficulty')
+                    .select(editSelect)
                     .eq('column_key', key)
                     .single();
+                // phase19 未执行时回退：不带 relations_override
+                if (result.error && /relations_override/i.test(result.error.message || '')) {
+                    result = await client.from('columns')
+                        .select(editSelect.replace(', relations_override', ''))
+                        .eq('column_key', key)
+                        .single();
+                }
                 if (result.error) {
                     resetEditVerification(false);
                     statusEl.textContent = '读取专栏失败：' + result.error.message;
@@ -1094,12 +1220,28 @@
                 editTags = Array.isArray(column.tags) ? column.tags.slice() : [];
                 renderEditTags();
                 document.getElementById('ticket-edit-category-edit').value = column.category || '';
-                var isProblem = column.kind === 'problem';
+                var isProblem = columnIsProblem(column);
                 document.getElementById('ticket-edit-difficulty-field').hidden = !isProblem;
                 if (isProblem) {
                     document.getElementById('ticket-edit-difficulty-edit').value =
                         column.difficulty || '暂未评定';
                 }
+                currentEditColumn = column;
+                var relations = Array.isArray(column.relations)
+                    ? column.relations.filter(function (item) { return item && item.target; })
+                    : [];
+                if (!relations.length && column.relation_target) {
+                    relations = [{
+                        type: column.relation_type || 'related',
+                        target: column.relation_target
+                    }];
+                } else if (!relations.length && column.parent_key) {
+                    relations = [{ type: 'parent-child', target: column.parent_key }];
+                }
+                if (!relations.length && column.relations_override !== true) {
+                    relations = await staticRelationsFor(column, key);
+                }
+                renderEditRelations(relations);
                 return column;
             }
             async function loadEditSource() {
@@ -1376,7 +1518,8 @@
             });
 
             // ===== 多条关系 =====
-            function addRelationRow(type, target) {
+            function addRelationRow(type, target, containerId) {
+                var boxId = containerId || 'ticket-relations';
                 var row = document.createElement('div');
                 row.className = 'relation-row';
                 row.innerHTML =
@@ -1389,10 +1532,18 @@
                     '<button class="btn btn-ghost btn-sm relation-remove" type="button">删除</button>';
                 row.querySelector('.relation-type').value = type || 'related';
                 fillRelationTargetSelect(row.querySelector('.relation-target'), target || '');
-                document.getElementById('ticket-relations').appendChild(row);
+                document.getElementById(boxId).appendChild(row);
             }
-            function collectRelations() {
-                return Array.prototype.slice.call(document.querySelectorAll('#ticket-relations .relation-row'))
+            function renderEditRelations(relations) {
+                var box = document.getElementById('ticket-edit-relations');
+                box.innerHTML = '';
+                (relations || []).forEach(function (item) {
+                    addRelationRow(item.type, item.target, 'ticket-edit-relations');
+                });
+            }
+            function collectRelations(containerId) {
+                var boxId = containerId || 'ticket-relations';
+                return Array.prototype.slice.call(document.querySelectorAll('#' + boxId + ' .relation-row'))
                     .map(function (row) {
                         return {
                             type: row.querySelector('.relation-type').value,
@@ -1408,6 +1559,205 @@
                 if (!btn) return;
                 btn.closest('.relation-row').remove();
             });
+            document.getElementById('ticket-edit-add-relation').addEventListener('click', function () {
+                addRelationRow('related', '', 'ticket-edit-relations');
+            });
+            document.getElementById('ticket-edit-relations').addEventListener('click', function (event) {
+                var btn = event.target.closest('.relation-remove');
+                if (!btn) return;
+                btn.closest('.relation-row').remove();
+            });
+
+            // ===== 修改工单：星图预览 =====
+            var PREVIEW_DIFF_COLORS = {
+                '入门': '#FE4C61', '普及−': '#F39C11', '普及/提高−': '#FFC116',
+                '普及+/提高−': '#52C41A', '提高': '#13C2C2', '提高+/省选−': '#3498DB',
+                '省选/NOI−': '#9D3DCF', 'NOI/NOI+/CTSC': '#0E1D69'
+            };
+            var PREVIEW_CAT_COLORS = ['#ef4444', '#f59e0b', '#22c55e', '#38bdf8', '#a855f7', '#ec4899', '#14b8a6', '#f97316', '#6366f1', '#84cc16'];
+
+            function previewDiffColor(d) {
+                return PREVIEW_DIFF_COLORS[d] || '#9CA3AF';
+            }
+            function previewCatColor(cat) {
+                var text = String(cat || '');
+                var hash = 0;
+                for (var i = 0; i < text.length; i++) hash = (hash * 31 + text.charCodeAt(i)) >>> 0;
+                return PREVIEW_CAT_COLORS[hash % PREVIEW_CAT_COLORS.length];
+            }
+            function previewColumnId(key) {
+                var text = columnBaseKey(key);
+                return text.indexOf('col-') === 0 ? text.slice(4) : text;
+            }
+            function previewNodeMeta(key) {
+                var base = columnBaseKey(key);
+                var column = null;
+                for (var i = 0; i < allColumns.length; i++) {
+                    if (columnBaseKey(allColumns[i].column_key) === base) { column = allColumns[i]; break; }
+                }
+                var id = previewColumnId(key);
+                var isProblem = column ? columnIsProblem(column) : id.indexOf('prob-') === 0;
+                return {
+                    id: id,
+                    title: (column && column.column_name) || kpTitles[id] || id,
+                    isProblem: isProblem,
+                    difficulty: (column && column.difficulty) || '暂未评定',
+                    category: (column && column.category) || (isProblem ? '题目' : '知识点')
+                };
+            }
+            function escPreview(text) {
+                var div = document.createElement('div');
+                div.textContent = text == null ? '' : String(text);
+                return div.innerHTML;
+            }
+            function previewShape(isProblem, x, y, r, color) {
+                if (!isProblem) {
+                    return '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="' + color + '"/>';
+                }
+                return '<polygon points="' + x + ',' + (y - r) + ' ' + (x + r) + ',' + (y + r * 0.85) + ' ' +
+                    x + ',' + (y + r * 0.22) + ' ' + (x - r) + ',' + (y + r * 0.85) + '" fill="' + color + '"/>';
+            }
+            function previewEdge(a, b, type) {
+                var dx = b.x - a.x, dy = b.y - a.y;
+                var len = Math.sqrt(dx * dx + dy * dy) || 1;
+                var ux = dx / len, uy = dy / len;
+                var x1 = a.x + ux * a.r, y1 = a.y + uy * a.r;
+                var x2 = b.x - ux * b.r, y2 = b.y - uy * b.r;
+                var color = type === 'parent-child'
+                    ? 'rgba(168,85,247,0.9)'
+                    : (type === 'related' ? 'rgba(148,163,184,0.65)' : 'rgba(96,165,250,0.9)');
+                var dash = type === 'related' ? ' stroke-dasharray="5 5"' : '';
+                var end = type === 'parent-child'
+                    ? ' marker-end="url(#pv-arrow-parent)"'
+                    : (type === 'sequence' ? ' marker-end="url(#pv-arrow)"' : '');
+                var start = type === 'parent-child' ? ' marker-start="url(#pv-arrow-parent)"' : '';
+                return '<line x1="' + x1.toFixed(1) + '" y1="' + y1.toFixed(1) + '" x2="' + x2.toFixed(1) +
+                    '" y2="' + y2.toFixed(1) + '" stroke="' + color + '" stroke-width="1.6"' + dash + start + end + '/>';
+            }
+
+            function closeEditStarPreview() {
+                document.getElementById('edit-star-modal').hidden = true;
+                document.body.classList.remove('modal-open');
+            }
+            document.querySelectorAll('[data-close-edit-star]').forEach(function (el) {
+                el.addEventListener('click', closeEditStarPreview);
+            });
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && !document.getElementById('edit-star-modal').hidden) {
+                    closeEditStarPreview();
+                }
+            });
+
+            function openEditStarPreview() {
+                setError('ticket-error', '');
+                if (!editVerifiedKey || !currentEditColumn) {
+                    setError('ticket-error', '请先验证专栏密码并载入源码，再预览星图');
+                    return;
+                }
+                var centerIsProblem = columnIsProblem(currentEditColumn);
+                var center = {
+                    id: previewColumnId(editVerifiedKey),
+                    title: document.getElementById('ticket-edit-name').value.trim() ||
+                        currentEditColumn.column_name || editVerifiedKey,
+                    isProblem: centerIsProblem,
+                    difficulty: centerIsProblem
+                        ? (document.getElementById('ticket-edit-difficulty-edit').value || '暂未评定')
+                        : '',
+                    category: document.getElementById('ticket-edit-category-edit').value ||
+                        currentEditColumn.category || '未分类'
+                };
+                var relations = collectRelations('ticket-edit-relations').filter(function (item) {
+                    return item.target;
+                });
+                var targets = relations.map(function (item) {
+                    return { type: item.type, node: previewNodeMeta(item.target) };
+                });
+
+                var W = 960, H = 560, cx = 300, cy = 280;
+                var colX = targets.length > 9 ? [600, 830] : [710];
+                var perCol = Math.max(1, Math.ceil(targets.length / colX.length));
+                targets.forEach(function (item, index) {
+                    var col = Math.min(colX.length - 1, Math.floor(index / perCol));
+                    var rowsInCol = Math.min(perCol, targets.length - col * perCol);
+                    var row = index - col * perCol;
+                    item.x = colX[col];
+                    item.y = rowsInCol === 1 ? cy : 70 + (H - 140) * row / (rowsInCol - 1);
+                    item.r = 13;
+                });
+
+                var centerNode = {
+                    x: cx, y: cy,
+                    r: centerIsProblem ? 22 : 26,
+                    color: centerIsProblem ? previewDiffColor(center.difficulty) : previewCatColor(center.category)
+                };
+                var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet">';
+                svg += '<defs>' +
+                    '<marker id="pv-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">' +
+                    '<path d="M0,0 L10,5 L0,10 z" fill="rgba(96,165,250,0.9)"/></marker>' +
+                    '<marker id="pv-arrow-parent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">' +
+                    '<path d="M0,0 L10,5 L0,10 z" fill="rgba(168,85,247,0.9)"/></marker></defs>';
+
+                targets.forEach(function (item) {
+                    svg += previewEdge(
+                        { x: item.x, y: item.y, r: item.r },
+                        centerNode,
+                        item.type
+                    );
+                });
+
+                svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (centerNode.r + 9) +
+                    '" fill="' + centerNode.color + '" fill-opacity="0.18"/>';
+                svg += previewShape(centerIsProblem, cx, cy, centerNode.r, centerNode.color);
+
+                targets.forEach(function (item) {
+                    var color = item.node.isProblem
+                        ? previewDiffColor(item.node.difficulty)
+                        : previewCatColor(item.node.category);
+                    svg += previewShape(item.node.isProblem, item.x, item.y, item.r, color);
+                    var label = item.node.title;
+                    if (label.length > 18) label = label.slice(0, 18) + '…';
+                    svg += '<text class="viz-label" x="' + (item.x + 20) + '" y="' + (item.y + 4) +
+                        '" text-anchor="start">' + escPreview(label) + '</text>';
+                });
+
+                var centerLabel = center.title;
+                if (centerLabel.length > 24) centerLabel = centerLabel.slice(0, 24) + '…';
+                svg += '<rect x="' + (cx - Math.min(220, centerLabel.length * 9)) + '" y="' + (cy + 40) +
+                    '" width="' + (Math.min(440, centerLabel.length * 18)) + '" height="30" rx="8" fill="rgba(7,11,24,0.92)"/>';
+                svg += '<text class="viz-label center" x="' + cx + '" y="' + (cy + 61) +
+                    '" text-anchor="middle">' + escPreview(centerLabel) + '</text>';
+                if (!targets.length) {
+                    svg += '<text class="viz-label" x="' + cx + '" y="' + (cy + 100) +
+                        '" text-anchor="middle">暂无关系；可在左侧添加关联目标</text>';
+                }
+                svg += '</svg>';
+
+                var legend = '<span><i style="background:rgba(96,165,250,0.9)"></i>前置 → 当前</span>' +
+                    '<span><i style="background:rgba(148,163,184,0.65)"></i>关联（无向）</span>' +
+                    '<span><i style="background:rgba(168,85,247,0.9)"></i>父子（双向）</span>';
+                var usedDiffs = [];
+                var usedCats = [];
+                [center].concat(targets.map(function (item) { return item.node; })).forEach(function (node) {
+                    if (node.isProblem) {
+                        if (usedDiffs.indexOf(node.difficulty) < 0) usedDiffs.push(node.difficulty);
+                    } else if (usedCats.indexOf(node.category) < 0) {
+                        usedCats.push(node.category);
+                    }
+                });
+                usedCats.forEach(function (cat) {
+                    legend += '<span><i style="background:' + previewCatColor(cat) + '"></i>' + escPreview(cat) + '</span>';
+                });
+                usedDiffs.forEach(function (diff) {
+                    legend += '<span><i style="background:' + previewDiffColor(diff) + '"></i>题目 · ' + escPreview(diff) + '</span>';
+                });
+
+                document.getElementById('edit-star-title').textContent = '星图预览 · ' + center.title;
+                document.getElementById('edit-star-body').innerHTML = svg;
+                document.getElementById('edit-star-legend').innerHTML = legend;
+                document.getElementById('edit-star-modal').hidden = false;
+                document.body.classList.add('modal-open');
+            }
+            document.getElementById('ticket-edit-preview-star').addEventListener('click', openEditStarPreview);
 
             // ===== 内容来源：网页输入 / 上传文本文件 =====
             function currentSubmissionSource() {
@@ -1448,6 +1798,7 @@
             document.getElementById('ticket-form').addEventListener('submit', async function (event) {
                 event.preventDefault();
                 setError('ticket-error', '');
+                relationsFallback = false;
                 if (!needClient()) return;
                 var type = document.getElementById('ticket-type').value;
                 var user = await window.AKB.getUser();
@@ -1594,7 +1945,10 @@
                     var editDifficulty = document.getElementById('ticket-edit-difficulty-field').hidden
                         ? null
                         : (document.getElementById('ticket-edit-difficulty-edit').value || null);
-                    result = await client.rpc('submit_column_edit', {
+                    var editRelations = collectRelations('ticket-edit-relations').filter(function (item) {
+                        return item.target;
+                    });
+                    var editParams = {
                         p_key: editKey,
                         p_password: editPassword,
                         p_content: editContent,
@@ -1603,8 +1957,16 @@
                         p_tags: editTags.slice(),
                         p_category: editCategory,
                         p_difficulty: editDifficulty,
-                        p_column_name: editTitle
-                    });
+                        p_column_name: editTitle,
+                        p_relations: editRelations
+                    };
+                    result = await client.rpc('submit_column_edit', editParams);
+                    // phase19 未执行时回退：旧函数不认识 p_relations
+                    if (result.error && /p_relations|schema cache|does not exist|Could not find/i.test(result.error.message || '')) {
+                        delete editParams.p_relations;
+                        result = await client.rpc('submit_column_edit', editParams);
+                        if (!result.error) relationsFallback = true;
+                    }
                 }
 
                 if (result.error) {
@@ -1622,9 +1984,11 @@
                 syncTicketType();
                 syncSubmissionMode();
                 await prepareTicketForm();
-                showToast(type === 'submission'
-                    ? '投稿已提交，等待管理员审批'
-                    : (type === 'edit' ? '修改工单已提交，等待管理员审批' : '建议已提交，等待管理员查看'));
+                showToast(relationsFallback
+                    ? '修改已提交；关系字段需先在 Supabase 执行 phase19 才会生效'
+                    : (type === 'submission'
+                        ? '投稿已提交，等待管理员审批'
+                        : (type === 'edit' ? '修改工单已提交，等待管理员审批' : '建议已提交，等待管理员查看')));
             });
 
             // ===== 账号设置 =====

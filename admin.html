@@ -497,6 +497,11 @@
                         </div>
                     </div>
                     <div class="form-field">
+                        <label>关系 <span class="label-hint">可修改；全部移除表示清空</span></label>
+                        <div id="ticket-edit-edit-relations"></div>
+                        <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-edit-add-relation">＋ 添加关系</button>
+                    </div>
+                    <div class="form-field">
                         <label for="ticket-edit-edit-tags">标签 <span class="label-hint">逗号分隔</span></label>
                         <input class="input" type="text" id="ticket-edit-edit-tags">
                     </div>
@@ -1088,6 +1093,19 @@
                     (meta.length ? '<div class="cell-sub">' + esc(meta.join(' · ')) + '</div>' : '') +
                     '<pre>' + esc(content) + '</pre></details>';
             }
+            function relationTypeLabel(type) {
+                if (type === 'sequence') return '前后置';
+                if (type === 'parent-child') return '父子';
+                return '关联';
+            }
+            function relationSummary(relations) {
+                return (Array.isArray(relations) ? relations : [])
+                    .filter(function (item) { return item && item.target; })
+                    .map(function (item) {
+                        return relationTypeLabel(item.type) + ' ' + displayNameForColumn(item.target);
+                    })
+                    .join('；');
+            }
             function editDetail(ticket) {
                 if (ticket.type !== 'edit' || !ticket.payload) return '';
                 var p = ticket.payload || {};
@@ -1109,6 +1127,13 @@
                 }
                 if (p.old_difficulty !== undefined && (p.difficulty || '') !== (p.old_difficulty || '')) {
                     meta.push('难度：' + (p.old_difficulty || '未设置') + ' → ' + (p.difficulty || '未设置'));
+                }
+                if (p.old_relations !== undefined || p.relations !== undefined) {
+                    var oldRelationText = relationSummary(p.old_relations);
+                    var newRelationText = relationSummary(p.relations);
+                    if (oldRelationText !== newRelationText) {
+                        meta.push('关系：' + (oldRelationText || '（空）') + ' → ' + (newRelationText || '（空）'));
+                    }
                 }
                 var diff = renderDiff(p.old_content || '', p.content || '');
                 var uploaded = p.uploaded === true;
@@ -1382,6 +1407,16 @@
                     ? p.relations
                     : (p.relation_type ? [{ type: p.relation_type, target: p.relation_target || '' }] : []);
             }
+            // 早期专栏可能没有 kind，用 column_key 兜底判断题目
+            function ticketColumnIsProblem(payload) {
+                var p = payload || {};
+                if (p.kind === 'problem') return true;
+                var key = String(p.column_key || '');
+                if (key.indexOf('col-') === 0) key = key.slice(4);
+                var dash = key.indexOf('--');
+                if (dash >= 0) key = key.slice(0, dash);
+                return key.indexOf('prob-') === 0;
+            }
             async function ensureAuthorProfiles() {
                 if (authorProfiles.length || !client) return;
                 var result = await client.from('profiles')
@@ -1477,7 +1512,8 @@
                     document.getElementById('ticket-edit-edit-difficulty').value =
                         p.difficulty || '暂未评定';
                     document.getElementById('ticket-edit-edit-difficulty-field').hidden =
-                        p.kind !== 'problem';
+                        !ticketColumnIsProblem(p);
+                    renderAdminRelations('ticket-edit-edit-relations', ticketRelations(p));
                 }
                 setTicketEditError('');
                 document.getElementById('ticket-edit-modal').hidden = false;
@@ -1499,6 +1535,14 @@
                 addAdminRelationRow('ticket-edit-relations', 'related', '');
             });
             document.getElementById('ticket-edit-relations').addEventListener('click', function (event) {
+                var btn = event.target.closest('.relation-remove');
+                if (!btn) return;
+                btn.closest('.relation-row').remove();
+            });
+            document.getElementById('ticket-edit-edit-add-relation').addEventListener('click', function () {
+                addAdminRelationRow('ticket-edit-edit-relations', 'related', '');
+            });
+            document.getElementById('ticket-edit-edit-relations').addEventListener('click', function (event) {
                 var btn = event.target.closest('.relation-remove');
                 if (!btn) return;
                 btn.closest('.relation-row').remove();
@@ -1603,6 +1647,18 @@
                     payload.difficulty = document.getElementById('ticket-edit-edit-difficulty-field').hidden
                         ? null
                         : (document.getElementById('ticket-edit-edit-difficulty').value || null);
+                    var editRelations = collectAdminRelations('ticket-edit-edit-relations');
+                    if (editRelations.some(function (item) { return !item.target; })) {
+                        setTicketEditError('每条关系都需要选择关联目标');
+                        return;
+                    }
+                    var firstEditRelation = editRelations[0] || null;
+                    payload.relations = editRelations;
+                    payload.relation_type = firstEditRelation ? firstEditRelation.type : null;
+                    payload.relation_target = firstEditRelation ? firstEditRelation.target : null;
+                    payload.parent_key = firstEditRelation && firstEditRelation.type === 'parent-child'
+                        ? firstEditRelation.target
+                        : null;
                 }
                 var result = await client.from('tickets').update({
                     title: title,

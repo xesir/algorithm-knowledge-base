@@ -1023,6 +1023,14 @@
             font-size: 0.72rem;
             color: var(--text-secondary);
         }
+        .catalog-stat-dot {
+            display: inline-block;
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            margin-right: 0.3rem;
+            vertical-align: middle;
+        }
         .catalog-legend {
             display: flex;
             flex-wrap: wrap;
@@ -3613,11 +3621,12 @@
             var cats = Object.keys(tree).sort();
             var totalProb = PROBLEMS_DATA.length;
 
-            // Difficulty stats
-            var easyCount = PROBLEMS_DATA.filter(function(p) { return diffMeta(p.difficulty).group === 'easy'; }).length;
-            var medCount = PROBLEMS_DATA.filter(function(p) { return diffMeta(p.difficulty).group === 'medium'; }).length;
-            var hardCount = PROBLEMS_DATA.filter(function(p) { return diffMeta(p.difficulty).group === 'hard'; }).length;
-            var otherCount = PROBLEMS_DATA.filter(function(p) { return diffMeta(p.difficulty).group === 'unknown'; }).length;
+            // Difficulty stats：按洛谷档位逐档计数
+            var diffCounts = {};
+            PROBLEMS_DATA.forEach(function(p) {
+                var d = p.difficulty || '暂未评定';
+                diffCounts[d] = (diffCounts[d] || 0) + 1;
+            });
 
             var html = '<div class="catalog-page">';
             document.title = '题目专辑 · 算法知识点查询系统';
@@ -3642,10 +3651,13 @@
             html += '<div class="catalog-stats">';
             html += '<div class="catalog-stat"><div class="catalog-stat-num">' + totalProb + '</div><div class="catalog-stat-label">题目总数</div></div>';
             html += '<div class="catalog-stat"><div class="catalog-stat-num">' + cats.length + '</div><div class="catalog-stat-label">分类</div></div>';
-            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#166534;">' + easyCount + '</div><div class="catalog-stat-label">🟢 入门~普及−</div></div>';
-            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#854d0e;">' + medCount + '</div><div class="catalog-stat-label">🟡 普及/提高− ~ 普及+/提高−</div></div>';
-            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#991b1b;">' + hardCount + '</div><div class="catalog-stat-label">🔴 提高及以上</div></div>';
-            html += '<div class="catalog-stat"><div class="catalog-stat-num" style="color:#6b7280;">' + otherCount + '</div><div class="catalog-stat-label">⚪ 暂未评定</div></div>';
+            DIFF_LEVELS.forEach(function(d) {
+                var count = diffCounts[d] || 0;
+                if (!count && d !== '暂未评定') return;
+                html += '<div class="catalog-stat"><div class="catalog-stat-num">' + count + '</div>' +
+                    '<div class="catalog-stat-label"><span class="catalog-stat-dot" style="background:' + diffColor(d) + '"></span>' +
+                    escHtml(d) + '</div></div>';
+            });
             html += '</div>';
 
             // Category sections
@@ -3751,6 +3763,7 @@
         }
 
         // 洛谷评级 → 图标 / 徽章样式（配色与洛谷一致）/ 统计分组
+        var DIFF_LEVELS = ['入门', '普及−', '普及/提高−', '普及+/提高−', '提高', '提高+/省选−', '省选/NOI−', 'NOI/NOI+/CTSC', '暂未评定'];
         function diffMeta(d) {
             switch (d) {
                 case '入门': return { icon: '🟥', cls: 'badge-difficulty-0', group: 'easy' };
@@ -4033,7 +4046,8 @@
             });
 
             function drawNode(item, isProb, x, y, r, isCenter) {
-                var st = isProb ? { color: '#94a3b8', shape: 'dart' } : catStyle(item.category);
+                // 题目节点按难度着色，知识点节点按分类着色
+                var st = isProb ? { color: diffColor(item.difficulty), shape: 'dart' } : catStyle(item.category);
                 if (isProb) {
                     VIZ_INFO[item.id] = '<b>' + escHtml(item.title) + '</b><br>' +
                         '<span class="t-muted">题目 · ' + escHtml(item.category || '未分类') + ' · ' + escHtml(item.difficulty || '暂未评定') + '</span><br>' +
@@ -4082,15 +4096,24 @@
 
             document.getElementById('star-title').textContent = '星图 · ' + centerNode.title;
             var legend = '';
-            var used = [];
-            [centerNode].concat(pre.map(nodeOf), dep.map(nodeOf), rel.map(nodeOf)).forEach(function(k) {
+            var usedCats = [];
+            var usedDiffs = [];
+            [centerNode].concat(pre.map(nodeOf), dep.map(nodeOf), rel.map(nodeOf), par.map(nodeOf), chd.map(nodeOf)).forEach(function(k) {
                 if (!k) return;
-                var cat = probById[k.id] ? '题目' : k.category;
-                if (used.indexOf(cat) < 0) used.push(cat);
+                if (probById[k.id]) {
+                    var diff = k.difficulty || '暂未评定';
+                    if (usedDiffs.indexOf(diff) < 0) usedDiffs.push(diff);
+                    return;
+                }
+                if (usedCats.indexOf(k.category) < 0) usedCats.push(k.category);
             });
-            used.forEach(function(c) {
-                if (c === '题目') legend += '<span><i style="background:#94a3b8"></i>题目（灰色飞镖）</span>';
-                else legend += '<span><i style="background:' + catStyle(c).color + '"></i>' + escHtml(c) + '</span>';
+            usedCats.forEach(function(c) {
+                legend += '<span><i style="background:' + catStyle(c).color + '"></i>' + escHtml(c) + '</span>';
+            });
+            usedDiffs.sort(function(a, b) {
+                return DIFF_LEVELS.indexOf(a) - DIFF_LEVELS.indexOf(b);
+            }).forEach(function(d) {
+                legend += '<span><i style="background:' + diffColor(d) + '"></i>题目 · ' + escHtml(d) + '</span>';
             });
             legend += '<span><i style="background:rgba(96,165,250,0.9)"></i>前置→高阶</span>';
             legend += '<span><i style="background:rgba(148,163,184,0.6)"></i>关联（无向）</span>';
@@ -4164,7 +4187,7 @@
                 lg += '<span><i style="background:' + catStyle(c).color + '"></i>' + escHtml(c) + '</span>';
             });
             lg += '<span style="color:#94a3b8">点色＝难度：</span>';
-            ['入门', '普及−', '普及/提高−', '普及+/提高−', '提高', '提高+/省选−', '省选/NOI−', '暂未评定'].forEach(function(d) {
+            DIFF_LEVELS.forEach(function(d) {
                 lg += '<span><i style="background:' + diffColor(d) + '"></i>' + escHtml(d) + '</span>';
             });
             document.getElementById('venn-legend').innerHTML = lg;
@@ -4716,6 +4739,49 @@
             }).catch(function() {});
         }
 
+        // 关系目标（col-xxx / col-xxx--作者）→ 静态条目 id
+        function relationBaseId(target) {
+            var text = String(target || '');
+            if (text.indexOf('col-') === 0) text = text.slice(4);
+            var idx = text.indexOf('--');
+            return idx >= 0 ? text.slice(0, idx) : text;
+        }
+
+        // 数据库关系写回静态图：sequence→前置，related→关联，parent-child→父栏目；题目→知识点
+        // override=true 时即使 relations 为空也清空静态关系（人工清空）
+        function applyDbRelations(item, relations, isProblem, override) {
+            if (!item) return false;
+            var list = Array.isArray(relations) ? relations : [];
+            if (!list.length && override !== true) return false;
+            var pre = [];
+            var rel = [];
+            var parent = '';
+            list.forEach(function(entry) {
+                if (!entry || !entry.target) return;
+                var id = relationBaseId(entry.target);
+                if (!id || id === item.id) return;
+                if (isProblem) {
+                    if (pre.indexOf(id) < 0) pre.push(id);
+                    return;
+                }
+                if (entry.type === 'sequence') {
+                    if (pre.indexOf(id) < 0) pre.push(id);
+                } else if (entry.type === 'parent-child') {
+                    if (!parent) parent = id;
+                } else if (rel.indexOf(id) < 0) {
+                    rel.push(id);
+                }
+            });
+            if (isProblem) {
+                item.knowledgePoints = pre;
+            } else {
+                item.prerequisites = pre;
+                item.related = rel;
+                item.parent = parent;
+            }
+            return true;
+        }
+
         // col-<base> / col-<base>--<作者key> → 静态条目与版本下标
         function findDbColumnTarget(key) {
             if (key.indexOf('col-') !== 0) return null;
@@ -4804,6 +4870,7 @@
                 item.problemId = '';
                 item.knowledgePoints = [];
             }
+            applyDbRelations(item, row.relations, isProblem, row.relations_override === true);
             list.push(item);
             return true;
         }
@@ -4838,6 +4905,7 @@
                         if (row.category) target.item.category = row.category;
                         if (row.kind === 'problem') target.item.difficulty = row.difficulty || '暂未评定';
                     }
+                    applyDbRelations(target.item, row.relations, target.kind === 'problem', row.relations_override === true);
                     target.item._searchBlob = undefined;
                     changed = true;
                 } else if (target && key.indexOf('--') >= 0) {
@@ -4856,6 +4924,7 @@
                             source: '',
                             level: baseLevel
                         });
+                        applyDbRelations(target.item, row.relations, target.kind === 'problem', row.relations_override === true);
                         target.item._searchBlob = undefined;
                         changed = true;
                     }
@@ -4903,11 +4972,31 @@
             var client = window.supabaseClient;
             if (!client || dbSyncBusy || !dbSince) return Promise.resolve();
             dbSyncBusy = true;
-            return client
-                .from('published_columns')
-                .select('column_key,column_name,category,kind,difficulty,tags,content,author_name,updated_at,locked')
-                .gt('updated_at', dbSince)
-                .order('updated_at', { ascending: true })
+            var baseSelect = 'column_key,column_name,category,kind,difficulty,tags,content,author_name,updated_at,locked';
+            function fetchRows(level) {
+                var select = baseSelect;
+                if (level >= 1) select += ',relations';
+                if (level >= 2) select += ',relations_override';
+                return client
+                    .from('published_columns')
+                    .select(select)
+                    .gt('updated_at', dbSince)
+                    .order('updated_at', { ascending: true });
+            }
+            return fetchRows(2)
+                .then(function(res) {
+                    // phase19 未执行时逐级回退：relations_override → relations → 基础字段
+                    if (res.error && /relation/i.test(res.error.message || '')) {
+                        return fetchRows(1);
+                    }
+                    return res;
+                })
+                .then(function(res) {
+                    if (res.error && /relation/i.test(res.error.message || '')) {
+                        return fetchRows(0);
+                    }
+                    return res;
+                })
                 .then(function(res) {
                     if (res.error) {
                         console.warn('[AKB] 专栏增量同步失败：' + res.error.message);

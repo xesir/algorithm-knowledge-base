@@ -63,7 +63,7 @@ login.html 投稿表单
 5. **测试数据必须清理**：联调产生的 `tickets` / `columns` / 测试账号 / 测试标签，测完立刻按 §7.4 清掉，不留脏数据。
 6. **本地预览端口固定 8765**：`python -m http.server 8765`，前端页面的 Supabase 回调与浏览器测试都按这个端口写。
 7. **node 用绝对路径**（本机 PATH 可能没有）：
-   `C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs\node.exe`。
+   `C:\Users\admin\AppData\Roaming\secoresdk\360se6\Application\components\Node\node.exe`（v22.14.0）。
 
 ---
 
@@ -138,11 +138,12 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-08 | phase11-edit-column-title | 已应用：修改工单支持改专栏标题，payload 含 `old_column_name`，审批写回已验证 |
 | 2026-11-08 | phase12-author-default-passwords | 已应用：475 条非 Xesir 专栏锁定，133 条 Xesir 专栏未锁定；默认密码 hash 复制自作者登录密码 |
 | 2026-11-08 | phase13-login-by-identifier | 已应用：`resolve_login_email()` 仅授予 `anon` / `authenticated`；昵称/QQ/洛谷/CF/邮箱 + 正确密码均能解析出登录邮箱，错误密码返回 `null` |
-| 2026-11-08 | phase14-contribution-view | **待用户在 SQL Editor 执行**：`tickets.reviewed_at`、`author_edit_credits` 公开视图；执行后刷新作者专栏验证加权贡献与修补记录 |
-| 2026-11-08 | phase15-author-avatars | **待用户在 SQL Editor 执行**：公开视图 `author_profiles`；执行后作者页与密码门显示头像，未执行时回退首字母头像 |
-| 2026-11-08 | phase16-author-profile-fields | **待用户在 SQL Editor 执行**：`profiles.signature` / `profiles.honors`；重建 `author_profiles`；作者本人在 `admin.html`「个人设置」编辑签名与战绩 |
-| 2026-11-09 | phase17-existing-column-version | **待用户在 SQL Editor 执行**：投稿 payload 支持 `version_of`；审批通过后新增已有专栏的作者版本，不覆盖原专栏 |
-| 2026-11-09 | phase18-author-admin-badge | **待用户在 SQL Editor 执行**：`author_profiles.role`；作者列表 / 主页 / 密码门显示管理员标识 |
+| 2026-11-08 | phase14-contribution-view | 已应用（2026-11-09 用户确认）：`tickets.reviewed_at`、`author_edit_credits` 公开视图 |
+| 2026-11-08 | phase15-author-avatars | 已应用（2026-11-09 用户确认）：公开视图 `author_profiles`；作者页与密码门显示头像，未执行时回退首字母头像 |
+| 2026-11-08 | phase16-author-profile-fields | 已应用（2026-11-09 用户确认）：`profiles.signature` / `profiles.honors`；重建 `author_profiles` |
+| 2026-11-09 | phase17-existing-column-version | 已应用（2026-11-09 用户确认）：投稿 payload 支持 `version_of`；审批通过后新增已有专栏的作者版本，不覆盖原专栏 |
+| 2026-11-09 | phase18-author-admin-badge | 已应用（2026-11-09 用户确认）：`author_profiles.role`；作者列表 / 主页 / 密码门显示管理员标识 |
+| 2026-11-11 | phase19-edit-relations | **待用户在 SQL Editor 执行**：`columns.relations_override`；`published_columns.relations / relations_override`；`submit_column_edit` 增加 `p_relations`；审批写回关系字段 |
 
 ---
 
@@ -185,6 +186,11 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
   "old_tags": ["提交时的标签"],
   "difficulty": "修改后的难度（题目；null 表示清空）",
   "old_difficulty": "提交时的难度",
+  "relations": [{ "type": "related | sequence | parent-child", "target": "col-xxx" }],
+  "old_relations": "提交时的关系数组",
+  "relation_type": "首条关系的类型（兼容旧字段）",
+  "relation_target": "首条关系的目标（兼容旧字段）",
+  "parent_key": "父子关系目标（无则 null）",
   "old_content": "提交时的专栏正文快照（用于后台 diff）",
   "content": "修改后的 Markdown",
   "note": "用户填写的修改说明，可空",
@@ -193,10 +199,10 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 }
 ```
 
-- 只能通过 RPC `submit_column_edit(p_key, p_password, p_content, p_note, p_uploaded, p_tags, p_category, p_difficulty, p_column_name)` 创建：函数内部校验 `auth.uid()` 非空，并调用 `verify_column_password()` 校验专栏密码。
-- RLS 已禁止 authenticated 直接 `insert type='edit'`；管理员通过后由 `publish_submission_ticket()` 写回 `columns` 的 `content` / `column_name` / `tags` / `category` / `difficulty`，新标签同时并入 `tags` 表。
+- 只能通过 RPC `submit_column_edit(p_key, p_password, p_content, p_note, p_uploaded, p_tags, p_category, p_difficulty, p_column_name, p_relations)` 创建：函数内部校验 `auth.uid()` 非空，并调用 `verify_column_password()` 校验专栏密码。`p_relations = null` 表示不修改关系，`[]` 表示清空。
+- RLS 已禁止 authenticated 直接 `insert type='edit'`；管理员通过后由 `publish_submission_ticket()` 写回 `columns` 的 `content` / `column_name` / `tags` / `category` / `difficulty` / `relations` / `relation_type` / `relation_target` / `parent_key` / `relations_override`，新标签同时并入 `tags` 表。
 - **前端「修改」目标范围**：只列 `column_key` 以 `sub-` / `col-` 开头的实际专栏，排除 7 条作者占位专栏；选中无密码专栏时前端用空密码探测 `verify_column_password`，成功即自动载入源码。超过 10 万字符的正文不再塞进 textarea，改为下载/上传文件。
-- **后台展示规则**：`uploaded = true`（上传文件提交）或 diff 修改点 > 5 处时，审核详情不渲染逐行 diff，改为「查看修改后内容」全文；其余情况仍展示逐行差异。标题 / 标签 / 分类 / 难度有变化时在详情头部显示「旧值 → 新值」。
+- **后台展示规则**：`uploaded = true`（上传文件提交）或 diff 修改点 > 5 处时，审核详情不渲染逐行 diff，改为「查看修改后内容」全文；其余情况仍展示逐行差异。标题 / 标签 / 分类 / 难度 / 关系有变化时在详情头部显示「旧值 → 新值」。
 
 ### 4.2 `columns` 关键字段
 
@@ -380,8 +386,8 @@ node scripts/seed-columns-from-content.js --only=knowledge
 ### 7.1 静态门禁
 
 ```powershell
-& "C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs\node.exe" tools/lint.js --quiet
-& "C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs\node.exe" build.js
+& "C:\Users\admin\AppData\Roaming\secoresdk\360se6\Application\components\Node\node.exe" tools/lint.js --quiet
+& "C:\Users\admin\AppData\Roaming\secoresdk\360se6\Application\components\Node\node.exe" build.js
 ```
 
 ### 7.2 浏览器联调
@@ -436,3 +442,5 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-08 | 新增 phase16：`profiles.signature` / `profiles.honors`；`author_profiles` 暴露签名与战绩；作者在 `admin.html`「个人设置」编辑，自己的作者页出现编辑入口 |
 | 2026-11-09 | 新增 phase17：投稿工单支持 `version_of`；审批通过后为已有专栏新增 `col-<base>--<作者昵称>` 版本；同一作者已写过时前端提示并切换到修改工单 |
 | 2026-11-09 | 新增 phase18：`author_profiles.role`；作者列表 / 主页 / 密码门显示「管理员」标识；作者头像有图时透明背景，无图时才首字母 + 纯色填充 |
+| 2026-11-09 | phase14–18 已由用户在 SQL Editor 执行完毕；node 路径统一为 v22.14.0；本次只修正文档事实偏差，未改核心规则 |
+| 2026-11-11 | 新增 phase19：`published_columns.relations`；修改工单支持 `p_relations`（null 不改 / [] 清空），审批写回 `relations` / `relation_type` / `relation_target` / `parent_key`；前端星图题目节点按难度着色、题目专辑按档位逐档计数 |

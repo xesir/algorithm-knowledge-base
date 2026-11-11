@@ -4977,10 +4977,12 @@
                 var select = baseSelect;
                 if (level >= 1) select += ',relations';
                 if (level >= 2) select += ',relations_override';
+                // sub-* 只存在于数据库，没有静态 Markdown 对应内容；
+                // 若按「构建时间」过滤，重新 build 后已审批的投稿会被整体隐藏。
                 return client
                     .from('published_columns')
                     .select(select)
-                    .gt('updated_at', dbSince)
+                    .or('updated_at.gt.' + dbSince + ',column_key.like.sub-%')
                     .order('updated_at', { ascending: true });
             }
             return fetchRows(2)
@@ -5004,11 +5006,17 @@
                     }
                     var rows = res.data || [];
                     var changed = 0;
+                    // sub-* 的 updated_at 可能早于构建时间；只向前推进基线，避免回退后重复拉取。
+                    var latestMs = dbSince ? new Date(dbSince).getTime() : 0;
                     rows.forEach(function(row) {
                         if (row.column_key) dbLockMap[row.column_key] = row.locked === true;
+                        var rowMs = row.updated_at ? new Date(row.updated_at).getTime() : NaN;
+                        if (isFinite(rowMs) && rowMs > latestMs) {
+                            latestMs = rowMs;
+                            dbSince = row.updated_at;
+                        }
                         if (applyDbColumn(row)) changed++;
                     });
-                    if (rows.length) dbSince = rows[rows.length - 1].updated_at;
                     if (changed) {
                         console.info('[AKB] 已从数据库同步 ' + changed + ' 条专栏更新');
                         refreshAfterDbSync();

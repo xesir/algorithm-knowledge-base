@@ -90,6 +90,8 @@ login.html 投稿表单
 | 15 | `supabase/phase16-author-profile-fields.sql` | `profiles.signature` / `profiles.honors`；重建 `author_profiles`，供作者本人编辑签名与战绩、公开页展示 |
 | 16 | `supabase/phase17-existing-column-version.sql` | 投稿工单支持 `version_of`：审批通过后在已有专栏下新增 `col-<base>--<作者昵称>` 版本，不覆盖原专栏 |
 | 17 | `supabase/phase18-author-admin-badge.sql` | `author_profiles` 增加 `role`，作者列表 / 主页 / 密码门显示「管理员」标识 |
+| 18 | `supabase/phase19-edit-relations.sql` | `columns.relations_override`；`published_columns.relations / relations_override`；`submit_column_edit` 增加 `p_relations`；审批写回关系字段 |
+| 19 | `supabase/phase20-guard-overwrites.sql` | 工单审批防覆盖守卫（`base_updated_at` / 重复作者版本）；后台上传 RPC `admin_publish_column`（insert 拒绝覆盖、update 必须带 `expected_updated_at`） |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -144,6 +146,7 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-09 | phase17-existing-column-version | 已应用（2026-11-09 用户确认）：投稿 payload 支持 `version_of`；审批通过后新增已有专栏的作者版本，不覆盖原专栏 |
 | 2026-11-09 | phase18-author-admin-badge | 已应用（2026-11-09 用户确认）：`author_profiles.role`；作者列表 / 主页 / 密码门显示管理员标识 |
 | 2026-11-11 | phase19-edit-relations | **待用户在 SQL Editor 执行**：`columns.relations_override`；`published_columns.relations / relations_override`；`submit_column_edit` 增加 `p_relations`；审批写回关系字段 |
+| 2026-11-11 | phase20-guard-overwrites | **待用户在 SQL Editor 执行**：工单审批防覆盖守卫；后台上传 RPC `admin_publish_column`；已在事务中验证语法与四类冲突（重复 insert / 过期 update / 过期修改工单），验证后回滚 |
 
 ---
 
@@ -269,10 +272,10 @@ node scripts/seed-columns-from-content.js --only=knowledge
   - 视图以属主权限执行，绕过基础表 RLS，但只暴露上述已发布数据；已 `grant select` 给 `anon` / `authenticated`。
 - `build.js` 在 `data.js` 顶部写入 `DATA_BUILD_AT` 与 `AUTHOR_KEYS`。
 - `index.html` 载入后调用 `syncPublishedColumns()`：
-  - 以 `updated_at > DATA_BUILD_AT` 增量查询视图（首次通常 0 条）；
+  - `col-*` 仍以 `updated_at > DATA_BUILD_AT` 增量查询；`sub-*` **始终查询**（`updated_at > DATA_BUILD_AT OR column_key like 'sub-%'`），因为它们只存在于数据库、没有静态 Markdown 对应内容；
   - `col-<base>` / `col-<base>--<key>` → 覆盖对应静态条目/作者版本的正文，并同步标签/分类/难度；
   - `sub-*` → 作为新专栏追加进 `KNOWLEDGE_DATA`（`kind=knowledge`）或 `PROBLEMS_DATA`（`kind=problem`），目录/侧栏出现「投稿」分组；
-  - 打开页面时同步一次，之后每 60 秒与切回前台时再同步。
+  - 打开页面时同步一次，之后每 60 秒与切回前台时再同步；同步基线只向前推进，不会被较早的 `sub-*` 时间回退。
 - **游客访问控制**：
   - 打开页面时额外读取 608 条 `column_key, locked`（每 5 分钟与回到前台时补拉）；
   - 未登录游客：`locked=false` 直接看；`locked=true` 只显示「请先登录」拦截，不提供密码输入；
@@ -289,7 +292,7 @@ node scripts/seed-columns-from-content.js --only=knowledge
   - Xesir 的默认密码为 `null`，其 133 条专栏保持无密码；
   - 特定密码（`is_default=false`）仍优先于默认密码；当前没有特定密码行；
   - 游客访问有密码专栏只看到登录拦截，不提供密码输入；登录用户才出现密码门。
-- **已知边界**：基线是构建时间。若某次审批发生在上一次 `node build.js` 之前、且 Markdown 源文件没有同步，重新构建后这条改动会被跳过；保持「先合并 Markdown 再构建发布」即可避免。
+- **已知边界**：`col-*` 的正文覆盖仍以构建时间为基线；若某次修改审批发生在上一次 `node build.js` 之前、且 Markdown 源文件没有同步，重新构建后这条覆盖会被跳过，保持「先合并 Markdown 再构建发布」即可避免。`sub-*` 投稿不再受此影响：前端始终查询并追加，重新构建不会让已审批投稿消失。
 
 ### 4.7 作者贡献视图（phase14）
 
@@ -304,6 +307,20 @@ node scripts/seed-columns-from-content.js --only=knowledge
 - `author_profiles.role`（phase18）供作者列表 / 主页 / 密码门显示「管理员」标识。
 - 投稿已有专栏（phase17）：payload 带 `version_of`（base key），审批通过后新增 `col-<base>--<作者昵称>` 行，前端把它作为新 `versions[]` 追加；同一作者已写过该专栏时，登录页会提示并自动切换到「修改」工单。
 - 作者页的修补数据每 30 秒自动刷新；新建计数来自静态 `data.js`，需要重新构建并部署后才会变。
+
+### 4.8 后台上传与防覆盖（phase20）
+
+- **后台上传 RPC**：`public.admin_publish_column(p jsonb)`，只授予 `postgres` / `service_role`，匿名与登录用户不可调用。
+  - `mode=insert`：`on conflict (column_key) do nothing`，key 已存在就报错，绝不覆盖；
+  - `mode=update`：必须带 `expected_updated_at`，锁行并比较 `updated_at`，比预期新就报错；
+  - 字段语义与工单一致：`owner_id` 必须 active、`tags` upsert、`relations` 校验、`parent_key` 派生、`status='published'`、`source_ticket_id=null`；
+  - 新专栏 key 用 `sub-admin-<slug>`（前端仍按 `sub-*` 始终同步）；已有专栏新版本用 `col-<base>--<作者昵称>`；修改沿用原 key。
+- **工单防覆盖守卫**：`trg_guard_ticket_overwrite`（BEFORE UPDATE on tickets，按名称先于 `trg_publish_submission` 执行）。
+  - 修改工单审批：校验 `payload.base_updated_at`，目标专栏在提交后被更新过就报错；
+  - 新版本投稿：若 `col-<base>--<作者昵称>` 已存在就报错，提示改用修改工单；
+  - 新专栏：`sub-<ticket_id>` 若被其他来源占用就报错。
+- **使用限制**：后台上传技能 `.trae/skills/admin-upload/SKILL.md` **只在用户明确说「此次为后台上传」时调用**；普通入库/改内容仍走工单或四个技能。
+- **测试**：phase20 已在事务中验证「重复 insert / 过期 update / 过期修改工单 / 重复作者版本」四类冲突，验证后回滚；正式执行前不要在 SQL Editor 之外直接写 `columns`。
 
 ---
 
@@ -444,3 +461,4 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-09 | 新增 phase18：`author_profiles.role`；作者列表 / 主页 / 密码门显示「管理员」标识；作者头像有图时透明背景，无图时才首字母 + 纯色填充 |
 | 2026-11-09 | phase14–18 已由用户在 SQL Editor 执行完毕；node 路径统一为 v22.14.0；本次只修正文档事实偏差，未改核心规则 |
 | 2026-11-11 | 新增 phase19：`published_columns.relations`；修改工单支持 `p_relations`（null 不改 / [] 清空），审批写回 `relations` / `relation_type` / `relation_target` / `parent_key`；前端星图题目节点按难度着色、题目专辑按档位逐档计数 |
+| 2026-11-11 | 新增 phase20：工单审批防覆盖守卫（修改工单校验 `base_updated_at`、重复作者版本拒绝覆盖、`sub-<id>` 被其他来源占用拒绝）；后台上传 RPC `admin_publish_column`（insert 拒绝覆盖、update 必须 `expected_updated_at`）；新增 `.trae/skills/admin-upload/SKILL.md`（仅限用户说「此次为后台上传」） |

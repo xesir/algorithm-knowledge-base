@@ -34,7 +34,7 @@
 ## 2. 目录结构与数据流
 
 ```
-算法 - 副本/
+algorithm-knowledge-base/
 ├── index.html              # 前端单文件（布局 + KaTeX 三步法 + 搜索 + 标签筛选 + hash 路由）
 ├── build.js                # 构建脚本（唯一需要的"构建系统"）
 ├── knowledge_graph.json    # 分类描述 + prerequisites/related
@@ -92,7 +92,7 @@ knowledge_graph.json ─┘       ├─► problems_data.js PROBLEMS_DATA
 |---|---|---|
 | `id` | ✅ | **必须等于文件名（去 .md）**，小写字母/数字/连字符 |
 | `title` | ✅ | 正式名称，单引号包裹；**禁止**"自己写的""以前没学过""D. xxx"这类字样 |
-| `category` | ✅ | 8 个之一：基础算法 / 动态规划 / 数据结构 / 图论 / 数学 / 字符串 / 输入输出 / 初赛笔记 |
+| `category` | ✅ | 7 个之一：基础算法 / 动态规划 / 数据结构 / 图论 / 数学 / 字符串 / 实用工具 |
 | `subcategory` | ✅ | 子分类，需在 `knowledge_graph.json` 的 `subcategories` 里登记 |
 | `subSubcategory` | ❌ | 小分类（需在 `subSubcategories` 登记） |
 | `tags` | ❌ | 3–6 个最佳，**最多 8 个** |
@@ -262,6 +262,15 @@ knowledge_graph.json ─┘       ├─► problems_data.js PROBLEMS_DATA
 - **步骤**：`lint` → `build` → 前端一致性自检 → `git add/commit/push` → 线上验证（Pages 缓存约 10 分钟）
 - **验收**：推送成功、线上四个产物与本地一致、回滚方法已知
 
+### 4.5 后台上传（仅限明确指令）→ `.trae/skills/admin-upload/SKILL.md`
+
+- **触发**：只有用户本轮原话包含「此次为后台上传」；未说这句话时禁止调用。
+- **输入**：与加知识点/加题目相同的文件夹或现成 Markdown。
+- **产出**：直接调用数据库 RPC `admin_publish_column` 写 `columns`，不生成工单、不走审批。
+- **一致性**：作者、标题、分类、标签、题型/难度、关系、父栏目、`status='published'`、标签 upsert、作者默认密码锁定，全部与工单路径一致；新专栏用 `sub-admin-<slug>`，新作者版本用 `col-<base>--<作者昵称>`。
+- **防覆盖**：修改必须带 `expected_updated_at`；冲突就停下让用户看 diff，禁止直接 `insert/update columns` 或强行覆盖。
+- **验收**：phase20 已执行、RPC 返回 `column_key/updated_at`、`published_columns` 可见、页面 `?cb=` 验收。
+
 ---
 
 ## 5. 输入约定：用户上传的文件夹
@@ -326,7 +335,7 @@ knowledge_graph.json ─┘       ├─► problems_data.js PROBLEMS_DATA
 
 | 项 | 值 |
 |---|---|
-| 项目根目录 | `C:\Users\penti\Desktop\算法 - 副本` |
+| 项目根目录 | `c:\Users\admin\Desktop\test\OIgit\algorithm-knowledge-base` |
 | Node | 本机 PATH 里可能没有 `node`；Trae/终端里能跑就用，否则装 Node LTS 或用绝对路径 |
 | `g++`（对拍/编译验证） | `C:\CSP_SIM\tools\mingw64\bin\g++.exe`（MinGW-w64 13.2.0） |
 | PowerShell | 执行策略 Restricted：跑 `.ps1` 用 `tools\stress.cmd` 包装或加 `-ExecutionPolicy Bypass` |

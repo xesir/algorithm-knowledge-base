@@ -70,6 +70,9 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 | **添加题目** | "这题帮我加进题目专辑" | [`.trae/skills/add-problem/SKILL.md`](.trae/skills/add-problem/SKILL.md) |
 | **修改知识点 / 题目** | "XX 那条写错了，应该是……" | [`.trae/skills/edit-content/SKILL.md`](.trae/skills/edit-content/SKILL.md) |
 | **构建并上传 GitHub** | "改完了，更新网站 / 上传" | [`.trae/skills/release-github/SKILL.md`](.trae/skills/release-github/SKILL.md) |
+| **后台上传（仅限明确指令）** | **必须原话包含「此次为后台上传」** | [`.trae/skills/admin-upload/SKILL.md`](.trae/skills/admin-upload/SKILL.md) |
+
+> 后台上传直接调用数据库 RPC `admin_publish_column`，不生成工单、不走审批；字段语义与投稿/修改工单一致，并用 `expected_updated_at` 防覆盖。未说「此次为后台上传」时禁止使用。
 
 **我的输入习惯（技能都按这个约定）**：我会丢**一个文件夹**过来，里面通常三个文件 ——
 
@@ -327,3 +330,18 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - `docs/四个技能-调用提示词.md` 的示例目录改为 `临时文件\<算法名>`。
 - `SUPABASE_GUIDE.md` 的 node 路径统一为 2026-11-08 实测的 v22.14.0 路径；phase14–18 迁移记录更新为「已应用（2026-11-09 用户确认）」。
 - 本轮完整纪要见 [`docs/会话纪要-2026-11-09.md`](docs/会话纪要-2026-11-09.md)。
+
+## 备注（2026-11-11 · 修复重新构建后投稿专栏被隐藏）
+
+- 现象：6 条已审批投稿（`sub-20`～`sub-25`）在另一次 `node build.js` 后从公开页消失。
+- 原因：`syncPublishedColumns()` 只按 `updated_at > DATA_BUILD_AT` 增量查询；投稿审批时间早于新构建时间，`sub-*` 被整体跳过。
+- 修复：`index.html` 的查询改为 `updated_at > DATA_BUILD_AT OR column_key like 'sub-%'`，`sub-*` 始终同步；`dbSince` 只向前推进，避免被旧投稿时间回退。
+- 验证：重新 build 后打开首页，控制台显示「已从数据库同步 6 条专栏更新」，6 个题名均在题目列表。
+
+## 备注（2026-11-11 · 后台上传技能与防覆盖）
+
+- 新增迁移 [`supabase/phase20-guard-overwrites.sql`](supabase/phase20-guard-overwrites.sql)（**待用户在 SQL Editor 执行**）：
+  - 工单审批防覆盖守卫：修改工单校验 `payload.base_updated_at`；重复作者版本拒绝覆盖；`sub-<ticket_id>` 被其他来源占用时拒绝；
+  - 后台上传 RPC `admin_publish_column(jsonb)`：insert 拒绝覆盖已有 `column_key`；update 必须带 `expected_updated_at`；作者/标签/关系/父栏目/锁定与工单路径一致。
+- 新增 [`/.trae/skills/admin-upload/SKILL.md`](.trae/skills/admin-upload/SKILL.md)：**只有用户原话包含「此次为后台上传」时才调用**；直接写数据库、不生成工单、不走审批。
+- 已在事务中验证四类冲突（重复 insert / 过期 update / 过期修改工单 / 重复作者版本），验证后回滚；正式执行前不要直接 `insert/update columns`。

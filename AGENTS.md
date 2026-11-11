@@ -9,7 +9,7 @@
 个人维护的**算法/知识点查询网站**（当前主体是 OI 算法），纯静态、GitHub Pages 托管。
 内容源是 Markdown，`build.js` 生成前端要用的数据文件。
 
-- 项目根：`C:\Users\penti\Desktop\算法 - 副本`
+- 项目根：`c:\Users\admin\Desktop\test\OIgit\algorithm-knowledge-base`
 - 知识点：`content/*.md`（292 篇）｜题目：`problems/*.md`（200 道）
 - 多版本：`content/<id>.md`=world-needs-sunday版，`content/<id>--作者.md`=其他作者版（详情页顶部 tab 切换，默认world-needs-sunday；作者映射见 `build.js` 的 `AUTHOR_KEYS`）
 - 代码：各分类目录下的 `.cpp`（由 `codePath` 指向，**用户本人编写**）
@@ -34,6 +34,10 @@
 | "这题加进题目专辑" | 添加题目 | `.trae/skills/add-problem/SKILL.md` |
 | "XX 那条写错了 / 复杂度不对 / 样例应改为…" | 修改知识点或题目 | `.trae/skills/edit-content/SKILL.md` |
 | "更新网站 / 上传 / 提交到 GitHub" | 构建 + 发布 | `.trae/skills/release-github/SKILL.md` |
+
+> **后台上传（仅限明确指令）**：只有用户本轮原话包含「此次为后台上传」时，才使用
+> `.trae/skills/admin-upload/SKILL.md`。它直接调用数据库 RPC、不生成工单、不走审批；
+> 必须用 `expected_updated_at` 防覆盖，字段语义与投稿/修改工单保持一致。
 
 ## 用户的输入习惯（技能都按这个约定）
 

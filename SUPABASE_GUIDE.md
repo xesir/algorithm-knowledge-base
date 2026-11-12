@@ -147,10 +147,10 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-08 | phase16-author-profile-fields | 已应用（2026-11-09 用户确认）：`profiles.signature` / `profiles.honors`；重建 `author_profiles` |
 | 2026-11-09 | phase17-existing-column-version | 已应用（2026-11-09 用户确认）：投稿 payload 支持 `version_of`；审批通过后新增已有专栏的作者版本，不覆盖原专栏 |
 | 2026-11-09 | phase18-author-admin-badge | 已应用（2026-11-09 用户确认）：`author_profiles.role`；作者列表 / 主页 / 密码门显示管理员标识 |
-| 2026-11-11 | phase19-edit-relations | **待用户在 SQL Editor 执行**：`columns.relations_override`；`published_columns.relations / relations_override`；`submit_column_edit` 增加 `p_relations`；审批写回关系字段 |
-| 2026-11-11 | phase20-guard-overwrites | **待用户在 SQL Editor 执行**：工单审批防覆盖守卫；后台上传 RPC `admin_publish_column`；已在事务中验证语法与四类冲突（重复 insert / 过期 update / 过期修改工单），验证后回滚 |
-| 2026-11-12 | phase21-meta-edit | **待用户在 SQL Editor 执行**：元数据便捷修改 RPC（管理员直改 / 普通用户工单）；已在事务中验证非管理员拦截、管理员直改、普通工单生成、审批后正文不变且元数据生效，验证后回滚 |
-| 2026-11-12 | phase22-meta-fields-credit | **待用户在 SQL Editor 执行**：`columns` 增加 `cf_rating / oj / problem_id / time_complexity / space_complexity / meta_override`；两个 RPC 支持新字段；审批写回触发器；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits`；已在事务中验证管理员直改、12 参工单、审批写回与两个视图，验证后回滚 |
+| 2026-11-11 | phase19-edit-relations | 已应用（2026-11-12 REST 验证：`published_columns.relations_override` 可读）：`columns.relations_override`；`published_columns.relations / relations_override`；`submit_column_edit` 增加 `p_relations`；审批写回关系字段 |
+| 2026-11-11 | phase20-guard-overwrites | 已应用（2026-11-12 REST 验证：`admin_publish_column` 存在且仅授权 postgres / service_role）：工单审批防覆盖守卫；后台上传 RPC `admin_publish_column` |
+| 2026-11-12 | phase21-meta-edit | 已应用（2026-11-12 验证 `admin_update_column_meta` 存在）：元数据便捷修改 RPC（管理员直改 / 普通用户工单） |
+| 2026-11-12 | phase22-meta-fields-credit | 已应用（2026-11-12 REST 验证：`cf_rating / oj / problem_id / meta_override` 可读）：`columns` 扩展字段；两个 RPC 支持新字段；审批写回触发器；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits` |
 
 ---
 

@@ -1128,12 +1128,28 @@
                 if (p.old_difficulty !== undefined && (p.difficulty || '') !== (p.old_difficulty || '')) {
                     meta.push('难度：' + (p.old_difficulty || '未设置') + ' → ' + (p.difficulty || '未设置'));
                 }
+                [
+                    ['CF 评分', 'old_cf_rating', 'cf_rating'],
+                    ['OJ', 'old_oj', 'oj'],
+                    ['题号', 'old_problem_id', 'problem_id'],
+                    ['时间复杂度', 'old_time_complexity', 'time_complexity'],
+                    ['空间复杂度', 'old_space_complexity', 'space_complexity']
+                ].forEach(function (pair) {
+                    if (p[pair[1]] !== undefined && (p[pair[2]] || '') !== (p[pair[1]] || '')) {
+                        meta.push(pair[0] + '：' + (p[pair[1]] || '—') + ' → ' + (p[pair[2]] || '—'));
+                    }
+                });
                 if (p.old_relations !== undefined || p.relations !== undefined) {
                     var oldRelationText = relationSummary(p.old_relations);
                     var newRelationText = relationSummary(p.relations);
                     if (oldRelationText !== newRelationText) {
                         meta.push('关系：' + (oldRelationText || '（空）') + ' → ' + (newRelationText || '（空）'));
                     }
+                }
+                // 元数据便捷修改：正文快照不变，只展示元数据变化
+                if (p.meta_only === true) {
+                    return '<details class="submission-detail diff-detail"><summary>查看元数据修改</summary>' +
+                        '<div class="cell-sub">' + esc(meta.join(' · ')) + '</div></details>';
                 }
                 var diff = renderDiff(p.old_content || '', p.content || '');
                 var uploaded = p.uploaded === true;

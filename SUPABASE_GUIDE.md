@@ -92,6 +92,8 @@ login.html 投稿表单
 | 17 | `supabase/phase18-author-admin-badge.sql` | `author_profiles` 增加 `role`，作者列表 / 主页 / 密码门显示「管理员」标识 |
 | 18 | `supabase/phase19-edit-relations.sql` | `columns.relations_override`；`published_columns.relations / relations_override`；`submit_column_edit` 增加 `p_relations`；审批写回关系字段 |
 | 19 | `supabase/phase20-guard-overwrites.sql` | 工单审批防覆盖守卫（`base_updated_at` / 重复作者版本）；后台上传 RPC `admin_publish_column`（insert 拒绝覆盖、update 必须带 `expected_updated_at`） |
+| 20 | `supabase/phase21-meta-edit.sql` | 元数据便捷修改：管理员 `admin_update_column_meta` 直接改标题/分类/难度/标签/关系；普通用户 `submit_column_meta_edit` 提交元数据工单（正文快照不变） |
+| 21 | `supabase/phase22-meta-fields-credit.sql` | 便捷修改扩展字段（CF 评分 / OJ / 题号 / 时间 / 空间复杂度）+ 元数据贡献视图 `author_meta_credits`（每条 0.02） |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -147,6 +149,8 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-09 | phase18-author-admin-badge | 已应用（2026-11-09 用户确认）：`author_profiles.role`；作者列表 / 主页 / 密码门显示管理员标识 |
 | 2026-11-11 | phase19-edit-relations | **待用户在 SQL Editor 执行**：`columns.relations_override`；`published_columns.relations / relations_override`；`submit_column_edit` 增加 `p_relations`；审批写回关系字段 |
 | 2026-11-11 | phase20-guard-overwrites | **待用户在 SQL Editor 执行**：工单审批防覆盖守卫；后台上传 RPC `admin_publish_column`；已在事务中验证语法与四类冲突（重复 insert / 过期 update / 过期修改工单），验证后回滚 |
+| 2026-11-12 | phase21-meta-edit | **待用户在 SQL Editor 执行**：元数据便捷修改 RPC（管理员直改 / 普通用户工单）；已在事务中验证非管理员拦截、管理员直改、普通工单生成、审批后正文不变且元数据生效，验证后回滚 |
+| 2026-11-12 | phase22-meta-fields-credit | **待用户在 SQL Editor 执行**：`columns` 增加 `cf_rating / oj / problem_id / time_complexity / space_complexity / meta_override`；两个 RPC 支持新字段；审批写回触发器；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits`；已在事务中验证管理员直改、12 参工单、审批写回与两个视图，验证后回滚 |
 
 ---
 
@@ -298,7 +302,7 @@ node scripts/seed-columns-from-content.js --only=knowledge
 
 - `author_edit_credits` 只暴露 `editor_name / column_key / column_name / category / kind / difficulty / priority / old_len / new_len / is_self_edit / reviewed_at`，不含正文与联系方式。
 - 只统计 `type='edit'`、`status='approved'`、`columns.status='published'` 且 `column_key` 不是 `sub-%` 的工单；按 `(user_id, column_key)` 去重，取 `reviewed_at` 最新一条。
-- 前端加权：新建 1 篇 = 1.0；修补 1 处 = `0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数`，单专栏上限 0.8；贡献率 = 个人加权分 ÷ 全站加权分。
+- 前端加权：新建 1 篇 = 1.0；修补 1 处 = `0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数`，单专栏上限 0.8；元数据便捷修改每条 0.02（phase22）；贡献率 = 个人加权分 ÷ 全站加权分。
 - 知识点难度取 `build.js` 导出的 `versions[].level`（A/B/C）；题目难度取洛谷九档，缺档时用 `cfRating` 估算。
 - `profiles.nickname` 必须能匹配静态作者显示名；匹配不上时前端会 `console.warn` 并按原名计入，需要时在 `index.html` 的 `AUTHOR_ALIASES` 补映射。
 - 作者头像来自公开视图 `author_profiles`（phase15）；作者列表 / 主页 / 密码门优先显示头像，头像为空或视图未执行时回退首字母。
@@ -321,6 +325,25 @@ node scripts/seed-columns-from-content.js --only=knowledge
   - 新专栏：`sub-<ticket_id>` 若被其他来源占用就报错。
 - **使用限制**：后台上传技能 `.trae/skills/admin-upload/SKILL.md` **只在用户明确说「此次为后台上传」时调用**；普通入库/改内容仍走工单或四个技能。
 - **测试**：phase20 已在事务中验证「重复 insert / 过期 update / 过期修改工单 / 重复作者版本」四类冲突，验证后回滚；正式执行前不要在 SQL Editor 之外直接写 `columns`。
+
+### 4.9 元数据便捷修改（phase21）
+
+专栏/题目详情页的 Meta 栏有「✏️ 便捷修改」按钮，只改非正文部分：
+
+- **可改字段**：标题、分类、难度（题目）、标签、关系、CF 评分 / OJ / 题号（题目）、时间复杂度 / 空间复杂度。
+- **管理员**：调用 `admin_update_column_meta(jsonb)`，函数内校验 `profiles.role='admin'` 和 `expected_updated_at`，直接写 `columns` 并刷新页面。
+- **普通登录用户**：调用 `submit_column_meta_edit(...)`（phase22 起为 12 参），生成 `type='edit'` 的 pending 工单；payload 带 `meta_only=true`、当前正文快照、`base_updated_at` 和元数据。审批时现有触发器把正文写回为同一快照，只改元数据。
+- **关系预填**：DB `relations` 为空且 `relations_override=false` 时，前端回退展示静态 `prerequisites / related / parent`（题目为 `knowledgePoints`），保存后成为显式覆盖。
+- **评分 / 复杂度**：DB 字段为空且 `meta_override=false` 时，前端回退静态 `cfRating / oj / problemId / timeComplexity / spaceComplexity`；一旦人工改过（`meta_override=true`），前端增量同步以数据库为准。
+- **防覆盖**：管理员直改与工单审批都走 `updated_at` 乐观锁；目标在提交后被更新则报错。
+- **前置**：phase21 / phase22 未执行时，保存会提示「请先在 SQL Editor 执行 supabase/phase21-meta-edit.sql、phase22-meta-fields-credit.sql」。
+
+### 4.10 元数据贡献（phase22）
+
+- 管理员直改元数据时，`admin_update_column_meta` 会额外插入一条 `status='approved'`、`payload.meta_only=true` 的审计工单；普通用户工单审批通过后同样计入。
+- 公开视图 `author_meta_credits` 只暴露 `editor_name / column_key / column_name / category / kind / difficulty / priority / is_self_edit / reviewed_at`，按 `(user_id, column_key)` 去重取最新。
+- 前端每条元数据修改固定计 **0.02**，与修补贡献同列展示；`author_edit_credits` 已排除 `meta_only=true`，不会重复计分。
+- 同一作者反复修改同一专栏只计一次（与修补贡献的去重口径一致）。
 
 ---
 
@@ -462,3 +485,5 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-09 | phase14–18 已由用户在 SQL Editor 执行完毕；node 路径统一为 v22.14.0；本次只修正文档事实偏差，未改核心规则 |
 | 2026-11-11 | 新增 phase19：`published_columns.relations`；修改工单支持 `p_relations`（null 不改 / [] 清空），审批写回 `relations` / `relation_type` / `relation_target` / `parent_key`；前端星图题目节点按难度着色、题目专辑按档位逐档计数 |
 | 2026-11-11 | 新增 phase20：工单审批防覆盖守卫（修改工单校验 `base_updated_at`、重复作者版本拒绝覆盖、`sub-<id>` 被其他来源占用拒绝）；后台上传 RPC `admin_publish_column`（insert 拒绝覆盖、update 必须 `expected_updated_at`）；新增 `.trae/skills/admin-upload/SKILL.md`（仅限用户说「此次为后台上传」） |
+| 2026-11-12 | 新增 phase21：专栏/题目 Meta 栏「便捷修改」；管理员 `admin_update_column_meta` 直改标题/分类/难度/标签/关系；普通用户 `submit_column_meta_edit` 提交元数据工单（正文快照不变）；关系为空时前端回退静态图谱预填 |
+| 2026-11-12 | 新增 phase22：便捷修改支持 CF 评分 / OJ / 题号 / 时间 / 空间复杂度（`meta_override` 标记人工覆盖）；管理员直改留 approved 审计工单；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits`；前端每条元数据修改计 0.02 贡献 |

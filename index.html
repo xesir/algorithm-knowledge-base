@@ -1713,6 +1713,135 @@
             .article h1 { font-size: 1.4rem; }
             .markdown-body h2 { font-size: 1.15rem; }
         }
+        /* ===== 元数据便捷修改 ===== */
+        .meta-edit-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 10020;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(2, 6, 23, 0.62);
+            backdrop-filter: blur(3px);
+        }
+        .meta-edit-modal {
+            width: min(620px, calc(100vw - 32px));
+            max-height: min(86vh, 760px);
+            overflow: auto;
+            background: var(--bg-secondary);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+        }
+        .meta-edit-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 20px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .meta-edit-head h3 {
+            margin: 0 0 4px;
+            font-size: 18px;
+        }
+        .meta-edit-head p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .meta-edit-close {
+            flex: 0 0 auto;
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 1;
+        }
+        .meta-edit-body {
+            display: grid;
+            gap: 12px;
+            padding: 16px 20px;
+        }
+        .meta-edit-field {
+            display: grid;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .meta-edit-field input,
+        .meta-edit-field select,
+        .meta-edit-field textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 9px 11px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: var(--bg);
+            color: var(--text);
+            font: inherit;
+            outline: none;
+        }
+        .meta-edit-field input:focus,
+        .meta-edit-field select:focus,
+        .meta-edit-field textarea:focus {
+            border-color: #6366f1;
+        }
+        .meta-edit-field textarea {
+            min-height: 86px;
+            resize: vertical;
+            font-family: ui-monospace, Consolas, monospace;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .meta-edit-hint {
+            font-size: 11px;
+            color: var(--text-secondary);
+            opacity: 0.85;
+        }
+        .meta-edit-status {
+            min-height: 18px;
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .meta-edit-status.ok { color: #22c55e; }
+        .meta-edit-status.err { color: #ef4444; }
+        .meta-edit-foot {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 12px 20px 18px;
+        }
+        .meta-edit-foot button {
+            padding: 9px 16px;
+            border-radius: 9px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            font: inherit;
+            cursor: pointer;
+        }
+        .meta-edit-foot button.primary {
+            border-color: #6366f1;
+            background: #6366f1;
+            color: #fff;
+        }
+        .meta-edit-foot button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+        @media (max-width: 640px) {
+            .meta-edit-overlay { padding: 12px; }
+            .meta-edit-modal { max-height: 90vh; }
+        }
     </style>
     <link rel="stylesheet" href="assets/aurora.css?v=20261109c">
 </head>
@@ -2447,6 +2576,7 @@
             }
             metaHtml += '<button class="viz-btn" onclick="openStarMap(\'' + kp.id + '\')">🌌 星图</button>';
             metaHtml += '<button class="viz-btn" onclick="openAuthor(\'' + escAttr(ver.author) + '\')">👤 作者</button>';
+            metaHtml += '<button class="viz-btn meta-edit-btn" onclick="openMetaEdit(\'kp\')">✏️ 便捷修改</button>';
             metaHtml += '</div>';
 
             // 三级栏目：上级栏目 / 子栏目
@@ -2898,19 +3028,25 @@
         }
 
         // ===== 作者贡献加权 =====
-        // 新建 1 篇 = 1.0；修补 1 次 = 0.4 × 难度 × 体量 × 优先级 × 自改系数，单专栏上限 0.8。
+        // 新建 1 篇 = 1.0；修补 1 次 = 0.4 × 难度 × 体量 × 优先级 × 自改系数，单专栏上限 0.8；
+        // 元数据便捷修改每条 = 0.02（按作者 + 专栏去重）。
         var CONTRIB_WEIGHTS = {
             create: 1.0,
             edit: 0.4,
             editCapPerColumn: 0.8,
             selfEdit: 0.25,
             sizeFloor: 0.8,
-            sizeFullDelta: 2000
+            sizeFullDelta: 2000,
+            metaEdit: 0.02
         };
         var EDIT_CREDITS = [];
         var editCreditsReady = false;
         var editCreditsLoading = false;
         var editCreditsError = false;
+        var META_CREDITS = [];
+        var metaCreditsReady = false;
+        var metaCreditsLoading = false;
+        var metaCreditsError = false;
         var editCreditWarned = {};
         var AUTHOR_AVATARS = {};
         var authorProfilesLoading = false;
@@ -2997,6 +3133,14 @@
             return a.editCount;
         }
 
+        function metaCountText(a) {
+            if (window.supabaseClient) {
+                if (!metaCreditsReady) return '…';
+                if (metaCreditsError) return '—';
+            }
+            return a.metaEditCount || 0;
+        }
+
         function findStaticColumnVersion(columnKey) {
             var target = findDbColumnTarget(columnKey);
             if (!target || !target.item || target.verIdx < 0) return null;
@@ -3018,10 +3162,13 @@
                         kp: [],
                         prob: [],
                         editRecords: [],
+                        metaEditRecords: [],
                         creationCount: 0,
                         editCount: 0,
+                        metaEditCount: 0,
                         creationScore: 0,
                         editScore: 0,
+                        metaEditScore: 0,
                         score: 0,
                         total: 0,
                         rate: 0
@@ -3108,11 +3255,44 @@
                 });
             });
 
+            // 元数据便捷修改：每条固定 0.02，同样按 (编辑者, 专栏) 去重
+            var latestMeta = {};
+            (META_CREDITS || []).forEach(function(row) {
+                if (!row || !row.column_key) return;
+                if (!row.editor_name || row.editor_name === 'unknown') return;
+                var mkey = String(row.editor_name) + '|' + String(row.column_key);
+                var prev = latestMeta[mkey];
+                if (!prev || String(row.reviewed_at || '') > String(prev.reviewed_at || '')) {
+                    latestMeta[mkey] = row;
+                }
+            });
+            Object.keys(latestMeta).forEach(function(mkey) {
+                var row = latestMeta[mkey];
+                var editor = resolveAuthorName(row.editor_name);
+                var s = ensure(editor);
+                var target = findStaticColumnVersion(row.column_key);
+                var kind = row.kind || (target ? target.kind : 'knowledge');
+                var credit = CONTRIB_WEIGHTS.metaEdit;
+                s.metaEditCount++;
+                s.metaEditScore += credit;
+                s.metaEditRecords.push({
+                    columnKey: row.column_key,
+                    columnName: row.column_name || row.column_key,
+                    category: row.category || '未分类',
+                    kind: kind,
+                    difficulty: row.difficulty || (target && target.item ? target.item.difficulty : ''),
+                    isSelfEdit: row.is_self_edit === true,
+                    reviewedAt: row.reviewed_at || '',
+                    credit: credit,
+                    metaOnly: true
+                });
+            });
+
             var totalAll = 0;
             Object.keys(stats).forEach(function(name) {
                 var s = stats[name];
                 s.total = s.creationCount;
-                s.score = s.creationScore + s.editScore;
+                s.score = s.creationScore + s.editScore + s.metaEditScore;
                 totalAll += s.score;
             });
             Object.keys(stats).forEach(function(name) {
@@ -3166,11 +3346,14 @@
             var html = '<div class="authors-page">';
             html += '<h1>👤 作者专栏</h1>';
             html += '<div class="catalog-desc">按加权贡献排名浏览本站作者。贡献率 = 加权贡献 ÷ 全站加权贡献（当前全站 ' +
-                pack.totalAll.toFixed(2) + '）；新建 1 篇 = 1.0，修补 1 处 = 0.4 × 难度 × 体量 × 维护系数，单专栏最多 0.8；sub-* 未同步投稿暂不计入修补；修补数据每 30 秒自动刷新。</div>';
+                pack.totalAll.toFixed(2) + '）；新建 1 篇 = 1.0，修补 1 处 = 0.4 × 难度 × 体量 × 维护系数，单专栏最多 0.8；元数据便捷修改每条 +0.02；sub-* 未同步投稿暂不计入修补；修补数据每 30 秒自动刷新。</div>';
             if (!editCreditsReady && window.supabaseClient) {
                 html += '<div class="author-note">正在加载修补贡献数据…</div>';
             } else if (editCreditsError) {
                 html += '<div class="author-note">修补贡献数据未加载（请确认已执行 phase14-contribution-view.sql），当前仅显示新建贡献。</div>';
+            }
+            if (window.supabaseClient && metaCreditsError) {
+                html += '<div class="author-note">元数据贡献数据未加载（请确认已执行 phase22-meta-fields-credit.sql）。</div>';
             }
             html += '<div class="author-grid">';
             pack.authors.forEach(function(a) {
@@ -3188,7 +3371,7 @@
                 html += '<div class="author-bar"><div class="author-bar-fill" style="width:' +
                     Math.max(a.rate * 100, 1.5).toFixed(1) + '%"></div></div>';
                 html += '<div class="author-card-meta">加权 ' + a.score.toFixed(2) + ' ｜ 新建 ' + a.creationCount +
-                    ' · 修补 ' + editCountText(a) + ' ｜ ' + sig + '</div>';
+                    ' · 修补 ' + editCountText(a) + ' · 元数据 ' + metaCountText(a) + ' ｜ ' + sig + '</div>';
                 html += '</div>';
             });
             html += '</div></div>';
@@ -3234,16 +3417,20 @@
             html += '<div class="author-stat"><div class="author-stat-num">' + a.score.toFixed(2) + '</div><div class="author-stat-label">加权贡献</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + a.creationCount + '</div><div class="author-stat-label">新建版本</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + editCountText(a) + '</div><div class="author-stat-label">有效修补</div></div>';
+            html += '<div class="author-stat"><div class="author-stat-num">' + metaCountText(a) + '</div><div class="author-stat-label">元数据修改</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + uniqueCount(a.kp) + '</div><div class="author-stat-label">知识点</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + uniqueCount(a.prob) + '</div><div class="author-stat-label">题目</div></div>';
             html += '</div>';
             html += '<div class="author-bar"><div class="author-bar-fill" style="width:' + (a.rate * 100).toFixed(1) + '%"></div></div>';
             html += '<div class="author-note">贡献率 = 加权贡献 ÷ 全站加权贡献（全站 ' + Number(totalAll).toFixed(2) +
-                '）。新建 1 篇 = 1.0；修补 1 处 = 0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数（0.25），单专栏上限 0.8；sub-* 未同步投稿暂不计入。修补数据每 30 秒自动刷新；新建计数来自静态数据，需重新构建后更新。</div>';
+                '）。新建 1 篇 = 1.0；修补 1 处 = 0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数（0.25），单专栏上限 0.8；元数据便捷修改每条 +0.02（同一专栏去重）；sub-* 未同步投稿暂不计入。修补数据每 30 秒自动刷新；新建计数来自静态数据，需重新构建后更新。</div>';
             if (!editCreditsReady && window.supabaseClient) {
                 html += '<div class="author-note">正在加载修补贡献数据…</div>';
             } else if (editCreditsError) {
                 html += '<div class="author-note">修补贡献数据未加载（请确认已执行 phase14-contribution-view.sql），当前仅显示新建贡献。</div>';
+            }
+            if (window.supabaseClient && metaCreditsError) {
+                html += '<div class="author-note">元数据贡献数据未加载（请确认已执行 phase22-meta-fields-credit.sql）。</div>';
             }
 
             html += '<div class="author-section"><h2>🏆 战绩</h2>';
@@ -3264,7 +3451,7 @@
             html += '</div>';
 
             html += '<div class="author-section"><h2>🛠 修补记录</h2>';
-            html += renderAuthorEditRecords(a.editRecords || []);
+            html += renderAuthorEditRecords((a.editRecords || []).concat(a.metaEditRecords || []));
             html += '</div>';
 
             html += '</div>';
@@ -3318,9 +3505,10 @@
                     onclick = ' onclick="' + fn + '(\'' + escAttr(target.item.id) + '\',' + target.verIdx + ')"';
                 }
                 var selfBadge = rec.isSelfEdit ? '<span class="author-edit-badge">自改</span>' : '';
+                var metaBadge = rec.metaOnly ? '<span class="author-edit-badge">元数据</span>' : '';
                 html += '<div class="author-edit-item' + (clickable ? ' clickable' : '') + '"' + onclick + '>' +
                     '<div class="author-edit-main">' +
-                        '<div class="author-edit-title">' + escHtml(rec.columnName) + selfBadge + '</div>' +
+                        '<div class="author-edit-title">' + escHtml(rec.columnName) + selfBadge + metaBadge + '</div>' +
                         '<div class="author-edit-meta">' + escHtml(meta) + '</div>' +
                     '</div>' +
                     '<div class="author-edit-score">+' + rec.credit.toFixed(2) + '</div>' +
@@ -3509,6 +3697,7 @@
             }
             metaHtml += '<button class="viz-btn" onclick="openStarMap(\'' + prob.id + '\')">🌌 星图</button>';
             metaHtml += '<button class="viz-btn" onclick="openAuthor(\'' + escAttr(ver.author) + '\')">👤 作者</button>';
+            metaHtml += '<button class="viz-btn meta-edit-btn" onclick="openMetaEdit(\'prob\')">✏️ 便捷修改</button>';
             metaHtml += '</div>';
 
             // Render content: 三步法保护 LaTeX（实现见 renderMarkdownWithMath）
@@ -4424,6 +4613,285 @@
             return suffix ? ('col-' + item.id + '--' + suffix) : ('col-' + item.id);
         }
 
+        // ===== 非正文元数据便捷修改 =====
+        var metaEditCtx = null;
+        var metaEditEscHandler = null;
+
+        function metaEditVal(id) {
+            var el = document.getElementById(id);
+            return el ? el.value : '';
+        }
+
+        function metaEditOptions(list, current) {
+            return list.map(function(v) {
+                return '<option value="' + escAttr(v) + '"' + (v === current ? ' selected' : '') + '>' + escHtml(v) + '</option>';
+            }).join('');
+        }
+
+        function metaEditField(label, control, hint) {
+            return '<label class="meta-edit-field"><span>' + escHtml(label) + '</span>' + control +
+                (hint ? '<span class="meta-edit-hint">' + escHtml(hint) + '</span>' : '') + '</label>';
+        }
+
+        function metaEditStatus(text, cls) {
+            var el = document.getElementById('meta-edit-status');
+            if (!el) return;
+            el.textContent = text || '';
+            el.className = 'meta-edit-status' + (cls ? ' ' + cls : '');
+        }
+
+        function closeMetaEdit() {
+            var overlay = document.getElementById('meta-edit-overlay');
+            if (overlay) overlay.remove();
+            metaEditCtx = null;
+            if (metaEditEscHandler) {
+                document.removeEventListener('keydown', metaEditEscHandler);
+                metaEditEscHandler = null;
+            }
+        }
+
+        function parseMetaEditTags(text) {
+            var seen = {};
+            return String(text || '').split(/[,，]/).map(function(x) {
+                return x.trim();
+            }).filter(function(x) {
+                if (!x || seen[x]) return false;
+                seen[x] = 1;
+                return true;
+            });
+        }
+
+        function parseMetaEditRelations(text) {
+            var lines = String(text || '').split(/\n/).map(function(x) {
+                return x.trim();
+            }).filter(Boolean);
+            return lines.map(function(line) {
+                var m = line.match(/^(\S+)\s+(.+)$/);
+                if (!m) throw new Error('关系格式应为：type target');
+                var type = m[1];
+                var target = m[2].trim();
+                if (['related', 'sequence', 'parent-child'].indexOf(type) < 0) {
+                    throw new Error('关系类型只能是 related / sequence / parent-child');
+                }
+                if (!target) throw new Error('关系目标不能为空');
+                return { type: type, target: target };
+            });
+        }
+
+        async function openMetaEdit(kind) {
+            var item = kind === 'kp' ? currentKp : currentProb;
+            var verIdx = kind === 'kp' ? currentVer : currentProbVer;
+            if (!item) return;
+
+            if (!viewerAuthed) {
+                if (confirm('便捷修改需要登录，是否去登录页？')) location.href = 'login.html?tab=ticket';
+                return;
+            }
+            if (!window.supabaseClient) {
+                alert('数据库未连接，暂时无法修改。');
+                return;
+            }
+
+            var key = columnKeyForVersion(item, verIdx);
+            if (!key) {
+                alert('无法定位当前版本对应的数据库 key。');
+                return;
+            }
+
+            var baseSel = 'column_key,column_name,category,kind,difficulty,tags,relations,relations_override,updated_at';
+            var res = await window.supabaseClient
+                .from('published_columns')
+                .select(baseSel + ',cf_rating,oj,problem_id,time_complexity,space_complexity,meta_override')
+                .eq('column_key', key)
+                .maybeSingle();
+            // phase22 未执行时退回旧字段
+            if (res.error && /cf_rating|oj|problem_id|time_complexity|space_complexity|meta_override/i.test(res.error.message || '')) {
+                res = await window.supabaseClient
+                    .from('published_columns')
+                    .select(baseSel)
+                    .eq('column_key', key)
+                    .maybeSingle();
+            }
+            if (res.error) {
+                alert('读取专栏失败：' + res.error.message);
+                return;
+            }
+            if (!res.data) {
+                alert('该版本还没有数据库记录，暂时不支持便捷修改。');
+                return;
+            }
+
+            var row = res.data;
+            var ver = (item.versions || [])[verIdx] || {};
+            var isProblem = (row.kind || (kind === 'prob' ? 'problem' : 'knowledge')) === 'problem';
+            var title = row.column_name || item.title || '';
+            var category = row.category || item.category || '';
+            var difficulty = row.difficulty || item.difficulty || '';
+            var tags = Array.isArray(row.tags) ? row.tags : (Array.isArray(ver.tags) ? ver.tags : []);
+            var relations = Array.isArray(row.relations) ? row.relations.slice() : [];
+            // DB 关系为空且未人工覆盖时，回退展示静态图谱关系，方便直接增删。
+            if (!relations.length && row.relations_override !== true) {
+                var seenRel = {};
+                var pushRel = function(type, target) {
+                    if (!target) return;
+                    var k = type + '|' + target;
+                    if (seenRel[k]) return;
+                    seenRel[k] = 1;
+                    relations.push({ type: type, target: target });
+                };
+                if (kind === 'prob') {
+                    (item.knowledgePoints || []).forEach(function(id) { pushRel('sequence', id); });
+                } else {
+                    (item.prerequisites || []).forEach(function(id) { pushRel('sequence', id); });
+                    (item.related || []).forEach(function(id) { pushRel('related', id); });
+                    if (item.parent) pushRel('parent-child', item.parent);
+                }
+            }
+            var relationText = relations.map(function(r) {
+                return (r.type || 'related') + ' ' + (r.target || '');
+            }).join('\n');
+
+            // phase22：评分 / OJ / 题号 / 复杂度；人工覆盖过则以数据库为准
+            var metaOverridden = row.meta_override === true;
+            function pickMeta(dbVal, fallback) {
+                if (metaOverridden) return dbVal == null ? '' : String(dbVal);
+                if (dbVal == null || dbVal === '') return fallback == null ? '' : String(fallback);
+                return String(dbVal);
+            }
+            var cfRating = pickMeta(row.cf_rating, item.cfRating);
+            var oj = pickMeta(row.oj, item.oj);
+            var problemId = pickMeta(row.problem_id, item.problemId);
+            var timeComplexity = pickMeta(row.time_complexity, ver.timeComplexity === '未知' ? '' : ver.timeComplexity);
+            var spaceComplexity = pickMeta(row.space_complexity, ver.spaceComplexity === '未知' ? '' : ver.spaceComplexity);
+
+            var categories = ['基础算法', '动态规划', '数据结构', '图论', '数学', '字符串', '实用工具'];
+            if (category && categories.indexOf(category) < 0) categories.push(category);
+            var difficulties = ['暂未评定', '入门', '普及−', '普及/提高−', '普及+/提高−', '提高', '提高+/省选−', '省选/NOI−', 'NOI/NOI+/CTSC'];
+            if (difficulty && difficulties.indexOf(difficulty) < 0) difficulties.push(difficulty);
+
+            var modeText = viewerIsAdmin
+                ? '你是管理员：保存后直接写入数据库并生效。'
+                : '普通用户：保存后提交修改工单，管理员审核通过后生效。';
+
+            var html = '<div class="meta-edit-overlay" id="meta-edit-overlay" onclick="if(event.target===this)closeMetaEdit()">' +
+                '<div class="meta-edit-modal" role="dialog" aria-modal="true">' +
+                    '<div class="meta-edit-head">' +
+                        '<div><h3>便捷修改</h3><p>' + escHtml(modeText) + '</p><p>' + escHtml(key) + '</p></div>' +
+                        '<button type="button" class="meta-edit-close" onclick="closeMetaEdit()" aria-label="关闭">×</button>' +
+                    '</div>' +
+                    '<div class="meta-edit-body">' +
+                        metaEditField('标题', '<input id="meta-edit-title" value="' + escAttr(title) + '">') +
+                        metaEditField('分类', '<select id="meta-edit-category">' + metaEditOptions(categories, category) + '</select>') +
+                        (isProblem ? metaEditField('难度', '<select id="meta-edit-difficulty">' + metaEditOptions(difficulties, difficulty) + '</select>') : '') +
+                        (isProblem ? metaEditField('CF 评分', '<input id="meta-edit-cf" value="' + escAttr(cfRating) + '" placeholder="例如 1900；没有则留空">') : '') +
+                        (isProblem ? metaEditField('OJ', '<input id="meta-edit-oj" value="' + escAttr(oj) + '" placeholder="例如 洛谷 / Codeforces">') : '') +
+                        (isProblem ? metaEditField('题号', '<input id="meta-edit-pid" value="' + escAttr(problemId) + '" placeholder="例如 P1050 / 1900F">') : '') +
+                        metaEditField('时间复杂度', '<input id="meta-edit-time" value="' + escAttr(timeComplexity) + '" placeholder="例如 O(n log n)">') +
+                        metaEditField('空间复杂度', '<input id="meta-edit-space" value="' + escAttr(spaceComplexity) + '" placeholder="例如 O(n)">') +
+                        metaEditField('标签', '<input id="meta-edit-tags" value="' + escAttr(tags.join(', ')) + '">', '用逗号分隔，最多 8 个') +
+                        metaEditField('关系', '<textarea id="meta-edit-relations" placeholder="每行：type target，例如 related math-number-theory">' + escHtml(relationText) + '</textarea>', 'type 可选 related / sequence / parent-child；target 填关联的 column_key 或知识点 id') +
+                        metaEditField('备注', '<input id="meta-edit-note" placeholder="可选；普通用户提交工单时给管理员看">') +
+                        '<div class="meta-edit-status" id="meta-edit-status"></div>' +
+                    '</div>' +
+                    '<div class="meta-edit-foot">' +
+                        '<button type="button" onclick="closeMetaEdit()">取消</button>' +
+                        '<button type="button" class="primary" id="meta-edit-save" onclick="saveMetaEdit()">保存</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+
+            closeMetaEdit();
+            document.body.insertAdjacentHTML('beforeend', html);
+            metaEditCtx = {
+                key: key,
+                row: row,
+                isProblem: isProblem,
+                kind: kind
+            };
+            metaEditEscHandler = function(e) {
+                if (e.key === 'Escape') closeMetaEdit();
+            };
+            document.addEventListener('keydown', metaEditEscHandler);
+            var titleInput = document.getElementById('meta-edit-title');
+            if (titleInput) titleInput.focus();
+        }
+
+        async function saveMetaEdit() {
+            if (!metaEditCtx) return;
+            var btn = document.getElementById('meta-edit-save');
+            if (btn) btn.disabled = true;
+            metaEditStatus('正在保存…');
+
+            try {
+                var title = metaEditVal('meta-edit-title').trim();
+                var category = metaEditVal('meta-edit-category');
+                var difficulty = metaEditCtx.isProblem ? metaEditVal('meta-edit-difficulty') : '';
+                var cfRating = metaEditCtx.isProblem ? metaEditVal('meta-edit-cf').trim() : '';
+                var oj = metaEditCtx.isProblem ? metaEditVal('meta-edit-oj').trim() : '';
+                var problemId = metaEditCtx.isProblem ? metaEditVal('meta-edit-pid').trim() : '';
+                var timeComplexity = metaEditVal('meta-edit-time').trim();
+                var spaceComplexity = metaEditVal('meta-edit-space').trim();
+                var tags = parseMetaEditTags(metaEditVal('meta-edit-tags'));
+                var relations = parseMetaEditRelations(metaEditVal('meta-edit-relations'));
+                var note = metaEditVal('meta-edit-note').trim();
+
+                if (!title) throw new Error('标题不能为空');
+                if (tags.length > 8) throw new Error('标签最多 8 个');
+                if (cfRating && !/^\d+$/.test(cfRating)) throw new Error('CF 评分只能填数字');
+
+                if (viewerIsAdmin) {
+                    var payload = {
+                        column_key: metaEditCtx.key,
+                        expected_updated_at: metaEditCtx.row.updated_at,
+                        column_name: title,
+                        category: category,
+                        tags: tags,
+                        relations: relations,
+                        time_complexity: timeComplexity,
+                        space_complexity: spaceComplexity
+                    };
+                    if (metaEditCtx.isProblem) {
+                        payload.difficulty = difficulty;
+                        payload.cf_rating = cfRating;
+                        payload.oj = oj;
+                        payload.problem_id = problemId;
+                    }
+                    var r = await window.supabaseClient.rpc('admin_update_column_meta', { p: payload });
+                    if (r.error) throw new Error(r.error.message);
+                    metaEditStatus('已保存，正在刷新…', 'ok');
+                    setTimeout(function() { location.reload(); }, 500);
+                } else {
+                    var r2 = await window.supabaseClient.rpc('submit_column_meta_edit', {
+                        p_key: metaEditCtx.key,
+                        p_column_name: title,
+                        p_category: category,
+                        p_difficulty: metaEditCtx.isProblem ? difficulty : (metaEditCtx.row.difficulty || null),
+                        p_tags: tags,
+                        p_relations: relations,
+                        p_note: note,
+                        p_cf_rating: cfRating || null,
+                        p_oj: oj || null,
+                        p_problem_id: problemId || null,
+                        p_time_complexity: timeComplexity || null,
+                        p_space_complexity: spaceComplexity || null
+                    });
+                    if (r2.error) throw new Error(r2.error.message);
+                    metaEditStatus('已提交工单 #' + r2.data + '，等待管理员审核。', 'ok');
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.textContent = '已提交';
+                    }
+                }
+            } catch (err) {
+                var msg = err.message || String(err);
+                if (/does not exist|Could not find the function|schema cache/i.test(msg)) {
+                    msg += '（请先在 SQL Editor 执行 supabase/phase21-meta-edit.sql、phase22-meta-fields-credit.sql）';
+                }
+                metaEditStatus(msg, 'err');
+                if (btn) btn.disabled = false;
+            }
+        }
+
         // 有密码的专栏：游客直接拦截；登录用户需在本标签页输入过密码；管理员直接放行
         function isColumnViewLocked(key) {
             if (!key) return false;
@@ -4634,6 +5102,37 @@
             });
         }
 
+        // 读取审批通过的元数据便捷修改（视图已按作者+专栏去重）
+        function loadMetaCredits() {
+            var client = window.supabaseClient;
+            if (!client) return Promise.resolve();
+            if (metaCreditsLoading) return Promise.resolve();
+            metaCreditsLoading = true;
+            return client.from('author_meta_credits').select('*').then(function(res) {
+                if (res.error) {
+                    console.warn('[AKB] 读取元数据贡献失败：' + res.error.message);
+                    metaCreditsError = true;
+                    metaCreditsReady = true;
+                    refreshAuthorViews();
+                    return;
+                }
+                var next = Array.isArray(res.data) ? res.data : [];
+                var wasReady = metaCreditsReady;
+                var changed = JSON.stringify(next) !== JSON.stringify(META_CREDITS);
+                META_CREDITS = next;
+                metaCreditsError = false;
+                metaCreditsReady = true;
+                if (changed || !wasReady) refreshAuthorViews();
+            }).catch(function(err) {
+                console.warn('[AKB] 读取元数据贡献异常：' + (err && err.message ? err.message : err));
+                metaCreditsError = true;
+                metaCreditsReady = true;
+                refreshAuthorViews();
+            }).then(function() {
+                metaCreditsLoading = false;
+            });
+        }
+
         // 读取活跃作者头像 / 签名 / 战绩（公开视图 author_profiles）
         // 兼容只执行到 phase15 的数据库：缺 signature/honors 时退回只读头像。
         function loadAuthorProfiles() {
@@ -4824,8 +5323,8 @@
                 author: author,
                 content: content,
                 codePath: '',
-                timeComplexity: '未知',
-                spaceComplexity: '未知',
+                timeComplexity: row.time_complexity || '未知',
+                spaceComplexity: row.space_complexity || '未知',
                 tags: tags,
                 source: ''
             };
@@ -4835,8 +5334,15 @@
                 if (existingVersion) {
                     existingVersion.content = content;
                     existingVersion.tags = tags;
+                    if (row.time_complexity) existingVersion.timeComplexity = row.time_complexity;
+                    if (row.space_complexity) existingVersion.spaceComplexity = row.space_complexity;
                 } else {
                     exists.versions = [version];
+                }
+                if (isProblem) {
+                    if (row.cf_rating != null) exists.cfRating = row.cf_rating;
+                    if (row.oj != null) exists.oj = row.oj;
+                    if (row.problem_id != null) exists.problemId = row.problem_id;
                 }
                 exists.content = content;
                 if (row.column_name) exists.title = row.column_name;
@@ -4846,17 +5352,29 @@
                 exists._searchBlob = undefined;
                 return true;
             }
+            // 后台上传的分栏：优先用 parent_key，取不到时用 relations 里的 parent-child 推导，
+            // 跟随父栏目所在子分类，避免全部堆到「投稿」分组。
+            var parentId = row.parent_key ? relationBaseId(row.parent_key) : '';
+            if (!parentId && Array.isArray(row.relations)) {
+                var parentRelation = row.relations.find(function(r) {
+                    return r && r.type === 'parent-child' && r.target;
+                });
+                if (parentRelation) parentId = relationBaseId(parentRelation.target);
+            }
+            var parentItem = (!isProblem && parentId && typeof KNOWLEDGE_DATA !== 'undefined')
+                ? KNOWLEDGE_DATA.find(function(k) { return k.id === parentId; })
+                : null;
             var item = {
                 id: row.column_key,
                 title: row.column_name || row.column_key,
                 category: row.category || '未分类',
-                subcategory: '投稿',
+                subcategory: (parentItem && parentItem.subcategory) ? parentItem.subcategory : '投稿',
                 subSubcategory: '',
                 hub: false,
                 versions: [version],
                 content: content,
-                timeComplexity: '未知',
-                spaceComplexity: '未知',
+                timeComplexity: row.time_complexity || '未知',
+                spaceComplexity: row.space_complexity || '未知',
                 tags: tags,
                 codePath: '',
                 prerequisites: [],
@@ -4865,9 +5383,9 @@
             };
             if (isProblem) {
                 item.difficulty = row.difficulty || '暂未评定';
-                item.cfRating = '';
-                item.oj = '';
-                item.problemId = '';
+                item.cfRating = row.cf_rating || '';
+                item.oj = row.oj || '';
+                item.problemId = row.problem_id || '';
                 item.knowledgePoints = [];
             }
             applyDbRelations(item, row.relations, isProblem, row.relations_override === true);
@@ -4888,6 +5406,20 @@
                     var ver = target.item.versions[target.verIdx];
                     ver.content = row.content || '';
                     if (Array.isArray(row.tags)) ver.tags = row.tags;
+                    // phase22：人工覆盖过的评分 / OJ / 题号 / 复杂度以数据库为准
+                    if (row.meta_override === true) {
+                        ver.timeComplexity = row.time_complexity || '未知';
+                        ver.spaceComplexity = row.space_complexity || '未知';
+                        if (target.kind === 'problem') {
+                            target.item.cfRating = row.cf_rating || '';
+                            target.item.oj = row.oj || '';
+                            target.item.problemId = row.problem_id || '';
+                        }
+                        if (target.verIdx === 0) {
+                            target.item.timeComplexity = ver.timeComplexity;
+                            target.item.spaceComplexity = ver.spaceComplexity;
+                        }
+                    }
                     // 主版本同步兼容字段，并让搜索索引与目录标题失效重建
                     if (target.verIdx === 0) {
                         target.item.content = ver.content;
@@ -4918,8 +5450,8 @@
                             author: newAuthor,
                             content: row.content || '',
                             codePath: '',
-                            timeComplexity: '未知',
-                            spaceComplexity: '未知',
+                            timeComplexity: row.time_complexity || '未知',
+                            spaceComplexity: row.space_complexity || '未知',
                             tags: Array.isArray(row.tags) ? row.tags : [],
                             source: '',
                             level: baseLevel
@@ -4977,6 +5509,7 @@
                 var select = baseSelect;
                 if (level >= 1) select += ',relations';
                 if (level >= 2) select += ',relations_override';
+                if (level >= 3) select += ',cf_rating,oj,problem_id,time_complexity,space_complexity,meta_override';
                 // sub-* 只存在于数据库，没有静态 Markdown 对应内容；
                 // 若按「构建时间」过滤，重新 build 后已审批的投稿会被整体隐藏。
                 return client
@@ -4985,7 +5518,14 @@
                     .or('updated_at.gt.' + dbSince + ',column_key.like.sub-%')
                     .order('updated_at', { ascending: true });
             }
-            return fetchRows(2)
+            return fetchRows(3)
+                .then(function(res) {
+                    // phase22 未执行时先退回关系字段级别
+                    if (res.error && /cf_rating|oj|problem_id|time_complexity|space_complexity|meta_override/i.test(res.error.message || '')) {
+                        return fetchRows(2);
+                    }
+                    return res;
+                })
                 .then(function(res) {
                     // phase19 未执行时逐级回退：relations_override → relations → 基础字段
                     if (res.error && /relation/i.test(res.error.message || '')) {
@@ -5032,6 +5572,7 @@
             refreshViewerAuth();
             loadColumnLocks();
             loadEditCredits();
+            loadMetaCredits();
             loadAuthorProfiles();
             syncPublishedColumns();
             var tick = 0;
@@ -5049,12 +5590,14 @@
             setInterval(function() {
                 if (document.visibilityState !== 'visible') return;
                 if (currentMode === 'author') loadEditCredits();
+                if (currentMode === 'author') loadMetaCredits();
             }, 30000);
             document.addEventListener('visibilitychange', function() {
                 if (document.visibilityState !== 'visible') return;
                 refreshViewerAuth();
                 loadColumnLocks();
                 loadEditCredits();
+                loadMetaCredits();
                 loadAuthorProfiles();
                 syncPublishedColumns();
             });

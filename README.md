@@ -345,3 +345,23 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
   - 后台上传 RPC `admin_publish_column(jsonb)`：insert 拒绝覆盖已有 `column_key`；update 必须带 `expected_updated_at`；作者/标签/关系/父栏目/锁定与工单路径一致。
 - 新增 [`/.trae/skills/admin-upload/SKILL.md`](.trae/skills/admin-upload/SKILL.md)：**只有用户原话包含「此次为后台上传」时才调用**；直接写数据库、不生成工单、不走审批。
 - 已在事务中验证四类冲突（重复 insert / 过期 update / 过期修改工单 / 重复作者版本），验证后回滚；正式执行前不要直接 `insert/update columns`。
+
+## 备注（2026-11-12 · 专栏/题目元数据便捷修改）
+
+- 详情页 Meta 栏新增「✏️ 便捷修改」，只改非正文部分：标题、分类、难度（题目）、标签、关系。
+- 管理员保存后直接写库并刷新；普通登录用户保存后生成 `type='edit'` 的待审核工单，审批通过才生效。
+- 新迁移 [`supabase/phase21-meta-edit.sql`](supabase/phase21-meta-edit.sql)（**待用户在 SQL Editor 执行**）：
+  - `admin_update_column_meta(jsonb)`：校验 `profiles.role='admin'` 与 `expected_updated_at`；
+  - `submit_column_meta_edit(...)`：普通用户提交元数据工单，payload 带正文快照与 `base_updated_at`。
+- DB 关系为空且未人工覆盖时，弹窗回退预填静态 `prerequisites / related / parent`（题目为 `knowledgePoints`）。
+- 已在事务中验证：非管理员拦截、管理员直改、普通工单生成、审批后正文不变且元数据生效；验证后回滚。
+
+## 备注（2026-11-12 · 便捷修改扩展字段与元数据贡献）
+
+- 「便捷修改」新增可改字段：CF 评分 / OJ / 题号（题目）、时间复杂度 / 空间复杂度（知识点与题目）。
+- 新增迁移 [`supabase/phase22-meta-fields-credit.sql`](supabase/phase22-meta-fields-credit.sql)（**待用户在 SQL Editor 执行**）：
+  - `columns` 增加 `cf_rating / oj / problem_id / time_complexity / space_complexity / meta_override`；
+  - 两个 RPC 支持新字段，审批后由触发器写回；管理员直改额外留一条 approved 审计工单；
+  - `author_edit_credits` 排除 `meta_only=true`，新增公开视图 `author_meta_credits`。
+- 便捷修改计入贡献：每条固定 **0.02**，按「作者 + 专栏」去重；作者页新增「元数据修改」计数，并与修补记录同列展示。
+- 已在事务中验证：管理员直改、普通用户 12 参工单、审批写回、两个贡献视图；验证后回滚。

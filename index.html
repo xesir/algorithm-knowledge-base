@@ -4753,16 +4753,24 @@
 
             // phase22：评分 / OJ / 题号 / 复杂度；人工覆盖过则以数据库为准
             var metaOverridden = row.meta_override === true;
+            var META_EMPTY_TOKENS = ['nan', 'undefined', 'null', '-', '—', '未知'];
             function pickMeta(dbVal, fallback) {
                 if (metaOverridden) return dbVal == null ? '' : String(dbVal);
                 if (dbVal == null || dbVal === '') return fallback == null ? '' : String(fallback);
                 return String(dbVal);
             }
-            var cfRating = pickMeta(row.cf_rating, item.cfRating);
-            var oj = pickMeta(row.oj, item.oj);
-            var problemId = pickMeta(row.problem_id, item.problemId);
-            var timeComplexity = pickMeta(row.time_complexity, ver.timeComplexity === '未知' ? '' : ver.timeComplexity);
-            var spaceComplexity = pickMeta(row.space_complexity, ver.spaceComplexity === '未知' ? '' : ver.spaceComplexity);
+            // 静态数据用 NaN / - / 未知 表示缺失，编辑框里统一显示为空，允许直接留空保存
+            function cleanMetaText(val) {
+                var text = String(val == null ? '' : val).trim();
+                if (!text) return '';
+                if (META_EMPTY_TOKENS.indexOf(text.toLowerCase()) >= 0) return '';
+                return text;
+            }
+            var cfRating = cleanMetaText(pickMeta(row.cf_rating, item.cfRating));
+            var oj = cleanMetaText(pickMeta(row.oj, item.oj));
+            var problemId = cleanMetaText(pickMeta(row.problem_id, item.problemId));
+            var timeComplexity = cleanMetaText(pickMeta(row.time_complexity, ver.timeComplexity));
+            var spaceComplexity = cleanMetaText(pickMeta(row.space_complexity, ver.spaceComplexity));
 
             var categories = ['基础算法', '动态规划', '数据结构', '图论', '数学', '字符串', '实用工具'];
             if (category && categories.indexOf(category) < 0) categories.push(category);

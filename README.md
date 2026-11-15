@@ -365,3 +365,17 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
   - `author_edit_credits` 排除 `meta_only=true`，新增公开视图 `author_meta_credits`。
 - 便捷修改计入贡献：每条固定 **0.02**，按「作者 + 专栏」去重；作者页新增「元数据修改」计数，并与修补记录同列展示。
 - 已在事务中验证：管理员直改、普通用户 12 参工单、审批写回、两个贡献视图；验证后回滚。
+
+## 备注（2026-11-15 · 投稿通过通知 / 关联目标搜索与星图预览 / 静态条目新作者版本）
+
+- 新增迁移 [`supabase/phase24-submission-notify-static-version.sql`](supabase/phase24-submission-notify-static-version.sql)（**待用户在 SQL Editor 执行**）：
+  - 工单审批结束后给提交者发站内通知：投稿通过 / 投稿驳回 / 修改通过 / 修改驳回；驳回时附带管理员的 `admin_note`；
+  - 为已有专栏添加新作者版本时，允许目标 base 尚未写入 `columns`（静态知识点 / 题目也能直接提交），触发器用 payload 的标题 / 分类 / 题型 / 难度 / 标签 / 关系作为继承值；
+  - 防覆盖守卫在 base 缺失时也检查该作者版本是否已存在。
+- `build.js` 新增产物 **`catalog.json`**（292 知识点 + 192 题目 = 484 条精简目录），与 `data.js` / `code_data.js` / `problems_data.js` / `tags.json` / `titles.json` 一样属于构建产物，**不要手改**。
+- `login.html`：
+  - 投稿（新建专栏 / 已有条目加版本）与修改工单的「关联目标」下拉新增关键词搜索；搜索只过滤候选，不清空已选值；
+  - 投稿新建专栏、已有条目加版本、修改工单均支持「🌌 预览星图」；
+  - 「选择已有知识点 / 题目」= 数据库 `col-*` 专栏 + `catalog.json` 静态目录，带搜索，未 seed 的静态条目也能添加新作者版本。
+- 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
+- 本轮完整纪要见 [`docs/会话纪要-2026-11-15.md`](docs/会话纪要-2026-11-15.md) 第 10 节。

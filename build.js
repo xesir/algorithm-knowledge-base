@@ -57,6 +57,7 @@ const OUTPUT_CODE = path.join(ROOT, 'code_data.js');
 const OUTPUT_PROBLEMS = path.join(ROOT, 'problems_data.js');
 const OUTPUT_TAGS = path.join(ROOT, 'tags.json');
 const OUTPUT_TITLES = path.join(ROOT, 'titles.json');
+const OUTPUT_CATALOG = path.join(ROOT, 'catalog.json');
 const GRAPH_FILE = path.join(ROOT, 'knowledge_graph.json');
 
 // ===== 解析 YAML Frontmatter =====
@@ -388,6 +389,30 @@ const SUBSUBCATEGORY_META = ${JSON.stringify(graph.subSubcategories || {}, null,
     );
     fs.writeFileSync(OUTPUT_TITLES, titlesJson, 'utf8');
     console.log(`✅ 生成 titles.json (${knowledgeData.length} 个标题, ${(titlesJson.length / 1024).toFixed(1)} KB)`);
+
+    // 生成精简目录（知识点 + 题目）：供登录页「为已有内容添加新作者版本」选择器使用，
+    // 不依赖数据库里是否已经 seed 过对应专栏。
+    const catalog = [
+        ...knowledgeData.map(item => ({
+            id: item.id,
+            title: item.title,
+            category: item.category || '未分类',
+            kind: 'knowledge',
+            difficulty: '',
+            tags: item.tags || []
+        })),
+        ...problemsData.map(item => ({
+            id: item.id,
+            title: item.title,
+            category: item.category || '未分类',
+            kind: 'problem',
+            difficulty: item.difficulty || '',
+            tags: item.tags || []
+        }))
+    ];
+    const catalogJson = JSON.stringify(catalog, null, 2);
+    fs.writeFileSync(OUTPUT_CATALOG, catalogJson, 'utf8');
+    console.log(`✅ 生成 catalog.json (${catalog.length} 条目录, ${(catalogJson.length / 1024).toFixed(1)} KB)`);
 
     // 生成 code_data.js
     const codeJs = `// 此文件由 build.js 自动生成，请勿手动编辑

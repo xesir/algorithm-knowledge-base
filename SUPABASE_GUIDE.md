@@ -95,6 +95,7 @@ login.html 投稿表单
 | 20 | `supabase/phase21-meta-edit.sql` | 元数据便捷修改：管理员 `admin_update_column_meta` 直接改标题/分类/难度/标签/关系；普通用户 `submit_column_meta_edit` 提交元数据工单（正文快照不变） |
 | 21 | `supabase/phase22-meta-fields-credit.sql` | 便捷修改扩展字段（CF 评分 / OJ / 题号 / 时间 / 空间复杂度）+ 元数据贡献视图 `author_meta_credits`（每条 0.02） |
 | 22 | `supabase/phase23-notifications-chat.sql` | 通知栏：`notifications`（「修改」工单自动通知专栏作者）+ `chat_messages`（一对一文字私聊）+ `chat_directory()`；两表开 RLS，只能读自己的通知与会话 |
+| 23 | `supabase/phase24-submission-notify-static-version.sql` | 工单结果通知（投稿通过/驳回、修改通过/驳回，含 `admin_note`）；已有专栏新增作者版本时支持「静态条目」（尚未 seed 进 `columns`）作为基底；防覆盖守卫在 base 缺失时也查重 |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -152,6 +153,7 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-11 | phase20-guard-overwrites | 已应用（2026-11-12 REST 验证：`admin_publish_column` 存在且仅授权 postgres / service_role）：工单审批防覆盖守卫；后台上传 RPC `admin_publish_column` |
 | 2026-11-12 | phase21-meta-edit | 已应用（2026-11-12 验证 `admin_update_column_meta` 存在）：元数据便捷修改 RPC（管理员直改 / 普通用户工单） |
 | 2026-11-12 | phase22-meta-fields-credit | 已应用（2026-11-12 REST 验证：`cf_rating / oj / problem_id / meta_override` 可读）：`columns` 扩展字段；两个 RPC 支持新字段；审批写回触发器；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits` |
+| 2026-11-15 | phase24-submission-notify-static-version | **待用户在 SQL Editor 执行**：工单结果通知（投稿/修改 × 通过/驳回，含审核备注）；静态条目作为新作者版本基底；守卫在 base 缺失时也查重 |
 
 ---
 
@@ -208,6 +210,7 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 ```
 
 - 只能通过 RPC `submit_column_edit(p_key, p_password, p_content, p_note, p_uploaded, p_tags, p_category, p_difficulty, p_column_name, p_relations)` 创建：函数内部校验 `auth.uid()` 非空，并调用 `verify_column_password()` 校验专栏密码。`p_relations = null` 表示不修改关系，`[]` 表示清空。
+- **「已有专栏新增作者版本」投稿**（`payload.version_of`）：payload 额外带 `base_title` 与 `relations`（登录页按静态图谱预填）。phase24 起，若目标 base 专栏尚未写入 `columns`（例如只存在于 `catalog.json` 的静态知识点 / 题目），触发器会用 payload 的标题 / 分类 / 题型 / 难度 / 标签 / 关系作为继承值直接创建 `col-<base>--<作者昵称>`。
 - RLS 已禁止 authenticated 直接 `insert type='edit'`；管理员通过后由 `publish_submission_ticket()` 写回 `columns` 的 `content` / `column_name` / `tags` / `category` / `difficulty` / `relations` / `relation_type` / `relation_target` / `parent_key` / `relations_override`，新标签同时并入 `tags` 表。
 - **前端「修改」目标范围**：只列 `column_key` 以 `sub-` / `col-` 开头的实际专栏，排除 7 条作者占位专栏；选中无密码专栏时前端用空密码探测 `verify_column_password`，成功即自动载入源码。超过 10 万字符的正文不再塞进 textarea，改为下载/上传文件。
 - **后台展示规则**：`uploaded = true`（上传文件提交）或 diff 修改点 > 5 处时，审核详情不渲染逐行 diff，改为「查看修改后内容」全文；其余情况仍展示逐行差异。标题 / 标签 / 分类 / 难度 / 关系有变化时在详情头部显示「旧值 → 新值」。
@@ -311,6 +314,8 @@ node scripts/seed-columns-from-content.js --only=knowledge
 - 作者头像有图时容器背景透明；无头像时才显示首字母 + 纯色 `#6366f1` 填充。
 - `author_profiles.role`（phase18）供作者列表 / 主页 / 密码门显示「管理员」标识。
 - 投稿已有专栏（phase17）：payload 带 `version_of`（base key），审批通过后新增 `col-<base>--<作者昵称>` 行，前端把它作为新 `versions[]` 追加；同一作者已写过该专栏时，登录页会提示并自动切换到「修改」工单。
+- 登录页的「为已有专栏添加新作者版本」选择器 = 数据库 `col-*` 专栏 + `catalog.json` 静态目录（phase24）；静态条目也能提交并入库，不要求先跑 seed SQL。选择器带关键词搜索，星图预览按静态图谱关系渲染。
+- 投稿审批通过后，phase24 会通过 `notify_ticket_result()` 给提交者写通知：投稿通过 `index.html#sub-<id>`（新作者版本链接 `index.html#<base id>`）、投稿驳回 / 修改通过 / 修改驳回；驳回时附带 `tickets.admin_note`。修改工单**提交时**通知作者仍由 phase23 负责。
 - 作者页的修补数据每 30 秒自动刷新；新建计数来自静态 `data.js`，需要重新构建并部署后才会变。
 
 ### 4.8 后台上传与防覆盖（phase20）
@@ -488,3 +493,4 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-11 | 新增 phase20：工单审批防覆盖守卫（修改工单校验 `base_updated_at`、重复作者版本拒绝覆盖、`sub-<id>` 被其他来源占用拒绝）；后台上传 RPC `admin_publish_column`（insert 拒绝覆盖、update 必须 `expected_updated_at`）；新增 `.trae/skills/admin-upload/SKILL.md`（仅限用户说「此次为后台上传」） |
 | 2026-11-12 | 新增 phase21：专栏/题目 Meta 栏「便捷修改」；管理员 `admin_update_column_meta` 直改标题/分类/难度/标签/关系；普通用户 `submit_column_meta_edit` 提交元数据工单（正文快照不变）；关系为空时前端回退静态图谱预填 |
 | 2026-11-12 | 新增 phase22：便捷修改支持 CF 评分 / OJ / 题号 / 时间 / 空间复杂度（`meta_override` 标记人工覆盖）；管理员直改留 approved 审计工单；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits`；前端每条元数据修改计 0.02 贡献 |
+| 2026-11-15 | 新增 phase24：工单结果通知（投稿 / 修改 × 通过 / 驳回，含 `admin_note`）；新作者版本支持静态条目（`catalog.json`）作为基底；守卫在 base 缺失时也检查重复版本；登录页关联目标支持关键词搜索，投稿/修改/已有版本均支持星图预览 |

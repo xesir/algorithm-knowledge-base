@@ -14,7 +14,7 @@
 - 多版本：`content/<id>.md`=world-needs-sunday版，`content/<id>--作者.md`=其他作者版（详情页顶部 tab 切换，默认world-needs-sunday；作者映射见 `build.js` 的 `AUTHOR_KEYS`）
 - 代码：各分类目录下的 `.cpp`（由 `codePath` 指向，**用户本人编写**）
 - 图谱：`knowledge_graph.json`
-- 构建：`node build.js` → `data.js` / `code_data.js` / `problems_data.js`（另生成 `tags.json` / `titles.json`）
+- 构建：`node build.js` → `data.js` / `code_data.js` / `problems_data.js`（另生成 `tags.json` / `titles.json` / `catalog.json`）
 - 门禁：`node tools/lint.js`（error 必须为 0）
 
 ## 三条铁律
@@ -69,6 +69,11 @@ node tools/new-problem.js --id prob-luogu-p1050 --title "P1050 循环" --oj 洛�
 # 对拍（用户自己写好 gen.cpp / brute.cpp 后）
 tools\stress.cmd
 ```
+
+## 默认发布（2026-11-15 用户约定）
+
+- 用户**没有明确说「先别推 / 只构建 / 不推送」**时：改完 → `node tools/lint.js`（error 0）→ `node build.js` → `git add` / `commit` / `push origin master`，一次做完再汇报，并写清 commit sha。
+- 用户明确要求不推送、或只让构建时，不得 commit / push。
 
 ## 汇报格式（固定四段）
 

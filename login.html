@@ -233,7 +233,12 @@
                             <p class="form-hint">已有专栏会新增一个作者版本，不覆盖原作者内容；如果你已写过该专栏，会提示改用修改工单。</p>
                         </div>
                         <div class="form-field" id="ticket-existing-column-field" hidden>
-                            <label for="ticket-existing-column">选择已有专栏</label>
+                            <label for="ticket-existing-column">选择已有知识点 / 题目</label>
+                            <div class="form-inline">
+                                <input class="input" type="search" id="ticket-existing-search"
+                                       placeholder="搜索标题 / id / 分类">
+                                <button class="btn btn-ghost btn-sm" type="button" id="ticket-existing-preview-star">🌌 预览星图</button>
+                            </div>
                             <select class="select" id="ticket-existing-column"></select>
                             <p class="form-hint" id="ticket-existing-column-info">选择后会继承该专栏的分类、题型与难度。</p>
                             <p class="form-error" id="ticket-existing-warning" hidden></p>
@@ -263,9 +268,14 @@
                             </div>
                             <div class="form-field">
                                 <label>关系 <span class="label-hint">可选，可添加多条</span></label>
+                                <div class="form-inline">
+                                    <input class="input" type="search" id="ticket-relation-search"
+                                           placeholder="搜索关联目标（标题 / id / 分类）">
+                                    <button class="btn btn-ghost btn-sm" type="button" id="ticket-preview-star">🌌 预览星图</button>
+                                </div>
                                 <div id="ticket-relations"></div>
                                 <button class="btn btn-ghost btn-sm" type="button" id="ticket-add-relation">＋ 添加关系</button>
-                                <p class="form-hint">每条关系需要选择类型并填写关联目标。</p>
+                                <p class="form-hint">每条关系需要选择类型并填写关联目标；搜索框只过滤下拉候选，不会清空已选值。</p>
                             </div>
                             <div class="form-inline">
                                 <label class="checkbox-row">
@@ -378,11 +388,13 @@
                         </div>
                         <div class="form-field">
                             <label>关系 <span class="label-hint">可修改；全部移除表示清空</span></label>
-                            <div id="ticket-edit-relations"></div>
                             <div class="form-inline">
-                                <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-add-relation">＋ 添加关系</button>
+                                <input class="input" type="search" id="ticket-edit-relation-search"
+                                       placeholder="搜索关联目标（标题 / id / 分类）">
                                 <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-preview-star">🌌 预览星图</button>
                             </div>
+                            <div id="ticket-edit-relations"></div>
+                            <button class="btn btn-ghost btn-sm" type="button" id="ticket-edit-add-relation">＋ 添加关系</button>
                             <p class="form-hint">关联 / 前后置 / 父子关系；审批通过后会同步到站点星图。</p>
                         </div>
                         <div class="form-field">
@@ -516,7 +528,7 @@
                 <h3 id="edit-star-title">星图预览</h3>
                 <button class="modal-close" type="button" data-close-edit-star aria-label="关闭">✕</button>
             </div>
-            <p class="star-preview-note">预览基于本次修改的关系；审批通过后才会同步到站点星图。</p>
+            <p class="star-preview-note" id="edit-star-note">预览基于本次修改的关系；审批通过后才会同步到站点星图。</p>
             <div class="star-preview-body star-preview" id="edit-star-body"></div>
             <div class="star-preview-legend" id="edit-star-legend"></div>
         </div>
@@ -551,6 +563,8 @@
             var relationsFallback = false;
             var staticGraphPromise = null;
             var problemsDataPromise = null;
+            var catalogEntries = [];
+            var catalogPromise = null;
 
             function showToast(text) {
                 toast.textContent = text;
@@ -879,6 +893,22 @@
                     if (data && typeof data === 'object') kpTitles = data;
                 }).catch(function () {});
             }
+            // catalog.json：build.js 生成的静态知识点 / 题目目录（含分类、题型、难度、标签）
+            function loadCatalog() {
+                if (catalogEntries.length) return Promise.resolve(catalogEntries);
+                if (!catalogPromise) {
+                    catalogPromise = fetch('catalog.json')
+                        .then(function (response) { return response.ok ? response.json() : []; })
+                        .then(function (list) {
+                            catalogEntries = Array.isArray(list) ? list.filter(function (item) {
+                                return item && item.id;
+                            }) : [];
+                            return catalogEntries;
+                        })
+                        .catch(function () { return []; });
+                }
+                return catalogPromise;
+            }
             function loadColumnData() {
                 if (columnDataPromise) return columnDataPromise;
                 if (!client) {
@@ -931,10 +961,18 @@
                 });
                 return Object.keys(map).map(function (key) { return map[key]; });
             }
-            function fillRelationTargetSelect(select, current) {
+            function relationMatches(item, query) {
+                if (!query) return true;
+                var q = String(query).toLowerCase();
+                return String(item.label || '').toLowerCase().indexOf(q) >= 0 ||
+                    String(item.value || '').toLowerCase().indexOf(q) >= 0 ||
+                    String(item.category || '').toLowerCase().indexOf(q) >= 0;
+            }
+            function fillRelationTargetSelect(select, current, query) {
                 var options = relationTargetOptions();
+                var filtered = options.filter(function (item) { return relationMatches(item, query); });
                 var groups = {};
-                options.forEach(function (item) {
+                filtered.forEach(function (item) {
                     if (!groups[item.category]) groups[item.category] = [];
                     groups[item.category].push(item);
                 });
@@ -951,16 +989,28 @@
                     });
                     html += '</optgroup>';
                 });
-                if (current && !options.some(function (item) { return item.value === current; })) {
+                if (current && !filtered.some(function (item) { return item.value === current; })) {
+                    // 已选值不因搜索被清掉：保留为额外选项
                     html += '<option value="' + window.AKB.escapeHtml(current) + '">' +
                         window.AKB.escapeHtml(displayNameForColumn(current)) + '</option>';
                 }
                 select.innerHTML = html;
                 select.value = current || '';
             }
+            function relationQuery(containerId) {
+                var input = document.getElementById(containerId === 'ticket-edit-relations'
+                    ? 'ticket-edit-relation-search'
+                    : 'ticket-relation-search');
+                return input ? input.value.trim() : '';
+            }
             function refreshRelationTargets() {
-                document.querySelectorAll('#ticket-relations .relation-target, #ticket-edit-relations .relation-target').forEach(function(select) {
-                    fillRelationTargetSelect(select, select.value);
+                var mainQuery = relationQuery('ticket-relations');
+                document.querySelectorAll('#ticket-relations .relation-target').forEach(function (select) {
+                    fillRelationTargetSelect(select, select.value, mainQuery);
+                });
+                var editQuery = relationQuery('ticket-edit-relations');
+                document.querySelectorAll('#ticket-edit-relations .relation-target').forEach(function (select) {
+                    fillRelationTargetSelect(select, select.value, editQuery);
                 });
             }
             function columnOptionsHtml(columns, emptyText) {
@@ -1088,42 +1138,76 @@
                         };
                     }
                 });
+                // 补上静态目录：即使该知识点 / 题目还没 seed 进 columns，也能添加新作者版本
+                catalogEntries.forEach(function (item) {
+                    var base = 'col-' + item.id;
+                    if (map[base]) return;
+                    map[base] = {
+                        key: base,
+                        name: item.title || item.id,
+                        category: item.category || '未分类',
+                        kind: item.kind || 'knowledge',
+                        difficulty: item.difficulty || '',
+                        tags: Array.isArray(item.tags) ? item.tags : []
+                    };
+                });
                 return map;
+            }
+
+            function renderExistingColumnOptions(current) {
+                var select = document.getElementById('ticket-existing-column');
+                var query = (document.getElementById('ticket-existing-search').value || '').trim().toLowerCase();
+                var keys = Object.keys(existingColumnMap).filter(function (key) {
+                    if (!query) return true;
+                    var item = existingColumnMap[key];
+                    return String(item.name || '').toLowerCase().indexOf(query) >= 0 ||
+                        key.toLowerCase().indexOf(query) >= 0 ||
+                        String(item.category || '').toLowerCase().indexOf(query) >= 0;
+                }).sort(function (a, b) {
+                    var A = existingColumnMap[a], B = existingColumnMap[b];
+                    return (A.category + A.name).localeCompare(B.category + B.name, 'zh-CN');
+                });
+                if (!keys.length) {
+                    select.innerHTML = '<option value="">没有匹配的已有知识点 / 题目</option>';
+                    return;
+                }
+                var groups = {};
+                keys.forEach(function (key) {
+                    var item = existingColumnMap[key];
+                    if (!groups[item.category]) groups[item.category] = [];
+                    groups[item.category].push(item);
+                });
+                var html = '<option value="">请选择已有知识点 / 题目</option>';
+                Object.keys(groups).sort(function (a, b) {
+                    return a.localeCompare(b, 'zh-CN');
+                }).forEach(function (category) {
+                    html += '<optgroup label="' + window.AKB.escapeHtml(category) + '">';
+                    groups[category].forEach(function (item) {
+                        html += '<option value="' + window.AKB.escapeHtml(item.key) + '">' +
+                            window.AKB.escapeHtml(item.name) + '</option>';
+                    });
+                    html += '</optgroup>';
+                });
+                if (current && existingColumnMap[current] && keys.indexOf(current) < 0) {
+                    // 搜索过滤掉已选项时仍保留它，避免切换模式后丢失选择
+                    html += '<option value="' + window.AKB.escapeHtml(current) + '">' +
+                        window.AKB.escapeHtml(existingColumnMap[current].name) + '</option>';
+                }
+                select.innerHTML = html;
+                if (current && existingColumnMap[current]) select.value = current;
             }
 
             function loadExistingColumnOptions() {
                 var select = document.getElementById('ticket-existing-column');
                 var current = select.value;
-                return loadColumnData().then(function () {
+                return Promise.all([loadColumnData(), loadCatalog()]).then(function () {
                     existingColumnMap = buildExistingColumnMap();
-                    var keys = Object.keys(existingColumnMap).sort(function (a, b) {
-                        var A = existingColumnMap[a], B = existingColumnMap[b];
-                        return (A.category + A.name).localeCompare(B.category + B.name, 'zh-CN');
-                    });
-                    if (!keys.length) {
-                        select.innerHTML = '<option value="">暂无可添加版本的已有专栏</option>';
+                    if (!Object.keys(existingColumnMap).length) {
+                        select.innerHTML = '<option value="">暂无可添加版本的已有知识点 / 题目</option>';
                         updateExistingSubmissionWarning();
                         return;
                     }
-                    var groups = {};
-                    keys.forEach(function (key) {
-                        var item = existingColumnMap[key];
-                        if (!groups[item.category]) groups[item.category] = [];
-                        groups[item.category].push(item);
-                    });
-                    var html = '<option value="">请选择已有专栏</option>';
-                    Object.keys(groups).sort(function (a, b) {
-                        return a.localeCompare(b, 'zh-CN');
-                    }).forEach(function (category) {
-                        html += '<optgroup label="' + window.AKB.escapeHtml(category) + '">';
-                        groups[category].forEach(function (item) {
-                            html += '<option value="' + window.AKB.escapeHtml(item.key) + '">' +
-                                window.AKB.escapeHtml(item.name) + '</option>';
-                        });
-                        html += '</optgroup>';
-                    });
-                    select.innerHTML = html;
-                    if (current && existingColumnMap[current]) select.value = current;
+                    renderExistingColumnOptions(current);
                     updateExistingSubmissionWarning();
                 });
             }
@@ -1414,6 +1498,11 @@
             document.getElementById('ticket-submission-mode').addEventListener('change', syncSubmissionMode);
             document.getElementById('ticket-existing-column').addEventListener('change', updateExistingSubmissionWarning);
             document.getElementById('ticket-author').addEventListener('change', updateExistingSubmissionWarning);
+            document.getElementById('ticket-existing-search').addEventListener('input', function () {
+                renderExistingColumnOptions(document.getElementById('ticket-existing-column').value);
+            });
+            document.getElementById('ticket-relation-search').addEventListener('input', refreshRelationTargets);
+            document.getElementById('ticket-edit-relation-search').addEventListener('input', refreshRelationTargets);
             document.getElementById('ticket-is-problem').addEventListener('change', function () {
                 document.getElementById('ticket-difficulty').disabled = !this.checked;
             });
@@ -1609,7 +1698,7 @@
                     '<select class="select relation-target"></select>' +
                     '<button class="btn btn-ghost btn-sm relation-remove" type="button">删除</button>';
                 row.querySelector('.relation-type').value = type || 'related';
-                fillRelationTargetSelect(row.querySelector('.relation-target'), target || '');
+                fillRelationTargetSelect(row.querySelector('.relation-target'), target || '', relationQuery(boxId));
                 document.getElementById(boxId).appendChild(row);
             }
             function renderEditRelations(relations) {
@@ -1726,28 +1815,11 @@
                 }
             });
 
-            function openEditStarPreview() {
-                setError('ticket-error', '');
-                if (!editVerifiedKey || !currentEditColumn) {
-                    setError('ticket-error', '请先验证专栏密码并载入源码，再预览星图');
-                    return;
-                }
-                var centerIsProblem = columnIsProblem(currentEditColumn);
-                var center = {
-                    id: previewColumnId(editVerifiedKey),
-                    title: document.getElementById('ticket-edit-name').value.trim() ||
-                        currentEditColumn.column_name || editVerifiedKey,
-                    isProblem: centerIsProblem,
-                    difficulty: centerIsProblem
-                        ? (document.getElementById('ticket-edit-difficulty-edit').value || '暂未评定')
-                        : '',
-                    category: document.getElementById('ticket-edit-category-edit').value ||
-                        currentEditColumn.category || '未分类'
-                };
-                var relations = collectRelations('ticket-edit-relations').filter(function (item) {
-                    return item.target;
-                });
-                var targets = relations.map(function (item) {
+            function renderStarPreview(center, relations, note) {
+                var centerIsProblem = center.isProblem;
+                var targets = (relations || []).filter(function (item) {
+                    return item && item.target;
+                }).map(function (item) {
                     return { type: item.type, node: previewNodeMeta(item.target) };
                 });
 
@@ -1829,13 +1901,86 @@
                     legend += '<span><i style="background:' + previewDiffColor(diff) + '"></i>题目 · ' + escPreview(diff) + '</span>';
                 });
 
+                document.getElementById('edit-star-note').textContent = note || '';
                 document.getElementById('edit-star-title').textContent = '星图预览 · ' + center.title;
                 document.getElementById('edit-star-body').innerHTML = svg;
                 document.getElementById('edit-star-legend').innerHTML = legend;
                 document.getElementById('edit-star-modal').hidden = false;
                 document.body.classList.add('modal-open');
             }
+
+            function openEditStarPreview() {
+                setError('ticket-error', '');
+                if (!editVerifiedKey || !currentEditColumn) {
+                    setError('ticket-error', '请先验证专栏密码并载入源码，再预览星图');
+                    return;
+                }
+                var centerIsProblem = columnIsProblem(currentEditColumn);
+                var center = {
+                    id: previewColumnId(editVerifiedKey),
+                    title: document.getElementById('ticket-edit-name').value.trim() ||
+                        currentEditColumn.column_name || editVerifiedKey,
+                    isProblem: centerIsProblem,
+                    difficulty: centerIsProblem
+                        ? (document.getElementById('ticket-edit-difficulty-edit').value || '暂未评定')
+                        : '',
+                    category: document.getElementById('ticket-edit-category-edit').value ||
+                        currentEditColumn.category || '未分类'
+                };
+                renderStarPreview(
+                    center,
+                    collectRelations('ticket-edit-relations'),
+                    '预览基于本次修改的关系；审批通过后才会同步到站点星图。'
+                );
+            }
+
+            async function openSubmissionStarPreview() {
+                setError('ticket-error', '');
+                var mode = currentSubmissionMode();
+                if (mode === 'existing') {
+                    var baseKey = document.getElementById('ticket-existing-column').value;
+                    var target = existingColumnMap[baseKey];
+                    if (!baseKey || !target) {
+                        setError('ticket-error', '请先选择要添加版本的已有知识点 / 题目');
+                        return;
+                    }
+                    var existingIsProblem = target.kind === 'problem';
+                    var existingCenter = {
+                        id: previewColumnId(baseKey),
+                        title: target.name,
+                        isProblem: existingIsProblem,
+                        difficulty: existingIsProblem ? (target.difficulty || '暂未评定') : '',
+                        category: target.category || '未分类'
+                    };
+                    var inherited = await staticRelationsFor(
+                        { column_key: baseKey, kind: target.kind, category: target.category },
+                        baseKey
+                    );
+                    renderStarPreview(
+                        existingCenter,
+                        inherited,
+                        '预览基于该专栏的静态关系（审批后会作为新作者版本继承）；如已在数据库覆盖过，以数据库关系为准。'
+                    );
+                    return;
+                }
+                var isProblem = document.getElementById('ticket-is-problem').checked;
+                var center = {
+                    id: '',
+                    title: document.getElementById('ticket-column-name').value.trim() || '新投稿',
+                    isProblem: isProblem,
+                    difficulty: isProblem ? (document.getElementById('ticket-difficulty').value || '暂未评定') : '',
+                    category: document.getElementById('ticket-category').value || '未分类'
+                };
+                renderStarPreview(
+                    center,
+                    collectRelations(),
+                    '预览基于本次投稿填写的关系；审批通过后才会同步到站点星图。'
+                );
+            }
+
             document.getElementById('ticket-edit-preview-star').addEventListener('click', openEditStarPreview);
+            document.getElementById('ticket-preview-star').addEventListener('click', openSubmissionStarPreview);
+            document.getElementById('ticket-existing-preview-star').addEventListener('click', openSubmissionStarPreview);
 
             // ===== 内容来源：网页输入 / 上传文本文件 =====
             function currentSubmissionSource() {
@@ -1931,9 +2076,15 @@
                             switchToEditForExisting(existingKey);
                             return;
                         }
+                        // 继承基础条目的静态关系（数据库已覆盖时由触发器优先取数据库关系）
+                        var inheritedRelations = await staticRelationsFor(
+                            { column_key: baseKey, kind: target.kind, category: target.category },
+                            baseKey
+                        );
                         var versionPayload = {
                             version_of: baseKey,
                             column_key: baseKey,
+                            base_title: target.name,
                             column_name: target.name,
                             author_id: authorId,
                             author_name: authorName,
@@ -1941,6 +2092,7 @@
                             tags: ticketTags.length ? ticketTags.slice() : (target.tags || []),
                             kind: target.kind,
                             difficulty: target.difficulty || null,
+                            relations: inheritedRelations,
                             content: submissionContent,
                             uploaded: currentSubmissionSource() === 'file'
                         };

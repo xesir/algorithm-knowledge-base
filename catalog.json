@@ -1,0 +1,6272 @@
+[
+  {
+    "id": "basic-astar",
+    "title": "A* 启发式搜索",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "A*",
+      "启发式搜索",
+      "第K短路",
+      "Dijkstra",
+      "优先队列"
+    ]
+  },
+  {
+    "id": "basic-base-conversion",
+    "title": "进制转换",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "进制转换",
+      "任意进制",
+      "字符串",
+      "枚举",
+      "基础算法"
+    ]
+  },
+  {
+    "id": "basic-bfs",
+    "title": "BFS 广度优先搜索",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "BFS",
+      "状态压缩",
+      "迷宫",
+      "队列",
+      "搜索"
+    ]
+  },
+  {
+    "id": "basic-bfs-bidirectional",
+    "title": "双向 BFS（双向广度优先搜索）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "搜索",
+      "BFS",
+      "双向BFS",
+      "最短路",
+      "网格图"
+    ]
+  },
+  {
+    "id": "basic-big-integer-library",
+    "title": "BigInteger 3.0 大整数库",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "大整数",
+      "高精度",
+      "BigInteger",
+      "库"
+    ]
+  },
+  {
+    "id": "basic-binary-search",
+    "title": "二分查找与二分答案",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "二分",
+      "二分查找",
+      "二分答案",
+      "浮点二分",
+      "单调性"
+    ]
+  },
+  {
+    "id": "basic-bitset-general",
+    "title": "bitset 优化（通法与技巧）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "bitset",
+      "位运算",
+      "卡常",
+      "可行性DP",
+      "传递闭包",
+      "布尔矩阵",
+      "莫队",
+      "偏序"
+    ]
+  },
+  {
+    "id": "basic-bitset",
+    "title": "bitset 优化",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "bitset",
+      "传递闭包",
+      "Floyd",
+      "位运算",
+      "卡常"
+    ]
+  },
+  {
+    "id": "basic-bubble-select-sort",
+    "title": "基础排序（冒泡 / 快速 / 归并）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "排序",
+      "冒泡排序",
+      "快速排序",
+      "归并排序",
+      "逆序对",
+      "稳定性"
+    ]
+  },
+  {
+    "id": "basic-combination-dfs",
+    "title": "DFS 生成组合（选/不选 + 剪枝）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "搜索",
+      "组合",
+      "DFS",
+      "回溯",
+      "递归",
+      "剪枝"
+    ]
+  },
+  {
+    "id": "basic-dfs",
+    "title": "DFS 深度优先搜索",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "DFS",
+      "回溯",
+      "剪枝",
+      "全排列",
+      "八皇后",
+      "记忆化搜索"
+    ]
+  },
+  {
+    "id": "basic-digit-power-cycle-self",
+    "title": "按数位分层扩张幂周期算法（洛谷 P1050）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "数位提升",
+      "Hensel提升",
+      "大整数",
+      "幂周期",
+      "P1050"
+    ]
+  },
+  {
+    "id": "basic-discretization",
+    "title": "离散化",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "离散化",
+      "值域压缩",
+      "排序去重",
+      "lower_bound",
+      "坐标压缩"
+    ]
+  },
+  {
+    "id": "basic-divide-conquer-closest-pair",
+    "title": "最近点对（平面最小点对，分治）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "分治",
+      "最近点对",
+      "最小点对",
+      "计算几何",
+      "归并排序",
+      "平面几何"
+    ]
+  },
+  {
+    "id": "basic-divide-conquer-merge-inversion",
+    "title": "归并排序求逆序对（分治）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "分治",
+      "归并排序",
+      "逆序对",
+      "排序"
+    ]
+  },
+  {
+    "id": "basic-doubling",
+    "title": "倍增（思想）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "倍增",
+      "二进制拆分",
+      "LCA",
+      "ST 表",
+      "函数迭代"
+    ]
+  },
+  {
+    "id": "basic-greedy",
+    "title": "贪心（一般模型与区间问题）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "贪心",
+      "区间问题",
+      "反悔贪心",
+      "交换论证",
+      "排序"
+    ]
+  },
+  {
+    "id": "basic-greedy-block-building",
+    "title": "积木大赛类贪心",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "积木大赛",
+      "贪心",
+      "差分",
+      "区间"
+    ]
+  },
+  {
+    "id": "basic-greedy-snow-shoveling",
+    "title": "铲雪类贪心",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "铲雪",
+      "积木大赛",
+      "贪心",
+      "区间操作"
+    ]
+  },
+  {
+    "id": "basic-high-precision",
+    "title": "高精度算法 — 字符串大整数的比较、加、减、乘",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "高精度",
+      "大整数",
+      "字符串",
+      "模拟",
+      "进位",
+      "借位"
+    ]
+  },
+  {
+    "id": "basic-high-precision-div",
+    "title": "高精度除法与取模",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "高精度",
+      "除法",
+      "取模",
+      "大整数",
+      "字符串"
+    ]
+  },
+  {
+    "id": "basic-interactive-models",
+    "title": "交互与通信题经典模型（猜数 / 毒药 / Hamming）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "交互题",
+      "通信题",
+      "信息论",
+      "Hamming 码"
+    ]
+  },
+  {
+    "id": "basic-interval-merge",
+    "title": "区间合并（合并重叠/相邻区间）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "贪心",
+      "区间合并",
+      "区间问题",
+      "排序",
+      "扫描"
+    ]
+  },
+  {
+    "id": "basic-interval-scheduling",
+    "title": "区间调度（选最多不重叠区间）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "贪心",
+      "区间调度",
+      "区间问题",
+      "排序",
+      "不重叠区间"
+    ]
+  },
+  {
+    "id": "basic-kittengen",
+    "title": "KittenGen 本地数据生成器",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据生成器",
+      "KittenGen",
+      "对拍",
+      "Python"
+    ]
+  },
+  {
+    "id": "basic-meet-in-middle-binary-search",
+    "title": "折半搜索（Meet in the Middle）— 二分查找版",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "搜索",
+      "折半搜索",
+      "Meet in the Middle",
+      "DFS",
+      "二分查找",
+      "子集和"
+    ]
+  },
+  {
+    "id": "basic-meet-in-middle-two-pointer",
+    "title": "折半搜索（Meet in the Middle）— 双指针合并版",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "搜索",
+      "折半搜索",
+      "Meet in the Middle",
+      "DFS",
+      "双指针",
+      "子集和"
+    ]
+  },
+  {
+    "id": "basic-offline",
+    "title": "离线操作",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "离线操作",
+      "排序",
+      "扫描线",
+      "莫队",
+      "可撤销"
+    ]
+  },
+  {
+    "id": "basic-permutation-dfs",
+    "title": "DFS 生成全排列（回溯法）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "搜索",
+      "排列",
+      "DFS",
+      "回溯",
+      "递归"
+    ]
+  },
+  {
+    "id": "basic-problem-solving-patterns",
+    "title": "做题套路与结论汇总",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "套路",
+      "结论",
+      "技巧",
+      "杂项"
+    ]
+  },
+  {
+    "id": "basic-quickselect-kth",
+    "title": "快速选择（Quickselect — 找第 k 小）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "分治",
+      "快速选择",
+      "Quickselect",
+      "Top-K",
+      "三数取中",
+      "划分",
+      "无序数组"
+    ]
+  },
+  {
+    "id": "basic-radix-sort-k",
+    "title": "k 进制基数排序",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "排序",
+      "基数排序",
+      "非比较排序",
+      "计数排序",
+      "位运算"
+    ]
+  },
+  {
+    "id": "basic-random-mt19937",
+    "title": "C++ 随机数生成（mt19937 与分布对象）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "随机数",
+      "mt19937",
+      "随机种子",
+      "分布对象",
+      "造数据"
+    ]
+  },
+  {
+    "id": "basic-random-sa-permutation",
+    "title": "模拟退火 · 区间退火（排列退火）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "模拟退火",
+      "随机化",
+      "排列退火",
+      "增量计算",
+      "邻域搜索"
+    ]
+  },
+  {
+    "id": "basic-random-sa-point",
+    "title": "模拟退火 · 点退火（求加权费马点）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "模拟退火",
+      "随机化",
+      "爬山法",
+      "Metropolis准则",
+      "费马点"
+    ]
+  },
+  {
+    "id": "basic-regret-greedy",
+    "title": "反悔贪心",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "反悔贪心",
+      "贪心",
+      "堆",
+      "懒删除",
+      "优惠券",
+      "不变量"
+    ]
+  },
+  {
+    "id": "basic-shell-sort",
+    "title": "希尔排序（Shell Sort）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "排序",
+      "希尔排序",
+      "插入排序",
+      "增量序列"
+    ]
+  },
+  {
+    "id": "basic-space-test",
+    "title": "空间测试",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "空间测试",
+      "内存",
+      "sizeof",
+      "调试"
+    ]
+  },
+  {
+    "id": "basic-sqrt-decomposition",
+    "title": "根号分治（无向图三元环计数）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "根号分治",
+      "三元环",
+      "图论",
+      "度数定向",
+      "复杂度平衡"
+    ]
+  },
+  {
+    "id": "basic-stress-basic",
+    "title": "对拍（四件套与执行流程）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "对拍",
+      "stress test",
+      "随机数据",
+      "暴力程序",
+      "调试"
+    ]
+  },
+  {
+    "id": "basic-stress-checker",
+    "title": "对拍（SPJ 与构造题 checker）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "对拍",
+      "SPJ",
+      "checker",
+      "构造题",
+      "合法性检验"
+    ]
+  },
+  {
+    "id": "basic-stress-graph-gen",
+    "title": "随机数据生成（一般图）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "对拍",
+      "随机数据",
+      "无向图",
+      "有向图",
+      "DAG",
+      "二分图"
+    ]
+  },
+  {
+    "id": "basic-stress-interactive",
+    "title": "对拍（交互题）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "对拍",
+      "交互题",
+      "grader",
+      "checker",
+      "随机数据"
+    ]
+  },
+  {
+    "id": "basic-stress-precision",
+    "title": "对拍（浮点误差与精度比较）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "对拍",
+      "浮点误差",
+      "eps",
+      "cin.clear",
+      "SPJ"
+    ]
+  },
+  {
+    "id": "basic-stress-random-basic",
+    "title": "随机数据生成（种子与基础套路）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "对拍",
+      "随机数据",
+      "mt19937",
+      "getpid",
+      "数据生成器"
+    ]
+  },
+  {
+    "id": "basic-stress-tree-gen",
+    "title": "随机数据生成（树与特殊结构）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "对拍",
+      "随机数据",
+      "树",
+      "基环树",
+      "菊花图",
+      "二叉树"
+    ]
+  },
+  {
+    "id": "basic-template-header",
+    "title": "自用头文件",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "模板",
+      "头文件",
+      "快读",
+      "快写",
+      "宏定义"
+    ]
+  },
+  {
+    "id": "basic-ternary-search",
+    "title": "三分法（求单峰函数极值）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "三分法",
+      "单峰函数",
+      "浮点二分",
+      "数值方法",
+      "多项式求值"
+    ]
+  },
+  {
+    "id": "basic-timing",
+    "title": "时间测试",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "clock",
+      "时间测试",
+      "卡时",
+      "骗分",
+      "调试"
+    ]
+  },
+  {
+    "id": "basic-tricks-dp",
+    "title": "DP 与计数技巧合集（耳分解 / 补集转化 / 贡献拆解）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "DP 技巧",
+      "补集转化",
+      "数位 DP",
+      "计数"
+    ]
+  },
+  {
+    "id": "basic-tricks-ds",
+    "title": "数据结构技巧合集（倍增并查集 / 单侧递归线段树 / BIT 倍增）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构技巧",
+      "倍增并查集",
+      "线段树",
+      "BIT"
+    ]
+  },
+  {
+    "id": "basic-tricks-graph",
+    "title": "图论建模技巧合集（倍增 Floyd / 分层图 / 环相关）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论建模",
+      "倍增 Floyd",
+      "分层图",
+      "生成树"
+    ]
+  },
+  {
+    "id": "basic-tricks-math",
+    "title": "数学与位运算技巧合集（GCD log / 曼哈顿互化 / 抽屉原理）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学技巧",
+      "位运算",
+      "曼哈顿距离",
+      "抽屉原理"
+    ]
+  },
+  {
+    "id": "basic-tricks-median",
+    "title": "中位数问题的 01 转化 trick",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "中位数",
+      "01转化",
+      "二分答案",
+      "线段树",
+      "trick"
+    ]
+  },
+  {
+    "id": "basic-tricks-overview",
+    "title": "优化技巧总览（DP / 数据结构 / 图论 / 数学 / 序列 / 套路）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "技巧合集",
+      "优化",
+      "套路",
+      "总览",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "basic-tricks-sequence",
+    "title": "序列与实现技巧合集（离线倒序 / 值域随机映射 / 分部分做法）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "实现技巧",
+      "离线",
+      "差分",
+      "随机化"
+    ]
+  },
+  {
+    "id": "basic-two-pointer",
+    "title": "双指针（思想）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "双指针",
+      "滑动窗口",
+      "对撞指针",
+      "双序列指针",
+      "基础算法"
+    ]
+  },
+  {
+    "id": "basic-two-pointer-cycle",
+    "title": "链表环检测（Floyd 快慢指针）",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "双指针",
+      "快慢指针",
+      "Floyd",
+      "环检测",
+      "龟兔赛跑"
+    ]
+  },
+  {
+    "id": "dp-01bag-2d",
+    "title": "二维费用01背包",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "二维费用",
+      "01背包",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-01bag-record",
+    "title": "01背包（带记录/路径还原）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "01背包",
+      "路径还原",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-01bag-standard",
+    "title": "01背包（标准）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "01背包",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-bitmask-hamilton",
+    "title": "状态压缩DP（Hamilton路径最短路）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "状态压缩",
+      "状压DP",
+      "Hamilton路径",
+      "最短路",
+      "TSP"
+    ]
+  },
+  {
+    "id": "dp-bitmask-overview",
+    "title": "状态压缩 DP 总览（Hamilton / 棋盘 / 子集枚举）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "状压DP",
+      "状态压缩",
+      "Hamilton",
+      "子集DP",
+      "总览"
+    ]
+  },
+  {
+    "id": "dp-bracket-sequence",
+    "title": "括号序列模型",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "括号序列",
+      "区间DP",
+      "计数",
+      "栈"
+    ]
+  },
+  {
+    "id": "dp-complete-bag",
+    "title": "完全背包",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "完全背包",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-count-01bag",
+    "title": "计数01背包（最大值方案计数）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "计数",
+      "01背包",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-digit-count",
+    "title": "数位统计（数字计数）— 按位统计数码出现次数",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数位DP",
+      "数位统计",
+      "数学",
+      "按位处理",
+      "前导零",
+      "洛谷"
+    ]
+  },
+  {
+    "id": "dp-digit-memo",
+    "title": "数位 DP — 按位填数与记忆化搜索",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数位DP",
+      "记忆化搜索",
+      "按位枚举",
+      "区间转前缀",
+      "前导零",
+      "windy数",
+      "手机号码"
+    ]
+  },
+  {
+    "id": "dp-expectation",
+    "title": "期望 DP",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "期望DP",
+      "概率",
+      "高斯消元",
+      "随机游走"
+    ]
+  },
+  {
+    "id": "dp-formula-method",
+    "title": "DP 公式化打法 · 通用解题流程",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "方法论",
+      "解题流程",
+      "状态设计",
+      "转移方程",
+      "xD-yD"
+    ]
+  },
+  {
+    "id": "dp-grid-number-pick",
+    "title": "方格取数",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "方格取数",
+      "路径DP",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-grid-state",
+    "title": "棋盘状压 DP（炮兵阵地 + 互不侵犯 · Xesir 版）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "状态压缩",
+      "棋盘状压DP",
+      "炮兵阵地",
+      "互不侵犯"
+    ]
+  },
+  {
+    "id": "dp-group-bag",
+    "title": "分组背包",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "分组背包",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-integer-partition",
+    "title": "整数划分",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "整数划分",
+      "完全背包",
+      "计数DP"
+    ]
+  },
+  {
+    "id": "dp-interval-overview",
+    "title": "区间 DP 总览（石子合并 / 括号序列 / 涂色与合成）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "区间DP",
+      "石子合并",
+      "括号序列",
+      "总览",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "dp-interval-paint",
+    "title": "区间DP — 涂色问题",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "区间DP",
+      "动态规划",
+      "涂色",
+      "洛谷P4170",
+      "枚举分割点"
+    ]
+  },
+  {
+    "id": "dp-interval-stone-merge",
+    "title": "区间DP — 环形石子合并（区间DP入门经典）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "区间DP",
+      "动态规划",
+      "石子合并",
+      "环形DP",
+      "断环成链",
+      "前缀和"
+    ]
+  },
+  {
+    "id": "dp-interval-synthesis",
+    "title": "区间DP — 合成问题",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "区间DP",
+      "动态规划",
+      "合成",
+      "洛谷P3146",
+      "枚举分割点"
+    ]
+  },
+  {
+    "id": "dp-knapsack-overview",
+    "title": "背包 DP 综述",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "背包",
+      "01背包",
+      "完全背包",
+      "多重背包",
+      "分组背包"
+    ]
+  },
+  {
+    "id": "dp-knapsack-topk",
+    "title": "01 背包前 k 大解",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "01背包",
+      "前k大",
+      "双指针归并",
+      "动态规划",
+      "有序序列"
+    ]
+  },
+  {
+    "id": "dp-linear-basic",
+    "title": "线性 DP 基础（数字三角形 / 最大子段和 / LIS）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "线性DP",
+      "数字三角形",
+      "最大子段和",
+      "LIS",
+      "Dilworth",
+      "动态规划"
+    ]
+  },
+  {
+    "id": "dp-linear-edit-distance",
+    "title": "字符串编辑距离",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "编辑距离",
+      "Levenshtein",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-linear-lcs-length",
+    "title": "最长公共子序列长度（普通）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "最长公共子序列",
+      "LCS",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-linear-lcs-output",
+    "title": "最长公共子序列（带输出）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "最长公共子序列",
+      "LCS",
+      "路径还原",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-linear-lcs-substring",
+    "title": "最长公共子串",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "最长公共子串",
+      "字符串",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-linear-lis-binary",
+    "title": "最长上升子序列（二分）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "最长上升子序列",
+      "LIS",
+      "二分查找",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-linear-lis-bit-count",
+    "title": "最长上升子序列（树状数组优化·带计数）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "最长上升子序列",
+      "LIS",
+      "树状数组",
+      "BIT",
+      "离散化",
+      "计数"
+    ]
+  },
+  {
+    "id": "dp-linear-maxsub",
+    "title": "长度不超过m的最大子段和",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "单调队列",
+      "前缀和",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-linear-overview",
+    "title": "线性 DP 总览（LIS / LCS / 经典模型）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "线性DP",
+      "LIS",
+      "LCS",
+      "总览",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "dp-linear-triangle",
+    "title": "数字三角形",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "线性DP",
+      "路径DP",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-memo-search",
+    "title": "记忆化搜索",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "记忆化搜索",
+      "DFS",
+      "重叠子问题",
+      "剪枝"
+    ]
+  },
+  {
+    "id": "dp-mixed-bag",
+    "title": "混合背包",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "混合背包",
+      "二进制优化",
+      "多重背包",
+      "完全背包"
+    ]
+  },
+  {
+    "id": "dp-multi-bag-binary",
+    "title": "多重背包（二进制优化）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "多重背包",
+      "二进制优化",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-multi-bag-monotone",
+    "title": "多重背包（单调队列优化）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "背包问题",
+      "多重背包",
+      "单调队列",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-opt-monotone-queue",
+    "title": "DP 优化（单调队列 / SOS）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "DP优化",
+      "单调队列",
+      "滑动窗口"
+    ]
+  },
+  {
+    "id": "dp-rerooting",
+    "title": "换根 DP（STA-Station · Xesir 版）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "树形DP",
+      "换根DP",
+      "二次扫描",
+      "深度之和"
+    ]
+  },
+  {
+    "id": "dp-subset-dp",
+    "title": "子集 DP（子集枚举 · 分组过桥 · 子集最值维护 · Xesir 版）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "状态压缩",
+      "子集DP",
+      "子集枚举",
+      "高维前缀和"
+    ]
+  },
+  {
+    "id": "dp-tree-01bag",
+    "title": "树状01背包",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "树形DP",
+      "背包问题",
+      "依赖背包",
+      "DFS",
+      "DP"
+    ]
+  },
+  {
+    "id": "dp-tree-bag-optimize",
+    "title": "树形背包 O(nk) 优化（树上染色 · Xesir 版）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "树形DP",
+      "树形背包",
+      "树上染色",
+      "边贡献转化"
+    ]
+  },
+  {
+    "id": "dp-tree-color-edge",
+    "title": "树上染色（边贡献分解）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "树形DP",
+      "树上背包",
+      "边贡献分解",
+      "黑白染色"
+    ]
+  },
+  {
+    "id": "dp-tree-dance",
+    "title": "树形DP · 最大权独立集",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "树形DP",
+      "最大独立集",
+      "状态设计",
+      "后序遍历"
+    ]
+  },
+  {
+    "id": "dp-tree-min-dominating",
+    "title": "树的最小支配集（三态 DP · Cell Phone Network · Xesir 版）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "树形DP",
+      "最小支配集",
+      "三态DP",
+      "覆盖问题"
+    ]
+  },
+  {
+    "id": "dp-tree-overview",
+    "title": "树形 DP 总览（独立集 / 背包 / 换根 / 支配集）",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "树形DP",
+      "换根DP",
+      "树形背包",
+      "总览",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "ds-avl-tree",
+    "title": "AVL 树的扩展应用",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "AVL树",
+      "平衡树",
+      "BST"
+    ]
+  },
+  {
+    "id": "ds-balanced-tree-overview",
+    "title": "平衡树综述",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "平衡树",
+      "BST",
+      "Treap",
+      "Splay",
+      "AVL"
+    ]
+  },
+  {
+    "id": "ds-bit-point-range",
+    "title": "树状数组（单点修改 / 区间修改）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "树状数组",
+      "单点修改",
+      "区间求和",
+      "lowbit",
+      "P3374"
+    ]
+  },
+  {
+    "id": "ds-bit-second-diff",
+    "title": "二阶差分（树状数组维护）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "差分",
+      "二阶差分",
+      "树状数组",
+      "区间加",
+      "等差数列"
+    ]
+  },
+  {
+    "id": "ds-bit-second-prefix",
+    "title": "二阶前缀和（树状数组维护）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "前缀和",
+      "树状数组",
+      "二阶前缀和",
+      "BIT",
+      "单点修改"
+    ]
+  },
+  {
+    "id": "ds-block-2d",
+    "title": "二维分块",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "二维分块",
+      "莫队二次离线",
+      "分块"
+    ]
+  },
+  {
+    "id": "ds-block-decomposition",
+    "title": "分块（区间加·区间求和·区间≤k求和）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "分块",
+      "Sqrt Decomposition",
+      "区间修改",
+      "区间查询",
+      "lazy标记",
+      "排序二分"
+    ]
+  },
+  {
+    "id": "ds-block-time",
+    "title": "时间分块（对操作序列分块）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "时间分块",
+      "操作分块",
+      "分块"
+    ]
+  },
+  {
+    "id": "ds-block-tree",
+    "title": "树分块",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "树分块",
+      "分块",
+      "树上查询"
+    ]
+  },
+  {
+    "id": "ds-block-value-domain",
+    "title": "值域分块",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "值域分块",
+      "分块",
+      "mex",
+      "第 k 小"
+    ]
+  },
+  {
+    "id": "ds-bst",
+    "title": "二叉搜索树（BST）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "二叉搜索树",
+      "BST",
+      "插入删除",
+      "排名",
+      "前驱后继"
+    ]
+  },
+  {
+    "id": "ds-cartesian-tree",
+    "title": "笛卡尔树（O(n) 单调栈构建与 RMQ 转 LCA）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "笛卡尔树",
+      "单调栈",
+      "RMQ",
+      "Tarjan",
+      "LCA"
+    ]
+  },
+  {
+    "id": "ds-diff-1d",
+    "title": "一维差分（区间加·批量更新）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "差分",
+      "一维",
+      "区间修改",
+      "前缀和逆操作",
+      "数学"
+    ]
+  },
+  {
+    "id": "ds-dsu-on-tree",
+    "title": "dsu on tree",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "dsu on tree",
+      "树上启发式合并",
+      "子树",
+      "DFS"
+    ]
+  },
+  {
+    "id": "ds-dual-heap",
+    "title": "对顶堆（动态维护第 k 小）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "堆",
+      "对顶堆",
+      "优先队列",
+      "动态第k小",
+      "中位数"
+    ]
+  },
+  {
+    "id": "ds-fast-block-list",
+    "title": "更快的块状链表",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "块状链表",
+      "树状数组",
+      "分块",
+      "卡常"
+    ]
+  },
+  {
+    "id": "ds-fhq-treap",
+    "title": "FHQ-Treap（无旋 Treap）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "平衡树",
+      "FHQ-Treap",
+      "分裂",
+      "合并",
+      "随机优先级"
+    ]
+  },
+  {
+    "id": "ds-hash-table",
+    "title": "哈希表（哈希函数与冲突处理）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "哈希",
+      "哈希函数",
+      "哈希冲突",
+      "拉链法",
+      "开放地址法"
+    ]
+  },
+  {
+    "id": "ds-heap",
+    "title": "堆（手写模拟堆）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "堆",
+      "优先队列",
+      "向上调整",
+      "向下调整"
+    ]
+  },
+  {
+    "id": "ds-hld-segtree",
+    "title": "树链剖分线段树（路径与子树操作）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "线段树",
+      "树链剖分",
+      "重链",
+      "路径修改",
+      "子树查询"
+    ]
+  },
+  {
+    "id": "ds-index-tree-block-list",
+    "title": "索引树优化块状链表",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "块状链表",
+      "索引树",
+      "分块",
+      "平衡树"
+    ]
+  },
+  {
+    "id": "ds-linked-list",
+    "title": "链表（数组模拟双链表）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "链表",
+      "双向链表",
+      "数组模拟",
+      "指针"
+    ]
+  },
+  {
+    "id": "ds-mo-team",
+    "title": "普通莫队",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "莫队",
+      "分块",
+      "离线查询",
+      "区间查询"
+    ]
+  },
+  {
+    "id": "ds-mo-team-modify",
+    "title": "带修莫队",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "莫队",
+      "分块",
+      "离线查询",
+      "区间修改"
+    ]
+  },
+  {
+    "id": "ds-monoqueue-1d",
+    "title": "单调队列（一维 / 二维滑动窗口）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "单调队列",
+      "滑动窗口",
+      "双端队列",
+      "区间最值",
+      "基础模板"
+    ]
+  },
+  {
+    "id": "ds-monostack-histogram",
+    "title": "栈（单调栈 / 前缀最值栈）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "单调栈",
+      "栈",
+      "直方图",
+      "最大矩形"
+    ]
+  },
+  {
+    "id": "ds-odt",
+    "title": "珂朵莉树（ODT）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "珂朵莉树",
+      "ODT",
+      "区间推平",
+      "随机数据",
+      "暴力"
+    ]
+  },
+  {
+    "id": "ds-offline-2d-count",
+    "title": "离线二维数点",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "离线",
+      "二维数点",
+      "树状数组",
+      "扫描线"
+    ]
+  },
+  {
+    "id": "ds-other-overview",
+    "title": "其他数据结构总览（dsu on tree / 哈希表 / 链表 / ODT / 离线二维数点）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "总览",
+      "dsu on tree",
+      "哈希表",
+      "ODT",
+      "离线二维数点"
+    ]
+  },
+  {
+    "id": "ds-pbds",
+    "title": "pb_ds（基于策略的数据结构）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "pb_ds",
+      "平衡树",
+      "配对堆",
+      "可并堆",
+      "GCC扩展"
+    ]
+  },
+  {
+    "id": "ds-persistent-overview",
+    "title": "可持久化数据结构（总纲）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "可持久化",
+      "历史版本",
+      "路径复制",
+      "胖节点",
+      "离线"
+    ]
+  },
+  {
+    "id": "ds-persistent-segtree-3919",
+    "title": "可持久化线段树（单点修改单点查询 P3919）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "可持久化线段树",
+      "历史版本",
+      "单点修改",
+      "P3919"
+    ]
+  },
+  {
+    "id": "ds-persistent-segtree-kth",
+    "title": "主席树（可持久化权值线段树 · 区间第 k 小）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "主席树",
+      "可持久化",
+      "权值线段树",
+      "区间第k小",
+      "离散化"
+    ]
+  },
+  {
+    "id": "ds-persistent-segtree-template",
+    "title": "可持久化线段树（单点修改区间求和 普通模板）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "可持久化线段树",
+      "历史版本",
+      "区间求和"
+    ]
+  },
+  {
+    "id": "ds-prefix-diff-overview",
+    "title": "前缀和与差分总览（一维 / 二维 / 树上）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "前缀和",
+      "差分",
+      "总览",
+      "学习路线",
+      "二阶前缀和"
+    ]
+  },
+  {
+    "id": "ds-prefix-sum-1d",
+    "title": "一维前缀和（区间和查询）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "前缀和",
+      "一维",
+      "区间查询",
+      "预处理",
+      "数学"
+    ]
+  },
+  {
+    "id": "ds-prefix-sum-2d",
+    "title": "二维前缀和与差分",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "前缀和",
+      "二维",
+      "子矩阵",
+      "区间查询",
+      "容斥原理",
+      "数学"
+    ]
+  },
+  {
+    "id": "ds-prefix-sum-tree",
+    "title": "树上前缀和与差分",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "前缀和",
+      "树上",
+      "LCA",
+      "倍增",
+      "路径查询"
+    ]
+  },
+  {
+    "id": "ds-rmq-linear",
+    "title": "线性 RMQ",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "RMQ",
+      "线性RMQ",
+      "ST表",
+      "笛卡尔树"
+    ]
+  },
+  {
+    "id": "ds-rmq-overview",
+    "title": "RMQ 总览（ST 表 / 线性 RMQ）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "RMQ",
+      "ST表",
+      "总览",
+      "学习路线",
+      "稀疏表"
+    ]
+  },
+  {
+    "id": "ds-scapegoat-tree",
+    "title": "替罪羊树",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "平衡树",
+      "替罪羊树",
+      "重量平衡",
+      "重构",
+      "平衡因子"
+    ]
+  },
+  {
+    "id": "ds-segtree-basic",
+    "title": "线段树基础模板（区间加法+区间求和 P3372）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "线段树",
+      "区间修改",
+      "区间求和",
+      "lazy标记",
+      "P3372"
+    ]
+  },
+  {
+    "id": "ds-segtree-combined",
+    "title": "缝合线段树（区间加/乘/赋值 + 区间求和/最值）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "线段树",
+      "区间赋值",
+      "区间乘法",
+      "多标记",
+      "区间最值"
+    ]
+  },
+  {
+    "id": "ds-segtree-discretize",
+    "title": "离散化+线段树（大值域少查询）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "线段树",
+      "离散化",
+      "大值域"
+    ]
+  },
+  {
+    "id": "ds-segtree-dynamic",
+    "title": "动态开点线段树",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "线段树",
+      "动态开点",
+      "大值域",
+      "指针",
+      "区间求和"
+    ]
+  },
+  {
+    "id": "ds-segtree-mul",
+    "title": "乘法线段树（区间乘法+区间加法双标记 P3373）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "线段树",
+      "区间乘法",
+      "区间加法",
+      "双标记",
+      "P3373"
+    ]
+  },
+  {
+    "id": "ds-segtree-weight",
+    "title": "权值线段树",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "线段树",
+      "权值线段树",
+      "第k小",
+      "排名",
+      "离散化"
+    ]
+  },
+  {
+    "id": "ds-splay",
+    "title": "Splay树（伸展树）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "平衡树",
+      "Splay",
+      "伸展树",
+      "自平衡BST"
+    ]
+  },
+  {
+    "id": "ds-sqrt-tree",
+    "title": "Sqrt Tree",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "Sqrt Tree",
+      "分块",
+      "RMQ"
+    ]
+  },
+  {
+    "id": "ds-st-table-1",
+    "title": "ST表（标准版1 - 手动预处理对数表）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "ST表",
+      "RMQ",
+      "倍增",
+      "区间最值"
+    ]
+  },
+  {
+    "id": "ds-st-table-2",
+    "title": "ST表（标准版2 - 内建函数求对数）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "ST表",
+      "RMQ",
+      "倍增",
+      "区间最值",
+      "__builtin_clz"
+    ]
+  },
+  {
+    "id": "ds-stl-associative",
+    "title": "关联式容器（set / map / multiset）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "STL",
+      "map",
+      "set",
+      "multiset",
+      "关联式容器"
+    ]
+  },
+  {
+    "id": "ds-stl-list",
+    "title": "std::list（双向链表）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "list",
+      "双向链表",
+      "STL",
+      "常数优化",
+      "缓存"
+    ]
+  },
+  {
+    "id": "ds-stl-queue",
+    "title": "队列（queue）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "STL",
+      "队列",
+      "双端队列",
+      "优先队列"
+    ]
+  },
+  {
+    "id": "ds-stl-stack",
+    "title": "栈（stack）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "STL",
+      "栈",
+      "后进先出"
+    ]
+  },
+  {
+    "id": "ds-stl-tips",
+    "title": "STL 小妙招",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "STL",
+      "vector",
+      "set",
+      "map"
+    ]
+  },
+  {
+    "id": "ds-stl-vector",
+    "title": "动态数组（vector）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "STL",
+      "动态数组",
+      "序列式容器",
+      "随机访问"
+    ]
+  },
+  {
+    "id": "ds-trie",
+    "title": "字典树（Trie 与 01-Trie 最大异或）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "字典树",
+      "Trie",
+      "前缀树",
+      "前缀匹配",
+      "哈希表"
+    ]
+  },
+  {
+    "id": "ds-uf-basic",
+    "title": "并查集（基础 - 仅路径压缩）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "并查集",
+      "路径压缩",
+      "连通性"
+    ]
+  },
+  {
+    "id": "ds-uf-extended-domain",
+    "title": "扩展域并查集（P1892）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "并查集",
+      "扩展域并查集",
+      "敌对关系",
+      "团伙问题"
+    ]
+  },
+  {
+    "id": "ds-uf-overview",
+    "title": "并查集总览（基础 / 按秩 / 扩展域 / 带权）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "并查集",
+      "总览",
+      "学习路线",
+      "路径压缩",
+      "带权并查集"
+    ]
+  },
+  {
+    "id": "ds-uf-rank",
+    "title": "并查集（带秩优化）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "并查集",
+      "路径压缩",
+      "按秩合并",
+      "连通性"
+    ]
+  },
+  {
+    "id": "ds-uf-weighted-food",
+    "title": "带权并查集（扩展题目 - 食物链P2024）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "并查集",
+      "带权并查集",
+      "食物链",
+      "关系推理"
+    ]
+  },
+  {
+    "id": "ds-uf-weighted-old",
+    "title": "带权并查集（蓝桥杯 1156）",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "并查集",
+      "带权并查集",
+      "距离查询"
+    ]
+  },
+  {
+    "id": "exam-bit-operation",
+    "title": "CSP 初赛位运算完全笔记（详解 + 扩充版）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "位运算",
+      "补码",
+      "异或",
+      "移位",
+      "状压",
+      "运算符优先级",
+      "CSP初赛"
+    ]
+  },
+  {
+    "id": "exam-csp-s-2026-round1",
+    "title": "CSP-S 2026 第一轮 题解（单项选择 / 阅读程序 / 完善程序）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "CSP-S",
+      "初赛",
+      "第一轮",
+      "真题题解",
+      "阅读程序",
+      "完善程序"
+    ]
+  },
+  {
+    "id": "gram-auto",
+    "title": "`auto` 的神秘用法",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "auto",
+      "类型推导",
+      "C++11",
+      "结构化绑定",
+      "decltype"
+    ]
+  },
+  {
+    "id": "gram-builtin",
+    "title": "`__builtin` 全家桶",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "__builtin",
+      "位运算",
+      "状压DP",
+      "popcount",
+      "clz",
+      "ctz"
+    ]
+  },
+  {
+    "id": "gram-io-tips",
+    "title": "输入输出相关冷知识",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "输入输出",
+      "快读快写",
+      "fread",
+      "freopen",
+      "卡常",
+      "sync_with_stdio"
+    ]
+  },
+  {
+    "id": "gram-local-debug",
+    "title": "本地调试",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "调试",
+      "assert",
+      "返回码",
+      "对拍",
+      "sanitizer",
+      "Dev-C++"
+    ]
+  },
+  {
+    "id": "gram-macro",
+    "title": "宏孩儿（#define、typedef 与 using）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "宏",
+      "#define",
+      "typedef",
+      "using",
+      "条件编译",
+      "模板别名"
+    ]
+  },
+  {
+    "id": "gram-sequence",
+    "title": "我的序列我做主：自定义比较规则",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "自定义比较",
+      "排序",
+      "优先队列",
+      "运算符重载",
+      "仿函数",
+      "lower_bound"
+    ]
+  },
+  {
+    "id": "gram-string-ops",
+    "title": "字符串常用操作",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串",
+      "STL",
+      "string",
+      "语法",
+      "输入输出"
+    ]
+  },
+  {
+    "id": "gram-struct",
+    "title": "神秘结构体",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "结构体",
+      "struct",
+      "class",
+      "运算符重载",
+      "构造函数",
+      "位域"
+    ]
+  },
+  {
+    "id": "gram-type-overview",
+    "title": "变量与函数类型大全",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "类型系统",
+      "整型",
+      "浮点",
+      "类型转换",
+      "constexpr",
+      "位宽类型"
+    ]
+  },
+  {
+    "id": "graph-2sat",
+    "title": "2-SAT",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "2-SAT",
+      "强连通分量",
+      "蕴含图",
+      "Tarjan",
+      "拓扑序"
+    ]
+  },
+  {
+    "id": "graph-basic",
+    "title": "图论基础知识",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "基础概念",
+      "度数",
+      "连通性",
+      "握手定理"
+    ]
+  },
+  {
+    "id": "graph-bellman-ford",
+    "title": "Bellman-Ford 单源最短路（含负权）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最短路",
+      "Bellman-Ford",
+      "负权边",
+      "松弛",
+      "动态规划",
+      "负环检测"
+    ]
+  },
+  {
+    "id": "graph-bipartite-dfs-coloring",
+    "title": "二分图（判定与最大匹配）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "二分图",
+      "DFS",
+      "染色法",
+      "奇偶环"
+    ]
+  },
+  {
+    "id": "graph-boruvka",
+    "title": "Borůvka 最小生成树",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最小生成树",
+      "Borůvka",
+      "贪心"
+    ]
+  },
+  {
+    "id": "graph-centroid",
+    "title": "树的重心 — 一次DFS回溯法、两次DFS判断法、沿重子树移动法",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "树",
+      "DFS",
+      "重心",
+      "子树大小",
+      "点分治"
+    ]
+  },
+  {
+    "id": "graph-congruence-shortest-path",
+    "title": "同余最短路",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "同余最短路",
+      "最短路",
+      "同余",
+      "最短路径树"
+    ]
+  },
+  {
+    "id": "graph-cyclic-tree",
+    "title": "基环树",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基环树",
+      "环",
+      "树",
+      "图论"
+    ]
+  },
+  {
+    "id": "graph-dag-shortest-path",
+    "title": "DAG 最短路（拓扑排序）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最短路",
+      "DAG",
+      "拓扑排序",
+      "Kahn算法"
+    ]
+  },
+  {
+    "id": "graph-difference-constraints",
+    "title": "差分约束系统",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "差分约束",
+      "最短路",
+      "负环",
+      "图论建模"
+    ]
+  },
+  {
+    "id": "graph-dijkstra-heap",
+    "title": "Dijkstra 最短路（堆优化）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最短路",
+      "Dijkstra",
+      "堆优化",
+      "优先队列",
+      "单源最短路",
+      "贪心"
+    ]
+  },
+  {
+    "id": "graph-e-dcc-condensation",
+    "title": "边双连通分量缩点（E-DCC）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "Tarjan",
+      "边双连通分量",
+      "E-DCC",
+      "缩点",
+      "桥"
+    ]
+  },
+  {
+    "id": "graph-floyd",
+    "title": "Floyd-Warshall 全源最短路（传递闭包法）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最短路",
+      "Floyd",
+      "Floyd-Warshall",
+      "全源最短路",
+      "动态规划",
+      "邻接矩阵",
+      "负权边"
+    ]
+  },
+  {
+    "id": "graph-hld-segtree",
+    "title": "树链剖分（重链剖分+线段树）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "树链剖分",
+      "重链剖分",
+      "线段树",
+      "路径修改",
+      "子树修改"
+    ]
+  },
+  {
+    "id": "graph-johnson",
+    "title": "Johnson 全源最短路（负权图）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最短路",
+      "Johnson",
+      "全源最短路",
+      "负权边",
+      "势能函数",
+      "重赋权",
+      "Dijkstra"
+    ]
+  },
+  {
+    "id": "graph-kosaraju",
+    "title": "Kosaraju（强连通分量）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "强连通分量",
+      "Kosaraju",
+      "深度优先搜索",
+      "缩点"
+    ]
+  },
+  {
+    "id": "graph-kruskal",
+    "title": "Kruskal 最小生成树（并查集+贪心）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最小生成树",
+      "Kruskal",
+      "并查集",
+      "贪心",
+      "MST",
+      "边集排序",
+      "路径压缩"
+    ]
+  },
+  {
+    "id": "graph-layered",
+    "title": "分层图",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "分层图",
+      "最短路",
+      "Dijkstra",
+      "状态扩展",
+      "支配剪枝"
+    ]
+  },
+  {
+    "id": "graph-lca-doubling",
+    "title": "最近公共祖先 LCA（倍增法）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "树",
+      "LCA",
+      "最近公共祖先",
+      "倍增法",
+      "DFS"
+    ]
+  },
+  {
+    "id": "graph-lca-hld",
+    "title": "最近公共祖先 LCA（重链剖分）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "树",
+      "LCA",
+      "最近公共祖先",
+      "树链剖分",
+      "重链剖分"
+    ]
+  },
+  {
+    "id": "graph-lca-overview",
+    "title": "最近公共祖先总览（倍增 / 树链剖分 / Tarjan）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "LCA",
+      "最近公共祖先",
+      "倍增",
+      "树链剖分",
+      "总览"
+    ]
+  },
+  {
+    "id": "graph-lca-tarjan",
+    "title": "最近公共祖先 LCA（Tarjan 离线·并查集）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "树",
+      "LCA",
+      "最近公共祖先",
+      "Tarjan",
+      "离线算法",
+      "并查集"
+    ]
+  },
+  {
+    "id": "graph-modeling",
+    "title": "图论建模",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "图论建模",
+      "分层图",
+      "最短路"
+    ]
+  },
+  {
+    "id": "graph-mst-overview",
+    "title": "最小生成树总览（Kruskal / Prim / Borůvka）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "最小生成树",
+      "MST",
+      "Kruskal",
+      "Prim",
+      "总览"
+    ]
+  },
+  {
+    "id": "graph-network-flow",
+    "title": "网络流（最大流 Dinic 与费用流）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "网络流",
+      "最大流",
+      "Dinic",
+      "最小割",
+      "费用流"
+    ]
+  },
+  {
+    "id": "graph-prim",
+    "title": "Prim 最小生成树（堆优化·Lazy 版）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最小生成树",
+      "Prim",
+      "堆优化",
+      "优先队列",
+      "贪心",
+      "邻接表",
+      "MST"
+    ]
+  },
+  {
+    "id": "graph-scc-condensation",
+    "title": "SCC 缩点（强连通分量缩点）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "强连通分量",
+      "缩点",
+      "Tarjan",
+      "DAG"
+    ]
+  },
+  {
+    "id": "graph-scc-dag-dp",
+    "title": "SCC缩点 + DAG上拓扑DP（最大权值路径）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "强连通分量",
+      "缩点",
+      "Tarjan",
+      "拓扑排序",
+      "DAG DP",
+      "最长路"
+    ]
+  },
+  {
+    "id": "graph-scc-overview",
+    "title": "连通分量总览（Tarjan / Kosaraju / 缩点 / 边双）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "连通分量",
+      "Tarjan",
+      "SCC",
+      "缩点",
+      "总览"
+    ]
+  },
+  {
+    "id": "graph-shortest-overview",
+    "title": "最短路总览（Dijkstra / Bellman-Ford / Floyd / Johnson）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "最短路",
+      "Dijkstra",
+      "SPFA",
+      "Floyd",
+      "总览"
+    ]
+  },
+  {
+    "id": "graph-spfa",
+    "title": "Bellman-Ford 批量松弛优化（类SPFA变体）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "最短路",
+      "Bellman-Ford",
+      "批量松弛",
+      "队列优化",
+      "负权边",
+      "类SPFA"
+    ]
+  },
+  {
+    "id": "graph-storage",
+    "title": "图的存储",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "图的存储",
+      "邻接表",
+      "邻接矩阵",
+      "链式前向星"
+    ]
+  },
+  {
+    "id": "graph-tarjan-cut-vertex",
+    "title": "Tarjan 割点与桥",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "Tarjan",
+      "割点",
+      "DFS",
+      "连通性"
+    ]
+  },
+  {
+    "id": "graph-tarjan-scc",
+    "title": "Tarjan 强连通分量",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "强连通分量",
+      "Tarjan",
+      "DFS",
+      "缩点"
+    ]
+  },
+  {
+    "id": "graph-topo-sort",
+    "title": "拓扑排序（Kahn算法/BFS）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "拓扑排序",
+      "Kahn算法",
+      "BFS",
+      "DAG",
+      "判环"
+    ]
+  },
+  {
+    "id": "graph-tree-basic",
+    "title": "树论基础",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "树",
+      "树的遍历",
+      "树的直径",
+      "树的重心"
+    ]
+  },
+  {
+    "id": "graph-virtual-tree",
+    "title": "虚树",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "树",
+      "虚树",
+      "树形DP",
+      "单调栈"
+    ]
+  },
+  {
+    "id": "hub-basic-divide",
+    "title": "分治总述",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "分治",
+      "二分",
+      "根号分治",
+      "总述"
+    ]
+  },
+  {
+    "id": "hub-basic-search",
+    "title": "搜索总述",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "搜索",
+      "DFS",
+      "BFS",
+      "折半搜索"
+    ]
+  },
+  {
+    "id": "hub-basic",
+    "title": "基础算法总述",
+    "category": "基础算法",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "基础算法",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-dp",
+    "title": "动态规划总述",
+    "category": "动态规划",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "动态规划",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-ds-block",
+    "title": "分块总述",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "分块",
+      "莫队",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-ds-segtree",
+    "title": "线段树总述",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "线段树",
+      "可持久化线段树",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-ds",
+    "title": "数据结构总述",
+    "category": "数据结构",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数据结构",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-exam",
+    "title": "初赛指南总述",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "初赛笔记",
+      "总述",
+      "CSP"
+    ]
+  },
+  {
+    "id": "hub-gram",
+    "title": "语法技巧总述",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "语法技巧",
+      "总述",
+      "C++"
+    ]
+  },
+  {
+    "id": "hub-graph-modeling",
+    "title": "图论技巧与建模总述",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "建模",
+      "分层图",
+      "差分约束",
+      "总述"
+    ]
+  },
+  {
+    "id": "hub-graph-tree",
+    "title": "树上问题总述",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "树",
+      "LCA",
+      "树链剖分",
+      "总述"
+    ]
+  },
+  {
+    "id": "hub-graph",
+    "title": "图论总述",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-io",
+    "title": "IO总述",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "输入输出",
+      "总述",
+      "IO优化"
+    ]
+  },
+  {
+    "id": "hub-math-number-theory",
+    "title": "数论总述",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数论",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-math",
+    "title": "数学总述",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-str",
+    "title": "字符串总述",
+    "category": "字符串",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "hub-utility-debug",
+    "title": "调试总述",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "调试",
+      "对拍",
+      "时空测试",
+      "总述"
+    ]
+  },
+  {
+    "id": "hub-utility-other",
+    "title": "其他总述",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "离线操作",
+      "离散化",
+      "自用头文件",
+      "总述"
+    ]
+  },
+  {
+    "id": "hub-utility-random",
+    "title": "随机化总述",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "随机化",
+      "模拟退火",
+      "随机数",
+      "总述"
+    ]
+  },
+  {
+    "id": "hub-utility-stl",
+    "title": "STL与pbds总述",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "STL",
+      "pb_ds",
+      "bitset",
+      "总述"
+    ]
+  },
+  {
+    "id": "hub-utility",
+    "title": "实用工具总述",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "实用工具",
+      "总述",
+      "学习路线"
+    ]
+  },
+  {
+    "id": "io-fast-io",
+    "title": "快速输入输出（读入/输出优化模板）",
+    "category": "实用工具",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "输入输出",
+      "IO优化",
+      "读入优化",
+      "快速读入",
+      "模板"
+    ]
+  },
+  {
+    "id": "math-01-fractional",
+    "title": "0/1 分数规划",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "分数规划",
+      "二分答案",
+      "最优比率"
+    ]
+  },
+  {
+    "id": "math-binomial-inversion",
+    "title": "二项式反演",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "二项式反演",
+      "组合数学",
+      "容斥",
+      "计数"
+    ]
+  },
+  {
+    "id": "math-bit-operation",
+    "title": "位运算",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "位运算",
+      "异或",
+      "贪心",
+      "MEX",
+      "构造",
+      "生成树",
+      "前缀异或"
+    ]
+  },
+  {
+    "id": "math-bit-operation-advanced",
+    "title": "位运算进阶：01-Trie 与 bitset",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "01-Trie",
+      "bitset",
+      "位运算"
+    ]
+  },
+  {
+    "id": "math-block-division",
+    "title": "整除分块（数论分块）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "整除分块",
+      "数论分块",
+      "根号复杂度",
+      "余数求和"
+    ]
+  },
+  {
+    "id": "math-bsgs",
+    "title": "BSGS 大步小步算法",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "BSGS",
+      "离散对数",
+      "高次同余方程",
+      "分块",
+      "哈希表"
+    ]
+  },
+  {
+    "id": "math-cartesian-plane",
+    "title": "平面直角坐标系",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "坐标系",
+      "计算几何",
+      "向量",
+      "距离"
+    ]
+  },
+  {
+    "id": "math-catalan",
+    "title": "Catalan 数",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "Catalan",
+      "卡特兰数",
+      "格路计数"
+    ]
+  },
+  {
+    "id": "math-combinatorics",
+    "title": "组合数学（排列 / 组合 / 进阶模型）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "排列组合",
+      "组合数",
+      "多重集",
+      "exLucas"
+    ]
+  },
+  {
+    "id": "math-complex",
+    "title": "复数",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "复数",
+      "FFT",
+      "虚数单位"
+    ]
+  },
+  {
+    "id": "math-congruence-basics",
+    "title": "同余与模运算（快速幂 / 乘法逆元 / Modint）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "同余",
+      "快速幂",
+      "乘法逆元",
+      "Modint"
+    ]
+  },
+  {
+    "id": "math-counting-misc",
+    "title": "计数杂项：排列计数与图论计数",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "排列计数",
+      "图论计数",
+      "计数"
+    ]
+  },
+  {
+    "id": "math-counting-principles",
+    "title": "计数原理：加法与乘法原理 / 抽屉原理",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "计数原理",
+      "加法原理",
+      "乘法原理",
+      "抽屉原理"
+    ]
+  },
+  {
+    "id": "math-crt",
+    "title": "中国剩余定理（CRT）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "中国剩余定理",
+      "CRT",
+      "模逆元",
+      "费马小定理",
+      "同余方程组"
+    ]
+  },
+  {
+    "id": "math-derangement",
+    "title": "错位排列（错排）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "错排",
+      "错位排列",
+      "递推"
+    ]
+  },
+  {
+    "id": "math-euler-phi",
+    "title": "欧拉函数（单次求值）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "欧拉函数",
+      "积性函数",
+      "质因数分解"
+    ]
+  },
+  {
+    "id": "math-eulerian-number",
+    "title": "欧拉数（排列上升数计数）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "欧拉数",
+      "排列计数",
+      "插入 DP",
+      "容斥"
+    ]
+  },
+  {
+    "id": "math-exgcd",
+    "title": "裴蜀定理与扩展欧几里得（EXGCD）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "裴蜀定理",
+      "扩展欧几里得",
+      "EXGCD",
+      "逆元",
+      "线性同余方程"
+    ]
+  },
+  {
+    "id": "math-factorization",
+    "title": "质因数分解（试除法与 Pollard-Rho）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "质因数分解",
+      "算术基本定理",
+      "Pollard-Rho"
+    ]
+  },
+  {
+    "id": "math-gauss-elimination",
+    "title": "高斯消元",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "高斯消元",
+      "线性方程组",
+      "异或方程组"
+    ]
+  },
+  {
+    "id": "math-gcd-lcm",
+    "title": "GCD 与 LCM（欧几里得算法）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "最大公约数",
+      "最小公倍数",
+      "欧几里得算法",
+      "递归"
+    ]
+  },
+  {
+    "id": "math-group-theory",
+    "title": "群论 · 抽象代数对象分类",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "群论",
+      "抽象代数",
+      "群",
+      "环",
+      "域"
+    ]
+  },
+  {
+    "id": "math-inclusion-exclusion",
+    "title": "容斥原理（含 min-max 容斥与斯特林反演）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "容斥原理",
+      "min-max 容斥",
+      "斯特林反演",
+      "计数"
+    ]
+  },
+  {
+    "id": "math-lagrange-interpolation",
+    "title": "插值法（Lagrange / Newton）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "插值",
+      "Lagrange 插值",
+      "Newton 插值"
+    ]
+  },
+  {
+    "id": "math-lcm-pair-count",
+    "title": "LCM数对计数问题",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "LCM",
+      "计数",
+      "质因数分解",
+      "DFS"
+    ]
+  },
+  {
+    "id": "math-linear-algebra",
+    "title": "线性代数（向量 / 线性变换 / 广义矩阵乘法）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "线性代数",
+      "向量",
+      "线性变换",
+      "矩阵乘法"
+    ]
+  },
+  {
+    "id": "math-matrix-linear-recurrence",
+    "title": "矩阵加速线性递推",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "矩阵",
+      "快速幂",
+      "线性递推",
+      "状态转移",
+      "构造技巧"
+    ]
+  },
+  {
+    "id": "math-matrix-multiplication",
+    "title": "矩阵乘法",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "矩阵",
+      "矩阵乘法",
+      "线性代数"
+    ]
+  },
+  {
+    "id": "math-matrix-quick-pow",
+    "title": "矩阵快速幂",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "矩阵",
+      "快速幂",
+      "线性递推",
+      "矩阵乘法"
+    ]
+  },
+  {
+    "id": "math-miller-rabin",
+    "title": "素性测试（试除法与 Miller-Rabin）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "素数",
+      "素性测试",
+      "Miller-Rabin"
+    ]
+  },
+  {
+    "id": "math-modular-arithmetic",
+    "title": "模运算相关算法及应用",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "模运算",
+      "同余",
+      "费马小定理",
+      "欧拉定理",
+      "原根",
+      "逆元"
+    ]
+  },
+  {
+    "id": "math-modular-inverse",
+    "title": "模逆元（费马小定理 + 扩展欧几里得）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "模逆元",
+      "费马小定理",
+      "欧拉定理",
+      "快速幂",
+      "扩展欧几里得"
+    ]
+  },
+  {
+    "id": "math-nested-radical",
+    "title": "嵌套根式化简",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "嵌套根式",
+      "根号",
+      "代数",
+      "数学基础"
+    ]
+  },
+  {
+    "id": "math-number-theory-basic",
+    "title": "数论基础（素性测试 / 质因数分解 / 筛法 / gcd / 快速幂）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数论",
+      "素性测试",
+      "质因数分解",
+      "筛法",
+      "gcd",
+      "lcm",
+      "快速幂"
+    ]
+  },
+  {
+    "id": "math-number-theory-theorems",
+    "title": "数论常用定理：费马小定理与扩展欧拉定理",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "费马小定理",
+      "欧拉定理",
+      "降幂"
+    ]
+  },
+  {
+    "id": "math-oi-foundations",
+    "title": "OI 中的数学基础",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学基础",
+      "数论",
+      "组合数学",
+      "索引"
+    ]
+  },
+  {
+    "id": "math-partition",
+    "title": "分拆数（整数拆分）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "分拆数",
+      "整数拆分",
+      "五边形数定理"
+    ]
+  },
+  {
+    "id": "math-prime-factor-state-compression",
+    "title": "质因子状态压缩 trick",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "质因子",
+      "状态压缩",
+      "数论",
+      "trick"
+    ]
+  },
+  {
+    "id": "math-prime-theory",
+    "title": "质数理论基础（判定 / 筛法 / 算术基本定理）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "质数",
+      "素数筛",
+      "威尔逊定理",
+      "算术基本定理"
+    ]
+  },
+  {
+    "id": "math-probability",
+    "title": "概率论与期望",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "概率",
+      "期望",
+      "条件概率",
+      "概率分布"
+    ]
+  },
+  {
+    "id": "math-quick-pow-basic",
+    "title": "快速幂（基础与高精度）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "快速幂",
+      "模幂",
+      "数论",
+      "二进制拆分"
+    ]
+  },
+  {
+    "id": "math-sequences",
+    "title": "数列：等差、等比与递推求和",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数列",
+      "等差数列",
+      "等比数列",
+      "递推"
+    ]
+  },
+  {
+    "id": "math-set-binary",
+    "title": "集合与二进制",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "二进制",
+      "集合",
+      "状压",
+      "子集枚举"
+    ]
+  },
+  {
+    "id": "math-sieve",
+    "title": "筛法：埃氏筛与线性筛（线性筛求 φ / d / σ）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "数论",
+      "素数",
+      "筛法",
+      "埃氏筛",
+      "线性筛",
+      "欧拉筛",
+      "积性函数"
+    ]
+  },
+  {
+    "id": "math-special-angle-method",
+    "title": "特殊角法进阶",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "特殊角",
+      "几何",
+      "三角",
+      "数学基础"
+    ]
+  },
+  {
+    "id": "math-stars-and-bars",
+    "title": "隔板法（Stars and Bars）",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "数学",
+      "组合数学",
+      "隔板法",
+      "Stars and Bars",
+      "组合计数",
+      "动态规划",
+      "递推"
+    ]
+  },
+  {
+    "id": "math-stirling",
+    "title": "斯特林数与贝尔数",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "斯特林数",
+      "贝尔数",
+      "第二类斯特林数",
+      "多项式"
+    ]
+  },
+  {
+    "id": "math-triangle-area-existence",
+    "title": "坐标系中三角形面积的存在性",
+    "category": "数学",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "三角形面积",
+      "坐标系",
+      "几何",
+      "叉乘"
+    ]
+  },
+  {
+    "id": "str-ac-automaton",
+    "title": "AC 自动机",
+    "category": "字符串",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串",
+      "AC自动机",
+      "多模式匹配",
+      "Trie",
+      "fail指针",
+      "拓扑排序"
+    ]
+  },
+  {
+    "id": "str-hash",
+    "title": "字符串哈希（多项式滚动哈希）",
+    "category": "字符串",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串",
+      "字符串哈希",
+      "滚动哈希",
+      "前缀哈希",
+      "Rabin-Karp"
+    ]
+  },
+  {
+    "id": "str-kmp",
+    "title": "KMP 字符串匹配算法",
+    "category": "字符串",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串",
+      "KMP",
+      "next数组",
+      "模式匹配",
+      "前缀函数",
+      "线性时间"
+    ]
+  },
+  {
+    "id": "str-manacher",
+    "title": "Manacher 算法（最长回文子串）",
+    "category": "字符串",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串",
+      "Manacher",
+      "回文串",
+      "最长回文子串",
+      "线性"
+    ]
+  },
+  {
+    "id": "str-match-overview",
+    "title": "字符串匹配总览（KMP / Sunday / AC 自动机 / Manacher）",
+    "category": "字符串",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串匹配",
+      "KMP",
+      "AC自动机",
+      "Manacher",
+      "总览"
+    ]
+  },
+  {
+    "id": "str-minimal-representation",
+    "title": "最小表示法（循环同构串的最小字典序）",
+    "category": "字符串",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串",
+      "最小表示法",
+      "循环同构",
+      "双指针",
+      "字典序"
+    ]
+  },
+  {
+    "id": "str-sunday",
+    "title": "Sunday 字符串匹配算法",
+    "category": "字符串",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "字符串",
+      "Sunday",
+      "模式匹配",
+      "线性时间",
+      "偏移表"
+    ]
+  },
+  {
+    "id": "prob-array-replacement",
+    "title": "Array Replacement（差分数组上交换相邻同奇偶项）",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "差分数组",
+      "排序",
+      "贪心",
+      "字典序最小",
+      "奇偶性",
+      "构造"
+    ]
+  },
+  {
+    "id": "prob-atcoder-abc236e",
+    "title": "x Distinct Multiples",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-abc236ex",
+    "title": "Distinct Multiples",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-abc240g",
+    "title": "Teleporting Takahashi",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-abc267g",
+    "title": "Increasing K Times",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-abc268g",
+    "title": "Random Student ID",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-abc295e",
+    "title": "Kth Number",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-abc355e",
+    "title": "Guess the Sum",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-abc376g",
+    "title": "Treasure Hunting",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-agc005d",
+    "title": "~K Perm Counting",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-agc005f",
+    "title": "Many Easy Problems",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-agc006c",
+    "title": "Rabbit Exercise",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-agc030d",
+    "title": "Inversion Sum",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc118e",
+    "title": "Avoid Permutations",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc139d",
+    "title": "Priority Queue 2",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc154d",
+    "title": "A + B > C ?",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc170c",
+    "title": "Prefix Mex Sequence",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc174e",
+    "title": "Existence Counting",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc179c",
+    "title": "Beware of Overflow",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc183c",
+    "title": "Not Argmax",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc197e",
+    "title": "Four Square Tiles",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc207a",
+    "title": "Affinity for Artifacts",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc215d",
+    "title": "cresc.",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc230a",
+    "title": "Meeting on Tree",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc230d",
+    "title": "Min Max Matrix",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-arc231e",
+    "title": "Odd Inversion",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-dwacon6th-prelims-c",
+    "title": "Cookie Distribution",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-jsc2019-qual-f",
+    "title": "Candy Retribution",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-mujin-pc-2018-f",
+    "title": "チーム分け",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-atcoder-pakencamp-2025-day2-h",
+    "title": "Sunk Islands",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cero-array",
+    "title": "Cero 的数组（构造序列的最长上升子序列）",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "动态规划",
+      "LIS",
+      "树状数组",
+      "离散化",
+      "构造转化",
+      "计数"
+    ]
+  },
+  {
+    "id": "prob-cf-1061f",
+    "title": "Lost Root",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1114e",
+    "title": "Arithmetic Progression",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1124c",
+    "title": "K Is Important",
+    "category": "贪心",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "贪心",
+      "配对",
+      "思维"
+    ]
+  },
+  {
+    "id": "prob-cf-1126c",
+    "title": "XOR Problem",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "前缀异或",
+      "格雷码",
+      "构造",
+      "异或"
+    ]
+  },
+  {
+    "id": "prob-cf-1342e",
+    "title": "Placing Rooks",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1354g",
+    "title": "Find a Gift",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1365g",
+    "title": "Secure Password",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1375f",
+    "title": "Integer Game",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1438f",
+    "title": "Olha and Igor",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1485f",
+    "title": "Copy or Prefix Sum",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1503b",
+    "title": "3-Coloring",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1534d",
+    "title": "Lost Tree",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1583d",
+    "title": "Omkar and the Meaning of Life",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1620g",
+    "title": "Subsequences Galore",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1762d",
+    "title": "GCD Queries",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-1942g",
+    "title": "Bessie and Cards",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-2068d",
+    "title": "Morse Code",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-2164g",
+    "title": "Pointless Machine",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-2178e",
+    "title": "Flatten or Concatenate",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-2179f",
+    "title": "Blackslex and Another RGB Walking",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-626f",
+    "title": "Group Projects",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-930e",
+    "title": "Coins Exhibition",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-938e",
+    "title": "Max History",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-cf-binary-bubble-sort-inversions",
+    "title": "Binary Bubble Sort Inversions — 01数组冒泡逆序对计数（懒标记水位模型）",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "逆序对",
+      "01数组",
+      "冒泡排序",
+      "懒标记",
+      "水位模型",
+      "前缀和",
+      "吸收态",
+      "O(n)"
+    ]
+  },
+  {
+    "id": "prob-cf-diss-quack-array-game",
+    "title": "diss_quack and Array Game — 01博弈·进位悬崖·批量折半优化",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "博弈论",
+      "数论",
+      "贪心",
+      "位运算",
+      "进位悬崖",
+      "批量折半"
+    ]
+  },
+  {
+    "id": "prob-cf-floor-of-mex",
+    "title": "Floor of MEX (Easy Version) — MEX 反向构造与差分数组",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "MEX",
+      "差分",
+      "构造",
+      "思维",
+      "差分数组"
+    ]
+  },
+  {
+    "id": "prob-cf-gcd-treasury",
+    "title": "GCD Treasury — 质因子枚举 + 数论结论",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "数论",
+      "GCD",
+      "质因数分解",
+      "枚举",
+      "贪心",
+      "结论题"
+    ]
+  },
+  {
+    "id": "prob-cf-sum-distinct-matrix",
+    "title": "Sum of Distinct Values in a Matrix — 双指针贪心与公共值名额分配",
+    "category": "贪心",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "贪心",
+      "双指针",
+      "数学",
+      "构造",
+      "名额分配",
+      "思维题"
+    ]
+  },
+  {
+    "id": "prob-chronostasis",
+    "title": "时停滞（Chronostasis）— 差分排列贪心还原",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "差分数组",
+      "贪心",
+      "字典序最小",
+      "multiset",
+      "排列",
+      "前缀和",
+      "构造"
+    ]
+  },
+  {
+    "id": "prob-csps2020-program-fill-2",
+    "title": "CSP-S 2020 程序填空2 — 子序列最大异或分值（高低位分拆状压DP）",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "动态规划",
+      "状态压缩DP",
+      "异或",
+      "popcount",
+      "高低位分拆",
+      "预付费技巧",
+      "子序列"
+    ]
+  },
+  {
+    "id": "prob-dmy5826",
+    "title": "余数",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-goc-homework",
+    "title": "发作业",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "状态压缩",
+      "记忆化搜索",
+      "动态规划",
+      "位运算"
+    ]
+  },
+  {
+    "id": "prob-hdu-5909",
+    "title": "Tree Cutting",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-icpc2026-wuhan-rectangle-cut",
+    "title": "[ICPC2026 Wuhan I] 矩形切割最大面积 — 离线逆序并查集",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "并查集",
+      "离线",
+      "逆序处理",
+      "离散化",
+      "思维",
+      "降维"
+    ]
+  },
+  {
+    "id": "prob-loj-6669",
+    "title": "Nauuo and Binary Tree",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p10004",
+    "title": "[集训队互测 2023] Permutation Counting 2",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p10185",
+    "title": "[YDOI R1] Necklace",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p10243",
+    "title": "[THUSC 2021] 种树",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p10384",
+    "title": "「HOI R1」杂交选种",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p10539",
+    "title": "[APIO2024] 魔术表演",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p10786",
+    "title": "[NOI2024] 百万富翁",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p11164",
+    "title": "[BalkanOI 2023] Permutations",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p11362",
+    "title": "[NOIP2024] 遗失的赋值",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p11647",
+    "title": "【MX-X8-T6】「TAOI-3」俄罗斯蓝猫",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p12202",
+    "title": "[COI 2022] 回文子串 / Madioničar",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p12446",
+    "title": "[COTS 2025] 答好位 / Vrsta",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p12509",
+    "title": "通信题",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p13011",
+    "title": "【MX-X13-T6】「KDOI-12」能做到的也只不过是静等缘分耗尽的那一天。",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p13275",
+    "title": "[NOI2025] 集合",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p1352",
+    "title": "P1352 没有上司的舞会",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "普及/提高−",
+    "tags": [
+      "树形DP",
+      "最大独立集",
+      "DFS",
+      "DP"
+    ]
+  },
+  {
+    "id": "prob-luogu-p13980",
+    "title": "P13980 数列分块入门 5",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "分块",
+      "线段树",
+      "区间开方",
+      "区间求和"
+    ]
+  },
+  {
+    "id": "prob-luogu-p14012",
+    "title": "[POCamp 2023] 枫树 / Maple Tree",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p14154",
+    "title": "P14154 [ICPC 2022 Nanjing R] 索道",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高",
+    "tags": [
+      "单调队列",
+      "动态规划",
+      "前后缀DP",
+      "单点修改",
+      "滑动窗口"
+    ]
+  },
+  {
+    "id": "prob-luogu-p14254",
+    "title": "分割（divide）",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p14364",
+    "title": "[CSP-S 2025] 员工招聘",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p1450",
+    "title": "P1450 [HAOI2008] 硬币购物",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "容斥原理",
+      "完全背包",
+      "计数"
+    ]
+  },
+  {
+    "id": "prob-luogu-p14514",
+    "title": "[NFLSPC #8] 如何区分北京东路和北京东路",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p14568",
+    "title": "【MX-S12-T3】排列",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p14636",
+    "title": "[NOIP2025] 清仓甩卖",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p14666",
+    "title": "[KenOI 2025] 游走题",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p15652",
+    "title": "[省选联考 2026] 排列游戏",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p1613",
+    "title": "P1613 跑路",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "倍增",
+      "传递闭包",
+      "bitset",
+      "BFS",
+      "最短路"
+    ]
+  },
+  {
+    "id": "prob-luogu-p16415",
+    "title": "【MX-X28-T4】「FAOI-R12」落花雨",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p16416",
+    "title": "【MX-X28-T5】「FAOI-R12」单人旅行",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p16536",
+    "title": "[THUPC 2026 决赛] 流光解密",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p16958",
+    "title": "[SCCPC 2026] 括号序列",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p17140",
+    "title": "[NOI 2026] 线段",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p17248",
+    "title": "P17248 审判与救赎",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "主席树",
+      "贪心",
+      "异或",
+      "区间查询"
+    ]
+  },
+  {
+    "id": "prob-luogu-p1758",
+    "title": "[NOI2009] 管道取珠",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p17723",
+    "title": "P17723 [SCP-S 2026] 函数 func",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "提高",
+    "tags": [
+      "按位统计",
+      "双指针",
+      "时间戳",
+      "位运算",
+      "MEX",
+      "贡献统计"
+    ]
+  },
+  {
+    "id": "prob-luogu-p17765",
+    "title": "P17765 「LDOI R2」平方数 / Square",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "平方自由部分",
+      "完全平方数",
+      "最小环",
+      "BFS",
+      "图论建模"
+    ]
+  },
+  {
+    "id": "prob-luogu-p1880",
+    "title": "P1880 [NOI1995] 石子合并",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "动态规划",
+      "区间DP",
+      "四边形不等式",
+      "Knuth优化"
+    ]
+  },
+  {
+    "id": "prob-luogu-p1912",
+    "title": "P1912 [NOI2009] 诗人小G",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "动态规划",
+      "决策单调性",
+      "四边形不等式",
+      "单调队列"
+    ]
+  },
+  {
+    "id": "prob-luogu-p2120",
+    "title": "P2120 [ZJOI2007] 仓库建设",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "动态规划",
+      "斜率优化",
+      "单调队列",
+      "前缀和"
+    ]
+  },
+  {
+    "id": "prob-luogu-p2473",
+    "title": "P2473 [SCOI2008] 奖励关",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高",
+    "tags": [
+      "动态规划",
+      "期望DP",
+      "状压DP",
+      "概率期望"
+    ]
+  },
+  {
+    "id": "prob-luogu-p2503",
+    "title": "P2503 [HAOI2006] 均分数据",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高",
+    "tags": [
+      "模拟退火",
+      "动态规划",
+      "均方差",
+      "分组",
+      "随机化"
+    ]
+  },
+  {
+    "id": "prob-luogu-p2748",
+    "title": "P2748 [USACO16OPEN] Landscaping P",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高",
+    "tags": [
+      "动态规划",
+      "SlopeTrick",
+      "凸函数",
+      "堆"
+    ]
+  },
+  {
+    "id": "prob-luogu-p2900",
+    "title": "P2900 [USACO08MAR] Land Acquisition G",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "动态规划",
+      "斜率优化",
+      "贪心",
+      "单调队列"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3195",
+    "title": "P3195 [HNOI2008] 玩具装箱",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "动态规划",
+      "斜率优化",
+      "单调队列",
+      "凸包"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3242",
+    "title": "P3242 [HNOI2015] 接水果",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "树链剖分",
+      "树上二维数点",
+      "bitset",
+      "LCA",
+      "离线"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3479",
+    "title": "[POI 2009] GAS-Fire Extinguishers",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3515",
+    "title": "P3515 [POI 2011] Lightning Conductor",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "动态规划",
+      "决策单调性",
+      "分治优化",
+      "四边形不等式"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3574",
+    "title": "[POI 2014] FAR-FarmCraft",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3628",
+    "title": "P3628 [APIO2010] 特别行动队",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "动态规划",
+      "斜率优化",
+      "单调队列",
+      "凸包"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3758",
+    "title": "P3758 [TJOI2017] 可乐",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "矩阵快速幂",
+      "矩阵乘法",
+      "图论计数",
+      "动态规划"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3959",
+    "title": "P3959 [NOIP2017 提高组] 宝藏",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "状压DP",
+      "子集枚举",
+      "分层扩展",
+      "动态规划"
+    ]
+  },
+  {
+    "id": "prob-luogu-p3979",
+    "title": "P3979 遥远的国度",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "树链剖分",
+      "换根",
+      "线段树",
+      "LCA"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4027",
+    "title": "P4027 [NOI2007] 货币兑换",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "动态规划",
+      "斜率优化",
+      "CDQ分治",
+      "凸包"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4097",
+    "title": "P4097 【模板】李超线段树 / [HEOI2013] Segment",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "李超线段树",
+      "线段树",
+      "斜率优化",
+      "模板"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4216",
+    "title": "P4216 [SCOI2015] 情报传递",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "树上差分",
+      "权值树状数组",
+      "离线",
+      "LCA"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4260",
+    "title": "[Code+#3] 博弈论与概率统计",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4362",
+    "title": "[NOI2002] 贪吃的九头龙",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4590",
+    "title": "[TJOI2018] 游园会",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4609",
+    "title": "[FJOI2016] 建筑师",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4655",
+    "title": "P4655 [CEOI 2017] Building Bridges",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "动态规划",
+      "李超线段树",
+      "斜率优化",
+      "前缀和"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4767",
+    "title": "P4767 [IOI 2000] 邮局 加强版",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "动态规划",
+      "四边形不等式",
+      "Knuth优化",
+      "前缀和"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4785",
+    "title": "[BalticOI 2016] 交换 (Day2)",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p4895",
+    "title": "P4895 独钓寒江雪",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "树哈希",
+      "树形DP",
+      "组合数学",
+      "隔板法",
+      "重心"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5043",
+    "title": "P5043 【模板】树同构 / [BJOI2015] 树的同构",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "树哈希",
+      "树同构",
+      "换根DP",
+      "模板"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5047",
+    "title": "P5047 Yuno loves sqrt technology II",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "莫队",
+      "二次离线",
+      "分块",
+      "逆序对"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5290",
+    "title": "[十二省联考 2019] 春节十二响",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5311",
+    "title": "[Ynoi2011] 成都七中",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5389",
+    "title": "[Cnoi2019] 数学课",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5521",
+    "title": "[yLOI2019] 梅深不见冬",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5574",
+    "title": "P5574 [CmdOI2019] 任务分配问题",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "省选/NOI−",
+    "tags": [
+      "动态规划",
+      "决策单调性",
+      "分治优化",
+      "树状数组"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5651",
+    "title": "P5651 基础最短路练习题",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "普及/提高−",
+    "tags": [
+      "生成树",
+      "异或前缀和",
+      "DFS",
+      "异或性质"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5785",
+    "title": "P5785 [SDOI2012] 任务安排",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "动态规划",
+      "李超线段树",
+      "斜率优化",
+      "前缀和"
+    ]
+  },
+  {
+    "id": "prob-luogu-p5960",
+    "title": "P5960 【模板】差分约束",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "差分约束",
+      "SPFA",
+      "负环",
+      "最短路"
+    ]
+  },
+  {
+    "id": "prob-luogu-p6475",
+    "title": "[NOI Online #2 入门组] 建设城市",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p7044",
+    "title": "「MCOI-03」括号",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p7109",
+    "title": "滴水不漏",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p7114",
+    "title": "P7114 [NOIP2020] 字符串匹配",
+    "category": "字符串",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "字符串哈希",
+      "调和级数",
+      "前缀桶",
+      "奇偶性"
+    ]
+  },
+  {
+    "id": "prob-luogu-p7154",
+    "title": "[USACO20DEC] Sleeping Cows P",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p7356",
+    "title": "「PMOI-1」游戏",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p7600",
+    "title": "[APIO2021] 封闭道路",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p7914",
+    "title": "括号序列（CSP-S 2021）",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "区间DP",
+      "计数",
+      "括号序列",
+      "状态拆分"
+    ]
+  },
+  {
+    "id": "prob-luogu-p8320",
+    "title": "『JROI-4』Sunset",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p8321",
+    "title": "『JROI-4』沈阳大街 2",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p8329",
+    "title": "[ZJOI2022] 树",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p8494",
+    "title": "[IOI 2022] 最罕见的昆虫",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p9131",
+    "title": "[USACO23FEB] Problem Setting P",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p9165",
+    "title": "「INOH」Round 1 - 意外",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p9219",
+    "title": "「TAOI-1」Antipathy World",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p9527",
+    "title": "[JOIST 2022] 洒水器 / Sprinkler",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p9599",
+    "title": "[JOI Open 2018] 木琴 / Xylophone",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p9669",
+    "title": "[ICPC 2022 Jinan R] DFS Order 2",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-luogu-p9755",
+    "title": "[CSP-S 2023] 种树",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-p17555-construction-master",
+    "title": "P17555 「WWOI R4」构造大师 — 模3分类与双射构造",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "构造",
+      "数学",
+      "模运算",
+      "双射",
+      "数论",
+      "奇偶性"
+    ]
+  },
+  {
+    "id": "prob-p17611-xor-equation",
+    "title": "P17611 Not a Polynomial Equation — 异或方程的高低位分离",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "数学",
+      "位运算",
+      "异或",
+      "高低位分离",
+      "枚举",
+      "__int128"
+    ]
+  },
+  {
+    "id": "prob-p4552-incdec-sequence",
+    "title": "P4552 [Poetize6] IncDec Sequence — 差分贪心计数",
+    "category": "数据结构",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "差分",
+      "贪心",
+      "计数",
+      "差分数组"
+    ]
+  },
+  {
+    "id": "prob-p5657-gray-code",
+    "title": "P5657 [CSP-S 2019] 格雷码 — 递归构造与位运算公式",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "普及−",
+    "tags": [
+      "格雷码",
+      "数学",
+      "位运算",
+      "递归",
+      "构造",
+      "CSP-S"
+    ]
+  },
+  {
+    "id": "prob-p5658-bracket-tree",
+    "title": "P5658 [CSP-S 2019] 括号树 — 树上DP与全局栈回溯",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "树",
+      "树形DP",
+      "栈",
+      "DFS",
+      "括号匹配",
+      "回溯",
+      "CSP-S"
+    ]
+  },
+  {
+    "id": "prob-p5664-emiya",
+    "title": "P5664 Emiya 家今天的饭 — 容斥 + 差值DP（CSP-S 2019）",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "提高+/省选−",
+    "tags": [
+      "动态规划",
+      "计数DP",
+      "容斥原理",
+      "差值DP",
+      "CSP-S"
+    ]
+  },
+  {
+    "id": "prob-p7915-palindrome",
+    "title": "[CSP-S 2021] 回文（P7915）— 双栈分段贪心迭代",
+    "category": "字符串",
+    "kind": "problem",
+    "difficulty": "普及+/提高−",
+    "tags": [
+      "贪心",
+      "回文构造",
+      "双栈",
+      "模拟",
+      "CSP-S",
+      "构造"
+    ]
+  },
+  {
+    "id": "prob-particle-motion",
+    "title": "粒子运动（动量守恒模拟优化）",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "模拟",
+      "贪心",
+      "动量守恒",
+      "物理类比",
+      "优化"
+    ]
+  },
+  {
+    "id": "prob-qbxt-multiple",
+    "title": "倍数很爽",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "数论",
+      "中国剩余定理",
+      "exgcd",
+      "构造",
+      "分类讨论"
+    ]
+  },
+  {
+    "id": "prob-qbxt-pea",
+    "title": "植物很爽",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "二分答案",
+      "贪心",
+      "构造",
+      "前缀和思想"
+    ]
+  },
+  {
+    "id": "prob-qoj-11116",
+    "title": "Yearning for Yonder",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-141",
+    "title": "8 染色",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-14621",
+    "title": "Tearing Paper",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-15314",
+    "title": "Menji, we miss you!",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-17760",
+    "title": "Telepathy",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-18404",
+    "title": "Dangerous Data",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-19066",
+    "title": "Historical Hits",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-20297",
+    "title": "Legendary Game",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-5309",
+    "title": "Guess Cycle Length",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-qoj-8130",
+    "title": "Yet Another Balanced Coloring Problem",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-two-digit-string",
+    "title": "两位数字符串（前缀和取模 + LCS）",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "字符串",
+      "前缀和",
+      "取模",
+      "LCS",
+      "动态规划",
+      "贪心转DP",
+      "构造"
+    ]
+  },
+  {
+    "id": "prob-uoj-454",
+    "title": "【UER #8】打雪仗",
+    "category": "基础算法",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-uoj-763",
+    "title": "UOJ #763 树哈希",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "树哈希",
+      "树同构",
+      "随机化",
+      "DFS"
+    ]
+  },
+  {
+    "id": "prob-uoj-767",
+    "title": "UOJ #767 【NOI2022】挑战 NPC Ⅱ",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "树哈希",
+      "树同构",
+      "搜索",
+      "剪枝",
+      "记忆化"
+    ]
+  },
+  {
+    "id": "prob-wca-1011",
+    "title": "2026WCA1011 完美旅行",
+    "category": "动态规划",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "状态压缩DP",
+      "树上差分",
+      "容斥原理",
+      "高维前缀和",
+      "组合数学"
+    ]
+  },
+  {
+    "id": "prob-wca-1029",
+    "title": "2026WCA1029 海龟汤",
+    "category": "图论",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "换根DP",
+      "树形DP",
+      "贪心",
+      "决策树"
+    ]
+  },
+  {
+    "id": "prob-xor-sort",
+    "title": "XOR 排序（简单版）— 对齐块分段判定",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "位运算",
+      "XOR",
+      "分块",
+      "排序判定",
+      "贪心",
+      "二进制"
+    ]
+  },
+  {
+    "id": "prob-xxs0103",
+    "title": "局部函数",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-zr-3365",
+    "title": "马戏表演",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-zr-3382",
+    "title": "冒泡排序 / bubble",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-zr-3554",
+    "title": "抽卡",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-zr-3643",
+    "title": "覆色",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-zr-3652",
+    "title": "特征值",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  },
+  {
+    "id": "prob-zr-3695",
+    "title": "字典",
+    "category": "数学",
+    "kind": "problem",
+    "difficulty": "暂未评定",
+    "tags": [
+      "题解"
+    ]
+  }
+]

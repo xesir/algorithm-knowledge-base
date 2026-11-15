@@ -400,6 +400,7 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
   - 版本 tab / 便捷修改 / 密码门改为**优先使用数据库真实 `column_key`**，不再按作者名硬推 key（修复 `col-xxx--Fohen` 与 `--fenfeng` 这类「页面显示存在、库里对应不到」）；
   - `col-*--*` 作者版本改为**始终同步**（与 `sub-*` 一致），修复「数据库里有、页面没有」；
   - 同一作者的多条数据库版本按作者名去重，避免重复 tab；
+  - 版本 tab 的作者列表 = 已知作者 + 当前条目实际出现的作者（如 `GhostSilver`），新作者不会再因为没登记进 `AUTHORS` 而消失；tab 行改为横向滚动，可按住拖动或滚轮横滚；
   - 便捷修改的关系输入自动补 `col-` 前缀，避免再写入裸 id。
 - 后台修复（`admin.html`）：审批失败时显示原因与处理建议（过期 / 重复版本 / 目标不存在 / 作者未激活），并恢复按钮可点，工单不再「点一次失败后就卡住」。
 - 数据库修复：[`supabase/fixes/2026-11-15-normalize-relations.sql`](supabase/fixes/2026-11-15-normalize-relations.sql)（**待用户在 SQL Editor 执行**）：把 `relations.target` / `parent_key` / `relation_target` 里的裸知识点 id 规范为已存在的 `col-*`；事务试跑后回滚，剩余 0 条裸 id。

@@ -654,11 +654,30 @@
 
         .version-tabs {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 0.4rem;
             margin-bottom: 0.9rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 0.3rem;
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            cursor: grab;
+        }
+        .version-tabs.dragging {
+            cursor: grabbing;
+            scroll-behavior: auto;
+            user-select: none;
+        }
+        .version-tabs::-webkit-scrollbar { height: 6px; }
+        .version-tabs::-webkit-scrollbar-thumb {
+            background: var(--border-color, #e2e8f0);
+            border-radius: 3px;
         }
         .version-tab {
+            flex: 0 0 auto;
+            white-space: nowrap;
             padding: 0.32rem 0.85rem;
             border-radius: 0.5rem;
             border: 1px solid var(--border-color, #e2e8f0);
@@ -2536,6 +2555,80 @@
             renderKpArticle(currentKp, i);
         }
 
+        // 版本 tab 的作者列表 = 已知作者 + 当前版本里出现的新作者（如 GhostSilver）。
+        // 这样数据库里新出现的作者版本不会因为没有登记进 AUTHORS 而消失。
+        function versionTabAuthors(versions) {
+            var known = (typeof AUTHORS !== 'undefined' && AUTHORS) ? AUTHORS.slice() : ['world-needs-sunday'];
+            var seen = {};
+            var out = [];
+            known.forEach(function(name) {
+                var key = resolveAuthorName(name);
+                if (!seen[key]) { seen[key] = 1; out.push(name); }
+            });
+            (versions || []).forEach(function(v) {
+                var name = (v && v.author) || 'world-needs-sunday';
+                var key = resolveAuthorName(name);
+                if (!seen[key]) { seen[key] = 1; out.push(name); }
+            });
+            return out;
+        }
+        function versionTabIndex(versions, author) {
+            var target = resolveAuthorName(author);
+            return (versions || []).findIndex(function(v) {
+                return resolveAuthorName(v.author || 'world-needs-sunday') === target;
+            });
+        }
+
+        // 版本 tab 横向拖动 / 滚轮横滚
+        (function() {
+            var tabs = null;
+            var startX = 0;
+            var startScroll = 0;
+            var moved = false;
+            var suppressClick = false;
+
+            document.addEventListener('pointerdown', function(event) {
+                var box = event.target.closest && event.target.closest('.version-tabs');
+                if (!box) return;
+                tabs = box;
+                startX = event.clientX;
+                startScroll = box.scrollLeft;
+                moved = false;
+            });
+            document.addEventListener('pointermove', function(event) {
+                if (!tabs) return;
+                var dx = event.clientX - startX;
+                if (Math.abs(dx) > 4) {
+                    moved = true;
+                    tabs.classList.add('dragging');
+                    tabs.scrollLeft = startScroll - dx;
+                }
+            });
+            document.addEventListener('pointerup', function() {
+                if (!tabs) return;
+                tabs.classList.remove('dragging');
+                if (moved) {
+                    suppressClick = true;
+                    setTimeout(function() { suppressClick = false; }, 0);
+                }
+                tabs = null;
+            });
+            document.addEventListener('click', function(event) {
+                if (suppressClick && event.target.closest && event.target.closest('.version-tabs')) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            }, true);
+            document.addEventListener('wheel', function(event) {
+                var box = event.target.closest && event.target.closest('.version-tabs');
+                if (!box) return;
+                if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+                    box.scrollLeft += event.deltaY;
+                    event.preventDefault();
+                }
+            }, { passive: false });
+        })();
+
         function renderKpArticle(kp, verIdx) {
             var versions = kp.versions || [{
                 author: 'world-needs-sunday', content: kp.content, codePath: kp.codePath,
@@ -2557,10 +2650,10 @@
                 return;
             }
 
-            // Version tabs（world-needs-sunday + 所有已知作者；缺版本的置灰）
+            // Version tabs（已知作者 + 当前版本里出现的新作者；缺版本的置灰）
             var tabsHtml = '<div class="version-tabs">';
-            (typeof AUTHORS !== 'undefined' ? AUTHORS : ['world-needs-sunday']).forEach(function(author) {
-                var vi = versions.findIndex(function(v) { return v.author === author; });
+            versionTabAuthors(versions).forEach(function(author) {
+                var vi = versionTabIndex(versions, author);
                 var cls = 'version-tab' + (vi === verIdx ? ' active' : '') + (vi < 0 ? ' disabled' : '');
                 var on = (vi >= 0) ? ' onclick="switchVersion(' + vi + ')"' : '';
                 tabsHtml += '<button class="' + cls + '"' + on + '>' + escHtml(author) + '</button>';
@@ -3663,10 +3756,10 @@
                 return;
             }
 
-            // Version tabs（world-needs-sunday + 所有已知作者；缺版本的置灰）
+            // Version tabs（已知作者 + 当前版本里出现的新作者；缺版本的置灰）
             var tabsHtml = '<div class="version-tabs">';
-            (typeof AUTHORS !== 'undefined' ? AUTHORS : ['world-needs-sunday']).forEach(function(author) {
-                var vi = versions.findIndex(function(v) { return v.author === author; });
+            versionTabAuthors(versions).forEach(function(author) {
+                var vi = versionTabIndex(versions, author);
                 var cls = 'version-tab' + (vi === verIdx ? ' active' : '') + (vi < 0 ? ' disabled' : '');
                 var on = (vi >= 0) ? ' onclick="switchProbVersion(' + vi + ')"' : '';
                 tabsHtml += '<button class="' + cls + '"' + on + '>' + escHtml(author) + '</button>';

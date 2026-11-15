@@ -392,10 +392,10 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 
 ## 备注（2026-11-15 · GhostSilver 外培专题后台上传 + 版本匹配/工单修复）
 
-- 后台上传 SQL：[`supabase/uploads/2026-11-15-ghostsilver-convex-training.sql`](supabase/uploads/2026-11-15-ghostsilver-convex-training.sql)（**待用户在 SQL Editor 执行**）。
+- 后台上传 SQL：[`supabase/uploads/2026-11-15-ghostsilver-convex-training.sql`](supabase/uploads/2026-11-15-ghostsilver-convex-training.sql)（**已入库**：8 条均已存在且字段正确）。
   - 内容：2026QB 济南集训《外培高阶科技与凸优化衍义》按 8 个板块拆成 8 个知识点专栏（凸性/切线对偶与斜率优化、WQS 二分与拉格朗日松弛、Slope Trick、Binary GCD、光速幂、线性筛、操作分块、猫树）。
   - 作者：`GhostSilver`；分类分别为 动态规划 ×3 / 数学 ×3 / 数据结构 ×2；`parent_key` 挂到 `col-hub-dp` / `col-hub-math` / `col-hub-ds`；关系目标均为已存在的 `col-*`。
-  - 已在事务中逐条调用 `admin_publish_column` 试跑并回滚，8 条作者/分类/标签/关系校验通过。
+  - SQL 已改为**可重复执行**：每个板块先查 `column_key`，不存在走 `mode=insert`，已存在则读取当前 `updated_at` 改走 `mode=update`，重复执行不会再报「column_key 已存在」。
 - 前端修复（`index.html`）：
   - 版本 tab / 便捷修改 / 密码门改为**优先使用数据库真实 `column_key`**，不再按作者名硬推 key（修复 `col-xxx--Fohen` 与 `--fenfeng` 这类「页面显示存在、库里对应不到」）；
   - `col-*--*` 作者版本改为**始终同步**（与 `sub-*` 一致），修复「数据库里有、页面没有」；

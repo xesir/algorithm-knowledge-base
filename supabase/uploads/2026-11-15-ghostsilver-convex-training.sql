@@ -4,8 +4,11 @@
 -- 方式：直接调用 public.admin_publish_column(jsonb)（不走工单、不走审批）
 -- 前置：phase20-guard-overwrites.sql 已执行；作者 GhostSilver 已 active
 -- 说明：8 个知识点板块；分类 / 标签 / 关系 / parent_key 与站点既有条目一致。
--- 在 Supabase SQL Editor 整段执行；本文件可重复执行（insert 撞到已有 key 会报错，
---       说明该板块已入库，可单独跳过对应语句）。
+-- 可重复执行：每个板块自动判断
+--   - column_key 不存在 → mode=insert；
+--   - 已存在 → 读取当前 updated_at，改用 mode=update + expected_updated_at。
+--   所以重复执行不会报「column_key 已存在」，也不会覆盖他人更新。
+-- 在 Supabase SQL Editor 整段执行。
 -- ============================================================
 
 -- ---------- 执行前检查 ----------
@@ -13,18 +16,10 @@ select nickname, status, role
 from public.profiles
 where nickname = 'GhostSilver';
 
-select column_key, column_name, status
+select column_key, column_name, status, updated_at
 from public.columns
-where column_key in (
-    'sub-admin-ghost-convex-slope',
-    'sub-admin-ghost-wqs-lagrange',
-    'sub-admin-ghost-slope-trick',
-    'sub-admin-ghost-binary-gcd',
-    'sub-admin-ghost-fast-pow-block',
-    'sub-admin-ghost-linear-sieve',
-    'sub-admin-ghost-operation-blocking',
-    'sub-admin-ghost-cattree'
-);
+where column_key like 'sub-admin-ghost-%'
+order by column_key;
 
 select column_key, column_name
 from public.columns
@@ -36,8 +31,10 @@ where column_key in (
 )
 order by column_key;
 
--- ---------- 写入 8 个板块 ----------
-select public.admin_publish_column($akb${
+-- ---------- 写入 8 个板块（自动 insert / update） ----------
+do $do$
+declare
+    v_payload jsonb := $akb${
   "mode": "insert",
   "column_key": "sub-admin-ghost-convex-slope",
   "author_name": "GhostSilver",
@@ -65,8 +62,26 @@ select public.admin_publish_column($akb${
     }
   ],
   "parent_key": "col-hub-dp"
-}$akb$::jsonb);
-select public.admin_publish_column($akb${
+}$akb$::jsonb;
+    v_updated_at timestamptz;
+begin
+    select c.updated_at into v_updated_at
+    from public.columns c
+    where c.column_key = v_payload->>'column_key';
+
+    if found then
+        v_payload := jsonb_set(v_payload, '{mode}', to_jsonb('update'::text), true);
+        v_payload := jsonb_set(v_payload, '{expected_updated_at}', to_jsonb(v_updated_at), true);
+    end if;
+
+    perform public.admin_publish_column(v_payload);
+    raise notice 'ok: %', v_payload->>'column_key';
+end;
+$do$;
+
+do $do$
+declare
+    v_payload jsonb := $akb${
   "mode": "insert",
   "column_key": "sub-admin-ghost-wqs-lagrange",
   "author_name": "GhostSilver",
@@ -94,8 +109,26 @@ select public.admin_publish_column($akb${
     }
   ],
   "parent_key": "col-hub-dp"
-}$akb$::jsonb);
-select public.admin_publish_column($akb${
+}$akb$::jsonb;
+    v_updated_at timestamptz;
+begin
+    select c.updated_at into v_updated_at
+    from public.columns c
+    where c.column_key = v_payload->>'column_key';
+
+    if found then
+        v_payload := jsonb_set(v_payload, '{mode}', to_jsonb('update'::text), true);
+        v_payload := jsonb_set(v_payload, '{expected_updated_at}', to_jsonb(v_updated_at), true);
+    end if;
+
+    perform public.admin_publish_column(v_payload);
+    raise notice 'ok: %', v_payload->>'column_key';
+end;
+$do$;
+
+do $do$
+declare
+    v_payload jsonb := $akb${
   "mode": "insert",
   "column_key": "sub-admin-ghost-slope-trick",
   "author_name": "GhostSilver",
@@ -123,8 +156,26 @@ select public.admin_publish_column($akb${
     }
   ],
   "parent_key": "col-hub-dp"
-}$akb$::jsonb);
-select public.admin_publish_column($akb${
+}$akb$::jsonb;
+    v_updated_at timestamptz;
+begin
+    select c.updated_at into v_updated_at
+    from public.columns c
+    where c.column_key = v_payload->>'column_key';
+
+    if found then
+        v_payload := jsonb_set(v_payload, '{mode}', to_jsonb('update'::text), true);
+        v_payload := jsonb_set(v_payload, '{expected_updated_at}', to_jsonb(v_updated_at), true);
+    end if;
+
+    perform public.admin_publish_column(v_payload);
+    raise notice 'ok: %', v_payload->>'column_key';
+end;
+$do$;
+
+do $do$
+declare
+    v_payload jsonb := $akb${
   "mode": "insert",
   "column_key": "sub-admin-ghost-binary-gcd",
   "author_name": "GhostSilver",
@@ -152,8 +203,26 @@ select public.admin_publish_column($akb${
     }
   ],
   "parent_key": "col-hub-math"
-}$akb$::jsonb);
-select public.admin_publish_column($akb${
+}$akb$::jsonb;
+    v_updated_at timestamptz;
+begin
+    select c.updated_at into v_updated_at
+    from public.columns c
+    where c.column_key = v_payload->>'column_key';
+
+    if found then
+        v_payload := jsonb_set(v_payload, '{mode}', to_jsonb('update'::text), true);
+        v_payload := jsonb_set(v_payload, '{expected_updated_at}', to_jsonb(v_updated_at), true);
+    end if;
+
+    perform public.admin_publish_column(v_payload);
+    raise notice 'ok: %', v_payload->>'column_key';
+end;
+$do$;
+
+do $do$
+declare
+    v_payload jsonb := $akb${
   "mode": "insert",
   "column_key": "sub-admin-ghost-fast-pow-block",
   "author_name": "GhostSilver",
@@ -181,8 +250,26 @@ select public.admin_publish_column($akb${
     }
   ],
   "parent_key": "col-hub-math"
-}$akb$::jsonb);
-select public.admin_publish_column($akb${
+}$akb$::jsonb;
+    v_updated_at timestamptz;
+begin
+    select c.updated_at into v_updated_at
+    from public.columns c
+    where c.column_key = v_payload->>'column_key';
+
+    if found then
+        v_payload := jsonb_set(v_payload, '{mode}', to_jsonb('update'::text), true);
+        v_payload := jsonb_set(v_payload, '{expected_updated_at}', to_jsonb(v_updated_at), true);
+    end if;
+
+    perform public.admin_publish_column(v_payload);
+    raise notice 'ok: %', v_payload->>'column_key';
+end;
+$do$;
+
+do $do$
+declare
+    v_payload jsonb := $akb${
   "mode": "insert",
   "column_key": "sub-admin-ghost-linear-sieve",
   "author_name": "GhostSilver",
@@ -214,8 +301,26 @@ select public.admin_publish_column($akb${
     }
   ],
   "parent_key": "col-hub-math"
-}$akb$::jsonb);
-select public.admin_publish_column($akb${
+}$akb$::jsonb;
+    v_updated_at timestamptz;
+begin
+    select c.updated_at into v_updated_at
+    from public.columns c
+    where c.column_key = v_payload->>'column_key';
+
+    if found then
+        v_payload := jsonb_set(v_payload, '{mode}', to_jsonb('update'::text), true);
+        v_payload := jsonb_set(v_payload, '{expected_updated_at}', to_jsonb(v_updated_at), true);
+    end if;
+
+    perform public.admin_publish_column(v_payload);
+    raise notice 'ok: %', v_payload->>'column_key';
+end;
+$do$;
+
+do $do$
+declare
+    v_payload jsonb := $akb${
   "mode": "insert",
   "column_key": "sub-admin-ghost-operation-blocking",
   "author_name": "GhostSilver",
@@ -243,8 +348,26 @@ select public.admin_publish_column($akb${
     }
   ],
   "parent_key": "col-hub-ds"
-}$akb$::jsonb);
-select public.admin_publish_column($akb${
+}$akb$::jsonb;
+    v_updated_at timestamptz;
+begin
+    select c.updated_at into v_updated_at
+    from public.columns c
+    where c.column_key = v_payload->>'column_key';
+
+    if found then
+        v_payload := jsonb_set(v_payload, '{mode}', to_jsonb('update'::text), true);
+        v_payload := jsonb_set(v_payload, '{expected_updated_at}', to_jsonb(v_updated_at), true);
+    end if;
+
+    perform public.admin_publish_column(v_payload);
+    raise notice 'ok: %', v_payload->>'column_key';
+end;
+$do$;
+
+do $do$
+declare
+    v_payload jsonb := $akb${
   "mode": "insert",
   "column_key": "sub-admin-ghost-cattree",
   "author_name": "GhostSilver",
@@ -276,7 +399,23 @@ select public.admin_publish_column($akb${
     }
   ],
   "parent_key": "col-hub-ds"
-}$akb$::jsonb);
+}$akb$::jsonb;
+    v_updated_at timestamptz;
+begin
+    select c.updated_at into v_updated_at
+    from public.columns c
+    where c.column_key = v_payload->>'column_key';
+
+    if found then
+        v_payload := jsonb_set(v_payload, '{mode}', to_jsonb('update'::text), true);
+        v_payload := jsonb_set(v_payload, '{expected_updated_at}', to_jsonb(v_updated_at), true);
+    end if;
+
+    perform public.admin_publish_column(v_payload);
+    raise notice 'ok: %', v_payload->>'column_key';
+end;
+$do$;
+
 
 -- ---------- 执行后验证 ----------
 select column_key, column_name, category, kind, tags, parent_key, status,

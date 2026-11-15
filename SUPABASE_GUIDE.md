@@ -94,6 +94,7 @@ login.html 投稿表单
 | 19 | `supabase/phase20-guard-overwrites.sql` | 工单审批防覆盖守卫（`base_updated_at` / 重复作者版本）；后台上传 RPC `admin_publish_column`（insert 拒绝覆盖、update 必须带 `expected_updated_at`） |
 | 20 | `supabase/phase21-meta-edit.sql` | 元数据便捷修改：管理员 `admin_update_column_meta` 直接改标题/分类/难度/标签/关系；普通用户 `submit_column_meta_edit` 提交元数据工单（正文快照不变） |
 | 21 | `supabase/phase22-meta-fields-credit.sql` | 便捷修改扩展字段（CF 评分 / OJ / 题号 / 时间 / 空间复杂度）+ 元数据贡献视图 `author_meta_credits`（每条 0.02） |
+| 22 | `supabase/phase23-notifications-chat.sql` | 通知栏：`notifications`（「修改」工单自动通知专栏作者）+ `chat_messages`（一对一文字私聊）+ `chat_directory()`；两表开 RLS，只能读自己的通知与会话 |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 

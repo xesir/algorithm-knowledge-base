@@ -14,6 +14,7 @@
         })();
     </script>
     <link rel="stylesheet" href="assets/forms.css?v=20261106b">
+    <link rel="stylesheet" href="assets/notifications.css?v=20261114a">
 </head>
 <body>
     <div class="admin-shell">
@@ -123,6 +124,22 @@
                             <div>
                                 <h2 class="panel-title">待审批工单</h2>
                                 <p class="panel-subtitle">显示 tickets 表中 status = pending 的记录</p>
+                            </div>
+                            <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+                                <input class="input" id="ticket-search" type="search"
+                                       placeholder="搜索工单：标题 / 提交者 / 目标专栏"
+                                       autocomplete="off" style="min-width:240px;">
+                                <select class="select" id="ticket-type-filter" aria-label="工单类型"
+                                        style="max-width:150px;">
+                                    <option value="all">全部类型</option>
+                                    <option value="edit">修改类</option>
+                                    <option value="submission">投稿类</option>
+                                    <option value="suggestion">建议</option>
+                                    <option value="content">内容纠错</option>
+                                    <option value="bug">页面故障</option>
+                                    <option value="account">账号问题</option>
+                                    <option value="other">其他</option>
+                                </select>
                             </div>
                         </div>
                         <div class="table-wrap">
@@ -528,6 +545,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js?v=20261105"></script>
     <script src="assets/auth.js?v=20261106"></script>
+    <script src="assets/notifications.js?v=20261114a"></script>
     <script>
         (function () {
             var client = window.supabaseClient;
@@ -541,6 +559,7 @@
             var allColumns = [];
             var kpTitles = {};
             var ticketsById = {};
+            var pendingTickets = [];
             var authorProfiles = [];
             var columnDataPromise = null;
             var columnUploadedText = null;
@@ -1307,24 +1326,55 @@
                 document.getElementById('nav-user-count').textContent = values[1];
             }
 
-            async function loadTickets() {
+            // 工单搜索：把标题、备注、提交者、专栏名/键、标签等拼成一段可检索文本
+            function ticketSearchText(ticket) {
+                var payload = ticket.payload || {};
+                var parts = [
+                    ticket.id,
+                    ticket.title,
+                    ticket.description,
+                    ticket.contact,
+                    typeLabel(ticket.type),
+                    payload.column_name,
+                    payload.old_column_name,
+                    payload.column_key,
+                    payload.note,
+                    payload.author_name,
+                    payload.category
+                ];
+                if (Array.isArray(payload.tags)) parts = parts.concat(payload.tags);
+                if (Array.isArray(payload.old_tags)) parts = parts.concat(payload.old_tags);
+                if (Array.isArray(payload.relations)) {
+                    payload.relations.forEach(function (relation) {
+                        if (relation && relation.target) parts.push(relation.target);
+                    });
+                }
+                if (payload.relation_target) parts.push(payload.relation_target);
+                return parts.filter(function (part) {
+                    return part !== null && part !== undefined && part !== '';
+                }).join(' ').toLowerCase();
+            }
+
+            function renderTickets() {
                 var tbody = document.getElementById('tickets-tbody');
-                var result = await client.from('tickets')
-                    .select('*')
-                    .eq('status', 'pending')
-                    .order('created_at', { ascending: false });
-                if (result.error) {
-                    tbody.innerHTML = emptyRow(8, '读取工单失败：' + result.error.message);
-                    return;
-                }
-                if (!result.data.length) {
+                var searchEl = document.getElementById('ticket-search');
+                var typeEl = document.getElementById('ticket-type-filter');
+                var keyword = searchEl ? searchEl.value.trim().toLowerCase() : '';
+                var typeFilter = typeEl ? typeEl.value : 'all';
+                var rows = pendingTickets.filter(function (ticket) {
+                    if (typeFilter !== 'all' && ticket.type !== typeFilter) return false;
+                    if (!keyword) return true;
+                    return ticketSearchText(ticket).indexOf(keyword) !== -1;
+                });
+                if (!pendingTickets.length) {
                     tbody.innerHTML = emptyRow(8, '暂无待审批工单');
-                    ticketsById = {};
                     return;
                 }
-                ticketsById = {};
-                tbody.innerHTML = result.data.map(function (ticket) {
-                    ticketsById[ticket.id] = ticket;
+                if (!rows.length) {
+                    tbody.innerHTML = emptyRow(8, '没有匹配的工单，试试清空关键词或切换类型');
+                    return;
+                }
+                tbody.innerHTML = rows.map(function (ticket) {
                     var submitter = (!ticket.user_id && ticket.type === 'suggestion')
                         ? '热心群众'
                         : (ticket.contact || '—');
@@ -1349,6 +1399,22 @@
                         '</div></td>' +
                         '</tr>';
                 }).join('');
+            }
+
+            async function loadTickets() {
+                var tbody = document.getElementById('tickets-tbody');
+                var result = await client.from('tickets')
+                    .select('*')
+                    .eq('status', 'pending')
+                    .order('created_at', { ascending: false });
+                if (result.error) {
+                    tbody.innerHTML = emptyRow(8, '读取工单失败：' + result.error.message);
+                    return;
+                }
+                pendingTickets = result.data || [];
+                ticketsById = {};
+                pendingTickets.forEach(function (ticket) { ticketsById[ticket.id] = ticket; });
+                renderTickets();
             }
 
             async function loadUsers() {
@@ -2264,6 +2330,10 @@
                 if (!client || !isAdmin) return;
                 loadAll().then(function () { showToast('已刷新'); });
             });
+
+            // 工单搜索 / 类型筛选：只在前端过滤已缓存的待审批工单，不额外请求
+            document.getElementById('ticket-search').addEventListener('input', renderTickets);
+            document.getElementById('ticket-type-filter').addEventListener('change', renderTickets);
 
             // ===== 启动 =====
             initColumnMetaOptions();

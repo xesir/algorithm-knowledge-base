@@ -16,6 +16,7 @@
     </script>
     <link rel="stylesheet" href="assets/forms.css?v=20261106b">
     <link rel="stylesheet" href="assets/aurora.css?v=20261109c">
+    <link rel="stylesheet" href="assets/notifications.css?v=20261114a">
     <style>
         .star-preview-body {
             background: #0b1220;
@@ -197,7 +198,7 @@
             <!-- 提交工单 -->
             <section class="tab-panel" id="panel-ticket" role="tabpanel">
                 <h3 class="auth-title">提交工单</h3>
-                <p class="auth-subtitle" style="margin-bottom:1rem;">建议类仅需标题和内容；投稿类通过后会自动添加栏目；修改类需登录并验证专栏密码。</p>
+                <p class="auth-subtitle" style="margin-bottom:1rem;">建议类仅需标题和内容；投稿类通过后会自动添加栏目；修改类需登录，无密码专栏可直接编辑，有密码专栏需验证密码，提交后会通知作者。</p>
                 <form class="form-grid" id="ticket-form" novalidate>
                     <div class="form-field">
                         <label for="ticket-type">工单类型</label>
@@ -318,7 +319,7 @@
                             </select>
                             <p class="form-hint">只列出已发布的专栏；下拉显示专栏名称，不再显示注册名。</p>
                         </div>
-                        <div class="form-row">
+                        <div class="form-row" id="ticket-edit-unlock-row">
                             <div class="form-field">
                                 <label for="ticket-edit-password">专栏访问密码</label>
                                 <input class="input" type="password" id="ticket-edit-password"
@@ -396,7 +397,7 @@
                             </div>
                             <datalist id="ticket-edit-tag-list"></datalist>
                         </div>
-                        <p class="form-hint">提交后生成「修改」工单，管理员通过后才会写回专栏（正文与标签 / 分类 / 难度 / 关系）。</p>
+                        <p class="form-hint">提交后生成「修改」工单，管理员通过后才会写回专栏（正文与标签 / 分类 / 难度 / 关系）；同时会通知该专栏作者。</p>
                     </div>
 
                     <p class="form-error" id="ticket-error" hidden></p>
@@ -527,6 +528,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js?v=20261105"></script>
     <script src="assets/auth.js?v=20261106"></script>
+    <script src="assets/notifications.js?v=20261114a"></script>
     <script>
         /* 任务一：登录后的重定向白名单（只允许站内两个入口） */
         const allowedRedirects = ['index.html', 'admin.html'];
@@ -568,9 +570,11 @@
                 el.textContent = text || '';
                 el.hidden = !text;
             }
-            function needClient() {
+            function needClient(errorId) {
                 if (client) return true;
-                showToast('Supabase 未配置：请先填写 supabase-config.js');
+                var message = 'Supabase 未就绪：可能是 SDK 没加载（网络无法访问 cdn.jsdelivr.net），或 supabase-config.js 未配置。请查看连接状态条后重试。';
+                if (errorId) setError(errorId, message);
+                showToast('Supabase 未就绪，登录 / 注册暂不可用');
                 return false;
             }
             function errorText(prefix, error) {
@@ -587,7 +591,53 @@
                 if (/user already registered/i.test(msg)) {
                     return '该登录账号已被注册，请直接登录或更换联系方式';
                 }
+                if (/failed to fetch|networkerror|load failed|network request failed|abort/i.test(msg)) {
+                    return friendlyNetworkError(error);
+                }
                 return '登录失败：' + msg;
+            }
+            function friendlyNetworkError(error) {
+                var msg = (error && error.message) || '';
+                if (/failed to fetch|networkerror|load failed|network request failed|abort/i.test(msg)) {
+                    return '无法连接 Supabase：项目可能已暂停，或当前网络/代理拦截了请求。请到 Supabase 控制台恢复项目后重试。';
+                }
+                return '登录失败：' + (msg || '未知错误');
+            }
+            /**
+             * 登录标识 → Supabase Auth 邮箱。
+             * 优先走 resolve_login_email（支持昵称/邮箱/QQ/洛谷/CF）；
+             * RPC 不可用时回退到本地映射与 profiles 反查，保证邮箱与 QQ/洛谷/CF 仍可登录。
+             */
+            async function resolveLoginEmail(contact, password) {
+                var lower = String(contact || '').toLowerCase();
+                if (lower.indexOf('@') !== -1) return lower;
+                var fallback = window.AKB.contactToEmail(contact);
+                try {
+                    var resolved = await client.rpc('resolve_login_email', {
+                        p_identifier: contact,
+                        p_password: password
+                    });
+                    if (!resolved.error && resolved.data) return resolved.data;
+                } catch (err) {
+                    // RPC 不可用：继续走下面的资料反查
+                }
+                var fields = ['nickname', 'contact', 'qq', 'luogu', 'cf'];
+                for (var i = 0; i < fields.length; i++) {
+                    try {
+                        var lookup = await client.from('profiles')
+                            .select('contact, qq, luogu, cf')
+                            .eq(fields[i], contact)
+                            .limit(1);
+                        if (!lookup.error && lookup.data && lookup.data.length) {
+                            var profile = lookup.data[0];
+                            var candidate = profile.contact || profile.qq || profile.luogu || profile.cf;
+                            if (candidate) return window.AKB.contactToEmail(candidate);
+                        }
+                    } catch (err) {
+                        // 单个字段查询失败不阻塞其它登录方式
+                    }
+                }
+                return fallback;
             }
 
             // ===== 主题切换 =====
@@ -644,73 +694,94 @@
             statusEl.classList.add(status.connected ? 'is-ok' : 'is-warn');
             statusEl.lastElementChild.textContent = status.message;
 
-            // 检查 Supabase 是否仍强制邮箱确认（本项目不需要邮箱验证）
+            // 检查 Supabase 是否可达，以及是否仍强制邮箱确认（本项目不需要邮箱验证）
             if (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url) {
+                var healthTimer = null;
+                var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+                if (controller) {
+                    healthTimer = setTimeout(function () { controller.abort(); }, 8000);
+                }
                 fetch(window.SUPABASE_CONFIG.url + '/auth/v1/settings', {
-                    headers: { apikey: window.SUPABASE_CONFIG.anonKey }
+                    headers: { apikey: window.SUPABASE_CONFIG.anonKey },
+                    signal: controller ? controller.signal : undefined
                 }).then(function (response) {
-                    return response.ok ? response.json() : null;
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+                    return response.json();
                 }).then(function (settings) {
                     if (settings && settings.mailer_autoconfirm === false) {
                         document.getElementById('register-mail-warning').hidden = false;
                     }
-                }).catch(function () {});
+                }).catch(function (error) {
+                    var ref = String(window.SUPABASE_CONFIG.url).replace(/^https?:\/\//, '').split('.')[0];
+                    statusEl.classList.remove('is-ok');
+                    statusEl.classList.add('is-warn');
+                    statusEl.lastElementChild.innerHTML = '无法连接 Supabase（项目可能已暂停）· ' +
+                        '<a href="https://supabase.com/dashboard/project/' + encodeURIComponent(ref) +
+                        '" target="_blank" rel="noreferrer">打开控制台恢复</a>';
+                    console.warn('[Supabase] 连接失败：', error);
+                }).then(function () {
+                    if (healthTimer) clearTimeout(healthTimer);
+                });
             }
 
             // ===== 登录 =====
             document.getElementById('login-form').addEventListener('submit', async function (event) {
                 event.preventDefault();
                 setError('login-error', '');
+                var form = event.target;
+                var submit = form.querySelector('button[type="submit"]');
                 var contact = document.getElementById('login-contact').value.trim();
                 var password = document.getElementById('login-password').value;
                 if (!contact || !password) {
                     setError('login-error', '请填写联系方式与密码');
                     return;
                 }
-                if (!needClient()) return;
-                // 邮箱 / QQ / 洛谷 / CF / 昵称 → 登录邮箱（密码正确才会返回）
-                var email = window.AKB.contactToEmail(contact);
-                var resolved = await client.rpc('resolve_login_email', {
-                    p_identifier: contact,
-                    p_password: password
-                });
-                if (!resolved.error && resolved.data) email = resolved.data;
-                var result = await client.auth.signInWithPassword({
-                    email: email,
-                    password: password
-                });
-                if (result.error) {
-                    setError('login-error', friendlyAuthError(result.error));
-                    return;
+                if (!needClient('login-error')) return;
+                if (submit) submit.disabled = true;
+                try {
+                    // 邮箱 / QQ / 洛谷 / CF / 昵称 → 登录邮箱
+                    var email = await resolveLoginEmail(contact, password);
+                    var result = await client.auth.signInWithPassword({
+                        email: email,
+                        password: password
+                    });
+                    if (result.error) {
+                        setError('login-error', friendlyAuthError(result.error));
+                        return;
+                    }
+                    var profileResult = await client.from('profiles')
+                        .select('nickname, role, status')
+                        .eq('id', result.data.user.id)
+                        .single();
+                    if (profileResult.error || !profileResult.data) {
+                        await client.auth.signOut();
+                        setError('login-error', '账号资料不存在，请联系管理员');
+                        return;
+                    }
+                    var profile = profileResult.data;
+                    if (profile.status === 'pending') {
+                        await client.auth.signOut();
+                        setError('login-error', '账号正在等待管理员审核，暂时无法登录');
+                        return;
+                    }
+                    if (profile.status === 'rejected') {
+                        await client.auth.signOut();
+                        setError('login-error', '账号已被驳回，请联系管理员');
+                        return;
+                    }
+                    var params = new URLSearchParams(window.location.search);
+                    var redirect = params.get('redirect');
+                    var target = allowedRedirects.includes(redirect) ? redirect : 'index.html';
+                    var tab = params.get('tab');
+                    if (target === 'admin.html' && tab) {
+                        target += '?tab=' + encodeURIComponent(tab);
+                    }
+                    window.location.href = target;
+                } catch (err) {
+                    setError('login-error', friendlyNetworkError(err));
+                } finally {
+                    if (submit) submit.disabled = false;
                 }
-                var profileResult = await client.from('profiles')
-                    .select('nickname, role, status')
-                    .eq('id', result.data.user.id)
-                    .single();
-                if (profileResult.error || !profileResult.data) {
-                    await client.auth.signOut();
-                    setError('login-error', '账号资料不存在，请联系管理员');
-                    return;
-                }
-                var profile = profileResult.data;
-                if (profile.status === 'pending') {
-                    await client.auth.signOut();
-                    setError('login-error', '账号正在等待管理员审核，暂时无法登录');
-                    return;
-                }
-                if (profile.status === 'rejected') {
-                    await client.auth.signOut();
-                    setError('login-error', '账号已被驳回，请联系管理员');
-                    return;
-                }
-                var params = new URLSearchParams(window.location.search);
-                var redirect = params.get('redirect');
-                var target = allowedRedirects.includes(redirect) ? redirect : 'index.html';
-                var tab = params.get('tab');
-                if (target === 'admin.html' && tab) {
-                    target += '?tab=' + encodeURIComponent(tab);
-                }
-                window.location.href = target;
             });
 
             // ===== 注册 =====
@@ -746,7 +817,7 @@
                     setError('register-error', '请先同意用户协议与隐私说明');
                     return;
                 }
-                if (!needClient()) return;
+                if (!needClient('register-error')) return;
                 var authEmail = window.AKB.contactToEmail(loginAccount);
                 if (!authEmail) {
                     setError('register-error', '登录账号只能使用邮箱、QQ、洛谷号或 CF 号（需包含字母或数字）');
@@ -1147,6 +1218,9 @@
                 document.getElementById('ticket-edit-name').value = '';
                 resetEditTags();
                 if (clearPassword) document.getElementById('ticket-edit-password').value = '';
+                // 换专栏后先恢复密码输入区，等待 onEditColumnChange 判断该专栏是否无密码
+                var unlockRow = document.getElementById('ticket-edit-unlock-row');
+                if (unlockRow) unlockRow.hidden = false;
             }
             function getEditText() {
                 return editUploadedText !== null
@@ -1301,12 +1375,16 @@
                     return;
                 }
                 if (document.getElementById('ticket-edit-column').value !== key) return;
+                var unlockRow = document.getElementById('ticket-edit-unlock-row');
                 if (verify.data) {
+                    // 无密码专栏：隐藏密码输入区，直接载入源码
+                    if (unlockRow) unlockRow.hidden = true;
                     var column = await showEditSource(key, '');
                     if (column) {
-                        statusEl.textContent = '该专栏未设置密码；点「显示 Markdown 源码」查看/编辑，或直接下载。';
+                        statusEl.textContent = '该专栏未设置密码，已直接载入；点「显示 Markdown 源码」查看/编辑，或直接下载。';
                     }
                 } else {
+                    if (unlockRow) unlockRow.hidden = false;
                     statusEl.textContent = '该专栏已设置密码，请输入密码后点击“验证并载入源码”。';
                 }
             }

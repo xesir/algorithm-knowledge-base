@@ -168,6 +168,16 @@ body.auth-page .conn-status.is-warn {
     color: #fde68a;
 }
 
+body.auth-page .conn-status a {
+    color: #c4b5fd;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+body.auth-page .form-error {
+    overflow-wrap: anywhere;
+}
+
 /* ---------- 右侧玻璃卡 ---------- */
 body.auth-page .auth-card {
     position: relative;

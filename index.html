@@ -128,6 +128,26 @@
         .search-box input::placeholder { color: #475569; }
         .search-box input:focus { border-color: var(--primary-light); }
 
+        /* 搜索框下的作者 / 时间 / 排序筛选 */
+        .search-filters {
+            display: flex;
+            gap: 0.35rem;
+            margin-top: 0.45rem;
+        }
+        .search-filters select {
+            flex: 1 1 0;
+            min-width: 0;
+            padding: 0.32rem 0.3rem;
+            border: 1px solid #334155;
+            border-radius: 0.375rem;
+            background: #0f172a;
+            color: #cbd5e1;
+            font-size: 0.72rem;
+            outline: none;
+            cursor: pointer;
+        }
+        .search-filters select:focus { border-color: var(--primary-light); }
+
         .tag-filter {
             margin: 0.5rem 1rem 0;
             padding: 0.5rem 0.6rem;
@@ -1857,6 +1877,119 @@
             opacity: 0.55;
             cursor: not-allowed;
         }
+        /* ===== 专栏点赞 / 评论 ===== */
+        .kp-engagement {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+        .engagement-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .like-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.4rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--bg-secondary, #f8fafc);
+            color: var(--text);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .like-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .like-btn.liked {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: #fff;
+        }
+        .engagement-tip { font-size: 0.75rem; color: var(--text-secondary); }
+
+        .comments-block { margin-top: 1.5rem; }
+        .comments-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+        .comments-title span { color: var(--text-secondary); font-weight: 400; }
+        .comments-list { display: flex; flex-direction: column; gap: 0.6rem; }
+        .comment-item {
+            padding: 0.7rem 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            background: var(--bg-secondary, #f8fafc);
+        }
+        .comment-head {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+        }
+        .comment-author { font-weight: 600; font-size: 0.82rem; color: var(--text); }
+        .comment-time { font-size: 0.72rem; color: var(--text-secondary); }
+        .comment-delete {
+            margin-left: auto;
+            border: none;
+            background: none;
+            color: var(--text-secondary);
+            font-size: 0.72rem;
+            cursor: pointer;
+            padding: 0;
+        }
+        .comment-delete:hover { color: #ef4444; }
+        .comment-content {
+            font-size: 0.86rem;
+            line-height: 1.65;
+            color: var(--text);
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .comments-empty {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 0.4rem 0;
+        }
+        .comment-form { margin-top: 0.9rem; }
+        .comment-form textarea {
+            width: 100%;
+            min-height: 76px;
+            resize: vertical;
+            padding: 0.6rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            background: var(--bg-secondary, #fff);
+            color: var(--text);
+            font-size: 0.85rem;
+            line-height: 1.55;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .comment-form textarea:focus { border-color: var(--primary); }
+        .comment-form-foot {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 0.45rem;
+        }
+        .comment-hint { flex: 1; font-size: 0.75rem; color: var(--text-secondary); }
+        .comment-hint a { color: var(--primary); }
+        .comment-submit {
+            padding: 0.38rem 1rem;
+            border: none;
+            border-radius: 0.375rem;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+        .comment-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
         @media (max-width: 640px) {
             .meta-edit-overlay { padding: 12px; }
             .meta-edit-modal { max-height: 90vh; }
@@ -1877,6 +2010,22 @@
                 </div>
                 <div class="search-box">
                     <input type="text" id="search-input" placeholder="搜索知识点... (按 / 聚焦)">
+                </div>
+                <div class="search-filters" id="search-filters">
+                    <select id="kp-filter-author" onchange="applyKpFilters()" title="按作者筛选">
+                        <option value="">全部作者</option>
+                    </select>
+                    <select id="kp-filter-time" onchange="applyKpFilters()" title="按更新时间筛选">
+                        <option value="">全部时间</option>
+                        <option value="7">最近 7 天</option>
+                        <option value="30">最近 30 天</option>
+                        <option value="90">最近 90 天</option>
+                        <option value="365">最近一年</option>
+                    </select>
+                    <select id="kp-filter-sort" onchange="applyKpFilters()" title="排序方式">
+                        <option value="">默认顺序</option>
+                        <option value="time">最近更新优先</option>
+                    </select>
                 </div>
                 <div class="tag-filter" id="tag-filter">
                     <div class="tag-filter-header">
@@ -1980,6 +2129,11 @@
 
             // Sidebar
             buildSidebar();
+            refreshKpAuthorOptions();
+            if (window.supabaseClient) {
+                loadColumnTimes();
+                loadColumnLikes();
+            }
 
             // Search
             searchInput.addEventListener('input', function() {
@@ -2336,16 +2490,99 @@
                 escHtml(kp.title) + '</li>';
         }
 
+        // ===== 搜索筛选：作者 / 更新时间 / 排序 =====
+        // 时间来自 published_columns.updated_at（页面同步时载入）；
+        // 离线或未同步时，时间筛选会筛掉没有时间的条目。
+        var COLUMN_TIMES = {};
+        var COLUMN_LIKES = {};
+        var COLUMN_LIKE_READY = null;
+
+        function kpFilterValue(id) {
+            var el = document.getElementById(id);
+            return el ? el.value : '';
+        }
+
+        function kpAuthorNames(kp) {
+            return (kp.versions || []).map(function(v) {
+                return resolveAuthorName(v.author || 'world-needs-sunday');
+            });
+        }
+
+        function kpUpdatedAt(kp) {
+            var best = 0;
+            var versions = kp.versions || [];
+            for (var i = 0; i < versions.length; i++) {
+                var key = columnKeyForVersion(kp, i);
+                var t = key ? COLUMN_TIMES[key] : 0;
+                if (t && t > best) best = t;
+            }
+            return best;
+        }
+
+        function kpMatchesAuthor(kp, author) {
+            if (!author) return true;
+            var target = resolveAuthorName(author);
+            return kpAuthorNames(kp).indexOf(target) >= 0;
+        }
+
+        function kpMatchesTime(kp, days) {
+            if (!days) return true;
+            var t = kpUpdatedAt(kp);
+            return !!t && t >= Date.now() - days * 86400000;
+        }
+
+        function refreshKpAuthorOptions() {
+            var select = document.getElementById('kp-filter-author');
+            if (!select) return;
+            var current = select.value;
+            var seen = {};
+            var names = [];
+            function add(name) {
+                var key = resolveAuthorName(name);
+                if (!key || seen[key]) return;
+                seen[key] = 1;
+                names.push(name);
+            }
+            (typeof AUTHORS !== 'undefined' ? AUTHORS : []).forEach(add);
+            KNOWLEDGE_DATA.forEach(function(kp) {
+                (kp.versions || []).forEach(function(v) { add(v.author || 'world-needs-sunday'); });
+            });
+            names.sort(function(a, b) { return String(a).localeCompare(String(b), 'zh-Hans-CN'); });
+            var html = '<option value="">全部作者</option>';
+            names.forEach(function(name) {
+                html += '<option value="' + escAttr(name) + '">' + escHtml(name) + '</option>';
+            });
+            select.innerHTML = html;
+            if (current && names.some(function(n) { return n === current; })) select.value = current;
+        }
+
+        // 搜索框 + 作者 + 时间 + 标签一起过滤，只作用于知识点侧栏
+        function applyKpFilters() {
+            buildSidebar(searchInput ? searchInput.value : '');
+        }
+
         function buildSidebar(filter) {
             filter = filter || '';
-            var hasFilter = filter || selectedTags.size > 0;
+            var authorFilter = kpFilterValue('kp-filter-author');
+            var timeDays = parseInt(kpFilterValue('kp-filter-time'), 10) || 0;
+            var sortMode = kpFilterValue('kp-filter-sort');
+            var hasFilter = filter || selectedTags.size > 0 || authorFilter || timeDays;
             var q = filter ? filter.toLowerCase() : '';
             var tree = {};
 
-            KNOWLEDGE_DATA.forEach(function(kp) {
-                if (!matchesTagFilter(kp)) return;
+            var items = KNOWLEDGE_DATA.filter(function(kp) {
+                if (!matchesTagFilter(kp)) return false;
                 // 搜索命中范围：标题 / ID / 分类 / 子分类 / 小分类 / 标签 / 正文
-                if (q && searchBlob(kp).indexOf(q) < 0) return;
+                if (q && searchBlob(kp).indexOf(q) < 0) return false;
+                if (!kpMatchesAuthor(kp, authorFilter)) return false;
+                if (!kpMatchesTime(kp, timeDays)) return false;
+                return true;
+            });
+            if (sortMode === 'time') {
+                items.sort(function(a, b) { return kpUpdatedAt(b) - kpUpdatedAt(a); });
+            }
+
+            items.forEach(function(kp) {
                 if (!tree[kp.category]) tree[kp.category] = {};
                 if (!tree[kp.category][kp.subcategory]) tree[kp.category][kp.subcategory] = {};
                 var ssub = kp.subSubcategory || '';
@@ -2356,7 +2593,7 @@
             var html = '';
             var cats = Object.keys(tree).sort();
 
-            if (cats.length === 0 && filter) {
+            if (cats.length === 0 && hasFilter) {
                 html = '<div class="no-results">未找到匹配的知识点</div>';
                 sidebarNav.innerHTML = html;
                 return;
@@ -2766,6 +3003,24 @@
                 relatedHtml += '</div></div>';
             }
 
+            // 点赞 / 评论（专栏级，所有作者版本共用）
+            var engageKey = columnEngagementKey(kp);
+            var likeCount = COLUMN_LIKES[engageKey] || 0;
+            var engageHtml = '<div class="kp-engagement" id="kp-engagement" data-column-key="' + escAttr(engageKey) + '">' +
+                '<div class="engagement-actions">' +
+                '<button class="like-btn" id="kp-like-btn" onclick="toggleColumnLike()">👍 点赞 <span id="kp-like-count">' + likeCount + '</span></button>' +
+                '<span class="engagement-tip">点赞会小幅提升作者贡献度权重</span>' +
+                '</div>' +
+                '<div class="comments-block">' +
+                '<div class="comments-title">💬 评论 <span id="kp-comment-count">…</span></div>' +
+                '<div class="comments-list" id="kp-comments-list"><div class="comments-empty">加载中…</div></div>' +
+                '<div class="comment-form">' +
+                '<textarea id="kp-comment-input" maxlength="500" placeholder="写下你的评论…（登录后发言，最多 500 字）"></textarea>' +
+                '<div class="comment-form-foot">' +
+                '<span class="comment-hint" id="kp-comment-hint"></span>' +
+                '<button class="comment-submit" id="kp-comment-submit" onclick="submitColumnComment()">发表评论</button>' +
+                '</div></div></div></div>';
+
             // Assemble
             contentEl.innerHTML =
                 '<article class="article">' +
@@ -2776,6 +3031,7 @@
                 prereqHtml +
                 '<div class="markdown-body">' + contentHtml + '</div>' +
                 codeHtml +
+                engageHtml +
                 childrenHtml +
                 relatedHtml +
                 navHtml +
@@ -2807,6 +3063,9 @@
             } catch(e) {
                 console.warn('KaTeX render error:', e);
             }
+
+            // 点赞 / 评论（异步加载，DOM 已就绪）
+            initKpEngagement(engageKey);
         }
 
         // ===== Copy Code =====
@@ -3034,6 +3293,8 @@
             // 作者专栏没有标签筛选；目录按钮改为作者列表
             var tagFilterEl = document.getElementById('tag-filter');
             if (tagFilterEl) tagFilterEl.style.display = (mode === 'author') ? 'none' : '';
+            var filtersEl = document.getElementById('search-filters');
+            if (filtersEl) filtersEl.style.display = (mode === 'kp') ? '' : 'none';
             var catalogBtn = document.getElementById('catalog-btn');
             if (catalogBtn) catalogBtn.textContent = (mode === 'author') ? '📑 作者列表' : '📑 总目录';
             if (mode === 'kp') {
@@ -3132,7 +3393,10 @@
             selfEdit: 0.25,
             sizeFloor: 0.8,
             sizeFullDelta: 2000,
-            metaEdit: 0.02
+            metaEdit: 0.02,
+            // 点赞：每赞 +0.05，单专栏最多计 20 赞（上限 +1.0）
+            like: 0.05,
+            likeCapCount: 20
         };
         var EDIT_CREDITS = [];
         var editCreditsReady = false;
@@ -3264,6 +3528,8 @@
                         creationScore: 0,
                         editScore: 0,
                         metaEditScore: 0,
+                        likeScore: 0,
+                        likeCount: 0,
                         score: 0,
                         total: 0,
                         rate: 0
@@ -3274,6 +3540,8 @@
             (typeof AUTHORS !== 'undefined' ? AUTHORS : []).forEach(function(name) {
                 ensure(resolveAuthorName(name));
             });
+            // 同一作者在同一专栏的多个版本只计一次点赞加成
+            var likeCredited = {};
             (typeof KNOWLEDGE_DATA !== 'undefined' ? KNOWLEDGE_DATA : []).forEach(function(kp) {
                 (kp.versions || []).forEach(function(v, i) {
                     var author = resolveAuthorName(v.author || 'world-needs-sunday');
@@ -3286,6 +3554,15 @@
                     });
                     s.creationCount++;
                     s.creationScore += CONTRIB_WEIGHTS.create * contributionLevelFactor(level);
+                    // 专栏点赞：小幅提升作者贡献度（所有作者版本共用专栏 key）
+                    var likeKey = String(kp.id).indexOf('sub-') === 0 ? kp.id : 'col-' + kp.id;
+                    var likeN = COLUMN_LIKES[likeKey] || 0;
+                    var likeCreditKey = author + '|' + likeKey;
+                    if (likeN > 0 && !likeCredited[likeCreditKey]) {
+                        likeCredited[likeCreditKey] = 1;
+                        s.likeCount += likeN;
+                        s.likeScore += Math.min(likeN, CONTRIB_WEIGHTS.likeCapCount) * CONTRIB_WEIGHTS.like;
+                    }
                 });
             });
             if (typeof PROBLEMS_DATA !== 'undefined') {
@@ -3387,7 +3664,7 @@
             Object.keys(stats).forEach(function(name) {
                 var s = stats[name];
                 s.total = s.creationCount;
-                s.score = s.creationScore + s.editScore + s.metaEditScore;
+                s.score = s.creationScore + s.editScore + s.metaEditScore + s.likeScore;
                 totalAll += s.score;
             });
             Object.keys(stats).forEach(function(name) {
@@ -3513,12 +3790,15 @@
             html += '<div class="author-stat"><div class="author-stat-num">' + a.creationCount + '</div><div class="author-stat-label">新建版本</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + editCountText(a) + '</div><div class="author-stat-label">有效修补</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + metaCountText(a) + '</div><div class="author-stat-label">元数据修改</div></div>';
+            if (a.likeCount) {
+                html += '<div class="author-stat"><div class="author-stat-num">' + a.likeCount + '</div><div class="author-stat-label">获赞</div></div>';
+            }
             html += '<div class="author-stat"><div class="author-stat-num">' + uniqueCount(a.kp) + '</div><div class="author-stat-label">知识点</div></div>';
             html += '<div class="author-stat"><div class="author-stat-num">' + uniqueCount(a.prob) + '</div><div class="author-stat-label">题目</div></div>';
             html += '</div>';
             html += '<div class="author-bar"><div class="author-bar-fill" style="width:' + (a.rate * 100).toFixed(1) + '%"></div></div>';
             html += '<div class="author-note">贡献率 = 加权贡献 ÷ 全站加权贡献（全站 ' + Number(totalAll).toFixed(2) +
-                '）。新建 1 篇 = 1.0；修补 1 处 = 0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数（0.25），单专栏上限 0.8；元数据便捷修改每条 +0.02（同一专栏去重）；sub-* 未同步投稿暂不计入。修补数据每 30 秒自动刷新；新建计数来自静态数据，需重新构建后更新。</div>';
+                '）。新建 1 篇 = 1.0；修补 1 处 = 0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数（0.25），单专栏上限 0.8；元数据便捷修改每条 +0.02（同一专栏去重）；专栏每获 1 赞 +0.05（单专栏最多计 20 赞）；sub-* 未同步投稿暂不计入。修补数据每 30 秒自动刷新；新建计数来自静态数据，需重新构建后更新。</div>';
             if (!editCreditsReady && window.supabaseClient) {
                 html += '<div class="author-note">正在加载修补贡献数据…</div>';
             } else if (editCreditsError) {
@@ -4711,6 +4991,267 @@
             return 'col-' + item.id + '--' + suffix;
         }
 
+        // 专栏级互动（点赞 / 评论）使用的 key：所有作者版本共用同一个专栏
+        function columnEngagementKey(kp) {
+            if (!kp) return '';
+            if (String(kp.id).indexOf('sub-') === 0) return kp.id;
+            return 'col-' + kp.id;
+        }
+
+        // ===== 专栏点赞 / 评论 =====
+        var kpEngagementState = { key: '', user: null, liked: false, busy: false };
+        var columnTimesLoaded = false;
+
+        function engagementHint(text, asLink) {
+            var el = document.getElementById('kp-comment-hint');
+            if (!el) return;
+            if (asLink) {
+                el.innerHTML = '<a href="login.html">登录</a> ' + escHtml(text);
+            } else {
+                el.textContent = text || '';
+            }
+        }
+
+        function engagementTimeText(value) {
+            if (!value) return '';
+            var date = new Date(value);
+            if (isNaN(date.getTime())) return '';
+            return date.toLocaleString('zh-CN', { hour12: false });
+        }
+
+        function initKpEngagement(key) {
+            kpEngagementState = { key: key || '', user: null, liked: false, busy: false };
+            var btn = document.getElementById('kp-like-btn');
+            if (btn) btn.classList.remove('liked');
+            if (!key) return;
+
+            var client = window.supabaseClient;
+            if (!client || !window.AKB) {
+                engagementHint('离线模式：评论与点赞需要连接数据库');
+                var list = document.getElementById('kp-comments-list');
+                if (list) list.innerHTML = '<div class="comments-empty">离线模式，暂不加载评论</div>';
+                var countEl = document.getElementById('kp-comment-count');
+                if (countEl) countEl.textContent = '0';
+                return;
+            }
+            engagementHint('正在加载…');
+            Promise.resolve(window.AKB.getUser()).then(function(user) {
+                if (kpEngagementState.key !== key) return;
+                kpEngagementState.user = user || null;
+                if (!user) {
+                    engagementHint('后可发表评论', true);
+                    var submit = document.getElementById('kp-comment-submit');
+                    if (submit) submit.disabled = true;
+                } else {
+                    engagementHint('最多 500 字');
+                    loadMyColumnLike(key, user.id);
+                }
+                loadKpComments(key);
+            }).catch(function() {
+                engagementHint('登录状态加载失败');
+            });
+        }
+
+        function loadMyColumnLike(key, userId) {
+            var client = window.supabaseClient;
+            if (!client) return;
+            client.from('column_likes').select('column_key')
+                .eq('column_key', key).eq('user_id', userId).limit(1)
+                .then(function(res) {
+                    if (res.error || kpEngagementState.key !== key) return;
+                    kpEngagementState.liked = !!(res.data && res.data.length);
+                    var btn = document.getElementById('kp-like-btn');
+                    if (btn) btn.classList.toggle('liked', kpEngagementState.liked);
+                });
+        }
+
+        function renderKpComments(rows) {
+            var list = document.getElementById('kp-comments-list');
+            var countEl = document.getElementById('kp-comment-count');
+            if (!list) return;
+            if (countEl) countEl.textContent = String((rows || []).length);
+            if (!rows || !rows.length) {
+                list.innerHTML = '<div class="comments-empty">还没有评论，来写下第一条吧。</div>';
+                return;
+            }
+            var uid = kpEngagementState.user ? kpEngagementState.user.id : '';
+            var html = '';
+            rows.forEach(function(row) {
+                html += '<div class="comment-item">' +
+                    '<div class="comment-head">' +
+                    '<span class="comment-author">' + escHtml(row.author_name || '匿名用户') + '</span>' +
+                    '<span class="comment-time">' + escHtml(engagementTimeText(row.created_at)) + '</span>' +
+                    (uid && row.user_id === uid
+                        ? '<button class="comment-delete" onclick="deleteColumnComment(' + Number(row.id) + ')">删除</button>'
+                        : '') +
+                    '</div>' +
+                    '<div class="comment-content">' + escHtml(row.content || '') + '</div>' +
+                    '</div>';
+            });
+            list.innerHTML = html;
+        }
+
+        function loadKpComments(key) {
+            var client = window.supabaseClient;
+            if (!client) return;
+            client.from('column_comments')
+                .select('id,user_id,author_name,content,created_at')
+                .eq('column_key', key)
+                .order('created_at', { ascending: false })
+                .limit(100)
+                .then(function(res) {
+                    if (kpEngagementState.key !== key) return;
+                    if (res.error) {
+                        var list = document.getElementById('kp-comments-list');
+                        var countEl = document.getElementById('kp-comment-count');
+                        if (countEl) countEl.textContent = '0';
+                        if (list) {
+                            list.innerHTML = '<div class="comments-empty">' +
+                                (/does not exist|relation/i.test(res.error.message || '')
+                                    ? '评论功能尚未启用（请先执行 phase25-column-engagement.sql）'
+                                    : '评论加载失败：' + escHtml(res.error.message || '未知错误')) +
+                                '</div>';
+                        }
+                        return;
+                    }
+                    renderKpComments(res.data || []);
+                });
+        }
+
+        function toggleColumnLike() {
+            var client = window.supabaseClient;
+            var key = kpEngagementState.key;
+            if (!client) { engagementHint('离线模式：点赞需要连接数据库'); return; }
+            if (COLUMN_LIKE_READY === false) {
+                engagementHint('点赞功能尚未启用（请先执行 phase25-column-engagement.sql）');
+                return;
+            }
+            if (!kpEngagementState.user) {
+                engagementHint('登录后可点赞');
+                window.location.href = 'login.html';
+                return;
+            }
+            if (kpEngagementState.busy) return;
+            kpEngagementState.busy = true;
+            var uid = kpEngagementState.user.id;
+            var btn = document.getElementById('kp-like-btn');
+            if (btn) btn.disabled = true;
+
+            var request = kpEngagementState.liked
+                ? client.from('column_likes').delete().eq('column_key', key).eq('user_id', uid)
+                : client.from('column_likes').insert({ column_key: key, user_id: uid });
+
+            request.then(function(res) {
+                kpEngagementState.busy = false;
+                if (btn) btn.disabled = false;
+                if (res.error) {
+                    engagementHint('操作失败：' + (res.error.message || '未知错误'));
+                    return;
+                }
+                kpEngagementState.liked = !kpEngagementState.liked;
+                var delta = kpEngagementState.liked ? 1 : -1;
+                COLUMN_LIKES[key] = Math.max(0, (COLUMN_LIKES[key] || 0) + delta);
+                var countEl = document.getElementById('kp-like-count');
+                if (countEl) countEl.textContent = String(COLUMN_LIKES[key]);
+                if (btn) btn.classList.toggle('liked', kpEngagementState.liked);
+                engagementHint(kpEngagementState.liked ? '已点赞，感谢支持' : '已取消点赞');
+            }).catch(function() {
+                kpEngagementState.busy = false;
+                if (btn) btn.disabled = false;
+                engagementHint('网络异常，请稍后再试');
+            });
+        }
+
+        function submitColumnComment() {
+            var client = window.supabaseClient;
+            var key = kpEngagementState.key;
+            if (!client) { engagementHint('离线模式：评论需要连接数据库'); return; }
+            if (!kpEngagementState.user) {
+                engagementHint('登录后可发表评论');
+                window.location.href = 'login.html';
+                return;
+            }
+            var input = document.getElementById('kp-comment-input');
+            var submit = document.getElementById('kp-comment-submit');
+            var text = input ? input.value.trim() : '';
+            if (!text) { engagementHint('评论内容不能为空'); return; }
+            if (text.length > 500) { engagementHint('评论最多 500 字'); return; }
+            if (submit) submit.disabled = true;
+            engagementHint('正在发表…');
+
+            client.from('column_comments').insert({
+                column_key: key,
+                user_id: kpEngagementState.user.id,
+                content: text
+            }).then(function(res) {
+                if (submit) submit.disabled = false;
+                if (res.error) {
+                    engagementHint('发表失败：' + (res.error.message || '未知错误'));
+                    return;
+                }
+                if (input) input.value = '';
+                engagementHint('已发表');
+                loadKpComments(key);
+            }).catch(function() {
+                if (submit) submit.disabled = false;
+                engagementHint('网络异常，请稍后再试');
+            });
+        }
+
+        function deleteColumnComment(id) {
+            var client = window.supabaseClient;
+            var key = kpEngagementState.key;
+            if (!client || !id) return;
+            if (!window.confirm('确定删除这条评论？')) return;
+            client.from('column_comments').delete().eq('id', id).then(function(res) {
+                if (res.error) {
+                    engagementHint('删除失败：' + (res.error.message || '未知错误'));
+                    return;
+                }
+                loadKpComments(key);
+            });
+        }
+
+        // 全站点赞数 / 专栏更新时间（时间筛选与贡献度权重使用）
+        function loadColumnLikes() {
+            var client = window.supabaseClient;
+            if (!client) return;
+            client.from('column_like_counts').select('column_key,likes').then(function(res) {
+                if (res.error) {
+                    COLUMN_LIKE_READY = false;
+                    return;
+                }
+                COLUMN_LIKE_READY = true;
+                COLUMN_LIKES = {};
+                (res.data || []).forEach(function(row) {
+                    COLUMN_LIKES[row.column_key] = Number(row.likes) || 0;
+                });
+                if (kpEngagementState.key) {
+                    var countEl = document.getElementById('kp-like-count');
+                    if (countEl) countEl.textContent = String(COLUMN_LIKES[kpEngagementState.key] || 0);
+                }
+                // 点赞计入贡献度，作者页需要按最新点赞数重算
+                if (currentMode === 'author') refreshAuthorViews();
+            });
+        }
+
+        function loadColumnTimes() {
+            var client = window.supabaseClient;
+            if (!client || columnTimesLoaded) return;
+            columnTimesLoaded = true;
+            client.from('published_columns').select('column_key,updated_at').then(function(res) {
+                if (res.error) return;
+                (res.data || []).forEach(function(row) {
+                    var t = Date.parse(row.updated_at);
+                    if (t) COLUMN_TIMES[row.column_key] = t;
+                });
+                if (currentMode === 'kp') {
+                    buildSidebar(searchInput.value);
+                    refreshKpAuthorOptions();
+                }
+            });
+        }
+
         // ===== 非正文元数据便捷修改 =====
         var metaEditCtx = null;
         var metaEditEscHandler = null;
@@ -5592,6 +6133,11 @@
 
         // 覆盖后重绘当前视图（保留阅读位置与版本选择）
         function refreshAfterDbSync() {
+            loadColumnTimes();
+            loadColumnLikes();
+            // 数据库同步可能带回新的作者版本（如后台上传的 sub-* / col-*--*），
+            // 作者下拉必须跟着刷新，否则库里有、筛选里没有。
+            refreshKpAuthorOptions();
             if (currentMode === 'author') {
                 refreshAuthorViews();
                 updateFooter();

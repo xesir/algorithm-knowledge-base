@@ -405,3 +405,21 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
 - 后台修复（`admin.html`）：审批失败时显示原因与处理建议（过期 / 重复版本 / 目标不存在 / 作者未激活），并恢复按钮可点，工单不再「点一次失败后就卡住」。
 - 数据库修复：[`supabase/fixes/2026-11-15-normalize-relations.sql`](supabase/fixes/2026-11-15-normalize-relations.sql)（**待用户在 SQL Editor 执行**）：把 `relations.target` / `parent_key` / `relation_target` 里的裸知识点 id 规范为已存在的 `col-*`；事务试跑后回滚，剩余 0 条裸 id。
 - 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
+
+## 备注（2026-11-16 · 专栏评论/点赞 + 作者/时间检索）
+
+- 新迁移 [`supabase/phase25-column-engagement.sql`](supabase/phase25-column-engagement.sql)（**已入库**）：
+  - `column_comments`：专栏评论，正文 1~500 字；插入前触发器用 `profiles.nickname` 覆写 `author_name` 并 `btrim`，前端伪造作者名无效；
+  - `column_likes`：`(column_key, user_id)` 主键，天然防重复点赞；公开视图 `column_like_counts` 只暴露 `column_key + likes`；
+  - RLS：读对所有人开放，写只允许本人；评论删除本人或管理员，点赞只允许本人取消。
+- 前端（`index.html`）：
+  - 专栏正文末尾新增「点赞 / 评论」区：未登录提示去登录、点赞可再次点击取消、评论支持删除自己的、所有用户文本走 `escHtml` 转义；
+  - 点赞与评论挂在 `columnEngagementKey()` 上：`sub-*` 用自身 key，其余统一 `col-<base id>`，**同一专栏的所有作者版本共享**；
+  - 贡献度新增 `CONTRIB_WEIGHTS.like = 0.05` / `likeCapCount = 20`：`min(点赞数, 20) × 0.05` 计入作者加权分，同一作者在同一专栏只计一次；作者主页新增「获赞」统计，作者列表/主页的公式说明同步更新。
+- 搜索区新增筛选栏（`#search-filters`，仅知识点模式显示）：
+  - 作者：下拉自动汇总 `AUTHORS` + 所有版本作者（含后台上传的 `GhostSilver` 这类新作者）；数据库同步完成后会重新生成；
+  - 时间：最近 7 / 30 / 90 / 365 天，取各版本 `published_columns.updated_at` 的最大值；
+  - 排序：默认顺序 / 最近更新优先；
+  - 作者筛选与时间筛选叠加在原有标题/ID/标签/正文搜索之上，命中为空时显示「没有匹配的知识点」。
+- 验收：Playwright（`UI-Lib/.tmp/akb-engagement-check.cjs`）覆盖作者下拉含新作者、作者/时间筛选、点赞切换、评论转义与作者名快照、作者页渲染，`pageErrors` 为空。
+- 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。

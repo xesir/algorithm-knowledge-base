@@ -96,6 +96,7 @@ login.html 投稿表单
 | 21 | `supabase/phase22-meta-fields-credit.sql` | 便捷修改扩展字段（CF 评分 / OJ / 题号 / 时间 / 空间复杂度）+ 元数据贡献视图 `author_meta_credits`（每条 0.02） |
 | 22 | `supabase/phase23-notifications-chat.sql` | 通知栏：`notifications`（「修改」工单自动通知专栏作者）+ `chat_messages`（一对一文字私聊）+ `chat_directory()`；两表开 RLS，只能读自己的通知与会话 |
 | 23 | `supabase/phase24-submission-notify-static-version.sql` | 工单结果通知（投稿通过/驳回、修改通过/驳回，含 `admin_note`）；已有专栏新增作者版本时支持「静态条目」（尚未 seed 进 `columns`）作为基底；防覆盖守卫在 base 缺失时也查重 |
+| 24 | `supabase/phase25-column-engagement.sql` | 专栏评论 `column_comments`（1~500 字，作者名快照）+ 点赞 `column_likes`（`(column_key, user_id)` 主键）+ 公开视图 `column_like_counts`；RLS：读人人可读、写仅本人、评论删除本人或管理员 |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -154,6 +155,7 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-12 | phase21-meta-edit | 已应用（2026-11-12 验证 `admin_update_column_meta` 存在）：元数据便捷修改 RPC（管理员直改 / 普通用户工单） |
 | 2026-11-12 | phase22-meta-fields-credit | 已应用（2026-11-12 REST 验证：`cf_rating / oj / problem_id / meta_override` 可读）：`columns` 扩展字段；两个 RPC 支持新字段；审批写回触发器；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits` |
 | 2026-11-15 | phase24-submission-notify-static-version | **待用户在 SQL Editor 执行**：工单结果通知（投稿/修改 × 通过/驳回，含审核备注）；静态条目作为新作者版本基底；守卫在 base 缺失时也查重 |
+| 2026-11-16 | phase25-column-engagement | 已应用（2026-11-16 直连执行 25 条语句 committed；事务内验证评论作者名快照 / `btrim` / 点赞计数后回滚）：`column_comments`、`column_likes`、`column_like_counts` 与 RLS |
 
 ---
 
@@ -306,7 +308,7 @@ node scripts/seed-columns-from-content.js --only=knowledge
 
 - `author_edit_credits` 只暴露 `editor_name / column_key / column_name / category / kind / difficulty / priority / old_len / new_len / is_self_edit / reviewed_at`，不含正文与联系方式。
 - 只统计 `type='edit'`、`status='approved'`、`columns.status='published'` 且 `column_key` 不是 `sub-%` 的工单；按 `(user_id, column_key)` 去重，取 `reviewed_at` 最新一条。
-- 前端加权：新建 1 篇 = 1.0；修补 1 处 = `0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数`，单专栏上限 0.8；元数据便捷修改每条 0.02（phase22）；贡献率 = 个人加权分 ÷ 全站加权分。
+- 前端加权：新建 1 篇 = 1.0；修补 1 处 = `0.4 × 难度系数 × 体量系数 × 优先级系数 × 自改系数`，单专栏上限 0.8；元数据便捷修改每条 0.02（phase22）；专栏点赞每赞 0.05、单专栏最多计 20 赞（phase25）；贡献率 = 个人加权分 ÷ 全站加权分。
 - 知识点难度取 `build.js` 导出的 `versions[].level`（A/B/C）；题目难度取洛谷九档，缺档时用 `cfRating` 估算。
 - `profiles.nickname` 必须能匹配静态作者显示名；匹配不上时前端会 `console.warn` 并按原名计入，需要时在 `index.html` 的 `AUTHOR_ALIASES` 补映射。
 - 作者头像来自公开视图 `author_profiles`（phase15）；作者列表 / 主页 / 密码门优先显示头像，头像为空或视图未执行时回退首字母。
@@ -350,6 +352,16 @@ node scripts/seed-columns-from-content.js --only=knowledge
 - 公开视图 `author_meta_credits` 只暴露 `editor_name / column_key / column_name / category / kind / difficulty / priority / is_self_edit / reviewed_at`，按 `(user_id, column_key)` 去重取最新。
 - 前端每条元数据修改固定计 **0.02**，与修补贡献同列展示；`author_edit_credits` 已排除 `meta_only=true`，不会重复计分。
 - 同一作者反复修改同一专栏只计一次（与修补贡献的去重口径一致）。
+
+### 4.11 专栏评论与点赞（phase25）
+
+- **评论** `column_comments`：`(column_key, user_id, content, author_name, created_at)`；正文 1~500 字，插入前触发器 `column_comment_set_author()` 做 `btrim` 并用 `profiles.nickname` 覆写 `author_name`（前端传什么都不作数），空昵称落 `匿名用户`。
+- **点赞** `column_likes`：主键 `(column_key, user_id)`，天然防重复；不写 `columns`，避免并发写冲突。
+- **计数视图** `column_like_counts`（`security_invoker = true`）：`column_key + likes`，授予 `anon` / `authenticated` 只读。
+- **RLS**：两张表读对所有人开放；插入只允许 `auth.uid() = user_id`；评论删除允许本人或 `is_admin()`；点赞只允许本人删除（取消赞）。
+- **key 口径**：前端 `columnEngagementKey()` 把 `sub-*` 用自身 key，其余统一 `col-<base id>`，所以同一专栏的所有作者版本共享点赞与评论。
+- **贡献度**：前端按 `min(点赞数, 20) × 0.05` 计入专栏作者加权分，同一作者在同一专栏的多个版本只计一次；不引入数据库触发器链。
+- **前端兜底**：`column_like_counts` 不存在（未执行 phase25）时 `COLUMN_LIKE_READY=false`，点赞提示「功能尚未启用」，评论列表提示执行迁移。
 
 ---
 
@@ -495,3 +507,4 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-12 | 新增 phase22：便捷修改支持 CF 评分 / OJ / 题号 / 时间 / 空间复杂度（`meta_override` 标记人工覆盖）；管理员直改留 approved 审计工单；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits`；前端每条元数据修改计 0.02 贡献 |
 | 2026-11-15 | 新增 phase24：工单结果通知（投稿 / 修改 × 通过 / 驳回，含 `admin_note`）；新作者版本支持静态条目（`catalog.json`）作为基底；守卫在 base 缺失时也检查重复版本；登录页关联目标支持关键词搜索，投稿/修改/已有版本均支持星图预览 |
 | 2026-11-15 | 修复：`columns` 的 `relations.target` / `parent_key` / `relation_target` 裸 id 规范为 `col-*`（`supabase/fixes/2026-11-15-normalize-relations.sql`）；前端版本定位改用数据库真实 `column_key`，`col-*--*` 始终同步并按作者去重；审批失败提示原因并恢复按钮 |
+| 2026-11-16 | 新增 phase25：专栏评论 / 点赞（`column_comments`、`column_likes`、`column_like_counts`，全公开可读、写仅本人）；点赞按 `min(n,20)×0.05` 计入专栏作者贡献度；首页搜索框下新增作者 / 更新时间 / 最近更新排序筛选，时间取 `published_columns.updated_at` |

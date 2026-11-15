@@ -469,10 +469,16 @@
     }
 
     // ---------- 未读角标 ----------
+    // 通知：RLS 只返回自己的记录，未读即本人未读。
+    // 私聊：只统计“别人发给我、我还没读”的消息；自己发出去的即使对方没读，也不算自己的未读。
     async function countUnread(table) {
-        var result = await state.client.from(table)
+        var query = state.client.from(table)
             .select('id', { count: 'exact', head: true })
             .is('read_at', null);
+        if (table === 'chat_messages') {
+            query = query.eq('recipient_id', state.me);
+        }
+        var result = await query;
         if (result.error) return 0;
         return result.count == null ? 0 : result.count;
     }

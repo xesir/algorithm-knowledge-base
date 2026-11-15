@@ -379,3 +379,28 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
   - 「选择已有知识点 / 题目」= 数据库 `col-*` 专栏 + `catalog.json` 静态目录，带搜索，未 seed 的静态条目也能添加新作者版本。
 - 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
 - 本轮完整纪要见 [`docs/会话纪要-2026-11-15.md`](docs/会话纪要-2026-11-15.md) 第 10 节。
+
+## 备注（2026-11-15 · 后台上传必须统一前后端（原则））
+
+**原则：任何后台上传都必须保证「前端看到的内容」与「数据库里的记录」一致，不允许只改一边。**
+
+- **key 一致**：新专栏用 `sub-admin-<slug>`，已有内容的新作者版本用 `col-<base>--<作者昵称>`，修改沿用原 key；与工单路径完全相同。
+- **作者一致**：`author_name` 必须是 `profiles.nickname`（且 `status='active'`）；前端版本 tab 通过 `AUTHOR_KEYS` / 昵称解析匹配，作者名不一致会导致「页面有、库里对应不到」。
+- **元数据一致**：标题、分类、`kind` / 难度、`tags`、`relations`、`parent_key`、`status='published'` 必须与静态条目或工单路径一致；关系目标必须已存在。
+- **渲染一致**：只写数据库时，前端必须能按 `column_key` 同步（`sub-*` 与 `col-*--*` 始终同步）；同时改静态 Markdown 时，必须重新 `lint` + `build`，保证正文 / 图谱 / 版本与数据库两侧对齐。
+- **验收一致**：上传后用 `index.html?cb=<时间戳>` 检查目录与子分类、版本 tab、星图关系、标签、密码门；发现「库里有页面没有 / 页面有库里没有 / 工单卡住」，先核对 key 与作者映射，再动数据。
+
+## 备注（2026-11-15 · GhostSilver 外培专题后台上传 + 版本匹配/工单修复）
+
+- 后台上传 SQL：[`supabase/uploads/2026-11-15-ghostsilver-convex-training.sql`](supabase/uploads/2026-11-15-ghostsilver-convex-training.sql)（**待用户在 SQL Editor 执行**）。
+  - 内容：2026QB 济南集训《外培高阶科技与凸优化衍义》按 8 个板块拆成 8 个知识点专栏（凸性/切线对偶与斜率优化、WQS 二分与拉格朗日松弛、Slope Trick、Binary GCD、光速幂、线性筛、操作分块、猫树）。
+  - 作者：`GhostSilver`；分类分别为 动态规划 ×3 / 数学 ×3 / 数据结构 ×2；`parent_key` 挂到 `col-hub-dp` / `col-hub-math` / `col-hub-ds`；关系目标均为已存在的 `col-*`。
+  - 已在事务中逐条调用 `admin_publish_column` 试跑并回滚，8 条作者/分类/标签/关系校验通过。
+- 前端修复（`index.html`）：
+  - 版本 tab / 便捷修改 / 密码门改为**优先使用数据库真实 `column_key`**，不再按作者名硬推 key（修复 `col-xxx--Fohen` 与 `--fenfeng` 这类「页面显示存在、库里对应不到」）；
+  - `col-*--*` 作者版本改为**始终同步**（与 `sub-*` 一致），修复「数据库里有、页面没有」；
+  - 同一作者的多条数据库版本按作者名去重，避免重复 tab；
+  - 便捷修改的关系输入自动补 `col-` 前缀，避免再写入裸 id。
+- 后台修复（`admin.html`）：审批失败时显示原因与处理建议（过期 / 重复版本 / 目标不存在 / 作者未激活），并恢复按钮可点，工单不再「点一次失败后就卡住」。
+- 数据库修复：[`supabase/fixes/2026-11-15-normalize-relations.sql`](supabase/fixes/2026-11-15-normalize-relations.sql)（**待用户在 SQL Editor 执行**）：把 `relations.target` / `parent_key` / `relation_target` 里的裸知识点 id 规范为已存在的 `col-*`；事务试跑后回滚，剩余 0 条裸 id。
+- 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。

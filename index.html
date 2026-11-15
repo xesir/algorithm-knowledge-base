@@ -4609,10 +4609,13 @@
             if (String(item.id).indexOf('sub-') === 0) return item.id;
             var versions = item.versions || [];
             var ver = versions[verIdx] || versions[0] || {};
+            // 数据库同步时记录的真实 key 优先：作者昵称可能与文件名作者 key 不一致
+            // （如 col-xxx--Fohen 与 col-xxx--fenfeng 并存）。
+            if (ver.columnKey) return ver.columnKey;
             var author = ver.author || 'world-needs-sunday';
             if (author === 'world-needs-sunday') return 'col-' + item.id;
-            var suffix = AUTHOR_KEY_BY_NAME[author];
-            return suffix ? ('col-' + item.id + '--' + suffix) : ('col-' + item.id);
+            var suffix = AUTHOR_KEY_BY_NAME[author] || author;
+            return 'col-' + item.id + '--' + suffix;
         }
 
         // ===== 非正文元数据便捷修改 =====
@@ -4676,6 +4679,9 @@
                     throw new Error('关系类型只能是 related / sequence / parent-child');
                 }
                 if (!target) throw new Error('关系目标不能为空');
+                // 统一前后端：库里存 col-/sub- 前缀的 column_key；
+                // 用户只写知识点 id 时自动补 col-，避免出现裸 id 关系。
+                if (!/^(col-|sub-)/.test(target)) target = 'col-' + target;
                 return { type: type, target: target };
             });
         }
@@ -5414,6 +5420,7 @@
                 var target = findDbColumnTarget(key);
                 if (target && target.verIdx >= 0) {
                     var ver = target.item.versions[target.verIdx];
+                    ver.columnKey = key;
                     ver.content = row.content || '';
                     if (Array.isArray(row.tags)) ver.tags = row.tags;
                     // phase22：人工覆盖过的评分 / OJ / 题号 / 复杂度以数据库为准
@@ -5456,7 +5463,10 @@
                     if (newAuthor) {
                         var baseLevel = (target.item.versions[0] || {}).level || 'A';
                         target.item.versions = target.item.versions || [];
-                        target.item.versions.push({
+                        var sameVer = target.item.versions.find(function(v) {
+                            return resolveAuthorName(v.author || '') === resolveAuthorName(newAuthor);
+                        });
+                        var versionPayload = {
                             author: newAuthor,
                             content: row.content || '',
                             codePath: '',
@@ -5464,8 +5474,19 @@
                             spaceComplexity: row.space_complexity || '未知',
                             tags: Array.isArray(row.tags) ? row.tags : [],
                             source: '',
-                            level: baseLevel
-                        });
+                            level: baseLevel,
+                            columnKey: key
+                        };
+                        if (sameVer) {
+                            // 同一个作者的多条数据库版本（如 --fenfeng 与 --Fohen）只保留一条
+                            sameVer.columnKey = key;
+                            sameVer.content = versionPayload.content;
+                            sameVer.tags = versionPayload.tags;
+                            if (row.time_complexity) sameVer.timeComplexity = row.time_complexity;
+                            if (row.space_complexity) sameVer.spaceComplexity = row.space_complexity;
+                        } else {
+                            target.item.versions.push(versionPayload);
+                        }
                         applyDbRelations(target.item, row.relations, target.kind === 'problem', row.relations_override === true);
                         target.item._searchBlob = undefined;
                         changed = true;
@@ -5521,11 +5542,12 @@
                 if (level >= 2) select += ',relations_override';
                 if (level >= 3) select += ',cf_rating,oj,problem_id,time_complexity,space_complexity,meta_override';
                 // sub-* 只存在于数据库，没有静态 Markdown 对应内容；
-                // 若按「构建时间」过滤，重新 build 后已审批的投稿会被整体隐藏。
+                // col-*--* 的作者版本可能只在数据库里（如后台上传），且 updated_at
+                // 可能早于构建时间；两类都必须始终同步，否则会出现「库里有、页面没有」。
                 return client
                     .from('published_columns')
                     .select(select)
-                    .or('updated_at.gt.' + dbSince + ',column_key.like.sub-%')
+                    .or('updated_at.gt.' + dbSince + ',column_key.like.sub-%,column_key.like.col-%--%')
                     .order('updated_at', { ascending: true });
             }
             return fetchRows(3)

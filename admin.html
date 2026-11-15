@@ -1462,9 +1462,24 @@
             async function updateTicket(id, nextStatus) {
                 var result = await client.from('tickets').update({ status: nextStatus }).eq('id', id);
                 if (result.error) {
-                    setMessage('工单更新失败：' + result.error.message);
+                    var raw = result.error.message || '未知错误';
+                    var hint = '';
+                    if (/已被更新|base_updated_at|过期/.test(raw)) {
+                        hint = '。该工单基于旧版本提交：请驳回，让作者重新载入源码后再提交修改。';
+                    } else if (/已有版本/.test(raw)) {
+                        hint = '。该作者在该专栏下已有版本：请驳回，让作者改用「修改」工单。';
+                    } else if (/目标专栏不存在/.test(raw)) {
+                        hint = '。目标专栏已不存在：请驳回该工单。';
+                    } else if (/作者不存在|未激活/.test(raw)) {
+                        hint = '。作者账号不存在或未激活：先到「用户审核」处理账号。';
+                    }
+                    setMessage('工单更新失败：' + raw + hint);
+                    showToast('工单未通过审批，原因见页面顶部提示');
+                    // 重新渲染，把按钮从 disabled 状态恢复，工单仍留在待审批列表
+                    renderTickets();
                     return;
                 }
+                setMessage('');
                 showToast(nextStatus === 'approved' ? '工单已通过' : '工单已驳回');
                 await loadAll();
             }

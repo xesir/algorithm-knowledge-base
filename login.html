@@ -1141,7 +1141,12 @@
                 // 补上静态目录：即使该知识点 / 题目还没 seed 进 columns，也能添加新作者版本
                 catalogEntries.forEach(function (item) {
                     var base = 'col-' + item.id;
-                    if (map[base]) return;
+                    if (map[base]) {
+                        // 只有作者版本、没有主专栏行时，用静态标题覆盖「标题 · 作者」这种名称
+                        map[base].name = item.title || map[base].name;
+                        if (!map[base].difficulty && item.difficulty) map[base].difficulty = item.difficulty;
+                        return;
+                    }
                     map[base] = {
                         key: base,
                         name: item.title || item.id,

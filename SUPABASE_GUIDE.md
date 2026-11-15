@@ -494,3 +494,4 @@ delete from public.tags     where name like 'QA%';
 | 2026-11-12 | 新增 phase21：专栏/题目 Meta 栏「便捷修改」；管理员 `admin_update_column_meta` 直改标题/分类/难度/标签/关系；普通用户 `submit_column_meta_edit` 提交元数据工单（正文快照不变）；关系为空时前端回退静态图谱预填 |
 | 2026-11-12 | 新增 phase22：便捷修改支持 CF 评分 / OJ / 题号 / 时间 / 空间复杂度（`meta_override` 标记人工覆盖）；管理员直改留 approved 审计工单；`author_edit_credits` 排除 `meta_only`，新增 `author_meta_credits`；前端每条元数据修改计 0.02 贡献 |
 | 2026-11-15 | 新增 phase24：工单结果通知（投稿 / 修改 × 通过 / 驳回，含 `admin_note`）；新作者版本支持静态条目（`catalog.json`）作为基底；守卫在 base 缺失时也检查重复版本；登录页关联目标支持关键词搜索，投稿/修改/已有版本均支持星图预览 |
+| 2026-11-15 | 修复：`columns` 的 `relations.target` / `parent_key` / `relation_target` 裸 id 规范为 `col-*`（`supabase/fixes/2026-11-15-normalize-relations.sql`）；前端版本定位改用数据库真实 `column_key`，`col-*--*` 始终同步并按作者去重；审批失败提示原因并恢复按钮 |

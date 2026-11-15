@@ -43,6 +43,16 @@ where pronamespace = 'public'::regnamespace
 
 > `sub-admin-*` 与 `sub-*` 在前端都被当作「投稿」分组；`col-<base>--<作者>` 会被并入对应知识点的 `versions[]`。
 
+### 1.1 统一前后端（硬性）
+
+后台上传**不许只改数据库**而让前端对不上。每次上传都要逐项核对：
+
+- `column_key` 与工单路径一致（新专栏 `sub-admin-*`、新版本 `col-<base>--<作者昵称>`、修改沿用原 key）；
+- `author_name` 必须等于 `profiles.nickname` 且 `active`；前端版本 tab / 密码门 / 便捷修改都按真实 `column_key` 定位；
+- 标题 / 分类 / `kind` / 难度 / `tags` / `relations` / `parent_key` / `status` 与静态条目一致；关系目标必须已存在；
+- 上传后用 `index.html?cb=<时间戳>` 验收目录、版本 tab、星图、标签、密码门；
+- 若同时改静态 Markdown，必须 `node tools/lint.js` + `node build.js` 后再核对两侧一致。
+
 ## 2. 防覆盖规则（最重要）
 
 ### 2.1 只允许走 RPC

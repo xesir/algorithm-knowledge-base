@@ -423,3 +423,20 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
   - 作者筛选与时间筛选叠加在原有标题/ID/标签/正文搜索之上，命中为空时显示「没有匹配的知识点」。
 - 验收：Playwright（`UI-Lib/.tmp/akb-engagement-check.cjs`）覆盖作者下拉含新作者、作者/时间筛选、点赞切换、评论转义与作者名快照、作者页渲染，`pageErrors` 为空。
 - 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
+
+## 备注（2026-11-16 · 点踩 / 评分 + 评论与赞踩通知）
+
+- 新迁移 [`supabase/phase26-column-votes-notify.sql`](supabase/phase26-column-votes-notify.sql)（**已入库**）：
+  - `column_dislikes`：点踩，主键 `(column_key, user_id)`；
+  - `column_vote_keep_single()`：赞 / 踩互斥，插入赞时删同 key 的踩，反之亦然（前端一次请求即可「改票」）；
+  - `column_vote_counts` 公开视图：`likes / dislikes / rating`，`rating = round(100 × 赞 ÷ (赞 + 踩))`；
+  - `notify_column_engagement()` + 三个 AFTER INSERT 触发器：新评论、新赞、新踩都通知 `columns.owner_id`，链接到 `index.html#<知识点 id>`，本人操作不通知。
+- 前端（`index.html`）：
+  - 互动区在点赞旁新增「👎 点踩」，实时显示「评分 85%（12 赞 / 2 踩）」，无投票时显示「暂无评分」；
+  - 赞踩状态互斥：点踩会自动取消赞，反之亦然；按钮高亮、计数、评分同步更新；
+  - 全站计数改为读 `column_vote_counts`，phase26 未执行时退回 `column_like_counts`（点踩按 0 计）；
+  - 点踩**不扣**作者贡献度（避免刷踩攻击），点赞仍按 `min(n,20)×0.05` 计分。
+- 验收：
+  - 直连事务内验证：赞→踩互斥、踩→赞互斥、评分计算、三类通知文案与链接、作者本人操作不产生通知；验证后回滚；
+  - Playwright（stub 登录态）：赞 100% → 踩 0%（赞自动取消）→ 取消踩后「暂无评分」，评论转义与作者名快照仍正常，`pageErrors` 0。
+- 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。

@@ -1908,6 +1908,16 @@
             background: var(--primary);
             color: #fff;
         }
+        .like-btn.dislike-btn.liked {
+            border-color: #ef4444;
+            background: #ef4444;
+            color: #fff;
+        }
+        .engagement-rating {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
         .engagement-tip { font-size: 0.75rem; color: var(--text-secondary); }
 
         .comments-block { margin-top: 1.5rem; }
@@ -2132,7 +2142,7 @@
             refreshKpAuthorOptions();
             if (window.supabaseClient) {
                 loadColumnTimes();
-                loadColumnLikes();
+                loadColumnVotes();
             }
 
             // Search
@@ -2495,6 +2505,7 @@
         // 离线或未同步时，时间筛选会筛掉没有时间的条目。
         var COLUMN_TIMES = {};
         var COLUMN_LIKES = {};
+        var COLUMN_DISLIKES = {};
         var COLUMN_LIKE_READY = null;
 
         function kpFilterValue(id) {
@@ -3003,13 +3014,16 @@
                 relatedHtml += '</div></div>';
             }
 
-            // 点赞 / 评论（专栏级，所有作者版本共用）
+            // 点赞 / 点踩 / 评分 / 评论（专栏级，所有作者版本共用）
             var engageKey = columnEngagementKey(kp);
             var likeCount = COLUMN_LIKES[engageKey] || 0;
+            var dislikeCount = COLUMN_DISLIKES[engageKey] || 0;
             var engageHtml = '<div class="kp-engagement" id="kp-engagement" data-column-key="' + escAttr(engageKey) + '">' +
                 '<div class="engagement-actions">' +
-                '<button class="like-btn" id="kp-like-btn" onclick="toggleColumnLike()">👍 点赞 <span id="kp-like-count">' + likeCount + '</span></button>' +
-                '<span class="engagement-tip">点赞会小幅提升作者贡献度权重</span>' +
+                '<button class="like-btn" id="kp-like-btn" onclick="toggleColumnVote(\'like\')">👍 点赞 <span id="kp-like-count">' + likeCount + '</span></button>' +
+                '<button class="like-btn dislike-btn" id="kp-dislike-btn" onclick="toggleColumnVote(\'dislike\')">👎 点踩 <span id="kp-dislike-count">' + dislikeCount + '</span></button>' +
+                '<span class="engagement-rating" id="kp-rating">' + escHtml(columnRatingText(likeCount, dislikeCount)) + '</span>' +
+                '<span class="engagement-tip">评分 = 点赞占比；点赞会小幅提升作者贡献度权重</span>' +
                 '</div>' +
                 '<div class="comments-block">' +
                 '<div class="comments-title">💬 评论 <span id="kp-comment-count">…</span></div>' +
@@ -4998,9 +5012,32 @@
             return 'col-' + kp.id;
         }
 
-        // ===== 专栏点赞 / 评论 =====
-        var kpEngagementState = { key: '', user: null, liked: false, busy: false };
+        // ===== 专栏点赞 / 点踩 / 评分 / 评论 =====
+        var kpEngagementState = { key: '', user: null, liked: false, disliked: false, busy: false };
         var columnTimesLoaded = false;
+
+        function columnRatingText(likes, dislikes) {
+            var total = (likes || 0) + (dislikes || 0);
+            if (!total) return '暂无评分';
+            return '评分 ' + Math.round(100 * (likes || 0) / total) + '%（' + (likes || 0) + ' 赞 / ' + (dislikes || 0) + ' 踩）';
+        }
+
+        // 按当前状态刷新赞 / 踩计数、按钮高亮与评分
+        function renderColumnVoteButtons() {
+            var key = kpEngagementState.key;
+            var likes = COLUMN_LIKES[key] || 0;
+            var dislikes = COLUMN_DISLIKES[key] || 0;
+            var likeEl = document.getElementById('kp-like-count');
+            var dislikeEl = document.getElementById('kp-dislike-count');
+            var ratingEl = document.getElementById('kp-rating');
+            var likeBtn = document.getElementById('kp-like-btn');
+            var dislikeBtn = document.getElementById('kp-dislike-btn');
+            if (likeEl) likeEl.textContent = String(likes);
+            if (dislikeEl) dislikeEl.textContent = String(dislikes);
+            if (likeBtn) likeBtn.classList.toggle('liked', !!kpEngagementState.liked);
+            if (dislikeBtn) dislikeBtn.classList.toggle('liked', !!kpEngagementState.disliked);
+            if (ratingEl) ratingEl.textContent = columnRatingText(likes, dislikes);
+        }
 
         function engagementHint(text, asLink) {
             var el = document.getElementById('kp-comment-hint');
@@ -5020,9 +5057,8 @@
         }
 
         function initKpEngagement(key) {
-            kpEngagementState = { key: key || '', user: null, liked: false, busy: false };
-            var btn = document.getElementById('kp-like-btn');
-            if (btn) btn.classList.remove('liked');
+            kpEngagementState = { key: key || '', user: null, liked: false, disliked: false, busy: false };
+            renderColumnVoteButtons();
             if (!key) return;
 
             var client = window.supabaseClient;
@@ -5044,7 +5080,7 @@
                     if (submit) submit.disabled = true;
                 } else {
                     engagementHint('最多 500 字');
-                    loadMyColumnLike(key, user.id);
+                    loadMyColumnVote(key, user.id);
                 }
                 loadKpComments(key);
             }).catch(function() {
@@ -5052,17 +5088,21 @@
             });
         }
 
-        function loadMyColumnLike(key, userId) {
+        function loadMyColumnVote(key, userId) {
             var client = window.supabaseClient;
             if (!client) return;
-            client.from('column_likes').select('column_key')
-                .eq('column_key', key).eq('user_id', userId).limit(1)
-                .then(function(res) {
-                    if (res.error || kpEngagementState.key !== key) return;
-                    kpEngagementState.liked = !!(res.data && res.data.length);
-                    var btn = document.getElementById('kp-like-btn');
-                    if (btn) btn.classList.toggle('liked', kpEngagementState.liked);
-                });
+            var likeReq = client.from('column_likes').select('column_key')
+                .eq('column_key', key).eq('user_id', userId).limit(1);
+            var dislikeReq = client.from('column_dislikes').select('column_key')
+                .eq('column_key', key).eq('user_id', userId).limit(1);
+            Promise.all([likeReq, dislikeReq]).then(function(results) {
+                if (kpEngagementState.key !== key) return;
+                var likeRes = results[0] || {};
+                var dislikeRes = results[1] || {};
+                kpEngagementState.liked = !!(likeRes.data && likeRes.data.length);
+                kpEngagementState.disliked = !!(dislikeRes.data && dislikeRes.data.length);
+                renderColumnVoteButtons();
+            });
         }
 
         function renderKpComments(rows) {
@@ -5118,43 +5158,78 @@
                 });
         }
 
-        function toggleColumnLike() {
+        function toggleColumnVote(kind) {
             var client = window.supabaseClient;
             var key = kpEngagementState.key;
-            if (!client) { engagementHint('离线模式：点赞需要连接数据库'); return; }
+            var isLike = kind !== 'dislike';
+            var label = isLike ? '点赞' : '点踩';
+            if (!client) { engagementHint('离线模式：' + label + '需要连接数据库'); return; }
             if (COLUMN_LIKE_READY === false) {
-                engagementHint('点赞功能尚未启用（请先执行 phase25-column-engagement.sql）');
+                engagementHint('评分功能尚未启用（请先执行 phase25 / phase26 迁移）');
                 return;
             }
             if (!kpEngagementState.user) {
-                engagementHint('登录后可点赞');
+                engagementHint('登录后可' + label);
                 window.location.href = 'login.html';
                 return;
             }
             if (kpEngagementState.busy) return;
             kpEngagementState.busy = true;
             var uid = kpEngagementState.user.id;
-            var btn = document.getElementById('kp-like-btn');
+            var btn = document.getElementById(isLike ? 'kp-like-btn' : 'kp-dislike-btn');
             if (btn) btn.disabled = true;
 
-            var request = kpEngagementState.liked
-                ? client.from('column_likes').delete().eq('column_key', key).eq('user_id', uid)
-                : client.from('column_likes').insert({ column_key: key, user_id: uid });
+            var active = isLike ? kpEngagementState.liked : kpEngagementState.disliked;
+            var table = isLike ? 'column_likes' : 'column_dislikes';
+            var request = active
+                ? client.from(table).delete().eq('column_key', key).eq('user_id', uid)
+                : client.from(table).insert({ column_key: key, user_id: uid });
 
             request.then(function(res) {
                 kpEngagementState.busy = false;
                 if (btn) btn.disabled = false;
                 if (res.error) {
-                    engagementHint('操作失败：' + (res.error.message || '未知错误'));
+                    if (!isLike && /does not exist|column_dislikes/i.test(res.error.message || '')) {
+                        engagementHint('点踩功能尚未启用（请先执行 phase26-column-votes-notify.sql）');
+                    } else {
+                        engagementHint('操作失败：' + (res.error.message || '未知错误'));
+                    }
                     return;
                 }
-                kpEngagementState.liked = !kpEngagementState.liked;
-                var delta = kpEngagementState.liked ? 1 : -1;
-                COLUMN_LIKES[key] = Math.max(0, (COLUMN_LIKES[key] || 0) + delta);
-                var countEl = document.getElementById('kp-like-count');
-                if (countEl) countEl.textContent = String(COLUMN_LIKES[key]);
-                if (btn) btn.classList.toggle('liked', kpEngagementState.liked);
-                engagementHint(kpEngagementState.liked ? '已点赞，感谢支持' : '已取消点赞');
+                // 与数据库的互斥触发器保持一致：赞 / 踩只能留一个
+                var likes = COLUMN_LIKES[key] || 0;
+                var dislikes = COLUMN_DISLIKES[key] || 0;
+                if (isLike) {
+                    if (active) {
+                        likes = Math.max(0, likes - 1);
+                    } else {
+                        likes += 1;
+                        if (kpEngagementState.disliked) {
+                            kpEngagementState.disliked = false;
+                            dislikes = Math.max(0, dislikes - 1);
+                        }
+                    }
+                    kpEngagementState.liked = !active;
+                } else {
+                    if (active) {
+                        dislikes = Math.max(0, dislikes - 1);
+                    } else {
+                        dislikes += 1;
+                        if (kpEngagementState.liked) {
+                            kpEngagementState.liked = false;
+                            likes = Math.max(0, likes - 1);
+                        }
+                    }
+                    kpEngagementState.disliked = !active;
+                }
+                COLUMN_LIKES[key] = likes;
+                COLUMN_DISLIKES[key] = dislikes;
+                renderColumnVoteButtons();
+                if (isLike) {
+                    engagementHint(kpEngagementState.liked ? '已点赞，感谢支持' : '已取消点赞');
+                } else {
+                    engagementHint(kpEngagementState.disliked ? '已点踩，我们会继续改进' : '已取消点踩');
+                }
             }).catch(function() {
                 kpEngagementState.busy = false;
                 if (btn) btn.disabled = false;
@@ -5212,26 +5287,36 @@
             });
         }
 
-        // 全站点赞数 / 专栏更新时间（时间筛选与贡献度权重使用）
-        function loadColumnLikes() {
+        // 全站赞 / 踩 / 评分（时间筛选与贡献度权重使用）
+        function applyColumnVoteRows(rows, likesOnly) {
+            COLUMN_LIKE_READY = true;
+            COLUMN_LIKES = {};
+            COLUMN_DISLIKES = {};
+            (rows || []).forEach(function(row) {
+                COLUMN_LIKES[row.column_key] = Number(row.likes) || 0;
+                if (!likesOnly) COLUMN_DISLIKES[row.column_key] = Number(row.dislikes) || 0;
+            });
+            renderColumnVoteButtons();
+            // 点赞计入贡献度，作者页需要按最新点赞数重算
+            if (currentMode === 'author') refreshAuthorViews();
+        }
+
+        function loadColumnVotes() {
             var client = window.supabaseClient;
             if (!client) return;
-            client.from('column_like_counts').select('column_key,likes').then(function(res) {
-                if (res.error) {
-                    COLUMN_LIKE_READY = false;
+            client.from('column_vote_counts').select('column_key,likes,dislikes').then(function(res) {
+                if (!res.error) {
+                    applyColumnVoteRows(res.data || [], false);
                     return;
                 }
-                COLUMN_LIKE_READY = true;
-                COLUMN_LIKES = {};
-                (res.data || []).forEach(function(row) {
-                    COLUMN_LIKES[row.column_key] = Number(row.likes) || 0;
+                // phase26 未执行时退回只有点赞的旧视图，点踩按 0 计
+                client.from('column_like_counts').select('column_key,likes').then(function(old) {
+                    if (old.error) {
+                        COLUMN_LIKE_READY = false;
+                        return;
+                    }
+                    applyColumnVoteRows(old.data || [], true);
                 });
-                if (kpEngagementState.key) {
-                    var countEl = document.getElementById('kp-like-count');
-                    if (countEl) countEl.textContent = String(COLUMN_LIKES[kpEngagementState.key] || 0);
-                }
-                // 点赞计入贡献度，作者页需要按最新点赞数重算
-                if (currentMode === 'author') refreshAuthorViews();
             });
         }
 
@@ -6134,7 +6219,7 @@
         // 覆盖后重绘当前视图（保留阅读位置与版本选择）
         function refreshAfterDbSync() {
             loadColumnTimes();
-            loadColumnLikes();
+            loadColumnVotes();
             // 数据库同步可能带回新的作者版本（如后台上传的 sub-* / col-*--*），
             // 作者下拉必须跟着刷新，否则库里有、筛选里没有。
             refreshKpAuthorOptions();

@@ -13,6 +13,14 @@
 - **在线**：GitHub Pages —— 仓库 `https://github.com/xesir/algorithm-knowledge-base.git`（分支 `master`）
 - **本地**：`c:\Users\admin\Desktop\test\OIgit\algorithm-knowledge-base`
 
+## 1.1 内置小游戏：生长树：图论
+
+- **线上**：<https://xesir.github.io/algorithm-knowledge-base/tree-grow/>
+- **可玩构建**：`tree-grow/`（静态产物，随 AKB 一起部署）
+- **源码**：`tree-grow-src/`（Vite + 原生 ES Modules；构建命令见其中 README）
+- **许可**：代码 GPL-3.0-or-later，文档 CC BY-NC-SA 4.0；第三方声明见 `tree-grow/THIRD_PARTY_NOTICES.md`
+- **联机**：使用本站同一 Supabase Auth，登录状态与知识库共享；数据库迁移见 `supabase/phase27-tree-grow-online.sql`
+
 ## 2. 怎么跑起来
 
 ```bash

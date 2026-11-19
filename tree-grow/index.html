@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101722"><title>生长树：图论</title>
+  <script type="module" crossorigin src="./assets/index-DrAoYT-X.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DNBL4cnn.css">
+</head>
+<body>
+<main id="app">
+<section id="menu-screen" class="app-screen menu-screen">
+<div class="menu-orbit menu-orbit-one" aria-hidden="true"></div><div class="menu-orbit menu-orbit-two" aria-hidden="true"></div>
+<div class="menu-content">
+<div class="game-mark" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+<p class="eyebrow">A GRAPH-BASED TERRITORY STRATEGY GAME</p>
+<h1>生长树<span>：图论</span></h1>
+<p class="menu-subtitle">生长你的树，连接你的领地，寻找对手结构中的弱点。</p>
+<nav class="menu-actions" aria-label="主菜单">
+<button id="new-game-btn" class="button button-primary">开始新游戏 <span>→</span></button>
+<button id="online-menu-btn" class="button button-secondary" hidden>联机大厅 <span>↗</span></button>
+<button id="tutorial-menu-btn" class="button button-secondary">新手教程 <span>↗</span></button>
+<button id="continue-game-btn" class="button button-secondary" disabled>继续游戏</button>
+<button id="load-menu-btn" class="button button-secondary">读取存档</button>
+<button id="rules-menu-btn" class="button button-text">游戏说明</button>
+</nav>
+<section id="rules-panel" class="rules-panel" hidden>
+<div class="rules-panel-heading"><h2>游戏目标</h2><button id="close-rules-btn" class="icon-button" aria-label="关闭游戏说明">×</button></div>
+<p>通过生长节点扩展树状结构，争夺地图区域，并利用图结构攻击对手。</p>
+<ul><li>进入敌方基地，或摧毁对方全部根节点即可获胜。</li><li>选择己方可生长节点，地图会标出合法目标区域。</li><li>不同节点结构受到攻击时会产生不同战斗结果。</li></ul>
+<p class="rules-note">完整规则请查看仓库中的 GAME-RULES.md。</p>
+</section>
+<p class="menu-footer">TREE GROW · STRATEGY / GRAPH THEORY</p>
+</div></section>
+<section id="tutorial-screen" class="tutorial-screen" hidden>
+<header class="tutorial-header">
+<div><p class="eyebrow">INTERACTIVE TUTORIAL</p><h1>从零学会生长树</h1></div>
+<div class="tutorial-header-actions"><span id="tutorial-progress">第 1 / 10 节</span><button id="tutorial-exit" class="toolbar-button">退出教程</button></div>
+</header>
+<div class="tutorial-layout">
+<div id="tutorial-canvas-container" class="tutorial-canvas-container">
+<canvas id="tutorialCanvas" width="1800" height="1200" aria-label="交互式教程地图"></canvas>
+</div>
+<aside class="tutorial-card">
+<p id="tutorial-chapter" class="tutorial-chapter"></p>
+<h2 id="tutorial-title"></h2>
+<p id="tutorial-body" class="tutorial-body"></p>
+<div class="tutorial-task"><strong>现在请这样做</strong><p id="tutorial-instruction"></p></div>
+<p id="tutorial-feedback" class="tutorial-feedback" role="status" aria-live="polite"></p>
+<div class="tutorial-actions"><button id="tutorial-reset" class="button button-secondary">从头开始</button><button id="tutorial-retry" class="button button-secondary" hidden>重试本节</button><button id="tutorial-next" class="button button-primary">继续 →</button></div>
+</aside>
+</div>
+</section>
+<section id="setup-screen" class="app-screen setup-screen" hidden>
+<div class="setup-card">
+<button id="back-to-menu-btn" class="back-link">← 返回主菜单</button>
+<p class="eyebrow">NEW MATCH</p><h1>对局配置</h1><p class="setup-description">选择对战方式，配置完成后进入地图。</p>
+<div class="setup-field"><label for="mode-select">对战模式</label><select id="mode-select"><option value="pvp">双人对战 · PVP</option><option value="pve">人机对战 · PVE</option></select></div>
+<div class="setup-field" id="difficulty-group" hidden><label for="difficulty-select">AI 难度</label><select id="difficulty-select"><option value="easy">简单</option><option value="medium" selected>普通</option><option value="hard">困难</option><option value="expert">专家</option></select></div>
+<div class="setup-note"><span class="status-dot"></span> 红方先手。双方基地将在地图上依次确定。</div>
+<button id="start-game-btn" class="button button-primary setup-start">创建对局 <span>→</span></button>
+</div></section>
+<section id="game-screen" class="game-screen" hidden>
+<header id="ui-header" class="game-header">
+<div class="game-brand"><span class="brand-symbol">枝</span><div><strong>生长树：图论</strong><small>STRATEGY MATCH</small></div></div>
+<div id="game-status-area"><div class="status-row"><span class="status-chip" id="mode-indicator">双人对战</span><span class="status-chip red-chip">红方节点 <strong id="red-node-count">0</strong></span><span class="status-chip blue-chip">蓝方节点 <strong id="blue-node-count">0</strong></span></div><div class="turn-controls"><div id="turnIndicator">准备开局</div><div class="audio-controls" aria-label="音效设置"><button id="audio-mute-btn" class="toolbar-button audio-mute-button" type="button" aria-pressed="false">音效：开</button><label class="audio-volume-label" for="audio-volume">音量</label><input id="audio-volume" class="audio-volume" type="range" min="0" max="1" step="0.05" value="0.32" aria-label="音效音量"></div><button id="pauseBtn" class="toolbar-button" disabled>暂停</button><button id="saveBtn" class="toolbar-button">保存</button><button id="loadBtn" class="toolbar-button">读档</button><button id="restartBtn" class="toolbar-button">重开</button><button id="menuBtn" class="toolbar-button">主菜单</button><button id="endTurn" class="toolbar-button toolbar-primary" disabled>跳过回合</button></div></div>
+</header>
+<div class="game-stage"><div class="stage-caption"><span class="stage-indicator"></span><span id="stage-caption-text">基地部署</span><span class="stage-caption-note">默认完整显示 · 可缩放查看细节</span><div class="map-zoom-controls"><button id="viewport-mode-btn" class="zoom-button viewport-mode-button" type="button" aria-pressed="false">解锁地图</button><button id="zoom-out-btn" class="zoom-button" aria-label="缩小地图">−</button><span id="zoom-level" class="zoom-level">100%</span><button id="zoom-in-btn" class="zoom-button" aria-label="放大地图">+</button><button id="fit-map-btn" class="zoom-button fit-button">适应窗口</button><button id="reset-viewport-btn" class="zoom-button fit-button" type="button">恢复默认</button></div></div><div id="canvas-container" data-viewport-mode="locked"><span id="viewport-mode-hint" class="viewport-mode-hint">锁定状态：点击地图进行游戏操作</span>
+<span id="fullscreen-tip" class="fullscreen-tip" role="status">建议按 F11 进入全屏模式，以获得更大的地图视野和更好的游戏体验。</span><canvas id="gameCanvas" width="1800" height="1200" aria-label="生长树对局地图，地图已锁定，可进行游戏操作"></canvas></div><div class="game-footer" aria-label="对局信息面板">
+<section class="info-slot info-slot-ai" aria-label="AI 行动分析">
+<div class="info-slot-heading">AI 行动分析</div>
+<div class="info-slot-content"><p class="slot-empty-state">等待 AI 决策信息</p>
+<section id="ai-explanation" class="ai-explanation" aria-live="polite" hidden><div class="ai-explanation-heading"><span>决策依据</span><strong>AI 分析</strong></div><p id="ai-explanation-summary"></p><ul id="ai-explanation-details"></ul><small id="ai-explanation-stats"></small></section></div>
+</section>
+<section class="info-slot info-slot-combat" aria-label="战斗解析">
+<div class="info-slot-heading">战斗解析</div>
+<div class="info-slot-content"><p class="slot-empty-state">最近战斗结果将在此显示</p>
+<section id="combat-explanation" class="combat-explanation" aria-live="polite" hidden><div class="combat-explanation-heading"><span>最近战斗 · 规则解析</span><strong id="combat-explanation-title"></strong></div><p id="combat-explanation-detail"></p><small id="combat-explanation-meta"></small></section></div>
+</section>
+<section class="info-slot info-slot-status" aria-label="即时反馈">
+<div class="info-slot-heading">即时反馈</div>
+<div class="info-slot-content status-slot-content"><p id="game-hint" class="game-hint">点击地图区域，为红方选择基地。</p><div id="action-feedback" class="action-feedback" role="status" aria-live="polite" hidden></div><div class="node-legend" aria-label="节点图例"><span><i class="legend-dot red"></i>红方</span><span><i class="legend-dot blue"></i>蓝方</span><span><i class="legend-ring branch"></i>分叉</span><span><i class="legend-ring fortress"></i>堡垒</span><span><i class="legend-ring frozen"></i>冻结</span></div></div>
+</section>
+</div></div>
+</section>
+<section id="result-screen" class="app-screen result-screen" hidden>
+<div class="result-shell">
+<header class="result-hero"><p class="eyebrow">MATCH COMPLETE</p><h1 id="result-title">对局结束</h1><p id="result-subtitle" class="result-subtitle"></p><div id="result-meta" class="result-meta"></div></header>
+<section class="result-panel result-overview-panel"><div class="result-section-heading"><h2>对局概览</h2><span>Match Overview</span></div><div id="result-overview" class="result-overview"></div></section>
+<section class="result-panel"><div class="result-section-heading"><h2>战略表现</h2><span>Strategic Performance</span></div><div id="result-strategy" class="result-comparison"></div></section>
+<section class="result-panel"><div class="result-section-heading"><h2>战斗表现</h2><span>Combat Performance</span></div><div id="result-combat" class="result-comparison"></div></section>
+<section class="result-panel"><div class="result-section-heading"><h2>关键事件</h2><span>最多展示 5 条</span></div><ol id="result-events" class="result-events"></ol><p id="result-events-empty" class="result-empty" hidden>本局没有记录到关键事件。</p></section>
+<footer class="result-actions"><button id="result-rematch-btn" class="button button-primary">再来一局 <span>↻</span></button><button id="result-menu-btn" class="button button-secondary">返回主菜单</button></footer>
+</div></section>
+</main>
+<section id="portal-screen" class="app-screen portal-screen" hidden>
+<header class="portal-header">
+<div><p class="eyebrow">MINI GAMES</p><h1>小游戏</h1><p class="portal-subtitle">目前开放 1 个栏目。管理员可直接进入，普通用户通过通行密码进入。</p></div>
+<div class="portal-account">
+<span id="portal-account-name" class="portal-account-name">未登录</span>
+<span id="portal-account-points" class="portal-account-points"></span>
+<button id="portal-login-btn" class="toolbar-button" type="button">登录 AKB 账号</button>
+<button id="portal-logout-btn" class="toolbar-button" type="button" hidden>退出登录</button>
+<button id="portal-back-btn" class="toolbar-button" type="button">返回生长树</button>
+</div>
+</header>
+<div class="portal-grid">
+<article class="portal-card">
+<div class="portal-card-mark" aria-hidden="true">枝</div>
+<div>
+<p class="eyebrow">GRAPHS &amp; TREES</p>
+<h2>生长树：图论</h2>
+<p>以图论生成树为原型的领地策略小游戏。支持本地双人、人机对战与联机对战。</p>
+</div>
+<button id="portal-enter-tree" class="button button-primary" type="button">进入游戏 <span>→</span></button>
+</article>
+<article class="portal-card portal-card-empty">
+<div class="portal-card-mark" aria-hidden="true">＋</div>
+<div><p class="eyebrow">COMING SOON</p><h2>更多栏目</h2><p>后续小游戏会出现在这里。</p></div>
+</article>
+</div>
+</section>
+<section id="lobby-screen" class="app-screen lobby-screen" hidden>
+<header class="portal-header">
+<div><p class="eyebrow">ONLINE LOBBY</p><h1>联机大厅</h1><p id="lobby-account" class="portal-subtitle">正在读取账号…</p></div>
+<div class="portal-account">
+<button id="lobby-refresh-btn" class="toolbar-button" type="button">刷新</button>
+<button id="lobby-back-btn" class="toolbar-button" type="button">返回主菜单</button>
+</div>
+</header>
+<div id="lobby-grid" class="lobby-grid">
+<section class="lobby-panel">
+<h2>创建房间</h2>
+<p>房主固定为红方，创建后把 6 位房间码发给对手。</p>
+<button id="lobby-create-btn" class="button button-primary" type="button">创建房间</button>
+</section>
+<section class="lobby-panel">
+<h2>加入房间</h2>
+<form id="lobby-join-form" class="lobby-inline-form">
+<input id="lobby-code-input" class="lobby-input" type="text" maxlength="6" placeholder="6 位房间码" autocomplete="off" spellcheck="false">
+<button class="button button-secondary" type="submit">加入</button>
+</form>
+<p id="lobby-message" class="lobby-message" role="status" aria-live="polite"></p>
+</section>
+<section class="lobby-panel lobby-panel-wide">
+<h2>等待中的房间</h2>
+<div id="lobby-room-list" class="lobby-room-list"><p class="slot-empty-state">正在读取房间…</p></div>
+</section>
+<section class="lobby-panel">
+<h2>积分榜</h2>
+<ol id="lobby-leaderboard" class="lobby-leaderboard"><li class="slot-empty-state">暂无记录</li></ol>
+</section>
+</div>
+<section id="room-panel" class="lobby-panel lobby-room-panel" hidden>
+<div class="lobby-room-head"><h2>房间 <span id="room-code" class="room-code"></span></h2><button id="room-copy-btn" class="toolbar-button" type="button">复制房间码</button></div>
+<p id="room-status" class="lobby-message"></p>
+<div id="room-players" class="room-players"></div>
+<div class="lobby-room-actions"><button id="room-leave-btn" class="toolbar-button" type="button">离开房间</button></div>
+</section>
+</section>
+<button id="mystery-entry-btn" class="mystery-entry" type="button" aria-haspopup="dialog">神秘入口</button>
+<div id="gate-modal" class="modal-backdrop" hidden>
+<section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+<header class="modal-head"><div><p class="eyebrow">SECRET ACCESS</p><h2 id="gate-title">神秘入口</h2></div><button id="gate-close-btn" class="icon-button" type="button" aria-label="关闭">×</button></header>
+<p id="gate-note" class="modal-note">管理员登录 AKB 账号后可直接进入；普通用户请输入通行密码。</p>
+<div id="gate-account" class="gate-account" hidden></div>
+<form id="gate-login-form" class="gate-form">
+<h3>AKB 账号登录（管理员免密）</h3>
+<label class="gate-field">账号<input id="gate-contact-input" type="text" autocomplete="username" placeholder="昵称 / 邮箱 / QQ / 洛谷 / CF"></label>
+<label class="gate-field">密码<input id="gate-password-input" type="password" autocomplete="current-password"></label>
+<button class="button button-secondary" type="submit">登录</button>
+<p id="gate-login-error" class="form-error" role="alert"></p>
+</form>
+<form id="gate-pass-form" class="gate-form">
+<h3>普通用户通行密码</h3>
+<label class="gate-field">密码<input id="gate-pass-input" type="password" autocomplete="off"></label>
+<button class="button button-primary" type="submit">进入 <span>→</span></button>
+<p id="gate-pass-error" class="form-error" role="alert"></p>
+</form>
+<button id="gate-signout-btn" class="button button-text" type="button" hidden>退出当前账号</button>
+</section>
+</div>
+<script src="./assets/supabase.min.js?v=20261117"></script>
+</body></html>

@@ -537,7 +537,7 @@
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换主题">🌙</button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./assets/supabase.min.js?v=20261117"></script>
     <script src="supabase-config.js?v=20261105"></script>
     <script src="assets/auth.js?v=20261106"></script>
     <script src="assets/notifications.js?v=20261114a"></script>
@@ -586,7 +586,7 @@
             }
             function needClient(errorId) {
                 if (client) return true;
-                var message = 'Supabase 未就绪：可能是 SDK 没加载（网络无法访问 cdn.jsdelivr.net），或 supabase-config.js 未配置。请查看连接状态条后重试。';
+                var message = 'Supabase 未就绪：本地 SDK（./assets/supabase.min.js）未加载，或 supabase-config.js 未配置。请按 Ctrl+F5 强制刷新后重试。';
                 if (errorId) setError(errorId, message);
                 showToast('Supabase 未就绪，登录 / 注册暂不可用');
                 return false;
@@ -611,11 +611,11 @@
                 return '登录失败：' + msg;
             }
             function friendlyNetworkError(error) {
-                var msg = (error && error.message) || '';
-                if (/failed to fetch|networkerror|load failed|network request failed|abort/i.test(msg)) {
-                    return '无法连接 Supabase：项目可能已暂停，或当前网络/代理拦截了请求。请到 Supabase 控制台恢复项目后重试。';
+                var msg = (error && error.message) || '未知网络错误';
+                if (/failed to fetch|networkerror|load failed|network request failed|abort|timeout/i.test(msg)) {
+                    return '无法连接 Supabase：' + msg + '（SDK 已本地加载；请检查网络/代理，或查看控制台 Network 面板）';
                 }
-                return '登录失败：' + (msg || '未知错误');
+                return '登录失败：' + msg;
             }
             /**
              * 登录标识 → Supabase Auth 邮箱。
@@ -726,13 +726,12 @@
                         document.getElementById('register-mail-warning').hidden = false;
                     }
                 }).catch(function (error) {
-                    var ref = String(window.SUPABASE_CONFIG.url).replace(/^https?:\/\//, '').split('.')[0];
+                    var detail = (error && error.message) ? error.message : '未知网络错误';
                     statusEl.classList.remove('is-ok');
                     statusEl.classList.add('is-warn');
-                    statusEl.lastElementChild.innerHTML = '无法连接 Supabase（项目可能已暂停）· ' +
-                        '<a href="https://supabase.com/dashboard/project/' + encodeURIComponent(ref) +
-                        '" target="_blank" rel="noreferrer">打开控制台恢复</a>';
-                    console.warn('[Supabase] 连接失败：', error);
+                    statusEl.lastElementChild.textContent = '无法连接 Supabase：' + detail + ' · ' + window.SUPABASE_CONFIG.url;
+                    statusEl.title = 'SDK 已从本地 assets/supabase.min.js 加载；这里是 API 请求失败的具体错误。';
+                    console.error('[Supabase] 健康检查失败：', error);
                 }).then(function () {
                     if (healthTimer) clearTimeout(healthTimer);
                 });

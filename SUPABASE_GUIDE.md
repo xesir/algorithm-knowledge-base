@@ -17,7 +17,7 @@
 
 ```
 index.html / login.html / admin.html   纯静态前端（无框架、无 npm 依赖）
-        │  supabase-js（CDN）+ supabase-config.js（只放 publishable key）
+        │  supabase-js（本地 assets/supabase.min.js，CDN 兜底）+ supabase-config.js（只放 publishable key）
         ▼
 Supabase 项目（ref: ajgixlgytxhrsmhnzsmg）
   ├─ Auth          邮箱/站内合成邮箱登录；不要求邮箱验证
@@ -46,6 +46,7 @@ login.html 投稿表单
 | 路径 | 职责 |
 |---|---|
 | `supabase-config.js` | URL + publishable key（**只允许这两项**） |
+| `assets/supabase.min.js` | 本地 Supabase JS SDK（UMD 2.119.0），三个页面统一引用，不依赖外网 CDN |
 | `assets/auth.js` | `window.AKB`：会话、profile、`contactToEmail`、转义、时间格式化、退出 |
 | `login.html` | 登录/注册/工单（建议 + 投稿）/账号设置 |
 | `admin.html` | 工单审批、用户审核、个人设置、专栏管理、我的投稿 |
@@ -98,6 +99,7 @@ login.html 投稿表单
 | 23 | `supabase/phase24-submission-notify-static-version.sql` | 工单结果通知（投稿通过/驳回、修改通过/驳回，含 `admin_note`）；已有专栏新增作者版本时支持「静态条目」（尚未 seed 进 `columns`）作为基底；防覆盖守卫在 base 缺失时也查重 |
 | 24 | `supabase/phase25-column-engagement.sql` | 专栏评论 `column_comments`（1~500 字，作者名快照）+ 点赞 `column_likes`（`(column_key, user_id)` 主键）+ 公开视图 `column_like_counts`；RLS：读人人可读、写仅本人、评论删除本人或管理员 |
 | 25 | `supabase/phase26-column-votes-notify.sql` | 点踩 `column_dislikes` + 赞踩互斥触发器 + `column_vote_counts`（赞 / 踩 / 评分）+ 评论与赞踩通知专栏作者的触发器 |
+| 26 | `supabase/phase27-tree-grow-online.sql` | 生长树联机：`tree_grow_rooms` / `tree_grow_actions` / `tree_grow_ratings`、RLS、Realtime 发布与 6 个 `tree_grow_*` RPC（独立于 AKB 业务表） |
 
 > 触发器以**最后执行的那一版**为准。phase11 之后不要再单独跑 phase4/5/6/7 的 `create or replace function`，否则会退回旧逻辑（丢失「修改」工单分支、`uploaded`、元数据或标题写回）。
 
@@ -158,6 +160,7 @@ SQL Editor 之外，本机可以用 Python + `pg8000` 直连 pooler 做只读核
 | 2026-11-15 | phase24-submission-notify-static-version | **待用户在 SQL Editor 执行**：工单结果通知（投稿/修改 × 通过/驳回，含审核备注）；静态条目作为新作者版本基底；守卫在 base 缺失时也查重 |
 | 2026-11-16 | phase25-column-engagement | 已应用（2026-11-16 直连执行 25 条语句 committed；事务内验证评论作者名快照 / `btrim` / 点赞计数后回滚）：`column_comments`、`column_likes`、`column_like_counts` 与 RLS |
 | 2026-11-16 | phase26-column-votes-notify | 已应用（27 条语句 committed；事务内验证赞踩互斥、评分、三类通知与「本人操作不通知」后回滚）：`column_dislikes`、`column_vote_counts`、`notify_column_engagement()` 与三个触发器 |
+| 2026-11-17 | phase27-tree-grow-online | 已应用（直连 pooler 整段执行，幂等重跑通过）：`tree_grow_rooms` / `tree_grow_actions` / `tree_grow_ratings`、RLS、Realtime 发布、6 个 `tree_grow_*` RPC；AKB 业务表计数与时间戳未变化（649 专栏 / 30 工单 / 10 用户 / 111 标签） |
 
 ---
 

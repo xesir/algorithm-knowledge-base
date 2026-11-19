@@ -16,7 +16,7 @@ function friendlyAuthError(error) {
     if (/invalid login credentials/i.test(message)) return '账号或密码不正确';
     if (/email not confirmed/i.test(message)) return '账号尚未通过邮箱验证';
     if (/failed to fetch|networkerror|load failed|network request failed|abort/i.test(message)) {
-        return '无法连接 Supabase，请检查网络或项目是否已暂停';
+        return '无法连接 Supabase：' + (message || 'Failed to fetch') + '（当前网络可能无法访问 *.supabase.co，请检查代理/防火墙）';
     }
     return message || '登录失败';
 }

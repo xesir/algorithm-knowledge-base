@@ -730,7 +730,7 @@
                     statusEl.classList.remove('is-ok');
                     statusEl.classList.add('is-warn');
                     statusEl.lastElementChild.textContent = '无法连接 Supabase：' + detail + ' · ' + window.SUPABASE_CONFIG.url;
-                    statusEl.title = 'SDK 已从本地 assets/supabase.min.js 加载；这里是 API 请求失败的具体错误。';
+                    statusEl.title = 'SDK 已从本地 assets/supabase.min.js 加载；这里是 API 请求失败的具体错误。当前网络可能无法访问 *.supabase.co。';
                     console.error('[Supabase] 健康检查失败：', error);
                 }).then(function () {
                     if (healthTimer) clearTimeout(healthTimer);

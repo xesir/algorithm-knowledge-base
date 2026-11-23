@@ -146,6 +146,29 @@
     display: none;
 }
 
+.akb-notify-foot {
+    padding: 0.5rem 0.6rem;
+    border-top: 1px solid var(--border, #e2e8f0);
+    background: var(--bg-secondary, #f8fafc);
+}
+
+.akb-notify-foot button {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 0.55rem;
+    background: rgba(59, 130, 246, 0.08);
+    color: var(--primary, #3b82f6);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.akb-notify-foot button:hover {
+    background: rgba(59, 130, 246, 0.16);
+}
+
 .akb-notify-panes {
     flex: 1;
     min-height: 0;

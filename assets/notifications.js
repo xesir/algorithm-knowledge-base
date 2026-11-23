@@ -25,6 +25,11 @@
 
     var SQL_HINT = '通知功能尚未启用：请先在 Supabase SQL Editor 执行 supabase/phase23-notifications-chat.sql';
 
+    // 神秘入口：管理员免密，普通用户需要通行密码（与生长树游戏内门户一致）
+    var MYSTERY_PASSWORD = 'gcx34580';
+    var PORTAL_ACCESS_KEY = 'treeGrow:portalAccess:v1';
+    var PORTAL_URL = 'tree-grow/';
+
     function byId(id) { return document.getElementById(id); }
 
     function esc(value) {
@@ -135,6 +140,9 @@
             '</div>' +
             '</div>' +
             '</div>' +
+            '<footer class="akb-notify-foot">' +
+            '<button type="button" id="akb-mystery-entry">🌱 神秘入口</button>' +
+            '</footer>' +
             '</section>';
 
         var holder = document.createElement('div');
@@ -200,6 +208,7 @@
         });
         byId('akb-chat-back').addEventListener('click', closeThread);
         byId('akb-chat-form').addEventListener('submit', sendMessage);
+        byId('akb-mystery-entry').addEventListener('click', openMysteryEntry);
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape' && state.open) setOpen(false);
         });
@@ -209,6 +218,48 @@
             if (event.target.closest && event.target.closest('[data-akb-open]')) return;
             setOpen(false);
         });
+    }
+
+    // ---------- 神秘入口 ----------
+    function hasPortalAccess() {
+        try { return window.sessionStorage.getItem(PORTAL_ACCESS_KEY) === '1'; } catch (err) { return false; }
+    }
+
+    function grantPortalAccess() {
+        try { window.sessionStorage.setItem(PORTAL_ACCESS_KEY, '1'); } catch (err) { /* 隐私模式下忽略 */ }
+    }
+
+    function isAdminProfile(profile) {
+        return !!(profile && profile.role === 'admin' && profile.status !== 'pending');
+    }
+
+    function askPortalPassword() {
+        var input = window.prompt('神秘入口需要通行密码：');
+        if (input === null) return;
+        if (String(input).trim() !== MYSTERY_PASSWORD) {
+            window.alert('密码不正确');
+            return;
+        }
+        grantPortalAccess();
+        window.location.href = PORTAL_URL;
+    }
+
+    function openMysteryEntry() {
+        if (hasPortalAccess()) {
+            window.location.href = PORTAL_URL;
+            return;
+        }
+        var profilePromise = (window.AKB && typeof window.AKB.getProfile === 'function')
+            ? window.AKB.getProfile()
+            : Promise.resolve(null);
+        Promise.resolve(profilePromise).then(function (profile) {
+            if (isAdminProfile(profile)) {
+                grantPortalAccess();
+                window.location.href = PORTAL_URL;
+            } else {
+                askPortalPassword();
+            }
+        }, askPortalPassword);
     }
 
     // ---------- 面板 ----------

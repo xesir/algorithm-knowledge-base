@@ -35,6 +35,7 @@ export class OnlineHub {
         $('gate-signout-btn')?.addEventListener('click', () => this.handleSignOut());
 
         $('portal-back-btn')?.addEventListener('click', () => this.showScreen('menu'));
+        $('portal-back-akb')?.addEventListener('click', () => { window.location.href = '../'; });
         $('portal-enter-tree')?.addEventListener('click', () => this.showScreen('menu'));
         $('portal-login-btn')?.addEventListener('click', () => this.openGate('portal'));
         $('portal-logout-btn')?.addEventListener('click', () => this.handleSignOut());
@@ -59,6 +60,7 @@ export class OnlineHub {
             if (!ok) console.warn('[TreeGrow] 联机 SDK 加载失败，联机入口仍可打开但无法登录。');
         });
         this.syncOnlineEntryVisibility();
+        this.handlePortalDeepLink();
     }
 
     /** 联机大厅只对已通过神秘入口（或管理员）的玩家显示。 */
@@ -122,6 +124,24 @@ export class OnlineHub {
             }
         }
         if (signoutBtn) signoutBtn.hidden = !this.session;
+    }
+
+    /** 从 AKB 首页「神秘入口」跳转过来（?screen=portal）时直接进入小游戏总览。 */
+    handlePortalDeepLink() {
+        let requested = false;
+        try {
+            requested = new URLSearchParams(window.location.search).get('screen') === 'portal';
+        } catch { /* ignore */ }
+        if (!requested) return;
+        let unlocked = false;
+        try { unlocked = window.sessionStorage.getItem(PORTAL_ACCESS_KEY) === '1'; } catch { /* ignore */ }
+        if (unlocked) {
+            this.showScreen('portal');
+            this.refreshAccount().catch(() => { /* 账号信息仅用于展示，失败不影响进入 */ });
+            return;
+        }
+        // 未解锁（例如新标签页打开）时直接弹出通行密码/登录门禁
+        this.openGate('portal');
     }
 
     openEntry() {

@@ -28,7 +28,7 @@
     // 神秘入口：管理员免密，普通用户需要通行密码（与生长树游戏内门户一致）
     var MYSTERY_PASSWORD = 'gcx34580';
     var PORTAL_ACCESS_KEY = 'treeGrow:portalAccess:v1';
-    var PORTAL_URL = 'tree-grow/';
+    var PORTAL_URL = 'tree-grow/?screen=portal';
 
     function byId(id) { return document.getElementById(id); }
 

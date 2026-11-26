@@ -190,16 +190,18 @@ end;
 $do$;
 
 -- ---------- 执行后自检 ----------
-select column_key, column_name, author_name, category, kind, tags, parent_key,
-       length(content) as content_len, source_ticket_id, status, updated_at
-from public.columns
-where column_key in (
+-- 注意：public.columns 没有 author_name 列，作者名要 join profiles 取 nickname。
+select c.column_key, c.column_name, p.nickname as author_name, c.category, c.kind, c.tags, c.parent_key,
+       length(c.content) as content_len, c.source_ticket_id, c.status, c.updated_at
+from public.columns c
+left join public.profiles p on p.id = c.owner_id
+where c.column_key in (
     'col-graph-tarjan-scc--lker',
     'col-graph-scc-dag-dp--lker',
     'col-graph-e-dcc-condensation--lker',
     'col-graph-v-dcc--lker'
 )
-order by column_key;
+order by c.column_key;
 
 select column_key, column_name, author_name, updated_at
 from public.published_columns

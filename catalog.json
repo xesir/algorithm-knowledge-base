@@ -3055,6 +3055,20 @@
     ]
   },
   {
+    "id": "graph-v-dcc",
+    "title": "点双连通分量与割点（v-DCC）",
+    "category": "图论",
+    "kind": "knowledge",
+    "difficulty": "",
+    "tags": [
+      "图论",
+      "点双连通分量",
+      "割点",
+      "Tarjan",
+      "圆方树"
+    ]
+  },
+  {
     "id": "graph-virtual-tree",
     "title": "虚树",
     "category": "图论",

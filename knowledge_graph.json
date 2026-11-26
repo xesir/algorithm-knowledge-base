@@ -342,6 +342,9 @@
         "图论|连通分量|边双连通分量": {
             "description": "无向图中极大的边双连通子图（E-DCC），分量内没有桥（割边），任意两点至少有两条边不相交的路径。删去所有桥后各连通块即为E-DCC，缩点后得到一棵树。"
         },
+        "图论|连通分量|点双连通分量": {
+            "description": "无向图中极大的点双连通子图（v-DCC），删去任意一个点都不会破坏分量内的连通性；割点同时属于多个 v-DCC。点双缩点后得到圆方树，可把无向图上的路径与必经点问题转化为树上问题。"
+        },
         "基础算法|搜索|DFS": {
             "description": "深度优先搜索（DFS）是最基础的搜索算法，沿着一条路径深入直到无法继续再回溯。常用于排列生成、组合生成、回溯等问题，是图论搜索和动态规划状态转移的基础。"
         },
@@ -1294,7 +1297,8 @@
                 "graph-lca-tarjan",
                 "graph-e-dcc-condensation",
                 "graph-bipartite-dfs-coloring",
-                "graph-scc-condensation"
+                "graph-scc-condensation",
+                "graph-v-dcc"
             ]
         },
         "graph-tarjan-scc": {
@@ -1349,7 +1353,21 @@
             ],
             "related": [
                 "graph-tarjan-cut-vertex",
-                "graph-scc-condensation"
+                "graph-scc-condensation",
+                "graph-v-dcc"
+            ],
+            "parent": "graph-scc-overview"
+        },
+        "graph-v-dcc": {
+            "prerequisites": [
+                "hub-graph",
+                "graph-scc-overview",
+                "graph-tarjan-cut-vertex",
+                "graph-tarjan-scc"
+            ],
+            "related": [
+                "graph-e-dcc-condensation",
+                "graph-tarjan-cut-vertex"
             ],
             "parent": "graph-scc-overview"
         },

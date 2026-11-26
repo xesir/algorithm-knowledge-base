@@ -213,6 +213,7 @@
   "graph-tarjan-scc": "Tarjan 强连通分量",
   "graph-topo-sort": "拓扑排序（Kahn算法/BFS）",
   "graph-tree-basic": "树论基础",
+  "graph-v-dcc": "点双连通分量与割点（v-DCC）",
   "graph-virtual-tree": "虚树",
   "hub-basic-divide": "分治总述",
   "hub-basic-search": "搜索总述",

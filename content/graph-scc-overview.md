@@ -16,7 +16,7 @@ verified: '2026-11-01'
 
 本页是「连通分量」的二级栏目索引：强连通分量（SCC）用 Tarjan/Kosaraju 求出后缩点成 DAG；边双连通分量（E-DCC）用 Tarjan 求桥后缩点。
 
-**学习顺序**：Tarjan SCC → Kosaraju → SCC 缩点 → 缩点 + DAG DP → 边双缩点。
+**学习顺序**：Tarjan SCC → Kosaraju → SCC 缩点 → 缩点 + DAG DP → 边双缩点 → 点双与割点。
 
 ## 核心公式 / 状态定义与转移方程
 
@@ -28,6 +28,7 @@ verified: '2026-11-01'
 | 把 SCC 缩成 DAG | SCC 缩点 |
 | 缩点后做拓扑 DP | SCC缩点 + DAG上拓扑DP |
 | 无向图边双连通分量 | 边双连通分量缩点（E-DCC） |
+| 无向图点双连通分量 / 割点 | 点双连通分量与割点（v-DCC） |
 
 Tarjan 依靠 `dfn/low` 判定：`low[u] == dfn[u]` 时弹出栈内节点形成一个 SCC。
 

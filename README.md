@@ -449,3 +449,16 @@ knowledge_graph.json ─┘            ├─► problems_data.js PROBLEMS_DATA
   - Playwright（stub 登录态）：赞 100% → 踩 0%（赞自动取消）→ 取消踩后「暂无评分」，评论转义与作者名快照仍正常，`pageErrors` 0。
 - 规模不变：知识点 **292** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3。
 - 本轮完整纪要见 [`docs/会话纪要-2026-11-16.md`](docs/会话纪要-2026-11-16.md)。
+
+## 备注（2026-11-26 · lker《图的连通性问题浅谈》PPT 拆分入库）
+
+- 来源：`C:\Users\admin\Desktop\test\模版题目总结\PDF资料\NOI大纲复习\图论\图的联通性问题浅谈 lker.pptx`（27 页）；按 lker 作者身份、以**后台上传**方式入库。
+- 拆分为 4 篇：
+  - [`content/graph-tarjan-scc--lker.md`](content/graph-tarjan-scc--lker.md)：DFS 生成树与四类边、SCC 定义、dfn/low、栈与弹栈判定、B3609；
+  - [`content/graph-scc-dag-dp--lker.md`](content/graph-scc-dag-dp--lker.md)：SCC 缩点、DAG 拓扑序 DP、P3387；
+  - [`content/graph-e-dcc-condensation--lker.md`](content/graph-e-dcc-condensation--lker.md)：边双与桥、反向边异或、P8436、Redundant Paths、P10953；
+  - [`content/graph-v-dcc--lker.md`](content/graph-v-dcc--lker.md)：**新增 base `graph-v-dcc`**，点双与割点、圆方树、P8435、嗅探器。
+- 图谱：新增子子分类 `图论|连通分量|点双连通分量` 与节点 `graph-v-dcc`（parent `graph-scc-overview`）；`graph-e-dcc-condensation` / `graph-tarjan-cut-vertex` 的 `related` 与 `graph-v-dcc` 双向。
+- 后台上传 SQL：[`supabase/uploads/2026-11-26-lker-connectivity.sql`](supabase/uploads/2026-11-26-lker-connectivity.sql)（**待用户在 SQL Editor 执行**）：4 条 `col-*-lker`，`parent_key` 统一 `col-graph-scc-overview`，正文与静态 Markdown 逐字一致；可重复执行（存在则 update + `expected_updated_at`）。
+- 技术说明：PPT 第 22~23 页的 `low[v] == dfn[u]` 写法依赖“枚举到父节点时仍用 dfn 更新 low”（不跳父边）；此时 `==` 与 `>=` 等价，也可省根特判。若改成常见的“跳父节点”写法，必须用 `>=`；正文按“不跳父节点 + `>=`”讲解，并在陷阱一节说明两种写法的绑定关系。
+- 规模：知识点 **293** 篇 · 题目 **200** 道（**192** 个题目组）· **263** 个代码文件；门禁 error 0 / warning 3；`catalog.json` 485 条。
